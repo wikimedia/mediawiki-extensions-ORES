@@ -1,0 +1,11 @@
+New globals:
+
+$wgOresBaseUrl - API endpoint pattern for all ORES requests.  "$wiki" will be
+substituted with your wiki's ID.
+
+$wgOresModels - Array of models we want to fetch from the server and cache in
+the database.
+
+$wgOresRevertTagThresholds - Map from threshold name to score cutoff.  These
+thresholds are used to flag recent changes for potential revert.  Must be
+listed in ascending order (FIXME).

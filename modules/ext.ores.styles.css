@@ -1,0 +1,17 @@
+.mw-ores-high {
+	background: #f4908a;
+}
+
+.mw-ores-medium {
+	background: #ffbe99;
+}
+
+.mw-ores-low {
+	background: #ffe099;
+}
+
+.mw-ores-score {
+	margin-left: 1.5em;
+	padding: 0 1em 0 1em;
+	border-radius: .5em;
+}

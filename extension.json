@@ -1,0 +1,64 @@
+{
+	"name": "ORES",
+	"descriptionmsg": "ores-desc",
+	"license-name": "CC0-1.0",
+	"authors": [
+		"Kunal Mehta",
+		"Adam Roses Wight"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:ORES",
+	"AutoloadClasses": {
+		"ORES\\Hooks": "includes/Hooks.php",
+		"ORES\\FetchScoreJob": "includes/FetchScoreJob.php"
+	},
+	"Hooks": {
+		"LoadExtensionSchemaUpdates": [
+			"ORES\\Hooks::onLoadExtensionSchemaUpdates"
+		],
+		"RecentChange_save": [
+			"ORES\\Hooks::onRecentChange_save"
+		],
+		"ChangesListSpecialPageFilters": [
+			"ORES\\Hooks::onChangesListSpecialPageFilters"
+		],
+		"ChangesListSpecialPageQuery": [
+			"ORES\\Hooks::onChangesListSpecialPageQuery"
+		],
+		"EnhancedChangesListModifyLineData": [
+			"ORES\\Hooks::onEnhancedChangesListModifyLineData"
+		],
+		"OldChangesListRecentChangesLine": [
+			"ORES\\Hooks::onOldChangesListRecentChangesLine"
+		]
+	},
+	"ResourceModules": {
+		"ext.ores.styles": {
+			"styles": "ext.ores.styles.css",
+			"position": "top"
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "modules",
+		"remoteExtPath": "ORES/modules"
+	},
+	"MessagesDirs": {
+		"ORES": [
+			"i18n"
+		]
+	},
+	"JobClasses": {
+		"ORESFetchScoreJob": "ORES\\FetchScoreJob"
+	},
+	"config": {
+		"OresBaseUrl": "https://ores.wmflabs.org/scores/$wiki/",
+		"OresModels": [
+			"reverted"
+		],
+		"OresRevertTagThresholds": {
+			"low": 0.8,
+			"medium": 0.87,
+			"high": 0.94
+		}
+	},
+	"manifest_version": 1
+}
