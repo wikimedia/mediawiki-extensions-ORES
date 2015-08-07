@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "6ec1af18_b6bc0eb3",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2015-08-07T22:54:33Z",
+      "side": 1,
+      "message": "Should we expose multiple models then? \"Revert score: XX%\\nDamaging score: YY%\"? Or is \"damaging\" supposed to replace \"reverted\" at some point?",
+      "parentUuid": "6ec1af18_7691c651",
+      "revId": "c9a899df5d8d07b0115287e868e93e5081ebc8d2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ec1af18_76c30662",
         "filename": "modules/ext.ores.styles.css",
         "patchSetId": 1
@@ -70,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "6ec1af18_21053614",
+        "filename": "ores.sql",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2015-08-07T22:54:33Z",
+      "side": 1,
+      "message": "It\u0027s not an autoincrement field. It\u0027s a foreign key to recentchanges.rc_id.",
+      "parentUuid": "6ec1af18_d6619a02",
+      "revId": "c9a899df5d8d07b0115287e868e93e5081ebc8d2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ec1af18_76aa2684",
         "filename": "ores.sql",
         "patchSetId": 1
@@ -81,6 +117,24 @@
       "writtenOn": "2015-08-07T21:42:37Z",
       "side": 1,
       "message": "Is this for storing some data from\nhttp://ores.wmflabs.org/scores/enwiki/?models\u003dreverted%7Cwp10\u0026revids\u003d654321\n? Which ones? Only from \"reverted\" scores? Or is it planned to have e.g. a \"filter by good-faith edits\", or a filter by and other data collected in future labeling campaigns\nhttps://en.wikipedia.org/wiki/Wikipedia:Labels/Campaigns\n?",
+      "revId": "c9a899df5d8d07b0115287e868e93e5081ebc8d2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ec1af18_a118467b",
+        "filename": "ores.sql",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2015-08-07T22:54:33Z",
+      "side": 1,
+      "message": "Only reverted right now. Do we want to store other types? I don\u0027t really have a good understanding of what models exactly are...",
+      "parentUuid": "6ec1af18_76aa2684",
       "revId": "c9a899df5d8d07b0115287e868e93e5081ebc8d2",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
