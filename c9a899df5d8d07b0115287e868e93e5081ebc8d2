@@ -36,6 +36,23 @@
     },
     {
       "key": {
+        "uuid": "6ec1af18_d6619a02",
+        "filename": "ores.sql",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2015-08-07T22:47:59Z",
+      "side": 1,
+      "message": "Should this be autoincrement to support SQLite.",
+      "revId": "c9a899df5d8d07b0115287e868e93e5081ebc8d2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ec1af18_76aa2684",
         "filename": "ores.sql",
         "patchSetId": 1
