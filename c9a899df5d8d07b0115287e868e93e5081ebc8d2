@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ec1af18_7691c651",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1957
+      },
+      "writtenOn": "2015-08-07T21:42:37Z",
+      "side": 1,
+      "message": "In case we have the \"damaging\" models (trained with data from\nhttps://en.wikipedia.org/wiki/Wikipedia:Labels/Edit_quality)\navailable by the time this is merged, we could use that instead of the \"reverted\" models, since they will hopefully produce more useful results for RC patrolling. \nBut then the message \"ores-score-title\" will need to be updated to mention the correct model (e.g. \"Damaging score: 88%\").",
+      "revId": "c9a899df5d8d07b0115287e868e93e5081ebc8d2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ec1af18_76c30662",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1957
+      },
+      "writtenOn": "2015-08-07T21:42:37Z",
+      "side": 1,
+      "message": "Since this is the same color scheme use at\nhttps://github.com/he7d3r/mw-gadget-ScoredRevisions/blob/master/src/ScoredRevisions.css#L5\nmaybe someone has better ideas considering T104832.",
+      "revId": "c9a899df5d8d07b0115287e868e93e5081ebc8d2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ec1af18_76aa2684",
+        "filename": "ores.sql",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1957
+      },
+      "writtenOn": "2015-08-07T21:42:37Z",
+      "side": 1,
+      "message": "Is this for storing some data from\nhttp://ores.wmflabs.org/scores/enwiki/?models\u003dreverted%7Cwp10\u0026revids\u003d654321\n? Which ones? Only from \"reverted\" scores? Or is it planned to have e.g. a \"filter by good-faith edits\", or a filter by and other data collected in future labeling campaigns\nhttps://en.wikipedia.org/wiki/Wikipedia:Labels/Campaigns\n?",
+      "revId": "c9a899df5d8d07b0115287e868e93e5081ebc8d2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
