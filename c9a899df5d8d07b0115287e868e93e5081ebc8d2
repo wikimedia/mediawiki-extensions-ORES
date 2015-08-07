@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "6ec1af18_b6588e5a",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2015-08-07T22:48:58Z",
+      "side": 1,
+      "message": "Missing description that is linked to here from extension.json. Also missing meta data and author.",
+      "revId": "c9a899df5d8d07b0115287e868e93e5081ebc8d2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ec1af18_7691c651",
         "filename": "includes/FetchScoreJob.php",
         "patchSetId": 1
