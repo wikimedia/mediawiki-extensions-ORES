@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "6ec1af18_e8681d87",
+        "filename": "i18n/en.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2015-09-19T08:38:37Z",
+      "side": 1,
+      "message": "Should have\n\n\t\"@metadata\": {\n\t\t\"authors\": []\n\t},\n\nhere",
+      "revId": "10569af94e10c012682233d96fa76d210b304133",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ec1af18_6d519f39",
         "filename": "i18n/en.json",
         "patchSetId": 4
@@ -31,6 +48,23 @@
       "side": 1,
       "message": "I\u0027m trying to fix it now, but the lego pattern seems to come from mw-core.  See the rcshowhidemine message and includes/specials/SpecialRecentchanges.php, where optionsPanel() builds the filter controls.",
       "parentUuid": "6ec1af18_6d519f39",
+      "revId": "10569af94e10c012682233d96fa76d210b304133",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ec1af18_886719b4",
+        "filename": "i18n/qqq.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2015-09-19T08:38:37Z",
+      "side": 1,
+      "message": "Should have\n\n\t\"@metadata\": {\n\t\t\"authors\": []\n\t},\n\nhere",
       "revId": "10569af94e10c012682233d96fa76d210b304133",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
