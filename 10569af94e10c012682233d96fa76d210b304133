@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ec1af18_6d519f39",
+        "filename": "i18n/en.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2015-09-19T01:35:04Z",
+      "side": 1,
+      "message": "Assuming this what it looks like, avoid message composition. Instead of \"$1 ORES\" or \"Hide $1\" have these be complete and valid values. Word order does not scale in localisation.",
+      "revId": "10569af94e10c012682233d96fa76d210b304133",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
