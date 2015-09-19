@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "6ec1af18_480131b8",
+        "filename": "extension.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2015-09-19T08:41:31Z",
+      "side": 1,
+      "message": "Should add url to extension page.",
+      "revId": "10569af94e10c012682233d96fa76d210b304133",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ec1af18_e8681d87",
         "filename": "i18n/en.json",
         "patchSetId": 4
@@ -65,6 +82,40 @@
       "writtenOn": "2015-09-19T08:38:37Z",
       "side": 1,
       "message": "Should have\n\n\t\"@metadata\": {\n\t\t\"authors\": []\n\t},\n\nhere",
+      "revId": "10569af94e10c012682233d96fa76d210b304133",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ec1af18_e8efbdf4",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2015-09-19T08:41:31Z",
+      "side": 1,
+      "message": "Remove this $path and read comment bellow.",
+      "revId": "10569af94e10c012682233d96fa76d210b304133",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ec1af18_280e25e9",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2015-09-19T08:41:31Z",
+      "side": 1,
+      "message": "Instead of having $path just do\n\n$updater-\u003eaddExtensionTable( \u0027ores_classification\u0027, __DIR__ . \u0027/ores.sql\u0027 );",
       "revId": "10569af94e10c012682233d96fa76d210b304133",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
