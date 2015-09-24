@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ecb373e_49e17628",
+        "filename": "extension.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2015-09-24T08:00:58Z",
+      "side": 1,
+      "message": "Page should be created. https://www.mediawiki.org/wiki/Extension:ORES doesn\u0027t exist at the moment.",
+      "revId": "bc0858f0ec06513787230b274f78c73c4c6d2571",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ecb373e_a9fc9ad6",
+        "filename": "i18n/en.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2015-09-24T08:00:58Z",
+      "side": 1,
+      "message": "ores-desc is missing.",
+      "revId": "bc0858f0ec06513787230b274f78c73c4c6d2571",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
