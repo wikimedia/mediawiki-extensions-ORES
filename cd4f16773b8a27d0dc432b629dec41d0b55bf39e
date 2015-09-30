@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ecb373e_14a8231c",
+        "filename": "i18n/en.json",
+        "patchSetId": 10
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2015-09-30T05:58:29Z",
+      "side": 1,
+      "message": "Description messages don\u0027t have punctuation at the end of the sentence:\n\n Expose automated revision scores in the interface",
+      "revId": "cd4f16773b8a27d0dc432b629dec41d0b55bf39e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
