@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebaf39b_921d247b",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2015-10-14T17:21:03Z",
+      "side": 1,
+      "message": "I think there should be a way to write this using the MW abstraction",
+      "revId": "d847f9aaec7ada2242cfee4f4dd3115f8b17a9c6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_721af07f",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2015-10-14T17:21:03Z",
+      "side": 1,
+      "message": "We should avoid using wfMessage and instead use a context-\u003emsg()\n\nAlso can use -\u003etext() here and Html::element() below",
+      "revId": "d847f9aaec7ada2242cfee4f4dd3115f8b17a9c6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
