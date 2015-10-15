@@ -1,7 +1,5 @@
 {
-	"@metadata": {
-		"authors": []
-	},
+	"@metadata": [],
 	"ores-desc": "Extension summary.",
 	"ores-reverted-filter": "Label to toggle filtering of ORES data. Parameters:\n* $1 - Action to be performed by toggling.",
 	"ores-reverted-high": "Title for high probability revert risk. Parameters:\n* $1 - Score as a percentage.",

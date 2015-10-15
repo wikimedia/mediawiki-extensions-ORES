@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chrumps"
+		]
+	},
+	"ores-reverted-high": "Wysokie ryzyko, prawdopodobieństwo przywracania $1%",
+	"ores-reverted-medium": "Średnie ryzyko, prawdopodobieństwo przywracania $1%",
+	"ores-reverted-low": "Niskie ryzyko, prawdopodobieństwo przywracania $1%"
+}

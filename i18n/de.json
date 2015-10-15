@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Metalhead64"
+		]
+	},
+	"ores-desc": "Zeigt automatisierte Versionsbewertungen in der Oberfläche an",
+	"ores-reverted-filter": "$1 Zurücksetzungsprognosen",
+	"ores-reverted-high": "Hohes Risiko. Wahrscheinlichkeit des Zurücksetzens: $1%",
+	"ores-reverted-medium": "Mittleres Risiko. Wahrscheinlichkeit des Zurücksetzens: $1%",
+	"ores-reverted-low": "Geringes Risiko. Wahrscheinlichkeit des Zurücksetzens: $1%"
+}

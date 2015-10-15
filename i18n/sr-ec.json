@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Milicevic01"
+		]
+	},
+	"ores-reverted-high": "Високоризично, вероватност враћања: $1%",
+	"ores-reverted-medium": "Средње ризично, вероватност враћања: $1%",
+	"ores-reverted-low": "Ризично, вероватност враћања: $1%"
+}
