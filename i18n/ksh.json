@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Purodha"
+		]
+	},
+	"ores-desc": "Donn de automattesch ußjerääschnete Schangse för et Retuhr Namme en de Schnettschtäll aanzeije",
+	"ores-reverted-filter": "Vemohdonge övver et Zeröknämme\n<!-- https://translatewiki.net/wiki/Thread:Translating_talk:MediaWiki/About_MediaWiki:Ores-reverted-filter/ksh -->",
+	"ores-reverted-high": "Huh Rissekoh: $1% Schangs, dat dat retuhr jenumme weed.",
+	"ores-reverted-medium": "Meddelhuh Rissekoh: $1% Schangs, dat dat retuhr jenumme weed.",
+	"ores-reverted-low": "E beßje Rissekoh: $1% Schangs, dat dat retuhr jenumme weed."
+}
