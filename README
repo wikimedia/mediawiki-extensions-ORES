@@ -1,7 +1,7 @@
 New globals:
 
-$wgOresBaseUrl - API endpoint pattern for all ORES requests.  "$wiki" will be
-substituted with your wiki's ID.
+$wgOresBaseUrl - API endpoint base URL for all ORES requests.  The specific
+route will be appended to this URL.
 
 $wgOresModels - Array of models we want to fetch from the server and cache in
 the database.

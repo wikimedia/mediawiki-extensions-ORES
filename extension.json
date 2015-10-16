@@ -8,8 +8,10 @@
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:ORES",
 	"AutoloadClasses": {
+		"ORES\\Cache": "includes/Cache.php",
 		"ORES\\Hooks": "includes/Hooks.php",
-		"ORES\\FetchScoreJob": "includes/FetchScoreJob.php"
+		"ORES\\FetchScoreJob": "includes/FetchScoreJob.php",
+		"ORES\\Scoring": "includes/Scoring.php"
 	},
 	"Hooks": {
 		"LoadExtensionSchemaUpdates": [
@@ -50,7 +52,7 @@
 		"ORESFetchScoreJob": "ORES\\FetchScoreJob"
 	},
 	"config": {
-		"OresBaseUrl": "https://ores.wmflabs.org/scores/$wiki/",
+		"OresBaseUrl": "https://ores.wmflabs.org/",
 		"OresModels": [
 			"reverted"
 		],
