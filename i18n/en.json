@@ -3,8 +3,8 @@
 		"authors": []
 	},
 	"ores-desc": "Expose automated revision scores in the interface",
-	"ores-reverted-filter": "$1 revert predictions",
-	"ores-reverted-high": "High risk, probability of revert $1%",
-	"ores-reverted-medium": "Medium risk, probability of revert $1%",
-	"ores-reverted-low": "Some risk, probability of revert $1%"
+	"ores-reverted-filter": "$1 good edits",
+	"ores-reverted-letter": "R",
+	"ores-reverted-title": "This edit needs review",
+	"ores-reverted-legend": "ORES predicts that this change may be damaging and should be reviewed"
 }

@@ -1,8 +1,8 @@
 {
 	"@metadata": [],
 	"ores-desc": "Extension summary.",
-	"ores-reverted-filter": "Label to toggle filtering of ORES data. Parameters:\n* $1 - Action to be performed by toggling.",
-	"ores-reverted-high": "Title for high probability revert risk. Parameters:\n* $1 - Score as a percentage.",
-	"ores-reverted-medium": "Title for medium probability revert risk. Parameters:\n* $1 - Score as a percentage.",
-	"ores-reverted-low": "Title for low probability revert risk. Parameters:\n* $1 - Score as a percentage."
+	"ores-reverted-filter": "Label to toggle filtering on ORES data. Parameters:\n* $1 - Action to be performed by toggling.",
+	"ores-reverted-letter": "Single letter for tagging recent changes at risk of revert.",
+	"ores-reverted-title": "Tooltip for revert risk icon.",
+	"ores-reverted-legend": "Legend for revert risk icon."
 }

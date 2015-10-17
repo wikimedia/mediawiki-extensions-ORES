@@ -26,18 +26,12 @@
 		"ChangesListSpecialPageQuery": [
 			"ORES\\Hooks::onChangesListSpecialPageQuery"
 		],
+		"EnhancedChangesListModifyBlockLineData": [
+			"ORES\\Hooks::onEnhancedChangesListModifyBlockLineData"
+		],
 		"EnhancedChangesListModifyLineData": [
 			"ORES\\Hooks::onEnhancedChangesListModifyLineData"
-		],
-		"OldChangesListRecentChangesLine": [
-			"ORES\\Hooks::onOldChangesListRecentChangesLine"
 		]
-	},
-	"ResourceModules": {
-		"ext.ores.styles": {
-			"styles": "ext.ores.styles.css",
-			"position": "top"
-		}
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "modules",
@@ -60,6 +54,15 @@
 			"low": 0.8,
 			"medium": 0.87,
 			"high": 0.94
+		},
+		"OresRevertFilterThreshold": 0.87,
+		"RecentChangesFlags": {
+			"revertedRisk": {
+				"letter": "ores-reverted-letter",
+				"title": "ores-reverted-title",
+				"legend": "ores-reverted-legend",
+				"class": "ores-reverted"
+			}
 		}
 	},
 	"manifest_version": 1
