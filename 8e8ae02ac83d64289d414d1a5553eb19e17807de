@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebaf39b_87eb8b76",
+        "filename": "extension.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1665
+      },
+      "writtenOn": "2015-10-17T11:13:17Z",
+      "side": 1,
+      "message": "Shoulden this be https not http since Wikimedia foundation is going https now.",
+      "revId": "8e8ae02ac83d64289d414d1a5553eb19e17807de",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
