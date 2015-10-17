@@ -17,7 +17,8 @@ class Hooks {
 	 * @param DatabaseUpdater $updater
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
-		$updater->addExtensionTable( 'ores_classification', __DIR__ . '/../ores.sql' );
+		$updater->addExtensionTable( 'ores_classification', __DIR__ . '/../sql/ores_classification.sql' );
+		$updater->addExtensionTable( 'ores_model', __DIR__ . '/../sql/ores_model.sql' );
 	}
 
 	public static function onRecentChange_save( RecentChange $rc ) {
