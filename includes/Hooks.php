@@ -24,7 +24,6 @@ class Hooks {
 	public static function onRecentChange_save( RecentChange $rc ) {
 		if ( $rc->getAttribute( 'rc_type' ) === RC_EDIT ) {
 			$job = new FetchScoreJob( $rc->getTitle(), array(
-				'rcid' => $rc->getAttribute( 'rc_id' ),
 				'revid' => $rc->getAttribute( 'rc_this_oldid' ),
 			) );
 			JobQueueGroup::singleton()->push( $job );

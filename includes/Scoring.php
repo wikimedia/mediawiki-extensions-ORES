@@ -1,5 +1,4 @@
 <?php
-
 namespace ORES;
 
 use FormatJson;
@@ -10,7 +9,7 @@ class Scoring {
 	protected function getScoresUrl( $revisions, $models ) {
 		global $wgOresBaseUrl;
 
-		$url = $wgOresBaseUrl . 'scores/' . wfWikiID();
+		$url = $wgOresBaseUrl . 'scores/' . wfWikiID() . '/';
 		$params = array(
 			'models' => implode( '|', (array) $models ),
 			'revids' => implode( '|', (array) $revisions ),
@@ -34,13 +33,13 @@ class Scoring {
 		$req = MWHttpRequest::factory( $url, null, __METHOD__ );
 		$status = $req->execute();
 		if ( !$status->isOK() ) {
-			throw new RuntimeException( "No response from ORES server at $url, "
+			throw new RuntimeException( "No response from ORES server [{$url}], "
 				.  $status->getMessage()->text() );
 		}
 		$json = $req->getContent();
 		$wireData = FormatJson::decode( $json, true );
 		if ( !$wireData || !empty( $wireData['error'] ) ) {
-			throw new RuntimeException( 'Bad response from ORES server: ' . $json );
+			throw new RuntimeException( "Bad response from ORES endpoint [{$url}]: {$json}" );
 		}
 
 		return $wireData;

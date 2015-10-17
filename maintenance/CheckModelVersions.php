@@ -29,6 +29,9 @@ class CheckModelVersions extends Maintenance {
 		}
 	}
 
+	/**
+	 * Return a list of models available for this wiki.
+	 */
 	protected function getModels() {
 		global $wgOresBaseUrl;
 
