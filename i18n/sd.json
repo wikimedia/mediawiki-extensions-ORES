@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mehtab ahmed"
+			"Mehtab ahmed",
+			"Aursani"
 		]
 	},
-	"ores-reverted-filter": "$1 پيشنگوئيون واپس موٽايو"
+	"ores-reverted-filter": "$1 پيشنگوئيون اڻ ڪريو"
 }

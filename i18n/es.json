@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Macofe"
+		]
+	},
+	"ores-desc": "Expone puntuaciones automatizadas de revisiones en la interfaz",
+	"ores-reverted-filter": "$1 predicciones de reversión",
+	"ores-reverted-high": "Riesgo alto, probabilidad de reversión $1 %",
+	"ores-reverted-medium": "Riesgo medio, probabilidad de reversión $1 %",
+	"ores-reverted-low": "Riesgo bajo, probabilidad de reversión $1 %"
+}

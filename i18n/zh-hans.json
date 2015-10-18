@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Liuxinyu970226"
+		]
+	},
+	"ores-desc": "在界面中显示自动生成的修订折线",
+	"ores-reverted-filter": "$1回退预测",
+	"ores-reverted-high": "高风险，回退可能性为$1%",
+	"ores-reverted-medium": "中风险，回退可能性为$1%",
+	"ores-reverted-low": "低风险，回退可能性为$1%"
+}
