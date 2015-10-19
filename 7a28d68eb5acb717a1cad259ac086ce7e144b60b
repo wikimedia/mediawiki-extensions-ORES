@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebaf39b_a3beb4f8",
+        "filename": "includes/OresCache.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2015-10-19T23:48:04Z",
+      "side": 1,
+      "message": "namespace ORES;\n\nclass Cache {",
+      "revId": "7a28d68eb5acb717a1cad259ac086ce7e144b60b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_433578a2",
+        "filename": "includes/OresScoring.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2015-10-19T23:48:04Z",
+      "side": 1,
+      "message": "namespace this too",
+      "revId": "7a28d68eb5acb717a1cad259ac086ce7e144b60b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
