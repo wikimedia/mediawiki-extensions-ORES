@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ebaf39b_d14cdd45",
+        "filename": "i18n/en.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2015-10-19T08:20:01Z",
+      "side": 1,
+      "message": "Superfluous newline.",
+      "revId": "1c3d813fe497d7bf967ce4b726a9d78a1668d428",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_b1ffe9a6",
+        "filename": "i18n/en.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2015-10-19T08:20:01Z",
+      "side": 1,
+      "message": "\"might be\" or simply \"is\"? Same below.",
+      "revId": "1c3d813fe497d7bf967ce4b726a9d78a1668d428",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_715bb1fd",
+        "filename": "i18n/qqq.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2015-10-19T08:20:01Z",
+      "side": 1,
+      "message": "Superfluous newline.",
+      "revId": "1c3d813fe497d7bf967ce4b726a9d78a1668d428",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_5158edfc",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2015-10-19T08:20:01Z",
+      "side": 1,
+      "message": "Todo. File Phabricator task, or add feature?",
+      "revId": "1c3d813fe497d7bf967ce4b726a9d78a1668d428",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_7102d1bf",
+        "filename": "includes/OresScoring.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2015-10-19T08:20:01Z",
+      "side": 1,
+      "message": "The correct tag is @todo",
+      "revId": "1c3d813fe497d7bf967ce4b726a9d78a1668d428",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
