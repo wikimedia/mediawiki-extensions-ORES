@@ -12,6 +12,12 @@ use OldChangesList;
 use RCCacheEntry;
 use RecentChange;
 
+/**
+ * TODO:
+ * - Fix mw-core EnhancedChangesList::recentChangesBlockGroup to rollup
+ * extension recentChangesFlags into the top-level grouped line.
+ * - Fix mw-core "old" recent changes view to respect recentChangesFlags.
+ */
 class Hooks {
 	/**
 	 * @param DatabaseUpdater $updater
@@ -19,8 +25,13 @@ class Hooks {
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$updater->addExtensionTable( 'ores_classification', __DIR__ . '/../sql/ores_classification.sql' );
 		$updater->addExtensionTable( 'ores_model', __DIR__ . '/../sql/ores_model.sql' );
+
+		return true;
 	}
 
+	/**
+	 * Ask the ORES server for scores on this recent change
+	 */
 	public static function onRecentChange_save( RecentChange $rc ) {
 		if ( $rc->getAttribute( 'rc_type' ) === RC_EDIT ) {
 			$job = new FetchScoreJob( $rc->getTitle(), array(
@@ -28,9 +39,13 @@ class Hooks {
 			) );
 			JobQueueGroup::singleton()->push( $job );
 		}
+
+		return true;
 	}
 
 	/**
+	 * Add an ORES filter to the recent changes results
+	 *
 	 * @param ChangesListSpecialPage $clsp
 	 * @param $filters
 	 */
@@ -39,9 +54,13 @@ class Hooks {
 			'msg' => 'ores-reverted-filter',
 			'default' => false,
 		);
+
+		return true;
 	}
 
 	/**
+	 * Pull in ORES score columns during recent changes queries
+	 *
 	 * @param $name
 	 * @param array $tables
 	 * @param array $fields
@@ -61,9 +80,13 @@ class Hooks {
 				'rc_this_oldid = ores_rev AND ores_model = \'reverted\' ' .
 				'AND ores_is_predicted = 1 AND ores_class = \'true\'' );
 		}
+
+		return true;
 	}
 
 	/**
+	 * Label recent changes with ORES scores (for each change in an expanded group)
+	 *
 	 * @param EnhancedChangesList $ecl
 	 * @param array $data
 	 * @param RCCacheEntry[] $block
@@ -82,6 +105,8 @@ class Hooks {
 				$ecl->getOutput()->addModuleStyles( 'ext.ores.styles' );
 			}
 		}
+
+		return true;
 	}
 
 	// FIXME: Repeated code.
@@ -98,6 +123,8 @@ class Hooks {
 				$ocl->getOutput()->addModuleStyles( 'ext.ores.styles' );
 			}
 		}
+
+		return true;
 	}
 
 	protected static function getRevertThreshold( $score ) {
