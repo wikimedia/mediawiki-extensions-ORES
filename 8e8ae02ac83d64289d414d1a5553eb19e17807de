@@ -16,6 +16,24 @@
       "revId": "8e8ae02ac83d64289d414d1a5553eb19e17807de",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_c024090a",
+        "filename": "extension.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2015-10-21T08:35:39Z",
+      "side": 1,
+      "message": "Hrm.  I swear I was being redirected from https to http, but now I can\u0027t repeat those results.  Good!  Changed as you suggested...",
+      "parentUuid": "0ebaf39b_87eb8b76",
+      "revId": "8e8ae02ac83d64289d414d1a5553eb19e17807de",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
