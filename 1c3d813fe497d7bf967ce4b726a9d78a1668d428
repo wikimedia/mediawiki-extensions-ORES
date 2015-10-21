@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "0ebaf39b_c5aac2d0",
+        "filename": "i18n/en.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2015-10-21T08:41:02Z",
+      "side": 1,
+      "message": "Good point, this is redundant.  What I\u0027m trying to suggest is that we need to be extremely skeptical about any machine-generated article statistics, so there\u0027s no so much a concrete risk of revert, as an *alleged* risk.  Any suggestions about how to fix the language?",
+      "parentUuid": "0ebaf39b_b1ffe9a6",
+      "revId": "1c3d813fe497d7bf967ce4b726a9d78a1668d428",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ebaf39b_715bb1fd",
         "filename": "i18n/qqq.json",
         "patchSetId": 4
