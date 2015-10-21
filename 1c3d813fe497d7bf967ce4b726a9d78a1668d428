@@ -88,6 +88,24 @@
     },
     {
       "key": {
+        "uuid": "0ebaf39b_a5af8edd",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2015-10-21T08:45:00Z",
+      "side": 1,
+      "message": "Agreed, thanks!",
+      "parentUuid": "0ebaf39b_5158edfc",
+      "revId": "1c3d813fe497d7bf967ce4b726a9d78a1668d428",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ebaf39b_7102d1bf",
         "filename": "includes/OresScoring.php",
         "patchSetId": 4
@@ -99,6 +117,24 @@
       "writtenOn": "2015-10-19T08:20:01Z",
       "side": 1,
       "message": "The correct tag is @todo",
+      "revId": "1c3d813fe497d7bf967ce4b726a9d78a1668d428",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ebaf39b_85b4ca34",
+        "filename": "includes/OresScoring.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2015-10-21T08:45:00Z",
+      "side": 1,
+      "message": "I don\u0027t think so--see https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP#Comments_and_documentation\n\n\"@todo\" comes from a weird phpDocumentor syntax, that we don\u0027t follow.",
+      "parentUuid": "0ebaf39b_7102d1bf",
       "revId": "1c3d813fe497d7bf967ce4b726a9d78a1668d428",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
