@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Reza1615"
+		]
+	},
+	"ores-desc": "نمایش امتیاز خودکار ویرایش‌ها در واسط کاربری",
+	"ores-reverted-filter": "$1 واگردانی پیش‌بینی",
+	"ores-reverted-high": "ریسک بالا، امکان واگردانی $1%",
+	"ores-reverted-medium": "ریسک متوسط، امکان واگردانی $1%",
+	"ores-reverted-low": "ریسک کم، امکان واگردانی $1%"
+}
