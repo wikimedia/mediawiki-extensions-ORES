@@ -6,5 +6,7 @@
 	},
 	"ores-desc": "Weist déi automatesch Bewäertung vun der Versioun am Interface",
 	"ores-reverted-filter": "$1 Zrécksetzungsprognosen",
-	"ores-reverted-high": "Héije Risiko, Wahrscheinlechkeet vum zrécksetzen $1%"
+	"ores-reverted-high": "Héije Risiko, Wahrscheinlechkeet vum zrécksetzen $1%",
+	"ores-reverted-medium": "Mëttlere Risiko, Wahrscheinlechkeet vum zrécksetzen $1%",
+	"ores-reverted-low": "Gewësse Risiko, Wahrscheinlechkeet vum zrécksetzen $1%"
 }
