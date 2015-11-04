@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Elisardojm"
+		]
+	},
+	"ores-reverted-filter": "$1 predicións de reversión",
+	"ores-reverted-high": "Risco alto, probabilidade de reversión $1 %",
+	"ores-reverted-medium": "Risco medio, probabilidade de reversión $1 %",
+	"ores-reverted-low": "Risco baixo, probabilidade de reversión $1%"
+}
