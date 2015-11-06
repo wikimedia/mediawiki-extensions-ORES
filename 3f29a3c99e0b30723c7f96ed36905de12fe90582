@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0ebaf39b_4782cf53",
+        "filename": "i18n/en.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 735
+      },
+      "writtenOn": "2015-11-06T22:31:42Z",
+      "side": 1,
+      "message": "I think the language we should aim for is \"needs review\".  The revert predictor and our other damage predictors make mistakes.  In this sense, it\u0027s better at flagging edits for review than telling you what is actually damaging. \n\n\"This edit needs review\" or \"This edit should be reviewed\"",
+      "parentUuid": "0ebaf39b_507772fd",
+      "revId": "3f29a3c99e0b30723c7f96ed36905de12fe90582",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ebaf39b_f0654642",
         "filename": "i18n/en.json",
         "patchSetId": 6
