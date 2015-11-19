@@ -4,6 +4,7 @@
 			"Elisardojm"
 		]
 	},
+	"ores-desc": "Expón as puntuacións de revisións automatizadas na interface",
 	"ores-reverted-filter": "$1 predicións de reversión",
 	"ores-reverted-high": "Risco alto, probabilidade de reversión $1 %",
 	"ores-reverted-medium": "Risco medio, probabilidade de reversión $1 %",
