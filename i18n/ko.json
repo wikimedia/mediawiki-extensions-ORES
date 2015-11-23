@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Revi"
+		]
+	},
+	"ores-reverted-filter": "$1 되돌리기 예상",
+	"ores-reverted-high": "고위험, 되돌리기 가능성 $1%"
+}
