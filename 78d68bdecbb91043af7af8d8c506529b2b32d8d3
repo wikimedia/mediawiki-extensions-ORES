@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceb37bc7_7cc8c125",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1957
+      },
+      "writtenOn": "2015-12-03T17:37:08Z",
+      "side": 1,
+      "message": "Is this name exposed to users? Does it refer to our \"internal\" name for the model or to an edit which was reverted? (users might get confused by the fact that a non-reverted edit is shown even when the hidenonreverted filter is set)",
+      "revId": "78d68bdecbb91043af7af8d8c506529b2b32d8d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
