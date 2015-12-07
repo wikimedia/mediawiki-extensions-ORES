@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "aeb807a7_bc7715fd",
+        "filename": "i18n/en.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 92
+      },
+      "writtenOn": "2015-12-07T17:03:29Z",
+      "side": 1,
+      "message": "This is a negative option, which is a bad design choice, I think. Could you please consult an interaction design person before merging this as currently designed?\n\n Show/hide non-damaging edits\n Show/hide damaging edits (?)\n\nThe language proposed here is out of sync with https://gerrit.wikimedia.org/r/#/c/247185/ as far as I can tell.",
+      "revId": "78d68bdecbb91043af7af8d8c506529b2b32d8d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceb37bc7_7cc8c125",
         "filename": "includes/Hooks.php",
         "patchSetId": 2
