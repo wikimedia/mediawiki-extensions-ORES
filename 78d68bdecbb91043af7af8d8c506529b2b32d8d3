@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "aeb807a7_9a756c95",
+        "filename": "i18n/en.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2015-12-08T05:27:35Z",
+      "side": 1,
+      "message": "Sadly, we don\u0027t have access to any UX people.  But I think I can fix the language rather than the design here, thank you for pointing out the triple negative!  All of the filters are worded to show or hide the items a person doing specialized work is *not* interested in, so I believe my code is consistent with the others.\n\nActually, I\u0027m going to squash with the next commit so that the logic is correct and this all makes more sense.",
+      "parentUuid": "aeb807a7_bc7715fd",
+      "revId": "78d68bdecbb91043af7af8d8c506529b2b32d8d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceb37bc7_7cc8c125",
         "filename": "includes/Hooks.php",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2015-12-03T17:37:08Z",
       "side": 1,
       "message": "Is this name exposed to users? Does it refer to our \"internal\" name for the model or to an edit which was reverted? (users might get confused by the fact that a non-reverted edit is shown even when the hidenonreverted filter is set)",
+      "revId": "78d68bdecbb91043af7af8d8c506529b2b32d8d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeb807a7_1a617cd0",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2015-12-08T05:27:35Z",
+      "side": 1,
+      "message": "This name is only used in HTML, not rendered to users.  I agree that the name is bad, Siebrand had a similar comment about the message string as well.  It does refer to our internal model however, and correctly reflects what the filter does, so I\u0027m loathe to rename to anything less descriptive.\n\nPlease re-review after I squash with the next commit, so that the logic is consistent with the messages!",
+      "parentUuid": "ceb37bc7_7cc8c125",
       "revId": "78d68bdecbb91043af7af8d8c506529b2b32d8d3",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
