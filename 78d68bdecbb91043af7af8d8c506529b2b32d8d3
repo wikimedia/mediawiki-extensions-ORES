@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "aeb807a7_95d9bf85",
+        "filename": "i18n/en.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1957
+      },
+      "writtenOn": "2015-12-08T10:22:14Z",
+      "side": 1,
+      "message": "I think this version will be even more confusing, because we do have both models: one for predicting if an edit is likely to be \"reverted\" and another model for predicting if it is likely \"damaging\". So, describing the \"reverted\" model as if it were predicting \"damaging\" edits is misleading.",
+      "parentUuid": "aeb807a7_9a756c95",
+      "revId": "78d68bdecbb91043af7af8d8c506529b2b32d8d3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceb37bc7_7cc8c125",
         "filename": "includes/Hooks.php",
         "patchSetId": 2
