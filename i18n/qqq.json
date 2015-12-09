@@ -1,8 +1,8 @@
 {
 	"@metadata": [],
 	"ores-desc": "Extension summary.",
-	"ores-reverted-filter": "Label to toggle filtering on ORES data. Parameters:\n* $1 - Action to be performed by toggling.",
-	"ores-reverted-letter": "Single letter for tagging recent changes at risk of revert.",
-	"ores-reverted-title": "Tooltip for revert risk icon.",
-	"ores-reverted-legend": "Legend for revert risk icon."
+	"ores-damaging-filter": "Label to toggle filtering on ORES data. Parameters:\n* $1 - Action to be performed by toggling.",
+	"ores-damaging-letter": "Single letter for tagging possibly damaging recent changes.",
+	"ores-damaging-title": "Tooltip for damaging risk icon.",
+	"ores-damaging-legend": "Legend for damaging risk icon."
 }

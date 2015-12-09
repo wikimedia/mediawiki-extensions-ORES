@@ -50,15 +50,15 @@ class Scoring {
 	 *
 	 * TODO: Should be in a model-specific module.
 	 */
-	public static function getRevertThreshold( $score ) {
-		global $wgOresRevertTagThresholds;
+	public static function getDamagingThreshold( $score ) {
+		global $wgOresDamagingTagThresholds;
 
 		$score = floatval( $score );
 		$type = null;
 
 		// Find the nearest threshold exceeded by $score.
 		$highestExceededThreshold = null;
-		foreach ( $wgOresRevertTagThresholds as $name => $threshold ) {
+		foreach ( $wgOresDamagingTagThresholds as $name => $threshold ) {
 			if ( $score >= $threshold
 				// Ignore threshold if it's further from $score.
 				&& ( $threshold > $highestExceededThreshold || $highestExceededThreshold === null )

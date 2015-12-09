@@ -6,5 +6,5 @@ route will be appended to this URL.
 $wgOresModels - Array of models we want to fetch from the server and cache in
 the database.
 
-$wgOresRevertTagThresholds - Map from threshold name to score cutoff.  These
-thresholds are used to flag recent changes for potential revert.
+$wgOresDamagingTagThresholds - Map from threshold name to score cutoff.  These
+thresholds are used to flag recent changes that need review.

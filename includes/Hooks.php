@@ -50,8 +50,8 @@ class Hooks {
 	 * @param $filters
 	 */
 	public static function onChangesListSpecialPageFilters( ChangesListSpecialPage $clsp, &$filters ) {
-		$filters['hidenonreverted'] = array(
-			'msg' => 'ores-reverted-filter',
+		$filters['hidenondamaging'] = array(
+			'msg' => 'ores-damaging-filter',
 			'default' => false,
 		);
 
@@ -73,19 +73,19 @@ class Hooks {
 		$name, array &$tables, array &$fields, array &$conds,
 		array &$query_options, array &$join_conds, FormOptions $opts
 	) {
-		global $wgOresRevertFilterThreshold;
+		global $wgOresDamagingFilterThreshold;
 
 		$tables[] = 'ores_classification';
 		$fields[] = 'ores_probability';
 		$join_conds['ores_classification'] = array( 'LEFT JOIN',
-			'rc_this_oldid = ores_rev AND ores_model = \'reverted\' ' .
+			'rc_this_oldid = ores_rev AND ores_model = \'damaging\' ' .
 			'AND ores_is_predicted = 1 AND ores_class = \'true\'' );
 
-		if ( $opts->getValue( 'hidenonreverted' ) ) {
+		if ( $opts->getValue( 'hidenondamaging' ) ) {
 			// Filter out non-damaging edits.
 			$conds[] = 'ores_is_predicted = 1';
 			$conds[] = 'ores_probability > '
-				. wfGetDb( DB_SLAVE )->addQuotes( $wgOresRevertFilterThreshold );
+				. wfGetDb( DB_SLAVE )->addQuotes( $wgOresDamagingFilterThreshold );
 		}
 
 		return true;
@@ -128,10 +128,10 @@ class Hooks {
 	protected static function processRecentChangesList( RCCacheEntry $rcObj, array &$data ) {
 		$score = $rcObj->getAttribute( 'ores_probability' );
 		if ( $score !== null ) {
-			$type = Scoring::getRevertThreshold( $score );
+			$type = Scoring::getDamagingThreshold( $score );
 
 			if ( $type ) {
-				$data['recentChangesFlags']['revertedRisk'] = true;
+				$data['recentChangesFlags']['damaging'] = true;
 				// TODO: Stash the details in HTML so they can be retrieved by JS?
 			}
 		}

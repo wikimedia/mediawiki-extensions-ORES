@@ -48,20 +48,23 @@
 	"config": {
 		"OresBaseUrl": "https://ores.wmflabs.org/",
 		"OresModels": [
-			"reverted"
+			"damaging",
+			"goodfaith",
+			"reverted",
+			"wp10"
 		],
-		"OresRevertTagThresholds": {
+		"OresDamagingTagThresholds": {
 			"low": 0.8,
 			"medium": 0.87,
 			"high": 0.94
 		},
-		"OresRevertFilterThreshold": 0.87,
+		"OresDamagingFilterThreshold": 0.87,
 		"RecentChangesFlags": {
-			"revertedRisk": {
-				"letter": "ores-reverted-letter",
-				"title": "ores-reverted-title",
-				"legend": "ores-reverted-legend",
-				"class": "ores-reverted"
+			"damagingRisk": {
+				"letter": "ores-damaging-letter",
+				"title": "ores-damaging-title",
+				"legend": "ores-damaging-legend",
+				"class": "ores-damaging"
 			}
 		}
 	},
