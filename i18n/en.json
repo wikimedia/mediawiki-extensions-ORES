@@ -4,7 +4,7 @@
 	},
 	"ores-desc": "Expose automated revision scores in the interface",
 	"ores-damaging-filter": "$1 good edits",
-	"ores-damaging-letter": "D",
+	"ores-damaging-letter": "r",
 	"ores-damaging-title": "This edit needs review",
 	"ores-damaging-legend": "ORES predicts that this change may be damaging and should be reviewed"
 }
