@@ -16,6 +16,24 @@
       "revId": "9483053b050bc3360386f75d54c76225b8218fa5",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ead036b_404dd29a",
+        "filename": "i18n/en.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2015-12-09T10:14:46Z",
+      "side": 0,
+      "message": "I took these out for the moment, unfortunately I don\u0027t see how to fit them into the limited RC UI.",
+      "parentUuid": "0ebaf39b_a792ab9f",
+      "revId": "9483053b050bc3360386f75d54c76225b8218fa5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
