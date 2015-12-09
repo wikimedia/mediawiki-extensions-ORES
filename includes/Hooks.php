@@ -73,7 +73,7 @@ class Hooks {
 		$name, array &$tables, array &$fields, array &$conds,
 		array &$query_options, array &$join_conds, FormOptions $opts
 	) {
-		global $wgOresDamagingFilterThreshold;
+		global $wgOresDamagingThreshold;
 
 		$tables[] = 'ores_classification';
 		$fields[] = 'ores_probability';
@@ -85,7 +85,7 @@ class Hooks {
 			// Filter out non-damaging edits.
 			$conds[] = 'ores_is_predicted = 1';
 			$conds[] = 'ores_probability > '
-				. wfGetDb( DB_SLAVE )->addQuotes( $wgOresDamagingFilterThreshold );
+				. wfGetDb( DB_SLAVE )->addQuotes( $wgOresDamagingThreshold );
 		}
 
 		return true;
@@ -126,14 +126,11 @@ class Hooks {
 	 * Internal helper to label matching rows
 	 */
 	protected static function processRecentChangesList( RCCacheEntry $rcObj, array &$data ) {
-		$score = $rcObj->getAttribute( 'ores_probability' );
-		if ( $score !== null ) {
-			$type = Scoring::getDamagingThreshold( $score );
+		global $wgOresDamagingThreshold;
 
-			if ( $type ) {
-				$data['recentChangesFlags']['damaging'] = true;
-				// TODO: Stash the details in HTML so they can be retrieved by JS?
-			}
+		$score = $rcObj->getAttribute( 'ores_probability' );
+		if ( $score && $score >= $wgOresDamagingThreshold ) {
+			$data['recentChangesFlags']['damaging'] = true;
 		}
 	}
 }

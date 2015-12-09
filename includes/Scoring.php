@@ -45,32 +45,6 @@ class Scoring {
 		return $wireData;
 	}
 
-	/**
-	 * @return string|null Threshold exceeded, or null if none.
-	 *
-	 * TODO: Should be in a model-specific module.
-	 */
-	public static function getDamagingThreshold( $score ) {
-		global $wgOresDamagingTagThresholds;
-
-		$score = floatval( $score );
-		$type = null;
-
-		// Find the nearest threshold exceeded by $score.
-		$highestExceededThreshold = null;
-		foreach ( $wgOresDamagingTagThresholds as $name => $threshold ) {
-			if ( $score >= $threshold
-				// Ignore threshold if it's further from $score.
-				&& ( $threshold > $highestExceededThreshold || $highestExceededThreshold === null )
-			) {
-				$type = $name;
-				$highestExceededThreshold = $threshold;
-			}
-		}
-		return $type;
-	}
-
-
 	public static function instance() {
 		return new self();
 	}

@@ -53,14 +53,9 @@
 			"reverted",
 			"wp10"
 		],
-		"OresDamagingTagThresholds": {
-			"low": 0.8,
-			"medium": 0.87,
-			"high": 0.94
-		},
-		"OresDamagingFilterThreshold": 0.87,
+		"OresDamagingThreshold": 0.87,
 		"RecentChangesFlags": {
-			"damagingRisk": {
+			"damaging": {
 				"letter": "ores-damaging-letter",
 				"title": "ores-damaging-title",
 				"legend": "ores-damaging-legend",
