@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_1f95fb35",
+        "filename": "includes/Scoring.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1957
+      },
+      "writtenOn": "2015-12-12T16:59:43Z",
+      "side": 1,
+      "message": "Why not to simply call this \"getThreshold\" and make it accept two parameters (e.g. \"$score\" and \"$model\")?",
+      "revId": "5ca960a8ec5cacd758cfe9a6332f093afe77297a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
