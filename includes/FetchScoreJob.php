@@ -1,4 +1,5 @@
 <?php
+
 namespace ORES;
 
 use Job;

@@ -1,22 +1,8 @@
 <?php
+
 namespace ORES;
 
-use FormatJson;
-use MWHttpRequest;
-use RuntimeException;
-
 class Scoring {
-	protected function getScoresUrl( $revisions, $models ) {
-		global $wgOresBaseUrl;
-
-		$url = $wgOresBaseUrl . 'scores/' . wfWikiID() . '/';
-		$params = array(
-			'models' => implode( '|', (array) $models ),
-			'revids' => implode( '|', (array) $revisions ),
-		);
-		return wfAppendQuery( $url, $params );
-	}
-
 	/**
 	 * @param integer|array $revisions Single or multiple revisions
 	 * @param string|array|null $models Single or multiple model names.  If
@@ -29,19 +15,11 @@ class Scoring {
 			global $wgOresModels;
 			$models = $wgOresModels;
 		}
-		$url = $this->getScoresUrl( $revisions, $models );
-		$req = MWHttpRequest::factory( $url, null, __METHOD__ );
-		$status = $req->execute();
-		if ( !$status->isOK() ) {
-			throw new RuntimeException( "No response from ORES server [{$url}], "
-				.  $status->getMessage()->text() );
-		}
-		$json = $req->getContent();
-		$wireData = FormatJson::decode( $json, true );
-		if ( !$wireData || !empty( $wireData['error'] ) ) {
-			throw new RuntimeException( "Bad response from ORES endpoint [{$url}]: {$json}" );
-		}
 
+		$wireData = Api::request( array(
+			'models' => implode( '|', (array) $models ),
+			'revids' => implode( '|', (array) $revisions ),
+		) );
 		return $wireData;
 	}
 

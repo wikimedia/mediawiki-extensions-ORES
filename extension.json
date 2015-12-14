@@ -8,6 +8,7 @@
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:ORES",
 	"AutoloadClasses": {
+		"ORES\\Api": "includes/Api.php",
 		"ORES\\Cache": "includes/Cache.php",
 		"ORES\\Hooks": "includes/Hooks.php",
 		"ORES\\FetchScoreJob": "includes/FetchScoreJob.php",
@@ -54,6 +55,7 @@
 			"wp10"
 		],
 		"OresDamagingThreshold": 0.87,
+		"OresWikiId": null,
 		"RecentChangesFlags": {
 			"damaging": {
 				"letter": "ores-damaging-letter",

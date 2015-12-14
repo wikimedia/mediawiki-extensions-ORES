@@ -1,5 +1,9 @@
 <?php
 
+namespace ORES;
+
+use Maintenance;
+
 require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
 	: __DIR__ . '/../../../maintenance/Maintenance.php' );
@@ -33,23 +37,14 @@ class CheckModelVersions extends Maintenance {
 	 * Return a list of models available for this wiki.
 	 */
 	protected function getModels() {
-		global $wgOresBaseUrl;
-
-		$url = $wgOresBaseUrl . 'scores/' . wfWikiID() . '/';
-		$req = MWHttpRequest::factory( $url, null, __METHOD__ );
-		$status = $req->execute();
-		if ( !$status->isOK() ) {
-			throw new RuntimeException( "Failed to get revscoring models [{$url}], "
-				. $status->getMessage()->text() );
-		}
-		$json = $req->getContent();
-		$modelData = FormatJson::decode( $json, true );
-		if ( !$modelData || !empty( $modelData['error'] ) || empty( $modelData['models'] ) ) {
-			throw new RuntimeException( "Bad response from revscoring models request [{$url}]: {$json}" );
+		$modelData = Api::request();
+		if ( empty( $modelData['models'] ) ) {
+			throw new RuntimeException( 'Bad response from ORES when requesting models: '
+				. json_encode( $modelData ) );
 		}
 		return $modelData['models'];
 	}
 }
 
-$maintClass = 'CheckModelVersions';
+$maintClass = 'ORES\CheckModelVersions';
 require_once RUN_MAINTENANCE_IF_MAIN;

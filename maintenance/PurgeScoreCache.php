@@ -1,6 +1,8 @@
 <?php
 
-use ORES\Cache;
+namespace ORES;
+
+use Maintenance;
 
 require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
@@ -34,5 +36,5 @@ class PurgeScoreCache extends Maintenance {
 	}
 }
 
-$maintClass = 'PurgeScoreCache';
+$maintClass = 'ORES\PurgeScoreCache';
 require_once RUN_MAINTENANCE_IF_MAIN;

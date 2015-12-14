@@ -1,10 +1,17 @@
 New globals:
 
-$wgOresBaseUrl - API endpoint base URL for all ORES requests.  The specific
-route will be appended to this URL.
+$wgOresBaseUrl - API endpoint base URL for ORES requests.  The specific
+route and parameters will be appended to this URL.
 
 $wgOresModels - Array of models we want to fetch from the server and cache in
 the database.
+TODO: Should we default to fetching all available models?
 
-$wgOresDamagingTagThresholds - Map from threshold name to score cutoff.  These
-thresholds are used to flag recent changes that need review.
+$wgOresDamagingThreshold - Score cutoff above which an edit is flagged as
+possibly damaging in the Recent Changes feed.
+
+$wgOresWikiId - Optional database ID for making ORES requests to a different
+wiki ID.  An important special name is "testwiki", which accesses a pseudomodel
+available for testing without setting up an ORES server to score your wiki.
+This pseudomodel will emit scores deterministically correlated to the revision ID,
+e.g. https://ores.wmflabs.org/scores/testwiki/reverted/?revids=1|2|3|4|5|6|7|8|9
