@@ -16,6 +16,24 @@
       "revId": "5ca960a8ec5cacd758cfe9a6332f093afe77297a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_fd4262b1",
+        "filename": "includes/Scoring.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2015-12-14T07:10:59Z",
+      "side": 1,
+      "message": "This function was removed in @I4fd50437, please see there.",
+      "parentUuid": "6eaa8f54_1f95fb35",
+      "revId": "5ca960a8ec5cacd758cfe9a6332f093afe77297a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
