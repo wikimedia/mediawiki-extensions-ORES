@@ -3,6 +3,8 @@
 namespace ORES;
 
 use Job;
+use MediaWiki\Logger\LoggerFactory;
+use Psr\Log\LoggerInterface;
 use Title;
 
 class FetchScoreJob extends Job {
@@ -15,10 +17,13 @@ class FetchScoreJob extends Job {
 	}
 
 	public function run() {
+		$logger = LoggerFactory::getInstance( 'ORES' );
+		$logger->info( 'Fetching scores for revision ' . json_encode( $this->params ) );
 		$scores = Scoring::instance()->getScores( $this->params['revid'] );
 		Cache::instance()->storeScores( $scores, $this->params['revid'] );
+		$logger->debug( 'Stored scores: ' . json_encode( $scores ) );
 
-		// TODO: Or do we have to try/catch and return false on error, set the error string, etc?
+		// FIXME: Or should we return false on error, set the error string, etc?
 		return true;
 	}
 }

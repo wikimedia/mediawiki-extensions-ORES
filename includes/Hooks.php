@@ -8,6 +8,7 @@ use EnhancedChangesList;
 use FormOptions;
 use Html;
 use JobQueueGroup;
+use MediaWiki\Logger\LoggerFactory;
 use OldChangesList;
 use RCCacheEntry;
 use RecentChange;
@@ -34,6 +35,8 @@ class Hooks {
 	 */
 	public static function onRecentChange_save( RecentChange $rc ) {
 		if ( $rc->getAttribute( 'rc_type' ) === RC_EDIT ) {
+			$logger = LoggerFactory::getInstance( 'ORES' );
+			$logger->debug( 'Processing edit' );
 			$job = new FetchScoreJob( $rc->getTitle(), array(
 				'revid' => $rc->getAttribute( 'rc_this_oldid' ),
 			) );

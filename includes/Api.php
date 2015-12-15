@@ -3,7 +3,9 @@
 namespace ORES;
 
 use FormatJson;
+use MediaWiki\Logger\LoggerFactory;
 use MWHttpRequest;
+use Psr\Log\LoggerInterface;
 use RuntimeException;
 
 /**
@@ -34,8 +36,11 @@ class Api {
 	 * @throws RuntimeException
 	 */
 	public static function request( $params = array() ) {
+		$logger = LoggerFactory::getInstance( 'ORES' );
+
 		$url = Api::getUrl();
 		$url = wfAppendQuery( $url, $params );
+		$logger->debug( "Requesting: {$url}" );
 		$req = MWHttpRequest::factory( $url, null, __METHOD__ );
 		$status = $req->execute();
 		if ( !$status->isOK() ) {
@@ -43,6 +48,7 @@ class Api {
 				. $status->getMessage()->text() );
 		}
 		$json = $req->getContent();
+		$logger->debug( "Raw response: {$json}" );
 		$data = FormatJson::decode( $json, true );
 		if ( !$data || !empty( $data['error'] ) ) {
 			throw new RuntimeException( "Bad response from ORES endpoint [{$url}]: {$json}" );
