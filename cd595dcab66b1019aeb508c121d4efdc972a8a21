@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_e622b3a1",
+        "filename": "includes/Api.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2015-12-17T12:45:13Z",
+      "side": 1,
+      "message": "I think json_encode is redundant here, because you try to decode it in the next line and it shows results are string and not array, correct me if I\u0027m wrong",
+      "revId": "cd595dcab66b1019aeb508c121d4efdc972a8a21",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
