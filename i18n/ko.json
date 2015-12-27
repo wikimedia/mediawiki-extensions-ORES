@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Revi"
+			"Revi",
+			"Priviet"
 		]
 	},
-	"ores-reverted-filter": "$1 되돌리기 예상",
-	"ores-reverted-high": "고위험, 되돌리기 가능성 $1%"
+	"ores-damaging-filter": "$1 좋은 편집",
+	"ores-damaging-letter": "r",
+	"ores-damaging-title": "이 편집은 검토가 필요합니다"
 }

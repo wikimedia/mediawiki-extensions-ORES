@@ -5,8 +5,8 @@
 		]
 	},
 	"ores-desc": "Zeigt automatisierte Versionsbewertungen in der Oberfläche an",
-	"ores-reverted-filter": "$1 Zurücksetzungsprognosen",
-	"ores-reverted-high": "Hohes Risiko. Wahrscheinlichkeit des Zurücksetzens: $1%",
-	"ores-reverted-medium": "Mittleres Risiko. Wahrscheinlichkeit des Zurücksetzens: $1%",
-	"ores-reverted-low": "Geringes Risiko. Wahrscheinlichkeit des Zurücksetzens: $1%"
+	"ores-damaging-filter": "$1 gute Bearbeitungen",
+	"ores-damaging-letter": "ü",
+	"ores-damaging-title": "Diese Bearbeitung benötigt eine Überprüfung",
+	"ores-damaging-legend": "ORES sagt voraus, dass diese Änderung schädlich sein könnte und sollte überprüft werden"
 }
