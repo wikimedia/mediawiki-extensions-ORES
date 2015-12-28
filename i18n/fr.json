@@ -5,8 +5,8 @@
 		]
 	},
 	"ores-desc": "Exposer les notes de révision automatisées dans l’interface",
-	"ores-reverted-filter": "$1 les prédictions d’annulation",
-	"ores-reverted-high": "Risque élevé, probabilité d’annulation de $1%",
-	"ores-reverted-medium": "Risque modéré, probabilité d’annulation de $1%",
-	"ores-reverted-low": "Risque faible, probabilité d’annulation de $1%"
+	"ores-damaging-filter": "$1 bonnes modifications",
+	"ores-damaging-letter": "r",
+	"ores-damaging-title": "Cette modification doit être revue",
+	"ores-damaging-legend": "ORES prédit que cette modification pourrait être nuisible et devrait être revue"
 }
