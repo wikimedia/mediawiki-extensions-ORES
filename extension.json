@@ -32,6 +32,9 @@
 		],
 		"EnhancedChangesListModifyLineData": [
 			"ORES\\Hooks::onEnhancedChangesListModifyLineData"
+		],
+		"OldChangesListRecentChangesLine": [
+			"ORES\\Hooks::onOldChangesListRecentChangesLine"
 		]
 	},
 	"ResourceFileModulePaths": {
