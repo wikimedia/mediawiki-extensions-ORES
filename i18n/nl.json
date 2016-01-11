@@ -1,12 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Siebrand"
+			"Siebrand",
+			"Sjoerddebruin"
 		]
 	},
 	"ores-desc": "Automatische terugdraaiscores weergeven in de interface",
-	"ores-reverted-filter": "terugdraaivoorspellingen $1",
-	"ores-reverted-high": "Hoog risico, waarschijnlijkheid voor terugdraaien $1%",
-	"ores-reverted-medium": "Gemiddeld risico, waarschijnlijkheid voor terugdraaien $1%",
-	"ores-reverted-low": "Enig risico, waarschijnlijkheid voor terugdraaien $1%"
+	"ores-damaging-filter": "$1 goede bewerkingen",
+	"ores-damaging-letter": "r"
 }

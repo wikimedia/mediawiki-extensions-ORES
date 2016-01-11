@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"HAUSANRIK"
+			"HAUSANRIK",
+			"Ravichandra"
 		]
 	},
-	"ores-reverted-high": "అపాయo ఎక్కువ, తిరిగివచ్చు సంభవనీయత $1%"
+	"ores-damaging-filter": "$1 మంచి మార్పులు"
 }
