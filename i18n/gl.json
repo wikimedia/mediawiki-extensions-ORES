@@ -5,6 +5,8 @@
 		]
 	},
 	"ores-desc": "Expón as puntuacións de revisións automatizadas na interface",
+	"ores-damaging-filter": "$1 edicións boas",
 	"ores-damaging-letter": "r",
-	"ores-damaging-title": "Esta edición necesita revisión"
+	"ores-damaging-title": "Esta edición necesita revisión",
+	"ores-damaging-legend": "ORES predí que este cambio pode ser prexudicial e debe ser revisado"
 }
