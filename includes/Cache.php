@@ -34,7 +34,7 @@ class Cache {
 
 				$modelVersion = $this->getModelVersion( $model );
 
-				foreach ( $modelOutputs['probabilities'] as $class => $probability ) {
+				foreach ( $modelOutputs['probability'] as $class => $probability ) {
 					$dbData[] = array(
 						'ores_rev' => $revid,
 						'ores_model' => $model,
