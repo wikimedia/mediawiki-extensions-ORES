@@ -9,7 +9,7 @@ use FormOptions;
 use Html;
 use JobQueueGroup;
 use MediaWiki\Logger\LoggerFactory;
-use OldChangesList;
+use ChangesList;
 use RCCacheEntry;
 use RecentChange;
 
@@ -17,7 +17,6 @@ use RecentChange;
  * TODO:
  * - Fix mw-core EnhancedChangesList::recentChangesBlockGroup to rollup
  * extension recentChangesFlags into the top-level grouped line.
- * - Fix mw-core "old" recent changes view to respect recentChangesFlags.
  */
 class Hooks {
 	/**
@@ -41,6 +40,7 @@ class Hooks {
 				'revid' => $rc->getAttribute( 'rc_this_oldid' ),
 			) );
 			JobQueueGroup::singleton()->push( $job );
+			$logger->debug( 'Job pushed...' );
 		}
 
 		return true;
@@ -126,14 +126,55 @@ class Hooks {
 	}
 
 	/**
+	 * Hook for formatting recent changes linkes
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/OldChangesListRecentChangesLine
+	 *
+	 * @param ChangesList $changesList
+	 * @param string $s
+	 * @param RecentChange $rc
+	 * @param string[] &$classes
+	 *
+	 * @return bool
+	 */
+	public static function onOldChangesListRecentChangesLine( ChangesList &$changesList, &$s,
+		$rc, &$classes = array()
+	) {
+		$damaging = self::getScoreRecentChangesList( $rc );
+		if ( $damaging ) {
+			$separator = ' <span class="mw-changeslist-separator">. .</span> ';
+			if ( strpos( $s, $separator ) === false ) {
+				return false;
+			}
+			$classes[] = 'damaging';
+			$parts = explode( $separator, $s );
+			$parts[1] = $changesList->flag( 'damaging' ) . $parts[1];
+			$s = implode( $separator, $parts );
+		}
+
+		return true;
+	}
+
+	/**
 	 * Internal helper to label matching rows
 	 */
 	protected static function processRecentChangesList( RCCacheEntry $rcObj, array &$data ) {
+		$damaging = self::getScoreRecentChangesList( $rcObj );
+		if ( $damaging ) {
+			$data['recentChangesFlags']['damaging'] = true;
+		}
+	}
+
+	/**
+	 * Another internal helper to label matching rows
+	 */
+	protected static function getScoreRecentChangesList( $rcObj ) {
 		global $wgOresDamagingThreshold;
 
 		$score = $rcObj->getAttribute( 'ores_probability' );
 		if ( $score && $score >= $wgOresDamagingThreshold ) {
-			$data['recentChangesFlags']['damaging'] = true;
+			return true;
+		} else {
+			return false;
 		}
 	}
 }
