@@ -171,7 +171,8 @@ class Hooks {
 		global $wgOresDamagingThreshold;
 
 		$score = $rcObj->getAttribute( 'ores_probability' );
-		if ( $score && $score >= $wgOresDamagingThreshold ) {
+		$patrolled = $rcObj->getAttribute( 'rc_patrolled' );
+		if ( $score && $score >= $wgOresDamagingThreshold && !$patrolled ) {
 			return true;
 		} else {
 			return false;
