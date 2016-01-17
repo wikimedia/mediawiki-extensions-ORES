@@ -165,7 +165,7 @@ class Hooks {
 	}
 
 	/**
-	 * Another internal helper to label matching rows
+	 * Check if we should flag a row
 	 */
 	protected static function getScoreRecentChangesList( $rcObj ) {
 		global $wgOresDamagingThreshold;
