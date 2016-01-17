@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"VaiTon86"
+			"VaiTon86",
+			"JackLantern"
 		]
 	},
-	"ores-damaging-filter": "$1 buone modifiche"
+	"ores-damaging-filter": "$1 buone modifiche",
+	"ores-damaging-letter": "r"
 }
