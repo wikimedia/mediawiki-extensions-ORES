@@ -2,7 +2,11 @@
 	"@metadata": [],
 	"ores-desc": "Extension summary.",
 	"ores-damaging-filter": "Label to toggle filtering on ORES data. Parameters:\n* $1 - Action to be performed by toggling. Can be either 'show' or 'hide'.",
+	"ores-damaging-hard": "Name of \"Hard\" threshold ",
 	"ores-damaging-letter": "Single letter for tagging possibly damaging recent changes.",
+	"ores-damaging-soft": "Name of \"Soft\" threshold ",
 	"ores-damaging-title": "Tooltip for damaging risk icon.",
-	"ores-damaging-legend": "Legend for damaging risk icon."
+	"ores-damaging-legend": "Legend for damaging risk icon.",
+	"ores-pref-damaging": "Part asking for damaging threshold",
+	"prefs-ores" : "Name of ORES section in preferences"
 }
