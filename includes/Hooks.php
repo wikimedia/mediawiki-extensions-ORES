@@ -79,13 +79,20 @@ class Hooks {
 		$threshold = self::getThreshold();
 
 		$tables[] = 'ores_classification';
-		$fields[] = 'ores_probability';
+		$tables[] = 'ores_model';
+
+		$fields[] = 'oresc_probability';
 		$join_conds['ores_classification'] = array( 'LEFT JOIN',
-			'rc_this_oldid = ores_rev AND ores_model = \'damaging\' ' .
-			'AND ores_is_predicted = 1 AND ores_class = \'true\'' );
+			'rc_this_oldid = oresc_rev ' .
+			'AND oresc_is_predicted = 1 AND oresc_class = \'true\'' );
 
 		// Add user-based threshold
 		$fields[] = $threshold . ' AS ores_threshold';
+
+		$join_conds['ores_model'] = array( 'LEFT JOIN',
+			'oresc_model = oresm_id AND oresm_name = \'damaging\' ' .
+			'AND oresm_is_current = 1'
+		);
 
 		if ( $opts->getValue( 'hidenondamaging' ) ) {
 			// Filter out non-damaging edits.
@@ -180,7 +187,7 @@ class Hooks {
 				'getting threshold for each edit seperately' );
 			$threshold = self::getThreshold();
 		}
-		$score = $rcObj->getAttribute( 'ores_probability' );
+		$score = $rcObj->getAttribute( 'oresc_probability' );
 		$patrolled = $rcObj->getAttribute( 'rc_patrolled' );
 		if ( $score && $score >= $threshold && !$patrolled ) {
 			return true;

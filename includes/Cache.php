@@ -5,7 +5,7 @@ namespace ORES;
 use RuntimeException;
 
 class Cache {
-	static protected $modelVersions;
+	static protected $modelIds;
 
 	/**
 	 * Save scores to the database
@@ -32,16 +32,15 @@ class Cache {
 					$prediction = 'true';
 				}
 
-				$modelVersion = $this->getModelVersion( $model );
+				$modelId = $this->getModelId( $model );
 
 				foreach ( $modelOutputs['probability'] as $class => $probability ) {
 					$dbData[] = array(
-						'ores_rev' => $revid,
-						'ores_model' => $model,
-						'ores_model_version' => $modelVersion,
-						'ores_class' => $class,
-						'ores_probability' => $probability,
-						'ores_is_predicted' => ( $prediction === $class ),
+						'oresc_rev' => $revid,
+						'oresc_model' => $modelId,
+						'oresc_class' => $class,
+						'oresc_probability' => $probability,
+						'oresc_is_predicted' => ( $prediction === $class ),
 					);
 				}
 			}
@@ -66,24 +65,26 @@ class Cache {
 		$dbr = wfGetDb( DB_SLAVE );
 		$dbw = wfGetDb( DB_MASTER );
 
+		$join_conds = array( 'ores_model' =>
+			array( 'LEFT JOIN', 'oresm_id = oresc_model' ) );
 		$conditions = array(
-			'ores_model' => $model,
+			'oresm_name' => $model,
 		);
 		if ( !$isEverything ) {
-			$currentModelVersion = $this->getModelVersion( $model );
-			$conditions[] = 'ores_model_version != ' . $dbr->addQuotes( $currentModelVersion );
+			$conditions[] = 'oresm_is_current != 1';
 		}
 
 		do {
 			$ids = $dbr->selectFieldValues( 'ores_classification',
-				'ores_rev',
+				'oresc_rev',
 				$conditions,
 				__METHOD__,
-				array( 'LIMIT' => $batchSize )
+				array( 'LIMIT' => $batchSize ),
+				$join_conds
 			);
 			if ( $ids ) {
 				$dbw->delete( 'ores_classification',
-					array( 'ores_rev' => $ids ),
+					array( 'oresc_rev' => $ids ),
 					__METHOD__
 				);
 				wfWaitForSlaves();
@@ -94,29 +95,29 @@ class Cache {
 	/**
 	 * @param string $model
 	 *
-	 * @return string cached last seen version
+	 * @return string cached id of last seen version
 	 */
-	protected function getModelVersion( $model ) {
-		if ( isset( self::$modelVersions[$model] ) ) {
-			return self::$modelVersions[$model];
+	protected function getModelId( $model ) {
+		if ( isset( self::$modelIds[$model] ) ) {
+			return self::$modelIds[$model];
 		}
 
-		$modelVersion = wfGetDb( DB_SLAVE )->selectField( 'ores_model',
-			'ores_model_version',
-			array( 'ores_model' => $model ),
+		$modelId = wfGetDb( DB_SLAVE )->selectField( 'ores_model',
+			'oresm_id',
+			array( 'oresm_name' => $model, 'oresm_is_current' => 1 ),
 			__METHOD__
 		);
-		if ( $modelVersion === false ) {
-			throw new RuntimeException( "No model version available for [{$model}]" );
+		if ( $modelId === false ) {
+			throw new RuntimeException( "No model available for [{$model}]" );
 		}
 
-		self::$modelVersions[$model] = $modelVersion;
-		return $modelVersion;
+		self::$modelIds[$model] = $modelId;
+		return $modelId;
 	}
 
 	public function getModels() {
 		$models = wfGetDb( DB_SLAVE )->selectFieldValues( 'ores_model',
-			'ores_model',
+			'oresm_name',
 			array(),
 			__METHOD__
 		);

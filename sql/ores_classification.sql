@@ -3,21 +3,20 @@
 -- Each revision will usually be assigned a probability for all classes in the
 -- model's output range.
 CREATE TABLE /*_*/ores_classification (
+	-- ORES ID
+	oresc_id bigint unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	-- Revision ID
-	ores_rev INTEGER(10) NOT NULL,
-	-- Model name
-	ores_model VARCHAR(32) NOT NULL,
-	-- Model version
-	ores_model_version VARCHAR(32) NOT NULL,
+	oresc_rev INTEGER(10) unsigned NOT NULL,
+	-- Model name (foreign key to ores_model.oresm_id)
+	oresc_model SMALLINT NOT NULL,
 	-- Classification title
-	ores_class VARCHAR(32) NOT NULL,
+	oresc_class VARCHAR(32) NOT NULL,
 	-- Estimated classification probability
-	ores_probability DECIMAL(10,10) NOT NULL,
+	oresc_probability DECIMAL(10,10) NOT NULL,
 	-- Whether this classification has been recommended as the most likely
 	-- candidate.
-	ores_is_predicted TINYINT(1) NOT NULL
+	oresc_is_predicted TINYINT(1) NOT NULL
 ) /*$wgDBTableOptions*/;
 
-CREATE INDEX /*i*/ores_rev ON /*_*/ores_classification (ores_rev);
-CREATE INDEX /*i*/ores_is_predicted ON /*_*/ores_classification (ores_is_predicted);
-CREATE INDEX /*i*/ores_winner ON /*_*/ores_classification (ores_rev, ores_is_predicted);
+CREATE INDEX /*i*/oresc_rev ON /*_*/ores_classification (oresc_rev);
+CREATE INDEX /*i*/oresc_winner ON /*_*/ores_classification (oresc_rev, oresc_is_predicted);
