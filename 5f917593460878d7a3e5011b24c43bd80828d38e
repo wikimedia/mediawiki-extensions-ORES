@@ -16,6 +16,24 @@
       "revId": "5f917593460878d7a3e5011b24c43bd80828d38e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_b1789b27",
+        "filename": "sql/ores_classification.sql",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-01-24T22:55:50Z",
+      "side": 1,
+      "message": "I see how it can affect the database performance but in those cases we need to join ores_model table in all of our queries and check if it matches with our model name (e.g.  \u0027damaging\u0027 in https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FORES/master/includes%2FHooks.php#L84)\nIf you still think it\u0027s better this way. I implement it.",
+      "parentUuid": "6eaa8f54_31b7cbf4",
+      "revId": "5f917593460878d7a3e5011b24c43bd80828d38e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
