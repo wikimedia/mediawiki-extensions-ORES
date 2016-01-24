@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_31b7cbf4",
+        "filename": "sql/ores_classification.sql",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-24T21:46:44Z",
+      "side": 1,
+      "message": "It would be better to use the primary key of the other table for this. But for that you would need to have more than one line per model-version pair in ores_model.",
+      "revId": "5f917593460878d7a3e5011b24c43bd80828d38e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
