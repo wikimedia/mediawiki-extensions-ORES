@@ -34,6 +34,24 @@
       "revId": "5f917593460878d7a3e5011b24c43bd80828d38e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_31e26bd1",
+        "filename": "sql/ores_classification.sql",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-24T23:15:05Z",
+      "side": 1,
+      "message": "The cost of joining by PK is negligible, thus I think it still is an improvement.",
+      "parentUuid": "6eaa8f54_b1789b27",
+      "revId": "5f917593460878d7a3e5011b24c43bd80828d38e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
