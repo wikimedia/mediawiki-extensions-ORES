@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_04d36bd8",
+        "filename": "sql/ores_model.sql",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-25T09:02:47Z",
+      "side": 1,
+      "message": "Still allows oresm_model, oresm_model_version pair duplicates. You probably want another index to make them unique.",
+      "revId": "92c814e0532f4d38c8db24fdd6eb1b2693437546",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
