@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_4462c338",
+        "filename": "sql/ores_classification.sql",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-25T08:42:09Z",
+      "side": 1,
+      "message": "It might be more future proof to use bigint here, if we have many rows per revision (Wikidata makes 8-15M revisions per month).",
+      "revId": "53ceb251897304b1aa32a9622220ac7325ccc7d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_245d477f",
+        "filename": "sql/ores_classification.sql",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-25T08:42:09Z",
+      "side": 1,
+      "message": "INT(3)? I guess this is enough, but it should match the definition in ores_model",
+      "revId": "53ceb251897304b1aa32a9622220ac7325ccc7d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_44fe4368",
+        "filename": "sql/ores_model.sql",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-25T08:42:09Z",
+      "side": 1,
+      "message": "This index shouldn\u0027t be unique, you want multiple rows for one model, but different versions.\nBut you probably want one unique index over oresm_model, oresm_is_current as that should actually be unique. Same for orsem_model, oresm_is_current.",
+      "revId": "53ceb251897304b1aa32a9622220ac7325ccc7d9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
