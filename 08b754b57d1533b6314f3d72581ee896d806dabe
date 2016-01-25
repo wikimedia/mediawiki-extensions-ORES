@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_64b7bf85",
+        "filename": "sql/ores_model.sql",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-01-25T09:35:26Z",
+      "side": 1,
+      "message": "This one should also be unique. You want to have the following pairs unique:\n\n(oresm_model, oresm_is_current)\n(oresm_model, oresm_model_version)\n\nFor each model there is only one current version. We only have one entry for each model-version pair.",
+      "revId": "08b754b57d1533b6314f3d72581ee896d806dabe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
