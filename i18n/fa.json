@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Reza1615"
+			"Reza1615",
+			"Ladsgroup"
 		]
 	},
 	"ores-desc": "نمایش امتیاز خودکار ویرایش‌ها در واسط کاربری",
-	"ores-reverted-filter": "$1 واگردانی پیش‌بینی",
-	"ores-reverted-high": "ریسک بالا، امکان واگردانی $1%",
-	"ores-reverted-medium": "ریسک متوسط، امکان واگردانی $1%",
-	"ores-reverted-low": "ریسک کم، امکان واگردانی $1%"
+	"ores-damaging-filter": "$1 ویرایش‌های خوب",
+	"ores-damaging-letter": "ب",
+	"ores-damaging-title": "این ویرایش نیاز به بازبینی دارد",
+	"ores-damaging-legend": "ORES پیش‌بینی می‌کند که این ویرایش ممکن است آسیب‌زننده باشد و بهتر است بازبینی شود"
 }
