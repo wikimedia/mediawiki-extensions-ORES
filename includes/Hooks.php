@@ -2,6 +2,7 @@
 
 namespace ORES;
 
+use ChangesList;
 use ChangesListSpecialPage;
 use DatabaseUpdater;
 use EnhancedChangesList;
@@ -9,9 +10,10 @@ use FormOptions;
 use Html;
 use JobQueueGroup;
 use MediaWiki\Logger\LoggerFactory;
-use ChangesList;
+use OutputPage;
 use RCCacheEntry;
 use RecentChange;
+use Skin;
 
 /**
  * TODO:
@@ -230,7 +232,14 @@ class Hooks {
 			'options' => $options,
 			'help-message' => 'ores-help-damaging-pref',
 		);
+		return true;
+	}
 
+	/**
+	 * Add CSS styles to output page
+	 */
+	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
+		$out->addModuleStyles( 'ext.ores.styles' );
 		return true;
 	}
 }
