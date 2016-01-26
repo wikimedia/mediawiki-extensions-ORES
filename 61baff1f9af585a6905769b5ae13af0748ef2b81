@@ -34,6 +34,24 @@
       "revId": "61baff1f9af585a6905769b5ae13af0748ef2b81",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eaa8f54_3c0c7745",
+        "filename": "sql/ores_classification.sql",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-01-26T04:52:49Z",
+      "side": 1,
+      "message": "Sorry but I don\u0027t understand why you\u0027re asking this question. Do you mean we shouldn\u0027t define anything like this?",
+      "parentUuid": "6eaa8f54_9c4d6ba1",
+      "revId": "61baff1f9af585a6905769b5ae13af0748ef2b81",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
