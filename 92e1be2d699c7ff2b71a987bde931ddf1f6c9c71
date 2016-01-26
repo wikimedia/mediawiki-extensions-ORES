@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eaa8f54_7cfe6f68",
+        "filename": "i18n/en.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2016-01-26T03:16:17Z",
+      "side": 1,
+      "message": "Meaning of \"recall\" is not clear. I don\u0027t know what this means.",
+      "revId": "92e1be2d699c7ff2b71a987bde931ddf1f6c9c71",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
