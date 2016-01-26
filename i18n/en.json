@@ -4,7 +4,11 @@
 	},
 	"ores-desc": "Expose automated revision scores in the interface",
 	"ores-damaging-filter": "$1 good edits",
+	"ores-damaging-hard": "Hard (higher)",
 	"ores-damaging-letter": "r",
+	"ores-damaging-soft": "Soft (lower)",
 	"ores-damaging-title": "This edit needs review",
-	"ores-damaging-legend": "ORES predicts that this change may be damaging and should be reviewed"
+	"ores-damaging-legend": "ORES predicts that this change may be damaging and should be reviewed",
+	"ores-pref-damaging": "ORES threshold for damaging model",
+	"prefs-ores" : "ORES"
 }

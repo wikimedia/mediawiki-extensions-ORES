@@ -76,7 +76,7 @@ class Hooks {
 		$name, array &$tables, array &$fields, array &$conds,
 		array &$query_options, array &$join_conds, FormOptions $opts
 	) {
-		global $wgOresDamagingThreshold;
+		$threshold = self::getThreshold();
 
 		$tables[] = 'ores_classification';
 		$fields[] = 'ores_probability';
@@ -84,11 +84,14 @@ class Hooks {
 			'rc_this_oldid = ores_rev AND ores_model = \'damaging\' ' .
 			'AND ores_is_predicted = 1 AND ores_class = \'true\'' );
 
+		// Add user-based threshold
+		$fields[] = $threshold . ' AS ores_threshold';
+
 		if ( $opts->getValue( 'hidenondamaging' ) ) {
 			// Filter out non-damaging edits.
 			$conds[] = 'ores_is_predicted = 1';
 			$conds[] = 'ores_probability > '
-				. wfGetDb( DB_SLAVE )->addQuotes( $wgOresDamagingThreshold );
+				. wfGetDb( DB_SLAVE )->addQuotes( $threshold );
 		}
 
 		return true;
@@ -120,6 +123,7 @@ class Hooks {
 	public static function onEnhancedChangesListModifyBlockLineData( EnhancedChangesList $ecl,
 		array &$data, RCCacheEntry $rcObj
 	) {
+
 		self::processRecentChangesList( $rcObj, $data );
 
 		return true;
@@ -168,14 +172,58 @@ class Hooks {
 	 * Check if we should flag a row
 	 */
 	protected static function getScoreRecentChangesList( $rcObj ) {
-		global $wgOresDamagingThreshold;
 
+		$score = $rcObj->getAttribute( 'ores_threshold' );
+		if ( $threshold === null ) {
+			$logger = LoggerFactory::getInstance( 'ORES' );
+			$logger->debug( 'WARNING: Running low perofrmance actions, ' .
+				'getting threshold for each edit seperately' );
+			$threshold = self::getThreshold();
+		}
 		$score = $rcObj->getAttribute( 'ores_probability' );
 		$patrolled = $rcObj->getAttribute( 'rc_patrolled' );
-		if ( $score && $score >= $wgOresDamagingThreshold && !$patrolled ) {
+		if ( $score && $score >= $threshold && !$patrolled ) {
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	/**
+	 * Internal helper to get threshold
+	 */
+	protected static function getThreshold() {
+		global $wgOresDamagingThresholds;
+		global $wgOresDamagingDefault;
+		global $wgUser;
+
+		$pref = $wgUser->getOption( 'oresDamagingPref' );
+		// User is not logged in, returning default
+		if ( $wgOresDamagingThresholds[$pref] === null ) {
+			return $wgOresDamagingThresholds[$wgOresDamagingDefault];
+		}
+		return $wgOresDamagingThresholds[$pref];
+	}
+
+	/**
+	 * GetPreferences hook, adding ORES section, letting people choose a threshold
+	 */
+	public static function onGetPreferences( $user, &$preferences ) {
+		global $wgOresDamagingThresholds;
+
+		$options = array();
+		foreach ( $wgOresDamagingThresholds as $case => $value ) {
+			$text = wfMessage( 'ores-damaging-' . $case )->parse();
+			$options[$text] = $case;
+		}
+		$preferences['oresDamagingPref'] = array(
+			'type' => 'select',
+			'label-message' => 'ores-pref-damaging',
+			'section' => 'rc/ores',
+			'options' => $options,
+			'help-message' => 'ores-help-damaging-pref',
+		);
+
+		return true;
 	}
 }

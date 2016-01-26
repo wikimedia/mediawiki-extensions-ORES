@@ -36,6 +36,9 @@
 		],
 		"OldChangesListRecentChangesLine": [
 			"ORES\\Hooks::onOldChangesListRecentChangesLine"
+		],
+		"GetPreferences": [
+			"ORES\\Hooks::onGetPreferences"
 		]
 	},
 	"ResourceFileModulePaths": {
@@ -58,7 +61,11 @@
 			"reverted",
 			"wp10"
 		],
-		"OresDamagingThreshold": 0.87,
+		"OresDamagingThresholds": {
+			"hard": 0.70,
+			"soft": 0.50
+		},
+		"OresDamagingDefault": "hard",
 		"OresWikiId": null,
 		"RecentChangesFlags": {
 			"damaging": {
