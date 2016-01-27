@@ -180,7 +180,7 @@ class Hooks {
 	 */
 	protected static function getScoreRecentChangesList( $rcObj ) {
 
-		$score = $rcObj->getAttribute( 'ores_threshold' );
+		$threshold = $rcObj->getAttribute( 'ores_threshold' );
 		if ( $threshold === null ) {
 			$logger = LoggerFactory::getInstance( 'ORES' );
 			$logger->debug( 'WARNING: Running low perofrmance actions, ' .
@@ -201,14 +201,10 @@ class Hooks {
 	 */
 	protected static function getThreshold() {
 		global $wgOresDamagingThresholds;
-		global $wgOresDamagingDefault;
 		global $wgUser;
 
 		$pref = $wgUser->getOption( 'oresDamagingPref' );
-		// User is not logged in, returning default
-		if ( $wgOresDamagingThresholds[$pref] === null ) {
-			return $wgOresDamagingThresholds[$wgOresDamagingDefault];
-		}
+
 		return $wgOresDamagingThresholds[$pref];
 	}
 
