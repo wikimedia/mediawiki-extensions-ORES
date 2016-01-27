@@ -7,7 +7,11 @@
 	},
 	"ores-desc": "Expone puntuaciones automatizadas de revisiones en la interfaz",
 	"ores-damaging-filter": "$1 ediciones buenas",
+	"ores-damaging-hard": "Duro (alto)",
 	"ores-damaging-letter": "r",
+	"ores-damaging-soft": "Suave (bajo)",
 	"ores-damaging-title": "Esta edición necesita ser revisada",
-	"ores-damaging-legend": "ORES predice que este cambio puede ser perjudicial y debe ser revisado"
+	"ores-damaging-legend": "ORES predice que este cambio puede ser perjudicial y debe ser revisado",
+	"ores-pref-damaging": "Umbral ORES para modelo de daño",
+	"prefs-ores": "ORES"
 }

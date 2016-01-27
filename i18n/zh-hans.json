@@ -6,7 +6,10 @@
 	},
 	"ores-desc": "在界面中显示自动生成的修订折线",
 	"ores-damaging-filter": "$1次良好编辑",
+	"ores-damaging-hard": "硬（高）",
 	"ores-damaging-letter": "坏",
+	"ores-damaging-soft": "软（低）",
 	"ores-damaging-title": "此编辑需要复核",
-	"ores-damaging-legend": "ORES预测此更改可能具备破坏性，并应被复核"
+	"ores-damaging-legend": "ORES预测此更改可能具备破坏性，并应被复核",
+	"prefs-ores": "ORES"
 }

@@ -6,7 +6,11 @@
 	},
 	"ores-desc": "Zeigt automatisierte Versionsbewertungen in der Oberfläche an",
 	"ores-damaging-filter": "$1 gute Bearbeitungen",
+	"ores-damaging-hard": "Hart (höher)",
 	"ores-damaging-letter": "ü",
+	"ores-damaging-soft": "Weich (niedriger)",
 	"ores-damaging-title": "Diese Bearbeitung benötigt eine Überprüfung",
-	"ores-damaging-legend": "ORES sagt voraus, dass diese Änderung schädlich sein könnte und sollte überprüft werden"
+	"ores-damaging-legend": "ORES sagt voraus, dass diese Änderung schädlich sein könnte und sollte überprüft werden",
+	"ores-pref-damaging": "ORES-Schwelle für das Beschädigungsmodell",
+	"prefs-ores": "ORES"
 }

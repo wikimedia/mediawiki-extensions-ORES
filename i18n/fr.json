@@ -6,7 +6,11 @@
 	},
 	"ores-desc": "Exposer les notes de révision automatisées dans l’interface",
 	"ores-damaging-filter": "$1 bonnes modifications",
+	"ores-damaging-hard": "Dur (plus élevé)",
 	"ores-damaging-letter": "r",
+	"ores-damaging-soft": "Doux (moins élevé)",
 	"ores-damaging-title": "Cette modification doit être revue",
-	"ores-damaging-legend": "ORES prédit que cette modification pourrait être nuisible et devrait être revue"
+	"ores-damaging-legend": "ORES prédit que cette modification pourrait être nuisible et devrait être revue",
+	"ores-pref-damaging": "Seuil ORES pour le modèle de dommages",
+	"prefs-ores": "ORES"
 }

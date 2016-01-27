@@ -2,9 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"VaiTon86",
-			"JackLantern"
+			"JackLantern",
+			"Beta16"
 		]
 	},
 	"ores-damaging-filter": "$1 buone modifiche",
-	"ores-damaging-letter": "r"
+	"ores-damaging-hard": "Duro (alto)",
+	"ores-damaging-letter": "r",
+	"ores-damaging-soft": "Morbido (basso)",
+	"ores-pref-damaging": "Soglia ORES per modello dannoso",
+	"prefs-ores": "ORES"
 }

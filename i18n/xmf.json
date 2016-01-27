@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Silovan"
+		]
+	},
+	"ores-damaging-hard": "მანგარი (მაღალი)",
+	"ores-damaging-soft": "ლექინი (დაბალი)"
+}
