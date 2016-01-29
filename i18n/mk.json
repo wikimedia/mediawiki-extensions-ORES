@@ -6,7 +6,11 @@
 	},
 	"ores-desc": "Изложување во посредникот на автоматските оцени на преработките.",
 	"ores-damaging-filter": "$1 добри уредувања",
+	"ores-damaging-hard": "Тврда (повисоко)",
 	"ores-damaging-letter": "с",
+	"ores-damaging-soft": "Мека (пониско)",
 	"ores-damaging-title": "На уредувањево му треба проверка",
-	"ores-damaging-legend": "ORES предвидува дека оваа промена може да биде штетна и треба да се провери"
+	"ores-damaging-legend": "ORES предвидува дека оваа промена може да биде штетна и треба да се провери",
+	"ores-pref-damaging": "ORES-праг за моделот на штетност",
+	"prefs-ores": "ORES"
 }

@@ -11,5 +11,6 @@
 	"ores-damaging-soft": "软（低）",
 	"ores-damaging-title": "此编辑需要复核",
 	"ores-damaging-legend": "ORES预测此更改可能具备破坏性，并应被复核",
+	"ores-pref-damaging": "ORES破坏模型门槛",
 	"prefs-ores": "ORES"
 }
