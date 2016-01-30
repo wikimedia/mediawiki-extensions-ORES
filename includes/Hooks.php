@@ -84,7 +84,7 @@ class Hooks {
 		$fields[] = 'oresc_probability';
 		$join_conds['ores_classification'] = array( 'LEFT JOIN',
 			'rc_this_oldid = oresc_rev ' .
-			'AND oresc_is_predicted = 1 AND oresc_class = \'true\'' );
+			'AND oresc_is_predicted = 1 AND oresc_class = 1' );
 
 		// Add user-based threshold
 		$fields[] = $threshold . ' AS ores_threshold';

@@ -10,9 +10,9 @@ CREATE TABLE /*_*/ores_classification (
 	-- Model name (foreign key to ores_model.oresm_id)
 	oresc_model SMALLINT NOT NULL,
 	-- Classification title
-	oresc_class VARCHAR(32) NOT NULL,
+	oresc_class TINYINT NOT NULL,
 	-- Estimated classification probability
-	oresc_probability DECIMAL(10,10) NOT NULL,
+	oresc_probability DECIMAL(3,3) NOT NULL,
 	-- Whether this classification has been recommended as the most likely
 	-- candidate.
 	oresc_is_predicted TINYINT(1) NOT NULL
