@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80",
+			"ערן"
+		]
+	},
+	"ores-desc": "חשיפת דירוגי גרסאות אוטומטיים בממשק",
+	"ores-damaging-filter": "$1 עריכות טובות",
+	"ores-damaging-hard": "קשה (גבוה יותר)",
+	"ores-damaging-letter": "ד",
+	"ores-damaging-soft": "רך (נמוך יותר)",
+	"ores-damaging-title": "עריכה זו דורשת בדיקה",
+	"ores-damaging-legend": "ORES מעריך כי שינוי זה מזיק ודורש סקירה",
+	"ores-pref-damaging": "סף ORES בשביל דגם נזק"
+}
