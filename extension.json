@@ -16,11 +16,8 @@
 		"ORES\\Scoring": "includes/Scoring.php"
 	},
 	"Hooks": {
-		"LoadExtensionSchemaUpdates": [
-			"ORES\\Hooks::onLoadExtensionSchemaUpdates"
-		],
-		"RecentChange_save": [
-			"ORES\\Hooks::onRecentChange_save"
+		"BeforePageDisplay": [
+			"ORES\\Hooks::onBeforePageDisplay"
 		],
 		"ChangesListSpecialPageFilters": [
 			"ORES\\Hooks::onChangesListSpecialPageFilters"
@@ -34,16 +31,28 @@
 		"EnhancedChangesListModifyLineData": [
 			"ORES\\Hooks::onEnhancedChangesListModifyLineData"
 		],
+		"GetPreferences": [
+			"ORES\\Hooks::onGetPreferences"
+		],
+		"LoadExtensionSchemaUpdates": [
+			"ORES\\Hooks::onLoadExtensionSchemaUpdates"
+		],
 		"OldChangesListRecentChangesLine": [
 			"ORES\\Hooks::onOldChangesListRecentChangesLine"
 		],
-		"GetPreferences": [
-			"ORES\\Hooks::onGetPreferences"
+		"RecentChange_save": [
+			"ORES\\Hooks::onRecentChange_save"
 		]
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "modules",
 		"remoteExtPath": "ORES/modules"
+	},
+	"ResourceModules": {
+		"ext.ores.styles": {
+			"styles": "ext.ores.styles.css",
+			"position": "top"
+		}
 	},
 	"MessagesDirs": {
 		"ORES": [
