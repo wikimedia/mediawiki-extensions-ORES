@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Metalhead64"
+			"Metalhead64",
+			"AKlapper"
 		]
 	},
 	"ores-desc": "Zeigt automatisierte Versionsbewertungen in der Oberfläche an",
-	"ores-damaging-filter": "$1 gute Bearbeitungen",
+	"ores-damaging-filter": "Gute Bearbeitungen $1",
 	"ores-damaging-hard": "Hart (höher)",
 	"ores-damaging-letter": "ü",
 	"ores-damaging-soft": "Weich (niedriger)",
