@@ -71,8 +71,8 @@
 			"wp10"
 		],
 		"OresDamagingThresholds": {
-			"hard": 0.70,
-			"soft": 0.50
+			"soft": 0.70,
+			"hard": 0.50
 		},
 		"OresDamagingDefault": "hard",
 		"OresWikiId": null,
@@ -86,7 +86,7 @@
 		}
 	},
 	"DefaultUserOptions": {
-		"oresDamagingPref": "hard" 
+		"oresDamagingPref": "soft"
 	},
 	"manifest_version": 1
 }
