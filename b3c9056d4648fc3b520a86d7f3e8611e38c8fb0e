@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ea78b8a_fedd8174",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2016-02-03T01:09:46Z",
+      "side": 1,
+      "message": "Did you mean to change this in this commit?",
+      "revId": "b3c9056d4648fc3b520a86d7f3e8611e38c8fb0e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
