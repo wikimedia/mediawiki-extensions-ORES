@@ -50,8 +50,12 @@
 	},
 	"ResourceModules": {
 		"ext.ores.styles": {
+			"position": "top",
 			"styles": "ext.ores.styles.css",
-			"position": "top"
+			"targets": [
+				"desktop",
+				"mobile"
+			]
 		}
 	},
 	"MessagesDirs": {
@@ -86,7 +90,7 @@
 		}
 	},
 	"DefaultUserOptions": {
-		"oresDamagingPref": "soft"
+		"oresDamagingPref": "hard"
 	},
 	"manifest_version": 1
 }
