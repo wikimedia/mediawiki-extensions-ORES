@@ -7,9 +7,9 @@
 		]
 	},
 	"ores-damaging-filter": "$1 buone modifiche",
-	"ores-damaging-hard": "Duro (alto)",
+	"ores-damaging-hard": "Duro (più stringente)",
 	"ores-damaging-letter": "r",
-	"ores-damaging-soft": "Morbido (basso)",
+	"ores-damaging-soft": "Morbido (meno stringente)",
 	"ores-pref-damaging": "Soglia ORES per modello dannoso",
 	"prefs-ores": "ORES"
 }
