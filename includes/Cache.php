@@ -6,7 +6,14 @@ use RuntimeException;
 
 class Cache {
 	static protected $modelIds;
+	protected $ClassMap;
 
+
+	public function __construct() {
+		$this->ClassMap = array( 'true' => 1, 'false' => 0,
+			'B' => 0, 'C' => 1, 'FA' => 2, 'GA' => 3, 'FA' => 4,
+			'Start' => 5, 'Stub' => 6 );
+	}
 	/**
 	 * Save scores to the database
 	 *
@@ -33,14 +40,18 @@ class Cache {
 				}
 
 				$modelId = $this->getModelId( $model );
-
 				foreach ( $modelOutputs['probability'] as $class => $probability ) {
+					$ores_is_predicted = $prediction === $class;
+					$class = $this->ClassMap[$class];
+					if ( $class === 0 ) {
+						continue;
+					}
 					$dbData[] = array(
 						'oresc_rev' => $revid,
 						'oresc_model' => $modelId,
 						'oresc_class' => $class,
 						'oresc_probability' => $probability,
-						'oresc_is_predicted' => ( $prediction === $class ),
+						'oresc_is_predicted' => ( $ores_is_predicted ),
 					);
 				}
 			}
