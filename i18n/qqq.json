@@ -5,6 +5,8 @@
 			"Purodha"
 		]
 	},
+        "ores-beta-feature-description": "Description of ORES in beta features page.",
+        "ores-beta-feature-message": "Title of ORES section in beta features page.",
 	"ores-desc": "Extension summary.",
 	"ores-damaging-filter": "Label to toggle filtering on ORES data. Parameters:\n* $1 - Action to be performed by toggling. Can be either 'show' or 'hide'.",
 	"ores-damaging-hard": "Name of \"Hard\" threshold\n\nBasically, when you set a threshold too soft, you give it a high number, so less edits will be flagged for review but the chance of them being vandalism is higher. On the other hand, when you set it too hard, it flags more edits. So you might catch all vandalism, but proportion of vandalism would be less, and you see more false positives (edits that are flagged for review but are completely okay).",

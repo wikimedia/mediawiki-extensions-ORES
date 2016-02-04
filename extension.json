@@ -31,6 +31,9 @@
 		"EnhancedChangesListModifyLineData": [
 			"ORES\\Hooks::onEnhancedChangesListModifyLineData"
 		],
+		"GetBetaFeaturePreferences": [
+			"ORES\\Hooks::onGetBetaFeaturePreferences"
+		],
 		"GetPreferences": [
 			"ORES\\Hooks::onGetPreferences"
 		],
