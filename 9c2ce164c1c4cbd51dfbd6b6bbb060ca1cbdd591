@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ea78b8a_b9585c36",
+        "filename": "maintenance/PopluateDatabase.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-08T17:54:29Z",
+      "side": 1,
+      "message": "Do you cover all namespaces?",
+      "revId": "9c2ce164c1c4cbd51dfbd6b6bbb060ca1cbdd591",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_790c243e",
+        "filename": "maintenance/PopluateDatabase.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-08T17:54:29Z",
+      "side": 1,
+      "message": "please split this line",
+      "revId": "9c2ce164c1c4cbd51dfbd6b6bbb060ca1cbdd591",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_593608e6",
+        "filename": "maintenance/PopluateDatabase.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-08T17:54:29Z",
+      "side": 1,
+      "message": "Why protected? Could very well be private.\nWhy static? Only being used in an object context.",
+      "revId": "9c2ce164c1c4cbd51dfbd6b6bbb060ca1cbdd591",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_793ae4c1",
+        "filename": "maintenance/PopluateDatabase.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-08T17:54:29Z",
+      "side": 1,
+      "message": "you could \"cache\" instance in a variable in the method above.",
+      "revId": "9c2ce164c1c4cbd51dfbd6b6bbb060ca1cbdd591",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_19473052",
+        "filename": "maintenance/PopluateDatabase.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-08T17:54:29Z",
+      "side": 1,
+      "message": "as above",
+      "revId": "9c2ce164c1c4cbd51dfbd6b6bbb060ca1cbdd591",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
