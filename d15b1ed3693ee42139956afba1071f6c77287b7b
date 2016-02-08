@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ea78b8a_e80604d1",
+        "filename": "maintenance/PopluateDatabase.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-08T12:11:37Z",
+      "side": 1,
+      "message": "what database? ;)",
+      "revId": "d15b1ed3693ee42139956afba1071f6c77287b7b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_a8100c05",
+        "filename": "maintenance/PopluateDatabase.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-08T12:11:37Z",
+      "side": 1,
+      "message": "Please put the ); in its own line… that\u0027s what you do below and that should be consistent. Also an empty line after this would be nice.",
+      "revId": "d15b1ed3693ee42139956afba1071f6c77287b7b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_68f214e1",
+        "filename": "maintenance/PopluateDatabase.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-08T12:11:37Z",
+      "side": 1,
+      "message": "Isn\u0027t the idea of this to actually populate the DB and not push the jobs? If you just push jobs, please document that. (I\u0027d recommend you to not use jobs here, these will either take a lot of time to run through entirely or so many will run in parallel that you\u0027ll knock over the databases. Do the query in here and wait for slaves after each batch).",
+      "revId": "d15b1ed3693ee42139956afba1071f6c77287b7b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
