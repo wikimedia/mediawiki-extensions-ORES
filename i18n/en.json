@@ -2,6 +2,8 @@
 	"@metadata": {
 		"authors": []
 	},
+        "ores-beta-feature-description": "ORES is an AI-based tool that highlights probably damaging edits in recent changes and watchlist",
+        "ores-beta-feature-message": "ORES",
 	"ores-desc": "Expose automated revision scores in the interface",
 	"ores-damaging-filter": "$1 good edits",
 	"ores-damaging-hard": "Hard (more strict)",

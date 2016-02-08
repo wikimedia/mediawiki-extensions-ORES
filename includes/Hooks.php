@@ -2,6 +2,7 @@
 
 namespace ORES;
 
+use BetaFeatures;
 use ChangesList;
 use ChangesListSpecialPage;
 use DatabaseUpdater;
@@ -55,6 +56,10 @@ class Hooks {
 	 * @param $filters
 	 */
 	public static function onChangesListSpecialPageFilters( ChangesListSpecialPage $clsp, &$filters ) {
+		if ( self::oresEnabled( $clsp->getUser() ) === false ) {
+			return true;
+		}
+
 		$filters['hidenondamaging'] = array(
 			'msg' => 'ores-damaging-filter',
 			'default' => false,
@@ -78,6 +83,10 @@ class Hooks {
 		$name, array &$tables, array &$fields, array &$conds,
 		array &$query_options, array &$join_conds, FormOptions $opts
 	) {
+		if ( self::oresEnabled() === false ) {
+			return true;
+		}
+
 		$threshold = self::getThreshold();
 
 		$tables[] = 'ores_classification';
@@ -117,6 +126,10 @@ class Hooks {
 	public static function onEnhancedChangesListModifyLineData( EnhancedChangesList $ecl, array &$data,
 		array $block, RCCacheEntry $rcObj
 	) {
+		if ( self::oresEnabled( $ecl->getUser() ) === false ) {
+			return true;
+		}
+
 		self::processRecentChangesList( $rcObj, $data );
 
 		return true;
@@ -132,6 +145,9 @@ class Hooks {
 	public static function onEnhancedChangesListModifyBlockLineData( EnhancedChangesList $ecl,
 		array &$data, RCCacheEntry $rcObj
 	) {
+		if ( self::oresEnabled( $ecl->getUser() ) === false ) {
+			return true;
+		}
 
 		self::processRecentChangesList( $rcObj, $data );
 
@@ -152,6 +168,10 @@ class Hooks {
 	public static function onOldChangesListRecentChangesLine( ChangesList &$changesList, &$s,
 		$rc, &$classes = array()
 	) {
+		if ( self::oresEnabled( $changesList->getUser() ) === false ) {
+			return true;
+		}
+
 		$damaging = self::getScoreRecentChangesList( $rc );
 		if ( $damaging ) {
 			$separator = ' <span class="mw-changeslist-separator">. .</span> ';
@@ -216,6 +236,9 @@ class Hooks {
 	public static function onGetPreferences( $user, &$preferences ) {
 		global $wgOresDamagingThresholds;
 
+		if ( self::oresEnabled( $user ) === false ) {
+			return true;
+		}
 		$options = array();
 		foreach ( $wgOresDamagingThresholds as $case => $value ) {
 			$text = wfMessage( 'ores-damaging-' . $case )->parse();
@@ -235,7 +258,42 @@ class Hooks {
 	 * Add CSS styles to output page
 	 */
 	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
+		if ( self::oresEnabled( $out->getUser() ) === false ) {
+			return true;
+		}
 		$out->addModuleStyles( 'ext.ores.styles' );
 		return true;
+	}
+
+	/**
+	 * Make a beta feature
+	 */
+	public static function onGetBetaFeaturePreferences( $user, &$prefs ) {
+		global $wgExtensionAssetsPath;
+
+		$prefs['ores-enabled'] = array(
+			'label-message' => 'ores-beta-feature-message',
+			'desc-message' => 'ores-beta-feature-description',
+			'screenshot' => array(
+				'ltr' => "$wgExtensionAssetsPath/ORES/images/ORES-beta-features-ltr.png",
+				'rtl' => "$wgExtensionAssetsPath/ORES/images/ORES-beta-features-rtl.png",
+			),
+			'info-link' => 'https://www.mediawiki.org/wiki/Extension:ORES',
+			'discussion-link' => 'https://www.mediawiki.org/wiki/Extension_talk:ORES',
+		);
+	}
+
+	/**
+	 * Check whether the user enabled ores as a beta feature
+	 */
+	public static function oresEnabled( $user ) {
+	if ( $user === null ) {
+		global $wgUser;
+		$user = $wgUser;
+	}
+	if ( BetaFeatures::isFeatureEnabled( $user, 'ores-enabled' ) ) {
+		return true;
+	}
+	return false;
 	}
 }
