@@ -6,6 +6,7 @@
 			"Beta16"
 		]
 	},
+	"ores-beta-feature-description": "ORES è uno strumento basato su intelligenza artificiale che mette in evidenza contributi probabilmente dannosi nelle ultime modifiche e negli osservati speciali.",
 	"ores-damaging-filter": "$1 buone modifiche",
 	"ores-damaging-hard": "Duro (più stringente)",
 	"ores-damaging-letter": "r",

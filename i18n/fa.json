@@ -5,9 +5,13 @@
 			"Ladsgroup"
 		]
 	},
+	"ores-beta-feature-description": "ORES یک ابزار بر پایه هوش مصنوعی است که ویرایش‌های متحملا خرابکاری را در تغییرات اخیر و فهرست پی‌گیری برجسته می‌کند",
 	"ores-desc": "نمایش امتیاز خودکار ویرایش‌ها در واسط کاربری",
 	"ores-damaging-filter": "$1 ویرایش‌های خوب",
+	"ores-damaging-hard": "سخت (سختگیرتر)",
 	"ores-damaging-letter": "ب",
+	"ores-damaging-soft": "نرم (آسان‌گیرتر)",
 	"ores-damaging-title": "این ویرایش نیاز به بازبینی دارد",
-	"ores-damaging-legend": "ORES پیش‌بینی می‌کند که این ویرایش ممکن است آسیب‌زننده باشد و بهتر است بازبینی شود"
+	"ores-damaging-legend": "ORES پیش‌بینی می‌کند که این ویرایش ممکن است آسیب‌زننده باشد و بهتر است بازبینی شود",
+	"ores-pref-damaging": "آستانه ORES برای مدل آسیب‌زننده"
 }
