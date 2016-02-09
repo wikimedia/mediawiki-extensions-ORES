@@ -24,6 +24,7 @@ use Skin;
 class Hooks {
 	/**
 	 * @param DatabaseUpdater $updater
+	 * @return bool
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$updater->addExtensionTable( 'ores_classification', __DIR__ . '/../sql/ores_classification.sql' );
@@ -54,6 +55,7 @@ class Hooks {
 	 *
 	 * @param ChangesListSpecialPage $clsp
 	 * @param $filters
+	 * @return bool
 	 */
 	public static function onChangesListSpecialPageFilters( ChangesListSpecialPage $clsp, &$filters ) {
 		if ( self::oresEnabled( $clsp->getUser() ) === false ) {
@@ -78,6 +80,7 @@ class Hooks {
 	 * @param array $query_options
 	 * @param array $join_conds
 	 * @param FormOptions $opts
+	 * @return bool
 	 */
 	public static function onChangesListSpecialPageQuery(
 		$name, array &$tables, array &$fields, array &$conds,
@@ -109,7 +112,7 @@ class Hooks {
 			// Filter out non-damaging edits.
 			$conds[] = 'ores_is_predicted = 1';
 			$conds[] = 'ores_probability > '
-				. wfGetDb( DB_SLAVE )->addQuotes( $threshold );
+				. \wfGetDB( DB_SLAVE )->addQuotes( $threshold );
 		}
 
 		return true;
@@ -122,6 +125,7 @@ class Hooks {
 	 * @param array $data
 	 * @param RCCacheEntry[] $block
 	 * @param RCCacheEntry $rcObj
+	 * @return bool
 	 */
 	public static function onEnhancedChangesListModifyLineData( EnhancedChangesList $ecl, array &$data,
 		array $block, RCCacheEntry $rcObj
@@ -141,6 +145,7 @@ class Hooks {
 	 * @param EnhancedChangesList $ecl
 	 * @param array $data
 	 * @param RCCacheEntry $rcObj
+	 * @return bool
 	 */
 	public static function onEnhancedChangesListModifyBlockLineData( EnhancedChangesList $ecl,
 		array &$data, RCCacheEntry $rcObj
@@ -199,6 +204,8 @@ class Hooks {
 
 	/**
 	 * Check if we should flag a row
+	 * @param RecentChange $rcObj
+	 * @return bool
 	 */
 	protected static function getScoreRecentChangesList( $rcObj ) {
 
@@ -241,7 +248,7 @@ class Hooks {
 		}
 		$options = array();
 		foreach ( $wgOresDamagingThresholds as $case => $value ) {
-			$text = wfMessage( 'ores-damaging-' . $case )->parse();
+			$text = \wfMessage( 'ores-damaging-' . $case )->parse();
 			$options[$text] = $case;
 		}
 		$preferences['oresDamagingPref'] = array(
@@ -285,15 +292,18 @@ class Hooks {
 
 	/**
 	 * Check whether the user enabled ores as a beta feature
+	 *
+	 * @param \User $user
+	 * @return bool
 	 */
-	public static function oresEnabled( $user ) {
-	if ( $user === null ) {
-		global $wgUser;
-		$user = $wgUser;
-	}
-	if ( BetaFeatures::isFeatureEnabled( $user, 'ores-enabled' ) ) {
-		return true;
-	}
-	return false;
+	public static function oresEnabled( $user = null ) {
+		if ( $user === null ) {
+			global $wgUser;
+			$user = $wgUser;
+		}
+		if ( BetaFeatures::isFeatureEnabled( $user, 'ores-enabled' ) ) {
+			return true;
+		}
+		return false;
 	}
 }

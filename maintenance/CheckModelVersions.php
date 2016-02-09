@@ -22,7 +22,7 @@ class CheckModelVersions extends Maintenance {
 		$models = $this->getModels();
 
 		foreach ( $models as $name => $info ) {
-			wfGetDB( DB_MASTER )->replace( 'ores_model',
+			\wfGetDB( DB_MASTER )->replace( 'ores_model',
 				'oresm_version',
 				array(
 					'oresm_name' => $name,
@@ -32,13 +32,13 @@ class CheckModelVersions extends Maintenance {
 				__METHOD__
 			);
 
-			wfGetDB( DB_MASTER )->update( 'ores_model',
+			\wfGetDB( DB_MASTER )->update( 'ores_model',
 				array(
 					'oresm_is_current' => 0,
 				),
 				array(
 					'oresm_name' => $name,
-					'oresm_version != ' . wfGetDb( DB_SLAVE )->addQuotes( $info['version'] ),
+					'oresm_version != ' . \wfGetDB( DB_SLAVE )->addQuotes( $info['version'] ),
 				),
 				__METHOD__
 			);
@@ -51,7 +51,7 @@ class CheckModelVersions extends Maintenance {
 	protected function getModels() {
 		$modelData = Api::request();
 		if ( empty( $modelData['models'] ) ) {
-			throw new RuntimeException( 'Bad response from ORES when requesting models: '
+			throw new \RuntimeException( 'Bad response from ORES when requesting models: '
 				. json_encode( $modelData ) );
 		}
 		return $modelData['models'];
