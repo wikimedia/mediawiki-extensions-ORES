@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ea78b8a_536d6b2c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-10T19:57:17Z",
+      "side": 1,
+      "message": "tpyo!",
+      "revId": "02f67d869a9b38fd60f987ac9d62bc494988232a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_f34d77e1",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-10T19:57:17Z",
+      "side": 1,
+      "message": "I think you should also batch this, if one plans to score more than 5000 revisions at once",
+      "revId": "02f67d869a9b38fd60f987ac9d62bc494988232a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_b3305f54",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-10T19:57:17Z",
+      "side": 1,
+      "message": "Undeclared member",
+      "revId": "02f67d869a9b38fd60f987ac9d62bc494988232a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_d3339b5d",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-10T19:57:17Z",
+      "side": 1,
+      "message": "Undeclared member",
+      "revId": "02f67d869a9b38fd60f987ac9d62bc494988232a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
