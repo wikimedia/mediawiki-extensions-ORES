@@ -6,10 +6,10 @@ use RuntimeException;
 
 class Cache {
 	static protected $modelIds;
-	protected $ClassMap;
+	protected $classMap;
 
 	public function __construct() {
-		$this->ClassMap = array( 'true' => 1, 'false' => 0,
+		$this->classMap = array( 'true' => 1, 'false' => 0,
 			'B' => 0, 'C' => 1, 'FA' => 2, 'GA' => 3,
 			'Start' => 4, 'Stub' => 5 );
 	}
@@ -41,7 +41,7 @@ class Cache {
 				$modelId = $this->getModelId( $model );
 				foreach ( $modelOutputs['probability'] as $class => $probability ) {
 					$ores_is_predicted = $prediction === $class;
-					$class = $this->ClassMap[$class];
+					$class = $this->classMap[$class];
 					if ( $class === 0 ) {
 						continue;
 					}
