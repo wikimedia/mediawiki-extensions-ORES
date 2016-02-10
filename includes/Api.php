@@ -5,7 +5,6 @@ namespace ORES;
 use FormatJson;
 use MediaWiki\Logger\LoggerFactory;
 use MWHttpRequest;
-use Psr\Log\LoggerInterface;
 use RuntimeException;
 
 /**

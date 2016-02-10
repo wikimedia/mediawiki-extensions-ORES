@@ -8,7 +8,6 @@ use ChangesListSpecialPage;
 use DatabaseUpdater;
 use EnhancedChangesList;
 use FormOptions;
-use Html;
 use JobQueueGroup;
 use MediaWiki\Logger\LoggerFactory;
 use OutputPage;

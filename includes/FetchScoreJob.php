@@ -4,7 +4,6 @@ namespace ORES;
 
 use Job;
 use MediaWiki\Logger\LoggerFactory;
-use Psr\Log\LoggerInterface;
 use Title;
 
 class FetchScoreJob extends Job {
