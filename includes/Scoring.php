@@ -8,7 +8,7 @@ class Scoring {
 	 * @param string|array|null $models Single or multiple model names.  If
 	 * left empty, all configured models are queries.
 	 * @return array Results in the form returned by ORES
-	 * @throws RuntimeException
+	 * @throws \RuntimeException
 	 */
 	public function getScores( $revisions, $models = null ) {
 		if ( !$models ) {

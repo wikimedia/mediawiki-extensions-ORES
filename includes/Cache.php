@@ -8,7 +8,6 @@ class Cache {
 	static protected $modelIds;
 	protected $ClassMap;
 
-
 	public function __construct() {
 		$this->ClassMap = array( 'true' => 1, 'false' => 0,
 			'B' => 0, 'C' => 1, 'FA' => 2, 'GA' => 3, 'FA' => 4,
@@ -57,7 +56,7 @@ class Cache {
 			}
 		}
 
-		wfGetDB( DB_MASTER )->insert( 'ores_classification', $dbData, __METHOD__ );
+		\wfGetDB( DB_MASTER )->insert( 'ores_classification', $dbData, __METHOD__ );
 	}
 
 	/**
@@ -73,8 +72,8 @@ class Cache {
 	 * Note that this function runs multiple batches, until all records are deleted.
 	 */
 	public function purge( $model, $isEverything, $batchSize = 1000 ) {
-		$dbr = wfGetDb( DB_SLAVE );
-		$dbw = wfGetDb( DB_MASTER );
+		$dbr = \wfGetDB( DB_SLAVE );
+		$dbw = \wfGetDB( DB_MASTER );
 
 		$join_conds = array( 'ores_model' =>
 			array( 'LEFT JOIN', 'oresm_id = oresc_model' ) );
@@ -113,7 +112,7 @@ class Cache {
 			return self::$modelIds[$model];
 		}
 
-		$modelId = wfGetDb( DB_SLAVE )->selectField( 'ores_model',
+		$modelId = \wfGetDB( DB_SLAVE )->selectField( 'ores_model',
 			'oresm_id',
 			array( 'oresm_name' => $model, 'oresm_is_current' => 1 ),
 			__METHOD__
@@ -127,7 +126,7 @@ class Cache {
 	}
 
 	public function getModels() {
-		$models = wfGetDb( DB_SLAVE )->selectFieldValues( 'ores_model',
+		$models = \wfGetDB( DB_SLAVE )->selectFieldValues( 'ores_model',
 			'oresm_name',
 			array(),
 			__METHOD__
