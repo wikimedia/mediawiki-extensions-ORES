@@ -10,8 +10,8 @@ class Cache {
 
 	public function __construct() {
 		$this->ClassMap = array( 'true' => 1, 'false' => 0,
-			'B' => 0, 'C' => 1, 'FA' => 2, 'GA' => 3, 'FA' => 4,
-			'Start' => 5, 'Stub' => 6 );
+			'B' => 0, 'C' => 1, 'FA' => 2, 'GA' => 3,
+			'Start' => 4, 'Stub' => 5 );
 	}
 	/**
 	 * Save scores to the database
