@@ -71,6 +71,7 @@
 	},
 	"config": {
 		"OresBaseUrl": "https://ores.wmflabs.org/",
+		"OresExcludeBots": true,
 		"OresModels": [
 			"damaging",
 			"goodfaith",

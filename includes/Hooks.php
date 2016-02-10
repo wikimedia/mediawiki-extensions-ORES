@@ -36,6 +36,11 @@ class Hooks {
 	 * Ask the ORES server for scores on this recent change
 	 */
 	public static function onRecentChange_save( RecentChange $rc ) {
+		global $wgOresExcludeBots;
+		if ( $rc->getAttribute( 'rc_bot' ) && $wgOresExcludeBots ) {
+			return true;
+		}
+
 		if ( $rc->getAttribute( 'rc_type' ) === RC_EDIT ) {
 			$logger = LoggerFactory::getInstance( 'ORES' );
 			$logger->debug( 'Processing edit' );
