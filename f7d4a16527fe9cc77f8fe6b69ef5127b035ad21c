@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ea78b8a_28262e12",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-12T11:29:14Z",
+      "side": 1,
+      "message": "this belongs into the constructor",
+      "revId": "f7d4a16527fe9cc77f8fe6b69ef5127b035ad21c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_c8243a0a",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-12T11:29:14Z",
+      "side": 1,
+      "message": "this belongs into the constructor",
+      "revId": "f7d4a16527fe9cc77f8fe6b69ef5127b035ad21c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_082b32dc",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-12T11:29:14Z",
+      "side": 1,
+      "message": "Why is this a member, but $numberRevisions (which is very similar) is not?",
+      "revId": "f7d4a16527fe9cc77f8fe6b69ef5127b035ad21c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_e81fb6b8",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-12T11:29:14Z",
+      "side": 1,
+      "message": "PHP doesn\u0027t care for this, but the actual name of the function is \"wfGetDB\". Should be fixed for consistency",
+      "revId": "f7d4a16527fe9cc77f8fe6b69ef5127b035ad21c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_48884aec",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 16
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-12T11:29:14Z",
+      "side": 1,
+      "message": "AFAIK Maintenance::output doesn\u0027t automatically append new lines, thus you\u0027ll have to do that yourself.",
+      "revId": "f7d4a16527fe9cc77f8fe6b69ef5127b035ad21c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
