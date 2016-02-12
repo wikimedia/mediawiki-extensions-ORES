@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ea78b8a_1e54c855",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-12T15:22:18Z",
+      "side": 1,
+      "message": "int|null (initially these are null)",
+      "revId": "ff9e72a0798ce3648a750c179da98f4e44854bbe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_be525468",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-12T15:22:18Z",
+      "side": 1,
+      "message": "as above",
+      "revId": "ff9e72a0798ce3648a750c179da98f4e44854bbe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_5e624038",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-12T15:22:18Z",
+      "side": 1,
+      "message": "\"… the ores_classification table by scoring the latest …\" sounds nicer to me",
+      "revId": "ff9e72a0798ce3648a750c179da98f4e44854bbe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_5ed1e0ce",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-12T15:22:18Z",
+      "side": 1,
+      "message": "would be nice if you could tell the user that we\u0027re done",
+      "revId": "ff9e72a0798ce3648a750c179da98f4e44854bbe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_1ed368d8",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 19
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-12T15:22:18Z",
+      "side": 1,
+      "message": "Leading \\n is not needed IMO",
+      "revId": "ff9e72a0798ce3648a750c179da98f4e44854bbe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
