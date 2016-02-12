@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "4ea78b8a_c8d75af1",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-12T10:56:50Z",
+      "side": 1,
+      "message": "Oh, use $res-\u003enumRows() then… I thought Iterators in PHP were countable with count, but you need iterator_count for that.",
+      "parentUuid": "4ea78b8a_08a0128c",
+      "revId": "ab9dca83651add7af0e28d4f61dde49833c0766e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ea78b8a_28e70e0f",
         "filename": "maintenance/PopulateDatabase.php",
         "patchSetId": 15
