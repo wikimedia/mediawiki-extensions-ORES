@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4ea78b8a_a88f7e25",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-02-12T10:52:34Z",
+      "side": 1,
+      "message": "It\u0027s in line 37 ;)",
+      "parentUuid": "4ea78b8a_48e28a01",
+      "revId": "ab9dca83651add7af0e28d4f61dde49833c0766e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ea78b8a_88bf22cd",
         "filename": "maintenance/PopulateDatabase.php",
         "patchSetId": 15
@@ -30,6 +48,24 @@
       "writtenOn": "2016-02-12T10:25:33Z",
       "side": 1,
       "message": "count( $res ) could also be less than the batch size… in that case you probably want to break",
+      "revId": "ab9dca83651add7af0e28d4f61dde49833c0766e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_08a0128c",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 15
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-02-12T10:52:34Z",
+      "side": 1,
+      "message": "count( $res ) would be always one because it\u0027s a wrapper function. I\u0027m trying to see what\u0027s the best option here.",
+      "parentUuid": "4ea78b8a_88bf22cd",
       "revId": "ab9dca83651add7af0e28d4f61dde49833c0766e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
