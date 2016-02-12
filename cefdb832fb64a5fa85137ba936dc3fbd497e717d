@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ea78b8a_68d186cf",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-12T12:03:00Z",
+      "side": 1,
+      "message": "unused",
+      "revId": "cefdb832fb64a5fa85137ba936dc3fbd497e717d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_28d38ed8",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-12T12:03:00Z",
+      "side": 1,
+      "message": "unused",
+      "revId": "cefdb832fb64a5fa85137ba936dc3fbd497e717d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_c8e19a98",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-12T12:03:00Z",
+      "side": 1,
+      "message": "Sounds like an array of number revisions (whatever that might be). Maybe use $revisionLimit?\n\nAlso only used in one function, so no need for a member (but doesn\u0027t harm readability much if it stays one… sorry if I didn\u0027t point that out before).",
+      "revId": "cefdb832fb64a5fa85137ba936dc3fbd497e717d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_08d812f3",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-12T12:03:00Z",
+      "side": 1,
+      "message": "Maybe tell the user that were done now and handled n revisions or inserted m scores?",
+      "revId": "cefdb832fb64a5fa85137ba936dc3fbd497e717d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea78b8a_48ce0a33",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 17
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-12T12:03:00Z",
+      "side": 1,
+      "message": "One empty line after should be enough, no?",
+      "revId": "cefdb832fb64a5fa85137ba936dc3fbd497e717d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
