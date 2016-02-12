@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ea78b8a_db764201",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 18
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-02-12T13:40:55Z",
+      "side": 1,
+      "message": "This will pile up, that\u0027s not nice (so for each new iteration you get an extra condition). Also explicitly casting the var to int would make me more comfortable (so that it\u0027s immediately visible that we wont run into escaping issues).",
+      "revId": "65cdb8d188005f5550912d40e91fd82a510d6162",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
