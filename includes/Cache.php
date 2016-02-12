@@ -17,11 +17,10 @@ class Cache {
 	 * Save scores to the database
 	 *
 	 * @param array $scores in the same structure as is returned by ORES.
-	 * @param integer $revid Revision ID
 	 *
 	 * @throws RuntimeException
 	 */
-	public function storeScores( $scores, $revid ) {
+	public function storeScores( $scores ) {
 		// Map to database fields.
 		$dbData = array();
 		foreach ( $scores as $revision => $revisionData ) {
@@ -46,7 +45,7 @@ class Cache {
 						continue;
 					}
 					$dbData[] = array(
-						'oresc_rev' => $revid,
+						'oresc_rev' => $revision,
 						'oresc_model' => $modelId,
 						'oresc_class' => $class,
 						'oresc_probability' => $probability,
