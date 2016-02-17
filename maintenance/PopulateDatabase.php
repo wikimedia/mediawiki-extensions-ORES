@@ -43,14 +43,14 @@ class PopulateDatabase extends Maintenance {
 
 		$latestRcId = 0;
 		$dbr = wfGetDB( DB_SLAVE );
-		$join_conds = array( 'ores_classification' =>
-			array( 'LEFT JOIN', array( 'oresc_rev = rc_this_oldid' ) )
-		);
+		$join_conds = [ 'ores_classification' =>
+			[ 'LEFT JOIN', [ 'oresc_rev = rc_this_oldid' ] ]
+		];
 
 		$count = 0;
 		while ( $count < $this->revisionLimit ) {
 
-			$conditions = array( 'oresc_id IS NULL', 'rc_type' => 0 );
+			$conditions = [ 'oresc_id IS NULL', 'rc_type' => 0 ];
 			if ( $wgOresExcludeBots === true ) {
 				$conditions['rc_bot'] = 0;
 			}
@@ -58,25 +58,25 @@ class PopulateDatabase extends Maintenance {
 				$conditions[] = 'rc_id < ' . $dbr->addQuotes( $latestRcId );
 			}
 
-			$res = $dbr->select( array( 'recentchanges', 'ores_classification' ),
-				array( 'rc_id', 'rc_this_oldid' ),
+			$res = $dbr->select( [ 'recentchanges', 'ores_classification' ],
+				[ 'rc_id', 'rc_this_oldid' ],
 				$conditions,
 				__METHOD__,
-				array( 'ORDER BY' => 'rc_id DESC',
-					'LIMIT' => $this->batchSize ),
+				[ 'ORDER BY' => 'rc_id DESC',
+					'LIMIT' => $this->batchSize ],
 				$join_conds
 			);
 
-			$pack = array();
+			$pack = [];
 			foreach ( $res as $row ) {
 				$pack[] = $row->rc_this_oldid;
 				if ( count( $pack ) % 50 === 0 ) {
 					$this->processScores( $pack, $scoring, $cache );
-					$pack = array();
+					$pack = [];
 				}
 				$latestRcId = $row->rc_id;
 			}
-			if ( $pack !== array() ) {
+			if ( $pack !== [] ) {
 				$this->processScores( $pack, $scoring, $cache );
 			}
 

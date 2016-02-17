@@ -9,9 +9,9 @@ class Cache {
 	protected $classMap;
 
 	public function __construct() {
-		$this->classMap = array( 'true' => 1, 'false' => 0,
+		$this->classMap = [ 'true' => 1, 'false' => 0,
 			'B' => 0, 'C' => 1, 'FA' => 2, 'GA' => 3,
-			'Start' => 4, 'Stub' => 5 );
+			'Start' => 4, 'Stub' => 5 ];
 	}
 	/**
 	 * Save scores to the database
@@ -22,7 +22,7 @@ class Cache {
 	 */
 	public function storeScores( $scores ) {
 		// Map to database fields.
-		$dbData = array();
+		$dbData = [];
 		foreach ( $scores as $revision => $revisionData ) {
 			foreach ( $revisionData as $model => $modelOutputs ) {
 				if ( isset( $modelOutputs['error'] ) ) {
@@ -44,13 +44,13 @@ class Cache {
 					if ( $class === 0 ) {
 						continue;
 					}
-					$dbData[] = array(
+					$dbData[] = [
 						'oresc_rev' => $revision,
 						'oresc_model' => $modelId,
 						'oresc_class' => $class,
 						'oresc_probability' => $probability,
 						'oresc_is_predicted' => ( $ores_is_predicted ),
-					);
+					];
 				}
 			}
 		}
@@ -74,11 +74,11 @@ class Cache {
 		$dbr = \wfGetDB( DB_SLAVE );
 		$dbw = \wfGetDB( DB_MASTER );
 
-		$join_conds = array( 'ores_model' =>
-			array( 'LEFT JOIN', 'oresm_id = oresc_model' ) );
-		$conditions = array(
+		$join_conds = [ 'ores_model' =>
+			[ 'LEFT JOIN', 'oresm_id = oresc_model' ] ];
+		$conditions = [
 			'oresm_name' => $model,
-		);
+		];
 		if ( !$isEverything ) {
 			$conditions[] = 'oresm_is_current != 1';
 		}
@@ -88,12 +88,12 @@ class Cache {
 				'oresc_rev',
 				$conditions,
 				__METHOD__,
-				array( 'LIMIT' => $batchSize ),
+				[ 'LIMIT' => $batchSize ],
 				$join_conds
 			);
 			if ( $ids ) {
 				$dbw->delete( 'ores_classification',
-					array( 'oresc_rev' => $ids ),
+					[ 'oresc_rev' => $ids ],
 					__METHOD__
 				);
 				wfWaitForSlaves();
@@ -113,7 +113,7 @@ class Cache {
 
 		$modelId = \wfGetDB( DB_SLAVE )->selectField( 'ores_model',
 			'oresm_id',
-			array( 'oresm_name' => $model, 'oresm_is_current' => 1 ),
+			[ 'oresm_name' => $model, 'oresm_is_current' => 1 ],
 			__METHOD__
 		);
 		if ( $modelId === false ) {
@@ -127,7 +127,7 @@ class Cache {
 	public function getModels() {
 		$models = \wfGetDB( DB_SLAVE )->selectFieldValues( 'ores_model',
 			'oresm_name',
-			array(),
+			[],
 			__METHOD__
 		);
 		return $models;

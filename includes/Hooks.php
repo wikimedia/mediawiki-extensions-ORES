@@ -44,9 +44,9 @@ class Hooks {
 		if ( $rc->getAttribute( 'rc_type' ) === RC_EDIT ) {
 			$logger = LoggerFactory::getInstance( 'ORES' );
 			$logger->debug( 'Processing edit' );
-			$job = new FetchScoreJob( $rc->getTitle(), array(
+			$job = new FetchScoreJob( $rc->getTitle(), [
 				'revid' => $rc->getAttribute( 'rc_this_oldid' ),
-			) );
+			] );
 			JobQueueGroup::singleton()->push( $job );
 			$logger->debug( 'Job pushed...' );
 		}
@@ -66,10 +66,10 @@ class Hooks {
 			return true;
 		}
 
-		$filters['hidenondamaging'] = array(
+		$filters['hidenondamaging'] = [
 			'msg' => 'ores-damaging-filter',
 			'default' => false,
-		);
+		];
 
 		return true;
 	}
@@ -100,17 +100,17 @@ class Hooks {
 		$tables[] = 'ores_model';
 
 		$fields[] = 'oresc_probability';
-		$join_conds['ores_classification'] = array( 'LEFT JOIN',
+		$join_conds['ores_classification'] = [ 'LEFT JOIN',
 			'rc_this_oldid = oresc_rev ' .
-			'AND oresc_is_predicted = 1 AND oresc_class = 1' );
+			'AND oresc_is_predicted = 1 AND oresc_class = 1' ];
 
 		// Add user-based threshold
 		$fields[] = $threshold . ' AS ores_threshold';
 
-		$join_conds['ores_model'] = array( 'LEFT JOIN',
+		$join_conds['ores_model'] = [ 'LEFT JOIN',
 			'oresc_model = oresm_id AND oresm_name = \'damaging\' ' .
 			'AND oresm_is_current = 1'
-		);
+		];
 
 		if ( $opts->getValue( 'hidenondamaging' ) ) {
 			// Filter out non-damaging edits.
@@ -175,7 +175,7 @@ class Hooks {
 	 * @return bool
 	 */
 	public static function onOldChangesListRecentChangesLine( ChangesList &$changesList, &$s,
-		$rc, &$classes = array()
+		$rc, &$classes = []
 	) {
 		if ( self::oresEnabled( $changesList->getUser() ) === false ) {
 			return true;
@@ -250,18 +250,18 @@ class Hooks {
 		if ( self::oresEnabled( $user ) === false ) {
 			return true;
 		}
-		$options = array();
+		$options = [];
 		foreach ( $wgOresDamagingThresholds as $case => $value ) {
 			$text = \wfMessage( 'ores-damaging-' . $case )->parse();
 			$options[$text] = $case;
 		}
-		$preferences['oresDamagingPref'] = array(
+		$preferences['oresDamagingPref'] = [
 			'type' => 'select',
 			'label-message' => 'ores-pref-damaging',
 			'section' => 'rc/ores',
 			'options' => $options,
 			'help-message' => 'ores-help-damaging-pref',
-		);
+		];
 		return true;
 	}
 
@@ -282,16 +282,16 @@ class Hooks {
 	public static function onGetBetaFeaturePreferences( $user, &$prefs ) {
 		global $wgExtensionAssetsPath;
 
-		$prefs['ores-enabled'] = array(
+		$prefs['ores-enabled'] = [
 			'label-message' => 'ores-beta-feature-message',
 			'desc-message' => 'ores-beta-feature-description',
-			'screenshot' => array(
+			'screenshot' => [
 				'ltr' => "$wgExtensionAssetsPath/ORES/images/ORES-beta-features-ltr.png",
 				'rtl' => "$wgExtensionAssetsPath/ORES/images/ORES-beta-features-rtl.png",
-			),
+			],
 			'info-link' => 'https://www.mediawiki.org/wiki/Extension:ORES',
 			'discussion-link' => 'https://www.mediawiki.org/wiki/Extension_talk:ORES',
-		);
+		];
 	}
 
 	/**

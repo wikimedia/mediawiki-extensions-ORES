@@ -14,7 +14,7 @@ class Api {
 	/**
 	 * @return string Base URL plus your wiki's `scores` API path.
 	 */
-	public static function getUrl( $param = array() ) {
+	public static function getUrl( $param = [] ) {
 		global $wgOresBaseUrl, $wgOresWikiId;
 
 		if ( $wgOresWikiId ) {
@@ -34,7 +34,7 @@ class Api {
 	 *
 	 * @throws RuntimeException
 	 */
-	public static function request( $params = array() ) {
+	public static function request( $params = [] ) {
 		$logger = LoggerFactory::getInstance( 'ORES' );
 
 		$url = Api::getUrl();

@@ -16,10 +16,10 @@ class Scoring {
 			$models = $wgOresModels;
 		}
 
-		$wireData = Api::request( array(
+		$wireData = Api::request( [
 			'models' => implode( '|', (array) $models ),
 			'revids' => implode( '|', (array) $revisions ),
-		) );
+		] );
 		return $wireData;
 	}
 

@@ -24,22 +24,22 @@ class CheckModelVersions extends Maintenance {
 		foreach ( $models as $name => $info ) {
 			\wfGetDB( DB_MASTER )->replace( 'ores_model',
 				'oresm_version',
-				array(
+				[
 					'oresm_name' => $name,
 					'oresm_version' => $info['version'],
 					'oresm_is_current' => 1,
-				),
+				],
 				__METHOD__
 			);
 
 			\wfGetDB( DB_MASTER )->update( 'ores_model',
-				array(
+				[
 					'oresm_is_current' => 0,
-				),
-				array(
+				],
+				[
 					'oresm_name' => $name,
 					'oresm_version != ' . \wfGetDB( DB_SLAVE )->addQuotes( $info['version'] ),
-				),
+				],
 				__METHOD__
 			);
 		}

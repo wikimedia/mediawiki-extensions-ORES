@@ -24,7 +24,7 @@ class PurgeScoreCache extends Maintenance {
 
 	public function execute() {
 		if ( $this->hasOption( 'model' ) ) {
-			$models = array( $this->getOption( 'model' ) );
+			$models = [ $this->getOption( 'model' ) ];
 		} else {
 			$models = Cache::instance()->getModels();
 		}
