@@ -10,7 +10,7 @@
 	"ores-damaging-letter": "r",
 	"ores-damaging-soft": "Soft (less strict)",
 	"ores-damaging-title": "This edit needs review",
-	"ores-damaging-legend": "ORES predicts that this change may be damaging and should be reviewed",
+	"ores-damaging-legend": "This edit may be damaging and should be reviewed",
 	"ores-pref-damaging": "ORES threshold for damaging model",
 	"prefs-ores" : "ORES"
 }
