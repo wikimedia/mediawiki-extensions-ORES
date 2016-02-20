@@ -13,7 +13,7 @@
 	"ores-damaging-letter": "ü",
 	"ores-damaging-soft": "Weich (weniger streng)",
 	"ores-damaging-title": "Diese Bearbeitung benötigt eine Überprüfung",
-	"ores-damaging-legend": "ORES sagt voraus, dass diese Änderung schädlich sein könnte und sollte überprüft werden",
+	"ores-damaging-legend": "Diese Bearbeitung könnte schädlich sein und sollte überprüft werden",
 	"ores-pref-damaging": "ORES-Schwelle für das Beschädigungsmodell",
 	"prefs-ores": "ORES"
 }
