@@ -11,7 +11,7 @@
 	"ores-damaging-letter": "r",
 	"ores-damaging-soft": "Suave (menos estricto)",
 	"ores-damaging-title": "Esta edición necesita ser revisada",
-	"ores-damaging-legend": "ORES predice que este cambio puede ser perjudicial y debe ser revisado",
+	"ores-damaging-legend": "Esta edición puede ser perjudicial y debería revisarse",
 	"ores-pref-damaging": "Umbral ORES para modelo de daño",
 	"prefs-ores": "ORES"
 }

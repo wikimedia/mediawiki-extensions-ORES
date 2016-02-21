@@ -9,11 +9,12 @@
 	"ores-beta-feature-message": "ORES",
 	"ores-desc": "Zeigt automatisierte Versionsbewertungen in der Oberfläche an",
 	"ores-damaging-filter": "Gute Bearbeitungen $1",
-	"ores-damaging-hard": "Hart (strenger)",
+	"ores-damaging-hard": "Hoch (markiert mehr Bearbeitungen)",
 	"ores-damaging-letter": "ü",
-	"ores-damaging-soft": "Weich (weniger streng)",
+	"ores-damaging-soft": "Niedrig (markiert weniger Bearbeitungen)",
 	"ores-damaging-title": "Diese Bearbeitung benötigt eine Überprüfung",
 	"ores-damaging-legend": "Diese Bearbeitung könnte schädlich sein und sollte überprüft werden",
-	"ores-pref-damaging": "ORES-Schwelle für das Beschädigungsmodell",
+	"ores-help-damaging-pref": "Diese Schwelle bestimmt, wie empfindlich ORES bei der Markierung von Bearbeitungen ist, die eine Überprüfung benötigen.",
+	"ores-pref-damaging": "ORES-Empfindlichkeit",
 	"prefs-ores": "ORES"
 }

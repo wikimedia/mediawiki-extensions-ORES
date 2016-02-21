@@ -1,17 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gomoko"
+			"Gomoko",
+			"Wladek92"
 		]
 	},
 	"ores-beta-feature-description": "ORES est un outil basés sur une intelligence artificielle qui met en évidence des modifications potentiellement nuisibles dans celles faites récemment et dans les listes de suivi",
 	"ores-desc": "Exposer les notes de révision automatisées dans l’interface",
 	"ores-damaging-filter": "$1 bonnes modifications",
-	"ores-damaging-hard": "Dur (plus strict)",
+	"ores-damaging-hard": "Haut (indique plus de modifications)",
 	"ores-damaging-letter": "r",
-	"ores-damaging-soft": "Doux (moins strict)",
+	"ores-damaging-soft": "Bas (indique moins de modifications)",
 	"ores-damaging-title": "Cette modification doit être revue",
-	"ores-damaging-legend": "ORES prédit que cette modification pourrait être nuisible et devrait être revue",
-	"ores-pref-damaging": "Seuil ORES pour le modèle de dommages",
+	"ores-damaging-legend": "Cette modification pourrait être nuisible et devrait être revue",
+	"ores-help-damaging-pref": "Ce seuil détermine la sensibilité avec laquelle ORES étiquette les modifications qui ont besoin d'être relues",
+	"ores-pref-damaging": "Seuil ORES",
 	"prefs-ores": "ORES"
 }
