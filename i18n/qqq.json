@@ -14,6 +14,7 @@
 	"ores-damaging-soft": "Name of \"Soft\" threshold\n\nBasically, when you set a threshold too soft, you give it a high number, so less edits will be flagged for review but the chance of them being vandalism is higher. On the other hand, when you set it too hard, it flags more edits. So you might catch all vandalism, but proportion of vandalism would be less, and you see more false positives (edits that are flagged for review but they are completely okay).",
 	"ores-damaging-title": "Tooltip for damaging risk icon.",
 	"ores-damaging-legend": "Legend for damaging risk icon.",
+	"ores-help-damaging-pref": "Help text for \"ORES sensitivity\" in preferences",
 	"ores-pref-damaging": "Part asking for damaging threshold",
 	"prefs-ores": "{{optional}} \nName of ORES section in preferences"
 }
