@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Olwe519"
+		]
+	},
+	"ores-damaging-hard": "piso'e to kajde fi lo nu cusku'i poi li mo'e ke'a zmadu no'o toi",
+	"ores-damaging-soft": "piso'o to kajde fi lo nu cusku'i poi li mo'e ke'a mleca no'o toi",
+	"ores-damaging-legend": "le nu cusku'i ku ka'e gasnu lo nu tolprali .ije lo nu lanli ku zgadi",
+	"ores-help-damaging-pref": "jdice ni la .ory'esys. ka'e ganse seki'u lo nu kadje fi lo nu bilga lo nu lanli lo nu cusku'i",
+	"ores-pref-damaging": "li ni'e la .ory'esys. nilka'egas te'u du xo"
+}

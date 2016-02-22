@@ -8,9 +8,11 @@
 	},
 	"ores-beta-feature-description": "ORES è uno strumento basato su intelligenza artificiale che mette in evidenza contributi probabilmente dannosi nelle ultime modifiche e negli osservati speciali.",
 	"ores-damaging-filter": "$1 buone modifiche",
-	"ores-damaging-hard": "Duro (più stringente)",
+	"ores-damaging-hard": "Alto (contrassegna più modifiche)",
 	"ores-damaging-letter": "r",
-	"ores-damaging-soft": "Morbido (meno stringente)",
-	"ores-pref-damaging": "Soglia ORES per modello dannoso",
+	"ores-damaging-soft": "Basso (contrassegna meno modifiche)",
+	"ores-damaging-legend": "Questa modifica potrebbe essere dannosa e dovrebbe essere rivista",
+	"ores-help-damaging-pref": "Questa soglia determina quanto sensibile sarà ORES nel contrassegnare le modifiche che necessitano di revisione",
+	"ores-pref-damaging": "Sensibilità ORES",
 	"prefs-ores": "ORES"
 }
