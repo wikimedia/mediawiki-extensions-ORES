@@ -2,7 +2,7 @@
 	"name": "ORES",
 	"descriptionmsg": "ores-desc",
 	"license-name": "CC0-1.0",
-	"authors": [
+	"author": [
 		"Kunal Mehta",
 		"Amir Sarabadani",
 		"Adam Roses Wight"
