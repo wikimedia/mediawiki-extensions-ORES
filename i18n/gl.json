@@ -1,13 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Elisardojm"
+			"Elisardojm",
+			"Banjo"
 		]
 	},
+	"ores-beta-feature-description": "ORES é unha ferramenta baseada nunha AI que resalta as edicións potencialmente perxudiciais nos cambios recentes e na lista de vixiancia",
 	"ores-desc": "Expón as puntuacións de revisións automatizadas na interface",
 	"ores-damaging-filter": "$1 edicións boas",
+	"ores-damaging-hard": "Alto (etiqueta máis edicións)",
 	"ores-damaging-letter": "r",
+	"ores-damaging-soft": "Baixo (etiqueta menos edicións)",
 	"ores-damaging-title": "Esta edición necesita revisión",
-	"ores-damaging-legend": "ORES predí que este cambio pode ser prexudicial e debe ser revisado",
-	"ores-pref-damaging": "Umbral ORES para o modelo de dano"
+	"ores-damaging-legend": "Esta edición pode ser prexudicial e debería revisarse",
+	"ores-help-damaging-pref": "Este nivel determina a sensibilidade de ORES á hora de etiquetar edicións que requiren revisión",
+	"ores-pref-damaging": "Sensibilidade de ORES"
 }

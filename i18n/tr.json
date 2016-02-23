@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"JackUKElliott"
+		]
+	},
+	"ores-damaging-hard": "Yüksek (daha fazla düzenlemeleri işaretler)",
+	"ores-damaging-soft": "Düşük (daha az düzenlemeleri işaretler)",
+	"ores-damaging-legend": "Bu düzenleme zarar verici olabilir ve gözden geçirilmesi gerekmektedir.",
+	"ores-help-damaging-pref": "Bu eşik, gözden geçirilmeyi gerektiren düzenlemelerin işaretlenmesinde ORES'in ne kadar hassas olacağını belirler.",
+	"ores-pref-damaging": "ORES hassasiyeti"
+}
