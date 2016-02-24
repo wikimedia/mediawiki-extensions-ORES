@@ -87,7 +87,7 @@ class PopulateDatabase extends Maintenance {
 				break;
 			}
 		}
-		$this->output( 'Finished processing the revisions' );
+		$this->output( "Finished processing the revisions\n" );
 	}
 
 	/**
