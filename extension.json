@@ -72,12 +72,12 @@
 	"config": {
 		"OresBaseUrl": "https://ores.wmflabs.org/",
 		"OresExcludeBots": true,
-		"OresModels": [
-			"damaging",
-			"goodfaith",
-			"reverted",
-			"wp10"
-		],
+		"OresModels": {
+			"damaging": true,
+			"goodfaith": true,
+			"reverted": true,
+			"wp10": true
+		},
 		"OresDamagingThresholds": {
 			"soft": 0.70,
 			"hard": 0.50

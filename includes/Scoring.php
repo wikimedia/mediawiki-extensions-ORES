@@ -13,7 +13,7 @@ class Scoring {
 	public function getScores( $revisions, $models = null ) {
 		if ( !$models ) {
 			global $wgOresModels;
-			$models = $wgOresModels;
+			$models = array_keys( array_filter( $wgOresModels ) );
 		}
 
 		$wireData = Api::request( [
