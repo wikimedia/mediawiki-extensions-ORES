@@ -16,6 +16,24 @@
       "revId": "7820e882ee676798ce9863043cf1dedb64ec180d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ea41786_f369171e",
+        "filename": "maintenance/CheckModelVersions.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2016-02-24T19:22:19Z",
+      "side": 1,
+      "message": "The first line doesn\u0027t add a newline so the output will look like \"Starting...done.\"",
+      "parentUuid": "2ea41786_736e872c",
+      "revId": "7820e882ee676798ce9863043cf1dedb64ec180d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
