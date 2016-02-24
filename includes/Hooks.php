@@ -114,8 +114,8 @@ class Hooks {
 
 		if ( $opts->getValue( 'hidenondamaging' ) ) {
 			// Filter out non-damaging edits.
-			$conds[] = 'ores_is_predicted = 1';
-			$conds[] = 'ores_probability > '
+			$conds[] = 'oresc_is_predicted = 1';
+			$conds[] = 'oresc_probability > '
 				. \wfGetDB( DB_SLAVE )->addQuotes( $threshold );
 		}
 
