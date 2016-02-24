@@ -19,6 +19,7 @@ class CheckModelVersions extends Maintenance {
 	}
 
 	public function execute() {
+		$this->output( "Starting..." );
 		$models = $this->getModels();
 
 		foreach ( $models as $name => $info ) {
@@ -43,6 +44,7 @@ class CheckModelVersions extends Maintenance {
 				__METHOD__
 			);
 		}
+		$this->output( "done.\n" );
 	}
 
 	/**
