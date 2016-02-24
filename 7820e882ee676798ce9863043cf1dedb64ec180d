@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ea41786_736e872c",
+        "filename": "maintenance/CheckModelVersions.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-02-24T19:21:29Z",
+      "side": 1,
+      "message": "Should it be \"Done\"?",
+      "revId": "7820e882ee676798ce9863043cf1dedb64ec180d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
