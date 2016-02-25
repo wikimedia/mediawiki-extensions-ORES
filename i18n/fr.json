@@ -5,7 +5,7 @@
 			"Wladek92"
 		]
 	},
-	"ores-beta-feature-description": "ORES est un outil basés sur une intelligence artificielle qui met en évidence des modifications potentiellement nuisibles dans celles faites récemment et dans les listes de suivi",
+	"ores-beta-feature-description": "ORES est un outil basés sur une intelligence artificielle qui met en évidence des modifications potentiellement nuisibles dans celles faites récemment et dans les listes de suivi.",
 	"ores-desc": "Exposer les notes de révision automatisées dans l’interface",
 	"ores-damaging-filter": "$1 bonnes modifications",
 	"ores-damaging-hard": "Haut (indique plus de modifications)",
