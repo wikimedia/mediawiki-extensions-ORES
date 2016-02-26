@@ -14,7 +14,7 @@ class Api {
 	/**
 	 * @return string Base URL plus your wiki's `scores` API path.
 	 */
-	public static function getUrl( $param = [] ) {
+	public static function getUrl() {
 		global $wgOresBaseUrl, $wgOresWikiId;
 
 		if ( $wgOresWikiId ) {
