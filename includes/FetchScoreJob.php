@@ -19,7 +19,7 @@ class FetchScoreJob extends Job {
 		$logger = LoggerFactory::getInstance( 'ORES' );
 		$logger->info( 'Fetching scores for revision ' . json_encode( $this->params ) );
 		$scores = Scoring::instance()->getScores( $this->params['revid'] );
-		Cache::instance()->storeScores( $scores, $this->params['revid'] );
+		Cache::instance()->storeScores( $scores );
 		$logger->debug( 'Stored scores: ' . json_encode( $scores ) );
 
 		// FIXME: Or should we return false on error, set the error string, etc?
