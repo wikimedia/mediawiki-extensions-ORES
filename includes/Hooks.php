@@ -42,13 +42,18 @@ class Hooks {
 		}
 
 		if ( $rc->getAttribute( 'rc_type' ) === RC_EDIT ) {
+			$revid = $rc->getAttribute( 'rc_this_oldid' );
 			$logger = LoggerFactory::getInstance( 'ORES' );
-			$logger->debug( 'Processing edit' );
+			$logger->debug( 'Processing edit {revid}', [
+				'revid' => $revid,
+			] );
 			$job = new FetchScoreJob( $rc->getTitle(), [
-				'revid' => $rc->getAttribute( 'rc_this_oldid' ),
+				'revid' => $revid,
 			] );
 			JobQueueGroup::singleton()->push( $job );
-			$logger->debug( 'Job pushed...' );
+			$logger->debug( 'Job pushed for {revid}', [
+				'revid' => $revid,
+			] );
 		}
 
 		return true;
