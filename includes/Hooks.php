@@ -222,8 +222,9 @@ class Hooks {
 
 		$threshold = $rcObj->getAttribute( 'ores_threshold' );
 		if ( $threshold === null ) {
+			// FIXME: What is the impact of this
 			$logger = LoggerFactory::getInstance( 'ORES' );
-			$logger->debug( 'WARNING: Running low perofrmance actions, ' .
+			$logger->warning( 'Running low performance actions, ' .
 				'getting threshold for each edit seperately' );
 			$threshold = self::getThreshold();
 		}
