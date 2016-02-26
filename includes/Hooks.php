@@ -230,11 +230,8 @@ class Hooks {
 		}
 		$score = $rcObj->getAttribute( 'oresc_probability' );
 		$patrolled = $rcObj->getAttribute( 'rc_patrolled' );
-		if ( $score && $score >= $threshold && !$patrolled ) {
-			return true;
-		} else {
-			return false;
-		}
+
+		return $score && $score >= $threshold && !$patrolled;
 	}
 
 	/**
