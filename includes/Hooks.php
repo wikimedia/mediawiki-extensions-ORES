@@ -14,6 +14,7 @@ use OutputPage;
 use RCCacheEntry;
 use RecentChange;
 use Skin;
+use User;
 
 /**
  * TODO:
@@ -95,7 +96,8 @@ class Hooks {
 		$name, array &$tables, array &$fields, array &$conds,
 		array &$query_options, array &$join_conds, FormOptions $opts
 	) {
-		if ( self::oresEnabled() === false ) {
+		global $wgUser;
+		if ( self::oresEnabled( $wgUser ) === false ) {
 			return true;
 		}
 
@@ -302,14 +304,10 @@ class Hooks {
 	/**
 	 * Check whether the user enabled ores as a beta feature
 	 *
-	 * @param \User $user
+	 * @param User $user
 	 * @return bool
 	 */
-	public static function oresEnabled( $user = null ) {
-		if ( $user === null ) {
-			global $wgUser;
-			$user = $wgUser;
-		}
+	private static function oresEnabled( User $user ) {
 		if ( BetaFeatures::isFeatureEnabled( $user, 'ores-enabled' ) ) {
 			return true;
 		}
