@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ea41786_687752d0",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2016-02-29T22:57:17Z",
+      "side": 1,
+      "message": "This should use the RC_NEW/RC_EDIT constants",
+      "revId": "7d04d7ba8711aa3215d077d8c6a04b1346740f1c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
