@@ -41,8 +41,8 @@ class Hooks {
 		if ( $rc->getAttribute( 'rc_bot' ) && $wgOresExcludeBots ) {
 			return true;
 		}
-
-		if ( $rc->getAttribute( 'rc_type' ) === RC_EDIT ) {
+		$rc_type = $rc->getAttribute( 'rc_type' );
+		if ( $rc_type === RC_EDIT || $rc_type === RC_NEW ) {
 			$revid = $rc->getAttribute( 'rc_this_oldid' );
 			$logger = LoggerFactory::getInstance( 'ORES' );
 			$logger->debug( 'Processing edit {revid}', [
@@ -107,15 +107,18 @@ class Hooks {
 		$tables[] = 'ores_model';
 
 		$fields[] = 'oresc_probability';
+		// Add user-based threshold
+		$fields[] = $threshold . ' AS ores_threshold';
+
+		$conds[] = '(oresm_name = ' . \wfGetDB( DB_SLAVE )->addQuotes( 'damaging' ) .
+			' OR oresm_name IS NULL)';
+
 		$join_conds['ores_classification'] = [ 'LEFT JOIN',
 			'rc_this_oldid = oresc_rev ' .
 			'AND oresc_is_predicted = 1 AND oresc_class = 1' ];
 
-		// Add user-based threshold
-		$fields[] = $threshold . ' AS ores_threshold';
-
 		$join_conds['ores_model'] = [ 'LEFT JOIN',
-			'oresc_model = oresm_id AND oresm_name = \'damaging\' ' .
+			'oresc_model = oresm_id ' .
 			'AND oresm_is_current = 1'
 		];
 
