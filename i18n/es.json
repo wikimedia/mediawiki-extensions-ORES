@@ -5,6 +5,7 @@
 			"Yllelder"
 		]
 	},
+	"ores-beta-feature-description": "ORES es una herramienta basada en inteligencia artificial que resalta ediciones probablemente dañinas en cambios recientes y lista de seguimiento.",
 	"ores-desc": "Expone puntuaciones automatizadas de revisiones en la interfaz",
 	"ores-damaging-filter": "$1 ediciones buenas",
 	"ores-damaging-hard": "Alto (marca más ediciones)",
