@@ -5,7 +5,7 @@
 			"Banjo"
 		]
 	},
-	"ores-beta-feature-description": "ORES é unha ferramenta baseada nunha AI que resalta as edicións potencialmente perxudiciais nos cambios recentes e na lista de vixiancia",
+	"ores-beta-feature-description": "ORES é unha ferramenta baseada nunha AI que resalta as edicións potencialmente perxudiciais nos cambios recentes e na lista de vixiancia.",
 	"ores-desc": "Expón as puntuacións de revisións automatizadas na interface",
 	"ores-damaging-filter": "$1 edicións boas",
 	"ores-damaging-hard": "Alto (etiqueta máis edicións)",
