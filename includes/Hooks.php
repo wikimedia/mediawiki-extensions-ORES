@@ -102,6 +102,7 @@ class Hooks {
 		}
 
 		$threshold = self::getThreshold();
+		$dbr = \wfGetDB( DB_SLAVE );
 
 		$tables[] = 'ores_classification';
 		$tables[] = 'ores_model';
@@ -110,7 +111,7 @@ class Hooks {
 		// Add user-based threshold
 		$fields[] = $threshold . ' AS ores_threshold';
 
-		$conds[] = '(oresm_name = ' . \wfGetDB( DB_SLAVE )->addQuotes( 'damaging' ) .
+		$conds[] = '(oresm_name = ' . $dbr->addQuotes( 'damaging' ) .
 			' OR oresm_name IS NULL)';
 
 		$join_conds['ores_classification'] = [ 'LEFT JOIN',
@@ -126,7 +127,7 @@ class Hooks {
 			// Filter out non-damaging edits.
 			$conds[] = 'oresc_is_predicted = 1';
 			$conds[] = 'oresc_probability > '
-				. \wfGetDB( DB_SLAVE )->addQuotes( $threshold );
+				. $dbr->addQuotes( $threshold );
 		}
 
 		return true;
