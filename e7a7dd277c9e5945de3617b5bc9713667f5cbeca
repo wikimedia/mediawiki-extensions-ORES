@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ea41786_984e85c3",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-03-03T08:33:57Z",
+      "side": 1,
+      "message": "Not sure how expensive wfGetDB is, but when it\u0027s called multiple times in a method, I find it good practice to assign it to a $db variable.",
+      "revId": "e7a7dd277c9e5945de3617b5bc9713667f5cbeca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
