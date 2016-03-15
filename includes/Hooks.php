@@ -125,9 +125,10 @@ class Hooks {
 
 		if ( $opts->getValue( 'hidenondamaging' ) ) {
 			// Filter out non-damaging edits.
-			$conds[] = 'oresc_is_predicted = 1';
+			$conds['oresc_is_predicted'] = 1;
 			$conds[] = 'oresc_probability > '
 				. $dbr->addQuotes( $threshold );
+			$conds['rc_patrolled'] = 0;
 		}
 
 		return true;
