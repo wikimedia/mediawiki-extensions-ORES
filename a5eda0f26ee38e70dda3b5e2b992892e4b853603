@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee33df1d_ce15d49e",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-03-15T14:30:19Z",
+      "side": 1,
+      "message": "I think the preferred coding style should be $conds[\u0027rc_patrolled\u0027] \u003d 0; for equality checks.",
+      "revId": "a5eda0f26ee38e70dda3b5e2b992892e4b853603",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
