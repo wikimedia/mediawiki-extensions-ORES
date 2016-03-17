@@ -5,13 +5,14 @@
 			"ערן"
 		]
 	},
-	"ores-beta-feature-description": "ORES הוא כלי מבוסס בינה מלאכותית שמדגיש עריכות שאולי מזיקות בשינויים אחרונים וברשימת המעקב",
+	"ores-beta-feature-description": "ORES הוא כלי מבוסס בינה מלאכותית שמדגיש עריכות שאולי מזיקות בשינויים אחרונים וברשימת המעקב.",
 	"ores-desc": "חשיפת דירוגי גרסאות אוטומטיים בממשק",
 	"ores-damaging-filter": "$1 עריכות טובות",
-	"ores-damaging-hard": "קשה (מחמיר יותר)",
+	"ores-damaging-hard": "גבוה (לסמן יותר עריכות)",
 	"ores-damaging-letter": "ד",
-	"ores-damaging-soft": "רך (מחמיר פחות)",
-	"ores-damaging-title": "עריכה זו דורשת בדיקה",
-	"ores-damaging-legend": "ORES מעריך כי שינוי זה מזיק ודורש סקירה",
-	"ores-pref-damaging": "סף ORES בשביל דגם נזק"
+	"ores-damaging-soft": "נמוך (למסן פחות עריכות)",
+	"ores-damaging-title": "עריכה זו דורשת סקירה",
+	"ores-damaging-legend": "ייתכן שהשינוי הזה מזיק ודורש סקירה",
+	"ores-help-damaging-pref": "הסף הזה מגדיר כמה רגיש ORES יהיה בעת סימון עריכות שדורשות סקירה",
+	"ores-pref-damaging": "רגישות ORES"
 }
