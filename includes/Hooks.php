@@ -72,9 +72,20 @@ class Hooks {
 			return true;
 		}
 
+		switch ( $clsp->getName() ) {
+			case 'Watchlist':
+				$default = $clsp->getUser()->getOption( 'oresWatchlistHideNonDamaging' );
+				break;
+			case 'Recentchanges':
+				$default = $clsp->getUser()->getOption( 'oresRCHideNonDamaging' );
+				break;
+			default:
+				$default = false;
+		}
+
 		$filters['hidenondamaging'] = [
 			'msg' => 'ores-damaging-filter',
-			'default' => false,
+			'default' => $default,
 		];
 
 		return true;
@@ -253,6 +264,7 @@ class Hooks {
 
 	/**
 	 * GetPreferences hook, adding ORES section, letting people choose a threshold
+	 * Also let people make hidenondamaging default
 	 */
 	public static function onGetPreferences( $user, &$preferences ) {
 		global $wgOresDamagingThresholds;
@@ -271,6 +283,18 @@ class Hooks {
 			'section' => 'rc/ores',
 			'options' => $options,
 			'help-message' => 'ores-help-damaging-pref',
+		];
+
+		// Make hidenondamaging default
+		$preferences['oresWatchlistHideNonDamaging'] = [
+			'type' => 'toggle',
+			'section' => 'watchlist/ores',
+			'label-message' => 'ores-pref-watchlist-hidenondamaging',
+		];
+		$preferences['oresRCHideNonDamaging'] = [
+			'type' => 'toggle',
+			'section' => 'rc/advancedrc',
+			'label-message' => 'ores-pref-rc-hidenondamaging',
 		];
 		return true;
 	}

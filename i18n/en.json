@@ -13,5 +13,7 @@
 	"ores-damaging-legend": "This edit may be damaging and should be reviewed",
 	"ores-help-damaging-pref": "This threshold determines how sensitive ORES is when flagging edits needing review",
 	"ores-pref-damaging": "ORES sensitivity",
+	"ores-pref-rc-hidenondamaging": "Hide good edits from recent changes",
+	"ores-pref-watchlist-hidenondamaging": "Hide good edits from the watchlist",
 	"prefs-ores" : "ORES"
 }
