@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee33df1d_42f16bc7",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-03-22T10:35:21Z",
+      "side": 1,
+      "message": "Is it ok when this defaults to null?",
+      "revId": "c6264a7ae3883f8d13e83bf88ccddd4ec6afad7a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee33df1d_82c2535b",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-03-22T10:35:21Z",
+      "side": 1,
+      "message": "Suggestion:\n\nswitch ( $clsp-\u003egetName() ) {\n\tcase \u0027Watchlist\u0027:\n\t\t$option \u003d \u0027oresWatchlistHideNonDamaging\u0027;\n\t\tbreak;\n\tcase \u0027Recentchanges\u0027:\n\t\t$option \u003d \u0027oresRCHideNonDamaging\u0027;\n\t\tbreak;\n\tdefault:\n\t\treturn;\n}\n$default \u003d $clsp-\u003egetUser()-\u003egetOption( $option, false );",
+      "revId": "c6264a7ae3883f8d13e83bf88ccddd4ec6afad7a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
