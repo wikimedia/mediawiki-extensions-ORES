@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ee33df1d_56764d3a",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-03-22T17:41:14Z",
+      "side": 1,
+      "message": "$wguser-\u003egetOption() doesn\u0027t return null if the user hasn\u0027t set anything. It returns the default value (set in the extension.json) which is 0 but should be false",
+      "parentUuid": "ee33df1d_42f16bc7",
+      "revId": "c6264a7ae3883f8d13e83bf88ccddd4ec6afad7a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee33df1d_82c2535b",
         "filename": "includes/Hooks.php",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-03-22T10:35:21Z",
       "side": 1,
       "message": "Suggestion:\n\nswitch ( $clsp-\u003egetName() ) {\n\tcase \u0027Watchlist\u0027:\n\t\t$option \u003d \u0027oresWatchlistHideNonDamaging\u0027;\n\t\tbreak;\n\tcase \u0027Recentchanges\u0027:\n\t\t$option \u003d \u0027oresRCHideNonDamaging\u0027;\n\t\tbreak;\n\tdefault:\n\t\treturn;\n}\n$default \u003d $clsp-\u003egetUser()-\u003egetOption( $option, false );",
+      "revId": "c6264a7ae3883f8d13e83bf88ccddd4ec6afad7a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee33df1d_564e4dc5",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-03-22T17:41:14Z",
+      "side": 1,
+      "message": "using switch is a good idea but we have another type of changeslist \"related changes\" and we don\u0027t need to make a preference for that, so it\u0027ll be hidenondamaging \u003d false unless people in community ask us. I can make it happen this way.",
+      "parentUuid": "ee33df1d_82c2535b",
       "revId": "c6264a7ae3883f8d13e83bf88ccddd4ec6afad7a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
