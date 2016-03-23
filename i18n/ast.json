@@ -8,5 +8,6 @@
 	"ores-damaging-filter": "$1 ediciones bones",
 	"ores-damaging-letter": "r",
 	"ores-damaging-title": "Esta edición precisa una revisión",
-	"ores-damaging-legend": "ORES prediz qu'esti cambéu puede ser perxudicial y tendría de revisase"
+	"ores-damaging-legend": "Esta edición pué ser perxudicial y tendría de revisase",
+	"ores-pref-damaging": "Sensibilidá d'ORES"
 }
