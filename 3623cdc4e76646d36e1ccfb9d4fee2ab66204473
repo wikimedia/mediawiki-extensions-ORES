@@ -16,6 +16,24 @@
       "revId": "3623cdc4e76646d36e1ccfb9d4fee2ab66204473",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee33df1d_9b5f5514",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-03-23T15:06:19Z",
+      "side": 1,
+      "message": "Hey, This query needs updating, all of these columns are actually moved to another table and we join with model id which is index :)",
+      "parentUuid": "ee33df1d_707550c8",
+      "revId": "3623cdc4e76646d36e1ccfb9d4fee2ab66204473",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
