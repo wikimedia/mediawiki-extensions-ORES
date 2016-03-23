@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee33df1d_707550c8",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-03-23T14:56:32Z",
+      "side": 1,
+      "message": "This looks quite critical, performance wise. Are all these columns in a combined index that will be used when finally executing this query?",
+      "revId": "3623cdc4e76646d36e1ccfb9d4fee2ab66204473",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
