@@ -94,7 +94,9 @@
 		}
 	},
 	"DefaultUserOptions": {
-		"oresDamagingPref": "hard"
+		"oresDamagingPref": "hard",
+		"oresRCHideNonDamaging": false,
+		"oresWatchlistHideNonDamaging": false
 	},
 	"manifest_version": 1
 }
