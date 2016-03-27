@@ -25,6 +25,9 @@
 		"ChangesListSpecialPageQuery": [
 			"ORES\\Hooks::onChangesListSpecialPageQuery"
 		],
+		"ContribsPager::getQueryInfo": [
+			"ORES\\Hooks::onContribsGetQueryInfo"
+		],
 		"EnhancedChangesListModifyBlockLineData": [
 			"ORES\\Hooks::onEnhancedChangesListModifyBlockLineData"
 		],
@@ -45,6 +48,15 @@
 		],
 		"RecentChange_save": [
 			"ORES\\Hooks::onRecentChange_save"
+		],
+		"SpecialContributions::formatRow::flags": [
+			"ORES\\Hooks::onSpecialContributionsFormatRowFlags"
+		],
+		"ContributionsLineEnding": [
+			"ORES\\Hooks::onContributionsLineEnding"
+		],
+		"SpecialContributions::getForm::filters": [
+			"ORES\\Hooks::onSpecialContributionsGetFormFilters"
 		]
 	},
 	"ResourceFileModulePaths": {
