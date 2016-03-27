@@ -14,5 +14,7 @@
 	"ores-damaging-legend": "Уредувањево може да биде штетно и затоа треба да се провери",
 	"ores-help-damaging-pref": "Прагот одредува колку чувствителен ќе биде ORES при означување на уредувања со потреба од преглед",
 	"ores-pref-damaging": "ORES-чувствителност",
+	"ores-pref-rc-hidenondamaging": "Скривај ги добрите уредувања во скорешните промени",
+	"ores-pref-watchlist-hidenondamaging": "Скриј ги добрите уредувања од набљудуваните",
 	"prefs-ores": "ORES"
 }

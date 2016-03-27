@@ -13,5 +13,7 @@
 	"ores-damaging-title": "Це редагування потребує перевірки",
 	"ores-damaging-legend": "Ця зміна може бути шкідливою та потребує перевірки",
 	"ores-help-damaging-pref": "Цей поріг визначає, наскільки чутливим є ORES, коли позначає редагування, що потребують перевірки",
-	"ores-pref-damaging": "Чутливість ORES"
+	"ores-pref-damaging": "Чутливість ORES",
+	"ores-pref-rc-hidenondamaging": "Приховати добрі редагування зі сторінки нових редагувань",
+	"ores-pref-watchlist-hidenondamaging": "Приховати добрі редагування зі списку спостереження"
 }

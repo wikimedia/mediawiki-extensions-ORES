@@ -16,5 +16,7 @@
 	"ores-damaging-legend": "Diese Bearbeitung könnte schädlich sein und sollte überprüft werden",
 	"ores-help-damaging-pref": "Diese Schwelle bestimmt, wie empfindlich ORES bei der Markierung von Bearbeitungen ist, die eine Überprüfung benötigen.",
 	"ores-pref-damaging": "ORES-Empfindlichkeit",
+	"ores-pref-rc-hidenondamaging": "Gute Bearbeitungen in den „Letzten Änderungen“ ausblenden",
+	"ores-pref-watchlist-hidenondamaging": "Gute Bearbeitungen in der Beobachtungsliste ausblenden",
 	"prefs-ores": "ORES"
 }
