@@ -15,5 +15,6 @@
 	"ores-damaging-legend": "Cette modification pourrait être nuisible et devrait être revue",
 	"ores-help-damaging-pref": "Ce seuil détermine la sensibilité avec laquelle ORES étiquette les modifications qui ont besoin d'être relues",
 	"ores-pref-damaging": "Seuil ORES",
+	"ores-pref-rc-hidenondamaging": "Masquer les modifications valides parmi les modifications récentes",
 	"prefs-ores": "ORES"
 }

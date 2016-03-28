@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"ערן"
+			"ערן",
+			"LaG roiL"
 		]
 	},
 	"ores-beta-feature-description": "ORES הוא כלי מבוסס בינה מלאכותית שמדגיש עריכות שאולי מזיקות בשינויים אחרונים וברשימת המעקב.",
@@ -14,5 +15,7 @@
 	"ores-damaging-title": "עריכה זו דורשת סקירה",
 	"ores-damaging-legend": "ייתכן שהשינוי הזה מזיק ודורש סקירה",
 	"ores-help-damaging-pref": "הסף הזה מגדיר כמה רגיש ORES יהיה בעת סימון עריכות שדורשות סקירה",
-	"ores-pref-damaging": "רגישות ORES"
+	"ores-pref-damaging": "רגישות ORES",
+	"ores-pref-rc-hidenondamaging": "הסתרת עריכות טובות ברשימת השינויים האחרונים",
+	"ores-pref-watchlist-hidenondamaging": "הסתרת עריכות טובות ברשימת המעקב"
 }

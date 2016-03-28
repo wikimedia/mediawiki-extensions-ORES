@@ -14,5 +14,7 @@
 	"ores-damaging-legend": "Questa modifica potrebbe essere dannosa e dovrebbe essere rivista",
 	"ores-help-damaging-pref": "Questa soglia determina quanto sensibile sarà ORES nel contrassegnare le modifiche che necessitano di revisione",
 	"ores-pref-damaging": "Sensibilità ORES",
+	"ores-pref-rc-hidenondamaging": "Nascondi le buone modifiche nelle ultime modifiche",
+	"ores-pref-watchlist-hidenondamaging": "Nascondi le buone modifiche negli osservati speciali",
 	"prefs-ores": "ORES"
 }
