@@ -16,5 +16,6 @@
 	"ores-help-damaging-pref": "Ce seuil détermine la sensibilité avec laquelle ORES étiquette les modifications qui ont besoin d'être relues",
 	"ores-pref-damaging": "Seuil ORES",
 	"ores-pref-rc-hidenondamaging": "Masquer les modifications valides parmi les modifications récentes",
+	"ores-pref-watchlist-hidenondamaging": "Masquer les modifications correctes de la liste de suivi",
 	"prefs-ores": "ORES"
 }
