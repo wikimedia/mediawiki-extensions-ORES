@@ -14,5 +14,7 @@
 	"ores-damaging-title": "Esta edición necesita revisión",
 	"ores-damaging-legend": "Esta edición pode ser prexudicial e debería revisarse",
 	"ores-help-damaging-pref": "Este nivel determina a sensibilidade de ORES á hora de etiquetar edicións que requiren revisión",
-	"ores-pref-damaging": "Sensibilidade de ORES"
+	"ores-pref-damaging": "Sensibilidade de ORES",
+	"ores-pref-rc-hidenondamaging": "Ocultar as edicións boas nos cambios recentes",
+	"ores-pref-watchlist-hidenondamaging": "Ocultar as edicións boas da lista de seguimento"
 }
