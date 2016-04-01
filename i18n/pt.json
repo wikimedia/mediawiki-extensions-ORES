@@ -4,5 +4,7 @@
 			"Vitorvicentevalente"
 		]
 	},
-	"ores-damaging-title": "Esta edição precisa de revisão"
+	"ores-damaging-title": "Esta edição precisa de revisão",
+	"ores-pref-rc-hidenondamaging": "Ocultar edições válidas das mudanças recentes",
+	"ores-pref-watchlist-hidenondamaging": "Ocultar edições válidas da lista de páginas vigiadas"
 }
