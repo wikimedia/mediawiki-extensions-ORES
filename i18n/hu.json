@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tgr"
+		]
+	},
+	"ores-beta-feature-description": "Az ORES egy mesterséges intelligencián alapuló eszköz, ami kiemeli a valószínűsíthetően ártalmas szerkesztéseket a friss változtatásokban és a figyelőlistákon.",
+	"ores-desc": "Gépi lapváltozat-pontszámok megjelenítése a felhasználói felületen",
+	"ores-damaging-filter": "jó szerkesztések $1",
+	"ores-damaging-hard": "Magas (több szerkesztésnél riaszt)",
+	"ores-damaging-letter": "r",
+	"ores-damaging-soft": "Alacsony (kevesebb szerkesztésnél riaszt)",
+	"ores-damaging-title": "Ez a szerkesztés felülvizsgálatot igényel",
+	"ores-damaging-legend": "Ez a szerkesztés ártalmas lehet, és felülvizsgálatot igényel",
+	"ores-help-damaging-pref": "Küszöbérték, ami meghatározza, hogy az ORES mennyire aggresszíven jelöljön szerkesztéseket felülviszgálatra szorulónak",
+	"ores-pref-damaging": "ORES érzékenység",
+	"ores-pref-rc-hidenondamaging": "Jó szerkesztések elrejtése a friss változtatásokból",
+	"ores-pref-watchlist-hidenondamaging": "Jó szerkesztések elrejtése a figyelőlistáról"
+}
