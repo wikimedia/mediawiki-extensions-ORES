@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0efd9372_72fad874",
+        "filename": "includes/Scoring.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2016-06-01T16:13:11Z",
+      "side": 1,
+      "message": "Add an Array typehint.",
+      "revId": "48c65407912c97fbf8bbdf9ba6e1842bde960f90",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0efd9372_b2f3a09b",
+        "filename": "includes/Scoring.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2016-06-01T16:13:11Z",
+      "side": 1,
+      "message": "No need for tolerating other types if you enforce via the signature.",
+      "revId": "48c65407912c97fbf8bbdf9ba6e1842bde960f90",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
