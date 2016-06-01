@@ -16,6 +16,24 @@
       "revId": "fc7fd3026556bf8a11427c209daf45b74bd01fc6",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0efd9372_b5426ab0",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-06-01T18:01:38Z",
+      "side": 1,
+      "message": "That was my mistake, I was thinking too pythonic and I thought we can send arguments via their names, fixed.",
+      "parentUuid": "0efd9372_152d3642",
+      "revId": "fc7fd3026556bf8a11427c209daf45b74bd01fc6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
