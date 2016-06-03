@@ -16,11 +16,6 @@ use RecentChange;
 use Skin;
 use User;
 
-/**
- * TODO:
- * - Fix mw-core EnhancedChangesList::recentChangesBlockGroup to rollup
- * extension recentChangesFlags into the top-level grouped line.
- */
 class Hooks {
 	/**
 	 * @param DatabaseUpdater $updater
