@@ -18,7 +18,8 @@ class FetchScoreJob extends Job {
 	public function run() {
 		$logger = LoggerFactory::getInstance( 'ORES' );
 		$logger->info( 'Fetching scores for revision ' . json_encode( $this->params ) );
-		$scores = Scoring::instance()->getScores( $this->params['revid'] );
+		$scores = Scoring::instance()->getScores(
+			$this->params['revid'], null, $this->params['extra_params'] );
 		Cache::instance()->storeScores( $scores );
 		$logger->debug( 'Stored scores: ' . json_encode( $scores ) );
 

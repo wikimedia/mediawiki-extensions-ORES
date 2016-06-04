@@ -45,6 +45,7 @@ class Hooks {
 			] );
 			$job = new FetchScoreJob( $rc->getTitle(), [
 				'revid' => $revid,
+				'extra_params' => [ 'precache' => 'true' ],
 			] );
 			JobQueueGroup::singleton()->push( $job );
 			$logger->debug( 'Job pushed for {revid}', [
