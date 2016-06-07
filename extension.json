@@ -70,7 +70,7 @@
 		"ORESFetchScoreJob": "ORES\\FetchScoreJob"
 	},
 	"config": {
-		"OresBaseUrl": "https://ores.wmflabs.org/",
+		"OresBaseUrl": "https://ores.wikimedia.org/",
 		"OresExcludeBots": true,
 		"OresModels": {
 			"damaging": true,

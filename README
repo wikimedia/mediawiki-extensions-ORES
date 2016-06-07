@@ -14,4 +14,4 @@ $wgOresWikiId - Optional database ID for making ORES requests to a different
 wiki ID.  An important special name is "testwiki", which accesses a pseudomodel
 available for testing without setting up an ORES server to score your wiki.
 This pseudomodel will emit scores deterministically correlated to the revision ID,
-e.g. https://ores.wmflabs.org/scores/testwiki/reverted/?revids=1|2|3|4|5|6|7|8|9
+e.g. https://ores.wikimedia.org/scores/testwiki/reverted/?revids=1|2|3|4|5|6|7|8|9
