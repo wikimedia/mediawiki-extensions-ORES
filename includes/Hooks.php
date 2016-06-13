@@ -319,8 +319,8 @@ class Hooks {
 				'ltr' => "$wgExtensionAssetsPath/ORES/images/ORES-beta-features-ltr.png",
 				'rtl' => "$wgExtensionAssetsPath/ORES/images/ORES-beta-features-rtl.png",
 			],
-			'info-link' => 'https://www.mediawiki.org/wiki/Extension:ORES',
-			'discussion-link' => 'https://www.mediawiki.org/wiki/Extension_talk:ORES',
+			'info-link' => 'https://www.mediawiki.org/wiki/ORES_review_tool',
+			'discussion-link' => 'https://www.mediawiki.org/wiki/Talk:ORES_review_tool',
 		];
 	}
 
