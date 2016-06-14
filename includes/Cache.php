@@ -17,15 +17,19 @@ class Cache {
 	 * Save scores to the database
 	 *
 	 * @param array $scores in the same structure as is returned by ORES.
+	 * @param bool $batch either to skip errors or not.
 	 *
 	 * @throws RuntimeException
 	 */
-	public function storeScores( $scores ) {
+	public function storeScores( $scores, $batch = false ) {
 		// Map to database fields.
 		$dbData = [];
 		foreach ( $scores as $revision => $revisionData ) {
 			foreach ( $revisionData as $model => $modelOutputs ) {
 				if ( isset( $modelOutputs['error'] ) ) {
+					if ( $batch ) {
+						continue;
+					}
 					throw new RuntimeException( 'Model contains an error: ' . $modelOutputs['error']['message'] );
 				}
 

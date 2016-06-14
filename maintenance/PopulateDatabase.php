@@ -102,7 +102,7 @@ class PopulateDatabase extends Maintenance {
 		$this->output( "Processing $size revsisions\n" );
 
 		$scores = $scoring->getScores( $revs );
-		$cache->storeScores( $scores );
+		$cache->storeScores( $scores, true );
 	}
 }
 
