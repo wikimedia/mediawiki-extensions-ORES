@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0efd9372_348bd5c5",
+        "filename": "includes/Cache.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-06-15T10:28:17Z",
+      "side": 1,
+      "message": "$batch is undocumented, and from the name, it\u0027s unclear what it does.\n\nI would suggest a different approach: \n-  define a member variable $errorHandler that contains a callback function.\n- per default, this would throw a RuntimeException\n- provide a setter for the callback function\n- for batch mode, set it to a closure that odes nothing, or just logs output  \n\nThat\u0027s clearer and more flexible, and it allows you to use the maintenancescript\u0027s output) function to report issues to the user.",
+      "revId": "da58527324ef8971d82fab13008366443db8b668",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
