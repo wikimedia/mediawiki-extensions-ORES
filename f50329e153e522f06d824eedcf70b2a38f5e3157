@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0efd9372_18bcff66",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-06-16T13:52:20Z",
+      "side": 1,
+      "message": "This threshold comes from user preferences not db :)",
+      "parentUuid": "0efd9372_589fa706",
+      "revId": "f50329e153e522f06d824eedcf70b2a38f5e3157",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0efd9372_b885f3b3",
         "filename": "includes/Hooks.php",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-06-16T13:47:37Z",
       "side": 1,
       "message": "I am a bit worried about introducing SQL directly on code, it is not the case, but cannot that lead to SQL injection issues if it is done in the general case?",
+      "revId": "f50329e153e522f06d824eedcf70b2a38f5e3157",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0efd9372_38b90379",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-06-16T13:52:20Z",
+      "side": 1,
+      "message": "Since it doesn\u0027t read the values from users there is no way to do XSS attacks.",
+      "parentUuid": "0efd9372_b885f3b3",
       "revId": "f50329e153e522f06d824eedcf70b2a38f5e3157",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
