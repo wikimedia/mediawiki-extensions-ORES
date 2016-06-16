@@ -131,8 +131,12 @@ class Hooks {
 		];
 
 		if ( $opts->getValue( 'hidenondamaging' ) ) {
+			// Override the join conditions.
+			$join_conds['ores_classification'] = [ 'INNER JOIN',
+				'rc_this_oldid = oresc_rev ' .
+				'AND oresc_is_predicted = 1 AND oresc_class = 1' ];
+
 			// Filter out non-damaging edits.
-			$conds['oresc_is_predicted'] = 1;
 			$conds[] = 'oresc_probability > '
 				. $dbr->addQuotes( $threshold );
 			$conds['rc_patrolled'] = 0;
