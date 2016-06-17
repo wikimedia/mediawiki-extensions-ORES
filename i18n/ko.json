@@ -2,10 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"Revi",
-			"Priviet"
+			"Priviet",
+			"Kwj2772"
 		]
 	},
-	"ores-damaging-filter": "$1 좋은 편집",
+	"ores-beta-feature-description": "ORES는 최근 바뀜과 주시문서 목록에서 잠재적으로 해로운 편집을 표시하는 인공지능 기반 도구입니다.",
+	"ores-damaging-filter": "정상적인 편집 $1",
+	"ores-damaging-hard": "높음 (더 많은 편집 표시)",
 	"ores-damaging-letter": "r",
-	"ores-damaging-title": "이 편집은 검토가 필요합니다"
+	"ores-damaging-soft": "낮음 (더 적은 편집 표시)",
+	"ores-damaging-title": "이 편집은 검토가 필요합니다",
+	"ores-damaging-legend": "이 편집은 해로울 가능성이 있으며 검토가 필요합니다.",
+	"ores-help-damaging-pref": "이 기준은 ORES가 검토를 필요로 하는 편집을 표시할 때 얼마나 민감하게 할 지 결정합니다.",
+	"ores-pref-damaging": "ORES 민감도",
+	"ores-pref-rc-hidenondamaging": "최근 바뀜에서 정상적인 편집 숨기기",
+	"ores-pref-watchlist-hidenondamaging": "주시문서 목록에서 정상적인 편집 숨기기"
 }
