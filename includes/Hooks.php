@@ -116,7 +116,7 @@ class Hooks {
 
 		$fields[] = 'oresc_probability';
 		// Add user-based threshold
-		$fields[] = $threshold . ' AS ores_threshold';
+		$fields[] = $dbr->addQuotes( $threshold ) . ' AS ores_threshold';
 
 		$conds[] = '(oresm_name = ' . $dbr->addQuotes( 'damaging' ) .
 			' OR oresm_name IS NULL)';
