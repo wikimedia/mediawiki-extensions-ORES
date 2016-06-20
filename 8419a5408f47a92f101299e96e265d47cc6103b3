@@ -16,6 +16,24 @@
       "revId": "8419a5408f47a92f101299e96e265d47cc6103b3",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0efd9372_8e49ba92",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-06-20T10:16:09Z",
+      "side": 1,
+      "message": "It\u0027s a value from the wgOresDamagingThresholds settings.",
+      "parentUuid": "0efd9372_4d099f2e",
+      "revId": "8419a5408f47a92f101299e96e265d47cc6103b3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
