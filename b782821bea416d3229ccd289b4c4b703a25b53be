@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0efd9372_9058ad5a",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-06-22T16:02:16Z",
+      "side": 1,
+      "message": "Thinking about it, I don\u0027t think this will work in this case, given MySQL can\u0027t know for sure whether all RC entries have the given rc_timestamp (because it\u0027s a LEFT JOIN). But if you make this an INNER JOIN and move it into the if block below, it will work as expected.",
+      "revId": "b782821bea416d3229ccd289b4c4b703a25b53be",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
