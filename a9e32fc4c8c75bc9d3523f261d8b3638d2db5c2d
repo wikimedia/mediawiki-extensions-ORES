@@ -16,6 +16,24 @@
       "revId": "a9e32fc4c8c75bc9d3523f261d8b3638d2db5c2d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0efd9372_0388ea22",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-06-24T09:03:17Z",
+      "side": 1,
+      "message": "No, joining another table by primary key doesn\u0027t not add significant overhead. And yes, we use this hack in several places and it improves the performance over a full table scan significantly.\nRE the multiple rows: The \"rc_this_oldid \u003d oresc_rev \" condition from line 136 should prevent this.",
+      "parentUuid": "0efd9372_3724535b",
+      "revId": "a9e32fc4c8c75bc9d3523f261d8b3638d2db5c2d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
