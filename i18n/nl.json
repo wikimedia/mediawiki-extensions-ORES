@@ -8,5 +8,6 @@
 	"ores-desc": "Automatische terugdraaiscores weergeven in de interface",
 	"ores-damaging-filter": "goede bewerkingen $1",
 	"ores-damaging-letter": "r",
-	"ores-damaging-title": "Deze bewerking moet worden beoordeeld"
+	"ores-damaging-title": "Deze bewerking moet worden beoordeeld",
+	"ores-damaging-legend": "Deze bewerking kan schadelijk zijn en dient gecontroleerd te worden"
 }
