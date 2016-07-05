@@ -123,7 +123,7 @@ class Hooks {
 
 		$join_conds['ores_classification'] = [ 'LEFT JOIN',
 			'rc_this_oldid = oresc_rev ' .
-			'AND oresc_is_predicted = 1 AND oresc_class = 1' ];
+			'AND oresc_class = 1' ];
 
 		$join_conds['ores_model'] = [ 'LEFT JOIN',
 			'oresc_model = oresm_id ' .
@@ -134,7 +134,7 @@ class Hooks {
 			// Override the join conditions.
 			$join_conds['ores_classification'] = [ 'INNER JOIN',
 				'rc_this_oldid = oresc_rev ' .
-				'AND oresc_is_predicted = 1 AND oresc_class = 1' ];
+				'AND oresc_class = 1' ];
 
 			// Filter out non-damaging edits.
 			$conds[] = 'oresc_probability > '
