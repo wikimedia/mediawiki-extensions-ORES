@@ -99,7 +99,7 @@ class PopulateDatabase extends Maintenance {
 	 */
 	private function processScores( array $revs, Scoring $scoring, Cache $cache ) {
 		$size = count( $revs );
-		$this->output( "Processing $size revsisions\n" );
+		$this->output( "Processing $size revisions\n" );
 
 		$scores = $scoring->getScores( $revs );
 		$cache->storeScores( $scores, true );
