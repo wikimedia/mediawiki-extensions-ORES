@@ -4,7 +4,8 @@
 			"Краснорядцева Елена",
 			"Iniquity",
 			"MaxBioHazard",
-			"Sealle"
+			"Sealle",
+			"Cat1987"
 		]
 	},
 	"ores-beta-feature-description": "ORES — это основанный на искусственном интеллекте инструмент для подсветки потенциально вредных правок в  свежих правках и списке наблюдения.",
@@ -17,6 +18,6 @@
 	"ores-damaging-legend": "подозрительная правка",
 	"ores-help-damaging-pref": "Эта величина определяет, насколько придирчиво ORES выбирает правки для подсветки",
 	"ores-pref-damaging": "Чувствительность ORES",
-	"ores-pref-rc-hidenondamaging": "Не показывать полезные правки в недавних изменениях",
+	"ores-pref-rc-hidenondamaging": "Не показывать полезные правки в свежих правках",
 	"ores-pref-watchlist-hidenondamaging": "Скрыть полезные правки в списке наблюдения"
 }
