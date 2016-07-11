@@ -155,13 +155,13 @@ class Hooks {
 	 * @return bool
 	 */
 	public static function onEnhancedChangesListModifyLineData( EnhancedChangesList $ecl, array &$data,
-		array $block, RCCacheEntry $rcObj
+		array $block, RCCacheEntry $rcObj, array &$classes
 	) {
 		if ( self::oresEnabled( $ecl->getUser() ) === false ) {
 			return true;
 		}
 
-		self::processRecentChangesList( $rcObj, $data );
+		self::processRecentChangesList( $rcObj, $data, $classes );
 
 		return true;
 	}
@@ -222,9 +222,12 @@ class Hooks {
 	/**
 	 * Internal helper to label matching rows
 	 */
-	protected static function processRecentChangesList( RCCacheEntry $rcObj, array &$data ) {
+	protected static function processRecentChangesList( RCCacheEntry $rcObj,
+		array &$data, array &$classes = []
+	) {
 		$damaging = self::getScoreRecentChangesList( $rcObj );
 		if ( $damaging ) {
+			$classes[] = 'damaging';
 			$data['recentChangesFlags']['damaging'] = true;
 		}
 	}
