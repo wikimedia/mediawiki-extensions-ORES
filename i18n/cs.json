@@ -1,18 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mormegil"
+			"Mormegil",
+			"Matěj Suchánek"
 		]
 	},
 	"ores-beta-feature-description": "ORES je nástroj založený na umělé inteligenci, který v posledních změnách a seznamu sledovaných stránek zvýrazňuje pravděpodobně škodlivé editace.",
 	"ores-desc": "Zpřístupňuje v rozhraní automatické skórování revizí",
-	"ores-damaging-filter": "$1 dobré editace",
+	"ores-damaging-filter": "$1 pravděpodobně dobré editace",
 	"ores-damaging-hard": "Vysoká (označí více editací)",
 	"ores-damaging-soft": "Nízká (označí méně editací)",
 	"ores-damaging-title": "Tato editace potřebuje zkontrolovat",
 	"ores-damaging-legend": "Tato editace může být škodlivá a měla by se zkontrolovat",
 	"ores-help-damaging-pref": "Tato hranice určuje, jak citlivé je ORES při označování editací potřebujících kontrolu",
 	"ores-pref-damaging": "Citlivost ORES",
-	"ores-pref-rc-hidenondamaging": "Skrýt dobré editace v posledních změnách",
-	"ores-pref-watchlist-hidenondamaging": "Na seznamu sledovaných stránek skrýt dobré editace"
+	"ores-pref-rc-hidenondamaging": "Skrýt pravděpodobně dobré editace v posledních změnách",
+	"ores-pref-watchlist-hidenondamaging": "Na seznamu sledovaných stránek skrýt pravděpodobně dobré editace"
 }

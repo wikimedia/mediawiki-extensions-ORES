@@ -14,7 +14,7 @@
 	"ores-damaging-legend": "此次编辑可能具备破坏性，并应被复核",
 	"ores-help-damaging-pref": "此门槛决定当标记编辑需要复核时，ORES的敏感度",
 	"ores-pref-damaging": "ORES敏感度",
-	"ores-pref-rc-hidenondamaging": "在最近更改中隐藏良好编辑",
-	"ores-pref-watchlist-hidenondamaging": "隐藏监视列表中的良好编辑",
+	"ores-pref-rc-hidenondamaging": "在最近更改中隐藏可能良好编辑",
+	"ores-pref-watchlist-hidenondamaging": "隐藏监视列表中的可能良好编辑",
 	"prefs-ores": "ORES"
 }

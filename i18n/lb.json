@@ -5,13 +5,13 @@
 		]
 	},
 	"ores-desc": "Weist déi automatesch Bewäertung vun der Versioun am Interface",
-	"ores-damaging-filter": "$1 gutt Ännerungen",
+	"ores-damaging-filter": "$1 wahrscheinlech gutt Ännerungen",
 	"ores-damaging-hard": "Héich (markéiert méi Ännerungen)",
 	"ores-damaging-letter": "n",
 	"ores-damaging-soft": "Niddreg (markéiert manner Ännerungen)",
 	"ores-damaging-title": "Dës Ännerung muss nogekuckt ginn",
 	"ores-damaging-legend": "Dës Ännerung ka schiedlech sinn a si sollt nogekuckt ginn",
-	"ores-pref-rc-hidenondamaging": "Gutt Ännerungen an de rezenten Ännerunge verstoppen",
-	"ores-pref-watchlist-hidenondamaging": "Gutt Ännerunge op menger Iwwerwaachungslëscht verstoppen",
+	"ores-pref-rc-hidenondamaging": "Wahrscheinlech gutt Ännerungen an de rezenten Ännerunge verstoppen",
+	"ores-pref-watchlist-hidenondamaging": "Wahrscheinlech gutt Ännerunge op der Iwwerwaachungslëscht verstoppen",
 	"prefs-ores": "ORES"
 }

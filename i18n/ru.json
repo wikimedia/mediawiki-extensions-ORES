@@ -5,12 +5,13 @@
 			"Iniquity",
 			"MaxBioHazard",
 			"Sealle",
-			"Cat1987"
+			"Cat1987",
+			"Okras"
 		]
 	},
 	"ores-beta-feature-description": "ORES — это основанный на искусственном интеллекте инструмент для подсветки потенциально вредных правок в  свежих правках и списке наблюдения.",
 	"ores-desc": "Показывать оценку правок системой ORES",
-	"ores-damaging-filter": "$1 {{PLURAL:$1|полезная правка|полезные правки|полезных правок}}",
+	"ores-damaging-filter": "$1 возможно {{PLURAL:$1|полезная правка|полезные правки|полезных правок}}",
 	"ores-damaging-hard": "Высокий (подсвечивать больше правок)",
 	"ores-damaging-letter": "?",
 	"ores-damaging-soft": "Низкий (подсвечивать меньше правок)",
@@ -18,6 +19,6 @@
 	"ores-damaging-legend": "подозрительная правка",
 	"ores-help-damaging-pref": "Эта величина определяет, насколько придирчиво ORES выбирает правки для подсветки",
 	"ores-pref-damaging": "Чувствительность ORES",
-	"ores-pref-rc-hidenondamaging": "Не показывать полезные правки в свежих правках",
-	"ores-pref-watchlist-hidenondamaging": "Скрыть полезные правки в списке наблюдения"
+	"ores-pref-rc-hidenondamaging": "Не показывать возможно полезные правки в свежих правках",
+	"ores-pref-watchlist-hidenondamaging": "Скрыть возможно полезные правки в списке наблюдения"
 }

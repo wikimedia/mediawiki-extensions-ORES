@@ -7,7 +7,7 @@
 	},
 	"ores-beta-feature-description": "ORES est un outil basés sur une intelligence artificielle qui met en évidence des modifications potentiellement nuisibles dans celles faites récemment et dans les listes de suivi.",
 	"ores-desc": "Exposer les notes de révision automatisées dans l’interface",
-	"ores-damaging-filter": "$1 bonnes modifications",
+	"ores-damaging-filter": "$1 modifications probablement bonnes",
 	"ores-damaging-hard": "Haut (indique plus de modifications)",
 	"ores-damaging-letter": "r",
 	"ores-damaging-soft": "Bas (indique moins de modifications)",
@@ -15,7 +15,7 @@
 	"ores-damaging-legend": "Cette modification pourrait être nuisible et devrait être revue",
 	"ores-help-damaging-pref": "Ce seuil détermine la sensibilité avec laquelle ORES étiquette les modifications qui ont besoin d'être relues",
 	"ores-pref-damaging": "Seuil ORES",
-	"ores-pref-rc-hidenondamaging": "Masquer les modifications valides parmi les modifications récentes",
-	"ores-pref-watchlist-hidenondamaging": "Masquer les modifications correctes de la liste de suivi",
+	"ores-pref-rc-hidenondamaging": "Masquer les modifications probablement bonnes parmi les modifications récentes",
+	"ores-pref-watchlist-hidenondamaging": "Masquer les modifications probablement bonnes de la liste de suivi",
 	"prefs-ores": "ORES"
 }

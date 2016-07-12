@@ -4,5 +4,7 @@
 			"Chrumps"
 		]
 	},
+	"ores-pref-rc-hidenondamaging": "Ukryj sprawdzone edycje w ostatnich zmianach",
+	"ores-pref-watchlist-hidenondamaging": "Ukryj sprawdzone edycje na liście obserwowanych",
 	"prefs-ores": "ORES"
 }

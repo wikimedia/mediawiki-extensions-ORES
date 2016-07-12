@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sujiniku"
+			"Sujiniku",
+			"Otokoume"
 		]
 	},
-	"ores-damaging-title": "この編集は査読を必要としてます"
+	"ores-damaging-filter": "良質だと推測される編集を$1",
+	"ores-damaging-title": "この編集は査読を必要としてます",
+	"ores-pref-rc-hidenondamaging": "最近の更新に良質だと推測される編集を表示しない",
+	"ores-pref-watchlist-hidenondamaging": "良質だと推測される編集をウォッチリストに表示しない"
 }
