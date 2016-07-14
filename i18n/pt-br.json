@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Luk3"
+			"Luk3",
+			"Peter Fernando"
 		]
 	},
-	"ores-pref-rc-hidenondamaging": "Ocultar boas edições das mudanças recentes",
-	"ores-pref-watchlist-hidenondamaging": "Ocultar boas edições da lista de páginas vigiadas"
+	"ores-pref-rc-hidenondamaging": "Ocultar edições provavelmente boas das mudanças recentes",
+	"ores-pref-watchlist-hidenondamaging": "Ocultar edições provavelmente boas da lista de páginas vigiadas"
 }

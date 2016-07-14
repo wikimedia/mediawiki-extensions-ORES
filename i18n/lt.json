@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Zygimantus"
+			"Zygimantus",
+			"Eitvys200"
 		]
 	},
+	"ores-damaging-filter": "$1 tikriausiai gerų redagavimų",
 	"ores-pref-damaging": "ORES jautrumas"
 }
