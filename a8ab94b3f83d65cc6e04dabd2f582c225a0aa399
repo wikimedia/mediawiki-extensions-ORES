@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6eed2fc9_0224d806",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2016-07-14T20:31:09Z",
+      "side": 1,
+      "message": "\"OresEnabledNamespaces\" maybe?\n\nAnd I think this should be an object: { 0: true, 1: false }, etc.",
+      "revId": "a8ab94b3f83d65cc6e04dabd2f582c225a0aa399",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eed2fc9_e220acf4",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2016-07-14T20:31:09Z",
+      "side": 1,
+      "message": "This can be in the same global line",
+      "revId": "a8ab94b3f83d65cc6e04dabd2f582c225a0aa399",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6eed2fc9_628cbc00",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2016-07-14T20:31:09Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be !in_array?\n\nBut if you change it to an object, the code could be\n\n$ns \u003d $rc-\u003egetAttribute(\u0027rc_namespace\u0027);\n\n $wgOresEnabledNamespaces \u0026\u0026 !(isset($wgOresEnabledNamespaces[$ns]) \u0026\u0026 $wgOresEnabledNamespaces[$ns]))\n\nI think.",
+      "revId": "a8ab94b3f83d65cc6e04dabd2f582c225a0aa399",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
