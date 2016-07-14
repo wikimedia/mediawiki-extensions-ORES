@@ -32,10 +32,19 @@ class Hooks {
 	 * Ask the ORES server for scores on this recent change
 	 */
 	public static function onRecentChange_save( RecentChange $rc ) {
-		global $wgOresExcludeBots;
+		global $wgOresExcludeBots, $wgOresEnabledNamespaces;
 		if ( $rc->getAttribute( 'rc_bot' ) && $wgOresExcludeBots ) {
 			return true;
 		}
+
+		// Check if we actually want score for this namespace
+		$ns = $rc->getAttribute( 'rc_namespace' );
+		if ( $wgOresEnabledNamespaces &&
+				!( isset( $wgOresEnabledNamespaces[$ns] ) &&
+				$wgOresEnabledNamespaces[$ns] ) ) {
+			return true;
+		}
+
 		$rc_type = $rc->getAttribute( 'rc_type' );
 		if ( $rc_type === RC_EDIT || $rc_type === RC_NEW ) {
 			$revid = $rc->getAttribute( 'rc_this_oldid' );
