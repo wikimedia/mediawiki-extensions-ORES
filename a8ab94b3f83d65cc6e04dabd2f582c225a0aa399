@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6eed2fc9_798bd220",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-07-15T07:16:38Z",
+      "side": 1,
+      "message": "I wonder what we win with the ability to disable namespaces when all other namespaces that are not listed are disabled anyway?",
+      "parentUuid": "6eed2fc9_0224d806",
+      "revId": "a8ab94b3f83d65cc6e04dabd2f582c225a0aa399",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6eed2fc9_e220acf4",
         "filename": "includes/Hooks.php",
         "patchSetId": 1
