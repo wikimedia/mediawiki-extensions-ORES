@@ -11,7 +11,7 @@
 	"ores-damaging-hard": "Vysoká (označí více editací)",
 	"ores-damaging-soft": "Nízká (označí méně editací)",
 	"ores-damaging-title": "Tato editace potřebuje zkontrolovat",
-	"ores-damaging-legend": "Tato editace může být škodlivá a měla by se zkontrolovat",
+	"ores-damaging-legend": "Tato editace může být škodlivá a měla by se zkontrolovat ([[:mw:Special:MyLanguage/ORES review tool|další informace]])",
 	"ores-help-damaging-pref": "Tato hranice určuje, jak citlivé je ORES při označování editací potřebujících kontrolu",
 	"ores-pref-damaging": "Citlivost ORES",
 	"ores-pref-rc-hidenondamaging": "Skrýt pravděpodobně dobré editace v posledních změnách",

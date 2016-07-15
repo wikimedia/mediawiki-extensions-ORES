@@ -11,7 +11,7 @@
 	"ores-damaging-hard": "Alto (contrassegna più modifiche)",
 	"ores-damaging-letter": "r",
 	"ores-damaging-soft": "Basso (contrassegna meno modifiche)",
-	"ores-damaging-legend": "Questa modifica potrebbe essere dannosa e dovrebbe essere rivista",
+	"ores-damaging-legend": "Questa modifica potrebbe essere dannosa e dovrebbe essere rivista ([[:mw:Special:MyLanguage/ORES review tool|ulteriori informazioni]])",
 	"ores-help-damaging-pref": "Questa soglia determina quanto sensibile sarà ORES nel contrassegnare le modifiche che necessitano di revisione",
 	"ores-pref-damaging": "Sensibilità ORES",
 	"ores-pref-rc-hidenondamaging": "Nascondi le probabili buone modifiche nelle ultime modifiche",

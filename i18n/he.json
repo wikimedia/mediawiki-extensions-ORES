@@ -14,7 +14,7 @@
 	"ores-damaging-letter": "ד",
 	"ores-damaging-soft": "נמוך (לסמן פחות עריכות)",
 	"ores-damaging-title": "עריכה זו דורשת סקירה",
-	"ores-damaging-legend": "ייתכן שהשינוי הזה מזיק ודורש סקירה",
+	"ores-damaging-legend": "ייתכן שהעריכה הזאת מזיקה ולכן היא דורשת סקירה ([[:mw:Special:MyLanguage/ORES review tool|מידע נוסף]])",
 	"ores-help-damaging-pref": "הסף הזה מגדיר כמה רגיש ORES יהיה בעת סימון עריכות שדורשות סקירה",
 	"ores-pref-damaging": "רגישות ORES",
 	"ores-pref-rc-hidenondamaging": "הסתרת עריכות שזוהו כ\"טובות\" בדף השינויים האחרונים",

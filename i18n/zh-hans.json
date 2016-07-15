@@ -11,7 +11,7 @@
 	"ores-damaging-letter": "坏",
 	"ores-damaging-soft": "低（标记更少编辑）",
 	"ores-damaging-title": "此编辑需要复核",
-	"ores-damaging-legend": "此次编辑可能具备破坏性，并应被复核",
+	"ores-damaging-legend": "此次编辑可能具备破坏性，并应被复核（[[:mw:Special:MyLanguage/ORES review tool|更多信息]]）",
 	"ores-help-damaging-pref": "此门槛决定当标记编辑需要复核时，ORES的敏感度",
 	"ores-pref-damaging": "ORES敏感度",
 	"ores-pref-rc-hidenondamaging": "在最近更改中隐藏可能良好编辑",
