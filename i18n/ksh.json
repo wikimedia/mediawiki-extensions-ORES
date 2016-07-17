@@ -10,5 +10,7 @@
 	"ores-damaging-letter": "p",
 	"ores-damaging-soft": "Weijsch, ov winnijer schträng",
 	"ores-damaging-title": "Heh di Ännderong moß nohjelohrt wähde.",
-	"ores-damaging-legend": "di Ännderon heh küntt kapott sinn un möht nohjelohrt wähde"
+	"ores-damaging-legend": "di Ännderong heh künnt kapott sinn un möht nohjelohrt wähde. ([[:mw:Special:MyLanguage/ORES review tool|Mih Aanjahbe]])",
+	"ores-pref-rc-hidenondamaging": "Dun de vermohtlesch johde Änderunge us de „{{int:recentchanges}}“ fott lohße",
+	"ores-pref-watchlist-hidenondamaging": "Dun de vermohtlesch johde Änderunge us de Oppaßleß fott lohße"
 }
