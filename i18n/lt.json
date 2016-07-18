@@ -6,5 +6,6 @@
 		]
 	},
 	"ores-damaging-filter": "$1 tikriausiai gerų redagavimų",
+	"ores-damaging-legend": "Šis pataisymas gali būti sugadintas ir turėtų būti peržiūrėtas ([[:mw:Special:MyLanguage/ORES review tool|daugiau informacijos]])",
 	"ores-pref-damaging": "ORES jautrumas"
 }
