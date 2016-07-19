@@ -33,6 +33,24 @@
       "revId": "30c7ac318ff99ab06e25817e040488a0a4426db0",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e2673f8_f946a353",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-07-19T19:55:31Z",
+      "side": 1,
+      "message": "Thanks I wanted to avoid closures but it seems it\u0027s inevitable",
+      "parentUuid": "0e2673f8_90965c96",
+      "revId": "30c7ac318ff99ab06e25817e040488a0a4426db0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
