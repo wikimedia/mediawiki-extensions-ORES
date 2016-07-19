@@ -7,12 +7,26 @@ use RuntimeException;
 class Cache {
 	static protected $modelIds;
 	protected $classMap;
+	protected $errorCallback;
 
 	public function __construct() {
 		$this->classMap = [ 'true' => 1, 'false' => 0,
 			'B' => 0, 'C' => 1, 'FA' => 2, 'GA' => 3,
 			'Start' => 4, 'Stub' => 5 ];
+		$this->setErrorCallback( function ( $mssg ) {
+			throw new RuntimeException( 'Model contains an error: ' . $mssg );
+		} );
 	}
+
+	/**
+	 * Setter for $errorCallback
+	 *
+	 * @param callable $errorCallback the callback function
+	 */
+	public function setErrorCallback( $errorCallback ) {
+		$this->errorCallback = $errorCallback;
+	}
+
 	/**
 	 * Save scores to the database
 	 *
@@ -21,16 +35,14 @@ class Cache {
 	 *
 	 * @throws RuntimeException
 	 */
-	public function storeScores( $scores, $batch = false ) {
+	public function storeScores( $scores ) {
 		// Map to database fields.
 		$dbData = [];
 		foreach ( $scores as $revision => $revisionData ) {
 			foreach ( $revisionData as $model => $modelOutputs ) {
 				if ( isset( $modelOutputs['error'] ) ) {
-					if ( $batch ) {
-						continue;
-					}
-					throw new RuntimeException( 'Model contains an error: ' . $modelOutputs['error']['message'] );
+					call_user_func( $this->errorCallback, $modelOutputs['error']['message'] );
+					continue;
 				}
 
 				$prediction = $modelOutputs['prediction'];

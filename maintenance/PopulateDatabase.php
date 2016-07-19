@@ -38,6 +38,9 @@ class PopulateDatabase extends Maintenance {
 
 		$scoring = Scoring::instance();
 		$cache = Cache::instance();
+		$cache->setErrorCallback( function ( $mssg ) {
+			$this->output( "Scoring errored: $mssg\n" );
+		} );
 		$this->batchSize = $this->getOption( 'batch', 5000 );
 		$this->revisionLimit = $this->getOption( 'number', 1000 );
 
@@ -102,7 +105,7 @@ class PopulateDatabase extends Maintenance {
 		$this->output( "Processing $size revisions\n" );
 
 		$scores = $scoring->getScores( $revs );
-		$cache->storeScores( $scores, true );
+		$cache->storeScores( $scores );
 	}
 }
 
