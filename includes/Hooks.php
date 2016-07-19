@@ -24,6 +24,8 @@ class Hooks {
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$updater->addExtensionTable( 'ores_classification', __DIR__ . '/../sql/ores_classification.sql' );
 		$updater->addExtensionTable( 'ores_model', __DIR__ . '/../sql/ores_model.sql' );
+		$updater->dropExtensionIndex( 'ores_classification', 'oresc_rev',
+			__DIR__ . '/../sql/patch-ores-classification-indexes.sql' );
 
 		return true;
 	}

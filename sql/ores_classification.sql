@@ -18,5 +18,4 @@ CREATE TABLE /*_*/ores_classification (
 	oresc_is_predicted TINYINT(1) NOT NULL
 ) /*$wgDBTableOptions*/;
 
-CREATE INDEX /*i*/oresc_rev ON /*_*/ores_classification (oresc_rev);
 CREATE INDEX /*i*/oresc_winner ON /*_*/ores_classification (oresc_rev, oresc_is_predicted);
