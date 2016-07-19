@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e2673f8_70f768f3",
+        "filename": "includes/Cache.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-07-19T14:50:20Z",
+      "side": 1,
+      "message": "Type should be \"callable\".",
+      "revId": "30c7ac318ff99ab06e25817e040488a0a4426db0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e2673f8_90965c96",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-07-19T14:50:20Z",
+      "side": 1,
+      "message": "When you want array syntax the second element should be a string.\n\nUsing an unnamed function would be even better (avoids these weird arrays of strings).\n\n$cache-\u003esetErrorCallback( function ( string $msg ) {\n    $this-\u003eoutput( \"Scoring errored: $msg\\n\" );\n} );",
+      "revId": "30c7ac318ff99ab06e25817e040488a0a4426db0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
