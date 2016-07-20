@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e2673f8_d161f302",
+        "filename": "includes/Cache.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2016-07-20T02:26:47Z",
+      "side": 1,
+      "message": "$this-\u003esetErrorCallback( ... )\n\nCan\u0027t use string type-hint, that\u0027s PHP7+, we need to support 5.5.9+",
+      "revId": "8adcfa09c317ddc9c266717f28221f0c5c7a5e6a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e2673f8_b15eff46",
+        "filename": "includes/Cache.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2016-07-20T02:26:47Z",
+      "side": 1,
+      "message": "@param callable\n\nYou can also set a typehint against \"callable\"",
+      "revId": "8adcfa09c317ddc9c266717f28221f0c5c7a5e6a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e2673f8_115c2b4e",
+        "filename": "includes/Cache.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2016-07-20T02:26:47Z",
+      "side": 1,
+      "message": "Missing $ before modelOutputs\n\nAlso not sure if you can call it like this...? usually we use:\n call_user_func( $this-\u003eerrorCallback, $modelOutputs[\u0027error\u0027][\u0027message\u0027] );",
+      "revId": "8adcfa09c317ddc9c266717f28221f0c5c7a5e6a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e2673f8_7144876f",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2016-07-20T02:26:47Z",
+      "side": 1,
+      "message": "No \"string\" type hint\n\nShould probably be $this-\u003eerror ?",
+      "revId": "8adcfa09c317ddc9c266717f28221f0c5c7a5e6a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
