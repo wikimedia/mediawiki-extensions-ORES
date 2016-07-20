@@ -7,7 +7,7 @@
 	},
 	"ores-beta-feature-description": "ORES é unha ferramenta baseada nunha AI que resalta as edicións potencialmente perxudiciais nos cambios recentes e na lista de vixiancia.",
 	"ores-desc": "Expón as puntuacións de revisións automatizadas na interface",
-	"ores-damaging-filter": "$1 edicións boas",
+	"ores-damaging-filter": "$1 edicións probablemente boas",
 	"ores-damaging-hard": "Alto (etiqueta máis edicións)",
 	"ores-damaging-letter": "r",
 	"ores-damaging-soft": "Baixo (etiqueta menos edicións)",
@@ -15,6 +15,6 @@
 	"ores-damaging-legend": "Esta edición pode ser prexudicial e debería revisarse",
 	"ores-help-damaging-pref": "Este nivel determina a sensibilidade de ORES á hora de etiquetar edicións que requiren revisión",
 	"ores-pref-damaging": "Sensibilidade de ORES",
-	"ores-pref-rc-hidenondamaging": "Ocultar as edicións boas nos cambios recentes",
-	"ores-pref-watchlist-hidenondamaging": "Ocultar as edicións boas da lista de seguimento"
+	"ores-pref-rc-hidenondamaging": "Ocultar as edicións probablemente boas nos cambios recentes",
+	"ores-pref-watchlist-hidenondamaging": "Ocultar as edicións probablemente boas da lista de seguimento"
 }
