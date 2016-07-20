@@ -83,6 +83,7 @@
 			"hard": 0.50
 		},
 		"OresDamagingDefault": "hard",
+		"OresEnabledNamespaces": {},
 		"OresWikiId": null,
 		"RecentChangesFlags": {
 			"damaging": {
