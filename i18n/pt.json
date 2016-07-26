@@ -12,7 +12,7 @@
 	"ores-damaging-letter": "r",
 	"ores-damaging-soft": "Baixa (assinala menos edições)",
 	"ores-damaging-title": "Esta edição precisa de revisão",
-	"ores-damaging-legend": "Esta edição pode ser prejudicial e precisa ser analisada ([[:mw:Special:MyLanguage/ORES review tool|mais informação]])",
+	"ores-damaging-legend": "Esta edição pode ser prejudicial e precisa de revisão ([[:mw:Special:MyLanguage/ORES review tool|mais informação]])",
 	"ores-help-damaging-pref": "Este nível determina quão sensível é o ORES ao assinalar edições que precisam ser revisadas",
 	"ores-pref-damaging": "Sensibilidade do ORES",
 	"ores-pref-rc-hidenondamaging": "Ocultar prováveis boas edições das mudanças recentes",
