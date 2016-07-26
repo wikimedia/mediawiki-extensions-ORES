@@ -13,8 +13,8 @@ class Cache {
 		$this->classMap = [ 'true' => 1, 'false' => 0,
 			'B' => 0, 'C' => 1, 'FA' => 2, 'GA' => 3,
 			'Start' => 4, 'Stub' => 5 ];
-		$this->setErrorCallback( function ( $mssg ) {
-			throw new RuntimeException( 'Model contains an error: ' . $mssg );
+		$this->setErrorCallback( function ( $mssg, $revision ) {
+			throw new RuntimeException( "Model contains an error for $revision: $mssg" );
 		} );
 	}
 
@@ -41,7 +41,7 @@ class Cache {
 		foreach ( $scores as $revision => $revisionData ) {
 			foreach ( $revisionData as $model => $modelOutputs ) {
 				if ( isset( $modelOutputs['error'] ) ) {
-					call_user_func( $this->errorCallback, $modelOutputs['error']['message'] );
+					call_user_func( $this->errorCallback, $modelOutputs['error']['message'], $revision );
 					continue;
 				}
 
