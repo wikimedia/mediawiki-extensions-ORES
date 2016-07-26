@@ -45,6 +45,9 @@
 		],
 		"RecentChange_save": [
 			"ORES\\Hooks::onRecentChange_save"
+		],
+		"UnitTestsList": [
+			"ORES\\Hooks::onUnitTestsList"
 		]
 	},
 	"ResourceFileModulePaths": {
