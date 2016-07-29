@@ -248,7 +248,7 @@ class Hooks {
 	 * @param RecentChange $rcObj
 	 * @return bool
 	 */
-	protected static function getScoreRecentChangesList( $rcObj ) {
+	public static function getScoreRecentChangesList( $rcObj ) {
 
 		$threshold = $rcObj->getAttribute( 'ores_threshold' );
 		if ( $threshold === null ) {
@@ -267,7 +267,7 @@ class Hooks {
 	/**
 	 * Internal helper to get threshold
 	 */
-	protected static function getThreshold() {
+	public static function getThreshold() {
 		global $wgOresDamagingThresholds;
 		global $wgUser;
 
