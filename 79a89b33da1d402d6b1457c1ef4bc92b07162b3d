@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eeb83fd6_228c943a",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-07-29T09:24:11Z",
+      "side": 1,
+      "message": "The default \"return true\" is optional for a long time now.",
+      "revId": "79a89b33da1d402d6b1457c1ef4bc92b07162b3d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeb83fd6_a298a47d",
+        "filename": "tests/phpunit/includes/ApiTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-07-29T09:24:11Z",
+      "side": 1,
+      "message": "Not critical, but the expected value goes first.\n\nAlso try to prefer assertSame() whenever you can, because assertEquals() does odd stuff like considering strings like \"2\" and \"2.0\" equal.",
+      "revId": "79a89b33da1d402d6b1457c1ef4bc92b07162b3d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
