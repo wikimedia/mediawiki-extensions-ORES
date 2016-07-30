@@ -22,7 +22,7 @@ class OresApiTest extends \MediaWikiTestCase {
 
 	public function testApiUrl() {
 		$url = $this->api->getUrl();
-		$this->assertEquals( $url, "https://ores-beta.wmflabs.org/scores/testwiki/" );
+		$this->assertSame( "https://ores-beta.wmflabs.org/scores/testwiki/", $url );
 	}
 }
 
