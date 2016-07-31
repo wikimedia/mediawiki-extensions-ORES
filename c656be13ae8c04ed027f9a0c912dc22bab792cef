@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aeb2c7f3_cb7cd51e",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 50
+      },
+      "writtenOn": "2016-07-31T10:41:08Z",
+      "side": 1,
+      "message": "No longer correct",
+      "range": {
+        "startLine": 362,
+        "startChar": 5,
+        "endLine": 362,
+        "endChar": 11
+      },
+      "revId": "c656be13ae8c04ed027f9a0c912dc22bab792cef",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
