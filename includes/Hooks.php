@@ -354,13 +354,4 @@ class Hooks {
 		}
 		return false;
 	}
-
-	/**
-	 * Register tests
-	 *
-	 * @param array paths
-	 */
-	public static function onUnitTestsList( &$paths ) {
-		$paths[] = __DIR__ . '/../tests/phpunit/';
-	}
 }
