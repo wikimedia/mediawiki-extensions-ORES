@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee9d9f70_2219ee7e",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-08-09T07:46:17Z",
+      "side": 1,
+      "message": "$logger is not manipulated and therefore does not need the \u0026.",
+      "range": {
+        "startLine": 25,
+        "startChar": 74,
+        "endLine": 25,
+        "endChar": 75
+      },
+      "revId": "f9570ff4b620bc455eba0219e20a042e5dbf065c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee9d9f70_8227fab0",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-08-09T07:46:17Z",
+      "side": 1,
+      "message": "You can initialize \"$status \u003d true\" obove and then have a simple \"return $status\". Could also rename $status to $success. I believe all this would make this code much easier to read.",
+      "revId": "f9570ff4b620bc455eba0219e20a042e5dbf065c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
