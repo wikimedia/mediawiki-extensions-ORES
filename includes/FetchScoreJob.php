@@ -20,10 +20,18 @@ class FetchScoreJob extends Job {
 		$logger->info( 'Fetching scores for revision ' . json_encode( $this->params ) );
 		$scores = Scoring::instance()->getScores(
 			$this->params['revid'], null, $this->params['extra_params'] );
-		Cache::instance()->storeScores( $scores );
-		$logger->debug( 'Stored scores: ' . json_encode( $scores ) );
-
-		// FIXME: Or should we return false on error, set the error string, etc?
-		return true;
+		$cache = Cache::instance();
+		$status = null;
+		$cache->setErrorCallback( function ( $mssg, $revision ) use ( &$status, &$logger ) {
+			$logger->warning( "Scoring errored for $revision: $mssg\n" );
+			$status = false;
+		} );
+		$cache->storeScores( $scores );
+		if ( $status === false ) {
+			return false;
+		} else {
+			$logger->debug( 'Stored scores: ' . json_encode( $scores ) );
+			return true;
+		}
 	}
 }
