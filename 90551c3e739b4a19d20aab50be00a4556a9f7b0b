@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee9d9f70_8bbe2ed0",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 14
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-08-10T06:33:05Z",
+      "side": 1,
+      "message": "Hook handlers don\u0027t need a \"return true\" any more nowadays.",
+      "revId": "90551c3e739b4a19d20aab50be00a4556a9f7b0b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
