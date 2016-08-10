@@ -15,6 +15,7 @@
 	"ores-damaging-title": "Diese Bearbeitung benötigt eine Überprüfung",
 	"ores-damaging-legend": "Diese Bearbeitung könnte schädlich sein und sollte überprüft werden ([[:mw:Special:MyLanguage/ORES review tool|weitere Informationen]]).",
 	"ores-help-damaging-pref": "Diese Schwelle bestimmt, wie empfindlich ORES bei der Markierung von Bearbeitungen ist, die eine Überprüfung benötigen.",
+	"ores-hide-nondamaging-filter": "Nur Bearbeitungen anzeigen, die eine Überprüfung benötigen",
 	"ores-pref-damaging": "ORES-Empfindlichkeit",
 	"ores-pref-rc-hidenondamaging": "Vermutlich gute Bearbeitungen in den „Letzten Änderungen“ ausblenden",
 	"ores-pref-watchlist-hidenondamaging": "Vermutlich gute Bearbeitungen in der Beobachtungsliste ausblenden",
