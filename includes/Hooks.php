@@ -5,16 +5,21 @@ namespace ORES;
 use BetaFeatures;
 use ChangesList;
 use ChangesListSpecialPage;
+use ContribsPager;
 use DatabaseUpdater;
 use EnhancedChangesList;
 use FormOptions;
 use JobQueueGroup;
+use Html;
 use MediaWiki\Logger\LoggerFactory;
 use OutputPage;
 use RCCacheEntry;
 use RecentChange;
+use RequestContext;
 use Skin;
+use SpecialContributions;
 use User;
+use Xml;
 
 class Hooks {
 	/**
@@ -231,6 +236,101 @@ class Hooks {
 	}
 
 	/**
+	 * Filter out non-damaging changes from Special:Contributions
+	 *
+	 * @param ContribsPager $pager
+	 * @param array $query
+	 */
+	public static function onContribsGetQueryInfo( ContribsPager $pager, &$query ) {
+		if ( self::oresEnabled( $pager->getUser() ) === false ) {
+			return true;
+		}
+
+		$threshold = self::getThreshold( $pager->getUser() );
+		$dbr = \wfGetDB( DB_SLAVE );
+
+		$query['tables'][] = 'ores_classification';
+		$query['tables'][] = 'ores_model';
+
+		$query['fields'][] = 'oresc_probability';
+		// Add user-based threshold
+		$query['fields'][] = $dbr->addQuotes( $threshold ) . ' AS ores_threshold';
+
+		$query['conds'][] = '(oresm_name = ' . $dbr->addQuotes( 'damaging' ) .
+			' OR oresm_name IS NULL)';
+
+		$query['join_conds']['ores_classification'] = [ 'LEFT JOIN',
+			'rev_id = oresc_rev ' .
+			'AND oresc_class = 1' ];
+
+		$query['join_conds']['ores_model'] = [ 'LEFT JOIN',
+			'oresc_model = oresm_id ' .
+			'AND oresm_is_current = 1' ];
+
+		if ( $pager->getContext()->getRequest()->getVal( 'hidenondamaging' ) ) {
+			// Override the join conditions.
+			$join_conds['ores_classification'] = [ 'INNER JOIN',
+				'rc_this_oldid = oresc_rev ' .
+				'AND oresc_class = 1' ];
+
+			// Filter out non-damaging edits.
+			$query['conds'][] = 'oresc_probability > '
+				. $dbr->addQuotes( $threshold );
+		}
+	}
+
+	public static function onSpecialContributionsFormatRowFlags(
+		RequestContext $context, $row, array &$flags
+	) {
+		if ( self::oresEnabled( $context->getUser() ) === false ) {
+			return true;
+		}
+
+		if ( $row->oresc_probability > $row->ores_threshold ) {
+			// Prepend the "r" flag
+			array_unshift( $flags, ChangesList::flag( 'damaging' ) );
+		}
+	}
+
+	public static function onContributionsLineEnding(
+		ContribsPager $pager, &$ret, $row, array &$classes
+	) {
+		if ( self::oresEnabled( $pager->getUser() ) === false ) {
+			return true;
+		}
+
+		if ( $row->oresc_probability > $row->ores_threshold ) {
+			// Add the damaging class
+			$classes[] = 'damaging';
+		}
+	}
+
+	/**
+	 * Hook into Special:Contributions filters
+	 */
+	public static function onSpecialContributionsGetFormFilters(
+		SpecialContributions $page, array &$filters
+	) {
+		if ( self::oresEnabled( $page->getUser() ) === false ) {
+			return true;
+		}
+
+		$filters[] = Html::rawElement(
+			'span',
+			[ 'class' => 'mw-input-with-label' ],
+			Xml::checkLabel(
+				$page->msg( 'ores-hide-nondamaging-filter' )->text(),
+				'hidenondamaging',
+				'ores-hide-nondamaging',
+				$page->getContext()->getRequest()->getVal( 'hidenondamaging' ),
+				[ 'class' => 'mw-input' ]
+			)
+		);
+
+		return true;
+	}
+
+	/**
 	 * Internal helper to label matching rows
 	 */
 	protected static function processRecentChangesList( RCCacheEntry $rcObj,
@@ -266,6 +366,7 @@ class Hooks {
 
 	/**
 	 * Internal helper to get threshold
+	 * It's better to avoid using $wgUser as much as possible
 	 */
 	public static function getThreshold() {
 		global $wgOresDamagingThresholds;
