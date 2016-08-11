@@ -14,6 +14,7 @@
 	"ores-damaging-title": "Esta edición necesita revisión",
 	"ores-damaging-legend": "Esta edición pode ser prexudicial e debería revisarse ([[:mw:Special:MyLanguage/ORES review tool|máis información]])",
 	"ores-help-damaging-pref": "Este nivel determina a sensibilidade de ORES á hora de etiquetar edicións que requiren revisión",
+	"ores-hide-nondamaging-filter": "Só mostra edicións que precisan revisión",
 	"ores-pref-damaging": "Sensibilidade de ORES",
 	"ores-pref-rc-hidenondamaging": "Ocultar as edicións probablemente boas nos cambios recentes",
 	"ores-pref-watchlist-hidenondamaging": "Ocultar as edicións probablemente boas da lista de seguimento"

@@ -15,6 +15,7 @@
 	"ores-damaging-title": "이 편집은 검토가 필요합니다",
 	"ores-damaging-legend": "이 편집은 해로울 가능성이 있으며 검토가 필요합니다 ([[:mw:Special:MyLanguage/ORES review tool|추가 정보]])",
 	"ores-help-damaging-pref": "이 기준은 ORES가 검토를 필요로 하는 편집을 표시할 때 얼마나 민감하게 할 지 결정합니다.",
+	"ores-hide-nondamaging-filter": "검토가 필요한 편집만 보기",
 	"ores-pref-damaging": "ORES 민감도",
 	"ores-pref-rc-hidenondamaging": "최근 바뀜에서 정상적인 편집 숨기기",
 	"ores-pref-watchlist-hidenondamaging": "주시문서 목록에서 정상적인 편집 숨기기"

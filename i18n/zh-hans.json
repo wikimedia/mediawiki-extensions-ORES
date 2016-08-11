@@ -14,6 +14,7 @@
 	"ores-damaging-title": "此编辑需要复核",
 	"ores-damaging-legend": "此次编辑可能具备破坏性，并应被复核（[[:mw:Special:MyLanguage/ORES review tool|更多信息]]）",
 	"ores-help-damaging-pref": "此门槛决定当标记编辑需要复核时，ORES的敏感度",
+	"ores-hide-nondamaging-filter": "只显示需要复核的编辑",
 	"ores-pref-damaging": "ORES敏感度",
 	"ores-pref-rc-hidenondamaging": "在最近更改中隐藏可能的良好编辑",
 	"ores-pref-watchlist-hidenondamaging": "隐藏监视列表中可能的良好编辑",
