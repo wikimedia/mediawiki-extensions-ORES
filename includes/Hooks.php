@@ -286,6 +286,11 @@ class Hooks {
 			return true;
 		}
 
+		// Doesn't have ores score, skipping.
+		if ( !isset( $row->oresc_probability ) ) {
+			return true;
+		}
+
 		if ( $row->oresc_probability > $row->ores_threshold ) {
 			// Prepend the "r" flag
 			array_unshift( $flags, ChangesList::flag( 'damaging' ) );
@@ -296,6 +301,11 @@ class Hooks {
 		ContribsPager $pager, &$ret, $row, array &$classes
 	) {
 		if ( self::oresEnabled( $pager->getUser() ) === false ) {
+			return true;
+		}
+
+		// Doesn't have ores score, skipping.
+		if ( !isset( $row->oresc_probability ) ) {
 			return true;
 		}
 
