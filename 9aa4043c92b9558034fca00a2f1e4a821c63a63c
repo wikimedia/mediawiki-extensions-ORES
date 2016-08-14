@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cea29bae_b7c7e799",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-08-14T09:15:11Z",
+      "side": 1,
+      "message": "I find the code much easier to read with the conditions combined, because they belong very close together.\n\nif ( isset( $row-\u003eoresc_probability )\n    \u0026\u0026 $row-\u003eoresc_probability \u003e $row-\u003eores_threshold\n) {\n    …\n}\n\nSame below.",
+      "revId": "9aa4043c92b9558034fca00a2f1e4a821c63a63c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
