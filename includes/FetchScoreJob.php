@@ -21,17 +21,15 @@ class FetchScoreJob extends Job {
 		$scores = Scoring::instance()->getScores(
 			$this->params['revid'], null, $this->params['extra_params'] );
 		$cache = Cache::instance();
-		$status = null;
-		$cache->setErrorCallback( function ( $mssg, $revision ) use ( &$status, &$logger ) {
+		$success = true;
+		$cache->setErrorCallback( function ( $mssg, $revision ) use ( &$success, $logger ) {
 			$logger->warning( "Scoring errored for $revision: $mssg\n" );
-			$status = false;
+			$success = false;
 		} );
 		$cache->storeScores( $scores );
-		if ( $status === false ) {
-			return false;
-		} else {
+		if ( $success === true ) {
 			$logger->debug( 'Stored scores: ' . json_encode( $scores ) );
-			return true;
 		}
+		return $success;
 	}
 }
