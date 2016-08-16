@@ -4,10 +4,17 @@
 			"Xuacu"
 		]
 	},
+	"ores-beta-feature-description": "ORES ye una ferramienta basada n'intelixencia artificial que resalta ediciones probablemente dañibles en cambeos recién y llistes de siguimientu.",
 	"ores-desc": "Amuesa puntuaciones automatizaes de revisiones na interfaz",
-	"ores-damaging-filter": "$1 ediciones bones",
+	"ores-damaging-filter": "$1 ediciones probablemente bones",
+	"ores-damaging-hard": "Altu (marca más ediciones)",
 	"ores-damaging-letter": "r",
+	"ores-damaging-soft": "Baxu (marca menos ediciones)",
 	"ores-damaging-title": "Esta edición precisa una revisión",
-	"ores-damaging-legend": "Esta edición pué ser perxudicial y tendría de revisase",
-	"ores-pref-damaging": "Sensibilidá d'ORES"
+	"ores-damaging-legend": "Esta edición puede ser perxudicial y tendría de revisase ([[:mw:Special:MyLanguage/ORES review tool|más información]])",
+	"ores-help-damaging-pref": "Esti intervalu determina la sensibilidá d'ORES cuando se marquen les ediciones que riquen revisión",
+	"ores-hide-nondamaging-filter": "Amuesa sólo ediciones que precisen revisión",
+	"ores-pref-damaging": "Sensibilidá d'ORES",
+	"ores-pref-rc-hidenondamaging": "Despintar les ediciones probablemente bones de los cambeos recién",
+	"ores-pref-watchlist-hidenondamaging": "Despintar les ediciones probablemente bones de la llista de siguimientu"
 }

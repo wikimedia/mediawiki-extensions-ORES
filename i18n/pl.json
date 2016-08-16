@@ -1,9 +1,21 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chrumps"
+			"Chrumps",
+			"Tar Lócesilion"
 		]
 	},
+	"ores-beta-feature-description": "ORES jest narzędziem wykorzystującym maszynowe uczenie się. Na ostatnich zmianach i obserwowanych wyszukuje ono edycje, które prawdopodobnie są wandalizmami.",
+	"ores-desc": "Pokaż automatycznie wygenerowaną ocenę wersji",
+	"ores-damaging-filter": "$1 prawdopodobnie dobre edycje",
+	"ores-damaging-hard": "Wysoki (wyświetl więcej edycji)",
+	"ores-damaging-letter": "p",
+	"ores-damaging-soft": "Niski (wyświetl mniej edycji)",
+	"ores-damaging-title": "Tę edycję należy przejrzeć",
+	"ores-damaging-legend": "Ta edycja może być szkodliwa i należy ją przejrzeć ([[:mw:Special:MyLanguage/ORES review tool|więcej informacji]])",
+	"ores-help-damaging-pref": "Wartość ta określa, jak skrupulatnie ORES wybiera edycje do przejrzenia",
+	"ores-hide-nondamaging-filter": "Pokaż tylko edycje wymagające przejrzenia",
+	"ores-pref-damaging": "Czułość ORES",
 	"ores-pref-rc-hidenondamaging": "Ukryj sprawdzone edycje w ostatnich zmianach",
 	"ores-pref-watchlist-hidenondamaging": "Ukryj sprawdzone edycje na liście obserwowanych",
 	"prefs-ores": "ORES"
