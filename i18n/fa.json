@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Reza1615",
-			"Ladsgroup"
+			"Ladsgroup",
+			"Ebraminio"
 		]
 	},
 	"ores-beta-feature-description": "ORES یک ابزار بر پایه هوش مصنوعی است که ویرایش‌های متحملا خرابکاری را در تغییرات اخیر و فهرست پی‌گیری برجسته می‌کند.",
@@ -14,5 +15,6 @@
 	"ores-damaging-title": "این ویرایش نیاز به بازبینی دارد",
 	"ores-damaging-legend": "این ویرایش ممکن است آسیب‌زننده باشد و بهتر است بازبینی شود",
 	"ores-help-damaging-pref": "این آستانه، حساسیت ORES در برابر برچسب زدن ویرایش‌ها برای بازبینی را مشخص می‌کند.",
+	"ores-hide-nondamaging-filter": "فقط نمایش ویرایش‌هایی که نیازمند بازبینی هستند",
 	"ores-pref-damaging": "حساسیت ORES"
 }

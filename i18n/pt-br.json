@@ -2,9 +2,21 @@
 	"@metadata": {
 		"authors": [
 			"Luk3",
-			"Peter Fernando"
+			"Peter Fernando",
+			"TheEduGobi"
 		]
 	},
+	"ores-beta-feature-description": "O ORES é uma ferramenta baseada em inteligência artificial que destaca edições possivelmente prejudiciais nas mudanças recentes e na lista de páginas vigiadas.",
+	"ores-desc": "Expõe pontuações automatizadas de revisões na interface",
+	"ores-damaging-filter": "$1 edições possivelmente boas",
+	"ores-damaging-hard": "Alto (sinaliza mais edições)",
+	"ores-damaging-letter": "r",
+	"ores-damaging-soft": "Baixo (sinaliza menos edições)",
+	"ores-damaging-title": "Esta edição precisa ser revisada",
+	"ores-damaging-legend": "Esta edição pode ser prejudicial e deve ser revisada ([[:mw:Special:MyLanguage/ORES review tool|mais informações]])",
+	"ores-help-damaging-pref": "Este limite determina a sensibilidade do ORES ao sinalizar edições a serem revisadas",
+	"ores-hide-nondamaging-filter": "Apenas exibir edições precisando de revisão",
+	"ores-pref-damaging": "Sensibilidade do ORES",
 	"ores-pref-rc-hidenondamaging": "Ocultar edições provavelmente boas das mudanças recentes",
 	"ores-pref-watchlist-hidenondamaging": "Ocultar edições provavelmente boas da lista de páginas vigiadas"
 }
