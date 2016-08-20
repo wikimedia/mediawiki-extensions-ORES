@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Siebrand",
-			"Sjoerddebruin"
+			"Sjoerddebruin",
+			"Dinosaur918"
 		]
 	},
 	"ores-desc": "Automatische terugdraaiscores weergeven in de interface",
@@ -10,7 +11,7 @@
 	"ores-damaging-letter": "r",
 	"ores-damaging-title": "Deze bewerking moet worden beoordeeld",
 	"ores-damaging-legend": "Deze bewerking kan schadelijk zijn en dient gecontroleerd te worden",
-	"ores-hide-nondamaging-filter": "Alleen bewerkingen die gecontroleerd moeten worden laten zien",
+	"ores-hide-nondamaging-filter": "Alleen bewerkingen die gecontroleerd moeten worden weergeven",
 	"ores-pref-damaging": "ORES-gevoeligheid",
 	"ores-pref-rc-hidenondamaging": "Mogelijke goede bewerkingen verbergen in recente wijzigingen",
 	"ores-pref-watchlist-hidenondamaging": "Mogelijke goede bewerkingen op mijn volglijst verbergen"
