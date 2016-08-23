@@ -90,6 +90,28 @@
 			"reverted": true,
 			"wp10": true
 		},
+		"OresModelClasses": {
+			"damaging": {
+				"false": 0,
+				"true": 1
+			},
+			"goodfaith": {
+				"false": 0,
+				"true": 1
+			},
+			"reverted": {
+				"false": 0,
+				"true": 1
+			},
+			"wp10": {
+				"B": 0,
+				"C": 1,
+				"FA": 2,
+				"GA": 3,
+				"Start": 4,
+				"Stub": 5
+			}
+		},
 		"OresDamagingThresholds": {
 			"soft": 0.70,
 			"hard": 0.50

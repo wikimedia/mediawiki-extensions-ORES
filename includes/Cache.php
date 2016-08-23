@@ -6,13 +6,9 @@ use RuntimeException;
 
 class Cache {
 	static protected $modelIds;
-	protected $classMap;
 	protected $errorCallback;
 
 	public function __construct() {
-		$this->classMap = [ 'true' => 1, 'false' => 0,
-			'B' => 0, 'C' => 1, 'FA' => 2, 'GA' => 3,
-			'Start' => 4, 'Stub' => 5 ];
 		$this->setErrorCallback( function ( $mssg, $revision ) {
 			throw new RuntimeException( "Model contains an error for $revision: $mssg" );
 		} );
@@ -36,6 +32,7 @@ class Cache {
 	 * @throws RuntimeException
 	 */
 	public function storeScores( $scores ) {
+		global $wgOresModelClasses;
 		// Map to database fields.
 		$dbData = [];
 		foreach ( $scores as $revision => $revisionData ) {
@@ -54,10 +51,18 @@ class Cache {
 				}
 
 				$modelId = $this->getModelId( $model );
+				if ( !isset( $wgOresModelClasses[ $model ] ) ) {
+					throw new RuntimeException( "Model $model is not configured" );
+				}
 				foreach ( $modelOutputs['probability'] as $class => $probability ) {
 					$ores_is_predicted = $prediction === $class;
-					$class = $this->classMap[$class];
+					if ( !isset( $wgOresModelClasses[ $model ][ $class ] ) ) {
+						throw new RuntimeException( "Class $class in model $model is not configured" );
+					}
+					$class = $wgOresModelClasses[ $model ][ $class ];
 					if ( $class === 0 ) {
+						// We don't store rows for class 0, because we can compute the class 0 probability by
+						// subtracting the sum of the probabilities of the other classes from 1
 						continue;
 					}
 					$dbData[] = [
