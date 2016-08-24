@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "4e96ab59_52f7b4f2",
+        "filename": "includes/Cache.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-08-24T09:00:35Z",
+      "side": 1,
+      "message": "I believe a $model that is known but missing in $wgOresModelClasses should be checked after this line and reported as an error.\n\nif ( !isset( $wgOresModelClasses[ $model ] ) ) {",
+      "revId": "a48e0c840ffb8ac079a6ff5f34295393a904e395",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e96ab59_ecbc4bb4",
         "filename": "includes/Cache.php",
         "patchSetId": 1
@@ -19,6 +36,23 @@
         "endLine": 56,
         "endChar": 54
       },
+      "revId": "a48e0c840ffb8ac079a6ff5f34295393a904e395",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e96ab59_72fcb0d6",
+        "filename": "includes/Cache.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-08-24T09:00:35Z",
+      "side": 1,
+      "message": "This would store null in case a $class is missing in the configuration. Such cases should either have a good default (whatever it is, a default could also be to simply skip such cases with a \"continue\") or reported as a configuration error.",
       "revId": "a48e0c840ffb8ac079a6ff5f34295393a904e395",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
