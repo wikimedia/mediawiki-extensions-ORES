@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4e96ab59_46bd3663",
+        "filename": "includes/Cache.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-08-24T20:20:37Z",
+      "side": 1,
+      "message": "Yes, please.",
+      "parentUuid": "4e96ab59_52f7b4f2",
+      "revId": "a48e0c840ffb8ac079a6ff5f34295393a904e395",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e96ab59_ecbc4bb4",
         "filename": "includes/Cache.php",
         "patchSetId": 1
@@ -42,6 +60,24 @@
     },
     {
       "key": {
+        "uuid": "4e96ab59_068c0edb",
+        "filename": "includes/Cache.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-08-24T20:20:37Z",
+      "side": 1,
+      "message": "Seconding Krinkle\u0027s note",
+      "parentUuid": "4e96ab59_ecbc4bb4",
+      "revId": "a48e0c840ffb8ac079a6ff5f34295393a904e395",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e96ab59_72fcb0d6",
         "filename": "includes/Cache.php",
         "patchSetId": 1
@@ -53,6 +89,24 @@
       "writtenOn": "2016-08-24T09:00:35Z",
       "side": 1,
       "message": "This would store null in case a $class is missing in the configuration. Such cases should either have a good default (whatever it is, a default could also be to simply skip such cases with a \"continue\") or reported as a configuration error.",
+      "revId": "a48e0c840ffb8ac079a6ff5f34295393a904e395",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e96ab59_66b23294",
+        "filename": "includes/Cache.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-08-24T20:20:37Z",
+      "side": 1,
+      "message": "I guess that\u0027s Krinkle\u0027s comment above.",
+      "parentUuid": "4e96ab59_72fcb0d6",
       "revId": "a48e0c840ffb8ac079a6ff5f34295393a904e395",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
