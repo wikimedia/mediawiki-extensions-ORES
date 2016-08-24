@@ -3,16 +3,20 @@
 		"authors": [
 			"VaiTon86",
 			"JackLantern",
-			"Beta16"
+			"Beta16",
+			"Martinligabue"
 		]
 	},
-	"ores-beta-feature-description": "ORES è uno strumento basato su intelligenza artificiale che mette in evidenza contributi probabilmente dannosi nelle ultime modifiche e negli osservati speciali.",
+	"ores-beta-feature-description": "ORES è uno strumento basato sull'intelligenza artificiale che mette in evidenza contributi probabilmente dannosi nelle ultime modifiche e negli osservati speciali.",
+	"ores-desc": "Visualizzare le valutazioni automatiche di revisione nell'interfaccia",
 	"ores-damaging-filter": "$1 probabili buone modifiche",
 	"ores-damaging-hard": "Alto (contrassegna più modifiche)",
 	"ores-damaging-letter": "r",
 	"ores-damaging-soft": "Basso (contrassegna meno modifiche)",
+	"ores-damaging-title": "Questa modifica deve essere revisionata",
 	"ores-damaging-legend": "Questa modifica potrebbe essere dannosa e dovrebbe essere rivista ([[:mw:Special:MyLanguage/ORES review tool|ulteriori informazioni]])",
 	"ores-help-damaging-pref": "Questa soglia determina quanto sensibile sarà ORES nel contrassegnare le modifiche che necessitano di revisione",
+	"ores-hide-nondamaging-filter": "Mostra solo le modifiche che devono essere revisionate",
 	"ores-pref-damaging": "Sensibilità ORES",
 	"ores-pref-rc-hidenondamaging": "Nascondi le probabili buone modifiche nelle ultime modifiche",
 	"ores-pref-watchlist-hidenondamaging": "Nascondi le probabili buone modifiche negli osservati speciali",
