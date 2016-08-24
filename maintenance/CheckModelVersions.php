@@ -23,16 +23,6 @@ class CheckModelVersions extends Maintenance {
 		$models = $this->getModels();
 
 		foreach ( $models as $name => $info ) {
-			\wfGetDB( DB_MASTER )->replace( 'ores_model',
-				'oresm_version',
-				[
-					'oresm_name' => $name,
-					'oresm_version' => $info['version'],
-					'oresm_is_current' => 1,
-				],
-				__METHOD__
-			);
-
 			\wfGetDB( DB_MASTER )->update( 'ores_model',
 				[
 					'oresm_is_current' => 0,
@@ -43,6 +33,17 @@ class CheckModelVersions extends Maintenance {
 				],
 				__METHOD__
 			);
+
+			\wfGetDB( DB_MASTER )->replace( 'ores_model',
+				[ 'oresm_name', 'oresm_version' ],
+				[
+					'oresm_name' => $name,
+					'oresm_version' => $info['version'],
+					'oresm_is_current' => 1,
+				],
+				__METHOD__
+			);
+
 		}
 		$this->output( "done.\n" );
 	}
