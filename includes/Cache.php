@@ -90,6 +90,8 @@ class Cache {
 		$dbr = \wfGetDB( DB_SLAVE );
 		$dbw = \wfGetDB( DB_MASTER );
 
+		$tables = [ 'ores_classification', 'ores_model' ];
+
 		$join_conds = [ 'ores_model' =>
 			[ 'LEFT JOIN', 'oresm_id = oresc_model' ] ];
 		$conditions = [
@@ -100,7 +102,7 @@ class Cache {
 		}
 
 		do {
-			$ids = $dbr->selectFieldValues( 'ores_classification',
+			$ids = $dbr->selectFieldValues( $tables,
 				'oresc_rev',
 				$conditions,
 				__METHOD__,
