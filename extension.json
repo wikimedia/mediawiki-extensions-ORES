@@ -94,7 +94,6 @@
 			"soft": 0.70,
 			"hard": 0.50
 		},
-		"OresDamagingDefault": "hard",
 		"OresEnabledNamespaces": {},
 		"OresWikiId": null,
 		"RecentChangesFlags": {
