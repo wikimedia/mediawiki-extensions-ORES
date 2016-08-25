@@ -16,5 +16,5 @@
 	"ores-pref-damaging": "ORES sensitivity",
 	"ores-pref-rc-hidenondamaging": "Hide probably good edits from recent changes",
 	"ores-pref-watchlist-hidenondamaging": "Hide probably good edits from the watchlist",
-	"prefs-ores" : "ORES"
+	"prefs-ores" : "Revision scoring"
 }
