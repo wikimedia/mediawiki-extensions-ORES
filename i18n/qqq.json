@@ -19,5 +19,5 @@
 	"ores-pref-damaging": "Part asking for damaging threshold",
 	"ores-pref-rc-hidenondamaging": "Display message for user preferences to make hidenondamaging default in recent changes",
 	"ores-pref-watchlist-hidenondamaging": "Display message for user preferences to make hidenondamaging default in the watchlist",
-	"prefs-ores": "{{optional}} \nName of ORES section in preferences"
+	"prefs-ores": "Name of ORES section in preferences"
 }
