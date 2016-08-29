@@ -98,12 +98,12 @@ class Cache {
 			'oresm_name' => $model,
 		];
 		if ( !$isEverything ) {
-			$conditions[] = 'oresm_is_current != 1';
+			$conditions[] = '(oresm_is_current != 1 OR oresm_is_current IS NULL)';
 		}
 
 		do {
 			$ids = $dbr->selectFieldValues( $tables,
-				'oresc_rev',
+				'oresc_id',
 				$conditions,
 				__METHOD__,
 				[ 'LIMIT' => $batchSize ],
@@ -111,7 +111,7 @@ class Cache {
 			);
 			if ( $ids ) {
 				$dbw->delete( 'ores_classification',
-					[ 'oresc_rev' => $ids ],
+					[ 'oresc_id' => $ids ],
 					__METHOD__
 				);
 				wfWaitForSlaves();
