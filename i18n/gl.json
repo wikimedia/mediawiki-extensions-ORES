@@ -17,5 +17,6 @@
 	"ores-hide-nondamaging-filter": "Só mostra edicións que precisan revisión",
 	"ores-pref-damaging": "Sensibilidade de ORES",
 	"ores-pref-rc-hidenondamaging": "Ocultar as edicións probablemente boas nos cambios recentes",
-	"ores-pref-watchlist-hidenondamaging": "Ocultar as edicións probablemente boas da lista de seguimento"
+	"ores-pref-watchlist-hidenondamaging": "Ocultar as edicións probablemente boas da lista de seguimento",
+	"prefs-ores": "Puntuación de revisión"
 }

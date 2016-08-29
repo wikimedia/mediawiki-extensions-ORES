@@ -19,5 +19,6 @@
 	"ores-hide-nondamaging-filter": "הצגת עריכות שדורשות סקירה בלבד",
 	"ores-pref-damaging": "רגישות ORES",
 	"ores-pref-rc-hidenondamaging": "הסתרת עריכות שזוהו כ\"טובות\" בדף השינויים האחרונים",
-	"ores-pref-watchlist-hidenondamaging": "הסתרת עריכות שזוהו כ\"טובות\" ברשימת המעקב"
+	"ores-pref-watchlist-hidenondamaging": "הסתרת עריכות שזוהו כ\"טובות\" ברשימת המעקב",
+	"prefs-ores": "דירוג גרסאות"
 }

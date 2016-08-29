@@ -19,5 +19,5 @@
 	"ores-pref-damaging": "Seuil ORES",
 	"ores-pref-rc-hidenondamaging": "Masquer les modifications probablement bonnes parmi les modifications récentes",
 	"ores-pref-watchlist-hidenondamaging": "Masquer les modifications probablement bonnes de la liste de suivi",
-	"prefs-ores": "ORES"
+	"prefs-ores": "Score de révision"
 }
