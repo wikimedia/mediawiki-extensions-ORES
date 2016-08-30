@@ -6,14 +6,16 @@
 	},
 	"ores-beta-feature-description": "ORES là một công cụ sử dụng trí tuệ nhân tạo để nêu bật các sử đổi có lẽ gây hại trong danh sách thay đổi gần đây và danh sách theo dõi.",
 	"ores-desc": "Trình bày các điểm thay đổi tự động trong giao diện",
-	"ores-damaging-filter": "$1 thay đổi tốt",
+	"ores-damaging-filter": "$1 có lẽ thay đổi tốt",
 	"ores-damaging-hard": "Cao (đánh dấu thêm sửa đổi)",
 	"ores-damaging-letter": "h",
 	"ores-damaging-soft": "Thấp (đánh dấu ít sửa đổi hơn)",
 	"ores-damaging-title": "Sửa đổi này cần được xem lại",
-	"ores-damaging-legend": "Sửa đổi này có thể gây hãi và cần được xem lại",
+	"ores-damaging-legend": "Sửa đổi này có thể gây hãi và cần được xem lại ([[:mw:Special:MyLanguage/ORES review tool|thêm thông tin]])",
 	"ores-help-damaging-pref": "Ngưỡng này định rõ độ nhạy của ORES khi đánh dấu sửa đổi là cần xem lại",
+	"ores-hide-nondamaging-filter": "Chỉ xem các sửa đổi cần được xem lại",
 	"ores-pref-damaging": "Độ nhạy ORES",
-	"ores-pref-rc-hidenondamaging": "Ẩn sửa đổi tốt trong thay đổi gần đây",
-	"ores-pref-watchlist-hidenondamaging": "Ẩn các thay đổi tốt khỏi danh sách theo dõi"
+	"ores-pref-rc-hidenondamaging": "Ẩn các sửa đổi có lẽ tốt trong thay đổi gần đây",
+	"ores-pref-watchlist-hidenondamaging": "Ẩn các sửa đổi có lẽ tốt khỏi danh sách theo dõi",
+	"prefs-ores": "Đánh giá phiên bản"
 }
