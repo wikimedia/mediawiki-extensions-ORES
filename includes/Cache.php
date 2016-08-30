@@ -95,7 +95,7 @@ class Cache {
 		$join_conds = [ 'ores_model' =>
 			[ 'LEFT JOIN', 'oresm_id = oresc_model' ] ];
 		$conditions = [
-			'oresm_name' => $model,
+			'oresm_name' => [ $model, null ],
 		];
 		if ( !$isEverything ) {
 			$conditions[] = '(oresm_is_current != 1 OR oresm_is_current IS NULL)';
