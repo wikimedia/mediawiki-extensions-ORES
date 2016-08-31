@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2e93376b_45060ed3",
+        "filename": "maintenance/CheckModelVersions.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-08-31T18:56:47Z",
+      "side": 1,
+      "message": "I thought about upsert too but wasn\u0027t sure if update still increments the primary key or not. Does it?",
+      "parentUuid": "2e93376b_25d4a24b",
+      "revId": "3f189978df01fafdee47172501a6514e76930fb1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e93376b_05e8860a",
         "filename": "maintenance/CheckModelVersions.php",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-08-31T18:40:04Z",
       "side": 1,
       "message": "Just use time()? or wfTimestampNow()?\n\nBut more importantly, why is this needed? Is ORES not purging the varnish cache properly?",
+      "revId": "3f189978df01fafdee47172501a6514e76930fb1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e93376b_650b0ada",
+        "filename": "maintenance/CheckModelVersions.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-08-31T18:56:47Z",
+      "side": 1,
+      "message": "Not yet and that caused an hour delay in the deployment.",
+      "parentUuid": "2e93376b_05e8860a",
       "revId": "3f189978df01fafdee47172501a6514e76930fb1",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
