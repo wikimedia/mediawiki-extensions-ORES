@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e93376b_25d4a24b",
+        "filename": "maintenance/CheckModelVersions.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2016-08-31T18:40:04Z",
+      "side": 1,
+      "message": "Uhhh, it sounds like to me you want to use an upsert? It does update if the row exists, otherwise it does insert...which you\u0027ve implemented here :) mysql magic :D",
+      "revId": "3f189978df01fafdee47172501a6514e76930fb1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e93376b_05e8860a",
+        "filename": "maintenance/CheckModelVersions.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2016-08-31T18:40:04Z",
+      "side": 1,
+      "message": "Just use time()? or wfTimestampNow()?\n\nBut more importantly, why is this needed? Is ORES not purging the varnish cache properly?",
+      "revId": "3f189978df01fafdee47172501a6514e76930fb1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
