@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e93376b_451b6ed4",
+        "filename": "maintenance/CheckModelVersions.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2016-08-31T19:27:18Z",
+      "side": 1,
+      "message": "This won\u0027t work in production, you can\u0027t write to a slave :)\n\nJust use $dbw everywhere in this function?",
+      "revId": "54100f445910dcca5b146109266d925ab242eea3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
