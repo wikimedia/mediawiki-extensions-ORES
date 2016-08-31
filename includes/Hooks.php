@@ -137,6 +137,8 @@ class Hooks {
 		$conds[] = '(oresm_name = ' . $dbr->addQuotes( 'damaging' ) .
 			' OR oresm_name IS NULL)';
 
+		$conds[] = 'oresm_is_current != 0';
+
 		$join_conds['ores_classification'] = [ 'LEFT JOIN',
 			'rc_this_oldid = oresc_rev ' .
 			'AND oresc_class = 1' ];
@@ -258,6 +260,8 @@ class Hooks {
 
 		$query['conds'][] = '(oresm_name = ' . $dbr->addQuotes( 'damaging' ) .
 			' OR oresm_name IS NULL)';
+
+		$query['conds'][] = 'oresm_is_current != 0';
 
 		$query['join_conds']['ores_classification'] = [ 'LEFT JOIN',
 			'rev_id = oresc_rev ' .
