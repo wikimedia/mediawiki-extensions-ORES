@@ -16,6 +16,24 @@
       "revId": "54100f445910dcca5b146109266d925ab242eea3",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e93376b_c5267e11",
+        "filename": "maintenance/CheckModelVersions.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-08-31T19:29:47Z",
+      "side": 1,
+      "message": "Oh, my bad. I think it should at least issue a warning in non-production environment.",
+      "parentUuid": "2e93376b_451b6ed4",
+      "revId": "54100f445910dcca5b146109266d925ab242eea3",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
