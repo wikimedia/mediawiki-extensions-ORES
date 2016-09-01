@@ -16,5 +16,6 @@
 	"ores-help-damaging-pref": "Este nível determina quão sensível é o ORES ao assinalar edições que precisam ser revisadas",
 	"ores-pref-damaging": "Sensibilidade do ORES",
 	"ores-pref-rc-hidenondamaging": "Ocultar prováveis boas edições das mudanças recentes",
-	"ores-pref-watchlist-hidenondamaging": "Ocultar prováveis boas edições da lista de páginas vigiadas"
+	"ores-pref-watchlist-hidenondamaging": "Ocultar prováveis boas edições da lista de páginas vigiadas",
+	"prefs-ores": "Pontuação da revisão"
 }
