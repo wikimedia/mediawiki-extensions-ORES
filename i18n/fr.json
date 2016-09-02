@@ -3,12 +3,13 @@
 		"authors": [
 			"Gomoko",
 			"Wladek92",
-			"Momo50WM"
+			"Momo50WM",
+			"Trizek (WMF)"
 		]
 	},
 	"ores-beta-feature-description": "ORES est un outil basé sur une intelligence artificielle qui met en évidence des mises à jour potentiellement nuisibles dans les modifications faites récemment et dans les listes de suivi.",
 	"ores-desc": "Exposer les notes de révision automatisées dans l’interface",
-	"ores-damaging-filter": "$1 modifications probablement bonnes",
+	"ores-damaging-filter": "$1 les modifications probablement bonnes",
 	"ores-damaging-hard": "Haut (indique plus de modifications)",
 	"ores-damaging-letter": "r",
 	"ores-damaging-soft": "Bas (indique moins de modifications)",
