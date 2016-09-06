@@ -18,5 +18,6 @@
 	"ores-hide-nondamaging-filter": "Alleen bewerkingen die beoordeeld moeten worden weergeven",
 	"ores-pref-damaging": "ORES-gevoeligheid",
 	"ores-pref-rc-hidenondamaging": "Mogelijke goede bewerkingen verbergen in recente wijzigingen",
-	"ores-pref-watchlist-hidenondamaging": "Mogelijke goede bewerkingen op mijn volglijst verbergen"
+	"ores-pref-watchlist-hidenondamaging": "Mogelijke goede bewerkingen op mijn volglijst verbergen",
+	"prefs-ores": "Scoresysteem voor versies"
 }
