@@ -37,7 +37,7 @@ class Cache {
 			$this->processRevision( $dbData, $revision, $revisionData );
 		}
 
-		\wfGetDB( DB_MASTER )->insert( 'ores_classification', $dbData, __METHOD__ );
+		\wfGetDB( DB_MASTER )->insert( 'ores_classification', $dbData, __METHOD__, [ 'IGNORE' ] );
 	}
 
 	/**
@@ -109,9 +109,12 @@ class Cache {
 	}
 
 	/**
-	 * @param array $dbData
-	 * @param int $revision
-	 * @param array $revisionData
+	 * Convert data returned by Scoring::getScores() into ores_classification rows
+	 *
+	 * @note No row is generated for class 0
+	 * @param array &$dbData Rows for insertion into ores_classification are added to this array
+	 * @param int $revision Revision being processed
+	 * @param array $revisionData Data returned by Scoring::getScores() for the revision.
 	 */
 	public function processRevision( &$dbData, $revision, array $revisionData ) {
 		global $wgOresModelClasses;

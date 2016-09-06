@@ -34,7 +34,7 @@ class PopulateDatabase extends Maintenance {
 	}
 
 	public function execute() {
-		global $wgOresExcludeBots;
+		global $wgOresExcludeBots, $wgOresRevisionsPerBatch;
 
 		$scoring = Scoring::instance();
 		$cache = Cache::instance();
@@ -73,7 +73,7 @@ class PopulateDatabase extends Maintenance {
 			$pack = [];
 			foreach ( $res as $row ) {
 				$pack[] = $row->rc_this_oldid;
-				if ( count( $pack ) % 50 === 0 ) {
+				if ( count( $pack ) % $wgOresRevisionsPerBatch === 0 ) {
 					$this->processScores( $pack, $scoring, $cache );
 					$pack = [];
 				}

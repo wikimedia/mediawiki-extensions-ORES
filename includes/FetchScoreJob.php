@@ -12,11 +12,42 @@ class FetchScoreJob extends Job {
 	 * @param array $params 'revid' key
 	 */
 	public function __construct( Title $title, array $params ) {
+		$expensive = is_array( $params['revid'] );
+
+		if ( $expensive ) {
+			sort( $params['revid'] );
+		}
+
 		parent::__construct( 'ORESFetchScoreJob', $title, $params );
+
+		$this->removeDuplicates = $expensive;
 	}
 
 	public function run() {
 		$logger = LoggerFactory::getInstance( 'ORES' );
+
+		if ( $this->removeDuplicates ) {
+			// Filter out revisions that already have scores by the time this
+			// job runs.
+			$revids = (array)$this->params['revid'];
+			$dbr = \wfGetDB( DB_REPLICA );
+			$revids = array_diff(
+				$revids,
+				$dbr->selectFieldValues(
+					'ores_classification',
+					'oresc_rev',
+					[ 'oresc_rev' => $revids ],
+					__METHOD__,
+					[ 'DISTINCT' ]
+				)
+			);
+			if ( !$revids ) {
+				$logger->debug( 'Skipping fetch, no revisions need scores: ' . json_encode( $this->params ) );
+				return true;
+			}
+			$this->params['revid'] = $revids;
+		}
+
 		$logger->info( 'Fetching scores for revision ' . json_encode( $this->params ) );
 		$scores = Scoring::instance()->getScores(
 			$this->params['revid'], null, $this->params['extra_params'] );

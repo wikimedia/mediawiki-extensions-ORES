@@ -549,7 +549,7 @@ class Hooks {
 	 * @param string $model
 	 * @return bool
 	 */
-	private static function isModelEnabled( $model ) {
+	public static function isModelEnabled( $model ) {
 		global $wgOresModels;
 		return isset( $wgOresModels[$model] ) && $wgOresModels[$model];
 	}

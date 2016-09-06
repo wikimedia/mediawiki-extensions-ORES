@@ -13,9 +13,36 @@
 		"ORES\\Cache": "includes/Cache.php",
 		"ORES\\Hooks": "includes/Hooks.php",
 		"ORES\\FetchScoreJob": "includes/FetchScoreJob.php",
-		"ORES\\Scoring": "includes/Scoring.php"
+		"ORES\\Scoring": "includes/Scoring.php",
+		"ORES\\ApiQueryORES": "includes/ApiQueryORES.php",
+		"ORES\\ApiHooks": "includes/ApiHooks.php",
+		"ORES\\WatchedItemQueryServiceExtension": "includes/WatchedItemQueryServiceExtension.php"
+	},
+	"APIMetaModules": {
+		"ores": "ORES\\ApiQueryORES"
 	},
 	"Hooks": {
+		"APIGetAllowedParams": [
+			"ORES\\ApiHooks::onAPIGetAllowedParams"
+		],
+		"ApiQueryBaseBeforeQuery": [
+			"ORES\\ApiHooks::onApiQueryBaseBeforeQuery"
+		],
+		"ApiQueryBaseAfterQuery": [
+			"ORES\\ApiHooks::onApiQueryBaseAfterQuery"
+		],
+		"ApiQueryBaseProcessRow": [
+			"ORES\\ApiHooks::onApiQueryBaseProcessRow"
+		],
+		"ApiQueryWatchlistExtractOutputData": [
+			"ORES\\ApiHooks::onApiQueryWatchlistExtractOutputData"
+		],
+		"ApiQueryWatchlistPrepareWatchedItemQueryServiceOptions": [
+			"ORES\\ApiHooks::onApiQueryWatchlistPrepareWatchedItemQueryServiceOptions"
+		],
+		"WatchedItemQueryServiceExtensions": [
+			"ORES\\ApiHooks::onWatchedItemQueryServiceExtensions"
+		],
 		"BeforePageDisplay": [
 			"ORES\\Hooks::onBeforePageDisplay"
 		],
@@ -118,6 +145,8 @@
 		},
 		"OresEnabledNamespaces": {},
 		"OresWikiId": null,
+		"OresRevisionsPerBatch": 50,
+		"OresAPIMaxBatchJobs": 100,
 		"RecentChangesFlags": {
 			"damaging": {
 				"letter": "ores-damaging-letter",
