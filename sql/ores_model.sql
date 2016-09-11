@@ -11,5 +11,5 @@ CREATE TABLE /*_*/ores_model (
 
 ) /*$wgDBTableOptions*/;
 
-CREATE UNIQUE INDEX /*i*/oresm_model ON /*_*/ores_model (oresm_name, oresm_is_current);
+CREATE INDEX /*i*/oresm_model_status ON /*_*/ores_model (oresm_name, oresm_is_current);
 CREATE UNIQUE INDEX /*i*/oresm_version ON /*_*/ores_model (oresm_name, oresm_version);
