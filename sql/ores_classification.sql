@@ -9,7 +9,7 @@ CREATE TABLE /*_*/ores_classification (
 	oresc_rev INTEGER(10) unsigned NOT NULL,
 	-- Model name (foreign key to ores_model.oresm_id)
 	oresc_model SMALLINT NOT NULL,
-	-- Classification title (see $wgOresModelClasses)
+	-- Classification title
 	oresc_class TINYINT NOT NULL,
 	-- Estimated classification probability
 	oresc_probability DECIMAL(3,3) NOT NULL,
@@ -18,5 +18,4 @@ CREATE TABLE /*_*/ores_classification (
 	oresc_is_predicted TINYINT(1) NOT NULL
 ) /*$wgDBTableOptions*/;
 
-CREATE UNIQUE INDEX /*i*/oresc_rev_model_class ON /*_*/ores_classification (oresc_rev, oresc_model, oresc_class);
-CREATE UNIQUE INDEX /*i*/oresc_rev_predicted_model ON /*_*/ores_classification (oresc_rev, oresc_is_predicted, oresc_model);
+CREATE INDEX /*i*/oresc_winner ON /*_*/ores_classification (oresc_rev, oresc_is_predicted);
