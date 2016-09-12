@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e93376b_fb2bcd75",
+        "filename": "includes/Cache.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-09-12T13:09:04Z",
+      "side": 1,
+      "message": "The name of this private method is not the best. It\u0027s like a \"doStuff\" method and doesn\u0027t tell what it actually does. Please find a better name.\n\nI also suggest to work with actual return values instead of the by-ref parameter that\u0027s manipulated in the method. (But this should be done in a separate patch, please.)\n\n$dbData \u003d [];\nforeach () {\n    $dbData \u003d array_merge( $dbData, $this-\u003e…( … ) );\n}",
+      "revId": "193d969bda8daaa54f1dffb455142beb218f798e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
