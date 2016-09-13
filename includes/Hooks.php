@@ -126,7 +126,7 @@ class Hooks {
 			return true;
 		}
 
-		$threshold = self::getThreshold();
+		$threshold = self::getDamagingThreshold( $wgUser );
 		$dbr = \wfGetDB( DB_SLAVE );
 
 		$tables[] = 'ores_classification';
@@ -250,7 +250,7 @@ class Hooks {
 			return true;
 		}
 
-		$threshold = self::getThreshold( $pager->getUser() );
+		$threshold = self::getDamagingThreshold( $pager->getUser() );
 		$dbr = \wfGetDB( DB_SLAVE );
 
 		$query['tables'][] = 'ores_classification';
@@ -365,14 +365,10 @@ class Hooks {
 	 * @return bool
 	 */
 	public static function getScoreRecentChangesList( $rcObj ) {
-
+		global $wgUser;
 		$threshold = $rcObj->getAttribute( 'ores_threshold' );
 		if ( $threshold === null ) {
-			// FIXME: What is the impact of this
-			$logger = LoggerFactory::getInstance( 'ORES' );
-			$logger->warning( 'Running low performance actions, ' .
-				'getting threshold for each edit seperately' );
-			$threshold = self::getThreshold();
+			$threshold = self::getDamagingThreshold( $wgUser );
 		}
 		$score = $rcObj->getAttribute( 'oresc_probability' );
 		$patrolled = $rcObj->getAttribute( 'rc_patrolled' );
@@ -382,13 +378,13 @@ class Hooks {
 
 	/**
 	 * Internal helper to get threshold
-	 * It's better to avoid using $wgUser as much as possible
+	 * @param User $user
+	 * @return int
 	 */
-	public static function getThreshold() {
+	public static function getDamagingThreshold( User $user ) {
 		global $wgOresDamagingThresholds;
-		global $wgUser;
 
-		$pref = $wgUser->getOption( 'oresDamagingPref' );
+		$pref = $user->getOption( 'oresDamagingPref' );
 
 		return $wgOresDamagingThresholds[$pref];
 	}
