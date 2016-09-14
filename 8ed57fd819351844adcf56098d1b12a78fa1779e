@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e82f318_0ac33b0b",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-09-14T08:34:35Z",
+      "side": 1,
+      "message": "I suggest to stick the check in here:\n\nif ( !isset( $wgOresModels[\u0027damaging\u0027] )\n    || !$wgOresModels[\u0027damaging\u0027]\n    || !self::oresEnabled( $clsp-\u003egetUser() )\n) {\n    return true;\n}\n\nThis avoids the deep nesting below.\n\nPossibly create a private isModelEnabled( \u0027damaging\u0027 ) method.",
+      "revId": "8ed57fd819351844adcf56098d1b12a78fa1779e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
