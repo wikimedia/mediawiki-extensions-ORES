@@ -32,48 +32,9 @@ class Cache {
 	 * @throws RuntimeException
 	 */
 	public function storeScores( $scores ) {
-		global $wgOresModelClasses;
-		// Map to database fields.
 		$dbData = [];
 		foreach ( $scores as $revision => $revisionData ) {
-			foreach ( $revisionData as $model => $modelOutputs ) {
-				if ( isset( $modelOutputs['error'] ) ) {
-					call_user_func( $this->errorCallback, $modelOutputs['error']['message'], $revision );
-					continue;
-				}
-
-				$prediction = $modelOutputs['prediction'];
-				// Kludge out booleans so we can match prediction against class name.
-				if ( $prediction === false ) {
-					$prediction = 'false';
-				} elseif ( $prediction === true ) {
-					$prediction = 'true';
-				}
-
-				$modelId = $this->getModelId( $model );
-				if ( !isset( $wgOresModelClasses[ $model ] ) ) {
-					throw new RuntimeException( "Model $model is not configured" );
-				}
-				foreach ( $modelOutputs['probability'] as $class => $probability ) {
-					$ores_is_predicted = $prediction === $class;
-					if ( !isset( $wgOresModelClasses[ $model ][ $class ] ) ) {
-						throw new RuntimeException( "Class $class in model $model is not configured" );
-					}
-					$class = $wgOresModelClasses[ $model ][ $class ];
-					if ( $class === 0 ) {
-						// We don't store rows for class 0, because we can compute the class 0 probability by
-						// subtracting the sum of the probabilities of the other classes from 1
-						continue;
-					}
-					$dbData[] = [
-						'oresc_rev' => $revision,
-						'oresc_model' => $modelId,
-						'oresc_class' => $class,
-						'oresc_probability' => $probability,
-						'oresc_is_predicted' => ( $ores_is_predicted ),
-					];
-				}
-			}
+			$this->processRevision( $dbData, $revision, $revisionData );
 		}
 
 		\wfGetDB( DB_MASTER )->insert( 'ores_classification', $dbData, __METHOD__ );
@@ -145,6 +106,55 @@ class Cache {
 
 		self::$modelIds[$model] = $modelId;
 		return $modelId;
+	}
+
+	/**
+	 * @param array $dbData
+	 * @param int $revision
+	 * @param array $revisionData
+	 */
+	public function processRevision( &$dbData, int $revision, array $revisionData ) {
+		global $wgOresModelClasses;
+		// Map to database fields.
+
+		foreach ( $revisionData as $model => $modelOutputs ) {
+			if ( isset( $modelOutputs['error'] ) ) {
+				call_user_func( $this->errorCallback, $modelOutputs['error']['message'], $revision );
+				continue;
+			}
+
+			$prediction = $modelOutputs['prediction'];
+			// Kludge out booleans so we can match prediction against class name.
+			if ( $prediction === false ) {
+				$prediction = 'false';
+			} elseif ( $prediction === true ) {
+				$prediction = 'true';
+			}
+
+			$modelId = $this->getModelId( $model );
+			if ( !isset( $wgOresModelClasses[ $model ] ) ) {
+				throw new RuntimeException( "Model $model is not configured" );
+			}
+			foreach ( $modelOutputs['probability'] as $class => $probability ) {
+				$ores_is_predicted = $prediction === $class;
+				if ( !isset( $wgOresModelClasses[ $model ][ $class ] ) ) {
+					throw new RuntimeException( "Class $class in model $model is not configured" );
+				}
+				$class = $wgOresModelClasses[ $model ][ $class ];
+				if ( $class === 0 ) {
+					// We don't store rows for class 0, because we can compute the class 0 probability by
+					// subtracting the sum of the probabilities of the other classes from 1
+					continue;
+				}
+				$dbData[] = [
+					'oresc_rev' => $revision,
+					'oresc_model' => $modelId,
+					'oresc_class' => $class,
+					'oresc_probability' => $probability,
+					'oresc_is_predicted' => ( $ores_is_predicted ),
+				];
+			}
+		}
 	}
 
 	public function getModels() {
