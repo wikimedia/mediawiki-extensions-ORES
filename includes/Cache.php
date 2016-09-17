@@ -53,7 +53,7 @@ class Cache {
 	 * Note that this function runs multiple batches, until all records are deleted.
 	 */
 	public function purge( $model, $isEverything, $batchSize = 1000 ) {
-		$dbr = \wfGetDB( DB_SLAVE );
+		$dbr = \wfGetDB( DB_REPLICA );
 		$dbw = \wfGetDB( DB_MASTER );
 
 		$tables = [ 'ores_classification', 'ores_model' ];
@@ -95,7 +95,7 @@ class Cache {
 			return self::$modelIds[$model];
 		}
 
-		$modelId = \wfGetDB( DB_SLAVE )->selectField( 'ores_model',
+		$modelId = \wfGetDB( DB_REPLICA )->selectField( 'ores_model',
 			'oresm_id',
 			[ 'oresm_name' => $model, 'oresm_is_current' => 1 ],
 			__METHOD__
@@ -158,7 +158,7 @@ class Cache {
 	}
 
 	public function getModels() {
-		$models = \wfGetDB( DB_SLAVE )->selectFieldValues( 'ores_model',
+		$models = \wfGetDB( DB_REPLICA )->selectFieldValues( 'ores_model',
 			'oresm_name',
 			[],
 			__METHOD__

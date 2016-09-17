@@ -128,7 +128,7 @@ class Hooks {
 		}
 
 		$threshold = self::getDamagingThreshold( $wgUser );
-		$dbr = \wfGetDB( DB_SLAVE );
+		$dbr = \wfGetDB( DB_REPLICA );
 
 		$tables[] = 'ores_classification';
 		$tables[] = 'ores_model';
@@ -252,7 +252,7 @@ class Hooks {
 		}
 
 		$threshold = self::getDamagingThreshold( $pager->getUser() );
-		$dbr = \wfGetDB( DB_SLAVE );
+		$dbr = \wfGetDB( DB_REPLICA );
 
 		$query['tables'][] = 'ores_classification';
 		$query['tables'][] = 'ores_model';

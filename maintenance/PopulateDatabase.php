@@ -45,7 +45,7 @@ class PopulateDatabase extends Maintenance {
 		$this->revisionLimit = $this->getOption( 'number', 1000 );
 
 		$latestRcId = 0;
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$join_conds = [ 'ores_classification' =>
 			[ 'LEFT JOIN', [ 'oresc_rev = rc_this_oldid' ] ]
 		];
