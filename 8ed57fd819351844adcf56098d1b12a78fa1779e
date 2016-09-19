@@ -16,6 +16,24 @@
       "revId": "8ed57fd819351844adcf56098d1b12a78fa1779e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_f522264f",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2016-09-19T20:22:16Z",
+      "side": 1,
+      "message": "The reason I\u0027m refactoring this is so that we can have both damaging and goodfaith in here as filters, so moving the check up there doesn\u0027t help with that.\n\nGood call on the isModelEnabled() helper function though, I\u0027ll do that.",
+      "parentUuid": "0e82f318_0ac33b0b",
+      "revId": "8ed57fd819351844adcf56098d1b12a78fa1779e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
