@@ -137,43 +137,34 @@ class Hooks {
 		$threshold = self::getDamagingThreshold( $wgUser );
 		$dbr = \wfGetDB( DB_REPLICA );
 
-		$tables[] = 'ores_classification';
 		$tables[] = 'ores_model';
+		$tables[] = 'ores_classification';
 
 		$fields[] = 'oresc_probability';
 		// Add user-based threshold
 		$fields[] = $dbr->addQuotes( $threshold ) . ' AS ores_threshold';
 
-		$conds[] = '(oresm_name = ' . $dbr->addQuotes( 'damaging' ) .
-			' OR oresm_name IS NULL)';
-
-		$conds[] = '(oresm_is_current != 0 OR oresm_is_current IS NULL)';
-
-		$join_conds['ores_classification'] = [
-			'LEFT JOIN',
-			'rc_this_oldid = oresc_rev ' .
-		        'AND oresc_class = 1'
-		];
-
-		$join_conds['ores_model'] = [
-			'LEFT JOIN',
-			'oresc_model = oresm_id ' .
-			'AND oresm_is_current = 1'
-		];
+		$join_conds['ores_model'] = [ 'LEFT JOIN', [
+			'oresm_is_current' => 1,
+			'oresm_name' => 'damaging'
+		] ];
+		$join_conds['ores_classification'] = [ 'LEFT JOIN', [
+			'oresc_model = oresm_id',
+			'rc_this_oldid = oresc_rev',
+			'oresc_class' => 1
+		] ];
 
 		if ( self::isModelEnabled( 'damaging' ) && $opts->getValue( 'hidenondamaging' ) ) {
-			// Override the join conditions.
-			$join_conds['ores_classification'] = [
-				'INNER JOIN',
-				'rc_this_oldid = oresc_rev ' .
-				'AND oresc_class = 1'
-			];
-
 			// Filter out non-damaging edits.
 			$conds[] = 'oresc_probability > '
 				. $dbr->addQuotes( $threshold );
 			$conds['rc_patrolled'] = 0;
+
+			// Performance hacks: add STRAIGHT_JOIN (146111) and override the LEFT JOINs
+			// to be INNER JOINs (T137895)
 			$query_options[] = 'STRAIGHT_JOIN';
+			$join_conds['ores_model'][0] = 'INNER JOIN';
+			$join_conds['ores_classification'][0] = 'INNER JOIN';
 		}
 
 		return true;
@@ -281,44 +272,35 @@ class Hooks {
 		$threshold = self::getDamagingThreshold( $pager->getUser() );
 		$dbr = \wfGetDB( DB_REPLICA );
 
-		$query['tables'][] = 'ores_classification';
 		$query['tables'][] = 'ores_model';
+		$query['tables'][] = 'ores_classification';
 
 		$query['fields'][] = 'oresc_probability';
 		// Add user-based threshold
 		$query['fields'][] = $dbr->addQuotes( $threshold ) . ' AS ores_threshold';
 
-		$query['conds'][] = '(oresm_name = ' . $dbr->addQuotes( 'damaging' ) .
-			' OR oresm_name IS NULL)';
+		$query['join_conds']['ores_model'] = [ 'LEFT JOIN', [
+			'oresm_is_current' => 1,
+			'oresm_name' => 'damaging',
+		] ];
 
-		$query['conds'][] = '(oresm_is_current != 0 OR oresm_is_current IS NULL)';
-
-		$query['join_conds']['ores_classification'] = [
-			'LEFT JOIN',
-			'rev_id = oresc_rev ' .
-			'AND oresc_class = 1'
-		];
-
-		$query['join_conds']['ores_model'] = [
-			'LEFT JOIN',
-			'oresc_model = oresm_id ' .
-			'AND oresm_is_current = 1'
-		];
+		$query['join_conds']['ores_classification'] = [ 'LEFT JOIN', [
+			'oresc_model = oresm_id',
+			'rev_id = oresc_rev',
+			'oresc_class' => 1
+		] ];
 
 		if (
 			self::isModelEnabled( 'damaging' ) &&
 			$pager->getContext()->getRequest()->getVal( 'hidenondamaging' )
 		) {
-			// Override the join conditions.
-			$join_conds['ores_classification'] = [
-				'INNER JOIN',
-				'rc_this_oldid = oresc_rev ' .
-				'AND oresc_class = 1'
-			];
-
 			// Filter out non-damaging edits.
 			$query['conds'][] = 'oresc_probability > '
 				. $dbr->addQuotes( $threshold );
+
+			// Performance hack: override the LEFT JOINs to be INNER JOINs (T137895)
+			$query['join_conds']['ores_model'][0] = 'INNER JOIN';
+			$query['join_conds']['ores_classification'][0] = 'INNER JOIN';
 		}
 		return true;
 	}
