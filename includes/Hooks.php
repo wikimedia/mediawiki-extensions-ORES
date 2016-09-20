@@ -137,34 +137,34 @@ class Hooks {
 		$threshold = self::getDamagingThreshold( $wgUser );
 		$dbr = \wfGetDB( DB_REPLICA );
 
-		$tables[] = 'ores_model';
-		$tables[] = 'ores_classification';
+		$tables['ores_damaging_mdl'] = 'ores_model';
+		$tables['ores_damaging_cls'] = 'ores_classification';
 
-		$fields[] = 'oresc_probability';
+		$fields['ores_damaging_score'] = 'ores_damaging_cls.oresc_probability';
 		// Add user-based threshold
-		$fields[] = $dbr->addQuotes( $threshold ) . ' AS ores_threshold';
+		$fields['ores_damaging_threshold'] = $dbr->addQuotes( $threshold );
 
-		$join_conds['ores_model'] = [ 'LEFT JOIN', [
-			'oresm_is_current' => 1,
-			'oresm_name' => 'damaging'
+		$join_conds['ores_damaging_mdl'] = [ 'LEFT JOIN', [
+			'ores_damaging_mdl.oresm_is_current' => 1,
+			'ores_damaging_mdl.oresm_name' => 'damaging'
 		] ];
-		$join_conds['ores_classification'] = [ 'LEFT JOIN', [
-			'oresc_model = oresm_id',
-			'rc_this_oldid = oresc_rev',
-			'oresc_class' => 1
+		$join_conds['ores_damaging_cls'] = [ 'LEFT JOIN', [
+			'ores_damaging_cls.oresc_model = ores_damaging_mdl.oresm_id',
+			'rc_this_oldid = ores_damaging_cls.oresc_rev',
+			'ores_damaging_cls.oresc_class' => 1
 		] ];
 
 		if ( self::isModelEnabled( 'damaging' ) && $opts->getValue( 'hidenondamaging' ) ) {
 			// Filter out non-damaging edits.
-			$conds[] = 'oresc_probability > '
+			$conds[] = 'ores_damaging_cls.oresc_probability > '
 				. $dbr->addQuotes( $threshold );
 			$conds['rc_patrolled'] = 0;
 
 			// Performance hacks: add STRAIGHT_JOIN (146111) and override the LEFT JOINs
 			// to be INNER JOINs (T137895)
 			$query_options[] = 'STRAIGHT_JOIN';
-			$join_conds['ores_model'][0] = 'INNER JOIN';
-			$join_conds['ores_classification'][0] = 'INNER JOIN';
+			$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
+			$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
 		}
 
 		return true;
@@ -272,22 +272,22 @@ class Hooks {
 		$threshold = self::getDamagingThreshold( $pager->getUser() );
 		$dbr = \wfGetDB( DB_REPLICA );
 
-		$query['tables'][] = 'ores_model';
-		$query['tables'][] = 'ores_classification';
+		$query['tables']['ores_damaging_mdl'] = 'ores_model';
+		$query['tables']['ores_damaging_cls'] = 'ores_classification';
 
-		$query['fields'][] = 'oresc_probability';
+		$query['fields']['ores_damaging_score'] = 'ores_damaging_cls.oresc_probability';
 		// Add user-based threshold
-		$query['fields'][] = $dbr->addQuotes( $threshold ) . ' AS ores_threshold';
+		$query['fields']['ores_damaging_threshold'] = $dbr->addQuotes( $threshold );
 
-		$query['join_conds']['ores_model'] = [ 'LEFT JOIN', [
-			'oresm_is_current' => 1,
-			'oresm_name' => 'damaging',
+		$query['join_conds']['ores_damaging_mdl'] = [ 'LEFT JOIN', [
+			'ores_damaging_mdl.oresm_is_current' => 1,
+			'ores_damaging_mdl.oresm_name' => 'damaging',
 		] ];
 
-		$query['join_conds']['ores_classification'] = [ 'LEFT JOIN', [
-			'oresc_model = oresm_id',
-			'rev_id = oresc_rev',
-			'oresc_class' => 1
+		$query['join_conds']['ores_damaging_cls'] = [ 'LEFT JOIN', [
+			'ores_damaging_cls.oresc_model = ores_damaging_mdl.oresm_id',
+			'rev_id = ores_damaging_cls.oresc_rev',
+			'ores_damaging_cls.oresc_class' => 1
 		] ];
 
 		if (
@@ -295,12 +295,12 @@ class Hooks {
 			$pager->getContext()->getRequest()->getVal( 'hidenondamaging' )
 		) {
 			// Filter out non-damaging edits.
-			$query['conds'][] = 'oresc_probability > '
+			$query['conds'][] = 'ores_damaging_cls.oresc_probability > '
 				. $dbr->addQuotes( $threshold );
 
 			// Performance hack: override the LEFT JOINs to be INNER JOINs (T137895)
-			$query['join_conds']['ores_model'][0] = 'INNER JOIN';
-			$query['join_conds']['ores_classification'][0] = 'INNER JOIN';
+			$query['join_conds']['ores_damaging_mdl'][0] = 'INNER JOIN';
+			$query['join_conds']['ores_damaging_cls'][0] = 'INNER JOIN';
 		}
 		return true;
 	}
@@ -315,11 +315,11 @@ class Hooks {
 		}
 
 		// Doesn't have ores score, skipping.
-		if ( !isset( $row->oresc_probability ) ) {
+		if ( !isset( $row->ores_damaging_score ) ) {
 			return true;
 		}
 
-		if ( $row->oresc_probability > $row->ores_threshold ) {
+		if ( $row->ores_damaging_score > $row->ores_damaging_threshold ) {
 			// Prepend the "r" flag
 			array_unshift( $flags, ChangesList::flag( 'damaging' ) );
 		}
@@ -337,11 +337,11 @@ class Hooks {
 		}
 
 		// Doesn't have ores score, skipping.
-		if ( !isset( $row->oresc_probability ) ) {
+		if ( !isset( $row->ores_damaging_score ) ) {
 			return true;
 		}
 
-		if ( $row->oresc_probability > $row->ores_threshold ) {
+		if ( $row->ores_damaging_score > $row->ores_damaging_threshold ) {
 			// Add the damaging class
 			$classes[] = 'damaging';
 		}
@@ -404,11 +404,11 @@ class Hooks {
 	 */
 	public static function getScoreRecentChangesList( $rcObj ) {
 		global $wgUser;
-		$threshold = $rcObj->getAttribute( 'ores_threshold' );
+		$threshold = $rcObj->getAttribute( 'ores_damaging_threshold' );
 		if ( $threshold === null ) {
 			$threshold = self::getDamagingThreshold( $wgUser );
 		}
-		$score = $rcObj->getAttribute( 'oresc_probability' );
+		$score = $rcObj->getAttribute( 'ores_damaging_score' );
 		$patrolled = $rcObj->getAttribute( 'rc_patrolled' );
 
 		return $score && $score >= $threshold && !$patrolled;
