@@ -161,6 +161,7 @@ class Hooks {
 			$conds[] = 'oresc_probability > '
 				. $dbr->addQuotes( $threshold );
 			$conds['rc_patrolled'] = 0;
+			$query_options[] = 'STRAIGHT_JOIN';
 		}
 
 		return true;
