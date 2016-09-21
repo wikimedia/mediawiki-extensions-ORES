@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e82f318_e3917efc",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-09-21T13:00:12Z",
+      "side": 1,
+      "message": "You can safe a full level of this deep nesting:\n\nif ( !… ) {\n    return true;\n}",
+      "revId": "db8f941c07d0801dde1bc9a89d8e54f30a0175c5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_239c7612",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-09-21T13:00:12Z",
+      "side": 1,
+      "message": "Same here.\n\nWhy not merge this with the oresEnabled check above?",
+      "revId": "db8f941c07d0801dde1bc9a89d8e54f30a0175c5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_43a16a41",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-09-21T13:00:12Z",
+      "side": 1,
+      "message": "Same here. You could have a single helper method that only returns true when both oresEnabled and isModelEnabled is true.",
+      "revId": "db8f941c07d0801dde1bc9a89d8e54f30a0175c5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
