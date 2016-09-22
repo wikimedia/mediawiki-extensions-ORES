@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "0e82f318_d54346b4",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2016-09-22T17:25:38Z",
+      "side": 1,
+      "message": "Sorry, that code only existed on my laptop apparently, it\u0027s now at https://gerrit.wikimedia.org/r/#/c/312166/1",
+      "parentUuid": "0e82f318_40d2352d",
+      "revId": "db8f941c07d0801dde1bc9a89d8e54f30a0175c5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e82f318_239c7612",
         "filename": "includes/Hooks.php",
         "patchSetId": 4
