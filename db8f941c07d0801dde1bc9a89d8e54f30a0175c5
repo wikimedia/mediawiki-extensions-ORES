@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "0e82f318_40d2352d",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-09-22T13:20:47Z",
+      "side": 1,
+      "message": "I\u0027m reviewing this patch here, not some code that does not exist yet (or does it? maybe you can upload a follow-up to this patch?). I\u0027m very sorry but I don\u0027t see how this justifies the current code being so badly readable. You can and should refactor the code further when you are introducing the other condition you are talking about. For now, please bail out, because this is what the currently existing code paths dictate.",
+      "parentUuid": "0e82f318_cfead872",
+      "revId": "db8f941c07d0801dde1bc9a89d8e54f30a0175c5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e82f318_239c7612",
         "filename": "includes/Hooks.php",
         "patchSetId": 4
