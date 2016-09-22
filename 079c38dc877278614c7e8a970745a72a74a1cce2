@@ -34,6 +34,24 @@
       "revId": "079c38dc877278614c7e8a970745a72a74a1cce2",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_e596dbf2",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-09-22T11:30:26Z",
+      "side": 0,
+      "message": "I mean per http://dev.mysql.com/doc/refman/5.7/en/join.html it should be a part of join condition not query option (like \u0027GROUP BY\u0027) so the correct syntax is:\n $join_conds[\u0027ores_classification\u0027] \u003d [ \u0027STRAIGHT_JOIN\u0027, ...\n\nCorrect me if I\u0027m wrong.",
+      "parentUuid": "0e82f318_da2d438d",
+      "revId": "079c38dc877278614c7e8a970745a72a74a1cce2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
