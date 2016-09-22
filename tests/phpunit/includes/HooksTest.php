@@ -282,8 +282,9 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$query = [
 			'tables' => [],
 			'fields' => [],
-		    'conds' => [],
-			'join_conds' => []
+			'conds' => [],
+			'options' => [],
+			'join_conds' => [],
 		];
 		ORES\Hooks::onContribsGetQueryInfo(
 			$cp,
