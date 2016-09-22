@@ -52,6 +52,24 @@
       "revId": "079c38dc877278614c7e8a970745a72a74a1cce2",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_b5b092d9",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2016-09-22T17:24:20Z",
+      "side": 0,
+      "message": "Interesting, I didn\u0027t know about that one.\n\nWhat I did ($query_options[] \u003d \u0027STRAIGHT_JOIN\u0027;) results in a query like SELECT /*!STRAIGHT_JOIN*/ rc_id,... FROM ....; which causes all of the tables to be joined in exactly the order specified. I don\u0027t know if that\u0027s better or worse than a per-table STRAIGHT_JOIN, but I\u0027m guessing we probably need the comment-wrapped one for compatiblity with non-MySQL DBs.",
+      "parentUuid": "0e82f318_e596dbf2",
+      "revId": "079c38dc877278614c7e8a970745a72a74a1cce2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
