@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0e82f318_cfead872",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2016-09-22T03:02:43Z",
+      "side": 1,
+      "message": "I\u0027m about to add another if ( isModelEnabled( \u0027goodfaith\u0027 ) ) { ... } thing below, so then merging the criteria or bailing out doesn\u0027t work.",
+      "parentUuid": "0e82f318_e3917efc",
+      "revId": "db8f941c07d0801dde1bc9a89d8e54f30a0175c5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e82f318_239c7612",
         "filename": "includes/Hooks.php",
         "patchSetId": 4
