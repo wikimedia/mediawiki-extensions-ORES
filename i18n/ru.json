@@ -18,6 +18,7 @@
 	"ores-damaging-title": "Правка требует проверки",
 	"ores-damaging-legend": "[[:mw:Special:MyLanguage/ORES review tool|подозрительная правка]]",
 	"ores-help-damaging-pref": "Эта величина определяет, насколько придирчиво ORES выбирает правки для подсветки",
+	"ores-hide-nondamaging-filter": "Показывать только правки, требующие проверки",
 	"ores-pref-damaging": "Чувствительность ORES",
 	"ores-pref-rc-hidenondamaging": "Не показывать возможно полезные правки в свежих правках",
 	"ores-pref-watchlist-hidenondamaging": "Скрыть возможно полезные правки в списке наблюдения"
