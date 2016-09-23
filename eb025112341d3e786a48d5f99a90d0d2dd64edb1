@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e82f318_3c52c6e2",
+        "filename": "maintenance/CleanDuplicateScores.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-09-23T10:46:21Z",
+      "side": 1,
+      "message": "How many lines is this going to return? Thousands? Millions?",
+      "revId": "eb025112341d3e786a48d5f99a90d0d2dd64edb1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_1c434216",
+        "filename": "maintenance/CleanDuplicateScores.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-09-23T10:46:21Z",
+      "side": 1,
+      "message": "If the result set is grouped by rev+model+class, how is it possible to ever return multiple lines with the same rev+model+class? My understanding of SQL says no, this will not work.",
+      "revId": "eb025112341d3e786a48d5f99a90d0d2dd64edb1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
