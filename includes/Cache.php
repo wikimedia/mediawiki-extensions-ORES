@@ -113,7 +113,7 @@ class Cache {
 	 * @param int $revision
 	 * @param array $revisionData
 	 */
-	public function processRevision( &$dbData, int $revision, array $revisionData ) {
+	public function processRevision( &$dbData, $revision, array $revisionData ) {
 		global $wgOresModelClasses;
 		// Map to database fields.
 
