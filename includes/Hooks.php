@@ -83,7 +83,7 @@ class Hooks {
 	 * @return bool
 	 */
 	public static function onChangesListSpecialPageFilters( ChangesListSpecialPage $clsp, &$filters ) {
-		if ( self::oresEnabled( $clsp->getUser() ) === false ) {
+		if ( !self::oresEnabled( $clsp->getUser() ) ) {
 			return true;
 		}
 
@@ -123,7 +123,7 @@ class Hooks {
 		array &$query_options, array &$join_conds, FormOptions $opts
 	) {
 		global $wgUser;
-		if ( self::oresEnabled( $wgUser ) === false ) {
+		if ( !self::oresEnabled( $wgUser ) ) {
 			return true;
 		}
 
@@ -179,7 +179,7 @@ class Hooks {
 	public static function onEnhancedChangesListModifyLineData( EnhancedChangesList $ecl, array &$data,
 		array $block, RCCacheEntry $rcObj, array &$classes
 	) {
-		if ( self::oresEnabled( $ecl->getUser() ) === false ) {
+		if ( !self::oresEnabled( $ecl->getUser() ) ) {
 			return true;
 		}
 
@@ -199,7 +199,7 @@ class Hooks {
 	public static function onEnhancedChangesListModifyBlockLineData( EnhancedChangesList $ecl,
 		array &$data, RCCacheEntry $rcObj
 	) {
-		if ( self::oresEnabled( $ecl->getUser() ) === false ) {
+		if ( !self::oresEnabled( $ecl->getUser() ) ) {
 			return true;
 		}
 
@@ -222,7 +222,7 @@ class Hooks {
 	public static function onOldChangesListRecentChangesLine( ChangesList &$changesList, &$s,
 		$rc, &$classes = []
 	) {
-		if ( self::oresEnabled( $changesList->getUser() ) === false ) {
+		if ( !self::oresEnabled( $changesList->getUser() ) ) {
 			return true;
 		}
 
@@ -248,7 +248,7 @@ class Hooks {
 	 * @param array $query
 	 */
 	public static function onContribsGetQueryInfo( ContribsPager $pager, &$query ) {
-		if ( self::oresEnabled( $pager->getUser() ) === false ) {
+		if ( !self::oresEnabled( $pager->getUser() ) ) {
 			return true;
 		}
 
@@ -290,7 +290,7 @@ class Hooks {
 	public static function onSpecialContributionsFormatRowFlags(
 		RequestContext $context, $row, array &$flags
 	) {
-		if ( self::oresEnabled( $context->getUser() ) === false ) {
+		if ( !self::oresEnabled( $context->getUser() ) ) {
 			return true;
 		}
 
@@ -308,7 +308,7 @@ class Hooks {
 	public static function onContributionsLineEnding(
 		ContribsPager $pager, &$ret, $row, array &$classes
 	) {
-		if ( self::oresEnabled( $pager->getUser() ) === false ) {
+		if ( !self::oresEnabled( $pager->getUser() ) ) {
 			return true;
 		}
 
@@ -329,7 +329,7 @@ class Hooks {
 	public static function onSpecialContributionsGetFormFilters(
 		SpecialContributions $page, array &$filters
 	) {
-		if ( self::oresEnabled( $page->getUser() ) === false ) {
+		if ( !self::oresEnabled( $page->getUser() ) ) {
 			return true;
 		}
 
@@ -398,7 +398,7 @@ class Hooks {
 	public static function onGetPreferences( $user, &$preferences ) {
 		global $wgOresDamagingThresholds;
 
-		if ( self::oresEnabled( $user ) === false ) {
+		if ( !self::oresEnabled( $user ) ) {
 			return true;
 		}
 		$options = [];
@@ -432,7 +432,7 @@ class Hooks {
 	 * Add CSS styles to output page
 	 */
 	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
-		if ( self::oresEnabled( $out->getUser() ) === false ) {
+		if ( !self::oresEnabled( $out->getUser() ) ) {
 			return true;
 		}
 		$out->addModuleStyles( 'ext.ores.styles' );
@@ -464,9 +464,6 @@ class Hooks {
 	 * @return bool
 	 */
 	private static function oresEnabled( User $user ) {
-		if ( BetaFeatures::isFeatureEnabled( $user, 'ores-enabled' ) ) {
-			return true;
-		}
-		return false;
+		return BetaFeatures::isFeatureEnabled( $user, 'ores-enabled' );
 	}
 }
