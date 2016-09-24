@@ -40,6 +40,9 @@ class Hooks {
 
 	/**
 	 * Ask the ORES server for scores on this recent change
+	 *
+	 * @param RecentChange $rc
+	 * @return bool|null
 	 */
 	public static function onRecentChange_save( RecentChange $rc ) {
 		global $wgOresExcludeBots, $wgOresEnabledNamespaces;
@@ -50,8 +53,9 @@ class Hooks {
 		// Check if we actually want score for this namespace
 		$ns = $rc->getAttribute( 'rc_namespace' );
 		if ( $wgOresEnabledNamespaces &&
-				!( isset( $wgOresEnabledNamespaces[$ns] ) &&
-				$wgOresEnabledNamespaces[$ns] ) ) {
+			!( isset( $wgOresEnabledNamespaces[$ns] ) &&
+			$wgOresEnabledNamespaces[$ns] )
+		) {
 			return true;
 		}
 
@@ -82,7 +86,10 @@ class Hooks {
 	 * @param $filters
 	 * @return bool
 	 */
-	public static function onChangesListSpecialPageFilters( ChangesListSpecialPage $clsp, &$filters ) {
+	public static function onChangesListSpecialPageFilters(
+		ChangesListSpecialPage $clsp,
+		&$filters
+	) {
 		if ( !self::oresEnabled( $clsp->getUser() ) || !self::isModelEnabled( 'damaging' ) ) {
 			return true;
 		}
@@ -109,7 +116,7 @@ class Hooks {
 	/**
 	 * Pull in ORES score columns during recent changes queries
 	 *
-	 * @param $name
+	 * @param string $name
 	 * @param array $tables
 	 * @param array $fields
 	 * @param array $conds
@@ -142,20 +149,25 @@ class Hooks {
 
 		$conds[] = '(oresm_is_current != 0 OR oresm_is_current IS NULL)';
 
-		$join_conds['ores_classification'] = [ 'LEFT JOIN',
+		$join_conds['ores_classification'] = [
+			'LEFT JOIN',
 			'rc_this_oldid = oresc_rev ' .
-			'AND oresc_class = 1' ];
+		        'AND oresc_class = 1'
+		];
 
-		$join_conds['ores_model'] = [ 'LEFT JOIN',
+		$join_conds['ores_model'] = [
+			'LEFT JOIN',
 			'oresc_model = oresm_id ' .
 			'AND oresm_is_current = 1'
 		];
 
 		if ( self::isModelEnabled( 'damaging' ) && $opts->getValue( 'hidenondamaging' ) ) {
 			// Override the join conditions.
-			$join_conds['ores_classification'] = [ 'INNER JOIN',
+			$join_conds['ores_classification'] = [
+				'INNER JOIN',
 				'rc_this_oldid = oresc_rev ' .
-				'AND oresc_class = 1' ];
+				'AND oresc_class = 1'
+			];
 
 			// Filter out non-damaging edits.
 			$conds[] = 'oresc_probability > '
@@ -174,10 +186,15 @@ class Hooks {
 	 * @param array $data
 	 * @param RCCacheEntry[] $block
 	 * @param RCCacheEntry $rcObj
+	 * @param string[] $classes
 	 * @return bool
 	 */
-	public static function onEnhancedChangesListModifyLineData( EnhancedChangesList $ecl, array &$data,
-		array $block, RCCacheEntry $rcObj, array &$classes
+	public static function onEnhancedChangesListModifyLineData(
+		EnhancedChangesList $ecl,
+		array &$data,
+		array $block,
+		RCCacheEntry $rcObj,
+		array &$classes
 	) {
 		if ( !self::oresEnabled( $ecl->getUser() ) ) {
 			return true;
@@ -196,8 +213,10 @@ class Hooks {
 	 * @param RCCacheEntry $rcObj
 	 * @return bool
 	 */
-	public static function onEnhancedChangesListModifyBlockLineData( EnhancedChangesList $ecl,
-		array &$data, RCCacheEntry $rcObj
+	public static function onEnhancedChangesListModifyBlockLineData(
+		EnhancedChangesList $ecl,
+		array &$data,
+		RCCacheEntry $rcObj
 	) {
 		if ( !self::oresEnabled( $ecl->getUser() ) ) {
 			return true;
@@ -219,8 +238,11 @@ class Hooks {
 	 *
 	 * @return bool
 	 */
-	public static function onOldChangesListRecentChangesLine( ChangesList &$changesList, &$s,
-		$rc, &$classes = []
+	public static function onOldChangesListRecentChangesLine(
+		ChangesList &$changesList,
+		&$s,
+		$rc,
+		&$classes = []
 	) {
 		if ( !self::oresEnabled( $changesList->getUser() ) ) {
 			return true;
@@ -234,7 +256,7 @@ class Hooks {
 			}
 			$classes[] = 'damaging';
 			$parts = explode( $separator, $s );
-			$parts[1] = $changesList->flag( 'damaging' ) . $parts[1];
+			$parts[1] = ChangesList::flag( 'damaging' ) . $parts[1];
 			$s = implode( $separator, $parts );
 		}
 
@@ -246,8 +268,12 @@ class Hooks {
 	 *
 	 * @param ContribsPager $pager
 	 * @param array $query
+	 * @return bool|null
 	 */
-	public static function onContribsGetQueryInfo( ContribsPager $pager, &$query ) {
+	public static function onContribsGetQueryInfo(
+		ContribsPager $pager,
+		&$query
+	) {
 		if ( !self::oresEnabled( $pager->getUser() ) ) {
 			return true;
 		}
@@ -267,31 +293,40 @@ class Hooks {
 
 		$query['conds'][] = '(oresm_is_current != 0 OR oresm_is_current IS NULL)';
 
-		$query['join_conds']['ores_classification'] = [ 'LEFT JOIN',
+		$query['join_conds']['ores_classification'] = [
+			'LEFT JOIN',
 			'rev_id = oresc_rev ' .
-			'AND oresc_class = 1' ];
+			'AND oresc_class = 1'
+		];
 
-		$query['join_conds']['ores_model'] = [ 'LEFT JOIN',
+		$query['join_conds']['ores_model'] = [
+			'LEFT JOIN',
 			'oresc_model = oresm_id ' .
-			'AND oresm_is_current = 1' ];
+			'AND oresm_is_current = 1'
+		];
 
 		if (
 			self::isModelEnabled( 'damaging' ) &&
 			$pager->getContext()->getRequest()->getVal( 'hidenondamaging' )
 		) {
 			// Override the join conditions.
-			$join_conds['ores_classification'] = [ 'INNER JOIN',
+			$join_conds['ores_classification'] = [
+				'INNER JOIN',
 				'rc_this_oldid = oresc_rev ' .
-				'AND oresc_class = 1' ];
+				'AND oresc_class = 1'
+			];
 
 			// Filter out non-damaging edits.
 			$query['conds'][] = 'oresc_probability > '
 				. $dbr->addQuotes( $threshold );
 		}
+		return true;
 	}
 
 	public static function onSpecialContributionsFormatRowFlags(
-		RequestContext $context, $row, array &$flags
+		RequestContext $context,
+		$row,
+		array &$flags
 	) {
 		if ( !self::oresEnabled( $context->getUser() ) ) {
 			return true;
@@ -306,10 +341,14 @@ class Hooks {
 			// Prepend the "r" flag
 			array_unshift( $flags, ChangesList::flag( 'damaging' ) );
 		}
+		return true;
 	}
 
 	public static function onContributionsLineEnding(
-		ContribsPager $pager, &$ret, $row, array &$classes
+		ContribsPager $pager,
+		&$ret,
+		$row,
+		array &$classes
 	) {
 		if ( !self::oresEnabled( $pager->getUser() ) ) {
 			return true;
@@ -324,13 +363,19 @@ class Hooks {
 			// Add the damaging class
 			$classes[] = 'damaging';
 		}
+		return true;
 	}
 
 	/**
 	 * Hook into Special:Contributions filters
+	 *
+	 * @param SpecialContributions $page
+	 * @param string HTML[] $filters
+	 * @return bool
 	 */
 	public static function onSpecialContributionsGetFormFilters(
-		SpecialContributions $page, array &$filters
+		SpecialContributions $page,
+		array &$filters
 	) {
 		if ( !self::oresEnabled( $page->getUser() ) || !self::isModelEnabled( 'damaging' ) ) {
 			return true;
@@ -353,9 +398,15 @@ class Hooks {
 
 	/**
 	 * Internal helper to label matching rows
+	 *
+	 * @param RCCacheEntry $rcObj
+	 * @param string[]
+	 * @param string[]
 	 */
-	protected static function processRecentChangesList( RCCacheEntry $rcObj,
-		array &$data, array &$classes = []
+	protected static function processRecentChangesList(
+		RCCacheEntry $rcObj,
+		array &$data,
+		array &$classes = []
 	) {
 		$damaging = self::getScoreRecentChangesList( $rcObj );
 		if ( $damaging ) {
@@ -397,8 +448,12 @@ class Hooks {
 	/**
 	 * GetPreferences hook, adding ORES section, letting people choose a threshold
 	 * Also let people make hidenondamaging default
+	 *
+	 * @param User $user
+	 * @param string[] $preferences
+	 * @return bool
 	 */
-	public static function onGetPreferences( $user, &$preferences ) {
+	public static function onGetPreferences( User $user, array &$preferences ) {
 		global $wgOresDamagingThresholds;
 
 		if ( !self::oresEnabled( $user ) || !self::isModelEnabled( 'damaging' ) ) {
@@ -435,6 +490,10 @@ class Hooks {
 
 	/**
 	 * Add CSS styles to output page
+	 *
+	 * @param OutputPage $out
+	 * @param Skin $skin
+	 * @return bool
 	 */
 	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
 		if ( !self::oresEnabled( $out->getUser() ) ) {
@@ -446,8 +505,11 @@ class Hooks {
 
 	/**
 	 * Make a beta feature
+	 *
+	 * @param User $user
+	 * @param string[]
 	 */
-	public static function onGetBetaFeaturePreferences( $user, &$prefs ) {
+	public static function onGetBetaFeaturePreferences( User $user, array &$prefs ) {
 		global $wgExtensionAssetsPath;
 
 		$prefs['ores-enabled'] = [
