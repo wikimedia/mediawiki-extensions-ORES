@@ -83,7 +83,7 @@ class Hooks {
 	 * @return bool
 	 */
 	public static function onChangesListSpecialPageFilters( ChangesListSpecialPage $clsp, &$filters ) {
-		if ( !self::oresEnabled( $clsp->getUser() ) ) {
+		if ( !self::oresEnabled( $clsp->getUser() ) || !self::isModelEnabled( 'damaging' ) ) {
 			return true;
 		}
 
@@ -151,7 +151,7 @@ class Hooks {
 			'AND oresm_is_current = 1'
 		];
 
-		if ( $opts->getValue( 'hidenondamaging' ) ) {
+		if ( self::isModelEnabled( 'damaging' ) && $opts->getValue( 'hidenondamaging' ) ) {
 			// Override the join conditions.
 			$join_conds['ores_classification'] = [ 'INNER JOIN',
 				'rc_this_oldid = oresc_rev ' .
@@ -275,7 +275,10 @@ class Hooks {
 			'oresc_model = oresm_id ' .
 			'AND oresm_is_current = 1' ];
 
-		if ( $pager->getContext()->getRequest()->getVal( 'hidenondamaging' ) ) {
+		if (
+			self::isModelEnabled( 'damaging' ) &&
+			$pager->getContext()->getRequest()->getVal( 'hidenondamaging' )
+		) {
 			// Override the join conditions.
 			$join_conds['ores_classification'] = [ 'INNER JOIN',
 				'rc_this_oldid = oresc_rev ' .
@@ -329,7 +332,7 @@ class Hooks {
 	public static function onSpecialContributionsGetFormFilters(
 		SpecialContributions $page, array &$filters
 	) {
-		if ( !self::oresEnabled( $page->getUser() ) ) {
+		if ( !self::oresEnabled( $page->getUser() ) || !self::isModelEnabled( 'damaging' ) ) {
 			return true;
 		}
 
@@ -398,9 +401,10 @@ class Hooks {
 	public static function onGetPreferences( $user, &$preferences ) {
 		global $wgOresDamagingThresholds;
 
-		if ( !self::oresEnabled( $user ) ) {
+		if ( !self::oresEnabled( $user ) || !self::isModelEnabled( 'damaging' ) ) {
 			return true;
 		}
+
 		$options = [];
 		foreach ( $wgOresDamagingThresholds as $case => $value ) {
 			$text = \wfMessage( 'ores-damaging-' . $case )->parse();
@@ -425,6 +429,7 @@ class Hooks {
 			'section' => 'rc/advancedrc',
 			'label-message' => 'ores-pref-rc-hidenondamaging',
 		];
+
 		return true;
 	}
 
@@ -465,5 +470,15 @@ class Hooks {
 	 */
 	private static function oresEnabled( User $user ) {
 		return BetaFeatures::isFeatureEnabled( $user, 'ores-enabled' );
+	}
+
+	/**
+	 * Check whether a given model is enabled in the config
+	 * @param string $model
+	 * @return bool
+	 */
+	private static function isModelEnabled( $model ) {
+		global $wgOresModels;
+		return isset( $wgOresModels[$model] ) && $wgOresModels[$model];
 	}
 }
