@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "0e82f318_07aafb6c",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-09-27T01:52:43Z",
+      "side": 0,
+      "message": "These conds weren\u0027t there at first time but here\u0027s the problem and that\u0027s why we added these conds:\nWe are left joining revision with ores_classification, sometimes the score is not stored but we need to show such revisions, but these revisions leave oresc_model \u003d NULL with them.\nWe are left joining again with ores_model, it\u0027s quite possible that oresc_model row doesn\u0027t exist in ores_model and also remember we might have several types of scores stored in ores_classification table. \n\nTLDR: ores_classification is a messy table. Without double check I\u0027m super skeptical of removing these conditions that were added because of UBN! tasks such as https://phabricator.wikimedia.org/T144233\nhttps://phabricator.wikimedia.org/T144999\n\nFirst joining with ores_model and then joining ores_classification sounds like a good solution but I don\u0027t get on what we are joining, there is no common column between these two (unless we select the ores model id and then directly join revision/recentchanges with ores_classification)",
+      "parentUuid": "0e82f318_9a3d67bb",
+      "revId": "6105b59f2f97ec06548e41dd78993bb7fa0e6f0b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e82f318_fa42e33d",
         "filename": "includes/Hooks.php",
         "patchSetId": 6
@@ -157,6 +175,24 @@
         "endLine": 156,
         "endChar": 53
       },
+      "revId": "6105b59f2f97ec06548e41dd78993bb7fa0e6f0b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_8796eb40",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-09-27T01:52:43Z",
+      "side": 0,
+      "message": "It\u0027s for performance, https://phabricator.wikimedia.org/T137895",
+      "parentUuid": "0e82f318_dabd1f18",
       "revId": "6105b59f2f97ec06548e41dd78993bb7fa0e6f0b",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
