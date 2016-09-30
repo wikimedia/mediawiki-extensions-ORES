@@ -33,6 +33,24 @@
       "revId": "e8aeb84292ba8808ae30c6513a324241a0ee8766",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_5c3913ca",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2016-09-30T18:40:20Z",
+      "side": 1,
+      "message": "Yeah, I considered that and don\u0027t remember why I didn\u0027t do it; maybe I forgot or was lazy. It would be good to do this especially once goodfaith is added.",
+      "parentUuid": "0e82f318_df65f842",
+      "revId": "e8aeb84292ba8808ae30c6513a324241a0ee8766",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
