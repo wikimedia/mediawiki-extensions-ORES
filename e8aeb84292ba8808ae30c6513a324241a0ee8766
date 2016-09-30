@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e82f318_ff68fc1a",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-09-30T13:45:17Z",
+      "side": 1,
+      "message": "Same as below",
+      "revId": "e8aeb84292ba8808ae30c6513a324241a0ee8766",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_df65f842",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-09-30T13:45:17Z",
+      "side": 1,
+      "message": "What do you think of moving everything under this if into another static method with \u0027damaging\u0027 as an argument?",
+      "revId": "e8aeb84292ba8808ae30c6513a324241a0ee8766",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
