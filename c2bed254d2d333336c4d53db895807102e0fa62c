@@ -1,0 +1,225 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e82f318_3c3294ef",
+        "filename": "i18n/en.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2016-10-03T23:01:36Z",
+      "side": 1,
+      "message": "The oresreview params are missing.",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_9902b2bc",
+        "filename": "includes/ApiQueryORES.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2016-10-03T23:01:36Z",
+      "side": 1,
+      "message": "Should this include the detailed model information from the REST API (e.g. https://ores.wikimedia.org/v2/scores/enwiki/?model_info )?",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_39e7060f",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2016-10-03T23:01:36Z",
+      "side": 1,
+      "message": "Should we care about some of the duplicates potentially missing models / having different model versions / having different values for the same model version (due to e.g. algorithm changes) or is that always expected to be handled via maintenance scripts?",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_99655244",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2016-10-03T23:01:36Z",
+      "side": 1,
+      "message": "Could describe what this hook implementation does specifically.",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_39f0e68d",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2016-10-03T23:01:36Z",
+      "side": 1,
+      "message": "Why single out those modules? It would make sense to add the scores for the latest revision as a prop option for any module that returns page lists. (Less useful for \u0027damaging\u0027 scores, although it could be used for things like \"skip this page, the last revision seems to be vandalized\"; very useful for \u0027wp10\u0027 scores.)\n\nAlso it seems like an inconvenient limitation that one can get the scores with list\u003drecentchanges but not with generator\u003drecentchanges.",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_7977befd",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2016-10-03T23:01:36Z",
+      "side": 1,
+      "message": "Could describe what this hook implementation does specifically.",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_b968561a",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2016-10-03T23:01:36Z",
+      "side": 1,
+      "message": "Could describe what this hook implementation does specifically.",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_7c908c98",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2016-10-03T23:01:36Z",
+      "side": 1,
+      "message": "Note that this will skip RC entries for file description page creation (see EDIT_SUPPRESS_RC magic at the end of LocalFile::recordUpload2). No idea whether those entries have the oldid at all.",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_9cee201e",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2016-10-03T23:01:36Z",
+      "side": 1,
+      "message": "What\u0027s this for?",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_dc3a5832",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2016-10-03T23:01:36Z",
+      "side": 1,
+      "message": "Should the API expose is_predicted as well? Or is that guaranteed to be the same as the class with the highest probability?",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_dc0c18f3",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2016-10-03T23:01:36Z",
+      "side": 1,
+      "message": "Prefix with Special:Badtitle/ to be consistent with how other jobs use fake titles?",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_3c953443",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2016-10-03T23:01:36Z",
+      "side": 1,
+      "message": "You could simplify the logic a bit by using array_chunks:\n\n    $chunks \u003d array_chunks( $revids, self::GET_SCORES_BATCH_SIZE );\n    $revids \u003d array_shift( $chunks );\n    if ( $chunks ) {\n        foreach ( array_slice( $chunks, 0, $wgOresAPIMaxBatchJobs ) as $chunk ) {\n            $job \u003d new FetchScoreJob( $title, [ \u0027revid\u0027 \u003d\u003e $chunk, \u0027extra_params\u0027 \u003d\u003e [] ] );\n            JobQueueGroup::singleton()-\u003epush( $job );\n        }\n    }\n\n(Well, it feels simpler to me. YMMV.)",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_3cf0d48d",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2016-10-03T23:01:36Z",
+      "side": 1,
+      "message": "Can you add proper documentation to that method (and maybe a note to make sure changes do not break the API)?",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
