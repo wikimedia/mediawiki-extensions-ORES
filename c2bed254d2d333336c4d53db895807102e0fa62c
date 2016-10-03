@@ -53,6 +53,23 @@
     },
     {
       "key": {
+        "uuid": "0e82f318_bc1a04ce",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-03T23:10:01Z",
+      "side": 1,
+      "message": "This should be configurable global variable.",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e82f318_99655244",
         "filename": "includes/Hooks.php",
         "patchSetId": 2
@@ -121,6 +138,23 @@
     },
     {
       "key": {
+        "uuid": "0e82f318_dc1178b2",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-03T23:10:01Z",
+      "side": 1,
+      "message": "Put a blank line between the description and @param. (Nitpick, makes the code look more clean)",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e82f318_7c908c98",
         "filename": "includes/Hooks.php",
         "patchSetId": 2
@@ -149,6 +183,23 @@
       "writtenOn": "2016-10-03T23:01:36Z",
       "side": 1,
       "message": "What\u0027s this for?",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_fc147ca2",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-03T23:10:01Z",
+      "side": 1,
+      "message": "Move anything in this if to another method. Too much indention",
       "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
