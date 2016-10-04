@@ -4,7 +4,8 @@
 			"VaiTon86",
 			"JackLantern",
 			"Beta16",
-			"Martinligabue"
+			"Martinligabue",
+			"Selven"
 		]
 	},
 	"ores-beta-feature-description": "ORES è uno strumento basato sull'intelligenza artificiale che mette in evidenza contributi probabilmente dannosi nelle ultime modifiche e negli osservati speciali.",
@@ -20,5 +21,5 @@
 	"ores-pref-damaging": "Sensibilità ORES",
 	"ores-pref-rc-hidenondamaging": "Nascondi le probabili buone modifiche nelle ultime modifiche",
 	"ores-pref-watchlist-hidenondamaging": "Nascondi le probabili buone modifiche negli osservati speciali",
-	"prefs-ores": "ORES"
+	"prefs-ores": "Revisione del punteggio"
 }
