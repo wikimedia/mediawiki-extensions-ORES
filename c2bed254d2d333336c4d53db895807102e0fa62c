@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0e82f318_08c7464b",
+        "filename": "i18n/en.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-04T17:07:05Z",
+      "side": 1,
+      "message": "The various \u0027show\u0027 parameters don\u0027t have per-value parameter documentation at this time.",
+      "parentUuid": "0e82f318_3c3294ef",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e82f318_9902b2bc",
         "filename": "includes/ApiQueryORES.php",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2016-10-03T23:01:36Z",
       "side": 1,
       "message": "Should this include the detailed model information from the REST API (e.g. https://ores.wikimedia.org/v2/scores/enwiki/?model_info )?",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_48c13e32",
+        "filename": "includes/ApiQueryORES.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-04T17:07:05Z",
+      "side": 1,
+      "message": "That was not requested in T143617. If the ORES people want it, it could be added.",
+      "parentUuid": "0e82f318_9902b2bc",
       "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "0e82f318_28c96a55",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-04T17:07:05Z",
+      "side": 1,
+      "message": "I expect it\u0027s currently handled by maintenance scripts, since until this patch Cache-\u003estoreScores() will error out if the revision already has scores (except in the rare case where all of the existing scores are obsolete).",
+      "parentUuid": "0e82f318_39e7060f",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e82f318_bc1a04ce",
         "filename": "includes/Hooks.php",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2016-10-03T23:10:01Z",
       "side": 1,
       "message": "This should be configurable global variable.",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_28f08a8d",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-04T17:07:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e82f318_bc1a04ce",
       "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "0e82f318_0844a6bc",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-04T17:07:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e82f318_99655244",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e82f318_39f0e68d",
         "filename": "includes/Hooks.php",
         "patchSetId": 2
@@ -98,6 +188,24 @@
       "writtenOn": "2016-10-03T23:01:36Z",
       "side": 1,
       "message": "Why single out those modules? It would make sense to add the scores for the latest revision as a prop option for any module that returns page lists. (Less useful for \u0027damaging\u0027 scores, although it could be used for things like \"skip this page, the last revision seems to be vandalized\"; very useful for \u0027wp10\u0027 scores.)\n\nAlso it seems like an inconvenient limitation that one can get the scores with list\u003drecentchanges but not with generator\u003drecentchanges.",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_4825be02",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-04T17:07:05Z",
+      "side": 1,
+      "message": "The simple answer is that these are the modules that were requested.\n\n\"any module that returns page lists\" might be excessive, if a module isn\u0027t already joining the page table then it\u0027s not too likely to be worth adding that join to be able to do this. We could probably capture most of the \u0027prop\u0027 need by simply adding it to ApiQueryInfo.\n\nThe \"inconvenient limitation\" is how generators work: they don\u0027t produce data, they produce a list of pages. If you\u0027re using generator\u003drecentchanges and want scores, use prop\u003drevisions to fetch those scores.",
+      "parentUuid": "0e82f318_39f0e68d",
       "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "0e82f318_6820c2f2",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-04T17:07:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e82f318_7977befd",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e82f318_b968561a",
         "filename": "includes/Hooks.php",
         "patchSetId": 2
@@ -132,6 +258,24 @@
       "writtenOn": "2016-10-03T23:01:36Z",
       "side": 1,
       "message": "Could describe what this hook implementation does specifically.",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_a881dac9",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-04T17:07:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e82f318_b968561a",
       "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "0e82f318_6877e2fd",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-04T17:07:05Z",
+      "side": 1,
+      "message": "I usually avoid that blank line when the description is only one line. Since Gergő pointed out I could better describe what the hook function is actually doing, the added blank line would naturally follow anyway.",
+      "parentUuid": "0e82f318_dc1178b2",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e82f318_7c908c98",
         "filename": "includes/Hooks.php",
         "patchSetId": 2
@@ -166,6 +328,24 @@
       "writtenOn": "2016-10-03T23:01:36Z",
       "side": 1,
       "message": "Note that this will skip RC entries for file description page creation (see EDIT_SUPPRESS_RC magic at the end of LocalFile::recordUpload2). No idea whether those entries have the oldid at all.",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_68f44251",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-04T17:07:05Z",
+      "side": 1,
+      "message": "The logic here matches the logic applied elsewhere in this extension: both maintenance/PopulateDatabase.php and self::onRecentChange_save() only process RC entries with these types.\n\nIf ORES wants to change that, they can change it here when they change it in those other places.",
+      "parentUuid": "0e82f318_7c908c98",
       "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "0e82f318_c89c4e15",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-04T17:07:05Z",
+      "side": 1,
+      "message": "To make sure that $res is rewound to the beginning of the set. Chances are that whatever uses it will just be throwing it into a foreach anyway, but in case it\u0027s old code manually calling -\u003enext() or the like this makes sure it\u0027ll still work as expected.",
+      "parentUuid": "0e82f318_9cee201e",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e82f318_fc147ca2",
         "filename": "includes/Hooks.php",
         "patchSetId": 2
@@ -200,6 +398,24 @@
       "writtenOn": "2016-10-03T23:10:01Z",
       "side": 1,
       "message": "Move anything in this if to another method. Too much indention",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_28816aa4",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-04T17:07:05Z",
+      "side": 1,
+      "message": "Since this is your codebase I will, but IMO it\u0027s completely pointless.",
+      "parentUuid": "0e82f318_fc147ca2",
       "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -223,6 +439,24 @@
     },
     {
       "key": {
+        "uuid": "0e82f318_884fb696",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-04T17:07:05Z",
+      "side": 1,
+      "message": "The output format requested in T143614 does not leave room for returning the is_predicted flag.",
+      "parentUuid": "0e82f318_dc3a5832",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e82f318_dc0c18f3",
         "filename": "includes/Hooks.php",
         "patchSetId": 2
@@ -234,6 +468,24 @@
       "writtenOn": "2016-10-03T23:01:36Z",
       "side": 1,
       "message": "Prefix with Special:Badtitle/ to be consistent with how other jobs use fake titles?",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_c849ae91",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-04T17:07:05Z",
+      "side": 1,
+      "message": "Do other jobs use Special:Badtitle generically? The only examples I see in core are the base classes doing Special:Badtitle/__CLASS__.\n\nBut it makes sense anyway, done.",
+      "parentUuid": "0e82f318_dc0c18f3",
       "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -257,6 +509,24 @@
     },
     {
       "key": {
+        "uuid": "0e82f318_082ae68e",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-04T17:07:05Z",
+      "side": 1,
+      "message": "Good idea.",
+      "parentUuid": "0e82f318_3c953443",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e82f318_3cf0d48d",
         "filename": "includes/Hooks.php",
         "patchSetId": 2
@@ -268,6 +538,24 @@
       "writtenOn": "2016-10-03T23:01:36Z",
       "side": 1,
       "message": "Can you add proper documentation to that method (and maybe a note to make sure changes do not break the API)?",
+      "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_3a461126",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-04T17:07:05Z",
+      "side": 1,
+      "message": "Not my code, but I\u0027ll try.",
+      "parentUuid": "0e82f318_3cf0d48d",
       "revId": "c2bed254d2d333336c4d53db895807102e0fa62c",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
