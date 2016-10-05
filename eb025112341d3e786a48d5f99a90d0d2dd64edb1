@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "0e82f318_4f0f7d3a",
+        "filename": "maintenance/CleanDuplicateScores.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-10-05T13:06:31Z",
+      "side": 1,
+      "message": "The result will contain a \"random\" id for each set of rows that are identical according to the GROUP BY below. The HAVING makes sure to only include result sets that happen to have duplicates. But there is no MAX(oresc_id) that makes sure this will always return the latest id. It will also fail heavily when a group is bigger than two. The result set will only contain one duplicate for each group.",
+      "revId": "eb025112341d3e786a48d5f99a90d0d2dd64edb1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e82f318_1c434216",
         "filename": "maintenance/CleanDuplicateScores.php",
         "patchSetId": 2
@@ -30,6 +47,57 @@
       "writtenOn": "2016-09-23T10:46:21Z",
       "side": 1,
       "message": "If the result set is grouped by rev+model+class, how is it possible to ever return multiple lines with the same rev+model+class? My understanding of SQL says no, this will not work.",
+      "revId": "eb025112341d3e786a48d5f99a90d0d2dd64edb1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_ef3d91db",
+        "filename": "maintenance/CleanDuplicateScores.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-10-05T13:06:31Z",
+      "side": 1,
+      "message": "These two variable names are flipped. This iterates the variable $row, which is undefined at this point.",
+      "revId": "eb025112341d3e786a48d5f99a90d0d2dd64edb1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_6f31a100",
+        "filename": "maintenance/CleanDuplicateScores.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-10-05T13:06:31Z",
+      "side": 1,
+      "message": "This whole loop is pointless. The result set from the query above is grouped by rev+model+class. This loop tries to find duplicates where rev+model+class is the same. This can never happen. The resulting $ids array will be empty.",
+      "revId": "eb025112341d3e786a48d5f99a90d0d2dd64edb1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_21097d2f",
+        "filename": "maintenance/CleanDuplicateScores.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-10-05T13:06:31Z",
+      "side": 1,
+      "message": "Because of all the issues above this will:\n* At most delete one duplicate per group.\n* Not do anything because the result set is empty.",
       "revId": "eb025112341d3e786a48d5f99a90d0d2dd64edb1",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
