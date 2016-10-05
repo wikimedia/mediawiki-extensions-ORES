@@ -11,6 +11,7 @@ use EnhancedChangesList;
 use FormOptions;
 use JobQueueGroup;
 use Html;
+use IContextSource;
 use MediaWiki\Logger\LoggerFactory;
 use OutputPage;
 use RCCacheEntry;
@@ -191,7 +192,7 @@ class Hooks {
 			return true;
 		}
 
-		self::processRecentChangesList( $rcObj, $data, $classes );
+		self::processRecentChangesList( $rcObj, $data, $classes, $ecl->getContext() );
 
 		return true;
 	}
@@ -213,7 +214,8 @@ class Hooks {
 			return true;
 		}
 
-		self::processRecentChangesList( $rcObj, $data );
+		$classes = [];
+		self::processRecentChangesList( $rcObj, $data, $classes, $ecl->getContext() );
 
 		return true;
 	}
@@ -239,7 +241,7 @@ class Hooks {
 			return true;
 		}
 
-		$damaging = self::getScoreRecentChangesList( $rc );
+		$damaging = self::getScoreRecentChangesList( $rc, $changesList->getContext() );
 		if ( $damaging ) {
 			$separator = ' <span class="mw-changeslist-separator">. .</span> ';
 			if ( strpos( $s, $separator ) === false ) {
@@ -319,6 +321,8 @@ class Hooks {
 			return true;
 		}
 
+		self::addRowData( $context, $row->rev_id, (float)$row->ores_damaging_score, 'damaging' );
+
 		if ( $row->ores_damaging_score > $row->ores_damaging_threshold ) {
 			// Prepend the "r" flag
 			array_unshift( $flags, ChangesList::flag( 'damaging' ) );
@@ -388,9 +392,10 @@ class Hooks {
 	protected static function processRecentChangesList(
 		RCCacheEntry $rcObj,
 		array &$data,
-		array &$classes = []
+		array &$classes = [],
+		IContextSource $context
 	) {
-		$damaging = self::getScoreRecentChangesList( $rcObj );
+		$damaging = self::getScoreRecentChangesList( $rcObj, $context );
 		if ( $damaging ) {
 			$classes[] = 'damaging';
 			$data['recentChangesFlags']['damaging'] = true;
@@ -400,9 +405,10 @@ class Hooks {
 	/**
 	 * Check if we should flag a row
 	 * @param RecentChange $rcObj
+	 * @param IContextSource $context
 	 * @return bool
 	 */
-	public static function getScoreRecentChangesList( $rcObj ) {
+	public static function getScoreRecentChangesList( $rcObj, IContextSource $context ) {
 		global $wgUser;
 		$threshold = $rcObj->getAttribute( 'ores_damaging_threshold' );
 		if ( $threshold === null ) {
@@ -410,6 +416,18 @@ class Hooks {
 		}
 		$score = $rcObj->getAttribute( 'ores_damaging_score' );
 		$patrolled = $rcObj->getAttribute( 'rc_patrolled' );
+
+		if ( !$score ) {
+			// Shorten out
+			return false;
+		}
+
+		self::addRowData(
+			$context,
+			$rcObj->getAttribute( 'rc_this_oldid' ),
+			(float)$score,
+			'damaging'
+		);
 
 		return $score && $score >= $threshold && !$patrolled;
 	}
@@ -481,6 +499,13 @@ class Hooks {
 		if ( !self::oresEnabled( $out->getUser() ) ) {
 			return true;
 		}
+
+		$oresData = $out->getProperty( 'oresData' );
+
+		if ( $oresData !== null ) {
+			$out->addJsConfigVars( 'oresData', $oresData );
+		}
+
 		$out->addModuleStyles( 'ext.ores.styles' );
 		return true;
 	}
@@ -525,4 +550,22 @@ class Hooks {
 		global $wgOresModels;
 		return isset( $wgOresModels[$model] ) && $wgOresModels[$model];
 	}
+
+	/**
+	 * @param IContextSource $context
+	 * @param int $revisionId
+	 * @param float $score
+	 * @param string $model
+	 */
+	private static function addRowData( IContextSource $context, $revisionId, $score, $model ) {
+		$out = $context->getOutput();
+		$data = $out->getProperty( 'oresData' );
+		if ( !isset( $data[$revisionId] ) ) {
+			$data[$revisionId] = [];
+		}
+		$data[$revisionId][$model] = $score;
+		$out->setProperty( 'oresData', $data );
+	}
+
 }
+

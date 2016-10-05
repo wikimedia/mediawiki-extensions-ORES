@@ -4,8 +4,10 @@ namespace ORES\Tests;
 use ChangesListSpecialPage;
 use EnhancedChangesList;
 use FormOptions;
+use IContextSource;
 use RCCacheEntry;
 use RecentChange;
+use RequestContext;
 use ORES;
 
 /**
@@ -15,6 +17,8 @@ use ORES;
 class OresHooksTest extends \MediaWikiTestCase {
 	protected $user;
 
+	protected $context;
+
 	protected function setUp() {
 		parent::setUp();
 
@@ -22,6 +26,8 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$this->user->setOption( 'ores-enabled', "1" );
 		$this->user->setOption( 'oresDamagingPref', 'soft' );
 		$this->user->saveSettings();
+
+		$this->context = self::getContext();
 	}
 
 	public function testOresEnabled() {
@@ -48,11 +54,11 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$row->rc_deleted = 0;
 
 		$rc = RecentChange::newFromRow( $row );
-		$this->assertTrue( ORES\Hooks::getScoreRecentChangesList( $rc ) );
+		$this->assertTrue( ORES\Hooks::getScoreRecentChangesList( $rc, $this->context ) );
 
 		$row->ores_damaging_threshold = 0.4;
 		$rc = RecentChange::newFromRow( $row );
-		$this->assertFalse( ORES\Hooks::getScoreRecentChangesList( $rc ) );
+		$this->assertFalse( ORES\Hooks::getScoreRecentChangesList( $rc, $this->context ) );
 	}
 
 	public function testOnChangesListSpecialPageFilters() {
@@ -62,6 +68,10 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$clsp->expects( $this->any() )
 			->method( 'getUser' )
 			->will( $this->returnValue( $this->user ) );
+
+		$clsp->expects( $this->any() )
+			->method( 'getContext' )
+			->will( $this->returnValue( $this->context ) );
 
 		ORES\Hooks::onChangesListSpecialPageFilters( $clsp, $filters );
 		$expected = [
@@ -146,6 +156,10 @@ class OresHooksTest extends \MediaWikiTestCase {
 			->method( 'getUser' )
 			->will( $this->returnValue( $this->user ) );
 
+		$ecl->expects( $this->any() )
+			->method( 'getContext' )
+			->will( $this->returnValue( $this->context ) );
+
 		$data = [];
 		$block = [];
 		$classes = [];
@@ -175,6 +189,10 @@ class OresHooksTest extends \MediaWikiTestCase {
 			->method( 'getUser' )
 			->will( $this->returnValue( $this->user ) );
 
+		$ecl->expects( $this->any() )
+			->method( 'getContext' )
+			->will( $this->returnValue( $this->context ) );
+
 		$data = [];
 		$block = [];
 		$classes = [];
@@ -184,5 +202,17 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$this->assertSame( [], $data );
 		$this->assertSame( [], $block );
 		$this->assertSame( [], $classes );
+	}
+
+	/**
+	 * @return IContextSource
+	 */
+	private static function getContext() {
+
+		$context = new RequestContext();
+
+		$context->setLanguage( 'en' );
+
+		return $context;
 	}
 }
