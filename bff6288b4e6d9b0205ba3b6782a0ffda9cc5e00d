@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e82f318_0b8e4f82",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-06T12:46:26Z",
+      "side": 1,
+      "message": "Add \"use RecentChange;\" and drop this \"/\" character.",
+      "revId": "bff6288b4e6d9b0205ba3b6782a0ffda9cc5e00d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_2b7f9364",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-06T12:46:26Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "bff6288b4e6d9b0205ba3b6782a0ffda9cc5e00d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_6b9c2bb9",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-06T12:46:26Z",
+      "side": 1,
+      "message": "This will make this extension dependent on EventBus extension. Which I\u0027m not sure is  needed ATM. At least there should be some sort of config variable for enabling event bus.",
+      "revId": "bff6288b4e6d9b0205ba3b6782a0ffda9cc5e00d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
