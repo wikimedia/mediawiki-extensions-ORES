@@ -50,6 +50,24 @@
       "revId": "bff6288b4e6d9b0205ba3b6782a0ffda9cc5e00d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e82f318_8bc79f98",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2016-10-06T13:00:13Z",
+      "side": 1,
+      "message": "This is a \"soft\" dependency. ORES would work just the same without EventBus but the stream wouldn\u0027t be produced.\n\nDependencies between extensions is the price to pay for keeping a lot of things out of Core.",
+      "parentUuid": "0e82f318_6b9c2bb9",
+      "revId": "bff6288b4e6d9b0205ba3b6782a0ffda9cc5e00d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
