@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e6f8b3b_4de391d4",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-08T23:03:45Z",
+      "side": 1,
+      "message": "These changes are not related to the patch. Can you do it in another one?",
+      "revId": "412c14b4eb0be653442e772f5c9c9f592d35a10b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e6f8b3b_edbc3db4",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-08T23:03:45Z",
+      "side": 1,
+      "message": "Throw not implemented error instead.",
+      "revId": "412c14b4eb0be653442e772f5c9c9f592d35a10b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e6f8b3b_0dd9992c",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-08T23:03:45Z",
+      "side": 1,
+      "message": "styling nitpick: each argument in one line.",
+      "revId": "412c14b4eb0be653442e772f5c9c9f592d35a10b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e6f8b3b_2dde5515",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-08T23:03:45Z",
+      "side": 1,
+      "message": "rather long line. Try to split it",
+      "revId": "412c14b4eb0be653442e772f5c9c9f592d35a10b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
