@@ -1,8 +1,9 @@
 <?php
 namespace ORES\Tests;
 
+use ChangesListSpecialPage;
+use RecentChange;
 use ORES;
-use User;
 
 /**
  * @group ORES
@@ -37,19 +38,32 @@ class OresHooksTest extends \MediaWikiTestCase {
 
 	public function testOresRCObj() {
 		$row = new \stdClass();
-		$row->ores_threshold = 0.2;
-		$row->oresc_probability = 0.3;
+		$row->ores_damaging_threshold = 0.2;
+		$row->ores_damaging_score = 0.3;
 		$row->rc_patrolled = 0;
 		$row->rc_timestamp = '20150921134808';
 		$row->rc_deleted = 0;
 
-		$rc = \RecentChange::newFromRow( $row );
+		$rc = RecentChange::newFromRow( $row );
 		$this->assertTrue( ORES\Hooks::getScoreRecentChangesList( $rc ) );
 
-		$row->ores_threshold = 0.4;
-		$rc = \RecentChange::newFromRow( $row );
+		$row->ores_damaging_threshold = 0.4;
+		$rc = RecentChange::newFromRow( $row );
 		$this->assertFalse( ORES\Hooks::getScoreRecentChangesList( $rc ) );
 	}
+
+	public function testOnChangesListSpecialPageFilters() {
+		$filters = [];
+		$clsp = $this->getMock( ChangesListSpecialPage::class );
+
+		$clsp->expects( $this->any() )
+			->method( 'getUser' )
+			->will( $this->returnValue( $this->user ) );
+
+		ORES\Hooks::onChangesListSpecialPageFilters( $clsp, $filters );
+		$expected = [
+			'hidenondamaging' => [ 'msg' => 'ores-damaging-filter', 'default' => false ]
+		];
+		$this->assertSame( $expected, $filters );
+	}
 }
-
-
