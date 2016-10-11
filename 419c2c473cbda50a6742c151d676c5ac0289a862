@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e6f8b3b_f52f9783",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-10-11T09:13:34Z",
+      "side": 1,
+      "message": "Please use $this-\u003esetMwGlobals( \u0027wgUser\u0027, $this-\u003euser );",
+      "revId": "419c2c473cbda50a6742c151d676c5ac0289a862",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e6f8b3b_3a4e7e9c",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-10-11T09:13:34Z",
+      "side": 1,
+      "message": "FormOptions is a trivial value object with no constructor. It\u0027s counter-productive to mock it.",
+      "revId": "419c2c473cbda50a6742c151d676c5ac0289a862",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e6f8b3b_35868f6b",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-10-11T09:13:34Z",
+      "side": 1,
+      "message": "I find this a little bit confusing, because this is not an array structure we actually expect from the hook. We expect five smaller arrays. But this is more personal style. It\u0027s quite good to understand as it is.",
+      "revId": "419c2c473cbda50a6742c151d676c5ac0289a862",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
