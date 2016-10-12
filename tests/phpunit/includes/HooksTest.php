@@ -71,8 +71,6 @@ class OresHooksTest extends \MediaWikiTestCase {
 	}
 
 	public function testOnChangesListSpecialPageQuery() {
-		global $wgUser;
-		$oldUser = $wgUser;
 		$this->setMwGlobals( 'wgUser', $this->user );
 
 		$opts = new FormOptions();
@@ -128,8 +126,6 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$this->assertSame( $expected['conds'], $conds );
 		$this->assertSame( $expected['query_options'], $query_options );
 		$this->assertSame( $expected['join_conds'], $join_conds );
-
-		$this->setMwGlobals( 'wgUser', $oldUser );
 	}
 
 	public function testOnEnhancedChangesListModifyLineDataDamaging() {
