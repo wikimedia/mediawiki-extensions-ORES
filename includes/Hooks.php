@@ -498,8 +498,8 @@ class Hooks {
 			'label-message' => 'ores-beta-feature-message',
 			'desc-message' => 'ores-beta-feature-description',
 			'screenshot' => [
-				'ltr' => "$wgExtensionAssetsPath/ORES/images/ORES-beta-features-ltr.png",
-				'rtl' => "$wgExtensionAssetsPath/ORES/images/ORES-beta-features-rtl.png",
+				'ltr' => "$wgExtensionAssetsPath/ORES/images/ORES-beta-features-ltr.svg",
+				'rtl' => "$wgExtensionAssetsPath/ORES/images/ORES-beta-features-rtl.svg",
 			],
 			'info-link' => 'https://www.mediawiki.org/wiki/ORES_review_tool',
 			'discussion-link' => 'https://www.mediawiki.org/wiki/Talk:ORES_review_tool',
