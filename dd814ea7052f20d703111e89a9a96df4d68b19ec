@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e6f8b3b_0b5ecf17",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-10-12T09:18:03Z",
+      "side": 1,
+      "message": "Please remove.",
+      "range": {
+        "startLine": 74,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 21
+      },
+      "revId": "dd814ea7052f20d703111e89a9a96df4d68b19ec",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e6f8b3b_2b5b8b27",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-10-12T09:18:03Z",
+      "side": 1,
+      "message": "This is pointless. The whole point of setMwGlobals is that is does the backup-restore job for you.",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 132,
+        "endChar": 44
+      },
+      "revId": "dd814ea7052f20d703111e89a9a96df4d68b19ec",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
