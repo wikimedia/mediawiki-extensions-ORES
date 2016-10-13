@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "2e6c1747_17d4444b",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2016-10-13T01:20:50Z",
+      "side": 1,
+      "message": "This function doesn\u0027t check for $score being null, whereas onSpecialContributionsFormatRowFlags does. This means that on Special:Contributions, mw.config.get(\u0027oresData\u0027) is a small object with only the revisions that have scores, whereas on Special:Recentchanges it has lots of {23:null, 24:null,...} noise.\n\nThis is probably not a problem in practice, because in practice most RC revs are scored.",
+      "revId": "2e3b824edef1dcfeed4a43367c83fc4f003fe23e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e6c1747_776f38c1",
         "filename": "includes/Hooks.php",
         "patchSetId": 2
