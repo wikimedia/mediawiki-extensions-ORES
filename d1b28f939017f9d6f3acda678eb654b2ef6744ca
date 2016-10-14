@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0e97535f_d615c44e",
+        "filename": "includes/ApiHooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-14T16:58:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e97535f_96c61c4d",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e97535f_56c0942f",
         "filename": "includes/ApiHooks.php",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2016-10-14T15:57:28Z",
       "side": 1,
       "message": "Add use ApiQueryBase and typehint it.",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e97535f_b61a407d",
+        "filename": "includes/ApiHooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-14T16:58:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e97535f_56c0942f",
       "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "0e97535f_760dd840",
+        "filename": "includes/ApiHooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-14T16:58:12Z",
+      "side": 1,
+      "message": "Can\u0027t typehint it because false is also a valid value.",
+      "parentUuid": "0e97535f_36bd10ae",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e97535f_d6e264d0",
         "filename": "includes/ApiHooks.php",
         "patchSetId": 5
@@ -64,6 +118,24 @@
       "writtenOn": "2016-10-14T15:57:28Z",
       "side": 1,
       "message": "argument name don\u0027t match it should be $queryService. Also add use and remove the \"/\"",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e97535f_560ad42a",
+        "filename": "includes/ApiHooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-14T16:58:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e97535f_d6e264d0",
       "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "0e97535f_f1ffb2fa",
+        "filename": "includes/ApiHooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-14T16:58:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e97535f_f6044882",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e97535f_76ca784c",
         "filename": "includes/ApiHooks.php",
         "patchSetId": 5
@@ -98,6 +188,24 @@
       "writtenOn": "2016-10-14T15:57:28Z",
       "side": 1,
       "message": "Typehint this",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e97535f_d104ae19",
+        "filename": "includes/ApiHooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-14T16:58:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e97535f_76ca784c",
       "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "0e97535f_910f4633",
+        "filename": "includes/ApiHooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-14T16:58:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e97535f_96f4dc84",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e97535f_567ad420",
         "filename": "includes/ApiQueryORES.php",
         "patchSetId": 5
@@ -132,6 +258,24 @@
       "writtenOn": "2016-10-14T15:57:28Z",
       "side": 1,
       "message": "$method parameter is required in ApiQueryBase::select",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e97535f_112216a3",
+        "filename": "includes/ApiQueryORES.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-14T16:58:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e97535f_567ad420",
       "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "0e97535f_b1200a98",
+        "filename": "includes/WatchedItemQueryServiceExtension.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-14T16:58:12Z",
+      "side": 1,
+      "message": "Your IDE needs fixing if it can\u0027t understand the explicit namespace.\n\n PHP Fatal error:  Cannot declare class ORES\\WatchedItemQueryServiceExtension because the name is already in use in includes/WatchedItemQueryServiceExtension.php on line 9\n\nWhat would you suggest we name this class then, if not ORES\\WatchedItemQueryServiceExtension?",
+      "parentUuid": "0e97535f_b6992074",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e97535f_36a630a8",
         "filename": "includes/WatchedItemQueryServiceExtension.php",
         "patchSetId": 5
@@ -166,6 +328,24 @@
       "writtenOn": "2016-10-14T15:57:28Z",
       "side": 1,
       "message": "add use ResultWrapper;",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e97535f_d1526e16",
+        "filename": "includes/WatchedItemQueryServiceExtension.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-14T16:58:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e97535f_36a630a8",
       "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
