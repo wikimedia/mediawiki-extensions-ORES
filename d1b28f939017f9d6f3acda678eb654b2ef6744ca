@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e97535f_96c61c4d",
+        "filename": "includes/ApiHooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-14T15:57:28Z",
+      "side": 1,
+      "message": "Add use ApiQueryBase and also typehint against $module",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e97535f_56c0942f",
+        "filename": "includes/ApiHooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-14T15:57:28Z",
+      "side": 1,
+      "message": "Add use ApiQueryBase and typehint it.",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e97535f_36bd10ae",
+        "filename": "includes/ApiHooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-14T15:57:28Z",
+      "side": 1,
+      "message": "Same",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e97535f_d6e264d0",
+        "filename": "includes/ApiHooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-14T15:57:28Z",
+      "side": 1,
+      "message": "argument name don\u0027t match it should be $queryService. Also add use and remove the \"/\"",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e97535f_f6044882",
+        "filename": "includes/ApiHooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-14T15:57:28Z",
+      "side": 1,
+      "message": "Typehint this.",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e97535f_76ca784c",
+        "filename": "includes/ApiHooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-14T15:57:28Z",
+      "side": 1,
+      "message": "Typehint this",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e97535f_96f4dc84",
+        "filename": "includes/ApiHooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-14T15:57:28Z",
+      "side": 1,
+      "message": "typo in name of the argument",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e97535f_567ad420",
+        "filename": "includes/ApiQueryORES.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-14T15:57:28Z",
+      "side": 1,
+      "message": "$method parameter is required in ApiQueryBase::select",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e97535f_b6992074",
+        "filename": "includes/WatchedItemQueryServiceExtension.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-14T15:57:28Z",
+      "side": 1,
+      "message": "add WatchedItemQueryServiceExtension and remove the \"\\\". It makes IDE understand it",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e97535f_36a630a8",
+        "filename": "includes/WatchedItemQueryServiceExtension.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-14T15:57:28Z",
+      "side": 1,
+      "message": "add use ResultWrapper;",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
