@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "0e97535f_fc5e69eb",
+        "filename": "includes/ApiHooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-14T20:13:04Z",
+      "side": 1,
+      "message": "Yes, sorry.",
+      "parentUuid": "0e97535f_760dd840",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e97535f_d6e264d0",
         "filename": "includes/ApiHooks.php",
         "patchSetId": 5
@@ -311,6 +329,24 @@
       "side": 1,
       "message": "Your IDE needs fixing if it can\u0027t understand the explicit namespace.\n\n PHP Fatal error:  Cannot declare class ORES\\WatchedItemQueryServiceExtension because the name is already in use in includes/WatchedItemQueryServiceExtension.php on line 9\n\nWhat would you suggest we name this class then, if not ORES\\WatchedItemQueryServiceExtension?",
       "parentUuid": "0e97535f_b6992074",
+      "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e97535f_9c6e3d92",
+        "filename": "includes/WatchedItemQueryServiceExtension.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-14T20:13:04Z",
+      "side": 1,
+      "message": "Yeah, stupid Phpstorm. It\u0027s okay for me if that\u0027s the case.",
+      "parentUuid": "0e97535f_b1200a98",
       "revId": "d1b28f939017f9d6f3acda678eb654b2ef6744ca",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
