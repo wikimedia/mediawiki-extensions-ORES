@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e97535f_dce285d0",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-10-14T20:57:09Z",
+      "side": 1,
+      "message": "I note that, even though you don\u0027t score for RC_LOG and other types, this filter will still show any RC_LOG rows that happen to have rc_this_oldid set to a dummy revision that has the necessary score. Is that intended?",
+      "revId": "5a53606ddf9e51ac2f94f0b319e7fa0df79cd5e2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
