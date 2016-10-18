@@ -538,6 +538,9 @@ class Hooks {
 	 * @return bool
 	 */
 	private static function oresEnabled( User $user ) {
+		if ( !class_exists( 'BetaFeatures' ) ) {
+			return false;
+		}
 		return BetaFeatures::isFeatureEnabled( $user, 'ores-enabled' );
 	}
 
