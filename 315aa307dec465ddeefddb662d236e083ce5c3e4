@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cea0dbb8_342188f7",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2016-10-18T20:47:17Z",
+      "side": 1,
+      "message": "Odd--that function\u0027s signature is actually getScoreRecentChangesList( $rcObj ), maybe you\u0027re missing some patches?\n\n(also, the getScoreRecentChangesList function should use type hinting, and if we\u0027re relying on it directly like this, we should probably move it into a first-class encapsulation.)",
+      "revId": "315aa307dec465ddeefddb662d236e083ce5c3e4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea0dbb8_14c3240c",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2016-10-18T20:47:17Z",
+      "side": 1,
+      "message": "You might get some DRY mileage from a helper function to do the IContextSource mocking...  but wouldn\u0027t it be even simpler to call -\u003esetContext?  That\u0027ll take care of getUser as well, since getUser just delegates to $sp-\u003egetContext()-\u003egetUser()",
+      "revId": "315aa307dec465ddeefddb662d236e083ce5c3e4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea0dbb8_94d734c4",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2016-10-18T20:47:17Z",
+      "side": 1,
+      "message": "Slightly gross variable reassignment, it would be nicer to use a new variable name.",
+      "revId": "315aa307dec465ddeefddb662d236e083ce5c3e4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea0dbb8_b4e8f878",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2016-10-18T20:47:17Z",
+      "side": 1,
+      "message": "Actually, it seems you could just:\n\n$cl \u003d new ChangesList( $this-\u003econtext );",
+      "revId": "315aa307dec465ddeefddb662d236e083ce5c3e4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea0dbb8_94fe1434",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2016-10-18T20:47:17Z",
+      "side": 1,
+      "message": "This looks fragile.  Maybe search for abbr.ores-damaging using XPath, and just verify that it contains the HTML content \"r\"?",
+      "revId": "315aa307dec465ddeefddb662d236e083ce5c3e4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea0dbb8_9485f4b3",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2016-10-18T20:47:17Z",
+      "side": 1,
+      "message": "Future test suggestion: for another UI language context where the abbreviation is not \"r\" would also produce the correct letter here.",
+      "revId": "315aa307dec465ddeefddb662d236e083ce5c3e4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea0dbb8_af09c531",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2016-10-18T20:47:17Z",
+      "side": 1,
+      "message": "Same as above, ContribsPager can be constructed with an IContextSource, with few side effects.",
+      "revId": "315aa307dec465ddeefddb662d236e083ce5c3e4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea0dbb8_2f449549",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2016-10-18T20:47:17Z",
+      "side": 1,
+      "message": "(could be \"self::\")",
+      "revId": "315aa307dec465ddeefddb662d236e083ce5c3e4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea0dbb8_2f5b7528",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2016-10-18T20:47:17Z",
+      "side": 1,
+      "message": "Also: why static?  I guess this just follows the pattern in MediaWikiTestCase#getTestUser...",
+      "revId": "315aa307dec465ddeefddb662d236e083ce5c3e4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea0dbb8_544d2cdf",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2016-10-18T20:47:17Z",
+      "side": 1,
+      "message": "I\u0027m not sure it matters, but I see other test code making a FauxRequest (or not), then new DerivativeContext( RequestContext::getMain() );\n\nor just new DerivativeContext( new RequestContext() ) with no FauxRequest\n\nOn the other hand, I see that MediaWikiTestCase#tearDown does a bit of this for us already.  $wgRequest is set to a new FauxRequest, and RequestContext::resetMain()\n\nOh hey--on the third hand, looks like there\u0027s already a helper $this-\u003esetUserLang.  (you might need the mutable test user in that case?  donno.)",
+      "revId": "315aa307dec465ddeefddb662d236e083ce5c3e4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
