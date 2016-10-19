@@ -16,6 +16,24 @@
       "revId": "23b3d27fde5aa4ea932a53749dbae484667efcbf",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea0dbb8_fdff80fa",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-19T15:01:45Z",
+      "side": 1,
+      "message": "I think let\u0027s keep it this way to make the code more readable.",
+      "parentUuid": "cea0dbb8_4a30e4fc",
+      "revId": "23b3d27fde5aa4ea932a53749dbae484667efcbf",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
