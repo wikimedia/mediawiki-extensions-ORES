@@ -34,6 +34,24 @@
       "revId": "23b3d27fde5aa4ea932a53749dbae484667efcbf",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea0dbb8_dd1b9c72",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-10-19T15:04:39Z",
+      "side": 1,
+      "message": "I make these suggestions because, based on my experience, I believe they make the code easier to read and maintain. ;-)",
+      "parentUuid": "cea0dbb8_fdff80fa",
+      "revId": "23b3d27fde5aa4ea932a53749dbae484667efcbf",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
