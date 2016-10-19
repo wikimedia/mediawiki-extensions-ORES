@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cea0dbb8_4a30e4fc",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-10-19T14:59:31Z",
+      "side": 1,
+      "message": "This should be \"class_exists( BetaFeatures::class )\" in case this code base already requires PHP 5.5.\n\nCould also be merged into\n\nreturn class_exists( BetaFeatures::class )\n    \u0026\u0026 BetaFeatures::isFeatureEnabled( $user, \u0027ores-enabled\u0027 );",
+      "revId": "23b3d27fde5aa4ea932a53749dbae484667efcbf",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
