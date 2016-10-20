@@ -4,6 +4,18 @@
 			"Aftabuzzaman"
 		]
 	},
+	"ores-beta-feature-description": "ORES হচ্ছে একটি এআই-ভিত্তিক সরঞ্জাম যা সাম্প্রতিক পরিবর্তনে এবং নজরতালিকায় সম্ভাব্য ক্ষতিগ্রস্ত সম্পাদনাগুলি আলোকপাত করে।",
+	"ores-desc": "ইন্টারফেসে স্বয়ংক্রিয় সংশোধনী স্কোর দৃষ্টিগোচার করে",
 	"ores-damaging-filter": "সম্ভাব্য ভাল সম্পাদনা $1",
-	"ores-damaging-letter": "প"
+	"ores-damaging-hard": "উচ্চ (আরও সম্পাদনা পতাকাঙ্কিত করো)",
+	"ores-damaging-letter": "প",
+	"ores-damaging-soft": "নিন্ম (কম সম্পাদনা পতাকাঙ্কিত করো)",
+	"ores-damaging-title": "এই সম্পাদনাটি পর্যালোচনা করা প্রয়োজন",
+	"ores-damaging-legend": "এই সম্পাদনাটি সম্ভবত ক্ষতিগ্রস্ত ও এটি পর্যালোচনা করা উচিত ([[:mw:Special:MyLanguage/ORES review tool|আরও তথ্য]])",
+	"ores-help-damaging-pref": "এই বহির্দ্বার পর্যালোচনা জন্য সম্পাদনাগুলি পতাকাঙ্কিত করার সময় ORES কতটা সংবেদনশীল হবে তা নির্ধারন করে",
+	"ores-hide-nondamaging-filter": "শুধুমাত্র পর্যালোচনা প্রয়োজন এমন সম্পাদনা দেখাও",
+	"ores-pref-damaging": "ORES সংবেদনশীলতা",
+	"ores-pref-rc-hidenondamaging": "সম্ভাব্য ভালো সম্পাদনাগুলো সাম্প্রতিক পরিবর্তনসমূহে আড়াল করো",
+	"ores-pref-watchlist-hidenondamaging": "সম্ভাব্য ভালো সম্পাদনাগুলো নজরতালিকায় আড়াল করো",
+	"prefs-ores": "সংশোধনের স্কোর"
 }
