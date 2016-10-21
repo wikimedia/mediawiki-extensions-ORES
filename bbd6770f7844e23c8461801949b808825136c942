@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cea0dbb8_99fcfab2",
+        "filename": "tests/phpunit/includes/CacheTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-10-21T17:41:40Z",
+      "side": 1,
+      "message": "This should be the first line, before the …tablesUsed.",
+      "revId": "bbd6770f7844e23c8461801949b808825136c942",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea0dbb8_79281633",
+        "filename": "tests/phpunit/includes/CacheTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-10-21T17:41:40Z",
+      "side": 1,
+      "message": "This entire provider is a single test case. Would be very nice to have a few super-trivial test cases before this complex one, if possible.",
+      "range": {
+        "startLine": 61,
+        "startChar": 3,
+        "endLine": 89,
+        "endChar": 4
+      },
+      "revId": "bbd6770f7844e23c8461801949b808825136c942",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea0dbb8_39228e51",
+        "filename": "tests/phpunit/includes/CacheTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-10-21T17:41:40Z",
+      "side": 1,
+      "message": "Similar to above. These are two test cases. Would be very nice to start with a super-trivial one. Possibly with a test case that expects nothing.",
+      "revId": "bbd6770f7844e23c8461801949b808825136c942",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea0dbb8_b9169ef4",
+        "filename": "tests/phpunit/includes/CacheTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-10-21T17:41:40Z",
+      "side": 1,
+      "message": "You can try if $realRes \u003d iterator_to_array( $res ) works here.",
+      "revId": "bbd6770f7844e23c8461801949b808825136c942",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
