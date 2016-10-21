@@ -16,6 +16,24 @@
       "revId": "5a53606ddf9e51ac2f94f0b319e7fa0df79cd5e2",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cea0dbb8_815126e0",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-10-21T06:05:38Z",
+      "side": 1,
+      "message": "If I understood correctly, yes.",
+      "parentUuid": "0e97535f_dce285d0",
+      "revId": "5a53606ddf9e51ac2f94f0b319e7fa0df79cd5e2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
