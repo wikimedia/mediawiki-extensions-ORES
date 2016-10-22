@@ -17,5 +17,6 @@
 	"ores-hide-nondamaging-filter": "Показувати лише редагування, що потребують перевірки",
 	"ores-pref-damaging": "Чутливість ORES",
 	"ores-pref-rc-hidenondamaging": "Приховати вірогідно добрі редагування зі сторінки нових редагувань",
-	"ores-pref-watchlist-hidenondamaging": "Приховати вірогідно добрі редагування зі списку спостереження"
+	"ores-pref-watchlist-hidenondamaging": "Приховати вірогідно добрі редагування зі списку спостереження",
+	"prefs-ores": "Оцінка редагувань"
 }
