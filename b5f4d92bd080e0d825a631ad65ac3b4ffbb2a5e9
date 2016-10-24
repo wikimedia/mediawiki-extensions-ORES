@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aea567c8_c21bc472",
+        "filename": "tests/phpunit/includes/CacheTest.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-10-24T13:04:24Z",
+      "side": 1,
+      "message": "This is an unused variable, but I actually like the idea of having a named parameter this way.",
+      "range": {
+        "startLine": 214,
+        "startChar": 59,
+        "endLine": 214,
+        "endChar": 71
+      },
+      "revId": "b5f4d92bd080e0d825a631ad65ac3b4ffbb2a5e9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
