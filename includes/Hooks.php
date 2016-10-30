@@ -496,6 +496,7 @@ class Hooks {
 	 * @return bool
 	 */
 	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
+		global $wgOresDamagingThresholds;
 		if ( !self::oresEnabled( $out->getUser() ) ) {
 			return true;
 		}
@@ -504,6 +505,10 @@ class Hooks {
 
 		if ( $oresData !== null ) {
 			$out->addJsConfigVars( 'oresData', $oresData );
+			$out->addJsConfigVars(
+				'oresThresholds',
+				[ 'damaging' => $wgOresDamagingThresholds ]
+			);
 		}
 
 		$out->addModuleStyles( 'ext.ores.styles' );
