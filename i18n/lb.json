@@ -14,5 +14,7 @@
 	"ores-hide-nondamaging-filter": "Nëmmen Ännerunge weisen déi nogekuckt musse ginn",
 	"ores-pref-rc-hidenondamaging": "Wahrscheinlech gutt Ännerungen an de rezenten Ännerunge verstoppen",
 	"ores-pref-watchlist-hidenondamaging": "Wahrscheinlech gutt Ännerunge op der Iwwerwaachungslëscht verstoppen",
-	"prefs-ores": "Bewäertung vun der Versioun"
+	"prefs-ores": "Bewäertung vun der Versioun",
+	"apihelp-query+ores-example-simple": "ORES-Donnéeën ofruffen",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES-Score fir d'Versioun"
 }
