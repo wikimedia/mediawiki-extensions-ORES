@@ -18,5 +18,13 @@
 	"ores-pref-damaging": "ORES敏感度",
 	"ores-pref-rc-hidenondamaging": "在最近更改中隐藏可能的良好编辑",
 	"ores-pref-watchlist-hidenondamaging": "隐藏监视列表中可能的良好编辑",
-	"prefs-ores": "修订得分"
+	"prefs-ores": "修订得分",
+	"apihelp-query+ores-description": "返回该wiki的ORES配置和模型数据。",
+	"apihelp-query+ores-example-simple": "取得ORES数据：",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "修订版本的ORES分数。",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "修订版本的ORES分数。",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "为记录添加ORES分数。",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "为编辑添加ORES分数。",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "为编辑添加ORES分数。",
+	"ores-api-show-note": "当使用<kbd>oresreview</kbd>或<kbd>!oresreview</kbd>时，没有分数的修订版本（例如非常旧的修订版本）会被视作不需要复核，即便在其被评分后需要复核。"
 }

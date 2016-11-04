@@ -18,5 +18,12 @@
 	"ores-pref-damaging": "Sensibilidade de ORES",
 	"ores-pref-rc-hidenondamaging": "Ocultar as edicións probablemente boas nos cambios recentes",
 	"ores-pref-watchlist-hidenondamaging": "Ocultar as edicións probablemente boas da lista de seguimento",
-	"prefs-ores": "Puntuación de revisión"
+	"prefs-ores": "Puntuación de revisión",
+	"apihelp-query+ores-description": "Devolver a configuración ORES e os datos do modelo para esta wiki.",
+	"apihelp-query+ores-example-simple": "Recuperar os datos ORESː",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Puntuación ORES para a revisión.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Puntuación ORES para a revisión.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Engade a puntuación ORES para esta entrada.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Engade a puntuación ORES para esta modificación.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Engade a puntuación ORES para a modificación."
 }
