@@ -5,6 +5,7 @@
 		]
 	},
 	"ores-beta-feature-description": "ORES е паметна алатка што означува веројатно штетни промени во набљудуваните.",
+	"ores-beta-feature-message": "ORES",
 	"ores-desc": "Изложување во посредникот на автоматските оцени на преработките.",
 	"ores-damaging-filter": "$1 веројатно добри уредувања",
 	"ores-damaging-hard": "Висока (означува повеќе уредувања)",
@@ -17,5 +18,13 @@
 	"ores-pref-damaging": "ORES-чувствителност",
 	"ores-pref-rc-hidenondamaging": "Скриј ги веројатно добрите уредувања од скорешните промени",
 	"ores-pref-watchlist-hidenondamaging": "Скриј ги веројатно добрите уредувања од набљудуваните",
-	"prefs-ores": "ORES"
+	"prefs-ores": "Оценка на преработки",
+	"apihelp-query+ores-description": "Дава ORES-поставеност и податоци за моделот за ова вики.",
+	"apihelp-query+ores-example-simple": "Преземи ORES-податоци:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-оценки на преработката.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES-оценки за преработката.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Додава ORES-оценки за ставката.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Додава ORES-оценки за уредувањето.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Додава ORES-оценки за уредувањето.",
+	"ores-api-show-note": "Кога користите <kbd>oresreview</kbd> или <kbd>!oresreview</kbd>, преработките без оценка (на пр. многу стари преработки) се сметаат за непотребни за проверка, дури и ако им треба проверка кога би се оценувале."
 }
