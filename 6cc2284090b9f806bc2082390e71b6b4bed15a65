@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4eb4ebfb_a925f357",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-08T16:35:19Z",
+      "side": 1,
+      "message": "Did you forgot to remove this? Should not be done in production.",
+      "revId": "6cc2284090b9f806bc2082390e71b6b4bed15a65",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4eb4ebfb_a9e4d30a",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-08T16:35:19Z",
+      "side": 1,
+      "message": "Please:\n\n /\\bdiff\u003d(\\d+)/\n\nThe \"i\" is wrong because this should be case-sensitive. The \"g\" does nothing because we care about the first match only. The \"diff\" should be bounded to not match other parameters that end with \"…diff\".",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 26
+      },
+      "revId": "6cc2284090b9f806bc2082390e71b6b4bed15a65",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4eb4ebfb_29120302",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-08T16:35:19Z",
+      "side": 1,
+      "message": "This is done two times. Please introduce a variable and only do this once.",
+      "range": {
+        "startLine": 17,
+        "startChar": 22,
+        "endLine": 17,
+        "endChar": 62
+      },
+      "revId": "6cc2284090b9f806bc2082390e71b6b4bed15a65",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4eb4ebfb_29f1e3c8",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-08T16:35:19Z",
+      "side": 1,
+      "message": "This is done two times. Not really critical but I would find it easier to read if this duplication is avoided. (Yes, this means you can not use \"in\", but I don\u0027t think it\u0027s necessary to use it.)",
+      "range": {
+        "startLine": 21,
+        "startChar": 14,
+        "endLine": 21,
+        "endChar": 49
+      },
+      "revId": "6cc2284090b9f806bc2082390e71b6b4bed15a65",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4eb4ebfb_09bf47ce",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-08T16:35:19Z",
+      "side": 1,
+      "message": "There is a \"break\" missing here.",
+      "revId": "6cc2284090b9f806bc2082390e71b6b4bed15a65",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
