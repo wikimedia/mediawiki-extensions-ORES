@@ -9,6 +9,7 @@
 	"ores-damaging-hard": "High (flags more edits)",
 	"ores-damaging-letter": "r",
 	"ores-damaging-soft": "Low (flags fewer edits)",
+	"ores-damaging-softest": "Lowest (flags least edits possible)",
 	"ores-damaging-title": "This edit needs review",
 	"ores-damaging-legend": "This edit may be damaging and should be reviewed ([[:mw:Special:MyLanguage/ORES review tool|more info]])",
 	"ores-help-damaging-pref": "This threshold determines how sensitive ORES is when flagging edits needing review",
