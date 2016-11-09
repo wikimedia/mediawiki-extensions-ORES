@@ -1,12 +1,29 @@
 {
 	"@metadata": {
 		"authors": [
-			"JackUKElliott"
+			"JackUKElliott",
+			"Incelemeelemani"
 		]
 	},
-	"ores-damaging-hard": "Yüksek (daha fazla düzenlemeleri işaretler)",
-	"ores-damaging-soft": "Düşük (daha az düzenlemeleri işaretler)",
-	"ores-damaging-legend": "Bu düzenleme zarar verici olabilir ve gözden geçirilmesi gerekmektedir.",
+	"ores-beta-feature-description": "ORES son değişiklikler ve izleme listesindeki muhtemel zararlı düzenlemelerin vurgulanmasını sağlayan bir araçtır.",
+	"ores-desc": "Arayüzde otomatik gözden geçirme skorlarını gösterir",
+	"ores-damaging-filter": "Muhtemel iyi düzenlemeleri $1",
+	"ores-damaging-hard": "Yüksek (daha fazla düzenleme simgeleri)",
+	"ores-damaging-letter": "g",
+	"ores-damaging-soft": "Düşük (daha az düzenleme simgeleri)",
+	"ores-damaging-title": "Bu düzenlemenin gözden geçirilmesi gerekiyor",
+	"ores-damaging-legend": "Bu düzenleme zarar verici olabilir ve gözden geçirilmesi gerekebilir. [[:mw:Special:MyLanguage/ORES review tool|Daha fazla bilgi.]]",
 	"ores-help-damaging-pref": "Bu eşik, gözden geçirilmeyi gerektiren düzenlemelerin işaretlenmesinde ORES'in ne kadar hassas olacağını belirler.",
-	"ores-pref-damaging": "ORES hassasiyeti"
+	"ores-hide-nondamaging-filter": "Sadece gözden geçirme gerektiren düzenlemeleri göster",
+	"ores-pref-damaging": "ORES hassasiyeti",
+	"ores-pref-rc-hidenondamaging": "Son değişikliklerde muhtemelen iyi düzenlemeleri gizle",
+	"ores-pref-watchlist-hidenondamaging": "İzleme listesindeki muhtemel iyi düzenlemeleri gizle",
+	"prefs-ores": "Revizyon skoru",
+	"apihelp-query+ores-description": "Bu viki modelinin verilerine ve ORES yapılandırmasına geri dön.",
+	"apihelp-query+ores-example-simple": "Getirilecek ORES verisi:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Gözden geçirme için ORES skorları.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Gözden geçirme için ORES skorları.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Girdilere ORES skorlarını ekleyin.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Düzenlemelere ORES skorlarını ekleyin.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Düzenlemelere ORES skorlarını ekleyin."
 }
