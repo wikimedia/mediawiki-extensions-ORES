@@ -6,6 +6,7 @@ use ApiBase;
 use ApiQueryAllRevisions;
 use ApiQueryBase;
 use ApiQueryContributions;
+use ApiQueryGeneratorBase;
 use ApiQueryRecentChanges;
 use ApiQueryRevisions;
 use ApiQueryWatchlist;
@@ -169,7 +170,7 @@ class ApiHooks {
 
 		// If the module is being used as a generator, don't bother. Generators
 		// don't return props.
-		if ( $module->isInGeneratorMode() ) {
+		if ( $module instanceof ApiQueryGeneratorBase && $module->isInGeneratorMode() ) {
 			return;
 		}
 
