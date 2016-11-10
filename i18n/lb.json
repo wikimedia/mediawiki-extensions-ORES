@@ -18,5 +18,7 @@
 	"apihelp-query+ores-example-simple": "ORES-Donnéeën ofruffen",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-Score fir d'Versioun.",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES-Score fir d'Versioun",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Setzt ORES-Score fir d'Ännerung derbäi."
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Setzt ORES-Score fir d'Entrée derbäi.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Setzt ORES-Score fir d'Ännerung derbäi.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Setzt ORES-Score fir d'Ännerung derbäi."
 }
