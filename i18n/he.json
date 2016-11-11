@@ -20,5 +20,13 @@
 	"ores-pref-damaging": "רגישות ORES",
 	"ores-pref-rc-hidenondamaging": "הסתרת עריכות שזוהו כ\"טובות\" בדף השינויים האחרונים",
 	"ores-pref-watchlist-hidenondamaging": "הסתרת עריכות שזוהו כ\"טובות\" ברשימת המעקב",
-	"prefs-ores": "דירוג גרסאות"
+	"prefs-ores": "דירוג גרסאות",
+	"apihelp-query+ores-description": "החזרת הגדרות ORES ונתוני דגם עבור הוויקי הזה.",
+	"apihelp-query+ores-example-simple": "אחזור נתוני ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "דירוגי ORES עבור הגרסה הזאת.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "דירוגי ORES עבור הגרסה.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "הוספת דירוגי ORES לעיול.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "הוספת דירוגי ORES לעריכה.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "הוספת דירוגי ORES לעריכה.",
+	"ores-api-show-note": "בעת שימוש ב־<kbd>oresreview</kbd> או <kbd dir=\"ltr\">!oresreview</kbd>, גרסאות ללא דירוג (למשל גרסאות ישנות מאוד) נחשבות בתור כאלה שאינן זקוקות לסקירה אף אם הן היו צריכות סקירה אילו קיבלו דירוג."
 }
