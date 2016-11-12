@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2eb1770d_2f65b1aa",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-11-12T11:21:29Z",
+      "side": 1,
+      "message": "You are right, my mistake while testing.",
+      "parentUuid": "4eb4ebfb_a925f357",
+      "revId": "6cc2284090b9f806bc2082390e71b6b4bed15a65",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4eb4ebfb_a9e4d30a",
         "filename": "modules/ext.ores.highlighter.js",
         "patchSetId": 5
@@ -42,6 +60,24 @@
     },
     {
       "key": {
+        "uuid": "2eb1770d_0f01d5b9",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-11-12T11:21:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4eb4ebfb_a9e4d30a",
+      "revId": "6cc2284090b9f806bc2082390e71b6b4bed15a65",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4eb4ebfb_29120302",
         "filename": "modules/ext.ores.highlighter.js",
         "patchSetId": 5
@@ -59,6 +95,24 @@
         "endLine": 17,
         "endChar": 62
       },
+      "revId": "6cc2284090b9f806bc2082390e71b6b4bed15a65",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eb1770d_cf0acdd5",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-11-12T11:21:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4eb4ebfb_29120302",
       "revId": "6cc2284090b9f806bc2082390e71b6b4bed15a65",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -99,6 +153,24 @@
       "writtenOn": "2016-11-08T16:35:19Z",
       "side": 1,
       "message": "There is a \"break\" missing here.",
+      "revId": "6cc2284090b9f806bc2082390e71b6b4bed15a65",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2eb1770d_8ff5e5c9",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-11-12T11:21:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4eb4ebfb_09bf47ce",
       "revId": "6cc2284090b9f806bc2082390e71b6b4bed15a65",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
