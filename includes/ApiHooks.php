@@ -103,7 +103,11 @@ class ApiHooks {
 			: [];
 		if ( isset( $show['oresreview'] ) || isset( $show['!oresreview'] ) ) {
 			if ( isset( $show['oresreview'] ) && isset( $show['!oresreview'] ) ) {
-				$module->dieUsageMsg( 'show' );
+				if ( is_callable( [ $module, 'dieWithError' ] ) ) {
+					$module->dieWithError( 'apierror-show' );
+				} else {
+					$module->dieUsageMsg( 'show' );
+				}
 			}
 
 			$threshold = Hooks::getDamagingThreshold( $module->getUser() );
@@ -398,7 +402,11 @@ class ApiHooks {
 		$show = isset( $params['show'] ) ? array_flip( $params['show'] ) : [];
 		if ( isset( $show['oresreview'] ) || isset( $show['!oresreview'] ) ) {
 			if ( isset( $show['oresreview'] ) && isset( $show['!oresreview'] ) ) {
-				$module->dieUsageMsg( 'show' );
+				if ( is_callable( [ $module, 'dieWithError' ] ) ) {
+					$module->dieWithError( 'apierror-show' );
+				} else {
+					$module->dieUsageMsg( 'show' );
+				}
 			}
 
 			$options['filters'][] = isset( $show['oresreview'] ) ? 'oresreview' : '!oresreview';
