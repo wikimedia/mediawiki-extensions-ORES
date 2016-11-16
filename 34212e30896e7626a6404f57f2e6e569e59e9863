@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eec4bf7e_3f516fde",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2604
+      },
+      "writtenOn": "2016-11-16T09:27:10Z",
+      "side": 1,
+      "message": "Missing white-space",
+      "revId": "34212e30896e7626a6404f57f2e6e569e59e9863",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eec4bf7e_5f44231c",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 2604
+      },
+      "writtenOn": "2016-11-16T09:27:10Z",
+      "side": 1,
+      "message": "Shouldn\u0027t `[ores-damaging\u003d\"softest\"]` be sufficient?",
+      "revId": "34212e30896e7626a6404f57f2e6e569e59e9863",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
