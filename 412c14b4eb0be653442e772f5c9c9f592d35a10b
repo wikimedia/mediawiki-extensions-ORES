@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "eec4bf7e_56bf65f6",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2016-11-17T14:40:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e6f8b3b_4de391d4",
+      "revId": "412c14b4eb0be653442e772f5c9c9f592d35a10b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e6f8b3b_edbc3db4",
         "filename": "includes/Hooks.php",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2016-10-08T23:03:45Z",
       "side": 1,
       "message": "Throw not implemented error instead.",
+      "revId": "412c14b4eb0be653442e772f5c9c9f592d35a10b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eec4bf7e_16068dd1",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2016-11-17T14:40:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e6f8b3b_edbc3db4",
       "revId": "412c14b4eb0be653442e772f5c9c9f592d35a10b",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "eec4bf7e_f60af9d4",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2016-11-17T14:40:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e6f8b3b_0dd9992c",
+      "revId": "412c14b4eb0be653442e772f5c9c9f592d35a10b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e6f8b3b_2dde5515",
         "filename": "includes/Hooks.php",
         "patchSetId": 7
@@ -64,6 +118,24 @@
       "writtenOn": "2016-10-08T23:03:45Z",
       "side": 1,
       "message": "rather long line. Try to split it",
+      "revId": "412c14b4eb0be653442e772f5c9c9f592d35a10b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eec4bf7e_b6f5a1c9",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2016-11-17T14:40:50Z",
+      "side": 1,
+      "message": "Less than MW\u0027s max length of 100.",
+      "parentUuid": "4e6f8b3b_2dde5515",
       "revId": "412c14b4eb0be653442e772f5c9c9f592d35a10b",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
