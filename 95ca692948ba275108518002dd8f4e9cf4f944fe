@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceb9bbfa_b8bc6ed6",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 2604
+      },
+      "writtenOn": "2016-11-20T03:30:04Z",
+      "side": 1,
+      "message": "Wait, you\u0027re overwriting the last selector here?!",
+      "revId": "95ca692948ba275108518002dd8f4e9cf4f944fe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb9bbfa_98d2ca2b",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 2604
+      },
+      "writtenOn": "2016-11-20T03:30:04Z",
+      "side": 1,
+      "message": "Also, `#fef6e7` is not part of the color palette, I guess you were referring to `#f8f9fa`…",
+      "revId": "95ca692948ba275108518002dd8f4e9cf4f944fe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
