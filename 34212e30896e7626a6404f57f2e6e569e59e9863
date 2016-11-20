@@ -69,6 +69,24 @@
       "revId": "34212e30896e7626a6404f57f2e6e569e59e9863",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb9bbfa_d8b722f1",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 2604
+      },
+      "writtenOn": "2016-11-20T03:30:04Z",
+      "side": 1,
+      "message": "It seems that my comment got misunderstood.\nInstead of `li[ores-damaging\u003d\"softest\"], tr[ores-damaging\u003d\"softest\"] {}` you could just write `[ores-damaging\u003d\"softest\"] {}` where the attribute selector acts like a class selector. It\u0027s not only less maintenance (as long as attribute `ores-damaging\u003d\"softest\"` isn\u0027t used anywhere else) and general preferable over higher selector specificity.",
+      "parentUuid": "eec4bf7e_df6b93ed",
+      "revId": "34212e30896e7626a6404f57f2e6e569e59e9863",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
