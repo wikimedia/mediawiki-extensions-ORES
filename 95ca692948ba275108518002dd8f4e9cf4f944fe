@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ceb9bbfa_d8ae0295",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-11-20T05:42:42Z",
+      "side": 1,
+      "message": "My mistake. Done",
+      "parentUuid": "ceb9bbfa_b8bc6ed6",
+      "revId": "95ca692948ba275108518002dd8f4e9cf4f944fe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceb9bbfa_98d2ca2b",
         "filename": "modules/ext.ores.styles.css",
         "patchSetId": 13
@@ -30,6 +48,24 @@
       "writtenOn": "2016-11-20T03:30:04Z",
       "side": 1,
       "message": "Also, `#fef6e7` is not part of the color palette, I guess you were referring to `#f8f9fa`…",
+      "revId": "95ca692948ba275108518002dd8f4e9cf4f944fe",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb9bbfa_b8b34efd",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-11-20T05:42:42Z",
+      "side": 1,
+      "message": "It\u0027s the light yellow. In warning messages.",
+      "parentUuid": "ceb9bbfa_98d2ca2b",
       "revId": "95ca692948ba275108518002dd8f4e9cf4f944fe",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
