@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceb9bbfa_7319577e",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 17
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 2604
+      },
+      "writtenOn": "2016-11-20T19:52:38Z",
+      "side": 1,
+      "message": "Double whitespace. Consider using https://github.com/wikimedia/grunt-stylelint with https://github.com/wikimedia/stylelint-config-wikimedia",
+      "revId": "ebd6a3ebc742353b8b15e6bd2da1cfcc0f1b4ae5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
