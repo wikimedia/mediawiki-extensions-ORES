@@ -1,17 +1,18 @@
 /**
  * Marking "r" flag in ORES red in recent changes.
- * 
+ *
 **/
 .ores-damaging {
 	font-weight: bold;
-	color: red;
+	color: #f00;
 }
 
 /**
  * Make the whole row orange
  *
 **/
-li.damaging, tr.damaging {
-	background: rgba(255, 93, 0, 0.2);
+li.damaging,
+tr.damaging {
+	background: rgba( 255, 93, 0, 0.2 );
 	line-height: 1.8;
 }
