@@ -37,6 +37,75 @@
     },
     {
       "key": {
+        "uuid": "ceb9bbfa_adf2ebdd",
+        "filename": "includes/WatchedItemQueryServiceExtension.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-11-21T16:35:13Z",
+      "side": 0,
+      "message": "It looks like doxygen (at least version 1.8.12 of it) will happen to guess right for the mentions below in the absence of these \u0027use\u0027 statements (assuming it knows about the core classes at all when processing the extension), because rather than applying PHP rules it falls back to the null namespace when trying to match mentions to documented classes.\n\nIt does try to link classes mentioned in the style used below, although the style on line 90 apparently has a bug to ignore \u0027use\u0027 statements entirely.",
+      "parentUuid": "ceb9bbfa_aad411bf",
+      "revId": "954f1354b3e86bfd7ad5ca1e1d7fde4c03e66db4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb9bbfa_8a338d0a",
+        "filename": "includes/WatchedItemQueryServiceExtension.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-11-21T16:35:13Z",
+      "side": 0,
+      "message": "Mentioned here.",
+      "revId": "954f1354b3e86bfd7ad5ca1e1d7fde4c03e66db4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb9bbfa_6a3039fd",
+        "filename": "includes/WatchedItemQueryServiceExtension.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-11-21T16:35:13Z",
+      "side": 0,
+      "message": "Mentioned here.",
+      "revId": "954f1354b3e86bfd7ad5ca1e1d7fde4c03e66db4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb9bbfa_0a165d5a",
+        "filename": "includes/WatchedItemQueryServiceExtension.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-11-21T16:35:13Z",
+      "side": 0,
+      "message": "Mentioned here.",
+      "revId": "954f1354b3e86bfd7ad5ca1e1d7fde4c03e66db4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceb9bbfa_249157fc",
         "filename": "tests/phpunit/includes/HooksTest.php",
         "patchSetId": 1
