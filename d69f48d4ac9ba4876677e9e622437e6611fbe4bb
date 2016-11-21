@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceb9bbfa_8ea96424",
+        "filename": "package.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2016-11-21T07:37:09Z",
+      "side": 1,
+      "message": "The license is GPL-3.0+",
+      "revId": "d69f48d4ac9ba4876677e9e622437e6611fbe4bb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
