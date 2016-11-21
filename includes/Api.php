@@ -11,6 +11,7 @@ use RuntimeException;
  * Common methods for accessing an ORES server.
  */
 class Api {
+
 	/**
 	 * @return string Base URL plus your wiki's `scores` API path.
 	 */
@@ -54,4 +55,5 @@ class Api {
 		}
 		return $data;
 	}
+
 }

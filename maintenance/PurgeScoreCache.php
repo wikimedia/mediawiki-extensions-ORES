@@ -12,6 +12,7 @@ require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
  * @ingroup Maintenance
  */
 class PurgeScoreCache extends Maintenance {
+
 	public function __construct() {
 		parent::__construct();
 
@@ -34,6 +35,7 @@ class PurgeScoreCache extends Maintenance {
 		}
 		// @todo this script needs some output
 	}
+
 }
 
 $maintClass = 'ORES\PurgeScoreCache';

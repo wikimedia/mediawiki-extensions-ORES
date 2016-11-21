@@ -5,9 +5,10 @@ namespace ORES;
 use IDatabase;
 use ResultWrapper;
 use User;
-use WatchedItem;
-use WatchedItemQueryService;
 
+/**
+ * @author Brad Jorsch <bjorsch@wikimedia.org>
+ */
 class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtension {
 
 	/**

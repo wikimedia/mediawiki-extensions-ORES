@@ -24,6 +24,7 @@ use User;
 use Xml;
 
 class Hooks {
+
 	/**
 	 * @param DatabaseUpdater $updater
 	 * @return bool
@@ -351,8 +352,9 @@ class Hooks {
 	 * Internal helper to label matching rows
 	 *
 	 * @param RCCacheEntry $rcObj
-	 * @param string[]
-	 * @param string[]
+	 * @param string[] &$data
+	 * @param string[] &$classes
+	 * @param IContextSource $context
 	 */
 	protected static function processRecentChangesList(
 		RCCacheEntry $rcObj,
@@ -487,7 +489,7 @@ class Hooks {
 	 * Make a beta feature
 	 *
 	 * @param User $user
-	 * @param string[]
+	 * @param string[] &$prefs
 	 */
 	public static function onGetBetaFeaturePreferences( User $user, array &$prefs ) {
 		global $wgExtensionAssetsPath;
@@ -585,5 +587,5 @@ class Hooks {
 			$join_conds["ores_${type}_cls"][0] = 'INNER JOIN';
 		}
 	}
-}
 
+}
