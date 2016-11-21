@@ -3,6 +3,7 @@
 namespace ORES;
 
 use Maintenance;
+use MediaWiki\MediaWikiServices;
 
 require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
@@ -30,7 +31,6 @@ class PopulateDatabase extends Maintenance {
 			'the latest edits in recentchanges table that are not scored' );
 		$this->addOption( 'number', 'Number of revisions to be scored', false, true, 'n' );
 		$this->addOption( 'batch', 'Batch size for select sql query', false, true, 'b' );
-
 	}
 
 	public function execute() {
@@ -52,8 +52,8 @@ class PopulateDatabase extends Maintenance {
 
 		$count = 0;
 		while ( $count < $this->revisionLimit ) {
-
 			$conditions = [ 'oresc_id IS NULL', 'rc_type' => [ RC_EDIT, RC_NEW ] ];
+
 			if ( $wgOresExcludeBots === true ) {
 				$conditions['rc_bot'] = 0;
 			}
@@ -84,12 +84,13 @@ class PopulateDatabase extends Maintenance {
 			}
 
 			$count += $this->batchSize;
-			wfGetLBFactory()->waitForReplication();
+			MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->waitForReplication();
 
 			if ( $res->numRows() < $this->batchSize ) {
 				break;
 			}
 		}
+
 		$this->output( "Finished processing the revisions\n" );
 	}
 
@@ -107,6 +108,7 @@ class PopulateDatabase extends Maintenance {
 		$scores = $scoring->getScores( $revs );
 		$cache->storeScores( $scores );
 	}
+
 }
 
 $maintClass = 'ORES\PopulateDatabase';

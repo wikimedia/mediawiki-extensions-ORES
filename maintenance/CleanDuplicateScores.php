@@ -3,6 +3,7 @@
 namespace ORES;
 
 use Maintenance;
+use MediaWiki\MediaWikiServices;
 
 require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
@@ -12,11 +13,11 @@ require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
  * @ingroup Maintenance
  */
 class CleanDuplicateScores extends Maintenance {
+
 	public function __construct() {
 		parent::__construct();
 
 		$this->addDescription( 'Clean up duplicate data in ORES scores' );
-
 	}
 
 	public function execute() {
@@ -53,10 +54,12 @@ class CleanDuplicateScores extends Maintenance {
 				[ 'oresc_id' => $chunk ],
 				__METHOD__
 			);
-			wfWaitForSlaves();
+			MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->waitForReplication();
 		}
-		$this->output( "Done" );
+
+		$this->output( 'Done' );
 	}
+
 }
 
 $maintClass = 'ORES\CleanDuplicateScores';

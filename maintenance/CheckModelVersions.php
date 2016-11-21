@@ -12,6 +12,7 @@ require_once ( getenv( 'MW_INSTALL_PATH' ) !== false
  * @ingroup Maintenance
  */
 class CheckModelVersions extends Maintenance {
+
 	public function __construct() {
 		parent::__construct();
 
@@ -49,8 +50,8 @@ class CheckModelVersions extends Maintenance {
 				],
 				__METHOD__
 			);
-
 		}
+
 		$this->output( "done.\n" );
 	}
 
@@ -67,6 +68,7 @@ class CheckModelVersions extends Maintenance {
 		}
 		return $modelData['models'];
 	}
+
 }
 
 $maintClass = 'ORES\CheckModelVersions';

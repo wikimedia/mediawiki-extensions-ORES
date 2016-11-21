@@ -2,10 +2,13 @@
 
 namespace ORES;
 
+use MediaWiki\MediaWikiServices;
 use RuntimeException;
 
 class Cache {
+
 	static protected $modelIds;
+
 	protected $errorCallback;
 
 	public function __construct() {
@@ -26,12 +29,11 @@ class Cache {
 	/**
 	 * Save scores to the database
 	 *
-	 * @param array $scores in the same structure as is returned by ORES.
-	 * @param bool $batch either to skip errors or not.
+	 * @param array[] $scores in the same structure as is returned by ORES.
 	 *
 	 * @throws RuntimeException
 	 */
-	public function storeScores( $scores ) {
+	public function storeScores( array $scores ) {
 		$dbData = [];
 		foreach ( $scores as $revision => $revisionData ) {
 			$this->processRevision( $dbData, $revision, $revisionData );
@@ -80,7 +82,7 @@ class Cache {
 					[ 'oresc_id' => $ids ],
 					__METHOD__
 				);
-				wfWaitForSlaves();
+				MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->waitForReplication();
 			}
 		} while ( $ids );
 	}
@@ -88,6 +90,7 @@ class Cache {
 	/**
 	 * @param string $model
 	 *
+	 * @throws RuntimeException
 	 * @return string cached id of last seen version
 	 */
 	protected function getModelId( $model ) {
@@ -115,6 +118,8 @@ class Cache {
 	 * @param array &$dbData Rows for insertion into ores_classification are added to this array
 	 * @param int $revision Revision being processed
 	 * @param array $revisionData Data returned by Scoring::getScores() for the revision.
+	 *
+	 * @throws RuntimeException
 	 */
 	public function processRevision( &$dbData, $revision, array $revisionData ) {
 		global $wgOresModelClasses;
@@ -172,4 +177,5 @@ class Cache {
 	public static function instance() {
 		return new self();
 	}
+
 }

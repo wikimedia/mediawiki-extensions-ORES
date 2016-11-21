@@ -1,4 +1,5 @@
 <?php
+
 namespace ORES\Tests;
 
 use ORES;
@@ -8,6 +9,10 @@ use ORES;
  * @covers ORES\Api
  */
 class OresApiTest extends \MediaWikiTestCase {
+
+	/**
+	 * @var ORES\Api
+	 */
 	protected $api;
 
 	protected function setUp() {
@@ -24,5 +29,5 @@ class OresApiTest extends \MediaWikiTestCase {
 		$url = $this->api->getUrl();
 		$this->assertSame( "https://ores-beta.wmflabs.org/scores/testwiki/", $url );
 	}
-}
 
+}

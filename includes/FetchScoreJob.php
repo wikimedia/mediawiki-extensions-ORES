@@ -7,6 +7,7 @@ use MediaWiki\Logger\LoggerFactory;
 use Title;
 
 class FetchScoreJob extends Job {
+
 	/**
 	 * @param Title $title
 	 * @param array $params 'revid' key
@@ -63,4 +64,5 @@ class FetchScoreJob extends Job {
 		}
 		return $success;
 	}
+
 }

@@ -18,7 +18,11 @@ use ResultWrapper;
 use WatchedItem;
 use WatchedItemQueryService;
 
+/**
+ * @author Brad Jorsch <bjorsch@wikimedia.org>
+ */
 class ApiHooks {
+
 	/**
 	 * Inject parameters into certain API modules
 	 *

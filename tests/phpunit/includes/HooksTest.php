@@ -1,4 +1,5 @@
 <?php
+
 namespace ORES\Tests;
 
 use ChangesList;
@@ -11,13 +12,14 @@ use ORES;
 use RCCacheEntry;
 use RecentChange;
 use RequestContext;
-use SpecialContributions;
+use User;
 
 /**
  * @group ORES
  * @covers ORES\Hooks
  */
 class OresHooksTest extends \MediaWikiTestCase {
+
 	protected $user;
 
 	protected $context;
@@ -160,7 +162,7 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$block = [];
 		$classes = [];
 
-		ORES\Hooks::OnEnhancedChangesListModifyLineData( $ecl, $data, $block, $rc, $classes );
+		ORES\Hooks::onEnhancedChangesListModifyLineData( $ecl, $data, $block, $rc, $classes );
 
 		$this->assertSame( [ 'recentChangesFlags' => [ 'damaging' => true ] ], $data );
 		$this->assertSame( [], $block );
@@ -193,7 +195,7 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$block = [];
 		$classes = [];
 
-		ORES\Hooks::OnEnhancedChangesListModifyLineData( $ecl, $data, $block, $rc, $classes );
+		ORES\Hooks::onEnhancedChangesListModifyLineData( $ecl, $data, $block, $rc, $classes );
 
 		$this->assertSame( [], $data );
 		$this->assertSame( [], $block );
@@ -435,14 +437,14 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$prefs = [];
 		ORES\Hooks::onGetBetaFeaturePreferences( $this->user, $prefs );
 		$this->assertArrayHasKey( 'ores-enabled', $prefs );
-
 	}
 
 	/**
+	 * @param User $user
+	 *
 	 * @return IContextSource
 	 */
-	private static function getContext( $user ) {
-
+	private static function getContext( User $user ) {
 		$context = new RequestContext();
 
 		$context->setLanguage( 'en' );
@@ -450,4 +452,5 @@ class OresHooksTest extends \MediaWikiTestCase {
 
 		return $context;
 	}
+
 }

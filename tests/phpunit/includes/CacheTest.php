@@ -1,4 +1,5 @@
 <?php
+
 namespace ORES\Tests;
 
 use MediaWikiLangTestCase;
@@ -11,6 +12,9 @@ use ORES;
  */
 class OresCacheTest extends MediaWikiLangTestCase {
 
+	/**
+	 * @var ORES\Cache
+	 */
 	protected $cache;
 
 	protected function setUp() {
@@ -189,11 +193,11 @@ class OresCacheTest extends MediaWikiLangTestCase {
 			]
 		];
 	}
+
 	/**
 	 * @dataProvider storeScoresProvider
 	 */
 	public function testStoreScores( $scores, $expected, $revIds ) {
-
 		$this->cache->storeScores( $scores );
 
 		$dbr = \wfGetDB( DB_REPLICA );
@@ -213,4 +217,5 @@ class OresCacheTest extends MediaWikiLangTestCase {
 
 		$this->assertEquals( $expected, iterator_to_array( $res, false ) );
 	}
+
 }
