@@ -38,7 +38,7 @@ class Api {
 	public static function request( $params = [] ) {
 		$logger = LoggerFactory::getInstance( 'ORES' );
 
-		$url = Api::getUrl();
+		$url = self::getUrl();
 		$url = wfAppendQuery( $url, $params );
 		$logger->debug( "Requesting: {$url}" );
 		$req = MWHttpRequest::factory( $url, null, __METHOD__ );
