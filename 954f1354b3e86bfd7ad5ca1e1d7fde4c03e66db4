@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceb9bbfa_8496e34d",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-11-21T13:37:49Z",
+      "side": 0,
+      "message": "What about here? In https://www.mediawiki.org/wiki/Manual:Coding_conventions/CSS looks like we should have one for start too.",
+      "revId": "954f1354b3e86bfd7ad5ca1e1d7fde4c03e66db4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb9bbfa_64a3cfa9",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-11-21T13:37:49Z",
+      "side": 0,
+      "message": "Same here",
+      "revId": "954f1354b3e86bfd7ad5ca1e1d7fde4c03e66db4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
