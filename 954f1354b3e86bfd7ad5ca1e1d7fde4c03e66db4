@@ -16,6 +16,24 @@
       "revId": "954f1354b3e86bfd7ad5ca1e1d7fde4c03e66db4",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb9bbfa_6433cf0b",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-21T14:33:04Z",
+      "side": 0,
+      "message": "PHP does not care. It\u0027s case-insensitive. This is only a minor code style issue.",
+      "parentUuid": "ceb9bbfa_249157fc",
+      "revId": "954f1354b3e86bfd7ad5ca1e1d7fde4c03e66db4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
