@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "ceb9bbfa_0a5e5d7b",
+        "filename": "includes/WatchedItemQueryServiceExtension.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2016-11-21T15:51:09Z",
+      "side": 0,
+      "message": "Does removing these here impact the documentor properly handling references to these classes in the doc blocs in this file?",
+      "revId": "954f1354b3e86bfd7ad5ca1e1d7fde4c03e66db4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceb9bbfa_249157fc",
         "filename": "tests/phpunit/includes/HooksTest.php",
         "patchSetId": 1
