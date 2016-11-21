@@ -16,6 +16,24 @@
       "revId": "91698fa79e5fb749252c43d3cce1f3e47614f47e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb9bbfa_c414dba2",
+        "filename": "includes/Api.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-21T14:09:17Z",
+      "side": 1,
+      "message": "This is not part of the official MediaWiki rule set. I will add more of the rules we found useful in Wikibase and related components, including this one, to the phpcs.xml in this component. I will do this in an other patch.",
+      "parentUuid": "ceb9bbfa_c4fe1b66",
+      "revId": "91698fa79e5fb749252c43d3cce1f3e47614f47e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
