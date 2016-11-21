@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ceb9bbfa_aad411bf",
+        "filename": "includes/WatchedItemQueryServiceExtension.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-21T15:53:03Z",
+      "side": 0,
+      "message": "These are not used anywhere in this file, not in code and not in PHPDoc tags. Mentioning a class name in text does not require it to be imported.",
+      "parentUuid": "ceb9bbfa_0a5e5d7b",
+      "revId": "954f1354b3e86bfd7ad5ca1e1d7fde4c03e66db4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceb9bbfa_249157fc",
         "filename": "tests/phpunit/includes/HooksTest.php",
         "patchSetId": 1
