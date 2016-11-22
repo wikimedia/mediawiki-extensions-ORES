@@ -137,23 +137,25 @@ class Hooks {
 			return true;
 		}
 
-		$hidenondamaging = $opts->getValue( 'hidenondamaging' );
-		self::manipulateQuery(
-			'damaging',
-			$wgUser,
-			'rc_this_oldid',
-			$hidenondamaging,
-			$tables,
-			$fields,
-			$conds,
-			$query_options,
-			$join_conds
-		);
+		if ( self::isModelEnabled( 'damaging' ) ) {
+			$hidenondamaging = $opts->getValue( 'hidenondamaging' );
+			self::manipulateQuery(
+				'damaging',
+				$wgUser,
+				'rc_this_oldid',
+				$hidenondamaging,
+				$tables,
+				$fields,
+				$conds,
+				$query_options,
+				$join_conds
+			);
 
-		if ( $hidenondamaging && self::isModelEnabled( 'damaging' ) ) {
-			$conds['rc_patrolled'] = 0;
-			// Performance hack: add STRAIGHT_JOIN (146111)
-			$query_options[] = 'STRAIGHT_JOIN';
+			if ( $hidenondamaging ) {
+				$conds['rc_patrolled'] = 0;
+				// Performance hack: add STRAIGHT_JOIN (146111)
+				$query_options[] = 'STRAIGHT_JOIN';
+			}
 		}
 
 		return true;
