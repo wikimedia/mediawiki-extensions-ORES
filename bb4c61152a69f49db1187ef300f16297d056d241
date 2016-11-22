@@ -91,6 +91,30 @@
       "revId": "bb4c61152a69f49db1187ef300f16297d056d241",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb9bbfa_a7479f4f",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 18
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 2604
+      },
+      "writtenOn": "2016-11-22T17:20:58Z",
+      "side": 1,
+      "message": "Thanks for this comment. I was actually unclear myself about the need of `!important` here. An attribute selector precedes over a simple class selector. I would add that we should also avoid putting an element selector for specificity. That\u0027s a bad practice too, which is all over in MediaWiki for historic reasons of bad CSS architecture.",
+      "parentUuid": "ceb9bbfa_b48fcbd0",
+      "range": {
+        "startLine": 20,
+        "startChar": 24,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "bb4c61152a69f49db1187ef300f16297d056d241",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
