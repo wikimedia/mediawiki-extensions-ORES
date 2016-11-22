@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "ceb9bbfa_043f6cd4",
+        "filename": "includes/WatchedItemQueryServiceExtension.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-22T09:12:23Z",
+      "side": 0,
+      "message": "It\u0027s nice to know that certain tools are trying to be a bit more clever than others, but this does not mean we must pollute code with imports that aren\u0027t used. I\u0027m sure people reading the text snippets below will figure out to what the word \"WatchedItemQueryService\" refers to, even if it is not linked. If you think this is a real problem, feel free to add @see tags. I will happily merge such a patch.",
+      "parentUuid": "ceb9bbfa_f309e030",
+      "revId": "954f1354b3e86bfd7ad5ca1e1d7fde4c03e66db4",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceb9bbfa_8a338d0a",
         "filename": "includes/WatchedItemQueryServiceExtension.php",
         "patchSetId": 1
