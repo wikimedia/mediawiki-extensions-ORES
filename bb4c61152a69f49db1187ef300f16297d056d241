@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceb9bbfa_147677d5",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-22T17:01:01Z",
+      "side": 1,
+      "message": "You are using $( this ) multiple times in this code. This is typical jQuery code, but there is a way to make this code much easier to read:\n\n$( \u0027li.damaging\u0027 ).each( function ( index, item ) {\n    $item \u003d $( item );\n\nAnd then use $item instead of $( this ).",
+      "range": {
+        "startLine": 12,
+        "startChar": 12,
+        "endLine": 12,
+        "endChar": 21
+      },
+      "revId": "bb4c61152a69f49db1187ef300f16297d056d241",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb9bbfa_144d579b",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-22T17:01:01Z",
+      "side": 1,
+      "message": "Not sure about using attr() for this.\n\nhttp://stackoverflow.com/questions/5874652/prop-vs-attr",
+      "range": {
+        "startLine": 25,
+        "startChar": 14,
+        "endLine": 25,
+        "endChar": 18
+      },
+      "revId": "bb4c61152a69f49db1187ef300f16297d056d241",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb9bbfa_74b81375",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-22T17:01:01Z",
+      "side": 1,
+      "message": "I believe it\u0027s better and more compatible to make this an actual data attribute, by naming it \"data-ores-damaging\" or something like that.",
+      "range": {
+        "startLine": 25,
+        "startChar": 21,
+        "endLine": 25,
+        "endChar": 34
+      },
+      "revId": "bb4c61152a69f49db1187ef300f16297d056d241",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb9bbfa_b48fcbd0",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 18
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-22T17:01:01Z",
+      "side": 1,
+      "message": "\"!important\" should really be avoided whenever possible. Why is it needed here? Usually the selector is not specific enough. This is better solved by adding (for example) \"li\" or \"a\" to the selector.",
+      "range": {
+        "startLine": 20,
+        "startChar": 24,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "bb4c61152a69f49db1187ef300f16297d056d241",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
