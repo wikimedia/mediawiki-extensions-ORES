@@ -12,6 +12,7 @@
 	"ores-damaging-hard": "Hoch (markiert mehr Bearbeitungen)",
 	"ores-damaging-letter": "ü",
 	"ores-damaging-soft": "Niedrig (markiert weniger Bearbeitungen)",
+	"ores-damaging-softest": "Niedrigste (markiert so wenige Bearbeitungen wie möglich)",
 	"ores-damaging-title": "Diese Bearbeitung benötigt eine Überprüfung",
 	"ores-damaging-legend": "Diese Bearbeitung könnte schädlich sein und sollte überprüft werden ([[:mw:Special:MyLanguage/ORES review tool|weitere Informationen]]).",
 	"ores-help-damaging-pref": "Diese Schwelle bestimmt, wie empfindlich ORES bei der Markierung von Bearbeitungen ist, die eine Überprüfung benötigen.",
