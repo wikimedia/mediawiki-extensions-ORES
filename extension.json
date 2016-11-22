@@ -140,6 +140,7 @@
 			}
 		},
 		"OresDamagingThresholds": {
+			"softest": 0.90,
 			"soft": 0.70,
 			"hard": 0.50
 		},
