@@ -73,17 +73,25 @@ class OresHooksTest extends \MediaWikiTestCase {
 
 		ORES\Hooks::onChangesListSpecialPageFilters( $clsp, $filters );
 		$expected = [
-			'hidenondamaging' => [ 'msg' => 'ores-damaging-filter', 'default' => false ]
+			'hidenondamaging' => [ 'msg' => 'ores-damaging-filter', 'default' => false ],
+			'goodfaith' => [ 'msg' => false, 'default' => 'all' ],
 		];
 		$this->assertSame( $expected, $filters );
 	}
 
-	public function testOnChangesListSpecialPageQuery() {
-		$this->setMwGlobals( 'wgUser', $this->user );
+	public function testOnChangesListSpecialPageQuery_hidenondamaging() {
+		$this->setMwGlobals( [
+			'wgUser' => $this->user,
+			'wgOresModels' => [
+				'damaging' => true,
+				'goodfaith' => false,
+			]
+		] );
 
 		$opts = new FormOptions();
 
 		$opts->add( 'hidenondamaging', true, 2 );
+		$opts->add( 'goodfaith', 'all' );
 
 		$tables = [];
 		$fields = [];
@@ -110,7 +118,7 @@ class OresHooksTest extends \MediaWikiTestCase {
 			],
 			'conds' => [
 				"ores_damaging_cls.oresc_probability > '0.7'",
-				'rc_patrolled' => 0
+				'rc_patrolled' => 0,
 			],
 			'query_options' => [ 'STRAIGHT_JOIN' ],
 			'join_conds' => [
@@ -133,6 +141,147 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$this->assertSame( $expected['fields'], $fields );
 		$this->assertSame( $expected['conds'], $conds );
 		$this->assertSame( $expected['query_options'], $query_options );
+		$this->assertSame( $expected['join_conds'], $join_conds );
+	}
+
+	public function onChangesListSpecialPageQuery_goodfaith_provider() {
+		return [
+			[ 'good', 0.35, 1 ],
+			[ 'maybebad', 0, 0.65 ],
+			[ 'bad', 0, 0.15 ],
+			[ 'good,maybebad', 0, 1 ],
+			[ 'maybebad,bad', 0, 0.65 ],
+			[ 'good,maybebad,bad', 0, 1 ],
+		];
+	}
+
+	/**
+	 * @dataProvider onChangesListSpecialPageQuery_goodfaith_provider
+	 */
+	public function testOnChangesListSpecialPageQuery_goodfaith(
+		$goodfaithValue,
+		$expectedMin,
+		$expectedMax
+	) {
+		$this->setMwGlobals( [
+			'wgUser' => $this->user,
+			'wgOresModels' => [
+				'damaging' => false,
+				'goodfaith' => true,
+			]
+		] );
+
+		$opts = new FormOptions();
+
+		$opts->add( 'hidenondamaging', false );
+		$opts->add( 'goodfaith', $goodfaithValue );
+
+		$tables = [];
+		$fields = [];
+		$conds = [];
+		$query_options = [];
+		$join_conds = [];
+		ORES\Hooks::onChangesListSpecialPageQuery(
+			'',
+			$tables,
+			$fields,
+			$conds,
+			$query_options,
+			$join_conds,
+			$opts
+		);
+		$expected = [
+			'tables' => [
+				'ores_goodfaith_mdl' => 'ores_model',
+				'ores_goodfaith_cls' => 'ores_classification'
+			],
+			'fields' => [
+				'ores_goodfaith_score' => 'ores_goodfaith_cls.oresc_probability',
+			],
+			'conds' => [
+				"(ores_goodfaith_cls.oresc_probability BETWEEN $expectedMin AND $expectedMax)"
+			],
+			'join_conds' => [
+				'ores_goodfaith_mdl' => [ 'INNER JOIN',
+					[
+						'ores_goodfaith_mdl.oresm_is_current' => 1,
+						'ores_goodfaith_mdl.oresm_name' => 'goodfaith'
+					]
+				],
+				'ores_goodfaith_cls' => [ 'INNER JOIN',
+					[
+						'ores_goodfaith_cls.oresc_model = ores_goodfaith_mdl.oresm_id',
+						'rc_this_oldid = ores_goodfaith_cls.oresc_rev',
+						'ores_goodfaith_cls.oresc_class' => 1
+					]
+				]
+			],
+		];
+		$this->assertSame( $expected['tables'], $tables );
+		$this->assertSame( $expected['fields'], $fields );
+		$this->assertSame( $expected['conds'], $conds );
+		$this->assertSame( $expected['join_conds'], $join_conds );
+	}
+
+	public function testOnChangesListSpecialPageQuery_goodfaith_goodbad() {
+		$this->setMwGlobals( [
+			'wgUser' => $this->user,
+			'wgOresModels' => [
+				'damaging' => false,
+				'goodfaith' => true,
+			]
+		] );
+
+		$opts = new FormOptions();
+
+		$opts->add( 'hidenondamaging', false );
+		$opts->add( 'goodfaith', 'good,bad' );
+
+		$tables = [];
+		$fields = [];
+		$conds = [];
+		$query_options = [];
+		$join_conds = [];
+		ORES\Hooks::onChangesListSpecialPageQuery(
+			'',
+			$tables,
+			$fields,
+			$conds,
+			$query_options,
+			$join_conds,
+			$opts
+		);
+		$expected = [
+			'tables' => [
+				'ores_goodfaith_mdl' => 'ores_model',
+				'ores_goodfaith_cls' => 'ores_classification'
+			],
+			'fields' => [
+				'ores_goodfaith_score' => 'ores_goodfaith_cls.oresc_probability',
+			],
+			'conds' => [
+				"(ores_goodfaith_cls.oresc_probability BETWEEN 0.35 AND 1) OR " .
+				"(ores_goodfaith_cls.oresc_probability BETWEEN 0 AND 0.15)",
+			],
+			'join_conds' => [
+				'ores_goodfaith_mdl' => [ 'INNER JOIN',
+					[
+						'ores_goodfaith_mdl.oresm_is_current' => 1,
+						'ores_goodfaith_mdl.oresm_name' => 'goodfaith'
+					]
+				],
+				'ores_goodfaith_cls' => [ 'INNER JOIN',
+					[
+						'ores_goodfaith_cls.oresc_model = ores_goodfaith_mdl.oresm_id',
+						'rc_this_oldid = ores_goodfaith_cls.oresc_rev',
+						'ores_goodfaith_cls.oresc_class' => 1
+					]
+				]
+			],
+		];
+		$this->assertSame( $expected['tables'], $tables );
+		$this->assertSame( $expected['fields'], $fields );
+		$this->assertSame( $expected['conds'], $conds );
 		$this->assertSame( $expected['join_conds'], $join_conds );
 	}
 

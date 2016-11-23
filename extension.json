@@ -13,6 +13,7 @@
 		"ORES\\Cache": "includes/Cache.php",
 		"ORES\\Hooks": "includes/Hooks.php",
 		"ORES\\FetchScoreJob": "includes/FetchScoreJob.php",
+		"ORES\\Range": "includes/Range.php",
 		"ORES\\Scoring": "includes/Scoring.php",
 		"ORES\\ApiQueryORES": "includes/ApiQueryORES.php",
 		"ORES\\ApiHooks": "includes/ApiHooks.php",
@@ -146,6 +147,11 @@
 			"softest": 0.90,
 			"soft": 0.70,
 			"hard": 0.50
+		},
+		"OresGoodfaithLevels": {
+			"good" : { "min": 0.35, "max": 1 },
+			"maybebad" : { "min": 0, "max": 0.65 },
+			"bad" : { "min": 0, "max": 0.15 }
 		},
 		"OresEnabledNamespaces": {},
 		"OresWikiId": null,
