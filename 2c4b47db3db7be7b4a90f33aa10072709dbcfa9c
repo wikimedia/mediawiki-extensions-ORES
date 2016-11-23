@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceb9bbfa_173e72b5",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 24
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-23T10:39:39Z",
+      "side": 1,
+      "message": "This is a rebase mistake. I removed this in an other patch.",
+      "revId": "2c4b47db3db7be7b4a90f33aa10072709dbcfa9c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb9bbfa_f73adebf",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 24
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-23T10:39:39Z",
+      "side": 1,
+      "message": "I wonder why this class name is simply \"damaging\". This is a bit unspecific and may cause conflicts with other code, e.g. from templates and such. Please prefix class names with \"ores-…\" (but note that \"ores-damaging\" is already in use above).\n\nI\u0027m aware this is not introduced in this patch. Can be changed later.",
+      "revId": "2c4b47db3db7be7b4a90f33aa10072709dbcfa9c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
