@@ -43,6 +43,24 @@
     },
     {
       "key": {
+        "uuid": "ceb9bbfa_f70c1e3f",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-23T10:34:49Z",
+      "side": 1,
+      "message": "I\u0027m sure this is more readable. Whenever I see \"$( this )\" I\u0027m scared that the \"this\" refers to something unwanted. This is a typical place where people always make mistakes, no matter how experienced they are.\n\nThis was meant as a suggestion. It\u0027s not a performance issue.",
+      "parentUuid": "ceb9bbfa_d4e11899",
+      "revId": "bb4c61152a69f49db1187ef300f16297d056d241",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceb9bbfa_144d579b",
         "filename": "modules/ext.ores.highlighter.js",
         "patchSetId": 18
@@ -166,6 +184,24 @@
       "side": 1,
       "message": "I should explain this. I agree we should not use !important often but I think this case is needed. Because the extension (in php part) adds \"damaging\" class to all rows and this css adds a simple background (see line 14) but then the javascript adds ores-damaing\u003dsoft|hard|softest attribute and needs to overwrite that. I want to keep the above css because people might disable javascript and they should still be able to have some functionality.",
       "parentUuid": "ceb9bbfa_a7479f4f",
+      "revId": "bb4c61152a69f49db1187ef300f16297d056d241",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb9bbfa_77000e05",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 18
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-23T10:34:49Z",
+      "side": 1,
+      "message": "As I said, you have a problem with selectors that are not specific enough. This is solved by either making selectors less specific (e.g. replace \"li.damaging, tr.damaging\" with \".damaging\"), or by making the other more specific (e.g. replace \"[ores-damaging\u003d\"softest\"]\" with \"li.damaging[ores-damaging\u003d\"softest\"], tr.damaging[ores-damaging\u003d\"softest\"]\"), or a combination of both.\n\nMy suggestion would be:\n\n.damaging {\n    /* default background color */\n}\n.damaging[data-damaging\u003d\"softest\"] {\n    /* more specific background color */\n}",
+      "parentUuid": "ceb9bbfa_1459d090",
       "revId": "bb4c61152a69f49db1187ef300f16297d056d241",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
