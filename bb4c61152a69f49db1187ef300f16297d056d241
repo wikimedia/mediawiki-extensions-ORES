@@ -115,6 +115,24 @@
       "revId": "bb4c61152a69f49db1187ef300f16297d056d241",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb9bbfa_1459d090",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 18
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-11-23T09:50:59Z",
+      "side": 1,
+      "message": "I should explain this. I agree we should not use !important often but I think this case is needed. Because the extension (in php part) adds \"damaging\" class to all rows and this css adds a simple background (see line 14) but then the javascript adds ores-damaing\u003dsoft|hard|softest attribute and needs to overwrite that. I want to keep the above css because people might disable javascript and they should still be able to have some functionality.",
+      "parentUuid": "ceb9bbfa_a7479f4f",
+      "revId": "bb4c61152a69f49db1187ef300f16297d056d241",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
