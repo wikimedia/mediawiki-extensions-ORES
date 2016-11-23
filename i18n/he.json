@@ -13,6 +13,7 @@
 	"ores-damaging-hard": "גבוה (לסמן יותר עריכות)",
 	"ores-damaging-letter": "ד",
 	"ores-damaging-soft": "נמוך (לסמן פחות עריכות)",
+	"ores-damaging-softest": "נמוך ביותר (לסמן כמה שפחות עריכות)",
 	"ores-damaging-title": "עריכה זו דורשת סקירה",
 	"ores-damaging-legend": "ייתכן שהעריכה הזאת מזיקה ולכן היא דורשת סקירה ([[:mw:Special:MyLanguage/ORES review tool|מידע נוסף]])",
 	"ores-help-damaging-pref": "הסף הזה מגדיר כמה רגיש ORES יהיה בעת סימון עריכות שדורשות סקירה",

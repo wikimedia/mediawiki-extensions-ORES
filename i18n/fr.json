@@ -13,6 +13,7 @@
 	"ores-damaging-hard": "Haut (indique plus de modifications)",
 	"ores-damaging-letter": "r",
 	"ores-damaging-soft": "Bas (indique moins de modifications)",
+	"ores-damaging-softest": "Le plus bas (marque le moins de modifications possibles)",
 	"ores-damaging-title": "Cette modification doit être revue",
 	"ores-damaging-legend": "Cette modification pourrait être nuisible et devrait être revue ([[:mw:Special:MyLanguage/ORES review tool|plus d'information]])",
 	"ores-help-damaging-pref": "Ce seuil détermine la sensibilité avec laquelle ORES étiquette les modifications qui ont besoin d'être relues",
