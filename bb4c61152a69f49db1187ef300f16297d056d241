@@ -25,6 +25,24 @@
     },
     {
       "key": {
+        "uuid": "ceb9bbfa_d4e11899",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-11-23T09:59:31Z",
+      "side": 1,
+      "message": "It\u0027s used only twice. Are you sure?",
+      "parentUuid": "ceb9bbfa_147677d5",
+      "revId": "bb4c61152a69f49db1187ef300f16297d056d241",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceb9bbfa_144d579b",
         "filename": "modules/ext.ores.highlighter.js",
         "patchSetId": 18
@@ -65,6 +83,24 @@
         "endLine": 25,
         "endChar": 34
       },
+      "revId": "bb4c61152a69f49db1187ef300f16297d056d241",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceb9bbfa_b4dea4dc",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 18
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2016-11-23T09:59:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ceb9bbfa_74b81375",
       "revId": "bb4c61152a69f49db1187ef300f16297d056d241",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
