@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aebe47e0_ccf64bf6",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 25
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-11-25T11:18:38Z",
+      "side": 1,
+      "message": "The \u0027.mw-contributions-list\u0027 is a class name, but misses a dot.\n\nThis can be combined into a single (possibly faster) call:\n\nif ( !$( \u0027.mw-changeslist, .mw-contributions-list\u0027 ).length ) {",
+      "range": {
+        "startLine": 3,
+        "startChar": 6,
+        "endLine": 3,
+        "endChar": 76
+      },
+      "revId": "c22b9bb33661e4dc29897a8a611f068375e753de",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
