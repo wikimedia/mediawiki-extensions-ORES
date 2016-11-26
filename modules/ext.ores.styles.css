@@ -11,6 +11,18 @@
  */
 li.damaging,
 tr.damaging {
-	background: rgba( 255, 93, 0, 0.2 );
+	background: #fef6e7;
 	line-height: 1.8;
+}
+
+.damaging[data-ores-damaging='softest'] {
+	background-color: #fc3;
+}
+
+.damaging[data-ores-damaging='soft'] {
+	background-color: #fef6e7;
+}
+
+.damaging[data-ores-damaging='hard'] {
+	background-color: #eaf3ff;
 }
