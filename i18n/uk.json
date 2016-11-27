@@ -11,6 +11,7 @@
 	"ores-damaging-hard": "Високий (позначає більше редагувань)",
 	"ores-damaging-letter": "р",
 	"ores-damaging-soft": "Низький (позначає менше редагувань)",
+	"ores-damaging-softest": "найнижчий (позначає якомога менше редагувань)",
 	"ores-damaging-title": "Це редагування потребує перевірки",
 	"ores-damaging-legend": "Ця зміна може бути шкідливою та потребує перевірки ([[:mw:Special:MyLanguage/ORES review tool|детальніше]])",
 	"ores-help-damaging-pref": "Цей поріг визначає, наскільки чутливим є ORES, коли позначає редагування, що потребують перевірки",
