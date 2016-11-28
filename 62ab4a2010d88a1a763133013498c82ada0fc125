@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aebe47e0_b8eb43db",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2016-11-28T22:22:26Z",
+      "side": 1,
+      "message": "This will add rc_patrolled\u003d0 to the contributions query, which will make that query explode because the recentchanges table isn\u0027t used by that query.\n\n(To reproduce: go to Special:Contributions with ?hidenondamaging\u003d1, and you should see a DB error.)",
+      "revId": "62ab4a2010d88a1a763133013498c82ada0fc125",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aebe47e0_78f5abb4",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2016-11-28T22:22:26Z",
+      "side": 1,
+      "message": "This probably doesn\u0027t hurt, but STRAIGHT_JOIN was only intended to be added to the recentchanges query, not the contributions one.",
+      "revId": "62ab4a2010d88a1a763133013498c82ada0fc125",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
