@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "aebe47e0_49a583b0",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2016-11-28T16:11:58Z",
+      "side": 1,
+      "message": "The layer below does escaping and quoting for identifiers but it might be taking conditions as-is. I\u0027ll double-check.",
+      "parentUuid": "aebe47e0_c0a854db",
+      "revId": "e1b6e605dc625ea3eea97ed6bf7a5981aad79475",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aebe47e0_e0a358fc",
         "filename": "includes/Hooks.php",
         "patchSetId": 2
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "aebe47e0_495a23fb",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2016-11-28T16:11:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aebe47e0_e0a358fc",
+      "range": {
+        "startLine": 616,
+        "startChar": 10,
+        "endLine": 616,
+        "endChar": 35
+      },
+      "revId": "e1b6e605dc625ea3eea97ed6bf7a5981aad79475",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aebe47e0_80649ce2",
         "filename": "includes/Range.php",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2016-11-24T13:23:19Z",
       "side": 1,
       "message": "The \"\u003c\u003d\" worries me a little bit. When two ranges *touch* each other, but don\u0027t \"overlap\", this method will still return true. I believe this is intended. But the method should not be called \"overlaps\" then.",
+      "range": {
+        "startLine": 56,
+        "startChar": 17,
+        "endLine": 56,
+        "endChar": 25
+      },
+      "revId": "e1b6e605dc625ea3eea97ed6bf7a5981aad79475",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aebe47e0_490103b9",
+        "filename": "includes/Range.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2016-11-28T16:11:58Z",
+      "side": 1,
+      "message": "You\u0027re right, that\u0027s the intended behaviour but \"overlaps\" is not the right word. There must be a mathematical term that expresses this concept perfectly but I don\u0027t know what it is. \n\nLet me know if you have any suggestion. In the meantime, I\u0027ve updated the method description to include when the ranges touch.",
+      "parentUuid": "aebe47e0_80649ce2",
       "range": {
         "startLine": 56,
         "startChar": 17,
