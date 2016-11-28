@@ -10,6 +10,7 @@
 	"ores-damaging-hard": "Cao (đánh dấu thêm sửa đổi)",
 	"ores-damaging-letter": "h",
 	"ores-damaging-soft": "Thấp (đánh dấu ít sửa đổi hơn)",
+	"ores-damaging-softest": "Thấp nhất (đánh cờ càng ít sửa đổi)",
 	"ores-damaging-title": "Sửa đổi này cần được xem lại",
 	"ores-damaging-legend": "Sửa đổi này có thể gây hãi và cần được xem lại ([[:mw:Special:MyLanguage/ORES review tool|thêm thông tin]])",
 	"ores-help-damaging-pref": "Ngưỡng này định rõ độ nhạy của ORES khi đánh dấu sửa đổi là cần xem lại",
