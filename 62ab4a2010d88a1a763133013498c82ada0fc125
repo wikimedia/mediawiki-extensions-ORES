@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "aebe47e0_c66e152a",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2016-11-29T15:37:46Z",
+      "side": 1,
+      "message": "I understand in the current version of this tool, patrolled edits are considered non-damaging by definition but this is changing as we offer fine-grained filtering.\n\nI\u0027m inclined to remove it completely. Patrolled is also something that can be controlled in the UI. If the user wants to see damaging edits that have been patrolled, we should let it.",
+      "parentUuid": "aebe47e0_b8eb43db",
+      "revId": "62ab4a2010d88a1a763133013498c82ada0fc125",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aebe47e0_78f5abb4",
         "filename": "includes/Hooks.php",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2016-11-28T22:22:26Z",
       "side": 1,
       "message": "This probably doesn\u0027t hurt, but STRAIGHT_JOIN was only intended to be added to the recentchanges query, not the contributions one.",
+      "revId": "62ab4a2010d88a1a763133013498c82ada0fc125",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aebe47e0_46c8c525",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2016-11-29T15:37:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aebe47e0_78f5abb4",
       "revId": "62ab4a2010d88a1a763133013498c82ada0fc125",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
