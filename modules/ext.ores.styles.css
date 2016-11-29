@@ -20,9 +20,9 @@ tr.damaging {
 }
 
 .damaging[data-ores-damaging='soft'] {
-	background-color: #fef6e7;
+	background-color: #ffe18d;
 }
 
 .damaging[data-ores-damaging='hard'] {
-	background-color: #eaf3ff;
+	background-color: #fef6e7;
 }
