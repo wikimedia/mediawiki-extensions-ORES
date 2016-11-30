@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "aebe47e0_9c0185bc",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2016-11-30T01:21:06Z",
+      "side": 1,
+      "message": "While I think this makes sense generally, I see two issues with it. First, not all users have the right to see patrolled-ness status or filter by it; so for them you would be removing a feature (we are separately considering whether to drop this restriction; I think we should, but it\u0027s not uncontroversial). Second, the logic deciding whether to display the red \"r\" and the colored background skips patrolled edits as well, so you should keep that in sync with this.",
+      "parentUuid": "aebe47e0_c66e152a",
+      "revId": "62ab4a2010d88a1a763133013498c82ada0fc125",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aebe47e0_78f5abb4",
         "filename": "includes/Hooks.php",
         "patchSetId": 4
