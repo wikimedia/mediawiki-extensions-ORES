@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "aebe47e0_825fe0e7",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2016-11-30T12:14:04Z",
+      "side": 1,
+      "message": "I brought it back for this patch but we\u0027ll have to clarify in the next patch (quality filter) what we keep and what we replace of the old features (red \"r\", colored bg, threshold preference, ...)",
+      "parentUuid": "aebe47e0_9c0185bc",
+      "revId": "62ab4a2010d88a1a763133013498c82ada0fc125",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aebe47e0_78f5abb4",
         "filename": "includes/Hooks.php",
         "patchSetId": 4
