@@ -113,6 +113,8 @@ class Hooks {
 				'msg' => 'ores-damaging-filter',
 				'default' => $default,
 			];
+
+			$filters['damaging'] = [ 'msg' => false, 'default' => 'all' ];
 		}
 
 		if ( self::isModelEnabled( 'goodfaith' ) ) {
@@ -138,40 +140,73 @@ class Hooks {
 		$name, array &$tables, array &$fields, array &$conds,
 		array &$query_options, array &$join_conds, FormOptions $opts
 	) {
-		global $wgUser;
+		global $wgUser, $wgOresDamagingLevels, $wgOresGoodfaithLevels;
+
 		if ( !self::oresEnabled( $wgUser ) ) {
 			return true;
 		}
 
 		if ( self::isModelEnabled( 'damaging' ) ) {
-			$hideNonDamaging = $opts->getValue( 'hidenondamaging' );
 
-			self::hideNonDamagingFilter(
+			self::joinWithOresTables(
+				'damaging',
+				'rc_this_oldid',
 				$tables,
 				$fields,
-				$conds,
-				$query_options,
-				$join_conds,
-				$hideNonDamaging,
-				'rc_this_oldid',
-				$wgUser
+				$join_conds
 			);
 
-			if ( $hideNonDamaging ) {
+			$damaging = $opts->getValue( 'damaging' );
+			$hideNonDamaging = $opts->getValue( 'hidenondamaging' );
+
+			$filtering = false;
+
+			if ( $damaging !== 'all' ) {
+				$damagingCondition = self::buildRangeFilter(
+					'damaging',
+					$damaging,
+					$wgOresDamagingLevels
+				);
+				if ( $damagingCondition ) {
+					$conds[] = $damagingCondition;
+					$filtering = true;
+				}
+			} elseif ( $hideNonDamaging ) {
+				self::hideNonDamagingFilter( $fields, $conds, $hideNonDamaging, $wgUser );
+				$filtering = true;
+			}
+
+			if ( $filtering ) {
+				$join_conds["ores_damaging_mdl"][0] = 'INNER JOIN';
+				$join_conds["ores_damaging_cls"][0] = 'INNER JOIN';
 				// Performance hack: add STRAIGHT_JOIN (146111)
 				$query_options[] = 'STRAIGHT_JOIN';
 			}
 		}
 
 		if ( self::isModelEnabled( 'goodfaith' ) ) {
-			self::goodfaithFilter(
-				$tables,
-				$fields,
-				$conds,
-				$query_options,
-				$join_conds,
-				$opts->getValue( 'goodfaith' )
-			);
+			$goodfaith = $opts->getValue( 'goodfaith' );
+			if ( $goodfaith !== 'all' ) {
+				self::joinWithOresTables(
+					'goodfaith',
+					'rc_this_oldid',
+					$tables,
+					$fields,
+					$join_conds
+				);
+				$condition = self::buildRangeFilter(
+					'goodfaith',
+					$goodfaith,
+					$wgOresGoodfaithLevels
+				);
+				if ( $condition ) {
+					$conds[] = $condition;
+					$join_conds["ores_goodfaith_mdl"][0] = 'INNER JOIN';
+					$join_conds["ores_goodfaith_cls"][0] = 'INNER JOIN';
+					// Performance hack: add STRAIGHT_JOIN (146111)
+					$query_options[] = 'STRAIGHT_JOIN';
+				}
+			}
 		}
 
 		return true;
@@ -278,14 +313,19 @@ class Hooks {
 		}
 		if ( self::isModelEnabled( 'damaging' ) ) {
 			$request = $pager->getContext()->getRequest();
-			self::hideNonDamagingFilter(
+
+			self::joinWithOresTables(
+				'damaging',
+				'rev_id',
 				$query['tables'],
 				$query['fields'],
+				$query['join_conds']
+			);
+
+			self::hideNonDamagingFilter(
+				$query['fields'],
 				$query['conds'],
-				$query['options'],
-				$query['join_conds'],
 				$request->getVal( 'hidenondamaging' ),
-				'rev_id',
 				$pager->getUser()
 			);
 		}
@@ -565,12 +605,9 @@ class Hooks {
 
 	private static function joinWithOresTables(
 		$type,
-		$filter,
 		$revIdField,
 		array &$tables,
 		array &$fields,
-		array &$conds,
-		array &$query_options,
 		array &$join_conds
 	) {
 		if ( !ctype_lower( $type ) ) {
@@ -594,35 +631,14 @@ class Hooks {
 			"$revIdField = ores_${type}_cls.oresc_rev",
 			"ores_${type}_cls.oresc_class" => 1
 		] ];
-
-		if ( $filter ) {
-			// Performance hack: override the LEFT JOINs to be INNER JOINs (T137895)
-			$join_conds["ores_${type}_mdl"][0] = 'INNER JOIN';
-			$join_conds["ores_${type}_cls"][0] = 'INNER JOIN';
-		}
 	}
 
 	private static function hideNonDamagingFilter(
-		array &$tables,
 		array &$fields,
 		array &$conds,
-		array &$query_options,
-		array &$join_conds,
 		$hidenondamaging,
-		$revIdField,
 		$user
 	) {
-		self::joinWithOresTables(
-			'damaging',
-			$hidenondamaging,
-			$revIdField,
-			$tables,
-			$fields,
-			$conds,
-			$query_options,
-			$join_conds
-		);
-
 		$dbr = \wfGetDB( DB_REPLICA );
 		// Add user-based threshold
 		$threshold = self::getThreshold( 'damaging', $user );
@@ -636,25 +652,19 @@ class Hooks {
 		}
 	}
 
-	private static function goodfaithFilter(
-		&$tables,
-		&$fields,
-		&$conds,
-		&$query_options,
-		&$join_conds,
-		$filterValue
-	) {
-		global $wgOresGoodfaithLevels;
+	private static function buildRangeFilter( $name, $filterValue, $thresholds ) {
+		$selectedLevels = explode( ',', strtolower( $filterValue ) );
+		$selectedLevels = array_intersect(
+			$selectedLevels,
+			array_keys( $thresholds )
+		);
 
-		$goodfaithLevels = explode( ',', strtolower( $filterValue ) );
-		$goodfaithLevels = array_intersect( $goodfaithLevels, [ 'good', 'bad', 'maybebad' ] );
-
-		if ( $goodfaithLevels ) {
+		if ( $selectedLevels ) {
 			$ranges = [];
-			foreach ( $goodfaithLevels as $level ) {
+			foreach ( $selectedLevels as $level ) {
 				$range = new Range(
-					$wgOresGoodfaithLevels[$level]['min'],
-					$wgOresGoodfaithLevels[$level]['max']
+					$thresholds[$level]['min'],
+					$thresholds[$level]['max']
 				);
 
 				$result = array_filter(
@@ -672,29 +682,15 @@ class Hooks {
 			}
 
 			$betweenConditions = array_map(
-				function ( Range $range ) {
+				function ( Range $range ) use ( $name ) {
 					$min = $range->getMin();
 					$max = $range->getMax();
-					return "ores_goodfaith_cls.oresc_probability BETWEEN $min AND $max";
+					return "ores_{$name}_cls.oresc_probability BETWEEN $min AND $max";
 				},
 				$ranges
 			);
 
-			$conds[] = \wfGetDB( DB_REPLICA )->makeList( $betweenConditions, \IDatabase::LIST_OR );
-
-			self::joinWithOresTables(
-				'goodfaith',
-				count( $goodfaithLevels ),
-				'rc_this_oldid',
-				$tables,
-				$fields,
-				$conds,
-				$query_options,
-				$join_conds
-			);
-
-			// Performance hack: add STRAIGHT_JOIN (146111)
-			$query_options[] = 'STRAIGHT_JOIN';
+			return \wfGetDB( DB_REPLICA )->makeList( $betweenConditions, \IDatabase::LIST_OR );
 		}
 	}
 

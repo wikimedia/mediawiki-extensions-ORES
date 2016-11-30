@@ -74,6 +74,7 @@ class OresHooksTest extends \MediaWikiTestCase {
 		ORES\Hooks::onChangesListSpecialPageFilters( $clsp, $filters );
 		$expected = [
 			'hidenondamaging' => [ 'msg' => 'ores-damaging-filter', 'default' => false ],
+			'damaging' => [ 'msg' => false, 'default' => 'all' ],
 			'goodfaith' => [ 'msg' => false, 'default' => 'all' ],
 		];
 		$this->assertSame( $expected, $filters );
@@ -91,6 +92,7 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$opts = new FormOptions();
 
 		$opts->add( 'hidenondamaging', true, 2 );
+		$opts->add( 'damaging', 'all' );
 		$opts->add( 'goodfaith', 'all' );
 
 		$tables = [];
@@ -213,6 +215,67 @@ class OresHooksTest extends \MediaWikiTestCase {
 						'ores_goodfaith_cls.oresc_model = ores_goodfaith_mdl.oresm_id',
 						'rc_this_oldid = ores_goodfaith_cls.oresc_rev',
 						'ores_goodfaith_cls.oresc_class' => 1
+					]
+				]
+			],
+		];
+		$this->assertSame( $expected['tables'], $tables );
+		$this->assertSame( $expected['fields'], $fields );
+		$this->assertSame( $expected['conds'], $conds );
+		$this->assertSame( $expected['join_conds'], $join_conds );
+	}
+
+	public function testOnChangesListSpecialPageQuery_damaging() {
+		$this->setMwGlobals( [
+			'wgUser' => $this->user,
+			'wgOresModels' => [
+				'damaging' => true,
+				'goodfaith' => false,
+			]
+		] );
+
+		$opts = new FormOptions();
+
+		$opts->add( 'hidenondamaging', false );
+		$opts->add( 'damaging', 'maybebad' );
+
+		$tables = [];
+		$fields = [];
+		$conds = [];
+		$query_options = [];
+		$join_conds = [];
+		ORES\Hooks::onChangesListSpecialPageQuery(
+			'',
+			$tables,
+			$fields,
+			$conds,
+			$query_options,
+			$join_conds,
+			$opts
+		);
+		$expected = [
+			'tables' => [
+				'ores_damaging_mdl' => 'ores_model',
+				'ores_damaging_cls' => 'ores_classification',
+			],
+			'fields' => [
+				'ores_damaging_score' => 'ores_damaging_cls.oresc_probability',
+			],
+			'conds' => [
+				'(ores_damaging_cls.oresc_probability BETWEEN 0.16 AND 1)',
+			],
+			'join_conds' => [
+				'ores_damaging_mdl' => [ 'INNER JOIN',
+					[
+						'ores_damaging_mdl.oresm_is_current' => 1,
+						'ores_damaging_mdl.oresm_name' => 'damaging',
+					]
+				],
+				'ores_damaging_cls' => [ 'INNER JOIN',
+					[
+						'ores_damaging_cls.oresc_model = ores_damaging_mdl.oresm_id',
+						'rc_this_oldid = ores_damaging_cls.oresc_rev',
+						'ores_damaging_cls.oresc_class' => 1,
 					]
 				]
 			],
