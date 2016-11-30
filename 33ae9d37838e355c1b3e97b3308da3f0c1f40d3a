@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aebe47e0_dcfffda5",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2016-11-30T01:21:06Z",
+      "side": 1,
+      "message": "So now STRAIGHT_JOIN is always added for goodfaith, but for damaging it\u0027s only added in the recentchanges query. That doesn\u0027t make much sense to me.",
+      "revId": "33ae9d37838e355c1b3e97b3308da3f0c1f40d3a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
