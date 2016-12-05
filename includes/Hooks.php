@@ -561,6 +561,13 @@ class Hooks {
 			return;
 		}
 
+		if ( !ctype_lower( $type ) ) {
+			throw new Exception(
+				"Invalid value for parameter 'type': '$type'. " .
+				'Restricted to one lower case word to prevent accidental injection.'
+			);
+		}
+
 		$dbr = \wfGetDB( DB_REPLICA );
 		$threshold = self::getThreshold( $type, $user );
 		$tables["ores_${type}_mdl"] = 'ores_model';
