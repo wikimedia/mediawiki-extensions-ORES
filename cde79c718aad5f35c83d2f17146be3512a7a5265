@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ed34346_3d21579b",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-12-05T15:19:29Z",
+      "side": 1,
+      "message": "Four lines of comments are to much for a trivial sanity check like this. Instead, please make the error message self-explaining. Instead of \"not allowed\" (why? what is allowed instead?) use a message like \u0027$type must not contain special characters\u0027.",
+      "revId": "cde79c718aad5f35c83d2f17146be3512a7a5265",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ed34346_1d10db52",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-12-05T15:19:29Z",
+      "side": 1,
+      "message": "Suggestions:\n\nif ( !preg_match( \u0027/^\\w+$/\u0027, $type ) ) {\n\nOr even simpler:\n\nif ( !ctype_lower( $type ) ) {",
+      "revId": "cde79c718aad5f35c83d2f17146be3512a7a5265",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
