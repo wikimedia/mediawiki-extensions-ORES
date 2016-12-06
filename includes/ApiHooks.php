@@ -114,7 +114,7 @@ class ApiHooks {
 				}
 			}
 
-			$threshold = Hooks::getDamagingThreshold( $module->getUser() );
+			$threshold = Hooks::getThreshold( 'damaging', $module->getUser() );
 			$dbr = \wfGetDB( DB_REPLICA );
 
 			$tables[] = 'ores_model';

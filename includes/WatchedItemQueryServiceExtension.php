@@ -46,7 +46,7 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 			? array_flip( $options['filters'] )
 			: [];
 		if ( isset( $show['oresreview'] ) || isset( $show['!oresreview'] ) ) {
-			$threshold = Hooks::getDamagingThreshold( $user );
+			$threshold = Hooks::getThreshold( 'damaging', $user );
 
 			$tables[] = 'ores_model';
 			$tables[] = 'ores_classification';
