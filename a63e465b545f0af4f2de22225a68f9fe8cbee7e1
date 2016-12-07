@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ed34346_285d854a",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2016-12-07T01:03:08Z",
+      "side": 1,
+      "message": "Unlike for goodfaith, you don\u0027t check the return value of buildRangeFilter before adding it to $conds. This means \u0026goodfaith\u003dgarbage behaves like \u0026goodfaith\u003dall, but \u0026damaging\u003dgarbage causes a query error because the query contains \"AND ()\"",
+      "revId": "a63e465b545f0af4f2de22225a68f9fe8cbee7e1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
