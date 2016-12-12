@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2edfb757_85cdb664",
+        "filename": "extension.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-12-12T07:38:15Z",
+      "side": 1,
+      "message": "Looks like this could be a single setting, similar to others in this file:\n\n\"OresDeferThreshold\": {\n    \"passive\": 1,\n    \"active\": 1\n}\n\nI also wonder why both are 1? This doesn\u0027t sound right.",
+      "revId": "389e7afbd26939db9f24baf0c2bb641f0b4e2b18",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2edfb757_a5fe7264",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-12-12T07:38:15Z",
+      "side": 1,
+      "message": "Please extract the entire new section into a private method.",
+      "revId": "389e7afbd26939db9f24baf0c2bb641f0b4e2b18",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2edfb757_85f49684",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-12-12T07:38:15Z",
+      "side": 1,
+      "message": "Is this change relevant for this patch, or unrelated?",
+      "revId": "389e7afbd26939db9f24baf0c2bb641f0b4e2b18",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
