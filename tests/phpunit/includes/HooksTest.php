@@ -358,6 +358,36 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$this->assertSame( $expected['join_conds'], $join_conds );
 	}
 
+	public function testOnEnhancedChangesListModifyLineDataGoodfaith() {
+		$row = new \stdClass();
+		$row->ores_goodfaith_score = 0.3;
+		$row->rc_patrolled = 1;
+		$row->rc_timestamp = '20150921134808';
+		$row->rc_deleted = 0;
+		$rc = RecentChange::newFromRow( $row );
+		$rc = RCCacheEntry::newFromParent( $rc );
+
+		$ecl = $this->getMockBuilder( EnhancedChangesList::class )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$ecl->expects( $this->any() )
+			->method( 'getUser' )
+			->will( $this->returnValue( $this->user ) );
+
+		$ecl->expects( $this->any() )
+			->method( 'getContext' )
+			->will( $this->returnValue( $this->context ) );
+
+		$data = [];
+		$block = [];
+		$classes = [];
+
+		ORES\Hooks::onEnhancedChangesListModifyLineData( $ecl, $data, $block, $rc, $classes );
+
+		$this->assertSame( [ 'mw-changeslist-goodfaith-maybebad' ], $classes );
+	}
+
 	public function testOnEnhancedChangesListModifyLineDataDamaging() {
 		$row = new \stdClass();
 		$row->ores_damaging_threshold = 0.2;
@@ -388,7 +418,14 @@ class OresHooksTest extends \MediaWikiTestCase {
 
 		$this->assertSame( [ 'recentChangesFlags' => [ 'damaging' => true ] ], $data );
 		$this->assertSame( [], $block );
-		$this->assertSame( [ 'damaging' ], $classes );
+		$this->assertSame(
+			[
+				'damaging',
+				'mw-changeslist-damaging-likelygood',
+				'mw-changeslist-damaging-maybebad',
+			],
+			$classes
+		);
 	}
 
 	public function testOnEnhancedChangesListModifyLineDataNonDamaging() {
@@ -421,7 +458,10 @@ class OresHooksTest extends \MediaWikiTestCase {
 
 		$this->assertSame( [], $data );
 		$this->assertSame( [], $block );
-		$this->assertSame( [], $classes );
+		$this->assertSame(
+			[ 'mw-changeslist-damaging-likelygood', 'mw-changeslist-damaging-maybebad' ],
+			$classes
+		);
 	}
 
 	public function testOnOldChangesListModifyLineDataDamaging() {
@@ -456,7 +496,14 @@ class OresHooksTest extends \MediaWikiTestCase {
 			' <abbr class="ores-damaging" title="This edit needs review">r</abbr>',
 			$s
 		);
-		$this->assertSame( [ 'damaging' ], $classes );
+		$this->assertSame(
+			[
+				'damaging',
+				'mw-changeslist-damaging-likelygood',
+				'mw-changeslist-damaging-maybebad',
+			],
+			$classes
+		);
 	}
 
 	public function testOnOldChangesListModifyLineDataNonDamaging() {
@@ -487,7 +534,10 @@ class OresHooksTest extends \MediaWikiTestCase {
 		ORES\Hooks::onOldChangesListRecentChangesLine( $cl, $s, $rc, $classes );
 
 		$this->assertSame( ' <span class="mw-changeslist-separator">. .</span> ', $s );
-		$this->assertSame( [], $classes );
+		$this->assertSame(
+			[ 'mw-changeslist-damaging-likelygood', 'mw-changeslist-damaging-maybebad' ],
+			$classes
+		);
 	}
 
 	public function provideOnContribsGetQueryInfo() {

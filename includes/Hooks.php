@@ -176,26 +176,23 @@ class Hooks {
 		}
 
 		if ( self::isModelEnabled( 'goodfaith' ) ) {
-			$goodfaith = $opts->getValue( 'goodfaith' );
-			if ( $goodfaith !== 'all' ) {
-				self::joinWithOresTables(
-					'goodfaith',
-					'rc_this_oldid',
-					$tables,
-					$fields,
-					$join_conds
-				);
-				$condition = self::buildRangeFilter(
-					'goodfaith',
-					$goodfaith
-				);
-				if ( $condition ) {
-					$conds[] = $condition;
-					$join_conds["ores_goodfaith_mdl"][0] = 'INNER JOIN';
-					$join_conds["ores_goodfaith_cls"][0] = 'INNER JOIN';
-					// Performance hack: add STRAIGHT_JOIN (146111)
-					$query_options[] = 'STRAIGHT_JOIN';
-				}
+			self::joinWithOresTables(
+				'goodfaith',
+				'rc_this_oldid',
+				$tables,
+				$fields,
+				$join_conds
+			);
+			$condition = self::buildRangeFilter(
+				'goodfaith',
+				$opts->getValue( 'goodfaith' )
+			);
+			if ( $condition ) {
+				$conds[] = $condition;
+				$join_conds["ores_goodfaith_mdl"][0] = 'INNER JOIN';
+				$join_conds["ores_goodfaith_cls"][0] = 'INNER JOIN';
+				// Performance hack: add STRAIGHT_JOIN (146111)
+				$query_options[] = 'STRAIGHT_JOIN';
 			}
 		}
 	}
@@ -274,6 +271,12 @@ class Hooks {
 			$parts[1] = ChangesList::flag( 'damaging' ) . $parts[1];
 			$s = implode( $separator, $parts );
 		}
+
+		$stats = Stats::newFromGlobalState();
+		self::addClasses( 'goodfaith', $stats->getThresholds( 'goodfaith' ), $rc, $classes );
+		self::addClasses( 'damaging', $stats->getThresholds( 'damaging' ), $rc, $classes );
+
+		return true;
 	}
 
 	/**
@@ -399,6 +402,10 @@ class Hooks {
 			$classes[] = 'damaging';
 			$data['recentChangesFlags']['damaging'] = true;
 		}
+
+		$stats = Stats::newFromGlobalState();
+		self::addClasses( 'goodfaith', $stats->getThresholds( 'goodfaith' ), $rcObj, $classes );
+		self::addClasses( 'damaging', $stats->getThresholds( 'damaging' ), $rcObj, $classes );
 	}
 
 	/**
@@ -662,6 +669,32 @@ class Hooks {
 			);
 
 			return \wfGetDB( DB_REPLICA )->makeList( $betweenConditions, \IDatabase::LIST_OR );
+		}
+	}
+
+	private static function addClasses( $model, $levelsDefinition, $rc, &$classes ) {
+		if ( !self::isModelEnabled( $model ) ) {
+			return;
+		}
+
+		$score = $rc->getAttribute( "ores_{$model}_score" );
+		if ( $score === null ) {
+			return;
+		}
+
+		$levels = array_keys(
+			array_filter(
+				$levelsDefinition,
+				function ( $level ) use ( $score ) {
+					return $level['min'] <= $score && $score <= $level['max'];
+				}
+			)
+		);
+
+		if ( $levels ) {
+			foreach ( $levels as $level ) {
+				$classes[] = "mw-changeslist-$model-$level";
+			}
 		}
 	}
 
