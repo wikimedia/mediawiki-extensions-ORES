@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2edfb757_5f22e4a3",
+        "filename": "extension.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 2305
+      },
+      "writtenOn": "2016-12-13T21:58:46Z",
+      "side": 1,
+      "message": "Putting them to 1 disables the feature by default. I wasn\u0027t sure which value to put as default. Maybe 0.90 for passive, 0.95 for active.",
+      "parentUuid": "2edfb757_85cdb664",
+      "revId": "389e7afbd26939db9f24baf0c2bb641f0b4e2b18",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2edfb757_a5fe7264",
         "filename": "includes/FetchScoreJob.php",
         "patchSetId": 2
@@ -47,6 +65,24 @@
       "writtenOn": "2016-12-12T07:38:15Z",
       "side": 1,
       "message": "Is this change relevant for this patch, or unrelated?",
+      "revId": "389e7afbd26939db9f24baf0c2bb641f0b4e2b18",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2edfb757_dc8022fc",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 2305
+      },
+      "writtenOn": "2016-12-13T21:58:46Z",
+      "side": 1,
+      "message": "We need the user to defer, see FetchScoreJob.php line 80. I don\u0027t know of any other way to get it.",
+      "parentUuid": "2edfb757_85f49684",
       "revId": "389e7afbd26939db9f24baf0c2bb641f0b4e2b18",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
