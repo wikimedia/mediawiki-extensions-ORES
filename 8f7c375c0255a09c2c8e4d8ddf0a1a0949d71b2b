@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e0e73b5_27d4cdeb",
+        "filename": "i18n/en.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2016-12-15T03:39:59Z",
+      "side": 1,
+      "message": "As I understand it, ORES scores are not probabilities, and an edit with a score of 0.90 does not have a 90% chance of being damaging. I\u0027ll ask Aaron Halfaker to confirm.",
+      "revId": "8f7c375c0255a09c2c8e4d8ddf0a1a0949d71b2b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e0e73b5_c7f97180",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2016-12-15T03:39:59Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 75,
+        "startChar": 25,
+        "endLine": 75,
+        "endChar": 92
+      },
+      "revId": "8f7c375c0255a09c2c8e4d8ddf0a1a0949d71b2b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
