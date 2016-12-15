@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "0e0e73b5_f4042582",
+        "filename": "extension.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 2305
+      },
+      "writtenOn": "2016-12-15T00:36:43Z",
+      "side": 1,
+      "message": "I\u0027ve put them in a single config var.",
+      "parentUuid": "2edfb757_5f22e4a3",
+      "revId": "389e7afbd26939db9f24baf0c2bb641f0b4e2b18",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2edfb757_a5fe7264",
         "filename": "includes/FetchScoreJob.php",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2016-12-12T07:38:15Z",
       "side": 1,
       "message": "Please extract the entire new section into a private method.",
+      "revId": "389e7afbd26939db9f24baf0c2bb641f0b4e2b18",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e0e73b5_b4fead64",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 2305
+      },
+      "writtenOn": "2016-12-15T00:36:43Z",
+      "side": 1,
+      "message": "I\u0027ve added maybeDefer and doDefer methods.",
+      "parentUuid": "2edfb757_a5fe7264",
       "revId": "389e7afbd26939db9f24baf0c2bb641f0b4e2b18",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
