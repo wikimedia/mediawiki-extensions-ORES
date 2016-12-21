@@ -1,0 +1,15 @@
+/**
+ * Make the whole rows yellow
+ */
+
+.damaging[data-ores-damaging='softest'] {
+	background-color: #fc3;
+}
+
+.damaging[data-ores-damaging='soft'] {
+	background-color: #ffe18d;
+}
+
+.damaging[data-ores-damaging='hard'] {
+	background-color: #fef6e7;
+}

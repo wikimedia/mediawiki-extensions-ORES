@@ -538,7 +538,8 @@ class Hooks {
 				'oresThresholds',
 				[ 'damaging' => $wgOresDamagingThresholds ]
 			);
-			$out->addModules( 'ext.ores.highlight' );
+			$out->addModules( 'ext.ores.highlighter' );
+			$out->addModuleStyles( 'ext.ores.styles' );
 		}
 		return true;
 	}

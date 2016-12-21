@@ -14,15 +14,3 @@ tr.damaging {
 	background: #fef6e7;
 	line-height: 1.8;
 }
-
-.damaging[data-ores-damaging='softest'] {
-	background-color: #fc3;
-}
-
-.damaging[data-ores-damaging='soft'] {
-	background-color: #ffe18d;
-}
-
-.damaging[data-ores-damaging='hard'] {
-	background-color: #fef6e7;
-}
