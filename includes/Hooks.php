@@ -131,7 +131,7 @@ class Hooks {
 		$name, array &$tables, array &$fields, array &$conds,
 		array &$query_options, array &$join_conds, FormOptions $opts
 	) {
-		global $wgUser, $wgOresDamagingLevels, $wgOresGoodfaithLevels;
+		global $wgUser;
 
 		if ( !self::oresEnabled( $wgUser ) ) {
 			return;
@@ -155,8 +155,7 @@ class Hooks {
 			if ( $damaging !== 'all' ) {
 				$damagingCondition = self::buildRangeFilter(
 					'damaging',
-					$damaging,
-					$wgOresDamagingLevels
+					$damaging
 				);
 				if ( $damagingCondition ) {
 					$conds[] = $damagingCondition;
@@ -188,8 +187,7 @@ class Hooks {
 				);
 				$condition = self::buildRangeFilter(
 					'goodfaith',
-					$goodfaith,
-					$wgOresGoodfaithLevels
+					$goodfaith
 				);
 				if ( $condition ) {
 					$conds[] = $condition;
@@ -622,7 +620,10 @@ class Hooks {
 		}
 	}
 
-	private static function buildRangeFilter( $name, $filterValue, $thresholds ) {
+	private static function buildRangeFilter( $name, $filterValue ) {
+		$stats = Stats::newFromGlobalState();
+		$thresholds = $stats->getThresholds( $name );
+
 		$selectedLevels = explode( ',', strtolower( $filterValue ) );
 		$selectedLevels = array_intersect(
 			$selectedLevels,

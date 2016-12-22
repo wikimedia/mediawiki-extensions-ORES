@@ -30,4 +30,9 @@ class OresApiTest extends \MediaWikiTestCase {
 		$this->assertSame( "https://ores-beta.wmflabs.org/scores/testwiki/", $url );
 	}
 
+	public function testApiUrlWithModel() {
+		$url = $this->api->getUrl( 'damaging' );
+		$this->assertSame( "https://ores-beta.wmflabs.org/scores/testwiki/damaging/", $url );
+	}
+
 }

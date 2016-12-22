@@ -24,7 +24,8 @@ class Scoring {
 			'revids' => implode( '|', (array) $revisions ),
 		];
 
-		$wireData = Api::request( array_merge( $params, $extra_params ) );
+		$api = new Api();
+		$wireData = $api->request( array_merge( $params, $extra_params ) );
 		return $wireData;
 	}
 

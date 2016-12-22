@@ -15,6 +15,7 @@
 		"ORES\\FetchScoreJob": "includes/FetchScoreJob.php",
 		"ORES\\Range": "includes/Range.php",
 		"ORES\\Scoring": "includes/Scoring.php",
+		"ORES\\Stats": "includes/Stats.php",
 		"ORES\\ApiQueryORES": "includes/ApiQueryORES.php",
 		"ORES\\ApiHooks": "includes/ApiHooks.php",
 		"ORES\\WatchedItemQueryServiceExtension": "includes/WatchedItemQueryServiceExtension.php"
@@ -133,17 +134,6 @@
 			"softest": 0.90,
 			"soft": 0.70,
 			"hard": 0.50
-		},
-		"OresDamagingLevels": {
-			"likelygood": { "min": 0, "max": 0.55 },
-			"maybebad": { "min": 0.16, "max": 1 },
-			"likelybad": { "min": 0.75, "max": 1 },
-			"verylikelybad": { "min": 0.92, "max": 1 }
-		},
-		"OresGoodfaithLevels": {
-			"good" : { "min": 0.35, "max": 1 },
-			"maybebad" : { "min": 0, "max": 0.65 },
-			"bad" : { "min": 0, "max": 0.15 }
 		},
 		"OresEnabledNamespaces": {},
 		"OresWikiId": null,

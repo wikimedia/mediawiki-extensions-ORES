@@ -13,9 +13,10 @@ use RuntimeException;
 class Api {
 
 	/**
+	 * @param string|null $model Name of the model to query
 	 * @return string Base URL plus your wiki's `scores` API path.
 	 */
-	public static function getUrl() {
+	public function getUrl( $model = null ) {
 		global $wgOresBaseUrl, $wgOresWikiId;
 
 		if ( $wgOresWikiId ) {
@@ -24,6 +25,9 @@ class Api {
 			$wikiId = wfWikiID();
 		}
 		$url = "{$wgOresBaseUrl}scores/{$wikiId}/";
+		if ( $model ) {
+			$url .= "{$model}/";
+		}
 		return $url;
 	}
 
@@ -31,14 +35,14 @@ class Api {
 	 * Make an ORES API request and return the decoded result.
 	 *
 	 * @param array $params optional GET parameters
+	 * @param string|null $model Name of the model to query
 	 * @return array Decoded response
 	 *
-	 * @throws RuntimeException
 	 */
-	public static function request( $params = [] ) {
+	public function request( $params = [], $model = null ) {
 		$logger = LoggerFactory::getInstance( 'ORES' );
 
-		$url = self::getUrl();
+		$url = $this->getUrl( $model );
 		$params['format'] = 'json';
 		$url = wfAppendQuery( $url, $params );
 		$logger->debug( "Requesting: {$url}" );

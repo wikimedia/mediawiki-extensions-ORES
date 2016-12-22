@@ -6,13 +6,17 @@ use ChangesList;
 use ChangesListSpecialPage;
 use ContribsPager;
 use EnhancedChangesList;
+use EventRelayerNull;
 use FormOptions;
+use HashBagOStuff;
 use IContextSource;
+use MediaWiki\MediaWikiServices;
 use ORES;
 use RCCacheEntry;
 use RecentChange;
 use RequestContext;
 use User;
+use WANObjectCache;
 
 /**
  * @group ORES
@@ -173,6 +177,8 @@ class OresHooksTest extends \MediaWikiTestCase {
 			]
 		] );
 
+		$this->mockStatsInCache();
+
 		$opts = new FormOptions();
 
 		$opts->add( 'hidenondamaging', false );
@@ -234,6 +240,8 @@ class OresHooksTest extends \MediaWikiTestCase {
 			]
 		] );
 
+		$this->mockStatsInCache();
+
 		$opts = new FormOptions();
 
 		$opts->add( 'hidenondamaging', false );
@@ -294,6 +302,8 @@ class OresHooksTest extends \MediaWikiTestCase {
 				'goodfaith' => true,
 			]
 		] );
+
+		$this->mockStatsInCache();
 
 		$opts = new FormOptions();
 
@@ -684,6 +694,36 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$context->setUser( $user );
 
 		return $context;
+	}
+
+	private function mockStatsInCache() {
+		$cache = new WANObjectCache( [
+			'cache' => new HashBagOStuff(),
+			'pool' => 'testcache-hash',
+			'relayer' => new EventRelayerNull( [] )
+		] );
+
+		$invalidStats = [ 'will trigger the use of' => 'default values' ];
+
+		$cache->set(
+			$cache->makeKey( 'ORES', 'test_stats', 'damaging' ),
+			$invalidStats,
+			\WANObjectCache::TTL_DAY
+		);
+
+		$cache->set(
+			$cache->makeKey( 'ORES', 'test_stats', 'goodfaith' ),
+			$invalidStats,
+			\WANObjectCache::TTL_DAY
+		);
+
+		MediaWikiServices::getInstance()->resetServiceForTesting( 'MainWANObjectCache' );
+		MediaWikiServices::getInstance()->redefineService(
+			'MainWANObjectCache',
+			function () use ( $cache ) {
+				return $cache;
+			}
+		);
 	}
 
 }
