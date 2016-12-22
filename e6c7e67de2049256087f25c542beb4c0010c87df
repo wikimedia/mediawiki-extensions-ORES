@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e0e73b5_945ff7e7",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-12-22T11:34:47Z",
+      "side": 1,
+      "message": "This does not need to be at the top any more, I believe.",
+      "revId": "e6c7e67de2049256087f25c542beb4c0010c87df",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e0e73b5_b45afbf7",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2016-12-22T11:34:47Z",
+      "side": 1,
+      "message": "Why not call this \"ext.ores.styles\", identical to the file?",
+      "range": {
+        "startLine": 106,
+        "startChar": 12,
+        "endLine": 106,
+        "endChar": 18
+      },
+      "revId": "e6c7e67de2049256087f25c542beb4c0010c87df",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
