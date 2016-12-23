@@ -92,11 +92,18 @@
 		"remoteExtPath": "ORES/modules"
 	},
 	"ResourceModules": {
-		"ext.ores.highlight": {
-			"position": "top",
+		"ext.ores.highlighter": {
 			"scripts": [
 				"ext.ores.highlighter.js"
 			],
+			"styles": "ext.ores.highlighter.css",
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		},
+		"ext.ores.styles": {
+			"position": "top",
 			"styles": "ext.ores.styles.css",
 			"targets": [
 				"desktop",
