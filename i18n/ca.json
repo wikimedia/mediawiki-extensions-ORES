@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Gerardduenas"
+		]
+	},
+	"ores-beta-feature-description": "ORES és una eina basada en la intel·ligència artificial que marca edicions possiblament perjudicials als canvis recents i a la llista de seguiment",
+	"ores-desc": "Mostra puntuacions automàtiques de les revisions a la interfície",
+	"ores-damaging-filter": "$1 edicions probablement benintencionades.",
+	"ores-damaging-hard": "Alt (marca més edicions)",
+	"ores-damaging-letter": "r",
+	"ores-damaging-soft": "Baix (marca menys edicions)",
+	"ores-damaging-softest": "Molt baix (marca les mínimes edicions)",
+	"ores-damaging-title": "Aquesta edició necessita revisió",
+	"ores-damaging-legend": "Aquesta edició pot ser perjudicial i s'ha de revisar ([[:mw:Special:MyLanguage/ORES review tool|més info]])",
+	"ores-help-damaging-pref": "Aquest llindar determina la sensibilitat de ORES quan marqui edicions que necessiten revisió",
+	"ores-hide-nondamaging-filter": "Mostra només edicions que s'han de revisar",
+	"ores-pref-damaging": "Sensibilitat d'ORES",
+	"ores-pref-rc-hidenondamaging": "Amaga edicions probablement benintencionades dels canvis recents",
+	"ores-pref-watchlist-hidenondamaging": "Amaga edicions probablement benintencionades de la llista de seguiment",
+	"prefs-ores": "Puntuació d'edicions",
+	"apihelp-query+ores-description": "Retorna configuracio d'ORES i dades model per aquesta wiki",
+	"apihelp-query+ores-example-simple": "Obtén dades d'ORES",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Puntuació ORES de l'edició",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Puntuació ORES de l'edició",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Afegeix puntuació ORES per l'entrada",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Afegeix puntuació ORES per l'entrada",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Afegeix puntuació ORES per l'edició",
+	"ores-api-show-note": "Quan utilitzeu <kbd>oresreview</kbd> o <kbd>!oresreview</kbd>, les revisions que no tinguin puntuació ORES (edicions antigues) es considerarà que no necessiten revisió, encara que necessitessin revisió si es puntuessin."
+}
