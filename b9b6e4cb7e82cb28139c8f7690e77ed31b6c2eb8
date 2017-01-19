@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4efb0bce_aeaaad80",
+        "filename": "includes/Stats.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-01-19T09:27:15Z",
+      "side": 1,
+      "message": "This is six level of nesting, move some parts to other methods.",
+      "revId": "b9b6e4cb7e82cb28139c8f7690e77ed31b6c2eb8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
