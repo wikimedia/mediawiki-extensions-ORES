@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4efb0bce_14c30e8e",
+        "filename": "includes/Stats.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-01-19T16:29:35Z",
+      "side": 1,
+      "message": "Please don\u0027t forget to split this deeply nested method a little bit more.",
+      "revId": "8175d1f2eb1b51b1a28b938d9c6f2ba951395ff2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efb0bce_b4d9da85",
+        "filename": "tests/phpunit/includes/StatsTest.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-01-19T16:29:35Z",
+      "side": 1,
+      "message": "Are you sure these methods are *all* needed?",
+      "range": {
+        "startLine": 19,
+        "startChar": 5,
+        "endLine": 27,
+        "endChar": 8
+      },
+      "revId": "8175d1f2eb1b51b1a28b938d9c6f2ba951395ff2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
