@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "4efb0bce_e94e5f3b",
+        "filename": "includes/Api.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-01-19T13:32:17Z",
+      "side": 1,
+      "message": "This should be $this-\u003e now that stuff is not static any more. Same for all other calls of getUrl() and request().",
+      "range": {
+        "startLine": 44,
+        "startChar": 9,
+        "endLine": 44,
+        "endChar": 15
+      },
+      "revId": "b9b6e4cb7e82cb28139c8f7690e77ed31b6c2eb8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efb0bce_69594f01",
+        "filename": "includes/Stats.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-01-19T13:32:17Z",
+      "side": 1,
+      "message": "Please use private by default, except you are planning to expose this to subclasses. Which does not seem to be the case here.",
+      "range": {
+        "startLine": 14,
+        "startChar": 1,
+        "endLine": 14,
+        "endChar": 10
+      },
+      "revId": "b9b6e4cb7e82cb28139c8f7690e77ed31b6c2eb8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efb0bce_296c7798",
+        "filename": "includes/Stats.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-01-19T13:32:17Z",
+      "side": 1,
+      "message": "This line does not add any knowledge. Please remove.",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 22
+      },
+      "revId": "b9b6e4cb7e82cb28139c8f7690e77ed31b6c2eb8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efb0bce_0969bb88",
+        "filename": "includes/Stats.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-01-19T13:32:17Z",
+      "side": 1,
+      "message": "Type hints missing.",
+      "range": {
+        "startLine": 95,
+        "startChar": 30,
+        "endLine": 95,
+        "endChar": 51
+      },
+      "revId": "b9b6e4cb7e82cb28139c8f7690e77ed31b6c2eb8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4efb0bce_aeaaad80",
         "filename": "includes/Stats.php",
         "patchSetId": 4
@@ -13,6 +105,29 @@
       "writtenOn": "2017-01-19T09:27:15Z",
       "side": 1,
       "message": "This is six level of nesting, move some parts to other methods.",
+      "revId": "b9b6e4cb7e82cb28139c8f7690e77ed31b6c2eb8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efb0bce_e9653fab",
+        "filename": "includes/Stats.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-01-19T13:32:17Z",
+      "side": 1,
+      "message": "This function name gives the impression this is using the singleton pattern, but the constructor is still public. I suggest the function name \"newFromGlobalState\".",
+      "range": {
+        "startLine": 150,
+        "startChar": 24,
+        "endLine": 150,
+        "endChar": 32
+      },
       "revId": "b9b6e4cb7e82cb28139c8f7690e77ed31b6c2eb8",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
