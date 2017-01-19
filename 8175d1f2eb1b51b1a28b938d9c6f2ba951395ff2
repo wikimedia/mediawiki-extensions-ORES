@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4efb0bce_14a78e4d",
+        "filename": "includes/Stats.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2017-01-19T17:57:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4efb0bce_14c30e8e",
+      "revId": "8175d1f2eb1b51b1a28b938d9c6f2ba951395ff2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4efb0bce_b4d9da85",
         "filename": "tests/phpunit/includes/StatsTest.php",
         "patchSetId": 6
@@ -30,6 +48,30 @@
       "writtenOn": "2017-01-19T16:29:35Z",
       "side": 1,
       "message": "Are you sure these methods are *all* needed?",
+      "range": {
+        "startLine": 19,
+        "startChar": 5,
+        "endLine": 27,
+        "endChar": 8
+      },
+      "revId": "8175d1f2eb1b51b1a28b938d9c6f2ba951395ff2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efb0bce_94481e8e",
+        "filename": "tests/phpunit/includes/StatsTest.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2017-01-19T17:57:47Z",
+      "side": 1,
+      "message": "We\u0027re mocking an interface, they all have to be defined for the type hint to be satisfied with this object.",
+      "parentUuid": "4efb0bce_b4d9da85",
       "range": {
         "startLine": 19,
         "startChar": 5,
