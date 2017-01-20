@@ -10,11 +10,21 @@
 	"ores-damaging-hard": "Altu (marca más ediciones)",
 	"ores-damaging-letter": "r",
 	"ores-damaging-soft": "Baxu (marca menos ediciones)",
+	"ores-damaging-softest": "Mínimu (marca les menos ediciones posibles)",
 	"ores-damaging-title": "Esta edición precisa una revisión",
 	"ores-damaging-legend": "Esta edición puede ser perxudicial y tendría de revisase ([[:mw:Special:MyLanguage/ORES review tool|más información]])",
 	"ores-help-damaging-pref": "Esti intervalu determina la sensibilidá d'ORES cuando se marquen les ediciones que riquen revisión",
 	"ores-hide-nondamaging-filter": "Amuesa sólo ediciones que precisen revisión",
 	"ores-pref-damaging": "Sensibilidá d'ORES",
 	"ores-pref-rc-hidenondamaging": "Despintar les ediciones probablemente bones de los cambeos recién",
-	"ores-pref-watchlist-hidenondamaging": "Despintar les ediciones probablemente bones de la llista de siguimientu"
+	"ores-pref-watchlist-hidenondamaging": "Despintar les ediciones probablemente bones de la llista de siguimientu",
+	"prefs-ores": "Puntuación de revisión",
+	"apihelp-query+ores-description": "Devolver la configuración ORES y datos modelu d'esta wiki.",
+	"apihelp-query+ores-example-simple": "Recuperar los datos ORESː",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Puntuación ORES de la revisión.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Puntuación ORES de la revisión.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Añadir la puntuación ORES de la entrada.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Añadir la puntuación ORES de la edición.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Añadir la puntuación ORES de la edición.",
+	"ores-api-show-note": "Cuando utilices <kbd>oresreview</kbd> o <kbd>!oresreview</kbd>, les revisiones que nun tengan puntuación ORES (p.ex. ediciones mui antigües) consideraráse que nun necesiten revisión, anque necesitaríen revisión si se puntúen."
 }
