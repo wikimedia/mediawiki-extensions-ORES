@@ -173,6 +173,7 @@ class Hooks {
 				}
 			} elseif ( $hideNonDamaging ) {
 				self::hideNonDamagingFilter( $fields, $conds, $hideNonDamaging, $wgUser );
+				$conds['rc_patrolled'] = 0;
 				$filtering = true;
 			}
 
@@ -643,13 +644,12 @@ class Hooks {
 		$dbr = \wfGetDB( DB_REPLICA );
 		// Add user-based threshold
 		$threshold = self::getThreshold( 'damaging', $user );
+		// FIXME: This is not a "filter" but an undocumented side effect of this function.
 		$fields['ores_damaging_threshold'] = $dbr->addQuotes( $threshold );
 
 		if ( $hidenondamaging ) {
 			// Filter out non-damaging edits.
 			$conds[] = 'ores_damaging_cls.oresc_probability > ' . $dbr->addQuotes( $threshold );
-
-			$conds['rc_patrolled'] = 0;
 		}
 	}
 
