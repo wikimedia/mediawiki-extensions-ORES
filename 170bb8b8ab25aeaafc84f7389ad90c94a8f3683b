@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4efb0bce_6bcedcba",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-01-20T10:55:03Z",
+      "side": 1,
+      "message": "This condition is redundant see line 174",
+      "revId": "170bb8b8ab25aeaafc84f7389ad90c94a8f3683b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
