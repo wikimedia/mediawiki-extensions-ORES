@@ -27,7 +27,6 @@ class Hooks {
 
 	/**
 	 * @param DatabaseUpdater $updater
-	 * @return bool
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$updater->addExtensionTable( 'ores_classification', __DIR__ . '/../sql/ores_classification.sql' );
@@ -38,19 +37,17 @@ class Hooks {
 			__DIR__ . '/../sql/patch-ores-classification-unique-indexes.sql' );
 		$updater->addExtensionIndex( 'ores_model', 'oresm_model_status',
 			__DIR__ . '/../sql/patch-ores-model-indexes.sql' );
-		return true;
 	}
 
 	/**
 	 * Ask the ORES server for scores on this recent change
 	 *
 	 * @param RecentChange $rc
-	 * @return bool|null
 	 */
 	public static function onRecentChange_save( RecentChange $rc ) {
 		global $wgOresExcludeBots, $wgOresEnabledNamespaces;
 		if ( $rc->getAttribute( 'rc_bot' ) && $wgOresExcludeBots ) {
-			return true;
+			return;
 		}
 
 		// Check if we actually want score for this namespace
@@ -59,7 +56,7 @@ class Hooks {
 			!( isset( $wgOresEnabledNamespaces[$ns] ) &&
 			$wgOresEnabledNamespaces[$ns] )
 		) {
-			return true;
+			return;
 		}
 
 		$rc_type = $rc->getAttribute( 'rc_type' );
@@ -78,8 +75,6 @@ class Hooks {
 				'revid' => $revid,
 			] );
 		}
-
-		return true;
 	}
 
 	/**
@@ -87,14 +82,13 @@ class Hooks {
 	 *
 	 * @param ChangesListSpecialPage $clsp
 	 * @param $filters
-	 * @return bool
 	 */
 	public static function onChangesListSpecialPageFilters(
 		ChangesListSpecialPage $clsp,
 		&$filters
 	) {
 		if ( !self::oresEnabled( $clsp->getUser() ) ) {
-			return true;
+			return;
 		}
 
 		if ( self::isModelEnabled( 'damaging' ) ) {
@@ -120,8 +114,6 @@ class Hooks {
 		if ( self::isModelEnabled( 'goodfaith' ) ) {
 			$filters['goodfaith'] = [ 'msg' => false, 'default' => 'all' ];
 		}
-
-		return true;
 	}
 
 	/**
@@ -134,7 +126,6 @@ class Hooks {
 	 * @param array $query_options
 	 * @param array $join_conds
 	 * @param FormOptions $opts
-	 * @return bool
 	 */
 	public static function onChangesListSpecialPageQuery(
 		$name, array &$tables, array &$fields, array &$conds,
@@ -143,7 +134,7 @@ class Hooks {
 		global $wgUser, $wgOresDamagingLevels, $wgOresGoodfaithLevels;
 
 		if ( !self::oresEnabled( $wgUser ) ) {
-			return true;
+			return;
 		}
 
 		if ( self::isModelEnabled( 'damaging' ) ) {
@@ -209,8 +200,6 @@ class Hooks {
 				}
 			}
 		}
-
-		return true;
 	}
 
 	/**
@@ -221,7 +210,6 @@ class Hooks {
 	 * @param RCCacheEntry[] $block
 	 * @param RCCacheEntry $rcObj
 	 * @param string[] $classes
-	 * @return bool
 	 */
 	public static function onEnhancedChangesListModifyLineData(
 		EnhancedChangesList $ecl,
@@ -231,12 +219,10 @@ class Hooks {
 		array &$classes
 	) {
 		if ( !self::oresEnabled( $ecl->getUser() ) ) {
-			return true;
+			return;
 		}
 
 		self::processRecentChangesList( $rcObj, $data, $classes, $ecl->getContext() );
-
-		return true;
 	}
 
 	/**
@@ -245,7 +231,6 @@ class Hooks {
 	 * @param EnhancedChangesList $ecl
 	 * @param array $data
 	 * @param RCCacheEntry $rcObj
-	 * @return bool
 	 */
 	public static function onEnhancedChangesListModifyBlockLineData(
 		EnhancedChangesList $ecl,
@@ -253,13 +238,11 @@ class Hooks {
 		RCCacheEntry $rcObj
 	) {
 		if ( !self::oresEnabled( $ecl->getUser() ) ) {
-			return true;
+			return;
 		}
 
 		$classes = [];
 		self::processRecentChangesList( $rcObj, $data, $classes, $ecl->getContext() );
-
-		return true;
 	}
 
 	/**
@@ -270,8 +253,6 @@ class Hooks {
 	 * @param string $s
 	 * @param RecentChange $rc
 	 * @param string[] &$classes
-	 *
-	 * @return bool
 	 */
 	public static function onOldChangesListRecentChangesLine(
 		ChangesList &$changesList,
@@ -280,22 +261,21 @@ class Hooks {
 		&$classes = []
 	) {
 		if ( !self::oresEnabled( $changesList->getUser() ) ) {
-			return true;
+			return;
 		}
 
 		$damaging = self::getScoreRecentChangesList( $rc, $changesList->getContext() );
 		if ( $damaging ) {
 			$separator = ' <span class="mw-changeslist-separator">. .</span> ';
 			if ( strpos( $s, $separator ) === false ) {
-				return false;
+				return;
 			}
+
 			$classes[] = 'damaging';
 			$parts = explode( $separator, $s );
 			$parts[1] = ChangesList::flag( 'damaging' ) . $parts[1];
 			$s = implode( $separator, $parts );
 		}
-
-		return true;
 	}
 
 	/**
@@ -303,15 +283,15 @@ class Hooks {
 	 *
 	 * @param ContribsPager $pager
 	 * @param array $query
-	 * @return bool|null
 	 */
 	public static function onContribsGetQueryInfo(
 		ContribsPager $pager,
 		&$query
 	) {
 		if ( !self::oresEnabled( $pager->getUser() ) ) {
-			return true;
+			return;
 		}
+
 		if ( self::isModelEnabled( 'damaging' ) ) {
 			$request = $pager->getContext()->getRequest();
 
@@ -330,7 +310,6 @@ class Hooks {
 				$pager->getUser()
 			);
 		}
-		return true;
 	}
 
 	public static function onSpecialContributionsFormatRowFlags(
@@ -339,12 +318,12 @@ class Hooks {
 		array &$flags
 	) {
 		if ( !self::oresEnabled( $context->getUser() ) ) {
-			return true;
+			return;
 		}
 
 		// Doesn't have ores score, skipping.
 		if ( !isset( $row->ores_damaging_score ) ) {
-			return true;
+			return;
 		}
 
 		self::addRowData( $context, $row->rev_id, (float)$row->ores_damaging_score, 'damaging' );
@@ -353,7 +332,6 @@ class Hooks {
 			// Prepend the "r" flag
 			array_unshift( $flags, ChangesList::flag( 'damaging' ) );
 		}
-		return true;
 	}
 
 	public static function onContributionsLineEnding(
@@ -363,19 +341,18 @@ class Hooks {
 		array &$classes
 	) {
 		if ( !self::oresEnabled( $pager->getUser() ) ) {
-			return true;
+			return;
 		}
 
 		// Doesn't have ores score, skipping.
 		if ( !isset( $row->ores_damaging_score ) ) {
-			return true;
+			return;
 		}
 
 		if ( $row->ores_damaging_score > $row->ores_damaging_threshold ) {
 			// Add the damaging class
 			$classes[] = 'damaging';
 		}
-		return true;
 	}
 
 	/**
@@ -383,14 +360,13 @@ class Hooks {
 	 *
 	 * @param SpecialContributions $page
 	 * @param string HTML[] $filters
-	 * @return bool
 	 */
 	public static function onSpecialContributionsGetFormFilters(
 		SpecialContributions $page,
 		array &$filters
 	) {
 		if ( !self::oresEnabled( $page->getUser() ) || !self::isModelEnabled( 'damaging' ) ) {
-			return true;
+			return;
 		}
 
 		$filters[] = Html::rawElement(
@@ -404,8 +380,6 @@ class Hooks {
 				[ 'class' => 'mw-input' ]
 			)
 		);
-
-		return true;
 	}
 
 	/**
@@ -481,13 +455,12 @@ class Hooks {
 	 *
 	 * @param User $user
 	 * @param string[] $preferences
-	 * @return bool
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
 		global $wgOresDamagingThresholds;
 
 		if ( !self::oresEnabled( $user ) || !self::isModelEnabled( 'damaging' ) ) {
-			return true;
+			return;
 		}
 
 		$options = [];
@@ -514,8 +487,6 @@ class Hooks {
 			'section' => 'rc/advancedrc',
 			'label-message' => 'ores-pref-rc-hidenondamaging',
 		];
-
-		return true;
 	}
 
 	/**
@@ -523,12 +494,11 @@ class Hooks {
 	 *
 	 * @param OutputPage $out
 	 * @param Skin $skin
-	 * @return bool
 	 */
 	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
 		global $wgOresDamagingThresholds;
 		if ( !self::oresEnabled( $out->getUser() ) ) {
-			return true;
+			return;
 		}
 
 		$oresData = $out->getProperty( 'oresData' );
@@ -542,7 +512,6 @@ class Hooks {
 			$out->addModules( 'ext.ores.highlighter' );
 			$out->addModuleStyles( 'ext.ores.styles' );
 		}
-		return true;
 	}
 
 	/**
