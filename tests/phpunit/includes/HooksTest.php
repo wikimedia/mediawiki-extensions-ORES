@@ -536,6 +536,64 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$this->assertSame( $expected['join_conds'], $query['join_conds'] );
 	}
 
+	public function testOnContribsGetQueryInfoOnlyDamaging() {
+		$cp = $this->getMockBuilder( ContribsPager::class )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$cp->expects( $this->any() )
+			->method( 'getUser' )
+			->will( $this->returnValue( $this->user ) );
+
+		$this->context->getRequest()->setVal( 'hidenondamaging', true );
+
+		$cp->expects( $this->any() )
+			->method( 'getContext' )
+			->will( $this->returnValue( $this->context ) );
+
+		$query = [
+			'tables' => [],
+			'fields' => [],
+			'conds' => [],
+			'options' => [],
+			'join_conds' => [],
+		];
+		ORES\Hooks::onContribsGetQueryInfo(
+			$cp,
+			$query
+		);
+		$expected = [
+			'tables' => [
+				'ores_damaging_mdl' => 'ores_model',
+				'ores_damaging_cls' => 'ores_classification'
+			],
+			'fields' => [
+				'ores_damaging_score' => 'ores_damaging_cls.oresc_probability',
+				'ores_damaging_threshold' => "'0.7'"
+			],
+			'conds' => [ "ores_damaging_cls.oresc_probability > '0.7'" ],
+			'join_conds' => [
+				'ores_damaging_mdl' => [ 'LEFT JOIN',
+				                         [
+					                         'ores_damaging_mdl.oresm_is_current' => 1,
+					                         'ores_damaging_mdl.oresm_name' => 'damaging'
+				                         ]
+				],
+				'ores_damaging_cls' => [ 'LEFT JOIN',
+				                         [
+					                         'ores_damaging_cls.oresc_model = ores_damaging_mdl.oresm_id',
+					                         'rev_id = ores_damaging_cls.oresc_rev',
+					                         'ores_damaging_cls.oresc_class' => 1
+				                         ]
+				]
+			],
+		];
+		$this->assertSame( $expected['tables'], $query['tables'] );
+		$this->assertSame( $expected['fields'], $query['fields'] );
+		$this->assertSame( $expected['conds'], $query['conds'] );
+		$this->assertSame( $expected['join_conds'], $query['join_conds'] );
+	}
+
 	public function testOnSpecialContributionsFormatRowFlagsDamaging() {
 		$row = new \stdClass();
 		$row->ores_damaging_threshold = 0.2;
