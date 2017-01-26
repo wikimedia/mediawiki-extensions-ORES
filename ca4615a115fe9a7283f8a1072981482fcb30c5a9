@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2ef897d1_b2859e0d",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-01-26T10:52:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ef897d1_b2a8fed9",
+      "range": {
+        "startLine": 12,
+        "startChar": 21,
+        "endLine": 12,
+        "endChar": 67
+      },
+      "revId": "ca4615a115fe9a7283f8a1072981482fcb30c5a9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ef897d1_52b0aa3e",
         "filename": "modules/ext.ores.highlighter.js",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-26T10:18:20Z",
       "side": 1,
       "message": "This backslash is not necessary.",
+      "range": {
+        "startLine": 16,
+        "startChar": 34,
+        "endLine": 16,
+        "endChar": 35
+      },
+      "revId": "ca4615a115fe9a7283f8a1072981482fcb30c5a9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ef897d1_d2901a51",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-01-26T10:52:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ef897d1_52b0aa3e",
       "range": {
         "startLine": 16,
         "startChar": 34,
