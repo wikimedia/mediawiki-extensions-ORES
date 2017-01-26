@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2ef897d1_18f5b14c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-01-26T18:32:27Z",
+      "side": 1,
+      "message": "Enhance \u003d Improve. I will add some more notes below",
+      "parentUuid": "2ef897d1_723606e6",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 7
+      },
+      "revId": "14dcefb54cde0fdcbfd66faf59c1ae27aba481c5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ef897d1_926e22c3",
         "filename": "modules/ext.ores.styles.css",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-26T10:12:41Z",
       "side": 1,
       "message": "This is not true for both selectors any more.",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 21
+      },
+      "revId": "14dcefb54cde0fdcbfd66faf59c1ae27aba481c5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ef897d1_8c9f2655",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-01-26T18:32:27Z",
+      "side": 1,
+      "message": "I think I know what\u0027s wrong. I still want to highlight the whole row but it seems I did a huge mistake :D Since CSS doesn\u0027t have parent selector (yet) I need to find a way.",
+      "parentUuid": "2ef897d1_926e22c3",
       "range": {
         "startLine": 10,
         "startChar": 12,
