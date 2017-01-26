@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ef897d1_723606e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-01-26T10:12:41Z",
+      "side": 1,
+      "message": "What does \"enhance\" mean? I\u0027m afraid this commit message does not describe the actual code change.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 7
+      },
+      "revId": "14dcefb54cde0fdcbfd66faf59c1ae27aba481c5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ef897d1_926e22c3",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-01-26T10:12:41Z",
+      "side": 1,
+      "message": "This is not true for both selectors any more.",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 21
+      },
+      "revId": "14dcefb54cde0fdcbfd66faf59c1ae27aba481c5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ef897d1_b2691ebf",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-01-26T10:12:41Z",
+      "side": 1,
+      "message": "So this patch does two things:\n* Do not highlight full table rows.\n* Instead highlight abbr tags in table cells.\n\nThis selector is unnecessary complicated, in my opinion. It can be \"td \u003e abbr.ores-damaging\". This would not change anything. I would even suggest \"abbr.ores-damaging\", because I do not see a reason to *not* highlight an \u003cabbr class\u003d\"ores-damaging\"\u003e just because it is not in a \u003ctd\u003e.",
+      "revId": "14dcefb54cde0fdcbfd66faf59c1ae27aba481c5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
