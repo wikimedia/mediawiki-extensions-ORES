@@ -39,6 +39,7 @@ class Api {
 		$logger = LoggerFactory::getInstance( 'ORES' );
 
 		$url = self::getUrl();
+		$params['format'] = 'json';
 		$url = wfAppendQuery( $url, $params );
 		$logger->debug( "Requesting: {$url}" );
 		$req = MWHttpRequest::factory( $url, null, __METHOD__ );
