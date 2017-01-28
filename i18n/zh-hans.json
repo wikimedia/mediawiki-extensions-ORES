@@ -5,7 +5,7 @@
 			"Myy730"
 		]
 	},
-	"ores-beta-feature-description": "ORES是一个基于AI，将最近更改和监视列表中可能为破坏的编辑高亮显示的工具。",
+	"ores-beta-feature-description": "ORES是一个基于AI，将最近更改和监视列表中可能有害的编辑高亮显示的工具。",
 	"ores-desc": "在界面中显示自动生成的修订折线",
 	"ores-damaging-filter": "$1可能良好编辑",
 	"ores-damaging-hard": "高（标记更多编辑）",
@@ -13,7 +13,7 @@
 	"ores-damaging-soft": "低（标记更少编辑）",
 	"ores-damaging-softest": "最低（标记可能的最小编辑）",
 	"ores-damaging-title": "此编辑需要复核",
-	"ores-damaging-legend": "此次编辑可能具备破坏性，并应被复核（[[:mw:Special:MyLanguage/ORES review tool|更多信息]]）",
+	"ores-damaging-legend": "此次编辑可能有害，并应被复核（[[:mw:Special:MyLanguage/ORES review tool|更多信息]]）",
 	"ores-help-damaging-pref": "此门槛决定当标记编辑需要复核时，ORES的敏感度",
 	"ores-hide-nondamaging-filter": "只显示需要复核的编辑",
 	"ores-pref-damaging": "ORES敏感度",
