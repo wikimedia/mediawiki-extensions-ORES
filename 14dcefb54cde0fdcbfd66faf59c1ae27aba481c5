@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "2ef897d1_16ffa632",
+        "filename": "modules/ext.ores.styles.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-01-31T10:48:39Z",
+      "side": 1,
+      "message": "It wouldn\u0027t help in any case, rows with zero children (pages with only a single page in the date range) need to be highlighted as well. This has to be fixed in PHP, probably somewhere in onEnhancedChangesListModifyBlockLineData.\n\nAlso, the JS needs to handle tables as well - not sure if that\u0027s in scope for this patch.",
+      "parentUuid": "2ef897d1_8c9f2655",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 21
+      },
+      "revId": "14dcefb54cde0fdcbfd66faf59c1ae27aba481c5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ef897d1_b2691ebf",
         "filename": "modules/ext.ores.styles.css",
         "patchSetId": 1
