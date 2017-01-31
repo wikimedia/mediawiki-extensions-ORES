@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ef897d1_dbd7f7f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-01-31T10:26:19Z",
+      "side": 1,
+      "message": "The bug number got lost somehow.",
+      "revId": "f025d5704a9cd63bbd85bf8c4f14813b3b5925a1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ef897d1_3bb4cbe3",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-01-31T10:26:19Z",
+      "side": 1,
+      "message": "Not related to this patch specifically, but the whole frontend code is somewhat hard to follow due to lack of documentation. (What is it doing? Which pages is it supposed to work on? Old RC, new RC, contributions, logs, history, new pages/files could all be reasonable targets. What is the format and meaning of the data imported via mw.config?)",
+      "revId": "f025d5704a9cd63bbd85bf8c4f14813b3b5925a1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ef897d1_7b900347",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-01-31T10:26:19Z",
+      "side": 1,
+      "message": "This is rather fragile. What if the user is a functionary who has some extra tools (e.g. revdel) at the front of the line? What if they use a gadget that has already changed the row?\n\nWhy not put the scores in the HTML as data attributes and have the script act on that without all the DOM navigation?",
+      "revId": "f025d5704a9cd63bbd85bf8c4f14813b3b5925a1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
