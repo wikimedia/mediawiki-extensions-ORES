@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ef897d1_293fe0d4",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-02-01T01:42:50Z",
+      "side": 1,
+      "message": "The conventional name is provideOnContribsGetQueryInfo (classes are nouns, methods are verbs).",
+      "revId": "82c51b9b17c3d64b6167c7b52e487f65c03f0fdd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ef897d1_c9260cc9",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-02-01T01:42:50Z",
+      "side": 1,
+      "message": "Weird spacing. (Why not just put each testcase on a single line, anyway?)\n\nAlso, kind of pointless to define $res.",
+      "revId": "82c51b9b17c3d64b6167c7b52e487f65c03f0fdd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ef897d1_691cb87c",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-02-01T01:42:50Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 533,
+        "startChar": 62,
+        "endLine": 533,
+        "endChar": 73
+      },
+      "revId": "82c51b9b17c3d64b6167c7b52e487f65c03f0fdd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
