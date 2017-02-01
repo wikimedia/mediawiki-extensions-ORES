@@ -68,6 +68,24 @@
       "revId": "f025d5704a9cd63bbd85bf8c4f14813b3b5925a1",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ef897d1_9fcddd36",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-02-01T23:43:15Z",
+      "side": 1,
+      "message": "A Special:Contributions row with revdel looks like this:\n\n(change visibility) 04:09, 31 January 2017 (diff | hist) . . (+8)‎ . . Test\n\nYou can always just inject the data (or the revision ids or something else easily machine-identifiable) as both HTML and JS. Bandwidth is cheap, adding 1K to a 100K document is far less problematic than having a vandalism warning system that sometimes shows the wrong warning.",
+      "parentUuid": "2ef897d1_5fe2c52f",
+      "revId": "f025d5704a9cd63bbd85bf8c4f14813b3b5925a1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
