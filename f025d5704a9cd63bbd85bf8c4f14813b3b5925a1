@@ -50,6 +50,24 @@
       "revId": "f025d5704a9cd63bbd85bf8c4f14813b3b5925a1",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ef897d1_5fe2c52f",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-02-01T22:20:10Z",
+      "side": 1,
+      "message": "revdel is a checkmark input, not a \u003ca\u003e tag. In order to have flexibility and make it more usable, we inject the scores as a config variable to the javascript (see line 21). I know it\u0027s fragile but until we don\u0027t have proper class injected to those diff links, it\u0027s the best option I was able to find.",
+      "parentUuid": "2ef897d1_7b900347",
+      "revId": "f025d5704a9cd63bbd85bf8c4f14813b3b5925a1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
