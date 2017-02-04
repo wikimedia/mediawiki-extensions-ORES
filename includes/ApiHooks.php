@@ -13,6 +13,7 @@ use ApiQueryWatchlist;
 use ApiResult;
 use DeferredUpdates;
 use JobQueueGroup;
+use MediaWiki\Logger\LoggerFactory;
 use Title;
 use ResultWrapper;
 use WatchedItem;
@@ -268,6 +269,10 @@ class ApiHooks {
 			}
 			$loadedScores = Scoring::instance()->getScores( $revids );
 			$cache = Cache::instance();
+			$cache->setErrorCallback( function ( $mssg, $revision ) {
+				$logger = LoggerFactory::getInstance( 'ORES' );
+				$logger->info( "Scoring errored for $revision: $mssg\n" );
+			} );
 			DeferredUpdates::addCallableUpdate( function() use ( $cache, $loadedScores ) {
 				$cache->storeScores( $loadedScores );
 			} );
