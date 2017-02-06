@@ -148,14 +148,14 @@
 		"OresEnabledNamespaces": {},
 		"OresWikiId": null,
 		"OresRevisionsPerBatch": 50,
-		"OresAPIMaxBatchJobs": 100,
-		"RecentChangesFlags": {
-			"damaging": {
-				"letter": "ores-damaging-letter",
-				"title": "ores-damaging-title",
-				"legend": "ores-damaging-legend",
-				"class": "ores-damaging"
-			}
+		"OresAPIMaxBatchJobs": 100
+	},
+	"RecentChangesFlags": {
+		"damaging": {
+			"letter": "ores-damaging-letter",
+			"title": "ores-damaging-title",
+			"legend": "ores-damaging-legend",
+			"class": "ores-damaging"
 		}
 	},
 	"DefaultUserOptions": {
