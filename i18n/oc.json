@@ -5,5 +5,6 @@
 		]
 	},
 	"ores-damaging-filter": "$1 modificacions probablament bonas",
+	"ores-damaging-hard": "Naut (indica mai de modificacions)",
 	"ores-pref-damaging": "Sulhet ORES"
 }
