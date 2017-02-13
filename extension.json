@@ -147,8 +147,8 @@
 		},
 		"OresEnabledNamespaces": {},
 		"OresWikiId": null,
-		"OresRevisionsPerBatch": 50,
-		"OresAPIMaxBatchJobs": 100
+		"OresRevisionsPerBatch": 30,
+		"OresAPIMaxBatchJobs": 3
 	},
 	"RecentChangesFlags": {
 		"damaging": {
