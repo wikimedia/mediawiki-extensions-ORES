@@ -13,7 +13,7 @@
 	"ores-damaging-title": "This edit needs review",
 	"ores-damaging-legend": "This edit may be damaging and should be reviewed ([[:mw:Special:MyLanguage/ORES review tool|more info]])",
 	"ores-help-damaging-pref": "This threshold determines how sensitive ORES is when flagging edits needing review",
-	"ores-hide-nondamaging-filter": "Only show edits needing review",
+	"ores-hide-nondamaging-filter": "Hide probably good edits",
 	"ores-pref-damaging": "ORES sensitivity",
 	"ores-pref-rc-hidenondamaging": "Hide probably good edits from recent changes",
 	"ores-pref-watchlist-hidenondamaging": "Hide probably good edits from the watchlist",
