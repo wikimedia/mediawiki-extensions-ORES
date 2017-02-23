@@ -22,6 +22,30 @@
       "revId": "9dc08f333f6ae2342052638948ba45e0f7a14390",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce3c5b53_185a2453",
+        "filename": "includes/ApiHooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-02-23T01:14:22Z",
+      "side": 1,
+      "message": "Fixed in Iaadd5528e.",
+      "parentUuid": "ce3c5b53_b8ea1872",
+      "range": {
+        "startLine": 130,
+        "startChar": 43,
+        "endLine": 130,
+        "endChar": 44
+      },
+      "revId": "9dc08f333f6ae2342052638948ba45e0f7a14390",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
