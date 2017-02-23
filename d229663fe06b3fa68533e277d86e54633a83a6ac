@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce3c5b53_58f98549",
+        "filename": "i18n/en.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 366
+      },
+      "writtenOn": "2017-02-23T20:38:42Z",
+      "side": 1,
+      "message": "Either hyphenate both \"good-faith edits\" and \"bad-faith edits\" (my preference) or neither, but let\u0027s not have a mixture. :-)",
+      "range": {
+        "startLine": 14,
+        "startChar": 39,
+        "endLine": 14,
+        "endChar": 47
+      },
+      "revId": "d229663fe06b3fa68533e277d86e54633a83a6ac",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
