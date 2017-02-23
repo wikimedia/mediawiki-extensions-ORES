@@ -127,7 +127,7 @@ class ApiHooks {
 				// Filter out non-damaging and unscored edits.
 				$conds[] = 'oresc_probability > ' . $dbr->addQuotes( $threshold );
 
-				// Performance hack: add STRAIGHT_JOIN (146111)
+				// Performance hack: add STRAIGHT_JOIN (T146111)
 				$options[] = 'STRAIGHT_JOIN';
 			} else {
 				$join = 'LEFT JOIN';
