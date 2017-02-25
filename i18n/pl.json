@@ -15,7 +15,7 @@
 	"ores-damaging-title": "Tę edycję należy przejrzeć",
 	"ores-damaging-legend": "Ta edycja może być szkodliwa i należy ją przejrzeć ([[:mw:Special:MyLanguage/ORES review tool|więcej informacji]])",
 	"ores-help-damaging-pref": "Wartość ta określa, jak skrupulatnie ORES wybiera edycje do przejrzenia",
-	"ores-hide-nondamaging-filter": "Pokaż tylko edycje wymagające przejrzenia",
+	"ores-hide-nondamaging-filter": "Ukryj prawdopodobnie dobre edycje",
 	"ores-pref-damaging": "Czułość ORES",
 	"ores-pref-rc-hidenondamaging": "Ukryj sprawdzone edycje na ostatnich zmianach",
 	"ores-pref-watchlist-hidenondamaging": "Ukryj sprawdzone edycje na liście obserwowanych",
