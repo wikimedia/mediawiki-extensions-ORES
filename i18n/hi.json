@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Upendradutt93"
+			"Upendradutt93",
+			"Shyamal"
 		]
 	},
-	"ores-damaging-hard": "कठिन"
+	"ores-damaging-hard": "कठिन",
+	"ores-hide-nondamaging-filter": "कदाचित अच्छा संपादन को छिपाएँ"
 }
