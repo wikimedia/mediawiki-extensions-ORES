@@ -18,7 +18,7 @@
 	"ores-damaging-title": "Questa modifica deve essere revisionata",
 	"ores-damaging-legend": "Questa modifica potrebbe essere dannosa e dovrebbe essere rivista ([[:mw:Special:MyLanguage/ORES review tool|ulteriori informazioni]])",
 	"ores-help-damaging-pref": "Questa soglia determina quanto sensibile sarà ORES nel contrassegnare le modifiche che necessitano di revisione",
-	"ores-hide-nondamaging-filter": "Mostra solo le modifiche che devono essere revisionate",
+	"ores-hide-nondamaging-filter": "Nascondi probabili buone modifiche",
 	"ores-pref-damaging": "Sensibilità ORES",
 	"ores-pref-rc-hidenondamaging": "Nascondi le probabili buone modifiche nelle ultime modifiche",
 	"ores-pref-watchlist-hidenondamaging": "Nascondi le probabili buone modifiche negli osservati speciali",
