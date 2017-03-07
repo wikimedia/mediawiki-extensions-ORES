@@ -273,8 +273,8 @@ class Hooks {
 		}
 
 		$stats = Stats::newFromGlobalState();
-		self::addClasses( 'goodfaith', $stats->getThresholds( 'goodfaith' ), $rc, $classes );
-		self::addClasses( 'damaging', $stats->getThresholds( 'damaging' ), $rc, $classes );
+		self::addClasses( 'goodfaith', $rc, $classes );
+		self::addClasses( 'damaging', $rc, $classes );
 
 		return true;
 	}
@@ -404,8 +404,8 @@ class Hooks {
 		}
 
 		$stats = Stats::newFromGlobalState();
-		self::addClasses( 'goodfaith', $stats->getThresholds( 'goodfaith' ), $rcObj, $classes );
-		self::addClasses( 'damaging', $stats->getThresholds( 'damaging' ), $rcObj, $classes );
+		self::addClasses( 'goodfaith', $rcObj, $classes );
+		self::addClasses( 'damaging', $rcObj, $classes );
 	}
 
 	/**
@@ -672,13 +672,19 @@ class Hooks {
 		}
 	}
 
-	private static function addClasses( $model, $levelsDefinition, $rc, &$classes ) {
+	private static function addClasses( $model, $rc, &$classes ) {
 		if ( !self::isModelEnabled( $model ) ) {
 			return;
 		}
 
 		$score = $rc->getAttribute( "ores_{$model}_score" );
 		if ( $score === null ) {
+			return;
+		}
+
+		$stats = Stats::newFromGlobalState();
+		$levelsDefinition = $stats->getThresholds( $model );
+		if ( !$levelsDefinition ) {
 			return;
 		}
 
