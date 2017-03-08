@@ -27,8 +27,8 @@
 		"BeforePageDisplay": [
 			"ORES\\Hooks::onBeforePageDisplay"
 		],
-		"ChangesListSpecialPageFilters": [
-			"ORES\\Hooks::onChangesListSpecialPageFilters"
+		"ChangesListSpecialPageStructuredFilters": [
+			"ORES\\Hooks::onChangesListSpecialPageStructuredFilters"
 		],
 		"ChangesListSpecialPageQuery": [
 			"ORES\\Hooks::onChangesListSpecialPageQuery"
