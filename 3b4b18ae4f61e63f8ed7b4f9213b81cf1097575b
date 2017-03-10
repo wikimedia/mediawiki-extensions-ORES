@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e46e3ee_6f52ab6c",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2017-03-10T02:41:30Z",
+      "side": 1,
+      "message": "JobQueueGroup::singleton() can be reused. Also push() could take both jobs in an array.",
+      "revId": "3b4b18ae4f61e63f8ed7b4f9213b81cf1097575b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e46e3ee_cf55ff53",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2017-03-10T02:41:30Z",
+      "side": 1,
+      "message": "This should avoid using different titles for each page being edited, so de-duplication can work.",
+      "revId": "3b4b18ae4f61e63f8ed7b4f9213b81cf1097575b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e46e3ee_8f4ff7bf",
+        "filename": "includes/PurgeScoresJob.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2017-03-10T02:41:30Z",
+      "side": 1,
+      "message": "$this-\u003eremoveDuplicates \u003d true;",
+      "revId": "3b4b18ae4f61e63f8ed7b4f9213b81cf1097575b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e46e3ee_2fc3430c",
+        "filename": "includes/PurgeScoresJob.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2017-03-10T02:41:30Z",
+      "side": 1,
+      "message": "This will have occasional oddness with imported revisions (e.g. if $cutoffRevid is an imported rev it will delete more rows than is proper since the rev_id might be very high in spite of the rev_timestamp).\n\nSome JOIN sanity checks in the ores table query might avoid mass deletes due to this. Another option is to use \"NOT EXISTS (SELECT 1 from logging WHERE log_type\u003d\u0027import\u0027 AND log_page\u003drev_id AND log_timestamp \u003e\u003d rev_timestamp)\". Something like that should avoid the edge case of picking an imported revision.",
+      "revId": "3b4b18ae4f61e63f8ed7b4f9213b81cf1097575b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
