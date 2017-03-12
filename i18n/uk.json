@@ -15,7 +15,7 @@
 	"ores-damaging-title": "Це редагування потребує перевірки",
 	"ores-damaging-legend": "Ця зміна може бути шкідливою та потребує перевірки ([[:mw:Special:MyLanguage/ORES review tool|детальніше]])",
 	"ores-help-damaging-pref": "Цей поріг визначає, наскільки чутливим є ORES, коли позначає редагування, що потребують перевірки",
-	"ores-hide-nondamaging-filter": "Показувати лише редагування, що потребують перевірки",
+	"ores-hide-nondamaging-filter": "Приховати ймовірно позитивні редагування",
 	"ores-pref-damaging": "Чутливість ORES",
 	"ores-pref-rc-hidenondamaging": "Приховати вірогідно добрі редагування зі сторінки нових редагувань",
 	"ores-pref-watchlist-hidenondamaging": "Приховати вірогідно добрі редагування зі списку спостереження",
