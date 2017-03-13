@@ -3,7 +3,8 @@
 		"authors": [
 			"Chrumps",
 			"Tar Lócesilion",
-			"Woytecr"
+			"Woytecr",
+			"WTM"
 		]
 	},
 	"ores-beta-feature-description": "ORES jest narzędziem wykorzystującym maszynowe uczenie się. Na ostatnich zmianach i obserwowanych wyszukuje ono edycje, które prawdopodobnie są szkodliwe.",
@@ -12,6 +13,7 @@
 	"ores-damaging-hard": "Wysoka (oznacz więcej edycji)",
 	"ores-damaging-letter": "p",
 	"ores-damaging-soft": "Niska (oznacz mniej edycji)",
+	"ores-damaging-softest": "Najniższa (oznacz najmniej edycji)",
 	"ores-damaging-title": "Tę edycję należy przejrzeć",
 	"ores-damaging-legend": "Ta edycja może być szkodliwa i należy ją przejrzeć ([[:mw:Special:MyLanguage/ORES review tool|więcej informacji]])",
 	"ores-help-damaging-pref": "Wartość ta określa, jak skrupulatnie ORES wybiera edycje do przejrzenia",
