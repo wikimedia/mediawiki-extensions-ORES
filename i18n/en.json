@@ -32,7 +32,7 @@
 	"ores-rcfilters-goodfaith-maybebad-label": "May be bad faith",
 	"ores-rcfilters-goodfaith-maybebad-desc": "Finds most bad-faith edits but with a lower accuracy.",
 	"ores-rcfilters-goodfaith-bad-label": "Likely bad faith",
-	"ores-rcfilters-goodfaith-bad-desc": "With medium accuracy, finds the most obvious obvious 25% of bad-faith edits.",
+	"ores-rcfilters-goodfaith-bad-desc": "With medium accuracy, finds the most obvious 25% of bad-faith edits.",
 	"prefs-ores" : "Revision scoring",
 	"apihelp-query+ores-description": "Return ORES configuration and model data for this wiki.",
 	"apihelp-query+ores-example-simple": "Fetch ORES data:",

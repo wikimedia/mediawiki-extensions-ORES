@@ -23,6 +23,8 @@ use RecentChange;
 use RequestContext;
 use Skin;
 use SpecialContributions;
+use SpecialRecentChanges;
+use SpecialWatchlist;
 use User;
 use Xml;
 
@@ -162,9 +164,9 @@ class Hooks {
 			);
 			$clsp->registerFilterGroup( $newDamagingGroup );
 
-			if ( $clsp->getName() === 'Recentchanges' ) {
+			if ( $clsp instanceof SpecialRecentChanges ) {
 				$damagingDefault = $clsp->getUser()->getOption( 'oresRCHideNonDamaging' );
-			} elseif ( $clsp->getName() === 'Watchlist' ) {
+			} elseif ( $clsp instanceof SpecialWatchlist ) {
 				$damagingDefault = $clsp->getUser()->getOption( 'oresWatchlistHideNonDamaging' );
 			} else {
 				$damagingDefault = false;
