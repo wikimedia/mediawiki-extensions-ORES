@@ -355,6 +355,9 @@ class Hooks {
 			}
 
 			$classes[] = 'damaging';
+			if ( $changesList->getUser()->getBoolOption( 'oresHighlight' ) ) {
+				$classes[] = 'ores-highlight';
+			}
 			$parts = explode( $separator, $s );
 			$parts[1] = ChangesList::flag( 'damaging' ) . $parts[1];
 			$s = implode( $separator, $parts );
@@ -437,6 +440,9 @@ class Hooks {
 		if ( $row->ores_damaging_score > $row->ores_damaging_threshold ) {
 			// Add the damaging class
 			$classes[] = 'damaging';
+			if ( $pager->getUser()->getBoolOption( 'oresHighlight' ) ) {
+				$classes[] = 'ores-highlight';
+			}
 		}
 	}
 
@@ -484,6 +490,9 @@ class Hooks {
 		$damaging = self::getScoreRecentChangesList( $rcObj, $context );
 		if ( $damaging ) {
 			$classes[] = 'damaging';
+			if ( $context->getUser()->getBoolOption( 'oresHighlight' ) ) {
+				$classes[] = 'ores-highlight';
+			}
 			$data['recentChangesFlags']['damaging'] = true;
 		}
 	}
@@ -561,10 +570,17 @@ class Hooks {
 			'help-message' => 'ores-help-damaging-pref',
 		];
 
+		// highlight damaging edits based on configured sensitivity
+		$preferences['oresHighlight'] = [
+			'type' => 'toggle',
+			'section' => 'rc/ores',
+			'label-message' => 'ores-pref-highlight',
+		];
+
 		// Make hidenondamaging default
 		$preferences['oresWatchlistHideNonDamaging'] = [
 			'type' => 'toggle',
-			'section' => 'watchlist/ores',
+			'section' => 'watchlist/advancedwatchlist',
 			'label-message' => 'ores-pref-watchlist-hidenondamaging',
 		];
 		$preferences['oresRCHideNonDamaging'] = [
@@ -594,8 +610,10 @@ class Hooks {
 				'oresThresholds',
 				[ 'damaging' => $wgOresDamagingThresholds ]
 			);
-			$out->addModules( 'ext.ores.highlighter' );
 			$out->addModuleStyles( 'ext.ores.styles' );
+			if ( $out->getUser()->getBoolOption( 'oresHighlight' ) ) {
+				$out->addModules( 'ext.ores.highlighter' );
+			}
 		}
 	}
 
@@ -606,31 +624,45 @@ class Hooks {
 	 * @param string[] &$prefs
 	 */
 	public static function onGetBetaFeaturePreferences( User $user, array &$prefs ) {
-		global $wgExtensionAssetsPath;
+		global $wgOresExtensionStatus, $wgExtensionAssetsPath;
 
-		$prefs['ores-enabled'] = [
-			'label-message' => 'ores-beta-feature-message',
-			'desc-message' => 'ores-beta-feature-description',
-			'screenshot' => [
-				'ltr' => "$wgExtensionAssetsPath/ORES/images/ORES-beta-features-ltr.svg",
-				'rtl' => "$wgExtensionAssetsPath/ORES/images/ORES-beta-features-rtl.svg",
-			],
-			'info-link' => 'https://www.mediawiki.org/wiki/ORES_review_tool',
-			'discussion-link' => 'https://www.mediawiki.org/wiki/Talk:ORES_review_tool',
-		];
+		if ( $wgOresExtensionStatus === 'beta' ) {
+			$prefs['ores-enabled'] = [
+				'label-message' => 'ores-beta-feature-message',
+				'desc-message' => 'ores-beta-feature-description',
+				'screenshot' => [
+					'ltr' => "$wgExtensionAssetsPath/ORES/images/ORES-beta-features-ltr.svg",
+					'rtl' => "$wgExtensionAssetsPath/ORES/images/ORES-beta-features-rtl.svg",
+				],
+				'info-link' => 'https://www.mediawiki.org/wiki/ORES_review_tool',
+				'discussion-link' => 'https://www.mediawiki.org/wiki/Talk:ORES_review_tool',
+			];
+		}
 	}
 
 	/**
-	 * Check whether the user enabled ores as a beta feature
+	 * Check whether ores is enabled
 	 *
 	 * @param User $user
 	 * @return bool
 	 */
 	private static function oresEnabled( User $user ) {
-		if ( !class_exists( 'BetaFeatures' ) ) {
-			return false;
+		global $wgOresExtensionStatus;
+
+		// enabled by default for everybody
+		if ( $wgOresExtensionStatus === 'on' ) {
+			return true;
 		}
-		return BetaFeatures::isFeatureEnabled( $user, 'ores-enabled' );
+
+		// exists as a beta feature, enabled by $user
+		if ( $wgOresExtensionStatus === 'beta' ) {
+			return $user &&
+				$user->isLoggedIn() &&
+				class_exists( 'BetaFeatures' ) &&
+				BetaFeatures::isFeatureEnabled( $user, 'ores-enabled' );
+		}
+
+		return false;
 	}
 
 	/**

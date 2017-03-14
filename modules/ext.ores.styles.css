@@ -9,8 +9,8 @@
 /**
  * Make the whole row orange
  */
-li.damaging,
-tr.damaging {
+li.damaging.ores-highlight,
+tr.damaging.ores-highlight {
 	background: #fef6e7;
 	line-height: 1.8;
 }

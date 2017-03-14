@@ -496,31 +496,31 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$prefs = [];
 		ORES\Hooks::onGetPreferences( $this->user, $prefs );
 
-		$this->assertSame( 3, count( $prefs ) );
+		$this->assertSame( 4, count( $prefs ) );
 	}
 
-	public function testOnGetPreferencesDisabled() {
-		$user = static::getTestUser()->getUser();
-		$user->setOption( 'ores-enabled', "0" );
-		$user->saveSettings();
-
+	public function testOnGetBetaFeaturePreferences_on() {
+		$this->setMwGlobals( 'wgOresExtensionStatus', 'on' );
 		$prefs = [];
-		ORES\Hooks::onGetPreferences( $this->user, $prefs );
+		ORES\Hooks::onGetBetaFeaturePreferences( $this->user, $prefs );
 
-		$this->assertSame( [], $prefs );
+		$this->assertSame( 0, count( $prefs ) );
 	}
 
-	public function testOnGetBetaFeaturePreferences() {
+	public function testOnGetBetaFeaturePreferences_off() {
+		$this->setMwGlobals( 'wgOresExtensionStatus', 'off' );
+		$prefs = [];
+		ORES\Hooks::onGetBetaFeaturePreferences( $this->user, $prefs );
+
+		$this->assertSame( 0, count( $prefs ) );
+	}
+
+	public function testOnGetBetaFeaturePreferences_beta() {
+		$this->setMwGlobals( 'wgOresExtensionStatus', 'beta' );
 		$prefs = [];
 		ORES\Hooks::onGetBetaFeaturePreferences( $this->user, $prefs );
 
 		$this->assertSame( 1, count( $prefs ) );
-		$this->assertArrayHasKey( 'ores-enabled', $prefs );
-	}
-
-	public function testOresEnabled() {
-		$prefs = [];
-		ORES\Hooks::onGetBetaFeaturePreferences( $this->user, $prefs );
 		$this->assertArrayHasKey( 'ores-enabled', $prefs );
 	}
 
