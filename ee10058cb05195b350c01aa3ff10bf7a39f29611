@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e46e3ee_5c867919",
+        "filename": "i18n/en.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2017-03-14T19:59:30Z",
+      "side": 1,
+      "message": "Do we need \"in recent changes\" and \"in the watchlist\" here? The prefs are on the RC/watchlist tabs respectively, and their sibling prefs don\u0027t have this wording",
+      "revId": "ee10058cb05195b350c01aa3ff10bf7a39f29611",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
