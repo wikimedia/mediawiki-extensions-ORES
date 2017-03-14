@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e46e3ee_3134f6d9",
+        "filename": "i18n/en.json",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2017-03-14T18:18:05Z",
+      "side": 1,
+      "message": "Double-obvious",
+      "revId": "4a892c8fb6b21ee2a38bbd43840166f03da5ca80",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e46e3ee_919f0ab9",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2017-03-14T18:18:05Z",
+      "side": 1,
+      "message": "You could put filters in variables to reuse, not a blocker.",
+      "revId": "4a892c8fb6b21ee2a38bbd43840166f03da5ca80",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e46e3ee_b18b2672",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2017-03-14T18:18:05Z",
+      "side": 1,
+      "message": "Not blocker, but this should probably be handled by framework: T160443",
+      "revId": "4a892c8fb6b21ee2a38bbd43840166f03da5ca80",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e46e3ee_119bfac2",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 9
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2017-03-14T18:18:05Z",
+      "side": 1,
+      "message": "I think it should use:\n\n$clsp instanceof SpecialRecentChanges\n\nto support Related changes.  I\u0027d recommend you do it for Watchlist just in case too (even though we currently have no subclass).\n\nThis was already like this, so not a blocker, but it should be fixed in a followup.",
+      "revId": "4a892c8fb6b21ee2a38bbd43840166f03da5ca80",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
