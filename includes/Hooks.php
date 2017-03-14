@@ -4,7 +4,10 @@ namespace ORES;
 
 use BetaFeatures;
 use ChangesList;
+use ChangesListBooleanFilterGroup;
+use ChangesListFilterGroup;
 use ChangesListSpecialPage;
+use ChangesListStringOptionsFilterGroup;
 use ContribsPager;
 use DatabaseUpdater;
 use EnhancedChangesList;
@@ -77,56 +80,179 @@ class Hooks {
 		}
 	}
 
-	/**
-	 * Add an ORES filter to the recent changes results
-	 *
-	 * @param ChangesListSpecialPage $clsp
-	 * @param $filters
-	 */
-	public static function onChangesListSpecialPageFilters(
-		ChangesListSpecialPage $clsp,
-		&$filters
+	public static function onChangesListSpecialPageStructuredFilters(
+		ChangesListSpecialPage $clsp
 	) {
 		if ( !self::oresEnabled( $clsp->getUser() ) ) {
 			return;
 		}
 
+		$stats = Stats::newFromGlobalState();
 		if ( self::isModelEnabled( 'damaging' ) ) {
-			switch ( $clsp->getName() ) {
-				case 'Watchlist':
-					$default = $clsp->getUser()->getOption( 'oresWatchlistHideNonDamaging' );
-					break;
-				case 'Recentchanges':
-					$default = $clsp->getUser()->getOption( 'oresRCHideNonDamaging' );
-					break;
-				default:
-					$default = false;
+			$damagingLevels = $stats->getThresholds( 'damaging' );
+			$newDamagingGroup = new ChangesListStringOptionsFilterGroup( [
+				'name' => 'damaging',
+				'title' => 'ores-rcfilters-damaging-title',
+				'priority' => 2,
+				'filters' => [
+					[
+						'name' => 'likelygood',
+						'label' => 'ores-rcfilters-damaging-likelygood-label',
+						'description' => 'ores-rcfilters-damaging-likelygood-desc',
+						'cssClassSuffix' => 'damaging-likelygood',
+						'isRowApplicableCallable' => self::makeApplicableCallback(
+							'damaging',
+							$damagingLevels['likelygood']
+						),
+					],
+					[
+						'name' => 'maybebad',
+						'label' => 'ores-rcfilters-damaging-maybebad-label',
+						'description' => 'ores-rcfilters-damaging-maybebad-desc',
+						'cssClassSuffix' => 'damaging-maybebad',
+						'isRowApplicableCallable' => self::makeApplicableCallback(
+							'damaging',
+							$damagingLevels['maybebad']
+						),
+					],
+					[
+						'name' => 'likelybad',
+						'label' => 'ores-rcfilters-damaging-likelybad-label',
+						'description' => 'ores-rcfilters-damaging-likelybad-desc',
+						'cssClassSuffix' => 'damaging-likelybad',
+						'isRowApplicableCallable' => self::makeApplicableCallback(
+							'damaging',
+							$damagingLevels['likelybad']
+						),
+					],
+					[
+						'name' => 'verylikelybad',
+						'label' => 'ores-rcfilters-damaging-verylikelybad-label',
+						'description' => 'ores-rcfilters-damaging-verylikelybad-desc',
+						'cssClassSuffix' => 'damaging-verylikelybad',
+						'isRowApplicableCallable' => self::makeApplicableCallback(
+							'damaging',
+							$damagingLevels['verylikelybad']
+						),
+					],
+				],
+				'default' => ChangesListStringOptionsFilterGroup::NONE,
+				'isFullCoverage' => false,
+				'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables, &$fields,
+						&$conds, &$query_options, &$join_conds, $selectedValues ) {
+					$condition = self::buildRangeFilter( 'damaging', $selectedValues );
+					if ( $condition ) {
+						$conds[] = $condition;
+						$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
+						$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
+						// Performance hack: add STRAIGHT_JOIN (146111)
+						$query_options[] = 'STRAIGHT_JOIN';
+					}
+				},
+			] );
+			$newDamagingGroup->getFilter( 'maybebad' )->setAsSupersetOf(
+				$newDamagingGroup->getFilter( 'likelybad' )
+			);
+			$newDamagingGroup->getFilter( 'likelybad' )->setAsSupersetOf(
+				$newDamagingGroup->getFilter( 'verylikelybad' )
+			);
+			// Transitive closure
+			$newDamagingGroup->getFilter( 'maybebad' )->setAsSupersetOf(
+				$newDamagingGroup->getFilter( 'verylikelybad' )
+			);
+			$clsp->registerFilterGroup( $newDamagingGroup );
+
+			if ( $clsp->getName() === 'Recentchanges' ) {
+				$damagingDefault = $clsp->getUser()->getOption( 'oresRCHideNonDamaging' );
+			} elseif ( $clsp->getName() === 'Watchlist' ) {
+				$damagingDefault = $clsp->getUser()->getOption( 'oresWatchlistHideNonDamaging' );
+			} else {
+				$damagingDefault = false;
 			}
 
-			$filters['hidenondamaging'] = [
-				'msg' => 'ores-damaging-filter',
-				'default' => $default,
-			];
+			$legacyDamagingGroup = new ChangesListBooleanFilterGroup( [
+				'name' => 'ores',
+				'filters' => [
+					[
+						'name' => 'hidenondamaging',
+						'showHide' => 'ores-damaging-filter',
+						'isReplacedInStructuredUi' => true,
+						'default' => $damagingDefault,
+						'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables,
+								&$fields, &$conds, &$query_options, &$join_conds ) {
+							self::hideNonDamagingFilter( $fields, $conds, true, $ctx->getUser() );
+							$conds['rc_patrolled'] = 0;
+							$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
+							$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
+							// Performance hack: add STRAIGHT_JOIN (146111)
+							$query_options[] = 'STRAIGHT_JOIN';
+						},
+					]
+				],
 
-			$filters['damaging'] = [ 'msg' => false, 'default' => 'all' ];
+			] );
+			$clsp->registerFilterGroup( $legacyDamagingGroup );
 		}
-
 		if ( self::isModelEnabled( 'goodfaith' ) ) {
-			$filters['goodfaith'] = [ 'msg' => false, 'default' => 'all' ];
+			$goodfaithLevels = $stats->getThresholds( 'goodfaith' );
+			$goodfaithGroup = new ChangesListStringOptionsFilterGroup( [
+				'name' => 'goodfaith',
+				'title' => 'ores-rcfilters-goodfaith-title',
+				'priority' => 1,
+				'filters' => [
+					[
+						'name' => 'good',
+						'label' => 'ores-rcfilters-goodfaith-good-label',
+						'description' => 'ores-rcfilters-goodfaith-good-desc',
+						'cssClassSuffix' => 'goodfaith-good',
+						'isRowApplicableCallable' => self::makeApplicableCallback(
+							'goodfaith',
+							$goodfaithLevels['good']
+						),
+					],
+					[
+						// HACK the front-end doesn't support StringOptionsFilters with the same name
+						'name' => 'maybebadfaith',
+						'label' => 'ores-rcfilters-goodfaith-maybebad-label',
+						'description' => 'ores-rcfilters-goodfaith-maybebad-desc',
+						'cssClassSuffix' => 'goodfaith-maybebad',
+						'isRowApplicableCallable' => self::makeApplicableCallback(
+							'goodfaith',
+							$goodfaithLevels['maybebad']
+						),
+					],
+					[
+						'name' => 'bad',
+						'label' => 'ores-rcfilters-goodfaith-bad-label',
+						'description' => 'ores-rcfilters-goodfaith-bad-desc',
+						'cssClassSuffix' => 'goodfaith-bad',
+						'isRowApplicableCallable' => self::makeApplicableCallback(
+							'goodfaith',
+							$goodfaithLevels['bad']
+						),
+					],
+				],
+				'default' => ChangesListStringOptionsFilterGroup::NONE,
+				'isFullCoverage' => false,
+				'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables, &$fields,
+						&$conds, &$query_options, &$join_conds, $selectedValues ) {
+					$condition = self::buildRangeFilter( 'goodfaith', $selectedValues );
+					if ( $condition ) {
+						$conds[] = $condition;
+						$join_conds['ores_goodfaith_mdl'][0] = 'INNER JOIN';
+						$join_conds['ores_goodfaith_cls'][0] = 'INNER JOIN';
+						// Performance hack: add STRAIGHT_JOIN (146111)
+						$query_options[] = 'STRAIGHT_JOIN';
+					}
+				},
+			] );
+			$goodfaithGroup->getFilter( 'maybebadfaith' )->setAsSupersetOf(
+				$goodfaithGroup->getFilter( 'bad' )
+			);
+			$clsp->registerFilterGroup( $goodfaithGroup );
 		}
 	}
 
-	/**
-	 * Pull in ORES score columns during recent changes queries
-	 *
-	 * @param string $name
-	 * @param array $tables
-	 * @param array $fields
-	 * @param array $conds
-	 * @param array $query_options
-	 * @param array $join_conds
-	 * @param FormOptions $opts
-	 */
 	public static function onChangesListSpecialPageQuery(
 		$name, array &$tables, array &$fields, array &$conds,
 		array &$query_options, array &$join_conds, FormOptions $opts
@@ -138,7 +264,6 @@ class Hooks {
 		}
 
 		if ( self::isModelEnabled( 'damaging' ) ) {
-
 			self::joinWithOresTables(
 				'damaging',
 				'rc_this_oldid',
@@ -146,35 +271,7 @@ class Hooks {
 				$fields,
 				$join_conds
 			);
-
-			$damaging = $opts->getValue( 'damaging' );
-			$hideNonDamaging = $opts->getValue( 'hidenondamaging' );
-
-			$filtering = false;
-
-			if ( $damaging !== 'all' ) {
-				$damagingCondition = self::buildRangeFilter(
-					'damaging',
-					$damaging
-				);
-				if ( $damagingCondition ) {
-					$conds[] = $damagingCondition;
-					$filtering = true;
-				}
-			} elseif ( $hideNonDamaging ) {
-				self::hideNonDamagingFilter( $fields, $conds, $hideNonDamaging, $wgUser );
-				$conds['rc_patrolled'] = 0;
-				$filtering = true;
-			}
-
-			if ( $filtering ) {
-				$join_conds["ores_damaging_mdl"][0] = 'INNER JOIN';
-				$join_conds["ores_damaging_cls"][0] = 'INNER JOIN';
-				// Performance hack: add STRAIGHT_JOIN (146111)
-				$query_options[] = 'STRAIGHT_JOIN';
-			}
 		}
-
 		if ( self::isModelEnabled( 'goodfaith' ) ) {
 			self::joinWithOresTables(
 				'goodfaith',
@@ -183,17 +280,6 @@ class Hooks {
 				$fields,
 				$join_conds
 			);
-			$condition = self::buildRangeFilter(
-				'goodfaith',
-				$opts->getValue( 'goodfaith' )
-			);
-			if ( $condition ) {
-				$conds[] = $condition;
-				$join_conds["ores_goodfaith_mdl"][0] = 'INNER JOIN';
-				$join_conds["ores_goodfaith_cls"][0] = 'INNER JOIN';
-				// Performance hack: add STRAIGHT_JOIN (146111)
-				$query_options[] = 'STRAIGHT_JOIN';
-			}
 		}
 	}
 
@@ -271,10 +357,6 @@ class Hooks {
 			$parts[1] = ChangesList::flag( 'damaging' ) . $parts[1];
 			$s = implode( $separator, $parts );
 		}
-
-		$stats = Stats::newFromGlobalState();
-		self::addClasses( 'goodfaith', $rc, $classes );
-		self::addClasses( 'damaging', $rc, $classes );
 
 		return true;
 	}
@@ -402,10 +484,6 @@ class Hooks {
 			$classes[] = 'damaging';
 			$data['recentChangesFlags']['damaging'] = true;
 		}
-
-		$stats = Stats::newFromGlobalState();
-		self::addClasses( 'goodfaith', $rcObj, $classes );
-		self::addClasses( 'damaging', $rcObj, $classes );
 	}
 
 	/**
@@ -631,7 +709,8 @@ class Hooks {
 		$stats = Stats::newFromGlobalState();
 		$thresholds = $stats->getThresholds( $name );
 
-		$selectedLevels = explode( ',', strtolower( $filterValue ) );
+		$selectedLevels = is_array( $filterValue ) ? $filterValue :
+			explode( ',', strtolower( $filterValue ) );
 		$selectedLevels = array_intersect(
 			$selectedLevels,
 			array_keys( $thresholds )
@@ -672,36 +751,14 @@ class Hooks {
 		}
 	}
 
-	private static function addClasses( $model, $rc, &$classes ) {
-		if ( !self::isModelEnabled( $model ) ) {
-			return;
-		}
-
-		$score = $rc->getAttribute( "ores_{$model}_score" );
-		if ( $score === null ) {
-			return;
-		}
-
-		$stats = Stats::newFromGlobalState();
-		$levelsDefinition = $stats->getThresholds( $model );
-		if ( !$levelsDefinition ) {
-			return;
-		}
-
-		$levels = array_keys(
-			array_filter(
-				$levelsDefinition,
-				function ( $level ) use ( $score ) {
-					return $level['min'] <= $score && $score <= $level['max'];
-				}
-			)
-		);
-
-		if ( $levels ) {
-			foreach ( $levels as $level ) {
-				$classes[] = "mw-changeslist-$model-$level";
+	private static function makeApplicableCallback( $model, array $levelData ) {
+		return function ( $ctx, $rc ) use ( $model, $levelData ) {
+			$score = $rc->getAttribute( "ores_{$model}_score" );
+			if ( $score === null ) {
+				return false;
 			}
-		}
+			return $levelData['min'] <= $score && $score <= $levelData['max'];
+		};
 	}
 
 }
