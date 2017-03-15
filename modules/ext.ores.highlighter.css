@@ -2,14 +2,14 @@
  * Make the whole rows yellow
  */
 
-.damaging[data-ores-damaging='softest'] {
+.damaging.ores-highlight[data-ores-damaging='softest'] {
 	background-color: #fc3;
 }
 
-.damaging[data-ores-damaging='soft'] {
+.damaging.ores-highlight[data-ores-damaging='soft'] {
 	background-color: #ffe79e;
 }
 
-.damaging[data-ores-damaging='hard'] {
+.damaging.ores-highlight[data-ores-damaging='hard'] {
 	background-color: #fef6e7;
 }

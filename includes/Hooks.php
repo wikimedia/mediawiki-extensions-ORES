@@ -25,6 +25,7 @@ use Skin;
 use SpecialContributions;
 use SpecialRecentChanges;
 use SpecialWatchlist;
+use Title;
 use User;
 use Xml;
 
@@ -329,7 +330,7 @@ class Hooks {
 	}
 
 	/**
-	 * Hook for formatting recent changes linkes
+	 * Hook for formatting recent changes links
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/OldChangesListRecentChangesLine
 	 *
 	 * @param ChangesList $changesList
@@ -355,7 +356,7 @@ class Hooks {
 			}
 
 			$classes[] = 'damaging';
-			if ( $changesList->getUser()->getBoolOption( 'oresHighlight' ) ) {
+			if ( self::isHighlightEnabled( $changesList ) ) {
 				$classes[] = 'ores-highlight';
 			}
 			$parts = explode( $separator, $s );
@@ -490,9 +491,6 @@ class Hooks {
 		$damaging = self::getScoreRecentChangesList( $rcObj, $context );
 		if ( $damaging ) {
 			$classes[] = 'damaging';
-			if ( $context->getUser()->getBoolOption( 'oresHighlight' ) ) {
-				$classes[] = 'ores-highlight';
-			}
 			$data['recentChangesFlags']['damaging'] = true;
 		}
 	}
@@ -551,7 +549,7 @@ class Hooks {
 	 * @param string[] $preferences
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
-		global $wgOresDamagingThresholds;
+		global $wgOresDamagingThresholds, $wgOresExtensionStatus;
 
 		if ( !self::oresEnabled( $user ) || !self::isModelEnabled( 'damaging' ) ) {
 			return;
@@ -562,20 +560,23 @@ class Hooks {
 			$text = \wfMessage( 'ores-damaging-' . $case )->parse();
 			$options[$text] = $case;
 		}
+		$oresSection = $wgOresExtensionStatus === 'beta' ? 'rc/ores' : 'watchlist/ores';
 		$preferences['oresDamagingPref'] = [
 			'type' => 'select',
 			'label-message' => 'ores-pref-damaging',
-			'section' => 'rc/ores',
+			'section' => $oresSection,
 			'options' => $options,
 			'help-message' => 'ores-help-damaging-pref',
 		];
 
 		// highlight damaging edits based on configured sensitivity
-		$preferences['oresHighlight'] = [
-			'type' => 'toggle',
-			'section' => 'rc/ores',
-			'label-message' => 'ores-pref-highlight',
-		];
+		if ( $wgOresExtensionStatus !== 'beta' ) {
+			$preferences['oresHighlight'] = [
+				'type' => 'toggle',
+				'section' => $oresSection,
+				'label-message' => 'ores-pref-highlight',
+			];
+		}
 
 		// Make hidenondamaging default
 		$preferences['oresWatchlistHideNonDamaging'] = [
@@ -611,7 +612,7 @@ class Hooks {
 				[ 'damaging' => $wgOresDamagingThresholds ]
 			);
 			$out->addModuleStyles( 'ext.ores.styles' );
-			if ( $out->getUser()->getBoolOption( 'oresHighlight' ) ) {
+			if ( self::isHighlightEnabled( $out ) ) {
 				$out->addModules( 'ext.ores.highlighter' );
 			}
 		}
@@ -663,6 +664,19 @@ class Hooks {
 		}
 
 		return false;
+	}
+
+	/**
+	 * @param Title $title
+	 * @return boolean Whether highlights should be shown
+	 */
+	private static function isHighlightEnabled( IContextSource $context ) {
+		global $wgOresExtensionStatus;
+		return $wgOresExtensionStatus === 'beta' || (
+			$context->getUser()->getBoolOption( 'oresHighlight' ) &&
+			!$context->getTitle()->isSpecial( 'Recentchanges' ) &&
+			!$context->getTitle()->isSpecial( 'Recentchangeslinked' )
+		);
 	}
 
 	/**
