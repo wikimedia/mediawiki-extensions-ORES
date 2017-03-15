@@ -22,5 +22,12 @@
 	"ores-pref-damaging": "Sensibilità ORES",
 	"ores-pref-rc-hidenondamaging": "Nascondi le probabili buone modifiche nelle ultime modifiche",
 	"ores-pref-watchlist-hidenondamaging": "Nascondi le probabili buone modifiche negli osservati speciali",
+	"ores-rcfilters-damaging-likelygood-label": "Molto probabilmente buona",
+	"ores-rcfilters-damaging-maybebad-label": "Potrebbe avere problemi",
+	"ores-rcfilters-damaging-likelybad-label": "Probabilmente ha problemi",
+	"ores-rcfilters-damaging-verylikelybad-label": "Molto probabilmente ha problemi",
+	"ores-rcfilters-goodfaith-good-label": "Molto probabilmente in buona fede",
+	"ores-rcfilters-goodfaith-maybebad-label": "Potrebbe essere in malafede",
+	"ores-rcfilters-goodfaith-bad-label": "Probabile in malafede",
 	"prefs-ores": "Revisione del punteggio"
 }

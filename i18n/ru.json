@@ -6,7 +6,8 @@
 			"MaxBioHazard",
 			"Sealle",
 			"Cat1987",
-			"Okras"
+			"Okras",
+			"Redredsonia"
 		]
 	},
 	"ores-beta-feature-description": "ORES — это основанный на искусственном интеллекте инструмент для подсветки потенциально вредных правок в  свежих правках и списке наблюдения.",
@@ -21,5 +22,6 @@
 	"ores-hide-nondamaging-filter": "Показывать только правки, требующие проверки",
 	"ores-pref-damaging": "Чувствительность ORES",
 	"ores-pref-rc-hidenondamaging": "Не показывать возможно полезные правки в свежих правках",
-	"ores-pref-watchlist-hidenondamaging": "Скрыть возможно полезные правки в списке наблюдения"
+	"ores-pref-watchlist-hidenondamaging": "Скрыть возможно полезные правки в списке наблюдения",
+	"ores-rcfilters-goodfaith-title": "Предсказания намерений пользователя"
 }
