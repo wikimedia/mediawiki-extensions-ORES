@@ -100,6 +100,7 @@
 		"ORESFetchScoreJob": "ORES\\FetchScoreJob"
 	},
 	"config": {
+		"OresExtensionStatus": "on",
 		"OresBaseUrl": "https://ores.wikimedia.org/",
 		"OresExcludeBots": true,
 		"OresModels": {

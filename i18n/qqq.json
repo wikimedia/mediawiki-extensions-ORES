@@ -19,6 +19,7 @@
 	"ores-help-damaging-pref": "Help text for \"ORES sensitivity\" in preferences",
 	"ores-hide-nondamaging-filter": "Label for Contributions filter, 'only show'",
 	"ores-pref-damaging": "Part asking for damaging threshold",
+	"ores-pref-highlight": "Display message for user preference to enable highlighting of damaging edits.",
 	"ores-pref-rc-hidenondamaging": "Display message for user preferences to make hidenondamaging default in recent changes",
 	"ores-pref-watchlist-hidenondamaging": "Display message for user preferences to make hidenondamaging default in the watchlist",
 	"ores-rcfilters-damaging-title": "Title for the filter group for ORES damaging score.",
