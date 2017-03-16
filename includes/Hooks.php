@@ -239,6 +239,10 @@ class Hooks {
 				'isFullCoverage' => false,
 				'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables, &$fields,
 						&$conds, &$query_options, &$join_conds, $selectedValues ) {
+					// HACK account for maybebadfaith rename hack
+					array_walk( $selectedValues, function ( &$v ) {
+						$v = $v === 'maybebadfaith' ? 'maybebad' : $v;
+					} );
 					$condition = self::buildRangeFilter( 'goodfaith', $selectedValues );
 					if ( $condition ) {
 						$conds[] = $condition;
