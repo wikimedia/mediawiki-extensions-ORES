@@ -16,6 +16,24 @@
       "revId": "eec8e23eb55a7039a20c2fcdae3fa155441e5068",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e46e3ee_b621ce9c",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2017-03-16T00:25:49Z",
+      "side": 1,
+      "message": "The preference is pre-existing, but you\u0027re right that the section change should be conditional on $wgOresExtensionStatus",
+      "parentUuid": "8e46e3ee_9605b215",
+      "revId": "eec8e23eb55a7039a20c2fcdae3fa155441e5068",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
