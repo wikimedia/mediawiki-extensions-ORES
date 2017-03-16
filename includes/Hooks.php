@@ -91,11 +91,20 @@ class Hooks {
 		}
 
 		$stats = Stats::newFromGlobalState();
+
+		$changeTypeGroup = $clsp->getFilterGroup( 'changeType' );
+		$logFilter = $changeTypeGroup->getFilter( 'hidelog' );
+
 		if ( self::isModelEnabled( 'damaging' ) ) {
 			$damagingLevels = $stats->getThresholds( 'damaging' );
 			$newDamagingGroup = new ChangesListStringOptionsFilterGroup( [
 				'name' => 'damaging',
 				'title' => 'ores-rcfilters-damaging-title',
+				'whatsThisHeader' => 'ores-rcfilters-damaging-whats-this-header',
+				'whatsThisBody' => 'ores-rcfilters-damaging-whats-this-body',
+				'whatsThisUrl' => 'https://www.mediawiki.org/wiki/' .
+					'Special:MyLanguage/Help:New_filters_for_edit_review/Quality_and_Intent_Filters',
+				'whatsThisLinkText' => 'ores-rcfilters-whats-this-link-text',
 				'priority' => 2,
 				'filters' => [
 					[
@@ -153,6 +162,14 @@ class Hooks {
 					}
 				},
 			] );
+
+			$newDamagingGroup->conflictsWith(
+				$logFilter,
+				'ores-rcfilters-ores-conflicts-logactions-global',
+				'ores-rcfilters-damaging-conflicts-logactions',
+				'ores-rcfilters-logactions-conflicts-ores'
+			);
+
 			$newDamagingGroup->getFilter( 'maybebad' )->setAsSupersetOf(
 				$newDamagingGroup->getFilter( 'likelybad' )
 			);
@@ -173,6 +190,9 @@ class Hooks {
 				$damagingDefault = false;
 			}
 
+			// I don't think we need to register a conflict here, since
+			// if we're showing non-damaging, that won't conflict with
+			// anything.
 			$legacyDamagingGroup = new ChangesListBooleanFilterGroup( [
 				'name' => 'ores',
 				'filters' => [
@@ -194,6 +214,7 @@ class Hooks {
 				],
 
 			] );
+
 			$clsp->registerFilterGroup( $legacyDamagingGroup );
 		}
 		if ( self::isModelEnabled( 'goodfaith' ) ) {
@@ -201,6 +222,11 @@ class Hooks {
 			$goodfaithGroup = new ChangesListStringOptionsFilterGroup( [
 				'name' => 'goodfaith',
 				'title' => 'ores-rcfilters-goodfaith-title',
+				'whatsThisHeader' => 'ores-rcfilters-goodfaith-whats-this-header',
+				'whatsThisBody' => 'ores-rcfilters-goodfaith-whats-this-body',
+				'whatsThisUrl' => 'https://www.mediawiki.org/wiki/' .
+					'Special:MyLanguage/Help:New_filters_for_edit_review/Quality_and_Intent_Filters',
+				'whatsThisLinkText' => 'ores-rcfilters-whats-this-link-text',
 				'priority' => 1,
 				'filters' => [
 					[
@@ -256,6 +282,14 @@ class Hooks {
 			$goodfaithGroup->getFilter( 'maybebadfaith' )->setAsSupersetOf(
 				$goodfaithGroup->getFilter( 'bad' )
 			);
+
+			$goodfaithGroup->conflictsWith(
+				$logFilter,
+				'ores-rcfilters-ores-conflicts-logactions-global',
+				'ores-rcfilters-goodfaith-conflicts-logactions',
+				'ores-rcfilters-logactions-conflicts-ores'
+			);
+
 			$clsp->registerFilterGroup( $goodfaithGroup );
 		}
 	}
