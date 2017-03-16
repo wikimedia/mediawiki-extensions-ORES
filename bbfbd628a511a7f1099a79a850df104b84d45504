@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e46e3ee_ad9f34b8",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2017-03-16T22:57:46Z",
+      "side": 1,
+      "message": "MediaWiki Does Not Use Title Case",
+      "revId": "bbfbd628a511a7f1099a79a850df104b84d45504",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e46e3ee_2d6564dd",
+        "filename": "i18n/en.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2017-03-16T22:57:46Z",
+      "side": 1,
+      "message": "Don\u0027t we normally use \\n\\n ? Is this even valid JSON?",
+      "revId": "bbfbd628a511a7f1099a79a850df104b84d45504",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
