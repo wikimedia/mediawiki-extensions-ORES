@@ -20,8 +20,6 @@
 	"ores-help-damaging-pref": "Questa soglia determina quanto sensibile sarà ORES nel contrassegnare le modifiche che necessitano di revisione",
 	"ores-hide-nondamaging-filter": "Nascondi probabili buone modifiche",
 	"ores-pref-damaging": "Sensibilità ORES",
-	"ores-pref-rc-hidenondamaging": "Nascondi le probabili buone modifiche nelle ultime modifiche",
-	"ores-pref-watchlist-hidenondamaging": "Nascondi le probabili buone modifiche negli osservati speciali",
 	"ores-rcfilters-damaging-likelygood-label": "Molto probabilmente buona",
 	"ores-rcfilters-damaging-maybebad-label": "Potrebbe avere problemi",
 	"ores-rcfilters-damaging-likelybad-label": "Probabilmente ha problemi",
@@ -29,5 +27,7 @@
 	"ores-rcfilters-goodfaith-good-label": "Molto probabilmente in buona fede",
 	"ores-rcfilters-goodfaith-maybebad-label": "Potrebbe essere in malafede",
 	"ores-rcfilters-goodfaith-bad-label": "Probabile in malafede",
+	"ores-pref-rc-hidenondamaging": "Mostra solo le modifiche che potrebbero avere problemi (e nascondi le probabili buone modifiche)",
+	"ores-pref-watchlist-hidenondamaging": "Mostra solo le modifiche che potrebbero avere problemi (e nascondi le probabili buone modifiche)",
 	"prefs-ores": "Revisione del punteggio"
 }

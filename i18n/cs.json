@@ -17,7 +17,8 @@
 	"ores-help-damaging-pref": "Tato hranice určuje, jak citlivé je ORES při označování editací potřebujících kontrolu",
 	"ores-hide-nondamaging-filter": "Skrýt pravděpodobně dobré editace",
 	"ores-pref-damaging": "Citlivost ORES",
-	"ores-pref-rc-hidenondamaging": "Skrýt pravděpodobně dobré editace v posledních změnách",
-	"ores-pref-watchlist-hidenondamaging": "Na seznamu sledovaných stránek skrýt pravděpodobně dobré editace",
+	"ores-pref-highlight": "Zvýrazňovat pravděpodobně škodlivé editace",
+	"ores-pref-rc-hidenondamaging": "Zobrazovat pouze editace, které mohou být problémové (a skrýt pravděpodobně dobré editace)",
+	"ores-pref-watchlist-hidenondamaging": "Zobrazovat pouze editace, které mohou být problémové (a skrýt pravděpodobně dobré editace)",
 	"prefs-ores": "Skórování revizí"
 }
