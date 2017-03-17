@@ -587,7 +587,7 @@ class Hooks {
 	 * @param string[] $preferences
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
-		global $wgOresDamagingThresholds, $wgOresExtensionStatus;
+		global $wgOresDamagingThresholds, $wgOresExtensionStatus, $wgHiddenPrefs;
 
 		if ( !self::oresEnabled( $user ) || !self::isModelEnabled( 'damaging' ) ) {
 			return;
@@ -627,6 +627,10 @@ class Hooks {
 			'section' => 'rc/advancedrc',
 			'label-message' => 'ores-pref-rc-hidenondamaging',
 		];
+		// Hide RC pref if enhanced filters are enabled
+		if ( $user->getBoolOption( 'rcenhancedfilters' ) ) {
+			$wgHiddenPrefs[] = 'oresRCHideNonDamaging';
+		}
 	}
 
 	/**
