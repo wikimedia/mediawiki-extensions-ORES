@@ -240,8 +240,7 @@ class Hooks {
 						),
 					],
 					[
-						// HACK the front-end doesn't support StringOptionsFilters with the same name
-						'name' => 'maybebadfaith',
+						'name' => 'maybebad',
 						'label' => 'ores-rcfilters-goodfaith-maybebad-label',
 						'description' => 'ores-rcfilters-goodfaith-maybebad-desc',
 						'cssClassSuffix' => 'goodfaith-maybebad',
@@ -265,10 +264,6 @@ class Hooks {
 				'isFullCoverage' => false,
 				'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables, &$fields,
 						&$conds, &$query_options, &$join_conds, $selectedValues ) {
-					// HACK account for maybebadfaith rename hack
-					array_walk( $selectedValues, function ( &$v ) {
-						$v = $v === 'maybebadfaith' ? 'maybebad' : $v;
-					} );
 					$condition = self::buildRangeFilter( 'goodfaith', $selectedValues );
 					if ( $condition ) {
 						$conds[] = $condition;
@@ -279,7 +274,7 @@ class Hooks {
 					}
 				},
 			] );
-			$goodfaithGroup->getFilter( 'maybebadfaith' )->setAsSupersetOf(
+			$goodfaithGroup->getFilter( 'maybebad' )->setAsSupersetOf(
 				$goodfaithGroup->getFilter( 'bad' )
 			);
 
