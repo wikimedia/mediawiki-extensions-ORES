@@ -20,6 +20,7 @@
 	"ores-help-damaging-pref": "Questa soglia determina quanto sensibile sarà ORES nel contrassegnare le modifiche che necessitano di revisione",
 	"ores-hide-nondamaging-filter": "Nascondi probabili buone modifiche",
 	"ores-pref-damaging": "Sensibilità ORES",
+	"ores-rcfilters-whats-this-link-text": "Ulteriori informazioni",
 	"ores-rcfilters-damaging-likelygood-label": "Molto probabilmente buona",
 	"ores-rcfilters-damaging-maybebad-label": "Potrebbe avere problemi",
 	"ores-rcfilters-damaging-likelybad-label": "Probabilmente ha problemi",

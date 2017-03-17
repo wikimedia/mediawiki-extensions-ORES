@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Zygimantus",
-			"Eitvys200"
+			"Eitvys200",
+			"Nersip"
 		]
 	},
 	"ores-damaging-filter": "$1 tikriausiai gerų redagavimų",
 	"ores-damaging-legend": "Šis pataisymas gali būti sugadintas ir turėtų būti peržiūrėtas ([[:mw:Special:MyLanguage/ORES review tool|daugiau informacijos]])",
 	"ores-pref-damaging": "ORES jautrumas",
+	"ores-rcfilters-whats-this-link-text": "Sužinoti daugiau",
 	"apihelp-query+ores-description": "Pateikti šios viki ORES konfigūraciją ir modelio duomenis.",
 	"apihelp-query+ores-example-simple": "Gauti ORES duomenis:",
 	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Prideda ORES balus prie įrašo."
