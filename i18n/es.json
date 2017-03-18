@@ -16,6 +16,9 @@
 	"ores-help-damaging-pref": "Este umbral determina la sensibilidad de ORES cuando se marcan las ediciones que requieren revisión",
 	"ores-hide-nondamaging-filter": "Ocultar las ediciones probablemente buenas",
 	"ores-pref-damaging": "Sensibilidad de ORES",
+	"ores-rcfilters-whats-this-link-text": "Más información",
+	"ores-rcfilters-damaging-whats-this-header": "Acerca de las predicciones de calidad de las contribuciones",
+	"ores-rcfilters-goodfaith-whats-this-header": "Acerca de las predicciones de intención de los usuarios",
 	"ores-pref-rc-hidenondamaging": "Ocultar las ediciones probablemente buenas de los cambios recientes",
 	"ores-pref-watchlist-hidenondamaging": "Ocultar las ediciones probablemente buenas de la lista de seguimiento",
 	"prefs-ores": "Puntuación de revisión"
