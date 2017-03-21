@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Pikne"
+		]
+	},
+	"ores-beta-feature-description": "ORES on tehisintellektil põhinev tööriist, mis tõstab viimastes muudatustes ja jälgimisloendis esile tõenäoliselt kahjulikud muudatused.",
+	"ores-desc": "Teeb redaktsioonide automatiseeritud hinded liideses kättesaadavaks.",
+	"ores-damaging-filter": "Tõenäoliselt head muudatused ($1)",
+	"ores-damaging-hard": "Kõrge (sildistab rohkem muudatusi)",
+	"ores-damaging-letter": "ü",
+	"ores-damaging-soft": "Madal (sildistab vähem muudatusi)",
+	"ores-damaging-softest": "Madalaim (sildistab võimalikult vähe muudatusi)",
+	"ores-damaging-title": "See muudatus on vaja üle vaadata.",
+	"ores-damaging-legend": "See muudatus võib olla kahjulik ja tuleks üle vaadata ([[:mw:Special:MyLanguage/ORES review tool|lisateave]])",
+	"ores-help-damaging-pref": "See lävi määrab, millise tundlikkusega sildistab ORES-teenus muudatusi, mida on vaja üle vaadata.",
+	"ores-hide-nondamaging-filter": "Peida tõenäoliselt head muudatused",
+	"ores-pref-damaging": "ORES-tundlikkus",
+	"ores-pref-rc-hidenondamaging": "Näita ainult võimalikke probleemseid muudatusi (tõenäoliselt head muudatused peidetud).",
+	"ores-pref-watchlist-hidenondamaging": "Näita ainult võimalikke probleemseid muudatusi (tõenäoliselt head muudatused peidetud).",
+	"prefs-ores": "Redaktsioonide hinded"
+}

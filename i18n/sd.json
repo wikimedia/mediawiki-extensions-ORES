@@ -6,5 +6,8 @@
 			"Indus Asia"
 		]
 	},
-	"ores-rcfilters-whats-this-link-text": "وڌيڪ پرايو"
+	"ores-rcfilters-whats-this-link-text": "وڌيڪ پرايو",
+	"ores-rcfilters-damaging-maybebad-label": "مسئلا ٿي سگهن ٿا",
+	"ores-rcfilters-damaging-likelybad-label": "امڪان آهي ته مسئلا ٿين",
+	"ores-rcfilters-damaging-verylikelybad-label": "گهڻو امڪان آهي ته مسئلا ٿين"
 }
