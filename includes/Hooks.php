@@ -94,6 +94,7 @@ class Hooks {
 
 		$changeTypeGroup = $clsp->getFilterGroup( 'changeType' );
 		$logFilter = $changeTypeGroup->getFilter( 'hidelog' );
+		$categoryFilter = $changeTypeGroup->getFilter( 'hidecategorization' );
 
 		if ( self::isModelEnabled( 'damaging' ) ) {
 			$damagingLevels = $stats->getThresholds( 'damaging' );
@@ -166,8 +167,14 @@ class Hooks {
 			$newDamagingGroup->conflictsWith(
 				$logFilter,
 				'ores-rcfilters-ores-conflicts-logactions-global',
-				'ores-rcfilters-damaging-conflicts-logactions',
+				'ores-rcfilters-damaging-conflicts-typeofchange',
 				'ores-rcfilters-logactions-conflicts-ores'
+			);
+			$newDamagingGroup->conflictsWith(
+				$categoryFilter,
+				'ores-rcfilters-ores-conflicts-hidecategorization-global',
+				'ores-rcfilters-damaging-conflicts-typeofchange',
+				'ores-rcfilters-hidecategorization-conflicts-ores'
 			);
 
 			$newDamagingGroup->getFilter( 'maybebad' )->setAsSupersetOf(
@@ -281,8 +288,14 @@ class Hooks {
 			$goodfaithGroup->conflictsWith(
 				$logFilter,
 				'ores-rcfilters-ores-conflicts-logactions-global',
-				'ores-rcfilters-goodfaith-conflicts-logactions',
+				'ores-rcfilters-goodfaith-conflicts-typeofchange',
 				'ores-rcfilters-logactions-conflicts-ores'
+			);
+			$goodfaithGroup->conflictsWith(
+				$categoryFilter,
+				'ores-rcfilters-ores-conflicts-hidecategorization-global',
+				'ores-rcfilters-goodfaith-conflicts-typeofchange',
+				'ores-rcfilters-hidecategorization-conflicts-ores'
 			);
 
 			$clsp->registerFilterGroup( $goodfaithGroup );
