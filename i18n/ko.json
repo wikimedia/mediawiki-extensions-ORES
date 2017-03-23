@@ -18,6 +18,15 @@
 	"ores-hide-nondamaging-filter": "검토가 필요한 편집만 보기",
 	"ores-pref-damaging": "ORES 민감도",
 	"ores-rcfilters-whats-this-link-text": "더 알아보기",
+	"ores-rcfilters-damaging-title": "기여 품질 예측",
+	"ores-rcfilters-damaging-likelygood-label": "양호할 가능성이 매우 높습니다",
+	"ores-rcfilters-damaging-maybebad-label": "문제가 있을 수 있습니다",
+	"ores-rcfilters-damaging-likelybad-label": "문제가 있을 가능성이 있습니다",
+	"ores-rcfilters-damaging-verylikelybad-label": "문제가 있을 가능성이 매우 높습니다",
+	"ores-rcfilters-goodfaith-title": "사용자 의도 예측",
+	"ores-rcfilters-goodfaith-good-label": "선의일 가능성이 매우 높습니다",
+	"ores-rcfilters-goodfaith-maybebad-label": "악의일 수 있습니다",
+	"ores-rcfilters-goodfaith-bad-label": "악의일 가능성이 있습니다",
 	"ores-pref-rc-hidenondamaging": "최근 바뀜에서 정상적인 편집 숨기기",
 	"ores-pref-watchlist-hidenondamaging": "주시문서 목록에서 정상적인 편집 숨기기"
 }
