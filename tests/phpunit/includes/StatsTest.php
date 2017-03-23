@@ -63,7 +63,7 @@ class StatsTest extends PHPUnit_Framework_TestCase {
 			[
 				'likelygood' => [
 					'min' => 0,
-					'max' => 0.259,
+					'max' => 0.741, // 1-0.259
 				],
 				'maybebad' => [
 					'min' => 0.281,
@@ -116,11 +116,11 @@ class StatsTest extends PHPUnit_Framework_TestCase {
 				],
 				'maybebad' => [
 					'min' => 0,
-					'max' => 0.322,
+					'max' => 0.678, // 1-0.322
 				],
 				'bad' => [
 					'min' => 0,
-					'max' => 0.808,
+					'max' => 0.192, // 1-0.808
 				]
 			]
 		);
