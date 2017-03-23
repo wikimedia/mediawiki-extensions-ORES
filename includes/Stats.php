@@ -162,7 +162,10 @@ class Stats {
 		$stat = $config[ 'stat' ];
 		$outcome = $config[ 'outcome' ];
 		if ( isset( $statsData[ $stat ][ $outcome ][ 'threshold' ] ) ) {
-			return $statsData[ $stat ][ $outcome ][ 'threshold' ];
+			$threshold = $statsData[ $stat ][ $outcome ][ 'threshold' ];
+			// Thresholds reported for "false" outcomes apply to "false" scores, but we always
+			// apply thresholds against "true" scores, so we need to invert "false" thresholds here.
+			return $outcome === 'false' ? 1 - $threshold : $threshold;
 		}
 
 		$this->logger->warning(
