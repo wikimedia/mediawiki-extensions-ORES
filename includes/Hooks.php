@@ -72,8 +72,13 @@ class Hooks {
 			$logger->debug( 'Processing edit {revid}', [
 				'revid' => $revid,
 			] );
+			$request = RequestContext::getMain()->getRequest();
 			$job = new FetchScoreJob( $rc->getTitle(), [
 				'revid' => $revid,
+				'originalRequest' => [
+					'ip' => $request->getIP(),
+					'userAgent' => $request->getHeader( 'User-Agent' ),
+				],
 				'extra_params' => [ 'precache' => 'true' ],
 			] );
 			JobQueueGroup::singleton()->push( $job );

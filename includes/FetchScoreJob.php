@@ -10,7 +10,10 @@ class FetchScoreJob extends Job {
 
 	/**
 	 * @param Title $title
-	 * @param array $params 'revid' key
+	 * @param array $params
+	 *   - 'revid': (int|int[]) revision IDs for which to fetch the score
+	 *   - 'originalRequest': (string[]) request data to forward to the upstream API;
+	 *       see MwHttpRequest::setOriginalRequest()
 	 */
 	public function __construct( Title $title, array $params ) {
 		$expensive = is_array( $params['revid'] );
@@ -50,8 +53,11 @@ class FetchScoreJob extends Job {
 		}
 
 		$logger->info( 'Fetching scores for revision ' . json_encode( $this->params ) );
-		$scores = Scoring::instance()->getScores(
-			$this->params['revid'], null, $this->params['extra_params'] );
+		$scoring = Scoring::instance();
+		if ( isset( $this->params['originalRequest'] ) ) {
+			$scoring->setOriginalRequest( $this->params['originalRequest'] );
+		}
+		$scores = $scoring->getScores( $this->params['revid'], null, $this->params['extra_params'] );
 		$cache = Cache::instance();
 		$success = true;
 		$cache->setErrorCallback( function ( $mssg, $revision ) use ( &$success, $logger ) {

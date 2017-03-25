@@ -14,6 +14,7 @@ use ApiResult;
 use DeferredUpdates;
 use JobQueueGroup;
 use MediaWiki\Logger\LoggerFactory;
+use RequestContext;
 use Title;
 use ResultWrapper;
 use WatchedItem;
@@ -265,8 +266,16 @@ class ApiHooks {
 				$chunks = array_chunk( $revids, $wgOresRevisionsPerBatch );
 				$revids = array_shift( $chunks );
 				$title = Title::makeTitle( NS_SPECIAL, 'Badtitle/API batch score fetch' );
+				$request = RequestContext::getMain()->getRequest();
 				foreach ( array_slice( $chunks, 0, $wgOresAPIMaxBatchJobs ) as $batch ) {
-					$job = new FetchScoreJob( $title, [ 'revid' => $batch, 'extra_params' => [] ] );
+					$job = new FetchScoreJob( $title, [
+						'revid' => $batch,
+						'originalRequest' => [
+							'ip' => $request->getIP(),
+							'userAgent' => $request->getHeader( 'User-Agent' ),
+						],
+						'extra_params' => [],
+					] );
 					JobQueueGroup::singleton()->push( $job );
 				}
 			}
