@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Macofe",
-			"Yllelder"
+			"Yllelder",
+			"Julián L"
 		]
 	},
 	"ores-beta-feature-description": "ORES es una herramienta basada en inteligencia artificial que resalta ediciones probablemente dañinas en cambios recientes y lista de seguimiento.",
@@ -19,7 +20,7 @@
 	"ores-rcfilters-whats-this-link-text": "Más información",
 	"ores-rcfilters-damaging-whats-this-header": "Acerca de las predicciones de calidad de las contribuciones",
 	"ores-rcfilters-goodfaith-whats-this-header": "Acerca de las predicciones de intención de los usuarios",
-	"ores-pref-rc-hidenondamaging": "Ocultar las ediciones probablemente buenas de los cambios recientes",
-	"ores-pref-watchlist-hidenondamaging": "Ocultar las ediciones probablemente buenas de la lista de seguimiento",
+	"ores-pref-rc-hidenondamaging": "Mostrar solo las modificaciones que puedan tener problemas (y ocultar probables buena ediciones)",
+	"ores-pref-watchlist-hidenondamaging": "Mostrar solo las modificaciones que puedan tener problemas (y ocultar probables buena ediciones)",
 	"prefs-ores": "Puntuación de revisión"
 }

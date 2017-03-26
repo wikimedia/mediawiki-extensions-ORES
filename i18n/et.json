@@ -16,7 +16,7 @@
 	"ores-help-damaging-pref": "See lävi määrab, millise tundlikkusega sildistab ORES-teenus muudatusi, mida on vaja üle vaadata.",
 	"ores-hide-nondamaging-filter": "Peida tõenäoliselt head muudatused",
 	"ores-pref-damaging": "ORES-tundlikkus",
-	"ores-pref-rc-hidenondamaging": "Näita ainult võimalikke probleemseid muudatusi (tõenäoliselt head muudatused peidetud).",
-	"ores-pref-watchlist-hidenondamaging": "Näita ainult võimalikke probleemseid muudatusi (tõenäoliselt head muudatused peidetud).",
+	"ores-pref-rc-hidenondamaging": "Näita ainult võimalikke probleemseid muudatusi (tõenäoliselt head muudatused peidetud)",
+	"ores-pref-watchlist-hidenondamaging": "Näita ainult võimalikke probleemseid muudatusi (tõenäoliselt head muudatused peidetud)",
 	"prefs-ores": "Redaktsioonide hinded"
 }
