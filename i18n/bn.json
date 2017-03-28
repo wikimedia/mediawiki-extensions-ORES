@@ -17,7 +17,9 @@
 	"ores-hide-nondamaging-filter": "সম্ভবত ভাল পরিবর্তনগুলো লুকান",
 	"ores-pref-damaging": "ORES সংবেদনশীলতা",
 	"ores-rcfilters-whats-this-link-text": "আরও জানুন",
-	"ores-pref-rc-hidenondamaging": "সম্ভাব্য ভালো সম্পাদনাগুলো সাম্প্রতিক পরিবর্তনসমূহে আড়াল করো",
+	"ores-rcfilters-damaging-maybebad-label": "সমস্যা থাকতে পারে",
+	"ores-rcfilters-damaging-likelybad-label": "সম্ভবত সমস্যা রয়েছে",
+	"ores-pref-rc-hidenondamaging": "শুধুমাত্র যে সম্পাদনাগুলিতে সমস্যার থাকতে পারে তা দেখান (ও সম্ভাব্য ভালো সম্পাদনাগুলো লুকিয়ে রাখুন)",
 	"ores-pref-watchlist-hidenondamaging": "সম্ভাব্য ভালো সম্পাদনাগুলো নজরতালিকায় আড়াল করো",
 	"prefs-ores": "সংশোধনের স্কোর"
 }
