@@ -1,14 +1,9 @@
-/**
- * Marking "r" flag in ORES red in recent changes.
- */
+/* Make the "r" bold */
 .ores-damaging {
 	font-weight: bold;
-	color: #f00;
 }
 
-/**
- * Make the whole row orange
- */
+/* Make the whole row orange if highlighted */
 li.damaging.ores-highlight,
 tr.damaging.ores-highlight {
 	background: #fef6e7;
