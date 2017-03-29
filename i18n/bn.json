@@ -20,6 +20,6 @@
 	"ores-rcfilters-damaging-maybebad-label": "সমস্যা থাকতে পারে",
 	"ores-rcfilters-damaging-likelybad-label": "সম্ভবত সমস্যা রয়েছে",
 	"ores-pref-rc-hidenondamaging": "শুধুমাত্র যে সম্পাদনাগুলিতে সমস্যার থাকতে পারে তা দেখান (ও সম্ভাব্য ভালো সম্পাদনাগুলো লুকিয়ে রাখুন)",
-	"ores-pref-watchlist-hidenondamaging": "সম্ভাব্য ভালো সম্পাদনাগুলো নজরতালিকায় আড়াল করো",
+	"ores-pref-watchlist-hidenondamaging": "শুধুমাত্র যে সম্পাদনাগুলিতে সমস্যার থাকতে পারে তা দেখান (ও সম্ভাব্য ভালো সম্পাদনাগুলো লুকিয়ে রাখুন)",
 	"prefs-ores": "সংশোধনের স্কোর"
 }
