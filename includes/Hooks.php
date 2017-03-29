@@ -614,7 +614,7 @@ class Hooks {
 		// Make hidenondamaging default
 		$preferences['oresWatchlistHideNonDamaging'] = [
 			'type' => 'toggle',
-			'section' => 'watchlist/advancedwatchlist',
+			'section' => 'watchlist/ores',
 			'label-message' => 'ores-pref-watchlist-hidenondamaging',
 		];
 		$preferences['oresRCHideNonDamaging'] = [
