@@ -1,7 +1,4 @@
-/**
- * Make the whole rows yellow
- */
-
+/* Make the whole rows various shades of yellow */
 .damaging.ores-highlight[data-ores-damaging='softest'] {
 	background-color: #fc3;
 }
@@ -12,4 +9,9 @@
 
 .damaging.ores-highlight[data-ores-damaging='hard'] {
 	background-color: #fef6e7;
+}
+
+/* Make the "r" red */
+.ores-damaging {
+	color: #f00;
 }
