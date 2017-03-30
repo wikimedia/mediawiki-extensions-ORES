@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"烈羽"
+			"烈羽",
+			"Liuxinyu970226"
 		]
 	},
-	"ores-hide-nondamaging-filter": "隱藏可能良好編輯"
+	"ores-hide-nondamaging-filter": "隱藏可能良好編輯",
+	"ores-rcfilters-whats-this-link-text": "瞭解更多"
 }
