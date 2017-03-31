@@ -4,14 +4,21 @@ namespace ORES\Tests;
 
 use MediaWiki\Logger\LoggerFactory;
 use ORES;
-use PHPUnit_Framework_TestCase;
 use WANObjectCache;
 
 /**
  * @group ORES
  * @covers ORES\Stats
  */
-class StatsTest extends PHPUnit_Framework_TestCase {
+class StatsTest extends \MediaWikiTestCase {
+
+	protected function setUp() {
+		parent::setUp();
+
+		$this->setMwGlobals( [
+			'wgOresFiltersThresholds' => [],
+		] );
+	}
 
 	private function getLoggerMock() {
 		return $this->getMockBuilder( 'Psr\Log\LoggerInterface' )
@@ -204,6 +211,47 @@ class StatsTest extends PHPUnit_Framework_TestCase {
 				'bad' => [
 					'min' => 0,
 					'max' => 0.15,
+				]
+			]
+		);
+	}
+
+	public function testGetThresholds_everythingWouldHaveGoneWrong() {
+		$api = $this->getMockBuilder( 'ORES\Api' )->getMock();
+		$api->method( 'request' )
+			->with( [ 'model_info' => 'test_stats' ], 'goodfaith' )
+			->willReturn( 'this is not the stat object you were expecting...' );
+
+		$logger = $this->getLoggerMock();
+
+		$this->setMwGlobals( [
+			'wgOresFiltersThresholds' => [
+				"goodfaith" => [
+					"good" => [ "min" => 0.7, "max" => 1 ],
+					"maybebad" => [ "min" => 0, "max" => 0.69 ],
+					"bad" => [ "min" => 0, "max" => 0.25 ],
+				],
+			],
+		] );
+
+		$stats = new ORES\Stats( $api, WANObjectCache::newEmpty(), $logger );
+
+		$thresholds = $stats->getThresholds( 'goodfaith', false );
+
+		$this->assertEquals(
+			$thresholds,
+			[
+				'good' => [
+					'min' => 0.7,
+					'max' => 1,
+				],
+				'maybebad' => [
+					'min' => 0,
+					'max' => 0.69,
+				],
+				'bad' => [
+					'min' => 0,
+					'max' => 0.25,
 				]
 			]
 		);

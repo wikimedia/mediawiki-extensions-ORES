@@ -98,6 +98,12 @@ class Stats {
 	}
 
 	public function getThresholds( $model, $fromCache = true ) {
+		global $wgOresFiltersThresholds;
+
+		if ( isset( $wgOresFiltersThresholds[ $model ] ) ) {
+			return $wgOresFiltersThresholds[ $model ];
+		}
+
 		if ( isset( $this->thresholdsConfig[ $model ] ) ) {
 			return $this->parseThresholds( $this->fetchStats( $model, $fromCache ), $model );
 		} else {
