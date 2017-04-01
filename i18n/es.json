@@ -20,7 +20,7 @@
 	"ores-rcfilters-whats-this-link-text": "Más información",
 	"ores-rcfilters-damaging-whats-this-header": "Acerca de las predicciones de calidad de las contribuciones",
 	"ores-rcfilters-goodfaith-whats-this-header": "Acerca de las predicciones de intención de los usuarios",
-	"ores-pref-rc-hidenondamaging": "Mostrar solo las modificaciones que puedan tener problemas (y ocultar probables buena ediciones)",
-	"ores-pref-watchlist-hidenondamaging": "Mostrar solo las modificaciones que puedan tener problemas (y ocultar probables buena ediciones)",
+	"ores-pref-rc-hidenondamaging": "Mostrar solo las modificaciones que puedan tener problemas (y ocultar las probablemente buenas)",
+	"ores-pref-watchlist-hidenondamaging": "Mostrar solo las modificaciones que puedan tener problemas (y ocultar las probablemente buenas)",
 	"prefs-ores": "Puntuación de revisión"
 }

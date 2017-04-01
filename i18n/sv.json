@@ -7,5 +7,6 @@
 	},
 	"ores-hide-nondamaging-filter": "Visa endast ändringar som behöver granskning",
 	"ores-rcfilters-whats-this-link-text": "Läs mer",
+	"ores-rcfilters-damaging-maybebad-label": "Kan ha problem",
 	"ores-pref-rc-hidenondamaging": "Visa endast redigeringar som har problem (och dölj förmodligen bra redigeringar)"
 }
