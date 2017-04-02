@@ -22,6 +22,7 @@
 	"ores-rcfilters-damaging-title": "Previsões de qualidade de contribuição",
 	"ores-rcfilters-damaging-whats-this-header": "Sobre previsões de qualidade de contribuição",
 	"ores-rcfilters-damaging-likelygood-label": "Provavelmente boas",
+	"ores-rcfilters-damaging-likelygood-desc": "Altamente preciso em encontrar quase todas as edições sem problemas.",
 	"ores-rcfilters-damaging-maybebad-label": "Podem ter problemas",
 	"ores-rcfilters-damaging-likelybad-label": "Provavelmente têm problemas",
 	"ores-rcfilters-damaging-verylikelybad-label": "Muito provavelmente têm problemas",
