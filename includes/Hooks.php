@@ -635,10 +635,21 @@ class Hooks {
 	 * @throws Exception When $type is not recognized
 	 */
 	public static function getThreshold( $type, User $user ) {
-		global $wgOresDamagingThresholds;
 		if ( $type === 'damaging' ) {
 			$pref = $user->getOption( 'oresDamagingPref' );
-			return $wgOresDamagingThresholds[$pref];
+			$compatMap = [
+				'hard' => 'maybebad',
+				'soft' => 'likelybad',
+				'softest' => 'verylikelybad',
+			];
+			if ( isset( $compatMap[ $pref ] ) ) {
+				$pref = $compatMap[ $pref ];
+			}
+			$thresholds = self::getDamagingThresholds();
+			if ( isset( $thresholds[ $pref ] ) ) {
+				return $thresholds[ $pref ];
+			}
+			throw new Exception( "Unknown $type level: '$pref'" );
 		}
 		throw new Exception( "Unknown ORES test: '$type'" );
 	}
@@ -651,16 +662,19 @@ class Hooks {
 	 * @param string[] $preferences
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
-		global $wgOresDamagingThresholds, $wgOresExtensionStatus, $wgHiddenPrefs;
+		global $wgOresExtensionStatus, $wgHiddenPrefs;
 
 		if ( !self::oresEnabled( $user ) || !self::isModelEnabled( 'damaging' ) ) {
 			return;
 		}
 
 		$options = [];
-		foreach ( $wgOresDamagingThresholds as $case => $value ) {
-			$text = \wfMessage( 'ores-damaging-' . $case )->parse();
-			$options[$text] = $case;
+		$damagingThresholds = self::getDamagingThresholds();
+		foreach ( [ 'maybebad', 'likelybad', 'verylikelybad' ] as $level ) {
+			if ( isset( $damagingThresholds[ $level ] ) ) {
+				$text = \wfMessage( 'ores-damaging-' . $level )->text();
+				$options[ $text ] = $level;
+			}
 		}
 		$oresSection = $wgOresExtensionStatus === 'beta' ? 'rc/ores' : 'watchlist/ores';
 		$preferences['oresDamagingPref'] = [
@@ -715,7 +729,6 @@ class Hooks {
 	 * @param Skin $skin
 	 */
 	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
-		global $wgOresDamagingThresholds;
 		if ( !self::oresEnabled( $out->getUser() ) ) {
 			return;
 		}
@@ -726,13 +739,23 @@ class Hooks {
 			$out->addJsConfigVars( 'oresData', $oresData );
 			$out->addJsConfigVars(
 				'oresThresholds',
-				[ 'damaging' => $wgOresDamagingThresholds ]
+				[ 'damaging' => self::getDamagingThresholds() ]
 			);
 			$out->addModuleStyles( 'ext.ores.styles' );
 			if ( self::isHighlightEnabled( $out ) ) {
 				$out->addModules( 'ext.ores.highlighter' );
 			}
 		}
+	}
+
+	public static function getDamagingThresholds() {
+		$stats = Stats::newFromGlobalState();
+		$thresholds = [];
+		foreach ( $stats->getThresholds( 'damaging' ) as $name => $bounds ) {
+			$thresholds[ $name ] = $bounds[ 'min' ];
+		}
+		unset( $thresholds[ 'likelygood' ] );
+		return $thresholds;
 	}
 
 	/**
