@@ -23,6 +23,8 @@
 	"ores-pref-damaging": "Чувствительность ORES",
 	"ores-rcfilters-whats-this-link-text": "Узнать больше",
 	"ores-rcfilters-logactions-conflicts-ores": "Данный фильтр находится в конфликте с одним или нескольками фильтрами Качество вклада или Намерения пользователя. Упомянутые фильтры не доступны для зарегистрированных действий.",
+	"ores-rcfilters-damaging-title": "Предсказание качества вклада",
+	"ores-rcfilters-damaging-whats-this-header": "О предсказаниях качества вклада",
 	"ores-rcfilters-goodfaith-title": "Предсказания намерений пользователя",
 	"ores-rcfilters-goodfaith-whats-this-header": "О предсказаниях намерений пользователя",
 	"ores-rcfilters-goodfaith-conflicts-logactions": "Предсказания намерений пользователя не доступны для некоторых типов изменений, по-этому, фильтр находится в конфликте со следующим типом изменений {{PLURAL:$2|фильтр|фильтры}}: $1",
