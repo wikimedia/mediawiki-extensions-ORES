@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"McSalama"
+			"McSalama",
+			"4shadoww"
 		]
 	},
+	"ores-beta-feature-description": "ORES on tekoäly pohjainen työkalu, joka merkitsee mahdollisesti haitallisia muutoksia tuoreissa muutoksissa, ja tarkkailulistalla.",
 	"ores-damaging-title": "Tämä muokkaus täytyy tarkastaa."
 }
