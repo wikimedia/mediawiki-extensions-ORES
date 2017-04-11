@@ -9,7 +9,7 @@
 	},
 	"ores-beta-feature-description": "ORES הוא כלי מבוסס בינה מלאכותית שמדגיש עריכות שאולי מזיקות בשינויים אחרונים וברשימת המעקב.",
 	"ores-desc": "חשיפת דירוגי גרסאות אוטומטיים בממשק",
-	"ores-damaging-filter": "$1 עריכות כנראה טובות",
+	"ores-damaging-filter": "$1 עריכות שכנראה טובות",
 	"ores-damaging-hard": "גבוה (לסמן יותר עריכות)",
 	"ores-damaging-letter": "ד",
 	"ores-damaging-soft": "נמוך (לסמן פחות עריכות)",
