@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Vitorvicentevalente",
-			"He7d3r"
+			"He7d3r",
+			"Fúlvio"
 		]
 	},
 	"ores-beta-feature-description": "ORES é uma ferramenta baseada em inteligência artificial que destaca as edições possivelmente prejudiciais nas mudanças recentes e na lista de páginas vigiadas.",
@@ -15,7 +16,7 @@
 	"ores-damaging-legend": "Esta edição pode ser prejudicial e precisa de revisão ([[:mw:Special:MyLanguage/ORES review tool|mais informação]])",
 	"ores-help-damaging-pref": "Este nível determina quão sensível é o ORES ao assinalar edições que precisam ser revisadas",
 	"ores-pref-damaging": "Sensibilidade do ORES",
-	"ores-pref-rc-hidenondamaging": "Ocultar prováveis boas edições das mudanças recentes",
-	"ores-pref-watchlist-hidenondamaging": "Ocultar prováveis boas edições da lista de páginas vigiadas",
+	"ores-pref-rc-hidenondamaging": "Mostrar apenas as edições que podem ter problemas (e ocultar prováveis boas edições)",
+	"ores-pref-watchlist-hidenondamaging": "Mostrar apenas as edições que podem ter problemas (e ocultar prováveis boas edições)",
 	"prefs-ores": "Pontuação das revisões"
 }
