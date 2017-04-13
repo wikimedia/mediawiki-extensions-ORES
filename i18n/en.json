@@ -15,6 +15,7 @@
 	"ores-help-damaging-pref": "Sets the level of probability at which the system flags edits with an \"{{int:ores-damaging-letter}}\" to indicate they \"need review\" on Recent Changes, Watchlist and Contributions. Also sets the threshold for \"Show only likely problem edits\".",
 	"ores-hide-nondamaging-filter": "Hide probably good edits",
 	"ores-pref-damaging": "ORES sensitivity",
+	"ores-pref-damaging-flag": "Mark likely problem edits with an \"{{int:ores-damaging-letter}}\" for \"needs review\" (to set the level at which edits are marked, use the \"{{int:ores-pref-damaging}}\" setting in the Watchlist preferences)",
 	"ores-rcfilters-whats-this-link-text": "Learn more",
 	"ores-rcfilters-ores-conflicts-logactions-global": "The \"Logged actions\" filter conflicts with one or more Contribution Quality or User Intent filters. Quality and Intent predictions are not available for logged actions. The conflicting filters are marked in the Active Filters area, above.",
 	"ores-rcfilters-logactions-conflicts-ores": "This filter conflicts with one or more Contribution Quality or User Intent filters. Quality and Intent predictions are not available for logged actions.",

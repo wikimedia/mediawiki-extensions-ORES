@@ -383,18 +383,24 @@ class Hooks {
 
 		$damaging = self::getScoreRecentChangesList( $rc, $changesList->getContext() );
 		if ( $damaging ) {
-			$separator = ' <span class="mw-changeslist-separator">. .</span> ';
-			if ( strpos( $s, $separator ) === false ) {
-				return;
-			}
-
-			$classes[] = 'damaging';
+			// Add highlight class
 			if ( self::isHighlightEnabled( $changesList ) ) {
 				$classes[] = 'ores-highlight';
 			}
-			$parts = explode( $separator, $s );
-			$parts[1] = ChangesList::flag( 'damaging' ) . $parts[1];
-			$s = implode( $separator, $parts );
+
+			// Add damaging class and flag
+			if ( self::isDamagingFlagEnabled( $changesList ) ) {
+				$classes[] = 'damaging';
+
+				$separator = ' <span class="mw-changeslist-separator">. .</span> ';
+				if ( strpos( $s, $separator ) === false ) {
+					return;
+				}
+
+				$parts = explode( $separator, $s );
+				$parts[1] = ChangesList::flag( 'damaging' ) . $parts[1];
+				$s = implode( $separator, $parts );
+			}
 		}
 
 		return true;
@@ -450,7 +456,10 @@ class Hooks {
 
 		self::addRowData( $context, $row->rev_id, (float)$row->ores_damaging_score, 'damaging' );
 
-		if ( $row->ores_damaging_score > $row->ores_damaging_threshold ) {
+		if (
+			self::isDamagingFlagEnabled( $context ) &&
+			$row->ores_damaging_score > $row->ores_damaging_threshold
+		) {
 			// Prepend the "r" flag
 			array_unshift( $flags, ChangesList::flag( 'damaging' ) );
 		}
@@ -472,10 +481,11 @@ class Hooks {
 		}
 
 		if ( $row->ores_damaging_score > $row->ores_damaging_threshold ) {
-			// Add the damaging class
-			$classes[] = 'damaging';
-			if ( $pager->getUser()->getBoolOption( 'oresHighlight' ) ) {
+			if ( self::isHighlightEnabled( $pager ) ) {
 				$classes[] = 'ores-highlight';
+			}
+			if ( self::isDamagingFlagEnabled( $pager ) ) {
+				$classes[] = 'damaging';
 			}
 		}
 	}
@@ -522,14 +532,15 @@ class Hooks {
 		IContextSource $context
 	) {
 		$damaging = self::getScoreRecentChangesList( $rcObj, $context );
-		if ( $damaging ) {
+
+		if ( $damaging && self::isDamagingFlagEnabled( $context ) ) {
 			$classes[] = 'damaging';
 			$data['recentChangesFlags']['damaging'] = true;
 		}
 	}
 
 	/**
-	 * Check if we should flag a row
+	 * Check if we should flag a row. As a side effect, also adds score data for this row.
 	 * @param RecentChange $rcObj
 	 * @param IContextSource $context
 	 * @return bool
@@ -602,12 +613,19 @@ class Hooks {
 			'help-message' => 'ores-help-damaging-pref',
 		];
 
-		// highlight damaging edits based on configured sensitivity
 		if ( $wgOresExtensionStatus !== 'beta' ) {
+			// highlight damaging edits based on configured sensitivity
 			$preferences['oresHighlight'] = [
 				'type' => 'toggle',
 				'section' => $oresSection,
 				'label-message' => 'ores-pref-highlight',
+			];
+
+			// Control whether the "r" appears on RC
+			$preferences['ores-damaging-flag-rc'] = [
+				'type' => 'toggle',
+				'section' => 'rc/advancedrc',
+				'label-message' => 'ores-pref-damaging-flag',
 			];
 		}
 
@@ -704,16 +722,38 @@ class Hooks {
 	}
 
 	/**
-	 * @param Title $title
+	 * @param IContextSource $context
+	 * @return boolean Whether $context->getTitle() is a RecentChanges page
+	 */
+	private static function isRCPage( IContextSource $context ) {
+		return $context->getTitle()->isSpecial( 'Recentchanges' ) ||
+			$context->getTitle()->isSpecial( 'Recentchangeslinked' );
+	}
+
+	/**
+	 * @param IContextSource $title
 	 * @return boolean Whether highlights should be shown
 	 */
 	private static function isHighlightEnabled( IContextSource $context ) {
 		global $wgOresExtensionStatus;
 		return $wgOresExtensionStatus === 'beta' || (
-			$context->getUser()->getBoolOption( 'oresHighlight' ) &&
-			!$context->getTitle()->isSpecial( 'Recentchanges' ) &&
-			!$context->getTitle()->isSpecial( 'Recentchangeslinked' )
+			!self::isRCPage( $context ) &&
+			$context->getUser()->getBoolOption( 'oresHighlight' )
 		);
+	}
+
+	/**
+	 * @param IContextSource $context
+	 * @return boolean Whether the damaging flag ("r") should be shown
+	 */
+	private static function isDamagingFlagEnabled( IContextSource $context ) {
+		global $wgOresExtensionStatus;
+		return $wgOresExtensionStatus === 'beta' ||
+			$context->getUser()->getBoolOption(
+				self::isRCPage( $context ) ?
+					'ores-damaging-flag-rc' :
+					'oresHighlight'
+			);
 	}
 
 	/**

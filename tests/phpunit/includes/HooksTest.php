@@ -15,6 +15,7 @@ use ORES;
 use RCCacheEntry;
 use RecentChange;
 use RequestContext;
+use SpecialPage;
 use User;
 use WANObjectCache;
 
@@ -32,8 +33,10 @@ class OresHooksTest extends \MediaWikiTestCase {
 		parent::setUp();
 
 		$this->user = static::getTestUser()->getUser();
-		$this->user->setOption( 'ores-enabled', "1" );
+		$this->user->setOption( 'ores-enabled', 1 );
 		$this->user->setOption( 'oresDamagingPref', 'soft' );
+		$this->user->setOption( 'oresHighlight', 1 );
+		$this->user->setOption( 'ores-damaging-flag-rc', 1 );
 		$this->user->saveSettings();
 
 		$this->context = self::getContext( $this->user );
@@ -252,6 +255,10 @@ class OresHooksTest extends \MediaWikiTestCase {
 			->will( $this->returnValue( $this->user ) );
 
 		$ecl->expects( $this->any() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( SpecialPage::getTitleFor( 'Recentchanges' ) ) );
+
+		$ecl->expects( $this->any() )
 			->method( 'getContext' )
 			->will( $this->returnValue( $this->context ) );
 
@@ -283,6 +290,10 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$cl->expects( $this->any() )
 			->method( 'getUser' )
 			->will( $this->returnValue( $this->user ) );
+
+		$cl->expects( $this->any() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( SpecialPage::getTitleFor( 'Recentchanges' ) ) );
 
 		$cl->expects( $this->any() )
 			->method( 'getContext' )
@@ -318,6 +329,10 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$cl->expects( $this->any() )
 			->method( 'getUser' )
 			->will( $this->returnValue( $this->user ) );
+
+		$cl->expects( $this->any() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( SpecialPage::getTitleFor( 'Recentchanges' ) ) );
 
 		$cl->expects( $this->any() )
 			->method( 'getContext' )
@@ -384,6 +399,10 @@ class OresHooksTest extends \MediaWikiTestCase {
 			->will( $this->returnValue( $this->user ) );
 
 		$cp->expects( $this->any() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( SpecialPage::getTitleFor( 'Contributions' ) ) );
+
+		$cp->expects( $this->any() )
 			->method( 'getContext' )
 			->will( $this->returnValue( $this->context ) );
 
@@ -448,6 +467,10 @@ class OresHooksTest extends \MediaWikiTestCase {
 			->will( $this->returnValue( $this->user ) );
 
 		$cp->expects( $this->any() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( SpecialPage::getTitleFor( 'Contributions' ) ) );
+
+		$cp->expects( $this->any() )
 			->method( 'getContext' )
 			->will( $this->returnValue( $this->context ) );
 
@@ -461,7 +484,7 @@ class OresHooksTest extends \MediaWikiTestCase {
 
 		ORES\Hooks::onContributionsLineEnding( $cp, $ret, $row, $classes );
 
-		$this->assertSame( [ 'damaging' ], $classes );
+		$this->assertSame( [ 'ores-highlight', 'damaging' ], $classes );
 		$this->assertSame( [], $ret );
 	}
 
@@ -473,6 +496,10 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$cp->expects( $this->any() )
 			->method( 'getUser' )
 			->will( $this->returnValue( $this->user ) );
+
+		$cp->expects( $this->any() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( SpecialPage::getTitleFor( 'Contributions' ) ) );
 
 		$cp->expects( $this->any() )
 			->method( 'getContext' )
@@ -496,7 +523,7 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$prefs = [];
 		ORES\Hooks::onGetPreferences( $this->user, $prefs );
 
-		$this->assertSame( 4, count( $prefs ) );
+		$this->assertSame( 5, count( $prefs ) );
 	}
 
 	public function testOnGetBetaFeaturePreferences_on() {
@@ -534,6 +561,7 @@ class OresHooksTest extends \MediaWikiTestCase {
 
 		$context->setLanguage( 'en' );
 		$context->setUser( $user );
+		$context->setTitle( SpecialPage::getTitleFor( 'Recentchanges' ) );
 
 		return $context;
 	}
