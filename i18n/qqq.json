@@ -18,7 +18,7 @@
 	"ores-damaging-softest": "Name of \"Softest\" threshold\n\nBasically, when you set a threshold to soft, you give it a high number, so less edits will be flagged for review but the chance of them being vandalism is higher. On the other hand, when you set it to hard, it flags more edits. So you might catch all vandalism, but proportion of vandalism would be less, and you see more false positives (edits that are flagged for review but they are completely okay). By using softest sensitivity, you only see edits that are very likely to be vandalism.",
 	"ores-damaging-title": "Tooltip for damaging risk icon.",
 	"ores-damaging-legend": "Legend for damaging risk icon.",
-	"ores-help-damaging-pref": "Help text for \"ORES sensitivity\" in preferences",
+	"ores-help-damaging-pref": "Help text for \"ORES sensitivity\" in preferences. \"Show only likely problem edits\" refers to {{msg-mw|ores-pref-rc-hidenondamaging}} and {{msg-mw|ores-pref-watchlist-hidenondamaging}}.",
 	"ores-hide-nondamaging-filter": "Label for Contributions filter, 'only show'",
 	"ores-pref-damaging": "Part asking for damaging threshold",
 	"ores-rcfilters-whats-this-link-text": "Text of a link to more information about either Contribution Quality Predictions or User Intent Predictions\n{{Identical|Learn more}}",
