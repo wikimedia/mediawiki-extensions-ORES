@@ -86,7 +86,8 @@ class Hooks {
 	public static function onChangesListSpecialPageStructuredFilters(
 		ChangesListSpecialPage $clsp
 	) {
-		if ( !self::oresEnabled( $clsp->getUser() ) ) {
+		// ORES is disabled on Recentchangeslinked: T163063
+		if ( !self::oresEnabled( $clsp->getUser() ) || $clsp->getName() === 'Recentchangeslinked' ) {
 			return;
 		}
 
@@ -295,7 +296,8 @@ class Hooks {
 	) {
 		global $wgUser;
 
-		if ( !self::oresEnabled( $wgUser ) ) {
+		// ORES is disabled on Recentchangeslinked: T163063
+		if ( !self::oresEnabled( $wgUser ) || $name === 'Recentchangeslinked' ) {
 			return;
 		}
 
