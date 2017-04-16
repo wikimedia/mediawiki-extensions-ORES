@@ -4,5 +4,12 @@
 			"4shadoww"
 		]
 	},
-	"ores-beta-feature-description": "ORES on tekoäly pohjainen työkalu, joka merkitsee mahdollisesti haitallisia muutoksia tuoreista muutoksista, ja tarkkailulistalta."
+	"ores-beta-feature-description": "ORES on tekoäly pohjainen työkalu, joka merkitsee mahdollisesti haitallisia muutoksia tuoreista muutoksista, ja tarkkailulistalta.",
+	"ores-damaging-letter": "r",
+	"ores-damaging-title": "Tämä muutos on tarkastettava",
+	"ores-hide-nondamaging-filter": "Piilota mahdollisesti hyvät muutokset",
+	"ores-pref-damaging": "ORES herkkyys",
+	"ores-rcfilters-whats-this-link-text": "Lue lisää",
+	"ores-rcfilters-damaging-likelygood-label": "Todennäköisesti hyvä",
+	"ores-rcfilters-damaging-maybebad-label": "Ehkä ongelmia"
 }

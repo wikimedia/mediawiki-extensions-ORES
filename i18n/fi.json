@@ -2,9 +2,32 @@
 	"@metadata": {
 		"authors": [
 			"McSalama",
-			"4shadoww"
+			"4shadoww",
+			"SMAUG",
+			"Stryn"
 		]
 	},
-	"ores-beta-feature-description": "ORES on tekoäly pohjainen työkalu, joka merkitsee mahdollisesti haitallisia muutoksia tuoreissa muutoksissa, ja tarkkailulistalla.",
-	"ores-damaging-title": "Tämä muokkaus täytyy tarkastaa."
+	"ores-beta-feature-description": "ORES on tekoälyyn pohjautuva työkalu, joka merkitsee mahdollisesti haitallisia muutoksia tuoreissa muutoksissa ja tarkkailulistalla.",
+	"ores-damaging-filter": "$1 todennäköisesti hyvää muokkausta",
+	"ores-damaging-title": "Tämä muokkaus täytyy tarkastaa.",
+	"ores-hide-nondamaging-filter": "Piilota todennäköisesti hyvät muokkaukset",
+	"ores-rcfilters-whats-this-link-text": "Lisätietoja",
+	"ores-rcfilters-damaging-likelygood-label": "Hyvin todennäköisesti hyvä muokkaus",
+	"ores-rcfilters-damaging-likelygood-desc": "Erittäin tarkka löytämään lähes kokonaan ongelmattomia muokkauksia.",
+	"ores-rcfilters-damaging-maybebad-label": "Saattaa sisältää ongelmia",
+	"ores-rcfilters-damaging-maybebad-desc": "Löytää eniten virheellisiä tai vahingollisia muokkauksia, mutta tarkkuus on alempi.",
+	"ores-rcfilters-damaging-likelybad-label": "Sisältää todennäköisesti ongelmia",
+	"ores-rcfilters-damaging-likelybad-desc": "Löytää arviolta puolet virheellisistä tai vahingollisista muokkauksista keskitasoisella tarkkuudella.",
+	"ores-rcfilters-damaging-verylikelybad-label": "Sisältää hyvin todennäköisesti ongelmia",
+	"ores-rcfilters-damaging-verylikelybad-desc": "Erittäin tarkka löytämään ilmeisimmät 10 prosenttia virheellisistä tai vahingollisista muokkauksista.",
+	"ores-rcfilters-goodfaith-title": "Käyttäjän aikomuksen ennustamiset",
+	"ores-rcfilters-goodfaith-whats-this-header": "Tietoa käyttäjän aikomuksen ennustamisesta",
+	"ores-rcfilters-goodfaith-good-label": "Hyvin todennäköisesti hyväntahtoinen",
+	"ores-rcfilters-goodfaith-good-desc": "Erittäin tarkka löytämään lähes pelkästään hyväntahtoisia muokkauksia.",
+	"ores-rcfilters-goodfaith-maybebad-label": "Saattaa olla pahantahtoinen",
+	"ores-rcfilters-goodfaith-maybebad-desc": "Löytää pääosin pahantahtoisia muokkauksia, mutta tarkkuus on alempi.",
+	"ores-rcfilters-goodfaith-bad-label": "Todennäköisesti pahantahtoinen",
+	"ores-rcfilters-goodfaith-bad-desc": "Löytää keskitason tarkkuudella ilmeisimmät 25 prosenttia pahantahtoisista muokkauksista.",
+	"ores-pref-rc-hidenondamaging": "Näytä vain todennäköisesti ongelmalliset muokkaukset (piilottaa todennäköisesti hyvät muokkaukset)",
+	"ores-pref-watchlist-hidenondamaging": "Näytä vain todennäköisesti ongelmalliset muokkaukset (piilottaa todennäköisesti hyvät muokkaukset)"
 }

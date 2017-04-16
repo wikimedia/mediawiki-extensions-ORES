@@ -3,7 +3,8 @@
 		"authors": [
 			"Luk3",
 			"Peter Fernando",
-			"TheEduGobi"
+			"TheEduGobi",
+			"Felipe L. Ewald"
 		]
 	},
 	"ores-beta-feature-description": "O ORES é uma ferramenta baseada em inteligência artificial que destaca edições possivelmente prejudiciais nas mudanças recentes e na lista de páginas vigiadas.",
@@ -33,7 +34,7 @@
 	"ores-rcfilters-goodfaith-maybebad-label": "Podem ser de má fé",
 	"ores-rcfilters-goodfaith-bad-label": "Provavelmente de má fé",
 	"ores-rcfilters-goodfaith-bad-desc": "Com precisão mediana, encontra 25% das edições de má fé mais óbvias.",
-	"ores-pref-highlight": "Destaca edições provavelmente prejudiciais em Páginas vigiadas e Contribuições (usando ORES)",
+	"ores-pref-highlight": "Destaque edições provavelmente prejudiciais com cores e um \"{{int:ores-damaging-letter}}\" para \"necessita revisão\"",
 	"ores-pref-rc-hidenondamaging": "Mostrar somente edições que podem ter problemas (e ocultar edições provavelmente boas)",
 	"ores-pref-watchlist-hidenondamaging": "Mostrar somente edições que podem ter problemas (e ocultar edições provavelmente boas)",
 	"prefs-ores": "Pontuação de revisão",

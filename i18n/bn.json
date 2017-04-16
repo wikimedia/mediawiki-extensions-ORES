@@ -12,14 +12,14 @@
 	"ores-damaging-letter": "প",
 	"ores-damaging-soft": "নিন্ম (কম সম্পাদনা পতাকাঙ্কিত করো)",
 	"ores-damaging-title": "এই সম্পাদনাটি পর্যালোচনা করা প্রয়োজন",
-	"ores-damaging-legend": "এই সম্পাদনাটি সম্ভবত ক্ষতিগ্রস্ত ও এটি পর্যালোচনা করা উচিত ([[:mw:Special:MyLanguage/ORES review tool|আরও তথ্য]])",
+	"ores-damaging-legend": "এই সম্পাদনাটিতে সমস্যা আছে ও এটি পর্যালোচনা করা উচিত ([[:mw:Special:MyLanguage/ORES review tool|আরও তথ্য]])",
 	"ores-help-damaging-pref": "এই বহির্দ্বার পর্যালোচনা জন্য সম্পাদনাগুলি পতাকাঙ্কিত করার সময় ORES কতটা সংবেদনশীল হবে তা নির্ধারন করে",
 	"ores-hide-nondamaging-filter": "সম্ভবত ভাল পরিবর্তনগুলো লুকান",
 	"ores-pref-damaging": "ORES সংবেদনশীলতা",
 	"ores-rcfilters-whats-this-link-text": "আরও জানুন",
 	"ores-rcfilters-damaging-maybebad-label": "সমস্যা থাকতে পারে",
 	"ores-rcfilters-damaging-likelybad-label": "সম্ভবত সমস্যা রয়েছে",
-	"ores-pref-rc-hidenondamaging": "শুধুমাত্র যে সম্পাদনাগুলিতে সমস্যার থাকতে পারে তা দেখান (ও সম্ভাব্য ভালো সম্পাদনাগুলো লুকিয়ে রাখুন)",
-	"ores-pref-watchlist-hidenondamaging": "শুধুমাত্র যে সম্পাদনাগুলিতে সমস্যার থাকতে পারে তা দেখান (ও সম্ভাব্য ভালো সম্পাদনাগুলো লুকিয়ে রাখুন)",
+	"ores-pref-rc-hidenondamaging": "শুধুমাত্র সম্ভবত সমস্যাযুক্ত সম্পাদনা দেখান (ও সম্ভাব্য ভালো সম্পাদনাগুলো লুকিয়ে রাখুন)",
+	"ores-pref-watchlist-hidenondamaging": "শুধুমাত্র সম্ভবত সমস্যাযুক্ত সম্পাদনা দেখান (ও সম্ভাব্য ভালো সম্পাদনাগুলো লুকিয়ে রাখুন)",
 	"prefs-ores": "সংশোধনের স্কোর"
 }
