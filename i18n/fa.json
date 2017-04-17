@@ -13,9 +13,19 @@
 	"ores-damaging-hard": "زیاد (ویرایش‌های بیشتری برچسب می‌خورند)",
 	"ores-damaging-letter": "ب",
 	"ores-damaging-soft": "کمتر (ویرایش‌های کمتری برچسب می‌خورند)",
+	"ores-damaging-softest": "پائین‌ترین (برچسب برای کم احتمال‌ترین ویرایش‌ها)",
 	"ores-damaging-title": "این ویرایش نیاز به بازبینی دارد",
-	"ores-damaging-legend": "این ویرایش ممکن است آسیب‌زننده باشد و بهتر است بازبینی شود",
+	"ores-damaging-legend": "این ویرایش ممکن است آسیب‌زننده باشد و بهتر است بازبینی شود ([[:mw:Special:MyLanguage/ORES review tool|اطلاعات بیشتر]])",
 	"ores-help-damaging-pref": "این آستانه، حساسیت ORES در برابر برچسب زدن ویرایش‌ها برای بازبینی را مشخص می‌کند.",
 	"ores-hide-nondamaging-filter": "ویرایش‌های خوب پنهان شود",
-	"ores-pref-damaging": "حساسیت ORES"
+	"ores-pref-damaging": "حساسیت ORES",
+	"ores-rcfilters-whats-this-link-text": "اطلاعات بیشتر",
+	"ores-rcfilters-damaging-likelygood-label": "به نظر خوب می‌رسد",
+	"ores-rcfilters-goodfaith-good-label": "به نظرم با نیت خوب ویرایش شده‌است",
+	"apihelp-query+ores-example-simple": "گرفتن اطلاعات ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "امتیاز ORES برای نسخه.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "امتیاز ORES برای نسخه.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "افزودن امتیاز ORES برای ورودی.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "افزودن امتیاز ORES برای ویرایش.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "افزودن امتیاز ORES برای ویرایش."
 }

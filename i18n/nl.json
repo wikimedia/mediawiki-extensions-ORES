@@ -3,7 +3,8 @@
 		"authors": [
 			"Siebrand",
 			"Sjoerddebruin",
-			"Dinosaur918"
+			"Dinosaur918",
+			"Mainframe98"
 		]
 	},
 	"ores-beta-feature-description": "ORES is een op kunstmatige intelligentie gebaseerd hulpmiddel die mogelijk beschadigende bewerkingen uitlicht in de recente wijzigingen en de volglijst.",
@@ -13,11 +14,11 @@
 	"ores-damaging-letter": "r",
 	"ores-damaging-soft": "Laag (markeert minder bewerkingen)",
 	"ores-damaging-title": "Deze bewerking moet worden beoordeeld",
-	"ores-damaging-legend": "Deze bewerking kan schadelijk zijn en dient beoordeeld te worden ([[:mw:Special:MyLanguage/ORES review tool|meer info]])",
+	"ores-damaging-legend": "Deze bewerking kan problemen bevatten en dient beoordeeld te worden ([[:mw:Special:MyLanguage/ORES review tool|meer info]])",
 	"ores-help-damaging-pref": "Deze drempel bepaalt de gevoeligheid van ORES bij het markeren van bewerkingen die gecontroleerd moeten worden",
 	"ores-hide-nondamaging-filter": "Alleen bewerkingen die beoordeeld moeten worden weergeven",
 	"ores-pref-damaging": "ORES-gevoeligheid",
-	"ores-pref-rc-hidenondamaging": "Mogelijke goede bewerkingen verbergen in recente wijzigingen",
+	"ores-pref-rc-hidenondamaging": "Toon alleen mogelijke problematische bewerkingen (en verberg waarschijnlijke goede bewerkingen)",
 	"ores-pref-watchlist-hidenondamaging": "Mogelijke goede bewerkingen op mijn volglijst verbergen",
 	"prefs-ores": "Scoresysteem voor versies"
 }

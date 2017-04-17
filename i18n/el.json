@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"GR"
+			"GR",
+			"Thodoris"
 		]
 	},
+	"ores-damaging-legend": "This edit may have problems and should be reviewed ([[:mw:Special:MyLanguage/ORES review tool|more info]])",
 	"ores-rcfilters-whats-this-link-text": "Μάθετε περισσότερα",
-	"ores-rcfilters-damaging-verylikelybad-label": "Πολύ πιθανό να έχει προβλήματα"
+	"ores-rcfilters-damaging-verylikelybad-label": "Πολύ πιθανό να έχει προβλήματα",
+	"ores-pref-rc-hidenondamaging": "Εμφάνιση μόνο το πιθανό πρόβλημα να επεξεργάζεται (και να κρύψει μάλλον καλές επεξεργασίες)",
+	"ores-pref-watchlist-hidenondamaging": "Εμφάνιση μόνο το πιθανό πρόβλημα να επεξεργάζεται (και να κρύψει μάλλον καλές επεξεργασίες)"
 }

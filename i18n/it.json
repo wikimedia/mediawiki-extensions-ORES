@@ -16,8 +16,8 @@
 	"ores-damaging-soft": "Basso (contrassegna meno modifiche)",
 	"ores-damaging-softest": "Minima (contrassegna meno modifiche possibili)",
 	"ores-damaging-title": "Questa modifica deve essere revisionata",
-	"ores-damaging-legend": "Questa modifica potrebbe essere dannosa e dovrebbe essere rivista ([[:mw:Special:MyLanguage/ORES review tool|ulteriori informazioni]])",
-	"ores-help-damaging-pref": "Questa soglia determina quanto sensibile sarà ORES nel contrassegnare le modifiche che necessitano di revisione",
+	"ores-damaging-legend": "Questa modifica potrebbe avere problemi e dovrebbe essere rivista ([[:mw:Special:MyLanguage/ORES review tool|ulteriori informazioni]])",
+	"ores-help-damaging-pref": "Imposta il livello di probabilità al quale il sistema contrassegna una modifica con \"{{int:ores-damaging-letter}}\" per indicare che \"necessitano di revisione\" nelle ultime modifiche, osservati speciali e contributi. Imposta anche la soglia per \"Mostra solo le modifiche apparentemente problematiche\".",
 	"ores-hide-nondamaging-filter": "Nascondi probabili buone modifiche",
 	"ores-pref-damaging": "Sensibilità ORES",
 	"ores-rcfilters-whats-this-link-text": "Ulteriori informazioni",
@@ -28,7 +28,7 @@
 	"ores-rcfilters-goodfaith-good-label": "Molto probabilmente in buona fede",
 	"ores-rcfilters-goodfaith-maybebad-label": "Potrebbe essere in malafede",
 	"ores-rcfilters-goodfaith-bad-label": "Probabile in malafede",
-	"ores-pref-rc-hidenondamaging": "Mostra solo le modifiche che potrebbero avere problemi (e nascondi le probabili buone modifiche)",
-	"ores-pref-watchlist-hidenondamaging": "Mostra solo le modifiche che potrebbero avere problemi (e nascondi le probabili buone modifiche)",
+	"ores-pref-rc-hidenondamaging": "Mostra solo le modifiche apparentemente problematiche (e nascondi le probabili buone modifiche)",
+	"ores-pref-watchlist-hidenondamaging": "Mostra solo le modifiche apparentemente problematiche (e nascondi le probabili buone modifiche)",
 	"prefs-ores": "Revisione del punteggio"
 }

@@ -14,10 +14,11 @@
 	"ores-damaging-letter": "r",
 	"ores-damaging-soft": "낮음 (더 적은 편집 표시)",
 	"ores-damaging-title": "이 편집은 검토가 필요합니다",
-	"ores-damaging-legend": "이 편집은 해로울 가능성이 있으며 검토가 필요합니다 ([[:mw:Special:MyLanguage/ORES review tool|추가 정보]])",
+	"ores-damaging-legend": "이 편집은 문제가 있을 가능성이 있으며 검토가 필요합니다 ([[:mw:Special:MyLanguage/ORES review tool|추가 정보]])",
 	"ores-help-damaging-pref": "이 기준은 ORES가 검토를 필요로 하는 편집을 표시할 때 얼마나 민감하게 할 지 결정합니다.",
 	"ores-hide-nondamaging-filter": "검토가 필요한 편집만 보기",
 	"ores-pref-damaging": "ORES 민감도",
+	"ores-pref-damaging-flag": "\"검토가 필요\"한 항목에 대해 문제가 있을 가능성이 있는 편집을 \"{{int:ores-damaging-letter}}\"로 표시 (어느 편집을 표시할 것인지에 대한 수준을 설정하려면 주시목록 환경설정의 \"{{int:ores-pref-damaging}}\"를 사용하십시오)",
 	"ores-rcfilters-whats-this-link-text": "더 알아보기",
 	"ores-rcfilters-damaging-title": "기여 품질 예측",
 	"ores-rcfilters-damaging-whats-this-header": "기여 품질 예측 정보",
@@ -30,7 +31,8 @@
 	"ores-rcfilters-goodfaith-good-label": "선의일 가능성이 매우 높습니다",
 	"ores-rcfilters-goodfaith-maybebad-label": "악의일 수 있습니다",
 	"ores-rcfilters-goodfaith-bad-label": "악의일 가능성이 있습니다",
-	"ores-pref-rc-hidenondamaging": "최근 바뀜에서 정상적인 편집 숨기기",
-	"ores-pref-watchlist-hidenondamaging": "주시문서 목록에서 정상적인 편집 숨기기",
+	"ores-pref-highlight": "문제가 있을 가능성이 있는 편집을 색으로 강조하고 \"검토가 필요\"한 항목에 대해 \"{{int:ores-damaging-letter}}\"로 표시",
+	"ores-pref-rc-hidenondamaging": "문제가 있을 가능성이 있는 편집만 표시 (잠재적으로 정상적인 편집을 숨기기)",
+	"ores-pref-watchlist-hidenondamaging": "문제가 있을 가능성이 있는 편집만 표시 (잠재적으로 정상적인 편집을 숨기기)",
 	"apihelp-query+ores-example-simple": "ORES 데이터 받기:"
 }
