@@ -138,16 +138,18 @@
 		},
 		"OresFiltersThresholds": {
 			"damaging": {
-				"likelygood": { "min": 0, "max": 0.55 },
-				"maybebad": { "min": 0.16, "max": 1 },
-				"likelybad": { "min": 0.75, "max": 1 },
-				"verylikelybad": { "min": 0.92, "max": 1 }
+				"likelygood": { "min": 0, "max": "recall_at_precision(min_precision=0.995)" },
+				"maybebad": { "min": "filter_rate_at_recall(min_recall=0.9)", "max": 1 },
+				"likelybad": { "min": "recall_at_precision(min_precision=0.6)", "max": 1 },
+				"verylikelybad": { "min": "recall_at_precision(min_precision=0.9)", "max": 1 }
 			},
 			"goodfaith": {
-				"good": { "min": 0.35, "max": 1 },
-				"maybebad": { "min": 0, "max": 0.65 },
-				"bad": { "min": 0, "max": 0.15 }
-			}
+				"likelygood": { "min": "recall_at_precision(min_precision=0.995)", "max": 1 },
+				"maybebad": { "min": 0, "max": "filter_rate_at_recall(min_recall=0.9)" },
+				"likelybad": { "min": 0, "max": "recall_at_precision(min_precision=0.6)" },
+				"verylikelybad": false
+			},
+			"_merge_strategy": "array_plus_2d"
 		},
 		"OresEnabledNamespaces": {},
 		"OresWikiId": null,

@@ -98,90 +98,110 @@ class Hooks {
 
 		if ( self::isModelEnabled( 'damaging' ) ) {
 			$damagingLevels = $stats->getThresholds( 'damaging' );
-			$newDamagingGroup = new ChangesListStringOptionsFilterGroup( [
-				'name' => 'damaging',
-				'title' => 'ores-rcfilters-damaging-title',
-				'whatsThisHeader' => 'ores-rcfilters-damaging-whats-this-header',
-				'whatsThisBody' => 'ores-rcfilters-damaging-whats-this-body',
-				'whatsThisUrl' => 'https://www.mediawiki.org/wiki/' .
-					'Special:MyLanguage/Help:New_filters_for_edit_review/Quality_and_Intent_Filters',
-				'whatsThisLinkText' => 'ores-rcfilters-whats-this-link-text',
-				'priority' => 2,
-				'filters' => [
-					[
-						'name' => 'likelygood',
-						'label' => 'ores-rcfilters-damaging-likelygood-label',
-						'description' => 'ores-rcfilters-damaging-likelygood-desc',
-						'cssClassSuffix' => 'damaging-likelygood',
-						'isRowApplicableCallable' => self::makeApplicableCallback(
-							'damaging',
-							$damagingLevels['likelygood']
-						),
-					],
-					[
-						'name' => 'maybebad',
-						'label' => 'ores-rcfilters-damaging-maybebad-label',
-						'description' => 'ores-rcfilters-damaging-maybebad-desc',
-						'cssClassSuffix' => 'damaging-maybebad',
-						'isRowApplicableCallable' => self::makeApplicableCallback(
-							'damaging',
-							$damagingLevels['maybebad']
-						),
-					],
-					[
-						'name' => 'likelybad',
-						'label' => 'ores-rcfilters-damaging-likelybad-label',
-						'description' => 'ores-rcfilters-damaging-likelybad-desc',
-						'cssClassSuffix' => 'damaging-likelybad',
-						'isRowApplicableCallable' => self::makeApplicableCallback(
-							'damaging',
-							$damagingLevels['likelybad']
-						),
-					],
-					[
-						'name' => 'verylikelybad',
-						'label' => 'ores-rcfilters-damaging-verylikelybad-label',
-						'description' => 'ores-rcfilters-damaging-verylikelybad-desc',
-						'cssClassSuffix' => 'damaging-verylikelybad',
-						'isRowApplicableCallable' => self::makeApplicableCallback(
-							'damaging',
-							$damagingLevels['verylikelybad']
-						),
-					],
-				],
-				'default' => ChangesListStringOptionsFilterGroup::NONE,
-				'isFullCoverage' => false,
-				'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables, &$fields,
-						&$conds, &$query_options, &$join_conds, $selectedValues ) {
-					$condition = self::buildRangeFilter( 'damaging', $selectedValues );
-					if ( $condition ) {
-						$conds[] = $condition;
-						$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
-						$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
-						// Performance hack: add STRAIGHT_JOIN (146111)
-						$query_options[] = 'STRAIGHT_JOIN';
-					}
-				},
-			] );
+			$filters = [];
+			if ( isset( $damagingLevels[ 'likelygood' ] ) ) {
+				$filters[] = [
+					'name' => 'likelygood',
+					'label' => 'ores-rcfilters-damaging-likelygood-label',
+					'description' => 'ores-rcfilters-damaging-likelygood-desc',
+					'cssClassSuffix' => 'damaging-likelygood',
+					'isRowApplicableCallable' => self::makeApplicableCallback(
+						'damaging',
+						$damagingLevels['likelygood']
+					),
+				];
+			}
+			if ( isset( $damagingLevels[ 'maybebad' ] ) ) {
+				$filters[] = [
+					'name' => 'maybebad',
+					'label' => 'ores-rcfilters-damaging-maybebad-label',
+					'description' => 'ores-rcfilters-damaging-maybebad-desc',
+					'cssClassSuffix' => 'damaging-maybebad',
+					'isRowApplicableCallable' => self::makeApplicableCallback(
+						'damaging',
+						$damagingLevels['maybebad']
+					),
+				];
+			}
+			if ( isset( $damagingLevels[ 'likelybad' ] ) ) {
+				$filters[] = [
+					'name' => 'likelybad',
+					'label' => 'ores-rcfilters-damaging-likelybad-label',
+					'description' => 'ores-rcfilters-damaging-likelybad-desc',
+					'cssClassSuffix' => 'damaging-likelybad',
+					'isRowApplicableCallable' => self::makeApplicableCallback(
+						'damaging',
+						$damagingLevels['likelybad']
+					),
+				];
+			}
+			if ( isset( $damagingLevels[ 'verylikelybad' ] ) ) {
+				$filters[] = [
+					'name' => 'verylikelybad',
+					'label' => 'ores-rcfilters-damaging-verylikelybad-label',
+					'description' => 'ores-rcfilters-damaging-verylikelybad-desc',
+					'cssClassSuffix' => 'damaging-verylikelybad',
+					'isRowApplicableCallable' => self::makeApplicableCallback(
+						'damaging',
+						$damagingLevels['verylikelybad']
+					),
+				];
+			}
 
-			$newDamagingGroup->conflictsWith(
-				$logFilter,
-				'ores-rcfilters-ores-conflicts-logactions-global',
-				'ores-rcfilters-damaging-conflicts-logactions',
-				'ores-rcfilters-logactions-conflicts-ores'
-			);
+			if ( $filters ) {
+				$newDamagingGroup = new ChangesListStringOptionsFilterGroup( [
+					'name' => 'damaging',
+					'title' => 'ores-rcfilters-damaging-title',
+					'whatsThisHeader' => 'ores-rcfilters-damaging-whats-this-header',
+					'whatsThisBody' => 'ores-rcfilters-damaging-whats-this-body',
+					'whatsThisUrl' => 'https://www.mediawiki.org/wiki/' .
+						'Special:MyLanguage/Help:New_filters_for_edit_review/Quality_and_Intent_Filters',
+					'whatsThisLinkText' => 'ores-rcfilters-whats-this-link-text',
+					'priority' => 2,
+					'filters' => $filters,
+					'default' => ChangesListStringOptionsFilterGroup::NONE,
+					'isFullCoverage' => false,
+					'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables, &$fields,
+							&$conds, &$query_options, &$join_conds, $selectedValues ) {
+						$condition = self::buildRangeFilter( 'damaging', $selectedValues );
+						if ( $condition ) {
+							$conds[] = $condition;
+							$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
+							$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
+							// Performance hack: add STRAIGHT_JOIN (146111)
+							$query_options[] = 'STRAIGHT_JOIN';
+						}
+					},
+				] );
 
-			$newDamagingGroup->getFilter( 'maybebad' )->setAsSupersetOf(
-				$newDamagingGroup->getFilter( 'likelybad' )
-			);
-			$newDamagingGroup->getFilter( 'likelybad' )->setAsSupersetOf(
-				$newDamagingGroup->getFilter( 'verylikelybad' )
-			);
-			// Transitive closure
-			$newDamagingGroup->getFilter( 'maybebad' )->setAsSupersetOf(
-				$newDamagingGroup->getFilter( 'verylikelybad' )
-			);
-			$clsp->registerFilterGroup( $newDamagingGroup );
+				$newDamagingGroup->conflictsWith(
+					$logFilter,
+					'ores-rcfilters-ores-conflicts-logactions-global',
+					'ores-rcfilters-damaging-conflicts-logactions',
+					'ores-rcfilters-logactions-conflicts-ores'
+				);
+
+				if ( isset( $filters[ 'maybebad' ] ) && isset( $filters[ 'likelybad' ] ) ) {
+					$newDamagingGroup->getFilter( 'maybebad' )->setAsSupersetOf(
+						$newDamagingGroup->getFilter( 'likelybad' )
+					);
+				}
+
+				if ( isset( $filters[ 'likelybad' ] ) && isset( $filters[ 'verylikelybad' ] ) ) {
+					$newDamagingGroup->getFilter( 'likelybad' )->setAsSupersetOf(
+						$newDamagingGroup->getFilter( 'verylikelybad' )
+					);
+				}
+
+				// Transitive closure
+				if ( isset( $filters[ 'maybebad' ] ) && isset( $filters[ 'verylikelybad' ] ) ) {
+					$newDamagingGroup->getFilter( 'maybebad' )->setAsSupersetOf(
+						$newDamagingGroup->getFilter( 'verylikelybad' )
+					);
+				}
+
+				$clsp->registerFilterGroup( $newDamagingGroup );
+			}
 
 			if ( $clsp instanceof SpecialRecentChanges ) {
 				$damagingDefault = $clsp->getUser()->getOption( 'oresRCHideNonDamaging' );
@@ -220,73 +240,109 @@ class Hooks {
 		}
 		if ( self::isModelEnabled( 'goodfaith' ) ) {
 			$goodfaithLevels = $stats->getThresholds( 'goodfaith' );
-			$goodfaithGroup = new ChangesListStringOptionsFilterGroup( [
-				'name' => 'goodfaith',
-				'title' => 'ores-rcfilters-goodfaith-title',
-				'whatsThisHeader' => 'ores-rcfilters-goodfaith-whats-this-header',
-				'whatsThisBody' => 'ores-rcfilters-goodfaith-whats-this-body',
-				'whatsThisUrl' => 'https://www.mediawiki.org/wiki/' .
-					'Special:MyLanguage/Help:New_filters_for_edit_review/Quality_and_Intent_Filters',
-				'whatsThisLinkText' => 'ores-rcfilters-whats-this-link-text',
-				'priority' => 1,
-				'filters' => [
-					[
-						'name' => 'good',
-						'label' => 'ores-rcfilters-goodfaith-good-label',
-						'description' => 'ores-rcfilters-goodfaith-good-desc',
-						'cssClassSuffix' => 'goodfaith-good',
-						'isRowApplicableCallable' => self::makeApplicableCallback(
-							'goodfaith',
-							$goodfaithLevels['good']
-						),
-					],
-					[
-						'name' => 'maybebad',
-						'label' => 'ores-rcfilters-goodfaith-maybebad-label',
-						'description' => 'ores-rcfilters-goodfaith-maybebad-desc',
-						'cssClassSuffix' => 'goodfaith-maybebad',
-						'isRowApplicableCallable' => self::makeApplicableCallback(
-							'goodfaith',
-							$goodfaithLevels['maybebad']
-						),
-					],
-					[
-						'name' => 'bad',
-						'label' => 'ores-rcfilters-goodfaith-bad-label',
-						'description' => 'ores-rcfilters-goodfaith-bad-desc',
-						'cssClassSuffix' => 'goodfaith-bad',
-						'isRowApplicableCallable' => self::makeApplicableCallback(
-							'goodfaith',
-							$goodfaithLevels['bad']
-						),
-					],
-				],
-				'default' => ChangesListStringOptionsFilterGroup::NONE,
-				'isFullCoverage' => false,
-				'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables, &$fields,
+			$filters = [];
+			if ( isset( $goodfaithLevels['likelygood'] ) ) {
+				$filters[] = [
+					'name' => 'likelygood',
+					'label' => 'ores-rcfilters-goodfaith-good-label',
+					'description' => 'ores-rcfilters-goodfaith-good-desc',
+					'cssClassSuffix' => 'goodfaith-good',
+					'isRowApplicableCallable' => self::makeApplicableCallback(
+						'goodfaith',
+						$goodfaithLevels['likelygood']
+					),
+				];
+			}
+			if ( isset( $goodfaithLevels['maybebad'] ) ) {
+				$filters[] = [
+					'name' => 'maybebad',
+					'label' => 'ores-rcfilters-goodfaith-maybebad-label',
+					'description' => 'ores-rcfilters-goodfaith-maybebad-desc',
+					'cssClassSuffix' => 'goodfaith-maybebad',
+					'isRowApplicableCallable' => self::makeApplicableCallback(
+						'goodfaith',
+						$goodfaithLevels['maybebad']
+					),
+				];
+			}
+			if ( isset( $goodfaithLevels['likelybad'] ) ) {
+				$filters[] = [
+					'name' => 'likelybad',
+					'label' => 'ores-rcfilters-goodfaith-bad-label',
+					'description' => 'ores-rcfilters-goodfaith-bad-desc',
+					'cssClassSuffix' => 'goodfaith-bad',
+					'isRowApplicableCallable' => self::makeApplicableCallback(
+						'goodfaith',
+						$goodfaithLevels['likelybad']
+					),
+				];
+			}
+			if ( isset( $goodfaithLevels['verylikelybad'] ) ) {
+				$filters[] = [
+					'name' => 'verylikelybad',
+					'label' => 'ores-rcfilters-goodfaith-verylikelybad-label',
+					'description' => 'ores-rcfilters-goodfaith-verylikelybad-desc',
+					'cssClassSuffix' => 'goodfaith-verylikelybad',
+					'isRowApplicableCallable' => self::makeApplicableCallback(
+						'goodfaith',
+						$goodfaithLevels['verylikelybad']
+					),
+				];
+			}
+
+			if ( $filters ) {
+				$goodfaithGroup = new ChangesListStringOptionsFilterGroup( [
+					'name' => 'goodfaith',
+					'title' => 'ores-rcfilters-goodfaith-title',
+					'whatsThisHeader' => 'ores-rcfilters-goodfaith-whats-this-header',
+					'whatsThisBody' => 'ores-rcfilters-goodfaith-whats-this-body',
+					'whatsThisUrl' => 'https://www.mediawiki.org/wiki/' .
+						'Special:MyLanguage/Help:New_filters_for_edit_review/Quality_and_Intent_Filters',
+					'whatsThisLinkText' => 'ores-rcfilters-whats-this-link-text',
+					'priority' => 1,
+					'filters' => $filters,
+					'default' => ChangesListStringOptionsFilterGroup::NONE,
+					'isFullCoverage' => false,
+					'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables, &$fields,
 						&$conds, &$query_options, &$join_conds, $selectedValues ) {
-					$condition = self::buildRangeFilter( 'goodfaith', $selectedValues );
-					if ( $condition ) {
-						$conds[] = $condition;
-						$join_conds['ores_goodfaith_mdl'][0] = 'INNER JOIN';
-						$join_conds['ores_goodfaith_cls'][0] = 'INNER JOIN';
-						// Performance hack: add STRAIGHT_JOIN (146111)
-						$query_options[] = 'STRAIGHT_JOIN';
-					}
-				},
-			] );
-			$goodfaithGroup->getFilter( 'maybebad' )->setAsSupersetOf(
-				$goodfaithGroup->getFilter( 'bad' )
-			);
+						$condition = self::buildRangeFilter( 'goodfaith', $selectedValues );
+						if ( $condition ) {
+							$conds[] = $condition;
+							$join_conds['ores_goodfaith_mdl'][0] = 'INNER JOIN';
+							$join_conds['ores_goodfaith_cls'][0] = 'INNER JOIN';
+							// Performance hack: add STRAIGHT_JOIN (146111)
+							$query_options[] = 'STRAIGHT_JOIN';
+						}
+					},
+				] );
 
-			$goodfaithGroup->conflictsWith(
-				$logFilter,
-				'ores-rcfilters-ores-conflicts-logactions-global',
-				'ores-rcfilters-goodfaith-conflicts-logactions',
-				'ores-rcfilters-logactions-conflicts-ores'
-			);
+				if ( isset( $filters['maybebad'] ) && isset( $filters['likelybad'] ) ) {
+					$goodfaithGroup->getFilter( 'maybebad' )->setAsSupersetOf(
+						$goodfaithGroup->getFilter( 'likelybad' )
+					);
+				}
 
-			$clsp->registerFilterGroup( $goodfaithGroup );
+				if ( isset( $filters['likelybad'] ) && isset( $filters['verylikelybad'] ) ) {
+					$goodfaithGroup->getFilter( 'likelybad' )->setAsSupersetOf(
+						$goodfaithGroup->getFilter( 'verylikelybad' )
+					);
+				}
+
+				if ( isset( $filters['maybebad'] ) && isset( $filters['verylikelybad'] ) ) {
+					$goodfaithGroup->getFilter( 'maybebad' )->setAsSupersetOf(
+						$goodfaithGroup->getFilter( 'verylikelybad' )
+					);
+				}
+
+				$goodfaithGroup->conflictsWith(
+					$logFilter,
+					'ores-rcfilters-ores-conflicts-logactions-global',
+					'ores-rcfilters-goodfaith-conflicts-logactions',
+					'ores-rcfilters-logactions-conflicts-ores'
+				);
+
+				$clsp->registerFilterGroup( $goodfaithGroup );
+			}
 		}
 	}
 

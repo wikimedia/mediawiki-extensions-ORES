@@ -36,141 +36,6 @@ class StatsTest extends \MediaWikiTestCase {
 			->getMock();
 	}
 
-	public function testGetThresholds_damaging() {
-		$api = $this->getMockBuilder( 'ORES\Api' )->getMock();
-		$api->method( 'request' )
-			->with( [ 'model_info' => 'test_stats' ], 'damaging' )
-			->willReturn( [
-				'test_stats' => [
-					'recall_at_precision(min_precision=0.15)' => [
-						'true' => [ 'threshold' => 0.281 ], // maybebad min
-					],
-					'recall_at_precision(min_precision=0.45)' => [
-						'true' => [ 'threshold' => 0.831 ], // likelybad min
-					],
-					'recall_at_precision(min_precision=0.9)' => [
-						'true' => [ 'threshold' => 0.945 ], // verylikelybad min
-					],
-					'recall_at_precision(min_precision=0.98)' => [
-						'false' => [ 'threshold' => 0.259 ], // likelygood max
-					],
-				],
-			] );
-
-		$stats = new ORES\Stats(
-			$api,
-			WANObjectCache::newEmpty(),
-			LoggerFactory::getInstance( 'test' )
-		);
-
-		$thresholds = $stats->getThresholds( 'damaging' );
-
-		$this->assertEquals(
-			$thresholds,
-			[
-				'likelygood' => [
-					'min' => 0,
-					'max' => 0.741, // 1-0.259
-				],
-				'maybebad' => [
-					'min' => 0.281,
-					'max' => 1,
-				],
-				'likelybad' => [
-					'min' => 0.831,
-					'max' => 1,
-				],
-				'verylikelybad' => [
-					'min' => 0.945,
-					'max' => 1,
-				],
-			]
-		);
-	}
-
-	public function testGetThresholds_goodfaith() {
-		$api = $this->getMockBuilder( 'ORES\Api' )->getMock();
-		$api->method( 'request' )
-			->with( [ 'model_info' => 'test_stats' ], 'goodfaith' )
-			->willReturn( [
-				'test_stats' => [
-					'recall_at_precision(min_precision=0.15)' => [
-						'false' => [ 'threshold' => 0.322 ], // maybebad max
-					],
-					'recall_at_precision(min_precision=0.45)' => [
-						'false' => [ 'threshold' => 0.808 ], // bad max
-					],
-					'recall_at_precision(min_precision=0.98)' => [
-						'true' => [ 'threshold' => 0.24 ], // good min
-					],
-				],
-			] );
-
-		$stats = new ORES\Stats(
-			$api,
-			WANObjectCache::newEmpty(),
-			LoggerFactory::getInstance( 'test' )
-		);
-
-		$thresholds = $stats->getThresholds( 'goodfaith' );
-
-		$this->assertEquals(
-			$thresholds,
-			[
-				'good' => [
-					'min' => 0.24,
-					'max' => 1,
-				],
-				'maybebad' => [
-					'min' => 0,
-					'max' => 0.678, // 1-0.322
-				],
-				'bad' => [
-					'min' => 0,
-					'max' => 0.192, // 1-0.808
-				]
-			]
-		);
-	}
-
-	public function testGetThresholds_statNotFound() {
-		$api = $this->getMockBuilder( 'ORES\Api' )->getMock();
-		$api->method( 'request' )
-			->with( [ 'model_info' => 'test_stats' ], 'goodfaith' )
-			->willReturn( [
-				'test_stats' => [
-					'some_other_stats' => [
-						'false' => [ 'recall' => 0.1234 ],
-					],
-				],
-			] );
-
-		$logger = $this->getLoggerMock();
-		$logger->expects( $this->exactly( 3 ) )->method( 'warning' );
-
-		$stats = new ORES\Stats( $api, WANObjectCache::newEmpty(), $logger );
-
-		$thresholds = $stats->getThresholds( 'goodfaith' );
-
-		$this->assertEquals(
-			$thresholds,
-			[
-				'good' => [
-					'min' => 0.35,
-					'max' => 1,
-				],
-				'maybebad' => [
-					'min' => 0,
-					'max' => 0.65,
-				],
-				'bad' => [
-					'min' => 0,
-					'max' => 0.15,
-				]
-			]
-		);
-	}
-
 	public function testGetThresholds_modelConfigNotFound() {
 		$api = $this->getMockBuilder( 'ORES\Api' )->getMock();
 		$logger = $this->getLoggerMock();
@@ -190,8 +55,16 @@ class StatsTest extends \MediaWikiTestCase {
 			->with( [ 'model_info' => 'test_stats' ], 'goodfaith' )
 			->willReturn( 'this is not the stat object you were expecting...' );
 
+		$this->setMwGlobals( [
+			'wgOresFiltersThresholds' => [
+				'goodfaith' => [
+					'level1' => [ 'min' => 'some_stat', 'max' => 'some_other_stat' ],
+				]
+			],
+		] );
+
 		$logger = $this->getLoggerMock();
-		$logger->expects( $this->exactly( 3 ) )->method( 'warning' );
+		$logger->expects( $this->exactly( 2 ) )->method( 'warning' );
 
 		$stats = new ORES\Stats( $api, WANObjectCache::newEmpty(), $logger );
 
@@ -199,60 +72,59 @@ class StatsTest extends \MediaWikiTestCase {
 
 		$this->assertEquals(
 			$thresholds,
-			[
-				'good' => [
-					'min' => 0.35,
-					'max' => 1,
-				],
-				'maybebad' => [
-					'min' => 0,
-					'max' => 0.65,
-				],
-				'bad' => [
-					'min' => 0,
-					'max' => 0.15,
-				]
-			]
+			[]
 		);
 	}
 
-	public function testGetThresholds_everythingWouldHaveGoneWrong() {
+	public function testGetThresholds_filtersConfig() {
 		$api = $this->getMockBuilder( 'ORES\Api' )->getMock();
 		$api->method( 'request' )
-			->with( [ 'model_info' => 'test_stats' ], 'goodfaith' )
-			->willReturn( 'this is not the stat object you were expecting...' );
-
-		$logger = $this->getLoggerMock();
+			->with( [ 'model_info' => 'test_stats' ], 'damaging' )
+			->willReturn( [
+				'test_stats' => [
+					'recall_at_precision(min_precision=0.9)' => [
+						'true' => [ 'threshold' => 0.945 ], // verylikelybad min
+					],
+					'recall_at_precision(min_precision=0.98)' => [
+						'false' => [ 'threshold' => 0.259 ], // verylikelygood max
+					],
+				],
+			] );
 
 		$this->setMwGlobals( [
 			'wgOresFiltersThresholds' => [
-				"goodfaith" => [
-					"good" => [ "min" => 0.7, "max" => 1 ],
-					"maybebad" => [ "min" => 0, "max" => 0.69 ],
-					"bad" => [ "min" => 0, "max" => 0.25 ],
+				'damaging' => [
+					'verylikelygood' => [ 'min' => 0, 'max' => 'recall_at_precision(min_precision=0.98)' ],
+					'maybebad' => false,
+					'likelybad' => [ 'min' => 0.831, 'max' => 1 ],
+					'verylikelybad' => [ 'min' => 'recall_at_precision(min_precision=0.9)', 'max' => 1 ],
 				],
 			],
 		] );
 
-		$stats = new ORES\Stats( $api, WANObjectCache::newEmpty(), $logger );
+		$stats = new ORES\Stats(
+			$api,
+			WANObjectCache::newEmpty(),
+			LoggerFactory::getInstance( 'test' )
+		);
 
-		$thresholds = $stats->getThresholds( 'goodfaith', false );
+		$thresholds = $stats->getThresholds( 'damaging' );
 
 		$this->assertEquals(
 			$thresholds,
 			[
-				'good' => [
-					'min' => 0.7,
+				'verylikelygood' => [
+					'min' => 0,
+					'max' => 0.741, // 1-0.259
+				],
+				'likelybad' => [
+					'min' => 0.831,
 					'max' => 1,
 				],
-				'maybebad' => [
-					'min' => 0,
-					'max' => 0.69,
+				'verylikelybad' => [
+					'min' => 0.945,
+					'max' => 1,
 				],
-				'bad' => [
-					'min' => 0,
-					'max' => 0.25,
-				]
 			]
 		);
 	}

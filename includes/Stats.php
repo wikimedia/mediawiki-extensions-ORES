@@ -23,69 +23,6 @@ class Stats {
 	 */
 	private $logger;
 
-	private $thresholdsConfig = [
-		'damaging' => [
-			'likelygood' => [
-				'min' => 0,
-				'max' => [
-					'stat' => 'recall_at_precision(min_precision=0.98)',
-					'outcome' => 'false',
-					'default' => 0.55,
-				]
-			],
-			'maybebad' => [
-				'min' => [
-					'stat' => 'recall_at_precision(min_precision=0.15)',
-					'outcome' => 'true',
-					'default' => 0.16,
-				],
-				'max' => 1,
-			],
-			'likelybad' => [
-				'min' => [
-					'stat' => 'recall_at_precision(min_precision=0.45)',
-					'outcome' => 'true',
-					'default' => 0.75,
-				],
-				'max' => 1,
-			],
-			'verylikelybad' => [
-				'min' => [
-					'stat' => 'recall_at_precision(min_precision=0.9)',
-					'outcome' => 'true',
-					'default' => 0.92,
-				],
-				'max' => 1,
-			],
-		],
-		'goodfaith' => [
-			'good' => [
-				'min' => [
-					'stat' => 'recall_at_precision(min_precision=0.98)',
-					'outcome' => 'true',
-					'default' => 0.35,
-				],
-				'max' => 1,
-			],
-			'maybebad' => [
-				'min' => 0,
-				'max' => [
-					'stat' => 'recall_at_precision(min_precision=0.15)',
-					'outcome' => 'false',
-					'default' => 0.65,
-				],
-			],
-			'bad' => [
-				'min' => 0,
-				'max' => [
-					'stat' => 'recall_at_precision(min_precision=0.45)',
-					'outcome' => 'false',
-					'default' => 0.15,
-				],
-			],
-		],
-	];
-
 	/**
 	 * @param Api $api
 	 * @param \WANObjectCache $cache
@@ -98,17 +35,16 @@ class Stats {
 	}
 
 	public function getThresholds( $model, $fromCache = true ) {
-		global $wgOresFiltersThresholds;
-
-		if ( isset( $wgOresFiltersThresholds[ $model ] ) ) {
-			return $wgOresFiltersThresholds[ $model ];
-		}
-
-		if ( isset( $this->thresholdsConfig[ $model ] ) ) {
+		if ( $this->getFiltersConfig( $model ) ) {
 			return $this->parseThresholds( $this->fetchStats( $model, $fromCache ), $model );
 		} else {
 			return [];
 		}
+	}
+
+	private function getFiltersConfig( $model ) {
+		global $wgOresFiltersThresholds;
+		return isset( $wgOresFiltersThresholds[ $model ] ) ? $wgOresFiltersThresholds[ $model ] : false;
 	}
 
 	private function fetchStats( $model, $fromCache ) {
@@ -135,7 +71,12 @@ class Stats {
 
 	private function parseThresholds( $statsData, $model ) {
 		$thresholds = [];
-		foreach ( $this->thresholdsConfig[ $model ] as $levelName => $config ) {
+		foreach ( $this->getFiltersConfig( $model ) as $levelName => $config ) {
+			if ( $config === false ) {
+				// level is disabled
+				continue;
+			}
+
 			$min = $this->extractBoundValue(
 				$model,
 				$levelName,
@@ -152,10 +93,12 @@ class Stats {
 				$statsData
 			);
 
-			$thresholds[ $levelName ] = [
-				'min' => $min,
-				'max' => $max,
-			];
+			if ( is_numeric( $min ) && is_numeric( $max ) ) {
+				$thresholds[$levelName] = [
+					'min' => $min,
+					'max' => $max,
+				];
+			}
 		}
 		return $thresholds;
 	}
@@ -165,10 +108,10 @@ class Stats {
 			return $config;
 		}
 
-		$stat = $config[ 'stat' ];
-		$outcome = $config[ 'outcome' ];
-		if ( isset( $statsData[ $stat ][ $outcome ][ 'threshold' ] ) ) {
-			$threshold = $statsData[ $stat ][ $outcome ][ 'threshold' ];
+		$stat = $config;
+		$outcome = $bound === 'min' ? 'true' : 'false';
+		if ( isset( $statsData[$stat][$outcome]['threshold'] ) ) {
+			$threshold = $statsData[$stat][$outcome]['threshold'];
 			// Thresholds reported for "false" outcomes apply to "false" scores, but we always
 			// apply thresholds against "true" scores, so we need to invert "false" thresholds here.
 			return $outcome === 'false' ? 1 - $threshold : $threshold;
@@ -184,8 +127,6 @@ class Stats {
 				'statsData' => print_r( $statsData, true ),
 			]
 		);
-
-		return $config[ 'default' ];
 	}
 
 	public static function newFromGlobalState() {
