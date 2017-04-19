@@ -17,7 +17,7 @@
 	"ores-damaging-letter": "?",
 	"ores-damaging-soft": "Низкий (подсвечивать меньше правок)",
 	"ores-damaging-title": "Правка требует проверки",
-	"ores-damaging-legend": "[[:mw:Special:MyLanguage/ORES review tool|подозрительная правка]]",
+	"ores-damaging-legend": "У этой правки, возможно, имеются проблемы, поэтому она должна быть проверена ([[:mw:Special:MyLanguage/ORES review tool|подробнее]])",
 	"ores-help-damaging-pref": "Эта величина определяет, насколько придирчиво ORES выбирает правки для подсветки",
 	"ores-hide-nondamaging-filter": "Показывать только правки, требующие проверки",
 	"ores-pref-damaging": "Чувствительность ORES",

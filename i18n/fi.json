@@ -4,13 +4,19 @@
 			"McSalama",
 			"4shadoww",
 			"SMAUG",
-			"Stryn"
+			"Stryn",
+			"Nike"
 		]
 	},
 	"ores-beta-feature-description": "ORES on tekoälyyn pohjautuva työkalu, joka merkitsee mahdollisesti haitallisia muutoksia tuoreissa muutoksissa ja tarkkailulistalla.",
 	"ores-damaging-filter": "$1 todennäköisesti hyvää muokkausta",
+	"ores-damaging-hard": "Korkea (liputtaa enemmän muokkauksia)",
+	"ores-damaging-letter": "r",
+	"ores-damaging-soft": "Matala (liputtaa vähemmän muokkauksia)",
+	"ores-damaging-softest": "Matalin (liputtaa vähiten muokkauksia)",
 	"ores-damaging-title": "Tämä muokkaus täytyy tarkastaa.",
 	"ores-hide-nondamaging-filter": "Piilota todennäköisesti hyvät muokkaukset",
+	"ores-pref-damaging": "ORES-herkkyys",
 	"ores-rcfilters-whats-this-link-text": "Lisätietoja",
 	"ores-rcfilters-damaging-likelygood-label": "Hyvin todennäköisesti hyvä muokkaus",
 	"ores-rcfilters-damaging-likelygood-desc": "Erittäin tarkka löytämään lähes kokonaan ongelmattomia muokkauksia.",
