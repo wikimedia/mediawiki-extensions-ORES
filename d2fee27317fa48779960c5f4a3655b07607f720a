@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e506ba4_5cfba0ba",
+        "filename": "includes/Api.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-04-20T16:46:16Z",
+      "side": 1,
+      "message": "Why protected? Are we going to subclass this class?",
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e506ba4_9c184825",
+        "filename": "includes/Api.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-04-20T16:46:16Z",
+      "side": 1,
+      "message": "I\u0027m not super familiar with phpdoc but I think it should be  \"@return Api\"",
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e506ba4_5cc88077",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-04-20T16:46:16Z",
+      "side": 1,
+      "message": "This is for when someone makes an edit. I\u0027m not sure if we want to forward that data especially since it\u0027s more sensitive and can be obtained using other proper(TM) ways.",
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e506ba4_bcaf4490",
+        "filename": "includes/Scoring.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-04-20T16:46:16Z",
+      "side": 1,
+      "message": "Same remark regarding protected",
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
