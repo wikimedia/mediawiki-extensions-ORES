@@ -25,6 +25,8 @@
 	"ores-rcfilters-damaging-verylikelybad-label": "Moi susceptible de ter problemas",
 	"ores-rcfilters-goodfaith-title": "Predicións das intencións do usuario",
 	"ores-rcfilters-goodfaith-whats-this-header": "Acerca das predicións de intención dos usuarios",
+	"ores-rcfilters-goodfaith-maybebad-label": "Pode ser mala fe",
+	"ores-rcfilters-goodfaith-maybebad-desc": "Atopa a maioría das edicións de mala fe, pero con pouca exactitude.",
 	"ores-pref-rc-hidenondamaging": "Mostrar só edicións probablemente problemáticas (e ocultar as que probablemente son boas)",
 	"ores-pref-watchlist-hidenondamaging": "Mostrar só edicións probablemente problemáticas (e ocultar as que probablemente son boas)",
 	"prefs-ores": "Puntuación de revisión",

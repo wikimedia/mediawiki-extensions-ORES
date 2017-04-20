@@ -45,6 +45,7 @@
 	"ores-rcfilters-goodfaith-bad-label": "Wahrscheinlich schlechte Absicht",
 	"ores-rcfilters-goodfaith-bad-desc": "Findet mit einer mittleren Genauigkeit mehr schlechte Bearbeitungen als der Filter „Sehr wahrscheinlich“, aber weniger als „Könnte“.",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Sehr wahrscheinlich schlechte Absicht",
+	"ores-rcfilters-goodfaith-verylikelybad-desc": "Sehr genau beim Auffinden der meisten offensichtlichen Bearbeitungen mit einer schlechten Absicht.",
 	"ores-pref-highlight": "Vermutlich problematische Bearbeitungen mit Farben und einem „{{int:ores-damaging-letter}}“ für „benötigt Überprüfung“ hervorheben.",
 	"ores-pref-rc-hidenondamaging": "Nur vermutlich problematische Bearbeitungen anzeigen (und vermutlich gute Bearbeitungen ausblenden)",
 	"ores-pref-watchlist-hidenondamaging": "Nur vermutlich problematische Bearbeitungen anzeigen (und vermutlich gute Bearbeitungen ausblenden)",
