@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4e506ba4_f79165fc",
+        "filename": "includes/Api.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-04-20T19:40:32Z",
+      "side": 1,
+      "message": "As long as we don\u0027t, it does not really matter whether it\u0027s protected or private. In general it\u0027s an antipattern to use private without a very good reason IMO - we are moving to dependency injection where any class might be replaced by a subclass by a site administrator, and wanton private usage can cause lots of annoyance. (I believe Python refused to add private visibility for a similar reason.)",
+      "parentUuid": "4e506ba4_5cfba0ba",
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e506ba4_9c184825",
         "filename": "includes/Api.php",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "4e506ba4_f7b88576",
+        "filename": "includes/Api.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-04-20T19:40:32Z",
+      "side": 1,
+      "message": "static means it returns whatever class it is called from. See item 14 in https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc.md#keyword in the (draft) PSR-5 spec.\n\nGiven that this class is probably not going to be subclassed @return Api would work as well.",
+      "parentUuid": "4e506ba4_9c184825",
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e506ba4_5cc88077",
         "filename": "includes/Hooks.php",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2017-04-20T16:46:16Z",
       "side": 1,
       "message": "This is for when someone makes an edit. I\u0027m not sure if we want to forward that data especially since it\u0027s more sensitive and can be obtained using other proper(TM) ways.",
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e506ba4_375d8d4a",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-04-20T19:40:32Z",
+      "side": 1,
+      "message": "It\u0027s your call but I am not sure why ORES would be less appropriate for such information. Lots of services get information that can be used to identify editor IPs (Parsoid, analytics, Logstash...), I\u0027m not sure adding another one makes a big difference.",
+      "parentUuid": "4e506ba4_5cc88077",
       "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
