@@ -698,9 +698,10 @@ class Hooks {
 			'section' => 'rc/advancedrc',
 			'label-message' => 'ores-pref-rc-hidenondamaging',
 		];
-		// Hide RC pref if enhanced filters are enabled
+		// Hide RC prefs if enhanced filters are enabled
 		if ( $user->getBoolOption( 'rcenhancedfilters' ) ) {
 			$wgHiddenPrefs[] = 'oresRCHideNonDamaging';
+			$wgHiddenPrefs[] = 'ores-damaging-flag-rc';
 		}
 	}
 
@@ -793,11 +794,9 @@ class Hooks {
 	 * @return boolean Whether highlights should be shown
 	 */
 	private static function isHighlightEnabled( IContextSource $context ) {
-		global $wgOresExtensionStatus;
-		return $wgOresExtensionStatus === 'beta' || (
-			!self::isRCPage( $context ) &&
-			$context->getUser()->getBoolOption( 'oresHighlight' )
-		);
+		// Was previously controlled by different preferences than the "r", but they're currently
+		// the same.
+		return self::isDamagingFlagEnabled( $context );
 	}
 
 	/**
