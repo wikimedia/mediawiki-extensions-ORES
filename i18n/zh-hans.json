@@ -17,7 +17,7 @@
 	"ores-help-damaging-pref": "在系统标记为“{{int:ores-damaging-letter}}”的编辑中设置可能性等级，以在最近更改、监视列表和贡献页面中表明其“需要复核”。另外设置“只显示很可能有问题的编辑”的门槛。",
 	"ores-hide-nondamaging-filter": "隐藏可能良好编辑",
 	"ores-pref-damaging": "ORES敏感度",
-	"ores-pref-damaging-flag": "将很可能有问题的编辑标记为“{{int:ores-damaging-letter}}”来表明“需要复核”（以便设置被标记编辑的等级，在监视列表参数设置中使用“{{int:ores-pref-damaging}}”设置）",
+	"ores-pref-damaging-flag": "将很可能有问题的编辑带颜色高亮，并加注“{{int:ores-damaging-letter}}”来表明“需要复核”（以便设置被标记编辑的等级，在监视列表参数设置中使用“{{int:ores-pref-damaging}}”设置）",
 	"ores-rcfilters-whats-this-link-text": "了解更多",
 	"ores-rcfilters-ores-conflicts-logactions-global": "“记录的操作”过滤器与一个或多个贡献质量或用户目的过滤器冲突。质量和目的预测不可用于记录的操作。冲突过滤器已在上方活跃过滤器中被标记。",
 	"ores-rcfilters-logactions-conflicts-ores": "该过滤器与一个或多个贡献质量或用户目的过滤器冲突。质量和目的预测不可用于记录的操作。",
