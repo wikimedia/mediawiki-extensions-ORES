@@ -309,7 +309,7 @@ class OresHooksTest extends \MediaWikiTestCase {
 			' <abbr class="ores-damaging" title="This edit needs review">r</abbr>',
 			$s
 		);
-		$this->assertSame( [ 'damaging' ], $classes );
+		$this->assertSame( [ 'ores-highlight', 'damaging' ], $classes );
 	}
 
 	public function testOnOldChangesListModifyLineDataNonDamaging() {
