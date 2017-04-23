@@ -1,10 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Milicevic01"
+			"Milicevic01",
+			"Obsuser"
 		]
 	},
-	"ores-reverted-high": "Високоризично, вероватност враћања: $1%",
-	"ores-reverted-medium": "Средње ризично, вероватност враћања: $1%",
-	"ores-reverted-low": "Ризично, вероватност враћања: $1%"
+	"ores-pref-damaging-flag": "Означи потенцијално проблематичне измене бојама и са „{{int:ores-damaging-letter}}” за „потребан преглед” (да би се подесио ниво на којем ће се измене означавати, користити опцију „{{int:ores-pref-damaging}}” у подешавањима Списка надгледања)",
+	"ores-rcfilters-damaging-likelybad-desc": "Уз средњу тачност, проналази више проблематичних измена него „Врло вероватно” филтер али мање него филтер „Можда”.",
+	"ores-rcfilters-damaging-verylikelybad-desc": "Високопрецизан у проналажењу већине очигледно мањкавих или штетних измена.",
+	"ores-rcfilters-goodfaith-bad-desc": "Уз средњу тачност, проналази више измена с лошом намером него „Врло вероватно” филтер али мање него филтер „Можда”.",
+	"ores-rcfilters-goodfaith-verylikelybad-label": "Врло вероватно с лошом намером",
+	"ores-rcfilters-goodfaith-verylikelybad-desc": "Високопрецизан у проналажењу већине очигледних измена с лошом намером."
 }

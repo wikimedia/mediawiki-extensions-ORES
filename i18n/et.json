@@ -12,11 +12,11 @@
 	"ores-damaging-soft": "Madal (sildistab vähem muudatusi)",
 	"ores-damaging-softest": "Madalaim (sildistab võimalikult vähe muudatusi)",
 	"ores-damaging-title": "See muudatus on vaja üle vaadata.",
-	"ores-damaging-legend": "See muudatus võib olla kahjulik ja tuleks üle vaadata ([[:mw:Special:MyLanguage/ORES review tool|lisateave]])",
-	"ores-help-damaging-pref": "See lävi määrab, millise tundlikkusega sildistab ORES-teenus muudatusi, mida on vaja üle vaadata.",
+	"ores-damaging-legend": "See muudatus võib olla probleemne ja tuleks üle vaadata ([[:mw:Special:MyLanguage/ORES review tool|lisateave]])",
+	"ores-help-damaging-pref": "Määrab, millise tõenäosuse juures lisab süsteem viimaste muudatuste loendis, jälgimisloendis ja kaastööloendis muudatuse juurde sildi \"{{int:ores-damaging-letter}}\". Ühtlasi määrab läve sättele \"Näita ainult tõenäoliselt probleemseid muudatusi\".",
 	"ores-hide-nondamaging-filter": "Peida tõenäoliselt head muudatused",
 	"ores-pref-damaging": "ORES-tundlikkus",
-	"ores-pref-rc-hidenondamaging": "Näita ainult võimalikke probleemseid muudatusi (tõenäoliselt head muudatused peidetud)",
-	"ores-pref-watchlist-hidenondamaging": "Näita ainult võimalikke probleemseid muudatusi (tõenäoliselt head muudatused peidetud)",
+	"ores-pref-rc-hidenondamaging": "Näita ainult tõenäoliselt probleemseid muudatusi (tõenäoliselt head muudatused peidetud)",
+	"ores-pref-watchlist-hidenondamaging": "Näita ainult tõenäoliselt probleemseid muudatusi (tõenäoliselt head muudatused peidetud)",
 	"prefs-ores": "Redaktsioonide hinded"
 }

@@ -33,7 +33,7 @@
 	"ores-rcfilters-goodfaith-good-desc": "Altamente precisa em encontrar quase todas as edições de boa fé.",
 	"ores-rcfilters-goodfaith-maybebad-label": "Podem ser de má fé",
 	"ores-rcfilters-goodfaith-bad-label": "Provavelmente de má fé",
-	"ores-rcfilters-goodfaith-bad-desc": "Com precisão mediana, encontra 25% das edições de má fé mais óbvias.",
+	"ores-rcfilters-goodfaith-bad-desc": "Com precisão média, encontra mais edições de má fé do que o filtro \"Muito provável\", mas menos do que \"May\".",
 	"ores-pref-highlight": "Destaque edições provavelmente prejudiciais com cores e um \"{{int:ores-damaging-letter}}\" para \"necessita revisão\"",
 	"ores-pref-rc-hidenondamaging": "Mostrar somente edições que podem ter problemas (e ocultar edições provavelmente boas)",
 	"ores-pref-watchlist-hidenondamaging": "Mostrar somente edições que podem ter problemas (e ocultar edições provavelmente boas)",
