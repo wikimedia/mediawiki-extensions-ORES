@@ -24,6 +24,27 @@
 		"ores": "ORES\\ApiQueryORES"
 	},
 	"Hooks": {
+		"APIGetAllowedParams": [
+			"ORES\\ApiHooks::onAPIGetAllowedParams"
+		],
+		"ApiQueryBaseBeforeQuery": [
+			"ORES\\ApiHooks::onApiQueryBaseBeforeQuery"
+		],
+		"ApiQueryBaseAfterQuery": [
+			"ORES\\ApiHooks::onApiQueryBaseAfterQuery"
+		],
+		"ApiQueryBaseProcessRow": [
+			"ORES\\ApiHooks::onApiQueryBaseProcessRow"
+		],
+		"ApiQueryWatchlistExtractOutputData": [
+			"ORES\\ApiHooks::onApiQueryWatchlistExtractOutputData"
+		],
+		"ApiQueryWatchlistPrepareWatchedItemQueryServiceOptions": [
+			"ORES\\ApiHooks::onApiQueryWatchlistPrepareWatchedItemQueryServiceOptions"
+		],
+		"WatchedItemQueryServiceExtensions": [
+			"ORES\\ApiHooks::onWatchedItemQueryServiceExtensions"
+		],
 		"BeforePageDisplay": [
 			"ORES\\Hooks::onBeforePageDisplay"
 		],
