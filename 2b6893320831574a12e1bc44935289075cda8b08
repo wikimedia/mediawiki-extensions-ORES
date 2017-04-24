@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e506ba4_f965c5dd",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 519
+      },
+      "writtenOn": "2017-04-24T18:41:02Z",
+      "side": 1,
+      "message": "I think isRCPage is non-trivial enough that it\u0027s best to only call it once.  Would be good to factor out getUser while you\u0027re at it.",
+      "revId": "2b6893320831574a12e1bc44935289075cda8b08",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
