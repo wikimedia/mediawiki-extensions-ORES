@@ -21,6 +21,8 @@ class PurgeScoreCache extends Maintenance {
 		$this->addOption( 'model', 'Model name (optional)', false, true );
 		$this->addOption( 'all', 'Flag to indicate that we want to clear all data, ' .
 			'even those from the most recent model', false, false );
+		$this->addOption( 'old', 'Flag to indicate that we only want to clear old data ' .
+			'that is not in recent changes anymore. Implicitly assumes --all.', false, false );
 	}
 
 	public function execute() {
@@ -30,10 +32,25 @@ class PurgeScoreCache extends Maintenance {
 			$models = Cache::instance()->getModels();
 		}
 
+		$this->output( "Purging ORES scores:\n" );
 		foreach ( $models as $model ) {
-			Cache::instance()->purge( $model, $this->hasOption( 'all' ) );
+			if ( $this->hasOption( 'old' ) ) {
+				$deletedRows = Cache::instance()->purgeOld( $model );
+				$description = 'old rows';
+			} elseif ( $this->hasOption( 'all' ) ) {
+				$deletedRows = Cache::instance()->purge( $model, true );
+				$description = 'old model versions';
+			} else {
+				$deletedRows = Cache::instance()->purge( $model, false );
+				$description = 'all rows';
+			}
+			if ( $deletedRows ) {
+				$this->output( "   ...purging $description from '$model' model': deleted $deletedRows rows\n" );
+			} else {
+				$this->output( "   ...skipping '$model' model, no action needed\n" );
+			}
 		}
-		// @todo this script needs some output
+		$this->output( "   done.\n" );
 	}
 
 }
