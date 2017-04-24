@@ -831,16 +831,18 @@ class Hooks {
 	 */
 	private static function isDamagingFlagEnabled( IContextSource $context ) {
 		global $wgOresExtensionStatus;
+		$isRCPage = self::isRCPage( $context );
+		$user = $context->getUser();
 		return $wgOresExtensionStatus === 'beta' ||
 			(
-				self::isRCPage( $context ) &&
-				$context->getUser()->getBoolOption( 'ores-damaging-flag-rc' ) &&
+				$isRCPage &&
+				$user->getBoolOption( 'ores-damaging-flag-rc' ) &&
 				// If rcenhancedfilters is enabled, the ores-damaging-flag-rc preference is hidden,
 				// but it doesn't behave as if it's false; see HACK comment in onGetPreferences
-				!$context->getUser()->getBoolOption( 'rcenhancedfilters' )
+				!$user->getBoolOption( 'rcenhancedfilters' )
 			) || (
-				!self::isRCPage( $context ) &&
-				$context->getUser()->getBoolOption( 'oresHighlight' )
+				!$isRCPage &&
+				$user->getBoolOption( 'oresHighlight' )
 			);
 	}
 
