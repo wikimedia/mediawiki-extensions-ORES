@@ -49,25 +49,63 @@ class Cache {
 	 *
 	 * @param string $model Model name.
 	 * @param bool $isEverything When true, delete scores with the up-to-date
-	 * model version as well.  This can be used in cases where the old data is
-	 * bad, but no new model has been released yet.
+	 *   model version as well.  This can be used in cases where the old data is
+	 *   bad, but no new model has been released yet.
 	 * @param integer $batchSize Maximum number of records to delete per loop.
-	 * Note that this function runs multiple batches, until all records are deleted.
+	 *   Note that this function runs multiple batches, until all records are deleted.
+	 * @return int The number of deleted rows
 	 */
 	public function purge( $model, $isEverything, $batchSize = 1000 ) {
-		$dbr = \wfGetDB( DB_REPLICA );
-		$dbw = \wfGetDB( DB_MASTER );
-
 		$tables = [ 'ores_classification', 'ores_model' ];
-
-		$join_conds = [ 'ores_model' =>
-			[ 'LEFT JOIN', 'oresm_id = oresc_model' ] ];
+		$join_conds = [
+			'ores_model' => [ 'LEFT JOIN', 'oresm_id = oresc_model' ],
+		];
 		$conditions = [
 			'oresm_name' => [ $model, null ],
 		];
 		if ( !$isEverything ) {
 			$conditions[] = '(oresm_is_current != 1 OR oresm_is_current IS NULL)';
 		}
+		return $this->deleteRows( $tables, $conditions, $join_conds, $batchSize );
+	}
+
+	/**
+	 * Delete old cached scores.
+	 * A score is old of the corresponding revision is not in the recentchanges table.
+	 * @param string $model Model name.
+	 * @param integer $batchSize Maximum number of records to delete per loop.
+	 *   Note that this function runs multiple batches, until all records are deleted.
+	 * @return int The number of deleted rows
+	 */
+	public function purgeOld( $model, $batchSize = 1000 ) {
+		$tables = [ 'ores_classification', 'ores_model', 'recentchanges' ];
+		$join_conds = [
+			'ores_model' => [ 'LEFT JOIN', 'oresm_id = oresc_model' ],
+			'recentchanges' => [ 'LEFT JOIN', 'oresc_rev = rc_this_oldid' ],
+		];
+		$conditions = [
+			'oresm_name' => [ $model, null ],
+			'rc_this_oldid' => null,
+		];
+		return $this->deleteRows( $tables, $conditions, $join_conds, $batchSize );
+	}
+
+	/**
+	 * Delete cached scores. Which rows to delete is given by Database::select parameters.
+	 *
+	 * @param array $tables
+	 * @param array $conditions
+	 * @param array $join_conds
+	 * @param integer $batchSize Maximum number of records to delete per loop.
+	 *   Note that this function runs multiple batches, until all records are deleted.
+	 * @return int The number of deleted rows
+	 * @see Database::select
+	 */
+	protected function deleteRows( $tables, $conditions, $join_conds, $batchSize = 1000 ) {
+		$dbr = \wfGetDB( DB_REPLICA );
+		$dbw = \wfGetDB( DB_MASTER );
+
+		$deletedRows = 0;
 
 		do {
 			$ids = $dbr->selectFieldValues( $tables,
@@ -82,9 +120,12 @@ class Cache {
 					[ 'oresc_id' => $ids ],
 					__METHOD__
 				);
+				$deletedRows += $dbw->affectedRows();
 				MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->waitForReplication();
 			}
 		} while ( $ids );
+
+		return $deletedRows;
 	}
 
 	/**
