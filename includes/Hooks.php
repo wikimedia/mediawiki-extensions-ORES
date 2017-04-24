@@ -700,6 +700,9 @@ class Hooks {
 		];
 		// Hide RC prefs if enhanced filters are enabled
 		if ( $user->getBoolOption( 'rcenhancedfilters' ) ) {
+			// HACK: Note that this only hides the preferences on the preferences page,
+			// it does not cause them to behave as if they're set to their default value,
+			// because this hook only runs on the preferences page.
 			$wgHiddenPrefs[] = 'oresRCHideNonDamaging';
 			$wgHiddenPrefs[] = 'ores-damaging-flag-rc';
 		}
@@ -806,10 +809,15 @@ class Hooks {
 	private static function isDamagingFlagEnabled( IContextSource $context ) {
 		global $wgOresExtensionStatus;
 		return $wgOresExtensionStatus === 'beta' ||
-			$context->getUser()->getBoolOption(
-				self::isRCPage( $context ) ?
-					'ores-damaging-flag-rc' :
-					'oresHighlight'
+			(
+				self::isRCPage( $context ) &&
+				$context->getUser()->getBoolOption( 'ores-damaging-flag-rc' ) &&
+				// If rcenhancedfilters is enabled, the ores-damaging-flag-rc preference is hidden,
+				// but it doesn't behave as if it's false; see HACK comment in onGetPreferences
+				!$context->getUser()->getBoolOption( 'rcenhancedfilters' )
+			) || (
+				!self::isRCPage( $context ) &&
+				$context->getUser()->getBoolOption( 'oresHighlight' )
 			);
 	}
 
