@@ -32,9 +32,19 @@ class OresHooksTest extends \MediaWikiTestCase {
 	protected function setUp() {
 		parent::setUp();
 
+		$this->setMwGlobals( [
+			'wgOresFiltersThresholds' => [
+				'damaging' => [
+					'maybebad' => [ 'min' => 0.16, 'max' => 1 ],
+					'likelybad' => [ 'min' => 0.56, 'max' => 1 ],
+				]
+			],
+			'wgOresWikiId' => 'testwiki',
+		] );
+
 		$this->user = static::getTestUser()->getUser();
 		$this->user->setOption( 'ores-enabled', 1 );
-		$this->user->setOption( 'oresDamagingPref', 'soft' );
+		$this->user->setOption( 'oresDamagingPref', 'maybebad' );
 		$this->user->setOption( 'oresHighlight', 1 );
 		$this->user->setOption( 'ores-damaging-flag-rc', 1 );
 		$this->user->saveSettings();
@@ -48,6 +58,21 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$this->assertArrayHasKey( 'oresDamagingPref', $preferences );
 		$this->assertArrayHasKey( 'oresWatchlistHideNonDamaging', $preferences );
 		$this->assertArrayHasKey( 'oresRCHideNonDamaging', $preferences );
+	}
+
+	public function testGetThreshold() {
+		$this->user->setOption( 'oresDamagingPref', 'maybebad' );
+		$this->assertEquals(
+			0.16,
+			ORES\Hooks::getThreshold( 'damaging', $this->user )
+		);
+
+		// b/c
+		$this->user->setOption( 'oresDamagingPref', 'soft' );
+		$this->assertEquals(
+			0.56,
+			ORES\Hooks::getThreshold( 'damaging', $this->user )
+		);
 	}
 
 	public function testOresRCObj() {
@@ -355,7 +380,7 @@ class OresHooksTest extends \MediaWikiTestCase {
 			],
 			'fields' => [
 				'ores_damaging_score' => 'ores_damaging_cls.oresc_probability',
-				'ores_damaging_threshold' => "'0.7'"
+				'ores_damaging_threshold' => "'0.16'"
 			],
 			'conds' => [],
 			'join_conds' => [
@@ -378,7 +403,7 @@ class OresHooksTest extends \MediaWikiTestCase {
 		];
 
 		$expectedDamaging = $expected;
-		$expectedDamaging['conds'] = [ 'ores_damaging_cls.oresc_probability > \'0.7\'' ];
+		$expectedDamaging['conds'] = [ 'ores_damaging_cls.oresc_probability > \'0.16\'' ];
 
 		return [
 			'all' => [ $expected, false ],

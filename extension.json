@@ -131,11 +131,6 @@
 				"Stub": 5
 			}
 		},
-		"OresDamagingThresholds": {
-			"softest": 0.90,
-			"soft": 0.70,
-			"hard": 0.50
-		},
 		"OresFiltersThresholds": {
 			"damaging": {
 				"likelygood": { "min": 0, "max": "recall_at_precision(min_precision=0.995)" },
@@ -166,7 +161,7 @@
 	},
 	"DefaultUserOptions": {
 		"ores-damaging-flag-rc": false,
-		"oresDamagingPref": "hard",
+		"oresDamagingPref": "likelybad",
 		"oresHighlight": false,
 		"oresRCHideNonDamaging": false,
 		"oresWatchlistHideNonDamaging": false

@@ -37,7 +37,7 @@ class ApiQueryORES extends ApiQueryBase {
 	}
 
 	public function execute() {
-		global $wgOresBaseUrl, $wgOresExcludeBots, $wgOresDamagingThresholds,
+		global $wgOresBaseUrl, $wgOresExcludeBots,
 			$wgOresEnabledNamespaces, $wgOresWikiId;
 
 		$result = $this->getResult();
@@ -46,7 +46,7 @@ class ApiQueryORES extends ApiQueryBase {
 			'wikiid' => $wgOresWikiId ?: wfWikiID(),
 			'models' => [],
 			'excludebots' => (bool)$wgOresExcludeBots,
-			'damagingthresholds' => $wgOresDamagingThresholds,
+			'damagingthresholds' => Hooks::getDamagingThresholds(),
 			'namespaces' => $wgOresEnabledNamespaces
 				? array_keys( array_filter( $wgOresEnabledNamespaces ) )
 				: \MWNamespace::getValidNamespaces(),

@@ -5,9 +5,9 @@
 	}
 	var thresholds = mw.config.get( 'oresThresholds' ).damaging;
 	var names = {};
-	names[thresholds.softest] = 'softest';
-	names[thresholds.soft] = 'soft';
-	names[thresholds.hard] = 'hard';
+	names[thresholds.verylikelybad] = 'verylikelybad';
+	names[thresholds.likelybad] = 'likelybad';
+	names[thresholds.maybebad] = 'maybebad';
 	$( 'li.damaging' ).each( function () {
 		var url = $( this ).children( 'a' ).attr( 'href' );
 		if ( !url ) {
