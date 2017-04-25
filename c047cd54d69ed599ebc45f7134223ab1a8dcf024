@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e4df70f_db34f3f9",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2017-04-25T20:15:26Z",
+      "side": 1,
+      "message": "Why was this not the same as array_keys( self::getDamagingThresholds() )? That function drops likelygood from its result before it returns it, and drops levels with no threshold, so it seemed to me that it was a good fit for this.",
+      "revId": "c047cd54d69ed599ebc45f7134223ab1a8dcf024",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
