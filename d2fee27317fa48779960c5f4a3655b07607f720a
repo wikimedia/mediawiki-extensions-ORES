@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "4e506ba4_60301154",
+        "filename": "includes/Api.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-04-25T20:07:01Z",
+      "side": 1,
+      "message": "I don\u0027t agree but it would be a waste of time to get into a debate when this class is not going to get subclassed anyway.",
+      "parentUuid": "4e506ba4_94bc8368",
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e506ba4_9c184825",
         "filename": "includes/Api.php",
         "patchSetId": 3
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "\"static\" is ok-ish, but not all IDEs and tools are aware of this. I prefer to use \"self\" instead. There is a subtle difference between the two, but it does not matter much in almost all cases.",
       "parentUuid": "4e506ba4_f7b88576",
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e506ba4_a017f9f0",
+        "filename": "includes/Api.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-04-25T20:07:01Z",
+      "side": 1,
+      "message": "I doubt there are many tools that understand \u0027self\u0027 but not \u0027static\u0027, let\u0027s just go with the class name then.",
+      "parentUuid": "4e506ba4_34b32f98",
       "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -165,6 +201,30 @@
       "writtenOn": "2017-04-25T09:29:48Z",
       "side": 1,
       "message": "Again, this check looks like the property can be null or false, but this is not documented.",
+      "range": {
+        "startLine": 87,
+        "startChar": 9,
+        "endLine": 87,
+        "endChar": 33
+      },
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e506ba4_e0f50180",
+        "filename": "includes/Api.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-04-25T20:07:01Z",
+      "side": 1,
+      "message": "Yeah, it\u0027s null by default and not set in the constructor so it can be null (even if in the current code that never happens).",
+      "parentUuid": "4e506ba4_f4adc72e",
       "range": {
         "startLine": 87,
         "startChar": 9,
@@ -298,6 +358,30 @@
     },
     {
       "key": {
+        "uuid": "4e506ba4_c076c538",
+        "filename": "includes/Scoring.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-04-25T20:07:01Z",
+      "side": 1,
+      "message": "Good catch, I forgot to document that (also this behavior wouldn\u0027t really make sense for []).",
+      "parentUuid": "4e506ba4_343a4f34",
+      "range": {
+        "startLine": 31,
+        "startChar": 7,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e506ba4_144073a7",
         "filename": "includes/Scoring.php",
         "patchSetId": 3
@@ -355,6 +439,30 @@
       "writtenOn": "2017-04-25T09:29:48Z",
       "side": 1,
       "message": "I find it confusing to see generic class names like this in a MediaWiki extension. They look like core classes, which makes this code a bit harder to read. \"OresApi\", \"OresScoring\", \"OresHooks\" and so on would be better, in my opinion.\n\nBut this is just a note and entirely unrelated to this patch. :-)",
+      "range": {
+        "startLine": 137,
+        "startChar": 3,
+        "endLine": 137,
+        "endChar": 6
+      },
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e506ba4_60da5123",
+        "filename": "includes/Stats.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-04-25T20:07:01Z",
+      "side": 1,
+      "message": "Using classnames as pseudo-namespaces is so PHP4 :) One could import the ORES namespace and then use ORES\\Api etc. Personally I don\u0027t see the point unless there is an actual class to confuse with.",
+      "parentUuid": "4e506ba4_d4ea0b9c",
       "range": {
         "startLine": 137,
         "startChar": 3,
