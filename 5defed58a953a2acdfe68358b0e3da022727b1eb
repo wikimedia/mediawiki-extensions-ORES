@@ -16,6 +16,24 @@
       "revId": "5defed58a953a2acdfe68358b0e3da022727b1eb",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e4df70f_e1ffc263",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2017-04-25T23:55:20Z",
+      "side": 1,
+      "message": "Confusingly, it was \"hard\" prior to Stephane\u0027s change, so I was just changing it back to that",
+      "parentUuid": "2e4df70f_de1b8184",
+      "revId": "5defed58a953a2acdfe68358b0e3da022727b1eb",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
