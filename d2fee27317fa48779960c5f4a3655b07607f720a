@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "4e506ba4_94bc8368",
+        "filename": "includes/Api.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-04-25T09:29:48Z",
+      "side": 1,
+      "message": "I can speak for the Wikidata team, and we believe in the opposite.\n\n\"protected\" members are part of the public contract of a class, because everybody can override them in a subclass and mess with the behavior of the original class. Whenever you want to change anything about a \"protected\" member, you must consider it a breaking change, just as with every \"public\" member.\n\nFrom experience we know this causes much more annoyance than anything else. In our code bases all members must be \"private\" by default, if there is not a good reason to do otherwise.\n\nIf somebody really needs to implement a subclass and needs access to a private member, he can submit a patch any time. This does have the huge benefit of the original developers being aware of such situations, and being able to suggest even better solutions.\n\nTL;DR: \"Protected by default\" is an anti-pattern.",
+      "parentUuid": "4e506ba4_f79165fc",
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e506ba4_9c184825",
         "filename": "includes/Api.php",
         "patchSetId": 3
@@ -66,6 +84,139 @@
       "side": 1,
       "message": "static means it returns whatever class it is called from. See item 14 in https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc.md#keyword in the (draft) PSR-5 spec.\n\nGiven that this class is probably not going to be subclassed @return Api would work as well.",
       "parentUuid": "4e506ba4_9c184825",
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e506ba4_34b32f98",
+        "filename": "includes/Api.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-04-25T09:29:48Z",
+      "side": 1,
+      "message": "\"static\" is ok-ish, but not all IDEs and tools are aware of this. I prefer to use \"self\" instead. There is a subtle difference between the two, but it does not matter much in almost all cases.",
+      "parentUuid": "4e506ba4_f7b88576",
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e506ba4_14a95321",
+        "filename": "includes/Api.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-04-25T09:29:48Z",
+      "side": 1,
+      "message": "Please use string[], as in the declaration above.",
+      "range": {
+        "startLine": 31,
+        "startChar": 22,
+        "endLine": 31,
+        "endChar": 27
+      },
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e506ba4_d4a20b3b",
+        "filename": "includes/Api.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-04-25T09:29:48Z",
+      "side": 1,
+      "message": "Same here, see the comment in the other file.",
+      "range": {
+        "startLine": 31,
+        "startChar": 45,
+        "endLine": 31,
+        "endChar": 95
+      },
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e506ba4_f4adc72e",
+        "filename": "includes/Api.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-04-25T09:29:48Z",
+      "side": 1,
+      "message": "Again, this check looks like the property can be null or false, but this is not documented.",
+      "range": {
+        "startLine": 87,
+        "startChar": 9,
+        "endLine": 87,
+        "endChar": 33
+      },
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e506ba4_14d4f3bc",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-04-25T09:29:48Z",
+      "side": 1,
+      "message": "This is not really part of this patch, but it would be very helpful to document *which* revision ID is expected here.",
+      "range": {
+        "startLine": 14,
+        "startChar": 17,
+        "endLine": 14,
+        "endChar": 28
+      },
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e506ba4_b4f97f4c",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-04-25T09:29:48Z",
+      "side": 1,
+      "message": "This is not enough documentation. This array somehow changes what the job will do, but what exactly is that?",
+      "range": {
+        "startLine": 15,
+        "startChar": 27,
+        "endLine": 15,
+        "endChar": 59
+      },
       "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -118,6 +269,98 @@
       "writtenOn": "2017-04-20T16:46:16Z",
       "side": 1,
       "message": "Same remark regarding protected",
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e506ba4_343a4f34",
+        "filename": "includes/Scoring.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-04-25T09:29:48Z",
+      "side": 1,
+      "message": "Does this mean this can be null or false? This is not documented in the setter and the class property.\n\nOr is this a check for an empty array? In this case it\u0027s better to be explicit: if ( $var \u003d\u003d\u003d [] )",
+      "range": {
+        "startLine": 31,
+        "startChar": 7,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e506ba4_144073a7",
+        "filename": "includes/Scoring.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-04-25T09:29:48Z",
+      "side": 1,
+      "message": "The properties docs say string[]. Should be the same here.",
+      "range": {
+        "startLine": 42,
+        "startChar": 22,
+        "endLine": 42,
+        "endChar": 27
+      },
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e506ba4_54627b38",
+        "filename": "includes/Scoring.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-04-25T09:29:48Z",
+      "side": 1,
+      "message": "This is a bit confusing because the function Http::request() does not have a parameter with the name $originalRequest, but an option with that name. Better link directly to MWHttpRequest::setOriginalRequest() instead.",
+      "range": {
+        "startLine": 42,
+        "startChar": 45,
+        "endLine": 42,
+        "endChar": 95
+      },
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e506ba4_d4ea0b9c",
+        "filename": "includes/Stats.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-04-25T09:29:48Z",
+      "side": 1,
+      "message": "I find it confusing to see generic class names like this in a MediaWiki extension. They look like core classes, which makes this code a bit harder to read. \"OresApi\", \"OresScoring\", \"OresHooks\" and so on would be better, in my opinion.\n\nBut this is just a note and entirely unrelated to this patch. :-)",
+      "range": {
+        "startLine": 137,
+        "startChar": 3,
+        "endLine": 137,
+        "endChar": 6
+      },
       "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
