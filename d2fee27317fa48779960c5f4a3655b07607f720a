@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "2e4df70f_2485b89f",
+        "filename": "includes/Api.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-04-26T07:26:14Z",
+      "side": 1,
+      "message": "Messing with the contract of a class by overriding or even short-circuiting functionality via a subclass is an anti-pattern that creates a bunch of very serious problems in the long run. This is not the point of having dependency injection.\n\nI can understand why you disagree. I was thinking the same, and needed to learn this lesson myself the hard way.",
+      "parentUuid": "4e506ba4_60301154",
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e506ba4_9c184825",
         "filename": "includes/Api.php",
         "patchSetId": 3
@@ -138,6 +156,24 @@
       "side": 1,
       "message": "I doubt there are many tools that understand \u0027self\u0027 but not \u0027static\u0027, let\u0027s just go with the class name then.",
       "parentUuid": "4e506ba4_34b32f98",
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e4df70f_84a92c24",
+        "filename": "includes/Api.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-04-26T07:26:14Z",
+      "side": 1,
+      "message": "Wikibase\u0027s PHPCS rule set complaints about usages of the class name in the class. We always use \"self\".",
+      "parentUuid": "4e506ba4_a017f9f0",
       "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -225,6 +261,30 @@
       "side": 1,
       "message": "Yeah, it\u0027s null by default and not set in the constructor so it can be null (even if in the current code that never happens).",
       "parentUuid": "4e506ba4_f4adc72e",
+      "range": {
+        "startLine": 87,
+        "startChar": 9,
+        "endLine": 87,
+        "endChar": 33
+      },
+      "revId": "d2fee27317fa48779960c5f4a3655b07607f720a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e4df70f_e4b7d082",
+        "filename": "includes/Api.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-04-26T07:26:14Z",
+      "side": 1,
+      "message": "I see. Thanks, this helps a lot.",
+      "parentUuid": "4e506ba4_e0f50180",
       "range": {
         "startLine": 87,
         "startChar": 9,
