@@ -161,7 +161,7 @@
 	},
 	"DefaultUserOptions": {
 		"ores-damaging-flag-rc": false,
-		"oresDamagingPref": "likelybad",
+		"oresDamagingPref": "soft",
 		"oresHighlight": false,
 		"oresRCHideNonDamaging": false,
 		"oresWatchlistHideNonDamaging": false

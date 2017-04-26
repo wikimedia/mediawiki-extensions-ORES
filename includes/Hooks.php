@@ -30,6 +30,12 @@ use User;
 use Xml;
 
 class Hooks {
+	// The oresDamagingPref preference uses these names for historical reasons
+	protected static $damagingPrefMap = [
+		'hard' => 'maybebad',
+		'soft' => 'likelybad',
+		'softest' => 'verylikelybad',
+	];
 
 	/**
 	 * @param DatabaseUpdater $updater
@@ -637,13 +643,8 @@ class Hooks {
 	public static function getThreshold( $type, User $user ) {
 		if ( $type === 'damaging' ) {
 			$pref = $user->getOption( 'oresDamagingPref' );
-			$compatMap = [
-				'hard' => 'maybebad',
-				'soft' => 'likelybad',
-				'softest' => 'verylikelybad',
-			];
-			if ( isset( $compatMap[ $pref ] ) ) {
-				$pref = $compatMap[ $pref ];
+			if ( isset( self::$damagingPrefMap[ $pref ] ) ) {
+				$pref = self::$damagingPrefMap[ $pref ];
 			}
 			$thresholds = self::getDamagingThresholds();
 			if ( isset( $thresholds[ $pref ] ) ) {
@@ -670,10 +671,10 @@ class Hooks {
 
 		$options = [];
 		$damagingThresholds = self::getDamagingThresholds();
-		foreach ( [ 'maybebad', 'likelybad', 'verylikelybad' ] as $level ) {
+		foreach ( self::$damagingPrefMap as $prefName => $level ) {
 			if ( isset( $damagingThresholds[ $level ] ) ) {
 				$text = \wfMessage( 'ores-damaging-' . $level )->text();
-				$options[ $text ] = $level;
+				$options[ $text ] = $prefName;
 			}
 		}
 		$oresSection = $wgOresExtensionStatus === 'beta' ? 'rc/ores' : 'watchlist/ores';
