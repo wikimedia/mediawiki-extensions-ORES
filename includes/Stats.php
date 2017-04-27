@@ -36,10 +36,12 @@ class Stats {
 
 	public function getThresholds( $model, $fromCache = true ) {
 		if ( $this->getFiltersConfig( $model ) ) {
-			return $this->parseThresholds( $this->fetchStats( $model, $fromCache ), $model );
-		} else {
-			return [];
+			$stats = $this->tryFetchStats( $model, $fromCache );
+			if ( $stats !== false ) {
+				return $this->parseThresholds( $stats, $model );
+			}
 		}
+		return [];
 	}
 
 	private function getFiltersConfig( $model ) {
@@ -47,9 +49,19 @@ class Stats {
 		return isset( $wgOresFiltersThresholds[ $model ] ) ? $wgOresFiltersThresholds[ $model ] : false;
 	}
 
+	private function tryFetchStats( $model, $fromCache ) {
+		try {
+			return $this->fetchStats( $model, $fromCache );
+		} catch ( \RuntimeException $exception ) {
+			$this->logger->error( 'Failed to fetch ORES stats: ' . $exception->getMessage() );
+			return false;
+		}
+	}
+
 	private function fetchStats( $model, $fromCache ) {
+		global $wgOresCacheVersion;
 		if ( $fromCache ) {
-			$key = $this->cache->makeKey( 'ORES', 'test_stats', $model );
+			$key = $this->cache->makeKey( 'ORES', 'test_stats', $model, $wgOresCacheVersion );
 			return $this->cache->getWithSetCallback(
 				$key,
 				\WANObjectCache::TTL_DAY,
