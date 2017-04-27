@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e4df70f_bdcd52be",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 366
+      },
+      "writtenOn": "2017-04-27T02:08:29Z",
+      "side": 1,
+      "message": "isset \u0026\u0026 ?",
+      "range": {
+        "startLine": 679,
+        "startChar": 46,
+        "endLine": 679,
+        "endChar": 56
+      },
+      "revId": "d3282335725e6a4c2d2c80af4051644c68b57a4c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
