@@ -55,6 +55,24 @@ class OresCacheTest extends MediaWikiLangTestCase {
 		}
 	}
 
+	public function testFilterScores() {
+		$data = [
+			12 => [ '...' ],
+			34 => [ '...' ],
+			56 => [ '...' ],
+			78 => [ '...' ],
+			90 => [ '...' ],
+		];
+		$whitelist = [ 34, 56, 11, 90 ];
+		$expectedData = [
+			34 => [ '...' ],
+			56 => [ '...' ],
+			90 => [ '...' ],
+		];
+
+		$this->assertSame( $expectedData, $this->cache->filterScores( $data, $whitelist ) );
+	}
+
 	public function testGetModels() {
 		$models = $this->cache->getModels();
 		// TODO: Fix duplicate entries

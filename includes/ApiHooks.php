@@ -260,24 +260,42 @@ class ApiHooks {
 		// add them to the result.
 		$revids = array_diff( $revids, array_keys( $scores ) );
 		if ( $revids ) {
+			// To limit data size, only scores for revisions still in RC will be cached in DB.
+			$cacheableRevids = $dbr->selectFieldValues(
+				[ 'recentchanges' ],
+				'rc_this_oldid',
+				[
+					'rc_this_oldid' => $revids,
+				],
+				__METHOD__
+			);
+
 			if ( count( $revids ) > $wgOresRevisionsPerBatch ) {
+				// Split revids into three groups: next batch which we fetch immediately for
+				// display (whether cacheable or not), further cacheable revids some of which we
+				// fetch in a background job, uncacheable revids which will be fetched on demand
+				// (so nothing to do here).
 				$needsContinuation = true;
-				$chunks = array_chunk( $revids, $wgOresRevisionsPerBatch );
-				$revids = array_shift( $chunks );
+				$allRevids = $revids;
+				$revids = array_slice( $allRevids, 0, $wgOresRevisionsPerBatch );
+				$chunks = array_chunk( array_diff( $cacheableRevids, $revids ), $wgOresRevisionsPerBatch );
 				$title = Title::makeTitle( NS_SPECIAL, 'Badtitle/API batch score fetch' );
 				foreach ( array_slice( $chunks, 0, $wgOresAPIMaxBatchJobs ) as $batch ) {
 					$job = new FetchScoreJob( $title, [ 'revid' => $batch, 'extra_params' => [] ] );
 					JobQueueGroup::singleton()->push( $job );
 				}
 			}
+
 			$loadedScores = Scoring::instance()->getScores( $revids );
+
 			$cache = Cache::instance();
 			$cache->setErrorCallback( function ( $mssg, $revision ) {
 				$logger = LoggerFactory::getInstance( 'ORES' );
 				$logger->info( "Scoring errored for $revision: $mssg\n" );
 			} );
-			DeferredUpdates::addCallableUpdate( function() use ( $cache, $loadedScores ) {
-				$cache->storeScores( $loadedScores );
+			$cacheableScores = $cache->filterScores( $loadedScores, $cacheableRevids );
+			DeferredUpdates::addCallableUpdate( function() use ( $cache, $cacheableScores ) {
+				$cache->storeScores( $cacheableScores );
 			} );
 
 			$models = [];

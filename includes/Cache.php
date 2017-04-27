@@ -27,6 +27,16 @@ class Cache {
 	}
 
 	/**
+	 * Reduce score data so that it only includes revisions from a whitelist.
+	 * @param array[] $scores in the same structure as is returned by ORES.
+	 * @param int[] $acceptedRevids List of revision ids to accept.
+	 * @return array[] Filtered scores.
+	 */
+	public function filterScores( array $scores, array $acceptedRevids ) {
+		return array_intersect_key( $scores, array_flip( $acceptedRevids ) );
+	}
+
+	/**
 	 * Save scores to the database
 	 *
 	 * @param array[] $scores in the same structure as is returned by ORES.
