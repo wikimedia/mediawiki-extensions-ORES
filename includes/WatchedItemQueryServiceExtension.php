@@ -81,8 +81,9 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 	 * This handles the 'oresscores' value in 'includeFields': it collects the
 	 * applicable revision IDs, loads scores for them (using
 	 * ApiHooks::loadScoresForRevisions()), and adds the scoring data to the
-	 * $recentChangeInfo portion of $items. If all scores were not available,
-	 * it truncates $items and adjusts $startFrom accordingly.
+	 * $recentChangeInfo portion of $items. If all scores were not available
+	 * and the API is able to fetch them later, it truncates $items and adjusts
+	 * $startFrom accordingly.
 	 *
 	 * @param User $user
 	 * @param array $options Options from

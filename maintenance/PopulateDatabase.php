@@ -22,6 +22,11 @@ class PopulateDatabase extends Maintenance {
 	/**
 	 * @var int|null
 	 */
+	private $apiBatchSize;
+
+	/**
+	 * @var int|null
+	 */
 	private $revisionLimit;
 
 	public function __construct() {
@@ -30,7 +35,8 @@ class PopulateDatabase extends Maintenance {
 		$this->addDescription( 'Populate ores_classification table by scoring ' .
 			'the latest edits in recentchanges table that are not scored' );
 		$this->addOption( 'number', 'Number of revisions to be scored', false, true, 'n' );
-		$this->addOption( 'batch', 'Batch size for select sql query', false, true, 'b' );
+		$this->addOption( 'batch', 'Batch size for the SELECT SQL query', false, true, 'b' );
+		$this->addOption( 'apibatch', 'Batch size for the API request', false, true );
 	}
 
 	public function execute() {
@@ -43,6 +49,7 @@ class PopulateDatabase extends Maintenance {
 		} );
 		$this->batchSize = $this->getOption( 'batch', 5000 );
 		$this->revisionLimit = $this->getOption( 'number', 1000 );
+		$this->apiBatchSize = $this->getOption( 'apibatch', $wgOresRevisionsPerBatch ?: 30 );
 
 		$latestRcId = 0;
 		$dbr = wfGetDB( DB_REPLICA );
@@ -73,7 +80,7 @@ class PopulateDatabase extends Maintenance {
 			$pack = [];
 			foreach ( $res as $row ) {
 				$pack[] = $row->rc_this_oldid;
-				if ( count( $pack ) % $wgOresRevisionsPerBatch === 0 ) {
+				if ( count( $pack ) % $this->apiBatchSize === 0 ) {
 					$this->processScores( $pack, $scoring, $cache );
 					$pack = [];
 				}
