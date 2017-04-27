@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e4df70f_8da0639c",
+        "filename": "maintenance/PurgeScoreCache.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2017-04-27T18:48:10Z",
+      "side": 1,
+      "message": "This should probably set a batch parameter so that running the script can have a configurable batch. Either based on Maintenance::setBatchSize() or based on $wgUpdateRowsPerQuery. Right now it always uses the hardcoded 1000.",
+      "range": {
+        "startLine": 38,
+        "startChar": 19,
+        "endLine": 38,
+        "endChar": 57
+      },
+      "revId": "8e6177b8de129d6ca57756c736cbf8443c270ae5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
