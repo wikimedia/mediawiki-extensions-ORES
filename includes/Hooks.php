@@ -663,16 +663,23 @@ class Hooks {
 	 * @param string[] $preferences
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
-		global $wgOresExtensionStatus, $wgHiddenPrefs;
+		global $wgOresFiltersThresholds, $wgOresExtensionStatus, $wgHiddenPrefs;
 
 		if ( !self::oresEnabled( $user ) || !self::isModelEnabled( 'damaging' ) ) {
 			return;
 		}
 
 		$options = [];
-		$damagingThresholds = self::getDamagingThresholds();
 		foreach ( self::$damagingPrefMap as $prefName => $level ) {
-			if ( isset( $damagingThresholds[ $level ] ) ) {
+			// In other places, we look at the keys of getDamagingThresholds() to determine which
+			// damaging levels exist, but it can drop levels from its output if the ORES API
+			// has issues. We don't want preference definitions to be potentially unstable.
+			// So instead, we use $wgOresFiltersThresholds directly so the preference definition
+			// only depends on the configuration.
+			if (
+				isset( $wgOresFiltersThresholds[ 'damaging' ][ $level ] ) &&
+				$wgOresFiltersThresholds[ 'damaging' ][ $level ] !== false
+			) {
 				$text = \wfMessage( 'ores-damaging-' . $level )->text();
 				$options[ $text ] = $prefName;
 			}
