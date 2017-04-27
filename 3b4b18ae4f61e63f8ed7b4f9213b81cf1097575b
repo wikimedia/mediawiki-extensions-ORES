@@ -139,6 +139,29 @@
       "revId": "3b4b18ae4f61e63f8ed7b4f9213b81cf1097575b",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e4df70f_adebdfda",
+        "filename": "includes/PurgeScoresJob.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2017-04-27T18:44:35Z",
+      "side": 1,
+      "message": "@Aaron: This is copied from the RC job, but I\u0027m curious why this is the way it is. How is it better than $dbw-\u003elock(,, 0)? What scenario is this supposed to cover?",
+      "range": {
+        "startLine": 46,
+        "startChar": 7,
+        "endLine": 47,
+        "endChar": 44
+      },
+      "revId": "3b4b18ae4f61e63f8ed7b4f9213b81cf1097575b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
