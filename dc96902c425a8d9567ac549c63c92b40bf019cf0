@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e4df70f_a110c85c",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-04-28T05:36:42Z",
+      "side": 1,
+      "message": "The default in extension.json is 30. Not that it matters much, it\u0027s just a bit confusing to have two different defaults.",
+      "range": {
+        "startLine": 52,
+        "startChar": 82,
+        "endLine": 52,
+        "endChar": 84
+      },
+      "revId": "dc96902c425a8d9567ac549c63c92b40bf019cf0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
