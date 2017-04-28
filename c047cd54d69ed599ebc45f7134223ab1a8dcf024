@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "2e4df70f_ac16784b",
+        "filename": "i18n/en.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2017-04-28T21:08:49Z",
+      "side": 1,
+      "message": "This message is now duplicated, please remove one line",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 25
+      },
+      "revId": "c047cd54d69ed599ebc45f7134223ab1a8dcf024",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e4df70f_8c193c81",
+        "filename": "i18n/en.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2017-04-28T21:08:49Z",
+      "side": 1,
+      "message": "This message is now duplicated, please remove one line",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "c047cd54d69ed599ebc45f7134223ab1a8dcf024",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e4df70f_db34f3f9",
         "filename": "includes/Hooks.php",
         "patchSetId": 7
