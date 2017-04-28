@@ -168,8 +168,8 @@ class ApiHooks {
 	 *  - oresNeedsContinuation: (bool) Whether there are any rows in the
 	 *    module's dataset that aren't in 'oresScores'. If this is true,
 	 *    self::onApiQueryBaseProcessRow() will signal for continuation,
-	 *    otherwise it will ignore any missing rows on the assumption that
-	 *    something weird is going on.
+	 *    otherwise it will ignore any missing rows (this might happen when
+	 *    fetching uncached scores has been disabled for performance reasons).
 	 *
 	 * @param ApiQueryBase $module
 	 * @param ResultWrapper|bool $res
@@ -255,11 +255,11 @@ class ApiHooks {
 			$scores[$row->oresc_rev][] = $row;
 		}
 
-		// If any queried revisions were not cached, fetch up to
-		// $wgOresRevisionsPerBatch from the service now, cache them, and
-		// add them to the result.
+		// If any queried revisions were not cached and fetching is enabled,
+		// fetch up to $wgOresRevisionsPerBatch from the service now,
+		// cache them, and add them to the result.
 		$revids = array_diff( $revids, array_keys( $scores ) );
-		if ( $revids ) {
+		if ( $revids && $wgOresRevisionsPerBatch ) {
 			// To limit data size, only scores for revisions still in RC will be cached in DB.
 			$cacheableRevids = $dbr->selectFieldValues(
 				[ 'recentchanges' ],
@@ -354,8 +354,10 @@ class ApiHooks {
 
 			$revid = $row->{$hookData['oresField']};
 			if ( !isset( $hookData['oresScores'][$revid] ) ) {
-				// If we didn't fetch all uncached scores, signal continuation.
-				// Otherwise, we have a WTF situation that we should just ignore.
+				// If the oresNeedsContinuation flag is set, there were too many uncached scores
+				// to fetch in one go, so force the client to make another request for the rest of
+				// the revisions. Otherwise, fetching uncached scores is disabled and we just
+				// the corresponding revisions without scores.
 				return !$hookData['oresNeedsContinuation'];
 			}
 
