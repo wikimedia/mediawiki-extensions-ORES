@@ -618,7 +618,7 @@ class Hooks {
 		$score = $rcObj->getAttribute( 'ores_damaging_score' );
 		$patrolled = $rcObj->getAttribute( 'rc_patrolled' );
 
-		if ( !$score ) {
+		if ( !$score || $threshold === null ) {
 			// Shorten out
 			return false;
 		}
@@ -637,7 +637,7 @@ class Hooks {
 	 * Internal helper to get threshold
 	 * @param string $type
 	 * @param User $user
-	 * @return float Threshold
+	 * @return float|null Threshold, or null if not set
 	 * @throws Exception When $type is not recognized
 	 */
 	public static function getThreshold( $type, User $user ) {
@@ -650,7 +650,7 @@ class Hooks {
 			if ( isset( $thresholds[ $pref ] ) ) {
 				return $thresholds[ $pref ];
 			}
-			throw new Exception( "Unknown $type level: '$pref'" );
+			return null;
 		}
 		throw new Exception( "Unknown ORES test: '$type'" );
 	}
@@ -919,6 +919,9 @@ class Hooks {
 		$dbr = \wfGetDB( DB_REPLICA );
 		// Add user-based threshold
 		$threshold = self::getThreshold( 'damaging', $user );
+		if ( $threshold === null ) {
+			return;
+		}
 		// FIXME: This is not a "filter" but an undocumented side effect of this function.
 		$fields['ores_damaging_threshold'] = $dbr->addQuotes( $threshold );
 
