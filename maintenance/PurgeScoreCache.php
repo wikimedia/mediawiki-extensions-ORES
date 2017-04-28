@@ -23,6 +23,7 @@ class PurgeScoreCache extends Maintenance {
 			'even those from the most recent model', false, false );
 		$this->addOption( 'old', 'Flag to indicate that we only want to clear old data ' .
 			'that is not in recent changes anymore. Implicitly assumes --all.', false, false );
+		$this->setBatchSize( 1000 );
 	}
 
 	public function execute() {
@@ -35,13 +36,13 @@ class PurgeScoreCache extends Maintenance {
 		$this->output( "Purging ORES scores:\n" );
 		foreach ( $models as $model ) {
 			if ( $this->hasOption( 'old' ) ) {
-				$deletedRows = Cache::instance()->purgeOld( $model );
+				$deletedRows = Cache::instance()->purgeOld( $model, $this->mBatchSize );
 				$description = 'old rows';
 			} elseif ( $this->hasOption( 'all' ) ) {
-				$deletedRows = Cache::instance()->purge( $model, true );
+				$deletedRows = Cache::instance()->purge( $model, true, $this->mBatchSize );
 				$description = 'old model versions';
 			} else {
-				$deletedRows = Cache::instance()->purge( $model, false );
+				$deletedRows = Cache::instance()->purge( $model, false, $this->mBatchSize );
 				$description = 'all rows';
 			}
 			if ( $deletedRows ) {
