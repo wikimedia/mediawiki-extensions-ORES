@@ -17,6 +17,7 @@
 	"ores-hide-nondamaging-filter": "검토가 필요한 편집만 보기",
 	"ores-pref-damaging": "ORES 민감도",
 	"ores-pref-damaging-flag": "\"검토가 필요\"한 항목에 대해 문제가 있을 가능성이 있는 편집을 색과 \"{{int:ores-damaging-letter}}\"로 강조 (어느 편집을 표시할 것인지에 대한 수준을 설정하려면 주시목록 환경설정의 \"{{int:ores-pref-damaging}}\"를 사용하십시오)",
+	"ores-damaging-likelybad": "문제가 있을 가능성 있음 (중간 확률)",
 	"ores-rcfilters-whats-this-link-text": "더 알아보기",
 	"ores-rcfilters-damaging-title": "기여 품질 예측",
 	"ores-rcfilters-damaging-whats-this-header": "기여 품질 예측 정보",
