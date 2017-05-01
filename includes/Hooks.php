@@ -95,6 +95,19 @@ class Hooks {
 		}
 	}
 
+	/**
+	 * Remove cached scores for revisions which were purged from recentchanges
+	 *
+	 * @param \stdClass[] $rows
+	 */
+	public function onRecentChangesPurgeRows( array $rows ) {
+		$revIds = [];
+		foreach ( $rows as $row ) {
+			$revIds[] = $row->rc_this_oldid;
+		}
+		Cache::instance()->purgeRows( $revIds );
+	}
+
 	public static function onChangesListSpecialPageStructuredFilters(
 		ChangesListSpecialPage $clsp
 	) {
