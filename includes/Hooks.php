@@ -106,7 +106,7 @@ class Hooks {
 			$damagingLevels = $stats->getThresholds( 'damaging' );
 			$filters = [];
 			if ( isset( $damagingLevels[ 'likelygood' ] ) ) {
-				$filters[] = [
+				$filters[ 'likelygood' ] = [
 					'name' => 'likelygood',
 					'label' => 'ores-rcfilters-damaging-likelygood-label',
 					'description' => 'ores-rcfilters-damaging-likelygood-desc',
@@ -118,7 +118,7 @@ class Hooks {
 				];
 			}
 			if ( isset( $damagingLevels[ 'maybebad' ] ) ) {
-				$filters[] = [
+				$filters[ 'maybebad' ] = [
 					'name' => 'maybebad',
 					'label' => 'ores-rcfilters-damaging-maybebad-label',
 					'description' => 'ores-rcfilters-damaging-maybebad-desc',
@@ -130,7 +130,7 @@ class Hooks {
 				];
 			}
 			if ( isset( $damagingLevels[ 'likelybad' ] ) ) {
-				$filters[] = [
+				$filters[ 'likelybad' ] = [
 					'name' => 'likelybad',
 					'label' => 'ores-rcfilters-damaging-likelybad-label',
 					'description' => 'ores-rcfilters-damaging-likelybad-desc',
@@ -142,7 +142,7 @@ class Hooks {
 				];
 			}
 			if ( isset( $damagingLevels[ 'verylikelybad' ] ) ) {
-				$filters[] = [
+				$filters[ 'verylikelybad' ] = [
 					'name' => 'verylikelybad',
 					'label' => 'ores-rcfilters-damaging-verylikelybad-label',
 					'description' => 'ores-rcfilters-damaging-verylikelybad-desc',
@@ -164,7 +164,7 @@ class Hooks {
 						'Special:MyLanguage/Help:New_filters_for_edit_review/Quality_and_Intent_Filters',
 					'whatsThisLinkText' => 'ores-rcfilters-whats-this-link-text',
 					'priority' => 2,
-					'filters' => $filters,
+					'filters' => array_values( $filters ),
 					'default' => ChangesListStringOptionsFilterGroup::NONE,
 					'isFullCoverage' => false,
 					'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables, &$fields,
@@ -248,7 +248,7 @@ class Hooks {
 			$goodfaithLevels = $stats->getThresholds( 'goodfaith' );
 			$filters = [];
 			if ( isset( $goodfaithLevels['likelygood'] ) ) {
-				$filters[] = [
+				$filters[ 'likelygood' ] = [
 					'name' => 'likelygood',
 					'label' => 'ores-rcfilters-goodfaith-good-label',
 					'description' => 'ores-rcfilters-goodfaith-good-desc',
@@ -260,7 +260,7 @@ class Hooks {
 				];
 			}
 			if ( isset( $goodfaithLevels['maybebad'] ) ) {
-				$filters[] = [
+				$filters[ 'maybebad' ] = [
 					'name' => 'maybebad',
 					'label' => 'ores-rcfilters-goodfaith-maybebad-label',
 					'description' => 'ores-rcfilters-goodfaith-maybebad-desc',
@@ -272,7 +272,7 @@ class Hooks {
 				];
 			}
 			if ( isset( $goodfaithLevels['likelybad'] ) ) {
-				$filters[] = [
+				$filters[ 'likelybad' ] = [
 					'name' => 'likelybad',
 					'label' => 'ores-rcfilters-goodfaith-bad-label',
 					'description' => 'ores-rcfilters-goodfaith-bad-desc',
@@ -284,7 +284,7 @@ class Hooks {
 				];
 			}
 			if ( isset( $goodfaithLevels['verylikelybad'] ) ) {
-				$filters[] = [
+				$filters[ 'verylikelybad' ] = [
 					'name' => 'verylikelybad',
 					'label' => 'ores-rcfilters-goodfaith-verylikelybad-label',
 					'description' => 'ores-rcfilters-goodfaith-verylikelybad-desc',
@@ -306,7 +306,7 @@ class Hooks {
 						'Special:MyLanguage/Help:New_filters_for_edit_review/Quality_and_Intent_Filters',
 					'whatsThisLinkText' => 'ores-rcfilters-whats-this-link-text',
 					'priority' => 1,
-					'filters' => $filters,
+					'filters' => array_values( $filters ),
 					'default' => ChangesListStringOptionsFilterGroup::NONE,
 					'isFullCoverage' => false,
 					'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables, &$fields,
