@@ -9,11 +9,11 @@
 	names[thresholds.likelybad] = 'likelybad';
 	names[thresholds.maybebad] = 'maybebad';
 	$( 'li.damaging' ).each( function () {
-		var url = $( this ).children( 'a' ).attr( 'href' );
+		var url = $( this ).children( 'a.mw-changeslist-diff' ).attr( 'href' );
 		if ( !url ) {
 			return true;
 		}
-		var reg = /\bdiff=(\d+)/;
+		var reg = /\b(?:diff=|diff=prev&oldid=)(\d+)/;
 		var res = reg.exec( url );
 		if ( !res || !( res[1] in mw.config.get( 'oresData' ) ) ) {
 			return true;
@@ -28,4 +28,3 @@
 		}
 	} )
 }( mediaWiki, jQuery ) );
-
