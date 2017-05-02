@@ -9,7 +9,6 @@
 	"ores-damaging-letter": "r",
 	"ores-damaging-title": "This edit needs review",
 	"ores-damaging-legend": "This edit may have problems and should be reviewed ([[:mw:Special:MyLanguage/ORES review tool|more info]])",
-	"ores-help-damaging-pref": "Sets the level of probability at which the system flags edits with an \"{{int:ores-damaging-letter}}\" to indicate they \"need review\" on Recent Changes, Watchlist and Contributions. Also sets the threshold for \"Show only likely problem edits\".",
 	"ores-hide-nondamaging-filter": "Hide probably good edits",
 	"ores-pref-damaging": "Prediction threshold",
 	"ores-pref-damaging-flag": "Highlight likely problem edits with colors and an \"{{int:ores-damaging-letter}}\" for \"needs review\" (to set the level at which edits are marked, use the \"{{int:ores-pref-damaging}}\" setting in the Watchlist preferences)",
