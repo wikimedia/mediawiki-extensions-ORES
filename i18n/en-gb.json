@@ -1,20 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Trizek (WMF)",
-			"4shadoww"
+			"Trizek (WMF)"
 		]
 	},
-	"ores-beta-feature-description": "",
-	"ores-desc": "",
-	"ores-damaging-filter": "",
-	"ores-damaging-letter": "",
-	"ores-damaging-title": "",
-	"ores-damaging-legend": "",
-	"ores-hide-nondamaging-filter": "Hide probably good edits",
-	"ores-pref-damaging": "",
-	"ores-damaging-maybebad": "",
-	"ores-damaging-likelybad": "",
-	"ores-damaging-verylikelybad": "",
-	"ores-rcfilters-whats-this-link-text": ""
+	"ores-hide-nondamaging-filter": "Hide probably good edits"
 }
