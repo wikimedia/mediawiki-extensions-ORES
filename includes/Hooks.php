@@ -539,8 +539,8 @@ class Hooks {
 			return;
 		}
 
-		// Doesn't have ores score, skipping.
-		if ( !isset( $row->ores_damaging_score ) ) {
+		// Doesn't have ores score or threshold is not set properly, skipping.
+		if ( !isset( $row->ores_damaging_score ) || !isset( $row->ores_damaging_threshold ) ) {
 			return;
 		}
 
