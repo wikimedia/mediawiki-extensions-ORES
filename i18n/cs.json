@@ -21,7 +21,7 @@
 	"ores-rcfilters-logactions-conflicts-ores": "Tento filtr je v konfliktu s jedním nebo více filtry podle kvality příspěvků nebo úmyslu uživatele. Odhad kvality nebo úmyslu není dostupný pro zaznamenané činnosti.",
 	"ores-rcfilters-damaging-title": "Odhad kvality příspěvků",
 	"ores-rcfilters-damaging-whats-this-header": "O odhadu kvality příspěvků",
-	"ores-rcfilters-damaging-whats-this-body": "Tento odhad poskytuje strojově učená služba trénovaná velým množstvím editací, které hodnotili lidští editoři. Přísnější, přesnější filtry naleznou méně falešně pozitivních výsledků, většinu správných ale neodhalí. Méně přesné filtry odhalí většinu správných výsledků, ale také více falešně pozitivních.",
+	"ores-rcfilters-damaging-whats-this-body": "Tento odhad poskytuje strojově učená služba trénovaná velkým množstvím editací, které hodnotili lidští editoři. Přísnější, přesnější filtry naleznou méně falešně pozitivních výsledků, většinu správných ale neodhalí. Méně přesné filtry odhalí většinu správných výsledků, ale také více falešně pozitivních.",
 	"ores-rcfilters-damaging-conflicts-logactions": "Odhad kvality příspěvků není dostupný pro určité typy změn, tento filtr je proto v konfliktu s {{PLURAL:$2|následujícím filtrem|následujícími filtry}} podle typu změny: $1",
 	"ores-rcfilters-damaging-likelygood-label": "Velmi pravděpodobně dobrá",
 	"ores-rcfilters-damaging-likelygood-desc": "Spolehlivě nalezne většinu bezproblémových editací.",
