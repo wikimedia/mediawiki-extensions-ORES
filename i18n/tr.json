@@ -9,7 +9,7 @@
 	},
 	"ores-beta-feature-description": "ORES son değişiklikler ve izleme listesindeki muhtemel zararlı düzenlemeleri vurgulayan yapay zeka tabanlı bir araçtır.",
 	"ores-desc": "Arayüzde otomatik gözden geçirme puanlarını gösterir",
-	"ores-damaging-filter": "Yüksek olasılıkla sorunsuz düzenlemeleri $1",
+	"ores-damaging-filter": "yüksek olasılıkla sorunsuz düzenlemeleri $1",
 	"ores-damaging-letter": "g",
 	"ores-damaging-title": "Bu düzenlemenin gözden geçirilmesi gerekiyor",
 	"ores-damaging-legend": "Bu düzenleme zarar verici olabilir ve gözden geçirilmelidir ([[:mw:Special:MyLanguage/ORES review tool|daha fazla bilgi]])",
