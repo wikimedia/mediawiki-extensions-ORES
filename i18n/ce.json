@@ -4,5 +4,6 @@
 			"Умар"
 		]
 	},
-	"ores-damaging-filter": "$1 {{PLURAL:$1|нисдар пайдане хила мега}}"
+	"ores-damaging-filter": "$1 {{PLURAL:$1|нисдар пайдане хила мега}}",
+	"ores-hide-nondamaging-filter": "Къайладаха пайде хила мега нисдарш"
 }
