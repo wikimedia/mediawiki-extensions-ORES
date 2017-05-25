@@ -141,9 +141,12 @@ class Stats {
 		);
 	}
 
+	/**
+	 * @return self
+	 */
 	public static function newFromGlobalState() {
 		return new self(
-			new Api(),
+			Api::newFromContext(),
 			MediaWikiServices::getInstance()->getMainWANObjectCache(),
 			LoggerFactory::getInstance( 'ORES' )
 		);

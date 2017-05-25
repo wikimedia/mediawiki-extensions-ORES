@@ -5,12 +5,34 @@ namespace ORES;
 use FormatJson;
 use MediaWiki\Logger\LoggerFactory;
 use MWHttpRequest;
+use RequestContext;
 use RuntimeException;
+use WebRequest;
 
 /**
  * Common methods for accessing an ORES server.
  */
 class Api {
+	/** @var WebRequest|string[]|null */
+	private $originalRequest;
+
+	/**
+	 * @return Api
+	 */
+	public static function newFromContext() {
+		$self = new self();
+		if ( empty( $GLOBALS['wgCommandLineMode'] ) ) {
+			$self->setOriginalRequest( RequestContext::getMain()->getRequest() );
+		}
+		return $self;
+	}
+
+	/**
+	 * @param WebRequest|string[] $originalRequest See MwHttpRequest::setOriginalRequest()
+	 */
+	public function setOriginalRequest( $originalRequest ) {
+		$this->originalRequest = $originalRequest;
+	}
 
 	/**
 	 * @param string|null $model Name of the model to query
@@ -46,7 +68,7 @@ class Api {
 		$params['format'] = 'json';
 		$url = wfAppendQuery( $url, $params );
 		$logger->debug( "Requesting: {$url}" );
-		$req = MWHttpRequest::factory( $url, null, __METHOD__ );
+		$req = MWHttpRequest::factory( $url, $this->getMWHttpRequestOptions(), __METHOD__ );
 		$status = $req->execute();
 		if ( !$status->isOK() ) {
 			throw new RuntimeException( "Failed to make ORES request to [{$url}], "
@@ -59,6 +81,10 @@ class Api {
 			throw new RuntimeException( "Bad response from ORES endpoint [{$url}]: {$json}" );
 		}
 		return $data;
+	}
+
+	protected function getMWHttpRequestOptions() {
+		return $this->originalRequest ? [ 'originalRequest' => $this->originalRequest ] : [];
 	}
 
 }

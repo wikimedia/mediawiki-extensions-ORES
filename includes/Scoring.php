@@ -2,7 +2,11 @@
 
 namespace ORES;
 
+use WebRequest;
+
 class Scoring {
+	/** @var WebRequest|string[]|null */
+	private $originalRequest;
 
 	/**
 	 * @param integer|array $revisions Single or multiple revisions
@@ -24,9 +28,21 @@ class Scoring {
 			'revids' => implode( '|', (array) $revisions ),
 		];
 
-		$api = new Api();
+		if ( $this->originalRequest === null ) {
+			$api = Api::newFromContext();
+		} else {
+			$api = new Api();
+			$api->setOriginalRequest( $this->originalRequest );
+		}
 		$wireData = $api->request( array_merge( $params, $extra_params ) );
 		return $wireData;
+	}
+
+	/**
+	 * @param WebRequest|string[] $originalRequest See MwHttpRequest::setOriginalRequest()
+	 */
+	public function setOriginalRequest( $originalRequest ) {
+		$this->originalRequest = $originalRequest;
 	}
 
 	public static function instance() {
