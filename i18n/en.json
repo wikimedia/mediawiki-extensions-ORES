@@ -48,6 +48,7 @@
 	"ores-pref-watchlist-hidenondamaging": "Show only likely problem edits (and hide probably good edits)",
 	"prefs-ores" : "Revision scoring",
 	"apihelp-query+ores-description": "Return ORES configuration and model data for this wiki.",
+	"apihelp-query+ores-summary": "Return ORES configuration and model data for this wiki.",
 	"apihelp-query+ores-example-simple": "Fetch ORES data:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES scores for the revision.",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES scores for the revision.",

@@ -54,6 +54,7 @@
 	"ores-pref-watchlist-hidenondamaging": "Display message for user preferences to make hidenondamaging default in the watchlist",
 	"prefs-ores": "Name of ORES section in preferences",
 	"apihelp-query+ores-description": "{{doc-apihelp-description|query+ores}}",
+	"apihelp-query+ores-summary": "{{doc-apihelp-summary|query+ores}}",
 	"apihelp-query+ores-example-simple": "{{doc-apihelp-example|query+ores}}",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "{{doc-apihelp-paramvalue|query+revisions|prop|oresscores}}",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "{{doc-apihelp-paramvalue|query+allrevisions|prop|oresscores}}",
