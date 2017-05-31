@@ -563,7 +563,7 @@ class Hooks {
 	 * Hook into Special:Contributions filters
 	 *
 	 * @param SpecialContributions $page
-	 * @param string HTML[] $filters
+	 * @param string[] &$filters HTML
 	 */
 	public static function onSpecialContributionsGetFormFilters(
 		SpecialContributions $page,
@@ -812,7 +812,7 @@ class Hooks {
 		if ( $wgOresExtensionStatus === 'beta' ) {
 			return $user &&
 				$user->isLoggedIn() &&
-				class_exists( 'BetaFeatures' ) &&
+				class_exists( BetaFeatures::class ) &&
 				BetaFeatures::isFeatureEnabled( $user, 'ores-enabled' );
 		}
 

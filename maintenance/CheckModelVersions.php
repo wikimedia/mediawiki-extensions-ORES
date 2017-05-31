@@ -72,5 +72,5 @@ class CheckModelVersions extends Maintenance {
 
 }
 
-$maintClass = 'ORES\CheckModelVersions';
+$maintClass = CheckModelVersions::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

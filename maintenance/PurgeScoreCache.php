@@ -56,5 +56,5 @@ class PurgeScoreCache extends Maintenance {
 
 }
 
-$maintClass = 'ORES\PurgeScoreCache';
+$maintClass = PurgeScoreCache::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

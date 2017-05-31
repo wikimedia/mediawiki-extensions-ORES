@@ -5,7 +5,6 @@ namespace ORES;
 /**
  * Represents a range defined by two values: min and max
  *
- * Class Range
  * @package ORES
  */
 class Range {

@@ -49,5 +49,5 @@ class DumpThresholds extends Maintenance {
 
 }
 
-$maintClass = 'ORES\DumpThresholds';
+$maintClass = DumpThresholds::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

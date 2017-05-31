@@ -4,6 +4,8 @@ namespace ORES\Tests;
 
 use MediaWiki\Logger\LoggerFactory;
 use ORES;
+use ORES\Api;
+use Psr\Log\LoggerInterface;
 use WANObjectCache;
 
 /**
@@ -21,7 +23,7 @@ class StatsTest extends \MediaWikiTestCase {
 	}
 
 	private function getLoggerMock() {
-		return $this->getMockBuilder( 'Psr\Log\LoggerInterface' )
+		return $this->getMockBuilder( LoggerInterface::class )
 			->setMethods( [
 				'emergency',
 				'alert',
@@ -37,7 +39,7 @@ class StatsTest extends \MediaWikiTestCase {
 	}
 
 	public function testGetThresholds_modelConfigNotFound() {
-		$api = $this->getMockBuilder( 'ORES\Api' )->getMock();
+		$api = $this->getMockBuilder( Api::class )->getMock();
 		$logger = $this->getLoggerMock();
 		$stats = new ORES\Stats( $api, WANObjectCache::newEmpty(), $logger );
 
@@ -50,7 +52,7 @@ class StatsTest extends \MediaWikiTestCase {
 	}
 
 	public function testGetThresholds_everythingGoesWrong() {
-		$api = $this->getMockBuilder( 'ORES\Api' )->getMock();
+		$api = $this->getMockBuilder( Api::class )->getMock();
 		$api->method( 'request' )
 			->with( [ 'model_info' => 'test_stats' ], 'goodfaith' )
 			->willReturn( 'this is not the stat object you were expecting...' );
@@ -77,7 +79,7 @@ class StatsTest extends \MediaWikiTestCase {
 	}
 
 	public function testGetThresholds_filtersConfig() {
-		$api = $this->getMockBuilder( 'ORES\Api' )->getMock();
+		$api = $this->getMockBuilder( Api::class )->getMock();
 		$api->method( 'request' )
 			->with( [ 'model_info' => 'test_stats' ], 'damaging' )
 			->willReturn( [

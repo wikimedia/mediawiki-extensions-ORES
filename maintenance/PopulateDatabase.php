@@ -118,5 +118,5 @@ class PopulateDatabase extends Maintenance {
 
 }
 
-$maintClass = 'ORES\PopulateDatabase';
+$maintClass = PopulateDatabase::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

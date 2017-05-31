@@ -62,5 +62,5 @@ class CleanDuplicateScores extends Maintenance {
 
 }
 
-$maintClass = 'ORES\CleanDuplicateScores';
+$maintClass = CleanDuplicateScores::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
