@@ -35,6 +35,7 @@
 	"ores-rcfilters-damaging-verylikelybad-desc": "Atopa con gran precisión as edicións máis claramente erróneas ou daniñas.",
 	"ores-rcfilters-goodfaith-title": "Predicións das intencións do usuario",
 	"ores-rcfilters-goodfaith-whats-this-header": "Acerca das predicións de intención dos usuarios",
+	"ores-rcfilters-goodfaith-whats-this-body": "Estas predicións sobre a boa fe dos usuarios son efectuadas por un servizo de aprendizaxe automático adestrado nun gran conxunto de edicións avaliadas por editores humanos. Os filtros máis estritos e precisos atopan menos falsos positivos, pero deixan de atopar máis obxectivos válidos. Os filtros menos precisos atopan máis obxectivos válidos, pero tamén máis falsos positivos.",
 	"ores-rcfilters-goodfaith-conflicts-logactions": "As predicións de intención de usuario non están dispoñibles para certos tipos de cambio, polo que este filtro entra en conflito {{PLURAL:$2|co filtro de tipo de modificación seguinte|cos filtros de tipo de modificación seguintes}}: $1",
 	"ores-rcfilters-goodfaith-good-label": "Moi probablemente de boa fe",
 	"ores-rcfilters-goodfaith-good-desc": "Moi preciso para atopar case tódalas edicións realizadas de boa fe.",
