@@ -5,7 +5,8 @@
 			"Wladek92",
 			"Momo50WM",
 			"Trizek (WMF)",
-			"Urhixidur"
+			"Urhixidur",
+			"Od1n"
 		]
 	},
 	"ores-beta-feature-description": "ORES est un outil basé sur une intelligence artificielle qui met en évidence des mises à jour potentiellement nuisibles dans les modifications faites récemment et dans les listes de suivi.",
@@ -49,7 +50,7 @@
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Très probablement de mauvaise foi",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Très précis pour trouver les modifications de mauvaise foi les plus évidentes.",
 	"ores-pref-highlight": "Surligner les modifications probablement problématiques avec des couleurs et un « {{int:ores-damaging-letter}} » pour « nécessite une relecture »",
-	"ores-pref-rc-hidenondamaging": "Afficher uniquement les modifications probablement problématiques (et probablement masquer les bonnes)",
+	"ores-pref-rc-hidenondamaging": "Afficher uniquement les modifications probablement problématiques (et masquer celles probablement bonnes)",
 	"ores-pref-watchlist-hidenondamaging": "Afficher uniquement les modifications probablement problématiques (et probablement masquer les bonnes)",
 	"prefs-ores": "Score de révision",
 	"apihelp-query+ores-description": "Renvoyer la configuration ORES et les données du modèle pour ce wiki.",
