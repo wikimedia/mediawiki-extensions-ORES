@@ -429,6 +429,7 @@ class Hooks {
 
 		$classes = [];
 		self::processRecentChangesList( $rcObj, $data, $classes, $ecl->getContext() );
+		$data['attribs']['class'] = array_merge( $data['attribs']['class'], $classes );
 	}
 
 	/**
