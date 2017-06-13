@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0e81134c_91c37a61",
+        "filename": "modules/ext.ores.highlighter.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-06-13T05:15:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e81134c_4e9a4f68",
+      "revId": "34998f154b5a41db38750b406632b40a27517fc1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e81134c_8eb7d7d2",
         "filename": "modules/ext.ores.highlighter.js",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2017-06-12T21:51:51Z",
       "side": 1,
       "message": "If you drop the li, this will sort of work for enhanced RC as well. (Although to fully work, you\u0027d have to copy the class to the parent row as well for collapsible revisions.)",
+      "revId": "34998f154b5a41db38750b406632b40a27517fc1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e81134c_71be16d3",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-06-13T05:15:46Z",
+      "side": 1,
+      "message": "This won\u0027t be needed for enhanced changes list as it already adds the proper classes and CSS will pick it up, this one is only for Special:Contributions.",
+      "parentUuid": "0e81134c_8eb7d7d2",
       "revId": "34998f154b5a41db38750b406632b40a27517fc1",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
