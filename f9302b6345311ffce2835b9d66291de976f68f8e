@@ -34,6 +34,24 @@
       "revId": "f9302b6345311ffce2835b9d66291de976f68f8e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e81134c_62d3a262",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-06-13T13:46:56Z",
+      "side": 1,
+      "message": "I have enabled \"Highlight likely problem edits\" in the RC and watchlist pref sections but .damaging is not added for top-level rows (whether they have children or not). Maybe that should be fixed in PHP then, although IMO you are making your life harder by splitting the logic into a largely overlapping frontend and backend part.",
+      "parentUuid": "0e81134c_e22d528c",
+      "revId": "f9302b6345311ffce2835b9d66291de976f68f8e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
