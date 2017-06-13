@@ -16,6 +16,24 @@
       "revId": "f9302b6345311ffce2835b9d66291de976f68f8e",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e81134c_e22d528c",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-06-13T13:27:33Z",
+      "side": 1,
+      "message": "Damaging is being added but you need to enable it in your preferences. Don\u0027t ask why it\u0027s like this\nRegarding the second point, it\u0027ll be way faster and we need to make sure thresholds are there in a descending manner and in that case it is the same. I added a comment to explain it.\nRegarding the third part, I think it\u0027s done now.",
+      "parentUuid": "0e81134c_d78c92dd",
+      "revId": "f9302b6345311ffce2835b9d66291de976f68f8e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
