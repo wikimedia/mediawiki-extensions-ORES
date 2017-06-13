@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e81134c_22459a18",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-06-13T13:46:56Z",
+      "side": 1,
+      "message": "Should it add the more specific class as well so the color can hint at the severity? It\u0027s slightly more hassle (because there might be multiple damaging rows and you have to find the class for the most damaging one) but seems more useful to the patroller.",
+      "revId": "27fd6a3f82474241403a91b16bab034d306b3ed5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
