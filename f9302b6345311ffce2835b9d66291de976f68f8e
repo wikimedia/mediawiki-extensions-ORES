@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e81134c_d78c92dd",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-06-13T13:06:10Z",
+      "side": 1,
+      "message": "* also .damaging. Or should that come from PHP? It does not happen in my local test setup.\n* should probably find the highest threshold, not just the first one that happens to match?\n* wanna go for the extra mile and add it to the .mw-enhanced-rc.mw-collapsible parent too if one exists?",
+      "revId": "f9302b6345311ffce2835b9d66291de976f68f8e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
