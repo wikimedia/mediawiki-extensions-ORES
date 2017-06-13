@@ -69,6 +69,24 @@
       "revId": "34998f154b5a41db38750b406632b40a27517fc1",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e81134c_1479b8c3",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 389
+      },
+      "writtenOn": "2017-06-13T11:16:44Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem to be working in my local testing . child rows get the class, parent rows and childless top-level rows don\u0027t. I\u0027m OK with merging this if you think that\u0027s outside the scope of this patch, though.",
+      "parentUuid": "0e81134c_71be16d3",
+      "revId": "34998f154b5a41db38750b406632b40a27517fc1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
