@@ -87,6 +87,24 @@
       "revId": "34998f154b5a41db38750b406632b40a27517fc1",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e81134c_17977a4c",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-06-13T12:28:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e81134c_1479b8c3",
+      "revId": "34998f154b5a41db38750b406632b40a27517fc1",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
