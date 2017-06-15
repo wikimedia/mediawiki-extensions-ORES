@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"StanProg"
+		]
+	},
+	"ores-damaging-filter": "$1 потенциално добри редакции",
+	"ores-damaging-legend": "Редакцията може да има проблеми и трябва да бъде прегледана ([[:mw:Special:MyLanguage/ORES review tool|още]])",
+	"ores-hide-nondamaging-filter": "Скриване на потенциално добри редакции",
+	"ores-pref-rc-hidenondamaging": "Показване само на потенциално проблемни редакции (и скриване на потенциално добри редакции)",
+	"ores-pref-watchlist-hidenondamaging": "Показване само на потенциално проблемни редакции (и скриване на потенциално добри редакции)"
+}
