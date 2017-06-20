@@ -49,6 +49,7 @@
 	"ores-pref-watchlist-hidenondamaging": "Ver namái les ediciones que probablemente tienen problemes (y despintar les ediciones probablemente bones)",
 	"prefs-ores": "Puntuación de revisión",
 	"apihelp-query+ores-description": "Devolver la configuración ORES y datos modelu d'esta wiki.",
+	"apihelp-query+ores-summary": "Devolver la configuración ORES y datos modelu d'esta wiki.",
 	"apihelp-query+ores-example-simple": "Recuperar los datos ORESː",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Puntuación ORES de la revisión.",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Puntuación ORES de la revisión.",
