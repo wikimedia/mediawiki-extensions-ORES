@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce8a9b6b_453008fd",
+        "filename": "maintenance/CheckModelVersions.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2017-06-20T20:54:49Z",
+      "side": 0,
+      "message": "T168352",
+      "range": {
+        "startLine": 7,
+        "startChar": 41,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "revId": "b7c4a3641dff940edc28dc70a3bdabc81404723e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce8a9b6b_c51ab87e",
+        "filename": "maintenance/CleanDuplicateScores.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2017-06-20T20:54:49Z",
+      "side": 0,
+      "message": "T168352",
+      "range": {
+        "startLine": 8,
+        "startChar": 41,
+        "endLine": 8,
+        "endChar": 43
+      },
+      "revId": "b7c4a3641dff940edc28dc70a3bdabc81404723e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce8a9b6b_b7048718",
+        "filename": "maintenance/DumpThresholds.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2017-06-20T20:54:49Z",
+      "side": 0,
+      "message": "T168352",
+      "range": {
+        "startLine": 7,
+        "startChar": 41,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "revId": "b7c4a3641dff940edc28dc70a3bdabc81404723e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce8a9b6b_572d1b8a",
+        "filename": "maintenance/PopulateDatabase.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2017-06-20T20:54:49Z",
+      "side": 0,
+      "message": "T168352",
+      "range": {
+        "startLine": 8,
+        "startChar": 41,
+        "endLine": 8,
+        "endChar": 43
+      },
+      "revId": "b7c4a3641dff940edc28dc70a3bdabc81404723e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce8a9b6b_d757cb03",
+        "filename": "maintenance/PurgeScoreCache.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2017-06-20T20:54:49Z",
+      "side": 0,
+      "message": "T168352",
+      "range": {
+        "startLine": 7,
+        "startChar": 41,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "revId": "b7c4a3641dff940edc28dc70a3bdabc81404723e",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
