@@ -24,8 +24,8 @@ class Scoring {
 		}
 
 		$params = [
-			'models' => implode( '|', (array) $models ),
-			'revids' => implode( '|', (array) $revisions ),
+			'models' => implode( '|', (array)$models ),
+			'revids' => implode( '|', (array)$revisions ),
 		];
 
 		if ( $this->originalRequest === null ) {

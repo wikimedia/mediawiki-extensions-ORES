@@ -308,7 +308,7 @@ class ApiHooksHandler {
 				$logger->info( "Scoring errored for $revision: $mssg\n" );
 			} );
 			$cacheableScores = $cache->filterScores( $loadedScores, $cacheableRevids );
-			DeferredUpdates::addCallableUpdate( function() use ( $cache, $cacheableScores ) {
+			DeferredUpdates::addCallableUpdate( function () use ( $cache, $cacheableScores ) {
 				$cache->storeScores( $cacheableScores );
 			} );
 

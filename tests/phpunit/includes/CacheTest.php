@@ -131,7 +131,7 @@ class OresCacheTest extends MediaWikiLangTestCase {
 						'oresc_is_predicted' => false
 					],
 				],
-			    12345
+				12345
 			]
 		];
 	}
@@ -226,7 +226,7 @@ class OresCacheTest extends MediaWikiLangTestCase {
 				'oresc_model',
 				'oresc_class',
 				'oresc_probability',
-			    'oresc_is_predicted'
+				'oresc_is_predicted'
 			],
 			[ 'oresc_rev' => $revIds ],
 			__METHOD__,
