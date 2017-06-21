@@ -50,6 +50,7 @@
 	"ores-pref-watchlist-hidenondamaging": "只显示很可能有问题的编辑（并隐藏可能良好的编辑）",
 	"prefs-ores": "修订得分",
 	"apihelp-query+ores-description": "返回该wiki的ORES配置和模型数据。",
+	"apihelp-query+ores-summary": "返回该wiki的ORES配置和模型数据。",
 	"apihelp-query+ores-example-simple": "取得ORES数据：",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "修订版本的ORES分数。",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "修订版本的ORES分数。",
