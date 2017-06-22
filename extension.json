@@ -12,6 +12,7 @@
 		"ORES\\Api": "includes/Api.php",
 		"ORES\\Cache": "includes/Cache.php",
 		"ORES\\Hooks": "includes/Hooks.php",
+		"ORES\\Hooks\\PreferencesHookHandler": "includes/Hooks/PreferencesHookHandler.php",
 		"ORES\\FetchScoreJob": "includes/FetchScoreJob.php",
 		"ORES\\Range": "includes/Range.php",
 		"ORES\\Scoring": "includes/Scoring.php",
@@ -67,7 +68,7 @@
 			"ORES\\Hooks::onGetBetaFeaturePreferences"
 		],
 		"GetPreferences": [
-			"ORES\\Hooks::onGetPreferences"
+			"ORES\\Hooks\\PreferencesHookHandler::onGetPreferences"
 		],
 		"LoadExtensionSchemaUpdates": [
 			"ORES\\Hooks::onLoadExtensionSchemaUpdates"

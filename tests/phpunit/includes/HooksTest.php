@@ -3,7 +3,6 @@
 namespace ORES\Tests;
 
 use ChangesList;
-use ChangesListSpecialPage;
 use ContribsPager;
 use EnhancedChangesList;
 use EventRelayerNull;
@@ -12,6 +11,7 @@ use HashBagOStuff;
 use IContextSource;
 use MediaWiki\MediaWikiServices;
 use ORES;
+use ORES\Hooks\PreferencesHookHandler;
 use RCCacheEntry;
 use RecentChange;
 use RequestContext;
@@ -54,7 +54,7 @@ class OresHooksTest extends \MediaWikiTestCase {
 
 	public function testOresPrefs() {
 		$preferences = [];
-		ORES\Hooks::onGetPreferences( $this->user, $preferences );
+		PreferencesHookHandler::onGetPreferences( $this->user, $preferences );
 		$this->assertArrayHasKey( 'oresDamagingPref', $preferences );
 		$this->assertArrayHasKey( 'oresWatchlistHideNonDamaging', $preferences );
 		$this->assertArrayHasKey( 'oresRCHideNonDamaging', $preferences );
@@ -546,7 +546,7 @@ class OresHooksTest extends \MediaWikiTestCase {
 
 	public function testOnGetPreferencesEnabled() {
 		$prefs = [];
-		ORES\Hooks::onGetPreferences( $this->user, $prefs );
+		PreferencesHookHandler::onGetPreferences( $this->user, $prefs );
 
 		$this->assertSame( 5, count( $prefs ) );
 	}
