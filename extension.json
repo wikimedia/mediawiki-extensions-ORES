@@ -12,13 +12,13 @@
 		"ORES\\Api": "includes/Api.php",
 		"ORES\\Cache": "includes/Cache.php",
 		"ORES\\Hooks": "includes/Hooks.php",
+		"ORES\\Hooks\\ApiHooksHandler": "includes/Hooks/ApiHooksHandler.php",
 		"ORES\\Hooks\\PreferencesHookHandler": "includes/Hooks/PreferencesHookHandler.php",
 		"ORES\\FetchScoreJob": "includes/FetchScoreJob.php",
 		"ORES\\Range": "includes/Range.php",
 		"ORES\\Scoring": "includes/Scoring.php",
 		"ORES\\Stats": "includes/Stats.php",
 		"ORES\\ApiQueryORES": "includes/ApiQueryORES.php",
-		"ORES\\ApiHooks": "includes/ApiHooks.php",
 		"ORES\\WatchedItemQueryServiceExtension": "includes/WatchedItemQueryServiceExtension.php"
 	},
 	"APIMetaModules": {
@@ -26,25 +26,25 @@
 	},
 	"Hooks": {
 		"APIGetAllowedParams": [
-			"ORES\\ApiHooks::onAPIGetAllowedParams"
+			"ORES\\Hooks\\ApiHooksHandler::onAPIGetAllowedParams"
 		],
 		"ApiQueryBaseBeforeQuery": [
-			"ORES\\ApiHooks::onApiQueryBaseBeforeQuery"
+			"ORES\\Hooks\\ApiHooksHandler::onApiQueryBaseBeforeQuery"
 		],
 		"ApiQueryBaseAfterQuery": [
-			"ORES\\ApiHooks::onApiQueryBaseAfterQuery"
+			"ORES\\Hooks\\ApiHooksHandler::onApiQueryBaseAfterQuery"
 		],
 		"ApiQueryBaseProcessRow": [
-			"ORES\\ApiHooks::onApiQueryBaseProcessRow"
+			"ORES\\Hooks\\ApiHooksHandler::onApiQueryBaseProcessRow"
 		],
 		"ApiQueryWatchlistExtractOutputData": [
-			"ORES\\ApiHooks::onApiQueryWatchlistExtractOutputData"
+			"ORES\\Hooks\\ApiHooksHandler::onApiQueryWatchlistExtractOutputData"
 		],
 		"ApiQueryWatchlistPrepareWatchedItemQueryServiceOptions": [
-			"ORES\\ApiHooks::onApiQueryWatchlistPrepareWatchedItemQueryServiceOptions"
+			"ORES\\Hooks\\ApiHooksHandler::onApiQueryWatchlistPrepareWatchedItemQueryServiceOptions"
 		],
 		"WatchedItemQueryServiceExtensions": [
-			"ORES\\ApiHooks::onWatchedItemQueryServiceExtensions"
+			"ORES\\Hooks\\ApiHooksHandler::onWatchedItemQueryServiceExtensions"
 		],
 		"BeforePageDisplay": [
 			"ORES\\Hooks::onBeforePageDisplay"

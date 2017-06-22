@@ -3,6 +3,7 @@
 namespace ORES;
 
 use IDatabase;
+use ORES\Hooks\ApiHooksHandler;
 use ResultWrapper;
 use User;
 
@@ -80,7 +81,7 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 	 *
 	 * This handles the 'oresscores' value in 'includeFields': it collects the
 	 * applicable revision IDs, loads scores for them (using
-	 * ApiHooks::loadScoresForRevisions()), and adds the scoring data to the
+	 * ApiHooksHandler::loadScoresForRevisions()), and adds the scoring data to the
 	 * $recentChangeInfo portion of $items. If all scores were not available
 	 * and the API is able to fetch them later, it truncates $items and adjusts
 	 * $startFrom accordingly.
@@ -108,7 +109,7 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 		}
 
 		if ( $revids ) {
-			list( $scores, $needsContinuation ) = ApiHooks::loadScoresForRevisions( $revids );
+			list( $scores, $needsContinuation ) = ApiHooksHandler::loadScoresForRevisions( $revids );
 			foreach ( $items as $i => $dummy ) {
 				$rcInfo = &$items[$i][1];
 				if ( (int)$rcInfo['rc_type'] !== RC_EDIT && (int)$rcInfo['rc_type'] !== RC_NEW ) {

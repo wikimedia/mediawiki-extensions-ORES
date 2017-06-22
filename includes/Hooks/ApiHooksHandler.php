@@ -1,6 +1,6 @@
 <?php
 
-namespace ORES;
+namespace ORES\Hooks;
 
 use ApiBase;
 use ApiQueryAllRevisions;
@@ -14,6 +14,11 @@ use ApiResult;
 use DeferredUpdates;
 use JobQueueGroup;
 use MediaWiki\Logger\LoggerFactory;
+use ORES\Cache;
+use ORES\FetchScoreJob;
+use ORES\Hooks;
+use ORES\Scoring;
+use ORES\WatchedItemQueryServiceExtension;
 use RequestContext;
 use Title;
 use ResultWrapper;
@@ -23,7 +28,7 @@ use WatchedItemQueryService;
 /**
  * @author Brad Jorsch <bjorsch@wikimedia.org>
  */
-class ApiHooks {
+class ApiHooksHandler {
 
 	/**
 	 * Inject parameters into certain API modules
