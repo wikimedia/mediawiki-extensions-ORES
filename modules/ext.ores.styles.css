@@ -4,8 +4,7 @@
 }
 
 /* Make the whole row orange if highlighted */
-li.damaging.ores-highlight,
-tr.damaging.ores-highlight {
+.damaging.ores-highlight {
 	background: #fef6e7;
 	line-height: 1.8;
 }

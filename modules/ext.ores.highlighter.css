@@ -1,12 +1,13 @@
 /* Make the whole rows various shades of yellow */
-.damaging.ores-highlight[data-ores-damaging='verylikelybad'] {
-	background-color: #fc3;
+.damaging.mw-changeslist-damaging-maybebad {
+	background-color: #fef6e7;
 }
 
-.damaging.ores-highlight[data-ores-damaging='likelybad'] {
+.damaging.mw-changeslist-damaging-likelybad {
 	background-color: #ffe79e;
 }
 
-.damaging.ores-highlight[data-ores-damaging='maybebad'] {
-	background-color: #fef6e7;
+.damaging.mw-changeslist-damaging-verylikelybad {
+	background-color: #fc3;
 }
+
