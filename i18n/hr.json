@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"MaGa"
+			"MaGa",
+			"Bugoslav"
 		]
 	},
 	"ores-beta-feature-description": "ORES je alat koji označava vjerojatno štetna uređivanja u nedavnim promjenama i popisu praćenja.",
-	"ores-damaging-legend": "Moguće štetno uređivanje koje treba biti pregledano. ([[:mw:Special:MyLanguage/ORES review tool|više informacija]])"
+	"ores-damaging-legend": "Moguće štetno uređivanje koje treba biti pregledano. ([[:mw:Special:MyLanguage/ORES review tool|više informacija]])",
+	"ores-hide-nondamaging-filter": "Skrij vjerojatno dobra uređivanja"
 }
