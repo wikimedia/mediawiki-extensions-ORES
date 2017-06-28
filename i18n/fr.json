@@ -6,7 +6,8 @@
 			"Momo50WM",
 			"Trizek (WMF)",
 			"Urhixidur",
-			"Od1n"
+			"Od1n",
+			"Thibaut120094"
 		]
 	},
 	"ores-beta-feature-description": "ORES est un outil basé sur une intelligence artificielle qui met en évidence des mises à jour potentiellement nuisibles dans les modifications faites récemment et dans les listes de suivi.",
@@ -54,6 +55,7 @@
 	"ores-pref-watchlist-hidenondamaging": "Afficher uniquement les modifications probablement problématiques (et probablement masquer les bonnes)",
 	"prefs-ores": "Score de révision",
 	"apihelp-query+ores-description": "Renvoyer la configuration ORES et les données du modèle pour ce wiki.",
+	"apihelp-query+ores-summary": "Renvoyer la configuration ORES et les données du modèle pour ce wiki.",
 	"apihelp-query+ores-example-simple": "Récupérer les données ORES :",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Scores ORES pour la révision.",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Scores ORES pour la révision.",
