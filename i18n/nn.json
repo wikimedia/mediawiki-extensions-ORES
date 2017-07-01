@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Njardarlogar"
+			"Njardarlogar",
+			"Jeblad"
 		]
 	},
+	"ores-damaging-filter": "$1 sannsynlegvis god endring",
 	"ores-damaging-legend": "Endringa kan ha problem og bør undersøkjast ([[:mw:Special:MyLanguage/ORES review tool|meir]])"
 }
