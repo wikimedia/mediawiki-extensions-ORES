@@ -5,6 +5,13 @@
 			"Jeblad"
 		]
 	},
+	"ores-beta-feature-description": "ORES er eit verktøy basert på kunstig intelligens som uthevar endringar på siste endringar og overvakingslista som sannsynlegvis er skadelege.",
 	"ores-damaging-filter": "$1 sannsynlegvis god endring",
-	"ores-damaging-legend": "Endringa kan ha problem og bør undersøkjast ([[:mw:Special:MyLanguage/ORES review tool|meir]])"
+	"ores-damaging-legend": "Endringa kan ha problem og bør undersøkjast ([[:mw:Special:MyLanguage/ORES review tool|meir]])",
+	"ores-rcfilters-whats-this-link-text": "Lær meir",
+	"ores-rcfilters-damaging-title": "Utrekning av kvalitetssannsyn",
+	"ores-rcfilters-damaging-whats-this-header": "Om utrekning av kvalitetssannsyn",
+	"apihelp-query+ores-example-simple": "Hent ORES-data:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-skår for versjonen.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES-skår for versjonen."
 }
