@@ -36,6 +36,7 @@
 	"ores-pref-watchlist-hidenondamaging": "Mostrar somente edições que podem ter problemas (e ocultar edições provavelmente boas)",
 	"prefs-ores": "Pontuação de revisão",
 	"apihelp-query+ores-description": "Retornar a configuração do ORES e os dados do modelo para esta wiki.",
+	"apihelp-query+ores-summary": "Retornar a configuração do ORES e os dados do modelo para esta wiki.",
 	"apihelp-query+ores-example-simple": "Recuperar dados do ORESː",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Pontuação do ORES para a revisão.",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Pontuação do ORES para a revisão.",
