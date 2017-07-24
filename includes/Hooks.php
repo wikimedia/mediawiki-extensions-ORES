@@ -50,6 +50,8 @@ class Hooks {
 			__DIR__ . '/../sql/patch-ores-classification-unique-indexes.sql' );
 		$updater->addExtensionIndex( 'ores_model', 'oresm_model_status',
 			__DIR__ . '/../sql/patch-ores-model-indexes.sql' );
+		$updater->addExtensionIndex( 'ores_classification', 'oresc_model_class_prob',
+			__DIR__ . '/../sql/patch-ores-classification-model-class-prob-index.sql' );
 	}
 
 	/**
