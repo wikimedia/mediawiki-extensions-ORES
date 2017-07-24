@@ -16,10 +16,12 @@
 	"ores-damaging-legend": "Esta edição pode ter problemas e deve ser revista ([[:mw:Special:MyLanguage/ORES review tool|mais informações]])",
 	"ores-hide-nondamaging-filter": "Ocultar edições provavelmente boas",
 	"ores-pref-damaging": "Limite de previsão",
+	"ores-pref-damaging-flag": "Destaque as possíveis edições com problemas com cores e uma \"{{int:ores-damaging-letter}}\" para \"necessitando revisão\" (para definir o nível no qual as edições estão marcadas, use a configuração \"{{int:ores-fref-damagin}}\" nas preferências da Lista de Favoritos)",
 	"ores-help-damaging-pref": "Define a sensibilidade das opções \"Destaque o problema provável ...\" e \"Mostrar apenas edições problemáticas ...\" em Mudanças Recentes e na Lista de Vigilância.",
 	"ores-rcfilters-whats-this-link-text": "Saiba mais",
 	"ores-rcfilters-damaging-title": "Previsões de qualidade de contribuição",
 	"ores-rcfilters-damaging-whats-this-header": "Sobre previsões de qualidade de contribuição",
+	"ores-rcfilters-damaging-conflicts-logactions": "As previsões de Qualidade de Contribuição não estão disponíveis para determinados tipos de alteração, portanto este filtro está em conflito com {{PLURAL:$2|o seguinte filtro|os seguintes filtros}} de Tipo de mudança: $1",
 	"ores-rcfilters-damaging-likelygood-label": "Provavelmente boas",
 	"ores-rcfilters-damaging-likelygood-desc": "Altamente preciso em encontrar quase todas as edições sem problemas.",
 	"ores-rcfilters-damaging-maybebad-label": "Podem ter problemas",
@@ -27,6 +29,7 @@
 	"ores-rcfilters-damaging-verylikelybad-label": "Muito provavelmente têm problemas",
 	"ores-rcfilters-goodfaith-title": "Previsões da intenção do usuário",
 	"ores-rcfilters-goodfaith-whats-this-header": "Sobre a previsão das intenções do usuário",
+	"ores-rcfilters-goodfaith-conflicts-logactions": "As previsões de intenção do usuário não estão disponíveis para determinados tipos de alteração, portanto, esse filtro está em conflito com {{PLURAL:$2|o seguinte filtro|os seguintes filtros}} Tipo de Alteração: $1",
 	"ores-rcfilters-goodfaith-good-label": "Muito provavelmente de boa fé",
 	"ores-rcfilters-goodfaith-good-desc": "Altamente precisa em encontrar quase todas as edições de boa fé.",
 	"ores-rcfilters-goodfaith-maybebad-label": "Podem ser de má fé",
@@ -44,5 +47,6 @@
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Pontuação do ORES para a revisão.",
 	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Adiciona pontuações do ORES para a entrada.",
 	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Adiciona pontuações do ORES para a edição.",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Adiciona pontuações do ORES para a edição."
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Adiciona pontuações do ORES para a edição.",
+	"ores-api-show-note": "Ao usar <kbd>oresreview</kbd> or <kbd>!oresreview</kbd>, as revisões sem uma pontuação (por exemplo, revisões muito antigas) são consideradas como que não precisam de revisão, mesmo que elas precisem de revisão se forem marcadas."
 }
