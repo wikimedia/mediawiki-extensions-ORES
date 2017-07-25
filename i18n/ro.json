@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Strainu"
+		]
+	},
+	"ores-damaging-letter": "p",
+	"ores-damaging-legend": "Această editare ar putea avea probleme și trebuie revizuită ([[:mw:Special:MyLanguage/ORES review tool|mai mult]])",
+	"ores-rcfilters-damaging-title": "Predicții asupra calității contribuțiilor",
+	"ores-rcfilters-goodfaith-title": "Predicții asupra intenției utilizatorului"
+}
