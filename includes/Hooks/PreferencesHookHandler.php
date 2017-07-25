@@ -17,7 +17,7 @@ class PreferencesHookHandler {
 	public static function onGetPreferences( User $user, array &$preferences ) {
 		global $wgOresFiltersThresholds, $wgOresExtensionStatus, $wgHiddenPrefs;
 
-		if ( !Hooks::oresEnabled( $user ) || !Hooks::isModelEnabled( 'damaging' ) ) {
+		if ( !Hooks::oresUiEnabled( $user ) || !Hooks::isModelEnabled( 'damaging' ) ) {
 			return;
 		}
 
