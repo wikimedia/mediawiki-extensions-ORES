@@ -21,7 +21,7 @@
 	"ores-damaging-verylikelybad": "Hat sehr wahrscheinlich Probleme (markiert wenige falsche Positive, findet aber einen kleineren Prozentsatz an problematischen Bearbeitungen)",
 	"ores-help-damaging-pref": "Legt die Empfindlichkeit der Optionen „Vermutlich problematische Bearbeitungen hervorheben“ und „Nur vermutlich problematische Bearbeitungen anzeigen“ auf den Letzten Änderungen und der Beobachtungsliste fest.",
 	"ores-rcfilters-whats-this-link-text": "Mehr erfahren",
-	"ores-rcfilters-ores-conflicts-logactions-global": "Der Filter „Logbucheinträge“ befindet sich in Konflikt mit einem oder mehreren Beitragqualitäts- oder Benutzerabsichtfiltern. Qualitäts- und Absichtprognosen sind für Logbucheinträge nicht verfügbar. Die kollidierenden Filter sind oben im Bereich der aktiven Filter markiert.",
+	"ores-rcfilters-ores-conflicts-logactions-global": "Der Filter „{{int:rcfilters-filter-logactions-label}}“ befindet sich in Konflikt mit einem oder mehreren Beitragqualitäts- oder Benutzerabsichtfiltern. Qualitäts- und Absichtprognosen sind für Logbucheinträge nicht verfügbar. Die kollidierenden Filter sind oben im Bereich der aktiven Filter markiert.",
 	"ores-rcfilters-logactions-conflicts-ores": "Dieser Filter befindet sich in Konflikt mit einem oder mehreren Beitragqualitäts- oder Benutzerabsichtfiltern. Qualitäts- und Absichtprognosen sind für Logbucheinträge nicht verfügbar.",
 	"ores-rcfilters-damaging-title": "Beitragqualitätsprognosen",
 	"ores-rcfilters-damaging-whats-this-header": "Über Beitragsqualitätsprognosen",

@@ -19,7 +19,7 @@
 	"ores-damaging-verylikelybad": "很可能有问题（标记较少误报，但只能找到有问题编辑的较小百分比）",
 	"ores-help-damaging-pref": "在最近更改和监视列表中，设置“高亮很可能有问题的编辑...”及“只显示很可能有问题的编辑...”选项的敏感度。",
 	"ores-rcfilters-whats-this-link-text": "了解更多",
-	"ores-rcfilters-ores-conflicts-logactions-global": "“记录的操作”过滤器与一个或多个贡献质量或用户目的过滤器冲突。质量和目的预测不可用于记录的操作。冲突过滤器已在上方活跃过滤器中被标记。",
+	"ores-rcfilters-ores-conflicts-logactions-global": "“{{int:rcfilters-filter-logactions-label}}”过滤器与一个或多个贡献质量或用户目的过滤器冲突。质量和目的预测不可用于记录的操作。冲突过滤器已在上方活跃过滤器中被标记。",
 	"ores-rcfilters-logactions-conflicts-ores": "该过滤器与一个或多个贡献质量或用户目的过滤器冲突。质量和目的预测不可用于记录的操作。",
 	"ores-rcfilters-damaging-title": "贡献质量预测",
 	"ores-rcfilters-damaging-whats-this-header": "关于贡献质量预测",

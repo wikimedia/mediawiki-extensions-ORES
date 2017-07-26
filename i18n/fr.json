@@ -24,7 +24,7 @@
 	"ores-damaging-verylikelybad": "Ont certainement des problèmes (marque peu de faux positifs, mais trouve un pourcentage moindre de modifications à problème)",
 	"ores-help-damaging-pref": "Définit la sensibilité des « Modifications très vraisemblablement problématiques… » et « Afficher uniquement les modifications probablement problématiques… » dans les modifications récentes et la liste de suivi.",
 	"ores-rcfilters-whats-this-link-text": "En savoir plus",
-	"ores-rcfilters-ores-conflicts-logactions-global": "Le filtre « Actions tracées » est en conflit avec au moins un des filtres « Qualité de contribution » ou « Intention de l’utilisateur ». Les prédictions de qualité et d’intention ne sont pas disponibles pour les actions tracées. Les filtres en conflit sont marqués dans la zone des filtres actifs ci-dessus.",
+	"ores-rcfilters-ores-conflicts-logactions-global": "Le filtre « {{int:rcfilters-filter-logactions-label}} » est en conflit avec au moins un des filtres « Qualité de contribution » ou « Intention de l’utilisateur ». Les prédictions de qualité et d’intention ne sont pas disponibles pour les actions tracées. Les filtres en conflit sont marqués dans la zone des filtres actifs ci-dessus.",
 	"ores-rcfilters-logactions-conflicts-ores": "Ce filtre est en conflit avec au moins un filtre Qualité de la contribution ou Intention de l’utilisateur. Les prédictions de qualité et d’intention ne sont pas disponibles pour les actions tracées.",
 	"ores-rcfilters-damaging-title": "Prédictions de qualité de la contribution",
 	"ores-rcfilters-damaging-whats-this-header": "À propos des prédictions de qualité de la contribution",
