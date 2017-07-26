@@ -241,7 +241,11 @@ class Hooks {
 						'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables,
 								&$fields, &$conds, &$query_options, &$join_conds ) {
 							self::hideNonDamagingFilter( $fields, $conds, true, $ctx->getUser() );
+							// Filter out incompatible types; log actions and external rows are not scorable
+							$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
+							// Filter out patrolled edits: the 'r' doesn't appear for them
 							$conds['rc_patrolled'] = 0;
+							// Make the joins INNER JOINs instead of LEFT JOINs
 							$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
 							$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
 							// Performance hack: add STRAIGHT_JOIN (146111)
@@ -632,8 +636,10 @@ class Hooks {
 		}
 		$score = $rcObj->getAttribute( 'ores_damaging_score' );
 		$patrolled = $rcObj->getAttribute( 'rc_patrolled' );
+		$type = $rcObj->getAttribute( 'rc_type' );
 
-		if ( !$score || $threshold === null ) {
+		// Log actions and external rows are not scorable; if such a row does have a score, ignore it
+		if ( !$score || $threshold === null || in_array( $type, [ RC_LOG, RC_EXTERNAL ] ) ) {
 			// Shorten out
 			return false;
 		}
