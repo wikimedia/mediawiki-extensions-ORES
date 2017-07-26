@@ -17,7 +17,7 @@
 	"ores-damaging-verylikelybad": "Very likely have problems (flags few false positives but finds a smaller % of problem edits)",
 	"ores-help-damaging-pref": "Sets the sensitivity of the \"Highlight likely problem edits...\" and \"Show only likely problem edits...\" options on Recent Changes and Watchlist.",
 	"ores-rcfilters-whats-this-link-text": "Learn more",
-	"ores-rcfilters-ores-conflicts-logactions-global": "The \"Logged actions\" filter conflicts with one or more Contribution Quality or User Intent filters. Quality and Intent predictions are not available for logged actions. The conflicting filters are marked in the Active Filters area, above.",
+	"ores-rcfilters-ores-conflicts-logactions-global": "The \"{{int:rcfilters-filter-logactions-label}}\" filter conflicts with one or more Contribution Quality or User Intent filters. Quality and Intent predictions are not available for logged actions. The conflicting filters are marked in the Active Filters area, above.",
 	"ores-rcfilters-logactions-conflicts-ores": "This filter conflicts with one or more Contribution Quality or User Intent filters. Quality and Intent predictions are not available for logged actions.",
 	"ores-rcfilters-damaging-title": "Contribution quality predictions",
 	"ores-rcfilters-damaging-whats-this-header": "About contribution quality predictions",
