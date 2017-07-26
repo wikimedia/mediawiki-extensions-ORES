@@ -178,6 +178,10 @@ class Hooks {
 						$condition = self::buildRangeFilter( 'damaging', $selectedValues );
 						if ( $condition ) {
 							$conds[] = $condition;
+
+							// Filter out incompatible types; log actions and external rows are not scorable
+							$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
+							// Make the joins INNER JOINs instead of LEFT JOINs
 							$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
 							$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
 							// Performance hack: add STRAIGHT_JOIN (146111)
@@ -320,6 +324,10 @@ class Hooks {
 						$condition = self::buildRangeFilter( 'goodfaith', $selectedValues );
 						if ( $condition ) {
 							$conds[] = $condition;
+
+							// Filter out incompatible types; log actions and external rows are not scorable
+							$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
+							// Make the joins INNER JOINs instead of LEFT JOINs
 							$join_conds['ores_goodfaith_mdl'][0] = 'INNER JOIN';
 							$join_conds['ores_goodfaith_cls'][0] = 'INNER JOIN';
 							// Performance hack: add STRAIGHT_JOIN (146111)
@@ -912,7 +920,9 @@ class Hooks {
 	private static function makeApplicableCallback( $model, array $levelData ) {
 		return function ( $ctx, $rc ) use ( $model, $levelData ) {
 			$score = $rc->getAttribute( "ores_{$model}_score" );
-			if ( $score === null ) {
+			$type = $rc->getAttribute( 'rc_type' );
+			// Log actions and external rows are not scorable; if such a row does have a score, ignore it
+			if ( $score === null || in_array( $type, [ RC_LOG, RC_EXTERNAL ] ) ) {
 				return false;
 			}
 			return $levelData['min'] <= $score && $score <= $levelData['max'];
