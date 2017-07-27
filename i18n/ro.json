@@ -4,8 +4,28 @@
 			"Strainu"
 		]
 	},
+	"ores-damaging-filter": "$1 editări probabil bune",
 	"ores-damaging-letter": "p",
+	"ores-damaging-title": "Această modificare trebuie revizuită",
 	"ores-damaging-legend": "Această editare ar putea avea probleme și trebuie revizuită ([[:mw:Special:MyLanguage/ORES review tool|mai mult]])",
+	"ores-hide-nondamaging-filter": "Ascunde modificările probabil bune",
+	"ores-pref-damaging": "Pragul de predicție",
+	"ores-rcfilters-whats-this-link-text": "Aflați mai multe",
+	"ores-rcfilters-logactions-conflicts-ores": "Acest filtru este în conflict cu unul sau mai multe filtre de Calitate a contribuțiilor sau Intenții ale utilizatorilor. Predicțiile de calitate și intenție nu sunt disponibile pentru acțiunile logate.",
 	"ores-rcfilters-damaging-title": "Predicții asupra calității contribuțiilor",
-	"ores-rcfilters-goodfaith-title": "Predicții asupra intenției utilizatorului"
+	"ores-rcfilters-damaging-whats-this-header": "Despre predicțiile de calitate a contribuțiilor",
+	"ores-rcfilters-damaging-likelygood-label": "Foarte probabil bună",
+	"ores-rcfilters-damaging-maybebad-label": "Poate avea probleme",
+	"ores-rcfilters-damaging-maybebad-desc": "Găsește majoritatea editărilor cu probleme sau distructive dar cu precizie mai slabă.",
+	"ores-rcfilters-damaging-likelybad-label": "Probabil cu probleme",
+	"ores-rcfilters-damaging-verylikelybad-label": "Foarte probabil cu probleme",
+	"ores-rcfilters-goodfaith-title": "Predicții asupra intenției utilizatorului",
+	"ores-rcfilters-goodfaith-good-label": "Foarte probabil de bună credință",
+	"ores-rcfilters-goodfaith-maybebad-label": "Posibil rea credință",
+	"ores-rcfilters-goodfaith-bad-label": "Probabil rea credință",
+	"ores-rcfilters-goodfaith-verylikelybad-label": "Foarte probabil rea credință",
+	"prefs-ores": "Notarea versiunilor",
+	"apihelp-query+ores-example-simple": "Obține datele ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Scoruri ORES pentru versiune.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Scoruri ORES pentru versiune."
 }
