@@ -1,15 +1,23 @@
 {
 	"@metadata": {
 		"authors": [
-			"Strainu"
+			"Strainu",
+			"Andrei Stroe"
 		]
 	},
+	"ores-beta-feature-description": "ORES este o unealtă pe bază de inteligență artificială care evidențiază editările dăunătoare în lista de schimbări recente și în cele de pagini urmărite.",
+	"ores-desc": "Expune în interfață scorurile automate ale modificărilor",
 	"ores-damaging-filter": "$1 editări probabil bune",
 	"ores-damaging-letter": "p",
 	"ores-damaging-title": "Această modificare trebuie revizuită",
 	"ores-damaging-legend": "Această editare ar putea avea probleme și trebuie revizuită ([[:mw:Special:MyLanguage/ORES review tool|mai mult]])",
 	"ores-hide-nondamaging-filter": "Ascunde modificările probabil bune",
 	"ores-pref-damaging": "Pragul de predicție",
+	"ores-pref-damaging-flag": "Evidențiază editările probabil problematice în culori și cu un \"{{int:ores-damaging-letter}}\" de la „problemă” (pentru a seta nivelul de la care se marchează editările, folosiți setarea \"{{int:ores-pref-damaging}}\" în preferințele listei de pagini urmărite)",
+	"ores-damaging-maybebad": "Posibil cu probleme (marchează majoritatea problemelor, dar inclide și multe care sunt fals pozitive)",
+	"ores-damaging-likelybad": "Probabil cu probleme (probabilitate medie)",
+	"ores-damaging-verylikelybad": "Foarte probabil cu probleme (marchează puține care sunt fals pozitive, dar găsește un % mai mic din editările problematice)",
+	"ores-help-damaging-pref": "Stabilește sensibilitatea opțiunilor „Evidențiază modificările probabil problematice...” și „Arată doar editările probabil problematice...” în schimbări recente și la pagini urmărite.",
 	"ores-rcfilters-whats-this-link-text": "Aflați mai multe",
 	"ores-rcfilters-logactions-conflicts-ores": "Acest filtru este în conflict cu unul sau mai multe filtre de Calitate a contribuțiilor sau Intenții ale utilizatorilor. Predicțiile de calitate și intenție nu sunt disponibile pentru acțiunile logate.",
 	"ores-rcfilters-damaging-title": "Predicții asupra calității contribuțiilor",
@@ -25,7 +33,13 @@
 	"ores-rcfilters-goodfaith-bad-label": "Probabil rea credință",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Foarte probabil rea credință",
 	"prefs-ores": "Notarea versiunilor",
+	"apihelp-query+ores-description": "Întoarce configurația și modelele ORES pentru acest wiki.",
+	"apihelp-query+ores-summary": "Întoarce configurația și modelele ORES pentru acest wiki.",
 	"apihelp-query+ores-example-simple": "Obține datele ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Scoruri ORES pentru versiune.",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Scoruri ORES pentru versiune."
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Scoruri ORES pentru versiune.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Adaugă note ORES pentru element.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Adaugă note ORES pentru editare.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Adaugă note ORES pentru editare.",
+	"ores-api-show-note": "Când folosiți <kbd>oresreview</kbd> sau <kbd>!oresreview</kbd>, editările fără notă (e.g. cele foarte vechi) sunt considerate ca neavând nevoie de revizuire chiar dacă ar fi avut în cazul în care ar fi fost notate."
 }
