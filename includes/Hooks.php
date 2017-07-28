@@ -136,10 +136,13 @@ class Hooks {
 				];
 			}
 			if ( isset( $damagingLevels[ 'likelybad' ] ) ) {
+				$descMsg = isset( $filters[ 'maybebad' ] ) ?
+					'ores-rcfilters-damaging-likelybad-desc-low' :
+					'ores-rcfilters-damaging-likelybad-desc-high';
 				$filters[ 'likelybad' ] = [
 					'name' => 'likelybad',
 					'label' => 'ores-rcfilters-damaging-likelybad-label',
-					'description' => 'ores-rcfilters-damaging-likelybad-desc',
+					'description' => $descMsg,
 					'cssClassSuffix' => 'damaging-likelybad',
 					'isRowApplicableCallable' => self::makeApplicableCallback(
 						'damaging',
@@ -286,10 +289,13 @@ class Hooks {
 				];
 			}
 			if ( isset( $goodfaithLevels['likelybad'] ) ) {
+				$descMsg = isset( $filters[ 'maybebad' ] ) ?
+					'ores-rcfilters-goodfaith-bad-desc-low' :
+					'ores-rcfilters-goodfaith-bad-desc-high';
 				$filters[ 'likelybad' ] = [
 					'name' => 'likelybad',
 					'label' => 'ores-rcfilters-goodfaith-bad-label',
-					'description' => 'ores-rcfilters-goodfaith-bad-desc',
+					'description' => $descMsg,
 					'cssClassSuffix' => 'goodfaith-bad',
 					'isRowApplicableCallable' => self::makeApplicableCallback(
 						'goodfaith',
