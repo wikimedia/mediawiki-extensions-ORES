@@ -99,7 +99,7 @@ class Hooks {
 		ChangesListSpecialPage $clsp
 	) {
 		// ORES is disabled on Recentchangeslinked: T163063
-		if ( !self::oresEnabled( $clsp->getUser() ) || $clsp->getName() === 'Recentchangeslinked' ) {
+		if ( !self::oresUiEnabled( $clsp->getUser() ) || $clsp->getName() === 'Recentchangeslinked' ) {
 			return;
 		}
 
@@ -377,7 +377,7 @@ class Hooks {
 		global $wgUser;
 
 		// ORES is disabled on Recentchangeslinked: T163063
-		if ( !self::oresEnabled( $wgUser ) || $name === 'Recentchangeslinked' ) {
+		if ( !self::oresUiEnabled( $wgUser ) || $name === 'Recentchangeslinked' ) {
 			return;
 		}
 
@@ -417,7 +417,7 @@ class Hooks {
 		RCCacheEntry $rcObj,
 		array &$classes
 	) {
-		if ( !self::oresEnabled( $ecl->getUser() ) ) {
+		if ( !self::oresUiEnabled( $ecl->getUser() ) ) {
 			return;
 		}
 
@@ -436,7 +436,7 @@ class Hooks {
 		array &$data,
 		RCCacheEntry $rcObj
 	) {
-		if ( !self::oresEnabled( $ecl->getUser() ) ) {
+		if ( !self::oresUiEnabled( $ecl->getUser() ) ) {
 			return;
 		}
 
@@ -460,7 +460,7 @@ class Hooks {
 		$rc,
 		&$classes = []
 	) {
-		if ( !self::oresEnabled( $changesList->getUser() ) ) {
+		if ( !self::oresUiEnabled( $changesList->getUser() ) ) {
 			return;
 		}
 
@@ -499,7 +499,7 @@ class Hooks {
 		ContribsPager $pager,
 		&$query
 	) {
-		if ( !self::oresEnabled( $pager->getUser() ) ) {
+		if ( !self::oresUiEnabled( $pager->getUser() ) ) {
 			return;
 		}
 
@@ -528,7 +528,7 @@ class Hooks {
 		$row,
 		array &$flags
 	) {
-		if ( !self::oresEnabled( $context->getUser() ) ) {
+		if ( !self::oresUiEnabled( $context->getUser() ) ) {
 			return;
 		}
 
@@ -554,7 +554,7 @@ class Hooks {
 		$row,
 		array &$classes
 	) {
-		if ( !self::oresEnabled( $pager->getUser() ) ) {
+		if ( !self::oresUiEnabled( $pager->getUser() ) ) {
 			return;
 		}
 
@@ -583,7 +583,7 @@ class Hooks {
 		SpecialContributions $page,
 		array &$filters
 	) {
-		if ( !self::oresEnabled( $page->getUser() ) || !self::isModelEnabled( 'damaging' ) ) {
+		if ( !self::oresUiEnabled( $page->getUser() ) || !self::isModelEnabled( 'damaging' ) ) {
 			return;
 		}
 
@@ -683,7 +683,7 @@ class Hooks {
 	 * @param Skin $skin
 	 */
 	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
-		if ( !self::oresEnabled( $out->getUser() ) ) {
+		if ( !self::oresUiEnabled( $out->getUser() ) ) {
 			return;
 		}
 
@@ -741,8 +741,14 @@ class Hooks {
 	 * @param User $user
 	 * @return bool
 	 */
-	public static function oresEnabled( User $user ) {
-		global $wgOresExtensionStatus;
+	public static function oresUiEnabled( User $user ) {
+		global $wgOresExtensionStatus, $wgOresUiEnabled;
+
+		// Is the UI enabled or not?  If not, we've been deployed in
+		// infrastructure-only mode, so hide all the UI elements.
+		if ( !$wgOresUiEnabled ) {
+			return false;
+		}
 
 		// enabled by default for everybody
 		if ( $wgOresExtensionStatus === 'on' ) {

@@ -123,6 +123,7 @@
 	},
 	"config": {
 		"OresExtensionStatus": "on",
+		"OresUiEnabled": true,
 		"OresBaseUrl": "https://ores.wikimedia.org/",
 		"OresExcludeBots": true,
 		"OresModels": {
