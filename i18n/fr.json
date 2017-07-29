@@ -7,7 +7,8 @@
 			"Trizek (WMF)",
 			"Urhixidur",
 			"Od1n",
-			"Thibaut120094"
+			"Thibaut120094",
+			"Framawiki"
 		]
 	},
 	"ores-beta-feature-description": "ORES est un outil basé sur une intelligence artificielle qui met en évidence des mises à jour potentiellement nuisibles dans les modifications faites récemment et dans les listes de suivi.",
@@ -35,9 +36,10 @@
 	"ores-rcfilters-damaging-maybebad-label": "Peut avoir des problèmes",
 	"ores-rcfilters-damaging-maybebad-desc": "Trouve les modifications les plus imparfaites ou dommageables, mais avec une faible exactitude.",
 	"ores-rcfilters-damaging-likelybad-label": "Susceptible d’avoir des problèmes",
-	"ores-rcfilters-damaging-likelybad-desc": "Avec une précision moyenne, trouve plus de modifications à problème que le filtre « Très probable », mais moins que « Pourrait ».",
+	"ores-rcfilters-damaging-likelybad-desc-low": "Avec une précision moyenne, trouve une portion intermédiaire d'éditions problématiques.",
+	"ores-rcfilters-damaging-likelybad-desc-high": "Avec une haute précision, trouve le plus d'éditions problématiques.",
 	"ores-rcfilters-damaging-verylikelybad-label": "Fortement susceptible d’avoir des problèmes",
-	"ores-rcfilters-damaging-verylikelybad-desc": "Très précis pour trouver les modifications imparfaites ou dommageables les plus flagrantes.",
+	"ores-rcfilters-damaging-verylikelybad-desc": "Très précis pour trouver les modifications imparfaites ou dommageables les plus évidentes.",
 	"ores-rcfilters-goodfaith-title": "Prédictions des intentions de l’utilisateur",
 	"ores-rcfilters-goodfaith-whats-this-header": "À propos des prédictions d’intention de l’utilisateur",
 	"ores-rcfilters-goodfaith-whats-this-body": "Ces prédictions sur la bonne foi des utilisateurs sont faites par un service d’apprentissage automatique entraîné sur un grand ensemble de modifications préalablement notées par des éditeurs humains. Des filtres plus stricts et plus précis trouvent peu de faux positifs, mais peuvent manquer davantage leur cible. Les filtres moins précis trouvent plus leur cible, mais aussi plus de faux positifs.",
@@ -47,7 +49,8 @@
 	"ores-rcfilters-goodfaith-maybebad-label": "Peut être de mauvaise foi",
 	"ores-rcfilters-goodfaith-maybebad-desc": "Trouve la plupart des modifications de mauvaise foi, mais avec une plus faible précision.",
 	"ores-rcfilters-goodfaith-bad-label": "Sans doute de mauvaise foi",
-	"ores-rcfilters-goodfaith-bad-desc": "Avec une exactitude moyenne, trouve plus de modifications de mauvaise foi que le filtre « Très vraisemblablement », mais moins que « Peut-être ».",
+	"ores-rcfilters-goodfaith-bad-desc-low": "Avec une précision moyenne, trouve une portion intermédiaire d'éditions problématiques volontaires.",
+	"ores-rcfilters-goodfaith-bad-desc-high": "Avec une précision moyenne, trouve le plus d'éditions problématiques volontaires.",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Très probablement de mauvaise foi",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Très précis pour trouver les modifications de mauvaise foi les plus évidentes.",
 	"ores-pref-highlight": "Surligner les modifications probablement problématiques avec des couleurs et un « {{int:ores-damaging-letter}} » pour « nécessite une relecture »",

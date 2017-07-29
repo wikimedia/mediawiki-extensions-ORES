@@ -1,9 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sator"
+			"Sator",
+			"Mikel Ibaiba"
 		]
 	},
 	"ores-damaging-letter": "r",
-	"ores-damaging-title": "Aldaketa honek berrikuspena behar du"
+	"ores-damaging-title": "Aldaketa honek berrikuspena behar du",
+	"ores-rcfilters-damaging-likelybad-desc-low": "Zehaztasun erdiarekin, aldaketen arazoen bitarteko zatia aurkitzen du.",
+	"ores-rcfilters-damaging-likelybad-desc-high": "Zehaztasun handiarekin, aldaketen arazo gehienak topatzen ditu.",
+	"ores-rcfilters-damaging-verylikelybad-desc": "Oso zehatza akastun edo kaltegarriak diren aldaketak aurkitzen.",
+	"ores-rcfilters-goodfaith-bad-desc-low": "Zehaztasun ertainarekin, fede txarreko aldaketen bitarteko zatia aurkitzen du.",
+	"ores-rcfilters-goodfaith-bad-desc-high": "Zehaztasun ertainarekin fede txarreko aleketak aurkitzeb ditu.",
+	"ores-rcfilters-goodfaith-verylikelybad-desc": "Oso zehatza fede txarreko aldaketa nabariak aurkitzen."
 }
