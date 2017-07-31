@@ -8,6 +8,8 @@
 	"ores-hide-nondamaging-filter": "Visa endast ändringar som behöver granskning",
 	"ores-rcfilters-whats-this-link-text": "Läs mer",
 	"ores-rcfilters-damaging-maybebad-label": "Kan ha problem",
+	"ores-rcfilters-goodfaith-bad-desc-high": "Med medelhög noggrannhet, hittar de flesta redigeringarna med onda avsikter.",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Mycket troligt dålig tro",
+	"ores-rcfilters-goodfaith-verylikelybad-desc": "Mycket hög noggrannhet för att hitta de mest självklara redigeringarna med onda avsikter.",
 	"ores-pref-rc-hidenondamaging": "Visa endast redigeringar som har problem (och dölj förmodligen bra redigeringar)"
 }
