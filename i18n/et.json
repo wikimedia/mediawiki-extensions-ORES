@@ -43,7 +43,7 @@
 	"ores-rcfilters-goodfaith-maybebad-desc": "Leiab pahatahtlikest muudatustest enamiku, kuid väiksema täpsusega.",
 	"ores-rcfilters-goodfaith-bad-label": "Tõenäoliselt pahatahtlik",
 	"ores-rcfilters-goodfaith-bad-desc-low": "Keskmine täpsus; leiab vahepealsel määral pahatahtlikke muudatusi.",
-	"ores-rcfilters-goodfaith-bad-desc-high": "Suur täpsus; leiab pahatahtlikest muudatustest enamiku.",
+	"ores-rcfilters-goodfaith-bad-desc-high": "Keskmine täpsus; leiab pahatahtlikest muudatustest enamiku.",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Suure tõenäosusega pahatahtlik",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Leiab suure täpsusega pahatahtlikest muudatustest kõige ilmsemad.",
 	"ores-pref-highlight": "Kasuta värvusi ja silti \"{{int:ores-damaging-letter}}\" (\"üle vaadata\"), et tõsta esile tõenäoliselt probleemsed muudatused",

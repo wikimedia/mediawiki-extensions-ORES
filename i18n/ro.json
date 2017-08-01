@@ -37,6 +37,8 @@
 	"ores-rcfilters-goodfaith-maybebad-label": "Posibil rea credință",
 	"ores-rcfilters-goodfaith-bad-label": "Probabil rea credință",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Foarte probabil rea credință",
+	"ores-pref-rc-hidenondamaging": "Arată doar editările probabil problematice (și ascunde editările posibil bune)",
+	"ores-pref-watchlist-hidenondamaging": "Arată doar editările probabil problematice (și ascunde editările posibil bune)",
 	"prefs-ores": "Notarea versiunilor",
 	"apihelp-query+ores-description": "Întoarce configurația și modelele ORES pentru acest wiki.",
 	"apihelp-query+ores-summary": "Întoarce configurația și modelele ORES pentru acest wiki.",
