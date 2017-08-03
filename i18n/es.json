@@ -6,7 +6,8 @@
 			"Julián L",
 			"Fitoschido",
 			"Luzcaru",
-			"Dgstranz"
+			"Dgstranz",
+			"Pacoexe"
 		]
 	},
 	"ores-beta-feature-description": "ORES es una herramienta basada en inteligencia artificial que resalta ediciones probablemente dañinas en cambios recientes y lista de seguimiento.",
@@ -50,7 +51,7 @@
 	"ores-rcfilters-goodfaith-bad-desc-low": "Con precisión media, encuentra una fracción intermedia de ediciones de mala fe.",
 	"ores-rcfilters-goodfaith-bad-desc-high": "Con precisión media, encuentra la mayoría de las ediciones de mala fe.",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Muy probablemente de mala fe",
-	"ores-rcfilters-goodfaith-verylikelybad-desc": "Encuentra con gran precisión las ediciones más claramente de mala fe.",
+	"ores-rcfilters-goodfaith-verylikelybad-desc": "Encuentra con gran precisión las ediciones realizadas de mala fe.",
 	"ores-pref-highlight": "Resaltar ediciones probablemente que probablemente tienen problemas con colores y un «{{int:ores-damaging-letter}}» para «necesita revisión»",
 	"ores-pref-rc-hidenondamaging": "Mostrar solo las modificaciones que probablemente tienen problemas (y ocultar las probablemente buenas)",
 	"ores-pref-watchlist-hidenondamaging": "Mostrar solo las modificaciones que probablemente tienen problemas (y ocultar las probablemente buenas)",

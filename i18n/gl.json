@@ -19,7 +19,7 @@
 	"ores-damaging-verylikelybad": "Moi probablemente teñen problemas (marca poucos falsos positivos, pero atopa unha porcentaxe menor de edicións problemáticas)",
 	"ores-help-damaging-pref": "Define a sensibilidade das opcións «Resaltar as edicións que probablemente teñen problemas...» e «Mostrar só as edicións que probablemente teñen problemas...» na páxina de cambios recentes e na lista de vixilancia.",
 	"ores-rcfilters-whats-this-link-text": "Máis información",
-	"ores-rcfilters-ores-conflicts-logactions-global": "O filtro de \"accións rexistradas\" entra en conflito cun o máis filtros de calidade das contribucións ou de intencións do usuario. As predicións de calidade e de intención non están dispoñibles para accións rexistradas. Os filtros en conflito están marcados na área de filtros activos, arriba.",
+	"ores-rcfilters-ores-conflicts-logactions-global": "O filtro de \"{{int:rcfilters-filter-logactions-label}}\" entra en conflito cun o máis filtros de calidade das contribucións ou de intencións do usuario. As predicións de calidade e de intención non están dispoñibles para accións rexistradas. Os filtros en conflito están marcados na área de filtros activos, arriba.",
 	"ores-rcfilters-logactions-conflicts-ores": "Este filtro entra en conflicto cun ou máis filtros de calidade das contribucións ou de intención do usuario. As predicións de calidade e intención non están dispoñibles para accións de usuarios conectados.",
 	"ores-rcfilters-damaging-title": "Predicións da cualidade da contribución",
 	"ores-rcfilters-damaging-whats-this-header": "Acerca das predicións de calidade das contribucións",
