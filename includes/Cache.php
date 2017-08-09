@@ -61,7 +61,7 @@ class Cache {
 	 * @param bool $isEverything When true, delete scores with the up-to-date
 	 *   model version as well.  This can be used in cases where the old data is
 	 *   bad, but no new model has been released yet.
-	 * @param integer $batchSize Maximum number of records to delete per loop.
+	 * @param int $batchSize Maximum number of records to delete per loop.
 	 *   Note that this function runs multiple batches, until all records are deleted.
 	 * @return int The number of deleted rows
 	 */
@@ -83,7 +83,7 @@ class Cache {
 	 * Delete old cached scores.
 	 * A score is old of the corresponding revision is not in the recentchanges table.
 	 * @param string $model Model name.
-	 * @param integer $batchSize Maximum number of records to delete per loop.
+	 * @param int $batchSize Maximum number of records to delete per loop.
 	 *   Note that this function runs multiple batches, until all records are deleted.
 	 * @return int The number of deleted rows
 	 */
@@ -106,7 +106,7 @@ class Cache {
 	 * @param array $tables
 	 * @param array $conditions
 	 * @param array $join_conds
-	 * @param integer $batchSize Maximum number of records to delete per loop.
+	 * @param int $batchSize Maximum number of records to delete per loop.
 	 *   Note that this function runs multiple batches, until all records are deleted.
 	 * @return int The number of deleted rows
 	 * @see Database::select

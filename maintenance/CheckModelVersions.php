@@ -57,6 +57,8 @@ class CheckModelVersions extends Maintenance {
 
 	/**
 	 * Return a list of models available for this wiki.
+	 * @return array
+	 * @throws \RuntimeException
 	 */
 	protected function getModels() {
 		$timestamp = \wfTimestampNow();

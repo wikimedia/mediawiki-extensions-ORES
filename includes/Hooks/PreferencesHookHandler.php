@@ -12,7 +12,7 @@ class PreferencesHookHandler {
 	 * Also let people make hidenondamaging default
 	 *
 	 * @param User $user
-	 * @param string[] $preferences
+	 * @param string[] &$preferences
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
 		global $wgOresFiltersThresholds, $wgOresExtensionStatus, $wgHiddenPrefs;

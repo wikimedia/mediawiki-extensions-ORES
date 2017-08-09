@@ -411,10 +411,10 @@ class Hooks {
 	 * Label recent changes with ORES scores (for each change in an expanded group)
 	 *
 	 * @param EnhancedChangesList $ecl
-	 * @param array $data
+	 * @param array &$data
 	 * @param RCCacheEntry[] $block
 	 * @param RCCacheEntry $rcObj
-	 * @param string[] $classes
+	 * @param string[] &$classes
 	 */
 	public static function onEnhancedChangesListModifyLineData(
 		EnhancedChangesList $ecl,
@@ -434,7 +434,7 @@ class Hooks {
 	 * Label recent changes with ORES scores (for top-level ungrouped lines)
 	 *
 	 * @param EnhancedChangesList $ecl
-	 * @param array $data
+	 * @param array &$data
 	 * @param RCCacheEntry $rcObj
 	 */
 	public static function onEnhancedChangesListModifyBlockLineData(
@@ -455,10 +455,11 @@ class Hooks {
 	 * Hook for formatting recent changes links
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/OldChangesListRecentChangesLine
 	 *
-	 * @param ChangesList $changesList
-	 * @param string $s
+	 * @param ChangesList &$changesList
+	 * @param string &$s
 	 * @param RecentChange $rc
 	 * @param string[] &$classes
+	 * @return bool|void
 	 */
 	public static function onOldChangesListRecentChangesLine(
 		ChangesList &$changesList,
@@ -499,7 +500,7 @@ class Hooks {
 	 * Filter out non-damaging changes from Special:Contributions
 	 *
 	 * @param ContribsPager $pager
-	 * @param array $query
+	 * @param array &$query
 	 */
 	public static function onContribsGetQueryInfo(
 		ContribsPager $pager,
@@ -685,8 +686,8 @@ class Hooks {
 	/**
 	 * Add CSS styles to output page
 	 *
-	 * @param OutputPage $out
-	 * @param Skin $skin
+	 * @param OutputPage &$out
+	 * @param Skin &$skin
 	 */
 	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
 		if ( !self::oresUiEnabled( $out->getUser() ) ) {
@@ -774,7 +775,7 @@ class Hooks {
 
 	/**
 	 * @param IContextSource $context
-	 * @return boolean Whether $context->getTitle() is a RecentChanges page
+	 * @return bool Whether $context->getTitle() is a RecentChanges page
 	 */
 	private static function isRCPage( IContextSource $context ) {
 		return $context->getTitle()->isSpecial( 'Recentchanges' ) ||
@@ -783,7 +784,7 @@ class Hooks {
 
 	/**
 	 * @param IContextSource $title
-	 * @return boolean Whether highlights should be shown
+	 * @return bool Whether highlights should be shown
 	 */
 	private static function isHighlightEnabled( IContextSource $context ) {
 		// Was previously controlled by different preferences than the "r", but they're currently
@@ -793,7 +794,7 @@ class Hooks {
 
 	/**
 	 * @param IContextSource $context
-	 * @return boolean Whether the damaging flag ("r") should be shown
+	 * @return bool Whether the damaging flag ("r") should be shown
 	 */
 	private static function isDamagingFlagEnabled( IContextSource $context ) {
 		global $wgOresExtensionStatus;
