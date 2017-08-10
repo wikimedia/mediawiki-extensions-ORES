@@ -16,6 +16,24 @@
       "revId": "92acee9fb794770d2a30aacf35d14a3f9c719093",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e7eab26_d398f16f",
+        "filename": "includes/Scoring.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2017-08-10T11:14:48Z",
+      "side": 1,
+      "message": "I cannot follow your comment. Both changes are from integer to int. After your edit the master still contains \"integer|array\", I would prefer the short form \"int|array\" here.",
+      "parentUuid": "4e7eab26_e0d0b5ce",
+      "revId": "92acee9fb794770d2a30aacf35d14a3f9c719093",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
