@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e7eab26_e0d0b5ce",
+        "filename": "includes/Scoring.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-08-10T03:18:11Z",
+      "side": 1,
+      "message": "In Cache.php this same patch goes from int -\u003e integer, though!  I\u0027ll edit this out before merging...",
+      "revId": "92acee9fb794770d2a30aacf35d14a3f9c719093",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
