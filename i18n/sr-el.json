@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Сербијана"
+		]
+	},
+	"ores-beta-feature-message": "ORES",
+	"ores-desc": "Izložite automatizovane rezultate izmjena u interfejsu",
+	"ores-damaging-filter": "$1 vjerovatno dobre izmjene",
+	"ores-damaging-letter": "p",
+	"ores-hide-nondamaging-filter": "Sakrij vjerovatno dobre izmjene",
+	"ores-pref-damaging": "Prag predviđanja",
+	"ores-damaging-likelybad": "Verovatno ima probleme (srednja verovatnoća)",
+	"ores-damaging-verylikelybad": "Veoma verovatno ima probleme (označava nekoliko lažnih pozitivnih detekcija ali pronalazi manji procenat problematičnih izmena)",
+	"ores-rcfilters-whats-this-link-text": "Saznajte više",
+	"ores-rcfilters-logactions-conflicts-ores": "Ovaj filter je u sukobu sa jednim ili više filtera za Kvalitet doprinosa ili Nameru korisnika. Predviđanja kvaliteta i namere nisu dostupna za akcije evidentirane u dnevnicima.",
+	"ores-rcfilters-damaging-title": "Predviđanje kvaliteta doprinosa",
+	"ores-rcfilters-damaging-maybebad-label": "Možda postoje problemi",
+	"ores-rcfilters-damaging-likelybad-desc-low": "Sa srednjom preciznošću, pronalazi prosječnu frakciju problematične izmjene.",
+	"ores-rcfilters-damaging-likelybad-desc-high": "Sa visokom preciznošću, pronalazi većinu problematičnih izmjena.",
+	"ores-rcfilters-goodfaith-title": "Predviđanje namjera korisnika",
+	"ores-rcfilters-goodfaith-bad-desc-low": "Sa srednjom preciznošću, pronalazi prosječnu frakciju zlonamjerne izmjene.",
+	"ores-rcfilters-goodfaith-bad-desc-high": "Sa srednjom preciznošću, pronalazi većinu zlonamjernih izmjena.",
+	"ores-pref-highlight": "Označi potencijalno problematične izmene bojama i sa „{{int:ores-damaging-letter}}” za „potreban pregled”",
+	"ores-pref-watchlist-hidenondamaging": "Prikaži samo potencijalno problematične izmene (i sakrij verovatno dobre izmene)",
+	"prefs-ores": "Ocjenjivanje izmjena"
+}

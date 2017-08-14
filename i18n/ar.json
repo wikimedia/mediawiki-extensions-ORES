@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"ديفيد"
 		]
 	},
 	"ores-beta-feature-description": "ORES هي أداة تعتمد على الذكاء الاصطناعي لإظهار تعديلات ضارة محتملة في صفحة أحدث التغييرات وقوائم المراقبة.",
-	"ores-damaging-legend": "قد يكون هذا التعديل ضارًا وتجب مراجعته",
-	"ores-pref-rc-hidenondamaging": "أخف التعديلات الجيدة من أحدث التغييرات",
-	"ores-pref-watchlist-hidenondamaging": "أخف التعديلات الجيدة من قائمة المراقبة"
+	"ores-damaging-legend": "قد يكون هذا التعديل ضارًا وتجب مراجعته [[:mw:Special:MyLanguage/ORES review tool|مزيد من المعلومات]]",
+	"ores-pref-rc-hidenondamaging": "عرض التعديلات التي بها مشاكل على الأرجح فقط (وإخفاء التعديلات الجيدة على الأرجح)",
+	"ores-pref-watchlist-hidenondamaging": "عرض التعديلات التي بها مشاكل على الأرجح فقط (وإخفاء التعديلات الجيدة على الأرجح)"
 }
