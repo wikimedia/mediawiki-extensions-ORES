@@ -9,7 +9,7 @@ class Scoring {
 	private $originalRequest;
 
 	/**
-	 * @param integer|array $revisions Single or multiple revisions
+	 * @param int|array $revisions Single or multiple revisions
 	 * @param string|array|null $models Single or multiple model names.  If
 	 * left empty, all configured models are queries.
 	 * @param array $extra_params to be passed to ORES endpoint
