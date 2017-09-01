@@ -82,6 +82,9 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$row->rc_patrolled = 0;
 		$row->rc_timestamp = '20150921134808';
 		$row->rc_deleted = 0;
+		$row->rc_comment = '';
+		$row->rc_comment_text = '';
+		$row->rc_comment_data = null;
 
 		$rc = RecentChange::newFromRow( $row );
 		$this->assertTrue( ORES\Hooks::getScoreRecentChangesList( $rc, $this->context ) );
@@ -235,6 +238,9 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$row->rc_patrolled = 0;
 		$row->rc_timestamp = '20150921134808';
 		$row->rc_deleted = 0;
+		$row->rc_comment = '';
+		$row->rc_comment_text = '';
+		$row->rc_comment_data = null;
 		$rc = RecentChange::newFromRow( $row );
 		$rc = RCCacheEntry::newFromParent( $rc );
 
@@ -268,6 +274,9 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$row->rc_patrolled = 0;
 		$row->rc_timestamp = '20150921134808';
 		$row->rc_deleted = 0;
+		$row->rc_comment = '';
+		$row->rc_comment_text = '';
+		$row->rc_comment_data = null;
 		$rc = RecentChange::newFromRow( $row );
 		$rc = RCCacheEntry::newFromParent( $rc );
 
@@ -305,6 +314,9 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$row->rc_patrolled = 0;
 		$row->rc_timestamp = '20150921134808';
 		$row->rc_deleted = 0;
+		$row->rc_comment = '';
+		$row->rc_comment_text = '';
+		$row->rc_comment_data = null;
 		$rc = RecentChange::newFromRow( $row );
 		$rc = RCCacheEntry::newFromParent( $rc );
 
@@ -344,6 +356,9 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$row->rc_patrolled = 0;
 		$row->rc_timestamp = '20150921134808';
 		$row->rc_deleted = 0;
+		$row->rc_comment = '';
+		$row->rc_comment_text = '';
+		$row->rc_comment_data = null;
 		$rc = RecentChange::newFromRow( $row );
 		$rc = RCCacheEntry::newFromParent( $rc );
 
