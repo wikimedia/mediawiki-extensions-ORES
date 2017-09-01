@@ -783,7 +783,15 @@ class Hooks {
 	}
 
 	/**
-	 * @param IContextSource $title
+	 * @param IContextSource $context
+	 * @return bool Whether $context->getTitle() is the Watchlist page
+	 */
+	private static function isWLPage( IContextSource $context ) {
+		return $context->getTitle()->isSpecial( 'Watchlist' );
+	}
+
+	/**
+	 * @param IContextSource $context
 	 * @return bool Whether highlights should be shown
 	 */
 	private static function isHighlightEnabled( IContextSource $context ) {
@@ -797,20 +805,27 @@ class Hooks {
 	 * @return bool Whether the damaging flag ("r") should be shown
 	 */
 	private static function isDamagingFlagEnabled( IContextSource $context ) {
-		global $wgOresExtensionStatus;
-		$isRCPage = self::isRCPage( $context );
 		$user = $context->getUser();
-		return $wgOresExtensionStatus === 'beta' ||
-			(
-				$isRCPage &&
-				$user->getBoolOption( 'ores-damaging-flag-rc' ) &&
-				// If rcenhancedfilters is enabled, the ores-damaging-flag-rc preference is hidden,
-				// but it doesn't behave as if it's false; see HACK comment in onGetPreferences
-				!$user->getBoolOption( 'rcenhancedfilters' )
-			) || (
-				!$isRCPage &&
-				$user->getBoolOption( 'oresHighlight' )
-			);
+
+		if ( !self::oresUiEnabled( $user ) ) {
+			return false;
+		}
+
+		if ( self::isRCPage( $context ) ) {
+			$page = new SpecialRecentChanges();
+			$page->setContext( $context );
+			return !$page->isStructuredFilterUiEnabled() &&
+				$user->getBoolOption( 'ores-damaging-flag-rc' );
+		}
+
+		if ( self::isWLPage( $context ) ) {
+			$page = new SpecialWatchlist();
+			$page->setContext( $context );
+			return !$page->isStructuredFilterUiEnabled() &&
+				$user->getBoolOption( 'oresHighlight' );
+		}
+
+		return $user->getBoolOption( 'oresHighlight' );
 	}
 
 	/**
