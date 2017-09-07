@@ -4,7 +4,8 @@
 			"Sujiniku",
 			"Otokoume",
 			"Omotecho",
-			"Fryed-peach"
+			"Fryed-peach",
+			"Delim"
 		]
 	},
 	"ores-beta-feature-description": "ORES は最近の更新やウォッチリストで有害なおそれのある編集をハイライトする、AI ベースのツールです。",
@@ -13,6 +14,12 @@
 	"ores-damaging-title": "この編集は査読を必要としてます",
 	"ores-damaging-legend": "この編集には問題があるかもしれず、確認が必要です ([[:mw:Special:MyLanguage/ORES review tool|詳細]])",
 	"ores-hide-nondamaging-filter": "良質だと推測される編集を隠す",
+	"ores-rcfilters-damaging-likelygood-label": "良好である可能性が高いです",
+	"ores-rcfilters-damaging-likelybad-label": "問題がある可能性があります",
+	"ores-rcfilters-damaging-verylikelybad-label": "問題がある可能性がとても高いです",
+	"ores-rcfilters-goodfaith-good-label": "善意である可能性がとても高いです",
+	"ores-rcfilters-goodfaith-bad-label": "悪意である可能性があります",
+	"ores-rcfilters-goodfaith-verylikelybad-label": "悪意である可能性がとても高いです",
 	"ores-pref-rc-hidenondamaging": "最近の更新に問題がある編集のみ表示する (良質だと推測される編集を表示しない)",
 	"ores-pref-watchlist-hidenondamaging": "最近の更新に問題がある編集のみ表示する (良質だと推測される編集を表示しない)"
 }
