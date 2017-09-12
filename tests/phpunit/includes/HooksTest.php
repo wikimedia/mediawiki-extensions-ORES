@@ -3,9 +3,11 @@
 namespace ORES\Tests;
 
 use ChangesList;
+use Config;
 use ContribsPager;
 use EnhancedChangesList;
 use EventRelayerNull;
+use FauxRequest;
 use FormOptions;
 use HashBagOStuff;
 use IContextSource;
@@ -320,6 +322,11 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$rc = RecentChange::newFromRow( $row );
 		$rc = RCCacheEntry::newFromParent( $rc );
 
+		$config = $this->getMockBuilder( Config::class )->getMock();
+		$config->expects( $this->any() )
+			->method( 'get' )
+			->will( $this->returnValue( false ) );
+
 		$cl = $this->getMockBuilder( ChangesList::class )
 			->disableOriginalConstructor()
 			->getMock();
@@ -327,6 +334,14 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$cl->expects( $this->any() )
 			->method( 'getUser' )
 			->will( $this->returnValue( $this->user ) );
+
+		$cl->expects( $this->any() )
+			->method( 'getRequest' )
+			->will( $this->returnValue( new FauxRequest() ) );
+
+		$cl->expects( $this->any() )
+			->method( 'getConfig' )
+			->will( $this->returnValue( $config ) );
 
 		$cl->expects( $this->any() )
 			->method( 'getTitle' )

@@ -790,6 +790,18 @@ class Hooks {
 		return $context->getTitle()->isSpecial( 'Watchlist' );
 	}
 
+	public static function isRCStructuredUiEnabled( IContextSource $context ) {
+		$page = new SpecialRecentChanges();
+		$page->setContext( $context );
+		return $page->isStructuredFilterUiEnabled();
+	}
+
+	public static function isWLStructuredUiEnabled( IContextSource $context ) {
+		$page = new SpecialWatchlist();
+		$page->setContext( $context );
+		return $page->isStructuredFilterUiEnabled();
+	}
+
 	/**
 	 * @param IContextSource $context
 	 * @return bool Whether highlights should be shown
@@ -812,16 +824,12 @@ class Hooks {
 		}
 
 		if ( self::isRCPage( $context ) ) {
-			$page = new SpecialRecentChanges();
-			$page->setContext( $context );
-			return !$page->isStructuredFilterUiEnabled() &&
+			return !self::isRCStructuredUiEnabled( $context ) &&
 				$user->getBoolOption( 'ores-damaging-flag-rc' );
 		}
 
 		if ( self::isWLPage( $context ) ) {
-			$page = new SpecialWatchlist();
-			$page->setContext( $context );
-			return !$page->isStructuredFilterUiEnabled() &&
+			return !self::isWLStructuredUiEnabled( $context ) &&
 				$user->getBoolOption( 'oresHighlight' );
 		}
 
