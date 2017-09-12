@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e7eab26_4b0f9ae4",
+        "filename": "includes/Hooks/PreferencesHookHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2017-09-12T10:31:37Z",
+      "side": 1,
+      "message": "oresDamagingPref is classic ores sensitivity. It also controls Special:Contributions.",
+      "revId": "65329ffdbed13f3fddec7770cf36c73bd2a109bf",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
