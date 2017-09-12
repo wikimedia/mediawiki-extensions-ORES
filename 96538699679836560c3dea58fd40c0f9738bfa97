@@ -16,6 +16,24 @@
       "revId": "96538699679836560c3dea58fd40c0f9738bfa97",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e7eab26_22deecde",
+        "filename": "includes/Hooks/PreferencesHookHandler.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2017-09-12T18:30:34Z",
+      "side": 1,
+      "message": "Hmm, OK, then I guess we should just keep both of them, and decline the task.",
+      "parentUuid": "4e7eab26_02d730f3",
+      "revId": "96538699679836560c3dea58fd40c0f9738bfa97",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
