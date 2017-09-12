@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e7eab26_02d730f3",
+        "filename": "includes/Hooks/PreferencesHookHandler.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2017-09-12T18:06:53Z",
+      "side": 1,
+      "message": "It turns out this also control the classic highlight on Special:Contributions... And the one above used to control \"hide good revisions\" there as well but it got broken at some point.\n\nNot sure what to do with this. At some point, the idea was that these preferences would remain visible but control fewer and fewer pages and eventually go away. There\u0027s no tab for special:contribs unfortunatly.",
+      "revId": "96538699679836560c3dea58fd40c0f9738bfa97",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
