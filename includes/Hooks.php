@@ -58,7 +58,7 @@ class Hooks {
 	 * @param RecentChange $rc
 	 */
 	public static function onRecentChange_save( RecentChange $rc ) {
-		global $wgOresExcludeBots, $wgOresEnabledNamespaces;
+		global $wgOresExcludeBots, $wgOresEnabledNamespaces, $wgOresModels;
 		if ( $rc->getAttribute( 'rc_bot' ) && $wgOresExcludeBots ) {
 			return;
 		}
@@ -73,7 +73,13 @@ class Hooks {
 		}
 
 		$rc_type = $rc->getAttribute( 'rc_type' );
+		$models = array_keys( array_filter( $wgOresModels ) );
 		if ( $rc_type === RC_EDIT || $rc_type === RC_NEW ) {
+			// Do not store draftquality data when it's not a new page
+			if ( $rc_type !== RC_NEW ) {
+				$models = array_diff( $models, [ 'draftquality' ] );
+			}
+
 			$revid = $rc->getAttribute( 'rc_this_oldid' );
 			$logger = LoggerFactory::getInstance( 'ORES' );
 			$logger->debug( 'Processing edit {revid}', [
@@ -86,6 +92,7 @@ class Hooks {
 					'ip' => $request->getIP(),
 					'userAgent' => $request->getHeader( 'User-Agent' ),
 				],
+				'models' => $models,
 				'extra_params' => [ 'precache' => 'true' ],
 			] );
 			JobQueueGroup::singleton()->push( $job );
