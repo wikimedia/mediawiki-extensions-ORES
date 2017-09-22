@@ -101,6 +101,20 @@ class Cache {
 	}
 
 	/**
+	 * Purge a given set of rows. Intended for use by the RecentChangesPurgeRows hook only.
+	 *
+	 * @param int[] $revIds Array of revision IDs
+	 */
+	public function purgeRows( array $revIds ) {
+		$dbw = \wfGetDB( DB_MASTER );
+		// Delete everything in one go. If it works for recentchanges, it works for us.
+		$dbw->delete( 'ores_classification',
+			[ 'oresc_rev' => $revIds ],
+			__METHOD__
+		);
+	}
+
+	/**
 	 * Delete cached scores. Which rows to delete is given by Database::select parameters.
 	 *
 	 * @param array $tables

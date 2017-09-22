@@ -79,6 +79,9 @@
 		"RecentChange_save": [
 			"ORES\\Hooks::onRecentChange_save"
 		],
+		"RecentChangesPurgeRows": [
+			"ORES\\Hooks::onRecentChangesPurgeRows"
+		],
 		"SpecialContributions::formatRow::flags": [
 			"ORES\\Hooks::onSpecialContributionsFormatRowFlags"
 		],
