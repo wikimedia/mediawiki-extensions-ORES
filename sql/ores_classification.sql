@@ -20,3 +20,4 @@ CREATE TABLE /*_*/ores_classification (
 
 CREATE UNIQUE INDEX /*i*/oresc_rev_model_class ON /*_*/ores_classification (oresc_rev, oresc_model, oresc_class);
 CREATE UNIQUE INDEX /*i*/oresc_rev_predicted_model ON /*_*/ores_classification (oresc_rev, oresc_is_predicted, oresc_model);
+CREATE INDEX /*i*/oresc_model_class_prob ON /*_*/ores_classification (oresc_model, oresc_class, oresc_probability);
