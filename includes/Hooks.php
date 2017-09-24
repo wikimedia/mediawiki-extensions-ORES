@@ -5,7 +5,6 @@ namespace ORES;
 use BetaFeatures;
 use ChangesList;
 use ChangesListBooleanFilterGroup;
-use ChangesListFilterGroup;
 use ChangesListSpecialPage;
 use ChangesListStringOptionsFilterGroup;
 use ContribsPager;
@@ -25,7 +24,6 @@ use Skin;
 use SpecialContributions;
 use SpecialRecentChanges;
 use SpecialWatchlist;
-use Title;
 use User;
 use Xml;
 

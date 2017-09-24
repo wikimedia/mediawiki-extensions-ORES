@@ -2,7 +2,6 @@
 
 namespace ORES\Tests;
 
-use ORES;
 use ORES\Range;
 use PHPUnit_Framework_TestCase;
 
