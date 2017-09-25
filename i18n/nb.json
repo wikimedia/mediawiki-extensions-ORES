@@ -3,7 +3,8 @@
 		"authors": [
 			"Jeblad",
 			"Kjetil r",
-			"Orf3us"
+			"Orf3us",
+			"Jon Harald Søby"
 		]
 	},
 	"ores-beta-feature-description": "ORES er et AI-basert verktøy som viser sannsynlige ødeleggende redigeringer i siste endringer og på overvåkingslisten.",
@@ -20,7 +21,7 @@
 	"ores-damaging-verylikelybad": "Har svært sannsynlig problemer (flagger få falske positive, men finner en mindre % av problemredigeringer)",
 	"ores-help-damaging-pref": "Setter følsomheten til «Fremhev sannsynlige problemredigeringer…» og «Vis bare sannsynlige problemredigeringer…» valgene på SisteEndringer og Overvåkingslista.",
 	"ores-rcfilters-whats-this-link-text": "Lær mer",
-	"ores-rcfilters-ores-conflicts-logactions-global": "Filteret for «loggede handlinger» strider med et eller flere filtre for bidragskvalitet eller brukerintensjoner. Forutsigelser for kvalitet og intensjoner er ikke tilgjengelig for loggede handlinger. De motstridende filtrene er markert i området for «aktive filtre» ovenfor.",
+	"ores-rcfilters-ores-conflicts-logactions-global": "Filteret «{{int:rcfilters-filter-logactions-label}}» strider med et eller flere filtre for bidragskvalitet eller brukerintensjoner. Forutsigelser for kvalitet og intensjoner er ikke tilgjengelig for loggede handlinger. De motstridende filtrene er markert i området for «aktive filtre» ovenfor.",
 	"ores-rcfilters-logactions-conflicts-ores": "Dette filteret strider med et eller flere filtre for bidragskvalitet eller brukerintensjoner. Forutsigelse av kvalitet og intensjon er ikke tilgjengelig for loggede aksjoner.",
 	"ores-rcfilters-damaging-title": "Fremskriving av bidragskvalitet",
 	"ores-rcfilters-damaging-whats-this-header": "Om fremskriving av bidragskvalitet",
@@ -31,7 +32,6 @@
 	"ores-rcfilters-damaging-maybebad-label": "Kan ha problemer",
 	"ores-rcfilters-damaging-maybebad-desc": "Finn verste redigeringer som er ødeleggende, men med lav nøyaktighet.",
 	"ores-rcfilters-damaging-likelybad-label": "Sannsynlige problemer",
-	"ores-rcfilters-damaging-likelybad-desc": "Med middels nøyaktighet, finner fler problemredigeringer enn «svært sannsynlig»-filteret, men færre enn «kan ha problemer».",
 	"ores-rcfilters-damaging-verylikelybad-label": "Svært sannsynlige problemer",
 	"ores-rcfilters-damaging-verylikelybad-desc": "Svært nøyaktig påvisning av ødeleggende redigeringer.",
 	"ores-rcfilters-goodfaith-title": "Fremskriving av brukerintensjoner",
@@ -43,7 +43,6 @@
 	"ores-rcfilters-goodfaith-maybebad-label": "Kan være dårlig intensjon",
 	"ores-rcfilters-goodfaith-maybebad-desc": "Finn verste redigeringer av dårlig intensjon, men med lav nøyaktighet.",
 	"ores-rcfilters-goodfaith-bad-label": "Sannsynlig dårlig intensjon",
-	"ores-rcfilters-goodfaith-bad-desc": "Med middels nøyaktighet, finner fler dårlig tro-redigeringer enn «svært sannsynlig»-filteret, men færre enn «kan ha problemer».",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Svært sannsynlig dårlig intensjon",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Svært nøyaktig til å finne redigeringer gjort med dårlig intensjon.",
 	"ores-pref-highlight": "Fremhev sannsynlige problemredigeringer med farger og en «{{int:ores-damaging-letter}}» for \"trenger gjennomgang\"",
