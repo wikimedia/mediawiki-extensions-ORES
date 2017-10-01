@@ -303,7 +303,8 @@ class ApiHooksHandler {
 			$loadedScores = Scoring::instance()->getScores( $revids );
 
 			$cache = Cache::instance();
-			$cache->setErrorCallback( function ( $mssg, $revision ) {
+			$cache->setErrorCallback( function ( $mssg, $revision ) use ( &$scores ) {
+				$scores[$revision] = [];
 				$logger = LoggerFactory::getInstance( 'ORES' );
 				$logger->info( "Scoring errored for $revision: $mssg\n" );
 			} );
