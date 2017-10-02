@@ -133,7 +133,8 @@
 			"damaging": true,
 			"goodfaith": true,
 			"reverted": true,
-			"wp10": true
+			"wp10": true,
+			"draftquality": false
 		},
 		"OresModelClasses": {
 			"damaging": {
@@ -155,6 +156,12 @@
 				"GA": 3,
 				"Start": 4,
 				"Stub": 5
+			},
+			"draftquality": {
+				"attack": 0,
+				"OK": 1,
+				"spam": 2,
+				"vandalism": 3
 			}
 		},
 		"OresFiltersThresholds": {

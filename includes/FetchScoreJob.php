@@ -57,7 +57,12 @@ class FetchScoreJob extends Job {
 		if ( isset( $this->params['originalRequest'] ) ) {
 			$scoring->setOriginalRequest( $this->params['originalRequest'] );
 		}
-		$scores = $scoring->getScores( $this->params['revid'], null, $this->params['extra_params'] );
+		if ( isset( $this->params['models'] ) ) {
+			$models = $this->params['models'];
+		} else {
+			$models = null;
+		}
+		$scores = $scoring->getScores( $this->params['revid'], $models, $this->params['extra_params'] );
 		$cache = Cache::instance();
 		$success = true;
 		$cache->setErrorCallback( function ( $mssg, $revision ) use ( &$success, $logger ) {
