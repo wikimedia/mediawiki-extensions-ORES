@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e6af365_a985fda0",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-10-02T19:40:37Z",
+      "side": 1,
+      "message": "Graceful upgrade path!",
+      "revId": "bc6277b92e977ead97354b88a3b9ffa3ab385169",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e6af365_a90add27",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-10-02T19:40:37Z",
+      "side": 1,
+      "message": "I do wish this logic were encapsulated into the model rather than hardcoded here, but still I like this as a first step.",
+      "revId": "bc6277b92e977ead97354b88a3b9ffa3ab385169",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
