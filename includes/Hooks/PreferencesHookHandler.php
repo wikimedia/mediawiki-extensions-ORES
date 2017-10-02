@@ -81,16 +81,11 @@ class PreferencesHookHandler {
 		$context->setUser( $user );
 		$context->setRequest( new DerivativeRequest( $context->getRequest(), [] ) );
 		$rcFiltersEnabled = Hooks::isRCStructuredUiEnabled( $context );
-		$wlFiltersEnabled = Hooks::isWLStructuredUiEnabled( $context );
 		// HACK: Note that this only hides the preferences on the preferences page,
 		// it does not cause them to behave as if they're set to their default value,
 		// because this hook only runs on the preferences page.
 		if ( $rcFiltersEnabled ) {
-			$wgHiddenPrefs[] = 'oresRCHideNonDamaging';
 			$wgHiddenPrefs[] = 'ores-damaging-flag-rc';
-		}
-		if ( $wlFiltersEnabled ) {
-			$wgHiddenPrefs[] = 'oresWatchlistHideNonDamaging';
 		}
 	}
 

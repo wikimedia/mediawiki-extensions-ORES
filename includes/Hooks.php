@@ -122,6 +122,14 @@ class Hooks {
 		$logFilter = $changeTypeGroup->getFilter( 'hidelog' );
 
 		if ( self::isModelEnabled( 'damaging' ) ) {
+			if ( $clsp instanceof SpecialRecentChanges ) {
+				$damagingDefault = $clsp->getUser()->getOption( 'oresRCHideNonDamaging' );
+			} elseif ( $clsp instanceof SpecialWatchlist ) {
+				$damagingDefault = $clsp->getUser()->getOption( 'oresWatchlistHideNonDamaging' );
+			} else {
+				$damagingDefault = false;
+			}
+
 			$damagingLevels = $stats->getThresholds( 'damaging' );
 			$filters = [];
 			if ( isset( $damagingLevels[ 'likelygood' ] ) ) {
@@ -232,15 +240,11 @@ class Hooks {
 					);
 				}
 
-				$clsp->registerFilterGroup( $newDamagingGroup );
-			}
+				if ( $damagingDefault ) {
+					$newDamagingGroup->setDefault( self::getDamagingLevelPreference( $clsp->getUser() ) );
+				}
 
-			if ( $clsp instanceof SpecialRecentChanges ) {
-				$damagingDefault = $clsp->getUser()->getOption( 'oresRCHideNonDamaging' );
-			} elseif ( $clsp instanceof SpecialWatchlist ) {
-				$damagingDefault = $clsp->getUser()->getOption( 'oresWatchlistHideNonDamaging' );
-			} else {
-				$damagingDefault = false;
+				$clsp->registerFilterGroup( $newDamagingGroup );
 			}
 
 			// I don't think we need to register a conflict here, since
@@ -675,6 +679,20 @@ class Hooks {
 	}
 
 	/**
+	 * Internal helper to get damaging level preference
+	 * with backward compatibility for old level names
+	 * @param User $user
+	 * @return string 'maybebad', 'likelybad', or 'verylikelybad'
+	 */
+	public static function getDamagingLevelPreference( User $user ) {
+		$pref = $user->getOption( 'oresDamagingPref' );
+		if ( isset( self::$damagingPrefMap[ $pref ] ) ) {
+			$pref = self::$damagingPrefMap[ $pref ];
+		}
+		return $pref;
+	}
+
+	/**
 	 * Internal helper to get threshold
 	 * @param string $type
 	 * @param User $user
@@ -683,10 +701,7 @@ class Hooks {
 	 */
 	public static function getThreshold( $type, User $user ) {
 		if ( $type === 'damaging' ) {
-			$pref = $user->getOption( 'oresDamagingPref' );
-			if ( isset( self::$damagingPrefMap[ $pref ] ) ) {
-				$pref = self::$damagingPrefMap[ $pref ];
-			}
+			$pref = self::getDamagingLevelPreference( $user );
 			$thresholds = self::getDamagingThresholds();
 			if ( isset( $thresholds[ $pref ] ) ) {
 				return $thresholds[ $pref ];
