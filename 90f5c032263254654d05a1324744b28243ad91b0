@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e6af365_8f3a79e3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2017-10-02T23:46:08Z",
+      "side": 1,
+      "message": "This is not enough, because the WMF config falls back on the defaults for some settings, and the defaults in extension.json use the old grammar. So it would probably be easier to first migrate to a more readable/structured grammar so that we then don\u0027t have to update it for this deployment.",
+      "revId": "90f5c032263254654d05a1324744b28243ad91b0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e6af365_6f35c5f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2017-10-02T23:46:08Z",
+      "side": 1,
+      "message": "Why? Can\u0027t we just change the config to point at the a 2.0 server? Or is that problematic with the job queue or something?",
+      "range": {
+        "startLine": 18,
+        "startChar": 16,
+        "endLine": 18,
+        "endChar": 37
+      },
+      "revId": "90f5c032263254654d05a1324744b28243ad91b0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e6af365_da16f14c",
+        "filename": "includes/Stats.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2017-10-02T23:46:08Z",
+      "side": 1,
+      "message": "empty() is discouraged in the MW coding conventions. In this situation I\u0027d suggest count( $calculatedThresholds ) \u003d\u003d\u003d 0 instead.",
+      "range": {
+        "startLine": 106,
+        "startChar": 7,
+        "endLine": 106,
+        "endChar": 12
+      },
+      "revId": "90f5c032263254654d05a1324744b28243ad91b0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e6af365_1a3b29c6",
+        "filename": "includes/Stats.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2017-10-02T23:46:08Z",
+      "side": 1,
+      "message": "Should this be kept in production code?",
+      "revId": "90f5c032263254654d05a1324744b28243ad91b0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e6af365_3a6aadb2",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2017-10-02T23:46:08Z",
+      "side": 1,
+      "message": "In Hooks::$damagingPrefMap",
+      "revId": "90f5c032263254654d05a1324744b28243ad91b0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
