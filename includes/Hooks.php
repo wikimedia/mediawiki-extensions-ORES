@@ -251,6 +251,19 @@ class Hooks {
 					$newDamagingGroup->setDefault( self::getDamagingLevelPreference( $clsp->getUser() ) );
 				}
 
+				if ( $clsp->getUser()->getBoolOption( 'oresHighlight' ) ) {
+					$levelsColors = [
+						'maybebad' => 'c3',
+						'likelybad' => 'c4',
+						'verylikelybad' => 'c5',
+					];
+					foreach ( $levelsColors as $level => $color ) {
+						if ( isset( $filters[ $level ] ) ) {
+							$newDamagingGroup->getFilter( $level )->setDefaultHighlightColor( $color );
+						}
+					}
+				}
+
 				$clsp->registerFilterGroup( $newDamagingGroup );
 			}
 
