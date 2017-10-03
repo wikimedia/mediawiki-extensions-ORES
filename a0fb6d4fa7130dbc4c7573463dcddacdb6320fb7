@@ -46,6 +46,30 @@
       "revId": "a0fb6d4fa7130dbc4c7573463dcddacdb6320fb7",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e6af365_9bdcfb4c",
+        "filename": "includes/Hooks/ApiHooksHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 221
+      },
+      "writtenOn": "2017-10-03T13:53:54Z",
+      "side": 1,
+      "message": "PHP 7.0 and 7.1 both care for me locally. The lack of the ampersand doesn\u0027t cause any error or warning, but it means the $scores array in the outer scope doesn\u0027t get updated.",
+      "parentUuid": "0e6af365_007c16b3",
+      "range": {
+        "startLine": 306,
+        "startChar": 65,
+        "endLine": 306,
+        "endChar": 72
+      },
+      "revId": "a0fb6d4fa7130dbc4c7573463dcddacdb6320fb7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
