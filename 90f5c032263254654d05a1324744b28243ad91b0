@@ -96,6 +96,24 @@
       "revId": "90f5c032263254654d05a1324744b28243ad91b0",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e6af365_a0ef4a81",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2017-10-03T12:42:18Z",
+      "side": 1,
+      "message": "See Hooks::getDamagingLevelPreference()",
+      "parentUuid": "0e6af365_3a6aadb2",
+      "revId": "90f5c032263254654d05a1324744b28243ad91b0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
