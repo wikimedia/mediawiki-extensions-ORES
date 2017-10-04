@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0e6af365_e1cd4163",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-10-04T02:37:04Z",
+      "side": 1,
+      "message": "I want to avoid parsing the syntax for now and leave it to the server\u0027s discretion, at least until there\u0027s a written spec for the thresholds API.  That gives us the flexibility to stabilize the grammar without code updates here.  In the long run, I think I\u0027d lobby for a much simpler API but am happy to be unconvinced of that.\n\nWhat I\u0027ll do for now is to reinstate some transitional code I had written which string munged from old to new configuration, which gets deleted after we finish updating all configurations.  It simply checks that a \"@\" is not present in the threshold formula, in which case we munge.",
+      "parentUuid": "0e6af365_8f3a79e3",
+      "revId": "90f5c032263254654d05a1324744b28243ad91b0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e6af365_6f35c5f2",
         "filename": "/COMMIT_MSG",
         "patchSetId": 11
@@ -30,6 +48,30 @@
       "writtenOn": "2017-10-02T23:46:08Z",
       "side": 1,
       "message": "Why? Can\u0027t we just change the config to point at the a 2.0 server? Or is that problematic with the job queue or something?",
+      "range": {
+        "startLine": 18,
+        "startChar": 16,
+        "endLine": 18,
+        "endChar": 37
+      },
+      "revId": "90f5c032263254654d05a1324744b28243ad91b0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e6af365_01cbb54f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-10-04T02:37:04Z",
+      "side": 1,
+      "message": "Thanks!  I\u0027m glad everyone has been pushing back on this, and helping me see the seamless upgrade path.",
+      "parentUuid": "0e6af365_6f35c5f2",
       "range": {
         "startLine": 18,
         "startChar": 16,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "0e6af365_a1d749f1",
+        "filename": "includes/Stats.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-10-04T02:37:04Z",
+      "side": 1,
+      "message": "+1, that\u0027s right I had forgotten that `empty` can mask a typo in the variable name.",
+      "parentUuid": "0e6af365_da16f14c",
+      "range": {
+        "startLine": 106,
+        "startChar": 7,
+        "endLine": 106,
+        "endChar": 12
+      },
+      "revId": "90f5c032263254654d05a1324744b28243ad91b0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e6af365_1a3b29c6",
         "filename": "includes/Stats.php",
         "patchSetId": 11
@@ -76,6 +142,24 @@
       "writtenOn": "2017-10-02T23:46:08Z",
       "side": 1,
       "message": "Should this be kept in production code?",
+      "revId": "90f5c032263254654d05a1324744b28243ad91b0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e6af365_c1d4bdee",
+        "filename": "includes/Stats.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-10-04T02:37:04Z",
+      "side": 1,
+      "message": "Oops!  I do want to see those diagnostics, but only once each time the fetched threshold cache is updated.  On that note, maybe we should parse before caching?",
+      "parentUuid": "0e6af365_1a3b29c6",
       "revId": "90f5c032263254654d05a1324744b28243ad91b0",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -111,6 +195,24 @@
       "side": 1,
       "message": "See Hooks::getDamagingLevelPreference()",
       "parentUuid": "0e6af365_3a6aadb2",
+      "revId": "90f5c032263254654d05a1324744b28243ad91b0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e6af365_6100716e",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-10-04T02:37:04Z",
+      "side": 1,
+      "message": "ty!  Any sense of when we can deprecate that?\n\n\u003e See Hooks::getDamagingLevelPreference()\n@Sbisson, nice fixup!",
+      "parentUuid": "0e6af365_a0ef4a81",
       "revId": "90f5c032263254654d05a1324744b28243ad91b0",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
