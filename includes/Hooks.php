@@ -257,10 +257,16 @@ class Hooks {
 						'likelybad' => 'c4',
 						'verylikelybad' => 'c5',
 					];
-					foreach ( $levelsColors as $level => $color ) {
-						if ( isset( $filters[ $level ] ) ) {
-							$newDamagingGroup->getFilter( $level )->setDefaultHighlightColor( $color );
-						}
+
+					$prefLevel = self::getDamagingLevelPreference( $clsp->getUser() );
+					$allLevels = array_keys( $levelsColors );
+					$applicableLevels = array_slice( $allLevels, array_search( $prefLevel, $allLevels ) );
+					$applicableLevels = array_intersect( $applicableLevels, array_keys( $filters ) );
+
+					foreach ( $applicableLevels as $level ) {
+						$newDamagingGroup
+							->getFilter( $level )
+							->setDefaultHighlightColor( $levelsColors[ $level ] );
 					}
 				}
 
