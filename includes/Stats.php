@@ -88,9 +88,22 @@ class Stats {
 				// FIXME: Should be TTL_DAY, set to TTL_MINUTE during the breaking transition.
 				\WANObjectCache::TTL_MINUTE,
 				function () use ( $model ) {
-					return $this->fetchStatsFromApi( $model );
+					// @deprecated Only catching exceptions to allow the
+					// failure to be cached, remove once transition is
+					// complete.
+					try {
+						return $this->fetchStatsFromApi( $model );
+					} catch ( \RuntimeException $ex ) {
+						// Magic to trigger an exception.
+						return [];
+					}
 				}
 			);
+			// @deprecated Magic exception to allow caching of failure and
+			// falling back to StatsV1.
+			if ( count( $result ) === 0 ) {
+				throw new \RuntimeException( 'Cached failure.' );
+			}
 			return $result;
 		} else {
 			$this->logger->info( 'Forcing stats fetch, bypassing cache.' );
@@ -262,14 +275,35 @@ class Stats {
 	}
 
 	/**
-	 * @return self
+	 * @return self|StatsV1
 	 */
 	public static function newFromGlobalState() {
-		return new self(
+		$logger = LoggerFactory::getInstance( 'ORES' );
+		$stats = new self(
 			Api::newFromContext(),
 			MediaWikiServices::getInstance()->getMainWANObjectCache(),
-			LoggerFactory::getInstance( 'ORES' )
+			$logger
 		);
+
+		// Test to see if the new-style thresholds are supported by the server.
+		// There is a short race condition here, if the server is downgraded
+		// between this check and the outer stack frame calling
+		// $stats->getThresholds, but the failure should safely result in an
+		// empty result.
+		// Note that we're relying on the cache TTL, cached revscoring 2.x
+		// results are returned until they expire, at which point the next call
+		// fails, and we start returning StatsV1 objects.  When the new-style
+		// backend starts working again, we call that once cached empty results
+		// expire.
+		// @deprecated Remove fallback code once migration is completed.
+		try {
+			$stats->fetchStats( 'damaging', true );
+			// If this didn't throw an exception, go ahead and use the new stats object.
+			return $stats;
+		} catch ( \RuntimeException $exception ) {
+			$logger->info( "Falling back to old threshold stats: [{$exception->getMessage()}]" );
+			return StatsV1::newFromGlobalState();
+		}
 	}
 
 }
