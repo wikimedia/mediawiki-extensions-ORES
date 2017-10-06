@@ -211,4 +211,52 @@ class StatsTest extends \MediaWikiTestCase {
 		);
 	}
 
+	/**
+	 * @expectedException \RuntimeException
+	 */
+	public function testFetchStats_oldServer() {
+		$this->setMwGlobals( [
+			'wgOresFiltersThresholds' => [
+				'damaging' => [
+					'verylikelygood' => [ 'min' => 0, 'max' => 'maximum recall @ precision >= 0.98' ],
+					'maybebad' => false,
+					'likelybad' => [ 'min' => 0.831, 'max' => 1 ],
+					'verylikelybad' => [ 'min' => 'maximum recall @ precision >= 0.9', 'max' => 1 ],
+				],
+			],
+		] );
+
+		$api = $this->getMockBuilder( Api::class )->getMock();
+		$api->method( 'getWikiID' )->willReturn( 'wiki' );
+		$api
+			->expects( $this->exactly( 1 ) )
+			->method( 'request' )
+			// New syntax request.
+			->with( [
+				'models' => 'damaging',
+				'model_info' => 'statistics.thresholds.false."maximum recall @ precision >= 0.98"'
+					. '|statistics.thresholds.true."maximum recall @ precision >= 0.9"' ] )
+			// Confused, old server.
+			->willReturn( [
+				'wiki' => [
+					'models' => [
+						'damaging' => [],
+					]
+				]
+			] );
+
+		$stats = new ORES\Stats(
+			$api,
+			WANObjectCache::newEmpty(),
+			LoggerFactory::getInstance( 'test' )
+		);
+
+		// Make fetchStats accessible.
+		$method = new \ReflectionMethod( $stats, 'fetchStats' );
+		$method->setAccessible( true );
+
+		// Equivalent to calling $stats->fetchStats.  Should throw an exception.
+		$method->invoke( $stats, 'damaging', true );
+	}
+
 }
