@@ -247,7 +247,8 @@ class Hooks {
 					);
 				}
 
-				if ( $damagingDefault ) {
+				// temporarily disabled on Watchlist
+				if ( $damagingDefault && ( $clsp instanceof SpecialRecentChanges ) ) {
 					$newDamagingGroup->setDefault( self::getDamagingLevelPreference( $clsp->getUser() ) );
 				}
 
