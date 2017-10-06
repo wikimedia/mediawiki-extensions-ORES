@@ -16,6 +16,8 @@ class Api {
 	/** @var WebRequest|string[]|null */
 	private $originalRequest;
 
+	const API_VERSION = 3;
+
 	/**
 	 * @return Api
 	 */
@@ -35,21 +37,27 @@ class Api {
 	}
 
 	/**
-	 * @param string|null $model Name of the model to query
-	 * @return string Base URL plus your wiki's `scores` API path.
+	 * @return string Wiki ID used by ORES.
 	 */
-	public function getUrl( $model = null ) {
-		global $wgOresBaseUrl, $wgOresWikiId;
-
+	public function getWikiID() {
+		global $wgOresWikiId;
 		if ( $wgOresWikiId ) {
 			$wikiId = $wgOresWikiId;
 		} else {
 			$wikiId = wfWikiID();
 		}
-		$url = "{$wgOresBaseUrl}scores/{$wikiId}/";
-		if ( $model ) {
-			$url .= "{$model}/";
-		}
+		return $wikiId;
+	}
+
+	/**
+	 * @return string Base URL plus your wiki's `scores` API path.
+	 */
+	public function getUrl() {
+		global $wgOresBaseUrl;
+
+		$wikiId = $this->getWikiID();
+		$prefix = 'v' . self::API_VERSION;
+		$url = "{$wgOresBaseUrl}{$prefix}/scores/{$wikiId}/";
 		return $url;
 	}
 
@@ -57,14 +65,13 @@ class Api {
 	 * Make an ORES API request and return the decoded result.
 	 *
 	 * @param array $params optional GET parameters
-	 * @param string|null $model Name of the model to query
 	 * @return array Decoded response
 	 *
 	 */
-	public function request( $params = [], $model = null ) {
+	public function request( $params = [] ) {
 		$logger = LoggerFactory::getInstance( 'ORES' );
 
-		$url = $this->getUrl( $model );
+		$url = $this->getUrl();
 		$params['format'] = 'json';
 		$url = wfAppendQuery( $url, $params );
 		$logger->debug( "Requesting: {$url}" );

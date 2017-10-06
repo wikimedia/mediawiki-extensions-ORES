@@ -46,53 +46,48 @@ class StatsTest extends \MediaWikiTestCase {
 		$thresholds = $stats->getThresholds( 'unknown_model' );
 
 		$this->assertEquals(
-			$thresholds,
-			[]
+			[],
+			$thresholds
 		);
 	}
 
 	public function testGetThresholds_everythingGoesWrong() {
 		$api = $this->getMockBuilder( Api::class )->getMock();
-		$api->method( 'request' )
-			->with( [ 'model_info' => 'test_stats' ], 'goodfaith' )
+		$api
+			->expects( $this->exactly( 1 ) )
+			->method( 'request' )
+			->with( [
+				'models' => 'goodfaith',
+				'model_info' => 'statistics.thresholds.true."some_stat @ foo"'
+					. '|statistics.thresholds.false."some_other_stat @ bar"' ] )
 			->willReturn( 'this is not the stat object you were expecting...' );
 
 		$this->setMwGlobals( [
 			'wgOresFiltersThresholds' => [
 				'goodfaith' => [
-					'level1' => [ 'min' => 'some_stat', 'max' => 'some_other_stat' ],
+					'level1' => [
+						'min' => 'some_stat @ foo',
+						'max' => 'some_other_stat @ bar'
+					],
 				]
 			],
 		] );
 
 		$logger = $this->getLoggerMock();
-		$logger->expects( $this->exactly( 2 ) )->method( 'warning' );
+		// FIXME: Review and check for logging.
+		// $logger->expects( $this->exactly( 2 ) )->method( 'warning' );
 
 		$stats = new ORES\Stats( $api, WANObjectCache::newEmpty(), $logger );
 
 		$thresholds = $stats->getThresholds( 'goodfaith' );
 
 		$this->assertEquals(
-			$thresholds,
-			[]
+			[],
+			$thresholds
 		);
 	}
 
-	public function testGetThresholds_filtersConfig() {
-		$api = $this->getMockBuilder( Api::class )->getMock();
-		$api->method( 'request' )
-			->with( [ 'model_info' => 'test_stats' ], 'damaging' )
-			->willReturn( [
-				'test_stats' => [
-					'recall_at_precision(min_precision=0.9)' => [
-						'true' => [ 'threshold' => 0.945 ], // verylikelybad min
-					],
-					'recall_at_precision(min_precision=0.98)' => [
-						'false' => [ 'threshold' => 0.259 ], // verylikelygood max
-					],
-				],
-			] );
-
+	public function testGetThresholds_oldFiltersConfig() {
 		$this->setMwGlobals( [
 			'wgOresFiltersThresholds' => [
 				'damaging' => [
@@ -104,6 +99,29 @@ class StatsTest extends \MediaWikiTestCase {
 			],
 		] );
 
+		$api = $this->getMockBuilder( Api::class )->getMock();
+		$api->method( 'getWikiID' )->willReturn( 'wiki' );
+		$api
+			->expects( $this->exactly( 1 ) )
+			->method( 'request' )
+			->with( [
+				'models' => 'damaging',
+				'model_info' => 'statistics.thresholds.false."maximum recall @ precision >= 0.98"'
+					. '|statistics.thresholds.true."maximum recall @ precision >= 0.9"' ] )
+			->willReturn( [ 'wiki' => [ 'models' => [ 'damaging' =>
+				[ 'statistics' => [ 'thresholds' => [
+					'true' => [
+						[
+							'threshold' => 0.945, // verylikelybad min
+						],
+					],
+					'false' => [
+						[
+							'threshold' => 0.259, // verylikelygood max
+						],
+					],
+			] ] ] ] ] ] );
+
 		$stats = new ORES\Stats(
 			$api,
 			WANObjectCache::newEmpty(),
@@ -113,11 +131,10 @@ class StatsTest extends \MediaWikiTestCase {
 		$thresholds = $stats->getThresholds( 'damaging' );
 
 		$this->assertEquals(
-			$thresholds,
 			[
 				'verylikelygood' => [
 					'min' => 0,
-					'max' => 0.741, // 1-0.259
+					'max' => 0.741,
 				],
 				'likelybad' => [
 					'min' => 0.831,
@@ -127,7 +144,70 @@ class StatsTest extends \MediaWikiTestCase {
 					'min' => 0.945,
 					'max' => 1,
 				],
-			]
+			],
+			$thresholds
+		);
+	}
+
+	public function testGetThresholds_newFiltersConfig() {
+		$this->setMwGlobals( [
+			'wgOresFiltersThresholds' => [
+				'damaging' => [
+					'verylikelygood' => [ 'min' => 0, 'max' => 'maximum recall @ precision >= 0.98' ],
+					'maybebad' => false,
+					'likelybad' => [ 'min' => 0.831, 'max' => 1 ],
+					'verylikelybad' => [ 'min' => 'maximum recall @ precision >= 0.9', 'max' => 1 ],
+				],
+			],
+		] );
+
+		$api = $this->getMockBuilder( Api::class )->getMock();
+		$api->method( 'getWikiID' )->willReturn( 'wiki' );
+		$api
+			->expects( $this->exactly( 1 ) )
+			->method( 'request' )
+			->with( [
+				'models' => 'damaging',
+				'model_info' => 'statistics.thresholds.false."maximum recall @ precision >= 0.98"'
+					. '|statistics.thresholds.true."maximum recall @ precision >= 0.9"' ] )
+			->willReturn( [ 'wiki' => [ 'models' => [ 'damaging' =>
+				[ 'statistics' => [ 'thresholds' => [
+					'true' => [
+						[
+							'threshold' => 0.945, // verylikelybad min
+						],
+					],
+					'false' => [
+						[
+							'threshold' => 0.259, // verylikelygood max
+						],
+					],
+			] ] ] ] ] ] );
+
+		$stats = new ORES\Stats(
+			$api,
+			WANObjectCache::newEmpty(),
+			LoggerFactory::getInstance( 'test' )
+		);
+
+		$thresholds = $stats->getThresholds( 'damaging' );
+
+		$this->assertEquals(
+			[
+				'verylikelygood' => [
+					'min' => 0,
+					'max' => 0.741,
+				],
+				'likelybad' => [
+					'min' => 0.831,
+					'max' => 1,
+				],
+				'verylikelybad' => [
+					'min' => 0.945,
+					'max' => 1,
+				],
+			],
+			$thresholds
 		);
 	}
 

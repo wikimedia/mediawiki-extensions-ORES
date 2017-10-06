@@ -20,19 +20,14 @@ class OresApiTest extends \MediaWikiTestCase {
 
 		$this->setMwGlobals( [
 			'wgOresBaseUrl' => 'https://ores-beta.wmflabs.org/',
-			'wgOresWikiId' => 'testwiki'
+			'wgOresWikiId' => 'testwiki',
 		] );
 		$this->api = new ORES\Api();
 	}
 
 	public function testApiUrl() {
 		$url = $this->api->getUrl();
-		$this->assertSame( "https://ores-beta.wmflabs.org/scores/testwiki/", $url );
-	}
-
-	public function testApiUrlWithModel() {
-		$url = $this->api->getUrl( 'damaging' );
-		$this->assertSame( "https://ores-beta.wmflabs.org/scores/testwiki/damaging/", $url );
+		$this->assertSame( "https://ores-beta.wmflabs.org/v3/scores/testwiki/", $url );
 	}
 
 }

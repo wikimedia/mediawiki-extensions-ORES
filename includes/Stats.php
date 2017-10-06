@@ -35,8 +35,11 @@ class Stats {
 	}
 
 	public function getThresholds( $model, $fromCache = true ) {
-		if ( $this->getFiltersConfig( $model ) ) {
+		$config = $this->getFiltersConfig( $model );
+		// Skip if the model is unconfigured or set to false.
+		if ( $config ) {
 			$stats = $this->tryFetchStats( $model, $fromCache );
+			// Skip if stats are empty.
 			if ( $stats !== false ) {
 				return $this->parseThresholds( $stats, $model );
 			}
@@ -46,7 +49,25 @@ class Stats {
 
 	private function getFiltersConfig( $model ) {
 		global $wgOresFiltersThresholds;
-		return isset( $wgOresFiltersThresholds[ $model ] ) ? $wgOresFiltersThresholds[ $model ] : false;
+		if ( !isset( $wgOresFiltersThresholds[$model] ) ) {
+			return false;
+		}
+		$config = $wgOresFiltersThresholds[$model];
+
+		// Convert old config to new grammar.
+		// @deprecated Remove once all config is migrated.
+		foreach ( $config as $levelName => &$levelConfig ) {
+			if ( $levelConfig === false ) {
+				continue;
+			}
+			foreach ( $levelConfig as $bound => &$formula ) {
+				if ( false !== strpos( $formula, '(' ) ) {
+					// Old-style formula, convert it to new-style.
+					$formula = $this->mungeV1Forumula( $formula );
+				}
+			}
+		}
+		return $config;
 	}
 
 	private function tryFetchStats( $model, $fromCache ) {
@@ -61,24 +82,124 @@ class Stats {
 	private function fetchStats( $model, $fromCache ) {
 		global $wgOresCacheVersion;
 		if ( $fromCache ) {
-			$key = $this->cache->makeKey( 'ORES', 'test_stats', $model, $wgOresCacheVersion );
-			return $this->cache->getWithSetCallback(
+			$key = $this->cache->makeKey( 'ORES', 'threshold_statistics', $model, $wgOresCacheVersion );
+			$result = $this->cache->getWithSetCallback(
 				$key,
-				\WANObjectCache::TTL_DAY,
+				// FIXME: Should be TTL_DAY, set to TTL_MINUTE during the breaking transition.
+				\WANObjectCache::TTL_MINUTE,
 				function () use ( $model ) {
 					return $this->fetchStatsFromApi( $model );
 				}
 			);
+			return $result;
 		} else {
+			$this->logger->info( 'Forcing stats fetch, bypassing cache.' );
 			return $this->fetchStatsFromApi( $model );
 		}
 	}
 
 	private function fetchStatsFromApi( $model ) {
-		$data = $this->api->request( [ 'model_info' => 'test_stats' ], $model );
-		if ( isset( $data[ 'test_stats' ] ) ) {
-			return $data[ 'test_stats' ];
+		$trueFormulas = [];
+		$falseFormulas = [];
+		$calculatedThresholds = [];
+		foreach ( $this->getFiltersConfig( $model ) as $levelName => $config ) {
+			if ( $config === false ) {
+				continue;
+			}
+			foreach ( $config as $bound => $formula ) {
+				$outcome = ( $bound === 'min' ) ? 'true' : 'false';
+				// Collect calculated field formulas.
+				// FIXME: Don't rely on magic patterns to identify calculated fields.
+
+				if ( false !== strpos( $formula, '@' ) ) {
+					// Formula, add it to the list of stats to fetch.
+
+					// Write as an API parameter.
+					$calculatedThresholds[] = "statistics.thresholds.{$outcome}.\"{$formula}\"";
+					if ( $outcome === 'true' ) {
+						$trueFormulas[] = $formula;
+					} else {
+						$falseFormulas[] = $formula;
+					}
+				}
+			}
 		}
+
+		if ( count( $calculatedThresholds ) === 0 ) {
+			// If nothing needs to be calculated, don't hit the API.
+			return [];
+		}
+
+		$formulaParam = implode( "|", $calculatedThresholds );
+		$data = $this->api->request( [ 'models' => $model, 'model_info' => $formulaParam ] );
+		$wikiId = $this->api->getWikiID();
+
+		// Traverse the data path.
+		$prefix = [ $wikiId, 'models', $model, 'statistics', 'thresholds' ];
+
+		$resultMap = [];
+
+		if ( $falseFormulas ) {
+			$pathParts = array_merge( $prefix, [ 'false' ] );
+			$result = $this->extractKeyPath( $data, $pathParts );
+
+			// Interpret the response in the same order as we built our request.
+			// FIXME: This is fragile.  Better if the results have identifying keys.
+			foreach ( $falseFormulas as $index => $formula ) {
+				$resultMap['false'][$formula] = $result[$index];
+			}
+		}
+
+		if ( $trueFormulas ) {
+			$pathParts = array_merge( $prefix, [ 'true' ] );
+			$result = $this->extractKeyPath( $data, $pathParts );
+
+			// Interpret the response in the same order as we built our request.
+			// This seems fragile enough to warrant a FIXME.
+			foreach ( $trueFormulas as $index => $formula ) {
+				$resultMap['true'][$formula] = $result[$index];
+			}
+		}
+
+		return $resultMap;
+	}
+
+	/**
+	 * Converts an old-style configuration to new-style.
+	 * @deprecated Can be removed once all threshold config is written in the new grammar.
+	 */
+	protected function mungeV1Forumula( $v1Formula ) {
+		if ( false !== strpos( $v1Formula, '@' ) ) {
+			// This is new-style already, pass through.
+			return $formula;
+		} elseif ( preg_match(
+			'/recall_at_precision\(min_precision=(0\.\d+)\)/',
+			$v1Formula, $matches )
+		) {
+			$min_precision = floatval( $matches[1] );
+			return "maximum recall @ precision >= {$min_precision}";
+		} elseif ( preg_match(
+			'/filter_rate_at_recall\(min_recall=(0\.\d+)\)/',
+			$v1Formula, $matches )
+		) {
+			$min_recall = floatval( $matches[1] );
+			return "maximum filter_rate @ recall >= {$min_recall}";
+		} else {
+			// We ran out of guesses.
+			throw new \RuntimeException( "Failed to parse threshold formula [{$v1Formula}]" );
+		}
+	}
+
+	protected function extractKeyPath( $data, $keyPath ) {
+		$current = $data;
+		foreach ( $keyPath as $key ) {
+			if ( !isset( $current[$key] ) ) {
+				$fullPath = implode( '.', $keyPath );
+				throw new \RuntimeException( "Failed to parse data at key [{$fullPath}]" );
+			}
+			$current = $current[$key];
+		}
+		return $current;
 	}
 
 	private function parseThresholds( $statsData, $model ) {
@@ -90,18 +211,16 @@ class Stats {
 			}
 
 			$min = $this->extractBoundValue(
-				$model,
 				$levelName,
 				'min',
-				$config[ 'min' ],
+				$config['min'],
 				$statsData
 			);
 
 			$max = $this->extractBoundValue(
-				$model,
 				$levelName,
 				'max',
-				$config[ 'max' ],
+				$config['max'],
 				$statsData
 			);
 
@@ -115,29 +234,30 @@ class Stats {
 		return $thresholds;
 	}
 
-	private function extractBoundValue( $model, $levelName, $bound, $config, $statsData ) {
+	private function extractBoundValue( $levelName, $bound, $config, $statsData ) {
 		if ( is_numeric( $config ) ) {
 			return $config;
 		}
 
 		$stat = $config;
-		$outcome = $bound === 'min' ? 'true' : 'false';
-		if ( isset( $statsData[$stat][$outcome]['threshold'] ) ) {
-			$threshold = $statsData[$stat][$outcome]['threshold'];
-			// Thresholds reported for "false" outcomes apply to "false" scores, but we always
-			// apply thresholds against "true" scores, so we need to invert "false" thresholds here.
-			return $outcome === 'false' ? 1 - $threshold : $threshold;
+		if ( $bound === 'max' && isset( $statsData['false'][$stat]['threshold'] ) ) {
+			$threshold = $statsData['false'][$stat]['threshold'];
+			// Invert to turn a "false" threshold to "true".
+			$threshold = 1 - $threshold;
+			return $threshold;
+		} elseif ( isset( $statsData['true'][$stat]['threshold'] ) ) {
+			$threshold = $statsData['true'][$stat]['threshold'];
+			return $threshold;
 		}
 
-		$this->logger->warning(
-			'Unable to parse threshold.',
+		throw new \RuntimeException(
+			'Unable to parse threshold: ' . json_encode(
 			[
-				'model' => $model,
 				'levelName' => $levelName,
 				'levelConfig' => $config,
 				'bound' => $bound,
-				'statsData' => print_r( $statsData, true ),
-			]
+				'statsData' => $statsData,
+			] )
 		);
 	}
 
