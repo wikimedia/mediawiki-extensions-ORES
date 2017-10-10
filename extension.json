@@ -10,6 +10,7 @@
 	"url": "https://www.mediawiki.org/wiki/Extension:ORES",
 	"AutoloadClasses": {
 		"ORES\\Api": "includes/Api.php",
+		"ORES\\ApiV1": "includes/ApiV1.php",
 		"ORES\\Cache": "includes/Cache.php",
 		"ORES\\Hooks": "includes/Hooks.php",
 		"ORES\\Hooks\\ApiHooksHandler": "includes/Hooks/ApiHooksHandler.php",
@@ -18,6 +19,7 @@
 		"ORES\\Range": "includes/Range.php",
 		"ORES\\Scoring": "includes/Scoring.php",
 		"ORES\\Stats": "includes/Stats.php",
+		"ORES\\StatsV1": "includes/StatsV1.php",
 		"ORES\\ApiQueryORES": "includes/ApiQueryORES.php",
 		"ORES\\WatchedItemQueryServiceExtension": "includes/WatchedItemQueryServiceExtension.php"
 	},
