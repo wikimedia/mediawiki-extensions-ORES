@@ -164,6 +164,7 @@
 				"vandalism": 3
 			}
 		},
+		"@OresFiltersThresholds": "Interval endpoints are calculated using a formula.\n\nTODO: Simplify the grammar and support lists of conditions to build a threshold.",
 		"OresFiltersThresholds": {
 			"damaging": {
 				"likelygood": { "min": 0, "max": "recall_at_precision(min_precision=0.995)" },
@@ -185,6 +186,7 @@
 		"OresRevisionsPerBatch": 30,
 		"@OresAPIMaxBatchJobs": "Number of jobs to schedule to fetch scores in the background when more than OresRevisionsPerBatch missing scores have been requested. Each job will fetch scores for another OresRevisionsPerBatch revisions, as long as they are cacheable (within the recentchanges table).",
 		"OresAPIMaxBatchJobs": 3,
+		"@OresCacheVersion": "Increment to invalidate the cached thresholds.",
 		"OresCacheVersion": 1
 	},
 	"RecentChangesFlags": {
