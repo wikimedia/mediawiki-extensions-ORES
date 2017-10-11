@@ -7,7 +7,14 @@
 	},
 	"ores-beta-feature-description": "ORES je alat koji označava vjerojatno štetna uređivanja u nedavnim promjenama i popisu praćenja.",
 	"ores-damaging-letter": "š",
-	"ores-damaging-legend": "Moguće štetno uređivanje koje treba biti pregledano. ([[:mw:Special:MyLanguage/ORES review tool|više informacija]])",
+	"ores-damaging-legend": "Ovo uređivanje možda je problematično i treba biti provjereno ([[:mw:Special:MyLanguage/ORES review tool|više informacija]])",
 	"ores-hide-nondamaging-filter": "Skrij vjerojatno dobra uređivanja",
+	"ores-rcfilters-whats-this-link-text": "Saznajte više",
+	"ores-rcfilters-damaging-maybebad-label": "Moguće postojanje problema",
+	"ores-rcfilters-damaging-maybebad-desc": "Pronalazi većinu nesavršenih ili štetnih uređivanja, no manjom točnošću.",
+	"ores-rcfilters-damaging-likelybad-label": "Vjerojatno postojanje problema",
+	"ores-rcfilters-damaging-likelybad-desc-low": "Prosječnom točnošću pronalazi dio problematičnih uređivanja, ali na srednjoj razini učinkovitosti pronalaženja.",
+	"ores-rcfilters-damaging-verylikelybad-label": "Vrlo vjerojatno postojanje problema",
+	"ores-rcfilters-damaging-verylikelybad-desc": "Iznimno precizan i vrlo točan u pronalaženju većine na očigled nesavršenih ili štetnih uređivanja.",
 	"ores-pref-highlight": "Označi potencijalno problematična uređivanja bojama i sa slovom »{{int:ores-damaging-letter}}« za „potrebna provjera”"
 }
