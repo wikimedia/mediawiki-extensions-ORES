@@ -46,6 +46,11 @@ class Cache {
 	 */
 	public function storeScores( array $scores ) {
 		$dbData = [];
+
+		// Dig down to the scores.
+		$wikiId = Api::getWikiID();
+		$scores = $scores[$wikiId]['scores'];
+
 		foreach ( $scores as $revision => $revisionData ) {
 			$this->processRevision( $dbData, $revision, $revisionData );
 		}
@@ -197,7 +202,7 @@ class Cache {
 				continue;
 			}
 
-			$prediction = $modelOutputs['prediction'];
+			$prediction = $modelOutputs['score']['prediction'];
 			// Kludge out booleans so we can match prediction against class name.
 			if ( $prediction === false ) {
 				$prediction = 'false';
@@ -209,7 +214,7 @@ class Cache {
 			if ( !isset( $wgOresModelClasses[ $model ] ) ) {
 				throw new RuntimeException( "Model $model is not configured" );
 			}
-			foreach ( $modelOutputs['probability'] as $class => $probability ) {
+			foreach ( $modelOutputs['score']['probability'] as $class => $probability ) {
 				$ores_is_predicted = $prediction === $class;
 				if ( !isset( $wgOresModelClasses[ $model ][ $class ] ) ) {
 					throw new RuntimeException( "Class $class in model $model is not configured" );

@@ -12,6 +12,9 @@ use ORES;
  */
 class OresCacheTest extends MediaWikiLangTestCase {
 
+	const DAMAGING_OLD = 1;
+	const REVERTED = 2;
+	const DAMAGING = 3;
 	/**
 	 * @var ORES\Cache
 	 */
@@ -32,16 +35,19 @@ class OresCacheTest extends MediaWikiLangTestCase {
 		$db = \wfGetDB( DB_MASTER );
 		$dump = [
 			[
+				'oresm_id' => self::DAMAGING,
 				'oresm_name' => 'damaging',
 				'oresm_version' => '0.0.2',
 				'oresm_is_current' => true
 			],
 			[
+				'oresm_id' => self::REVERTED,
 				'oresm_name' => 'reverted',
 				'oresm_version' => '0.0.1',
 				'oresm_is_current' => true
 			],
 			[
+				'oresm_id' => self::DAMAGING_OLD,
 				'oresm_name' => 'damaging',
 				'oresm_version' => '0.0.1',
 				'oresm_is_current' => false
@@ -89,14 +95,16 @@ class OresCacheTest extends MediaWikiLangTestCase {
 			[
 				[
 					'damaging' => [
-						'prediction' => true,
-						'probability' => [ 'true' => 0.9, 'false' => 0.1 ]
+						'score' => [
+							'prediction' => true,
+							'probability' => [ 'true' => 0.9, 'false' => 0.1 ]
+						],
 					],
 				],
 				[
 					[
 						'oresc_rev' => 1111,
-						'oresc_model' => '1',
+						'oresc_model' => (string)self::DAMAGING,
 						'oresc_class' => 1,
 						'oresc_probability' => 0.9,
 						'oresc_is_predicted' => true
@@ -107,25 +115,29 @@ class OresCacheTest extends MediaWikiLangTestCase {
 			[
 				[
 					'damaging' => [
-						'prediction' => true,
-						'probability' => [ 'true' => 0.6, 'false' => 0.4 ]
+						'score' => [
+							'prediction' => true,
+							'probability' => [ 'true' => 0.6, 'false' => 0.4 ]
+						],
 					],
 					'reverted' => [
-						'prediction' => false,
-						'probability' => [ 'true' => 0.3, 'false' => 0.7 ]
+						'score' => [
+							'prediction' => false,
+							'probability' => [ 'true' => 0.3, 'false' => 0.7 ]
+						],
 					]
 				],
 				[
 					[
 						'oresc_rev' => 12345,
-						'oresc_model' => '1',
+						'oresc_model' => (string)self::DAMAGING,
 						'oresc_class' => 1,
 						'oresc_probability' => 0.6,
 						'oresc_is_predicted' => true
 					],
 					[
 						'oresc_rev' => 12345,
-						'oresc_model' => '2',
+						'oresc_model' => (string)self::REVERTED,
 						'oresc_class' => 1,
 						'oresc_probability' => 0.3,
 						'oresc_is_predicted' => false
@@ -150,65 +162,57 @@ class OresCacheTest extends MediaWikiLangTestCase {
 		return [
 			[
 				[
-					12345 => [
-						'damaging' => [
-							'prediction' => true,
-							'probability' => [ 'true' => 0.6, 'false' => 0.4 ]
+					'wiki' => [
+						'models' => [
+							'damaging' => [
+								'version' => '0.3.0',
+							],
+							'goodfaith' => [
+								'version' => '0.3.0',
+							],
 						],
-						'reverted' => [
-							'prediction' => false,
-							'probability' => [ 'true' => 0.3, 'false' => 0.7 ]
-						]
-					]
+						'scores' => [
+							'12345' => [
+								'damaging' => [
+									'score' => [
+										'prediction' => false,
+										'probability' => [
+											'false' => 0.933,
+											'true' => 0.067,
+										],
+									],
+								],
+								'reverted' => [
+									'score' => [
+										'prediction' => true,
+										'probability' => [
+											'false' => 0.124,
+											'true' => 0.876,
+									   ],
+								   ],
+							   ],
+							],
+						],
+					],
 				],
 				[
 					(object)[
 						'oresc_rev' => '12345',
-						'oresc_model' => '1',
+						'oresc_model' => (string)self::REVERTED,
 						'oresc_class' => '1',
-						'oresc_probability' => '0.600',
+						'oresc_probability' => '0.876',
 						'oresc_is_predicted' => '1'
 					],
 					(object)[
 						'oresc_rev' => '12345',
-						'oresc_model' => '2',
+						'oresc_model' => (string)self::DAMAGING,
 						'oresc_class' => '1',
-						'oresc_probability' => '0.300',
+						'oresc_probability' => '0.067',
 						'oresc_is_predicted' => '0'
 					],
 				],
-				[ 12345 ]
+				[ 12345 ],
 			],
-			[
-				[
-					1111 => [
-						'damaging' => [
-							'prediction' => true,
-							'probability' => [ 'true' => 0.8, 'false' => 0.2 ]
-						],
-					],
-					12345 => [
-						'damaging' => [
-							'prediction' => true,
-							'probability' => [ 'true' => 0.6, 'false' => 0.4 ]
-						],
-						'reverted' => [
-							'prediction' => false,
-							'probability' => [ 'true' => 0.3, 'false' => 0.7 ]
-						]
-					]
-				],
-				[
-					(object)[
-						'oresc_rev' => '1111',
-						'oresc_model' => '1',
-						'oresc_class' => '1',
-						'oresc_probability' => '0.800',
-						'oresc_is_predicted' => '1'
-					],
-				],
-				[ 1111 ]
-			]
 		];
 	}
 
@@ -216,6 +220,10 @@ class OresCacheTest extends MediaWikiLangTestCase {
 	 * @dataProvider storeScoresProvider
 	 */
 	public function testStoreScores( $scores, $expected, $revIds ) {
+		$this->setMwGlobals( [
+			'wgOresWikiId' => 'wiki',
+		] );
+
 		$this->cache->storeScores( $scores );
 
 		$dbr = \wfGetDB( DB_REPLICA );
