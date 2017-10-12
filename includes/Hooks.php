@@ -58,7 +58,7 @@ class Hooks {
 	 * @param RecentChange $rc
 	 */
 	public static function onRecentChange_save( RecentChange $rc ) {
-		global $wgOresExcludeBots, $wgOresEnabledNamespaces, $wgOresModels;
+		global $wgOresExcludeBots, $wgOresEnabledNamespaces, $wgOresModels, $wgOresDraftQualityNS;
 		if ( $rc->getAttribute( 'rc_bot' ) && $wgOresExcludeBots ) {
 			return;
 		}
@@ -75,8 +75,10 @@ class Hooks {
 		$rc_type = $rc->getAttribute( 'rc_type' );
 		$models = array_keys( array_filter( $wgOresModels ) );
 		if ( $rc_type === RC_EDIT || $rc_type === RC_NEW ) {
-			// Do not store draftquality data when it's not a new page
-			if ( $rc_type !== RC_NEW ) {
+			// Do not store draftquality data when it's not a new page in article or draft ns
+			if ( $rc_type !== RC_NEW ||
+				!( isset( $wgOresDraftQualityNS[$ns] ) && $wgOresDraftQualityNS[$ns] )
+			) {
 				$models = array_diff( $models, [ 'draftquality' ] );
 			}
 
