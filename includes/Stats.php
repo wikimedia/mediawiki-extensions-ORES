@@ -95,13 +95,13 @@ class Stats {
 						return $this->fetchStatsFromApi( $model );
 					} catch ( \RuntimeException $ex ) {
 						// Magic to trigger an exception.
-						return [];
+						return -1;
 					}
 				}
 			);
 			// @deprecated Magic exception to allow caching of failure and
 			// falling back to StatsV1.
-			if ( count( $result ) === 0 ) {
+			if ( $result === -1 ) {
 				throw new \RuntimeException( 'Cached failure.' );
 			}
 			return $result;
