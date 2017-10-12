@@ -39,7 +39,7 @@ class Api {
 	/**
 	 * @return string Wiki ID used by ORES.
 	 */
-	public function getWikiID() {
+	public static function getWikiID() {
 		global $wgOresWikiId;
 		if ( $wgOresWikiId ) {
 			$wikiId = $wgOresWikiId;
@@ -55,7 +55,7 @@ class Api {
 	public function getUrl() {
 		global $wgOresBaseUrl;
 
-		$wikiId = $this->getWikiID();
+		$wikiId = self::getWikiID();
 		$prefix = 'v' . self::API_VERSION;
 		$url = "{$wgOresBaseUrl}{$prefix}/scores/{$wikiId}/";
 		return $url;
