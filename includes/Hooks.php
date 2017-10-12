@@ -215,8 +215,10 @@ class Hooks {
 							// Make the joins INNER JOINs instead of LEFT JOINs
 							$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
 							$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
-							// Performance hack: add STRAIGHT_JOIN (146111)
-							$query_options[] = 'STRAIGHT_JOIN';
+							// Performance hack: add STRAIGHT_JOIN (T146111) but not for Watchlist (T176456 / T164796)
+							if ( $specialClassName !== 'SpecialWatchlist' ) {
+								$query_options[] = 'STRAIGHT_JOIN';
+							}
 						}
 					},
 				] );
@@ -295,8 +297,10 @@ class Hooks {
 							// Make the joins INNER JOINs instead of LEFT JOINs
 							$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
 							$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
-							// Performance hack: add STRAIGHT_JOIN (146111)
-							$query_options[] = 'STRAIGHT_JOIN';
+							// Performance hack: add STRAIGHT_JOIN (T146111) but not for Watchlist (T176456 / T164796)
+							if ( $specialClassName !== 'SpecialWatchlist' ) {
+								$query_options[] = 'STRAIGHT_JOIN';
+							}
 						},
 					]
 				],
@@ -384,8 +388,10 @@ class Hooks {
 							// Make the joins INNER JOINs instead of LEFT JOINs
 							$join_conds['ores_goodfaith_mdl'][0] = 'INNER JOIN';
 							$join_conds['ores_goodfaith_cls'][0] = 'INNER JOIN';
-							// Performance hack: add STRAIGHT_JOIN (146111)
-							$query_options[] = 'STRAIGHT_JOIN';
+							// Performance hack: add STRAIGHT_JOIN (T146111) but not for Watchlist (T176456 / T164796)
+							if ( $specialClassName !== 'SpecialWatchlist' ) {
+								$query_options[] = 'STRAIGHT_JOIN';
+							}
 						}
 					},
 				] );
