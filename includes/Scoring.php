@@ -29,9 +29,9 @@ class Scoring {
 		];
 
 		if ( $this->originalRequest === null ) {
-			$api = Api::newFromContext();
+			$api = ApiV1::newFromContext();
 		} else {
-			$api = new Api();
+			$api = new ApiV1();
 			$api->setOriginalRequest( $this->originalRequest );
 		}
 		$wireData = $api->request( array_merge( $params, $extra_params ) );

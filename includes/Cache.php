@@ -38,6 +38,7 @@ class Cache {
 
 	/**
 	 * Save scores to the database
+	 * FIXME: Move responsibility for response processing to the Scoring class.
 	 *
 	 * @param array[] $scores in the same structure as is returned by ORES.
 	 *
