@@ -145,7 +145,7 @@ class Stats {
 
 		$formulaParam = implode( "|", $calculatedThresholds );
 		$data = $this->api->request( [ 'models' => $model, 'model_info' => $formulaParam ] );
-		$wikiId = $this->api->getWikiID();
+		$wikiId = Api::getWikiID();
 
 		// Traverse the data path.
 		$prefix = [ $wikiId, 'models', $model, 'statistics', 'thresholds' ];

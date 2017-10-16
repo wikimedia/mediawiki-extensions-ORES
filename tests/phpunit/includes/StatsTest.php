@@ -97,10 +97,10 @@ class StatsTest extends \MediaWikiTestCase {
 					'verylikelybad' => [ 'min' => 'recall_at_precision(min_precision=0.9)', 'max' => 1 ],
 				],
 			],
+			'wgOresWikiId' => 'wiki',
 		] );
 
 		$api = $this->getMockBuilder( Api::class )->getMock();
-		$api->method( 'getWikiID' )->willReturn( 'wiki' );
 		$api
 			->expects( $this->exactly( 1 ) )
 			->method( 'request' )
@@ -159,10 +159,10 @@ class StatsTest extends \MediaWikiTestCase {
 					'verylikelybad' => [ 'min' => 'maximum recall @ precision >= 0.9', 'max' => 1 ],
 				],
 			],
+			'wgOresWikiId' => 'wiki',
 		] );
 
 		$api = $this->getMockBuilder( Api::class )->getMock();
-		$api->method( 'getWikiID' )->willReturn( 'wiki' );
 		$api
 			->expects( $this->exactly( 1 ) )
 			->method( 'request' )
@@ -224,10 +224,10 @@ class StatsTest extends \MediaWikiTestCase {
 					'verylikelybad' => [ 'min' => 'maximum recall @ precision >= 0.9', 'max' => 1 ],
 				],
 			],
+			'wgOresWikiId' => 'wiki',
 		] );
 
 		$api = $this->getMockBuilder( Api::class )->getMock();
-		$api->method( 'getWikiID' )->willReturn( 'wiki' );
 		$api
 			->expects( $this->exactly( 1 ) )
 			->method( 'request' )
