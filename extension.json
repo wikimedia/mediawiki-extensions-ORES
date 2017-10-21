@@ -183,7 +183,10 @@
 			"_merge_strategy": "array_plus_2d"
 		},
 		"OresEnabledNamespaces": {},
-		"OresDraftQualityNS": { "0": true },
+		"OresDraftQualityNS": {
+			"0": true,
+			"_merge_strategy": "array_plus"
+		},
 		"OresWikiId": null,
 		"@OresRevisionsPerBatch": "Number of revisions to fetch scores for from the ORES API per request when the MediaWiki API is asked to score revisions which are not cached. Set to 0 to disable fetching (scores will still be fetched for new edits).",
 		"OresRevisionsPerBatch": 30,
