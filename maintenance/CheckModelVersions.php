@@ -61,16 +61,16 @@ class CheckModelVersions extends Maintenance {
 	 * @throws \RuntimeException
 	 */
 	protected function getModels() {
-		global $wgOresWikiId;
+		$wikiId = Api::getWikiID();
 		$timestamp = \wfTimestampNow();
 		$api = new Api();
 		// Bypass the varnish cache
 		$modelData = $api->request( [ $timestamp => true ] );
-		if ( !isset( $modelData[$wgOresWikiId] ) || empty( $modelData[$wgOresWikiId]['models'] ) ) {
+		if ( !isset( $modelData[$wikiId] ) || empty( $modelData[$wikiId]['models'] ) ) {
 			throw new \RuntimeException( 'Bad response from ORES when requesting models: '
 				. json_encode( $modelData ) );
 		}
-		return $modelData[$wgOresWikiId]['models'];
+		return $modelData[$wikiId]['models'];
 	}
 
 }
