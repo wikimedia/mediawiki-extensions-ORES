@@ -14,6 +14,7 @@ use ApiResult;
 use DeferredUpdates;
 use JobQueueGroup;
 use MediaWiki\Logger\LoggerFactory;
+use ORES\Api;
 use ORES\Cache;
 use ORES\FetchScoreJob;
 use ORES\Hooks;
@@ -301,6 +302,15 @@ class ApiHooksHandler {
 			}
 
 			$loadedScores = Scoring::instance()->getScores( $revids );
+
+			// T178962
+			$wiki = Api::getWikiID();
+			if (
+				isset( $loadedScores[$wiki] ) &&
+				isset( $loadedScores[$wiki]['scores'] )
+			) {
+				$loadedScores = $loadedScores[$wiki]['scores'];
+			}
 
 			$cache = Cache::instance();
 			$cache->setErrorCallback( function ( $mssg, $revision ) use ( &$scores ) {
