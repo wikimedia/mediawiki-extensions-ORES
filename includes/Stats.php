@@ -184,7 +184,7 @@ class Stats {
 	protected function mungeV1Forumula( $v1Formula ) {
 		if ( false !== strpos( $v1Formula, '@' ) ) {
 			// This is new-style already, pass through.
-			return $formula;
+			return $v1Formula;
 		} elseif ( preg_match(
 			'/recall_at_precision\(min_precision=(0\.\d+)\)/',
 			$v1Formula, $matches )
