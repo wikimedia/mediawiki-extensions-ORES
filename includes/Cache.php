@@ -47,10 +47,6 @@ class Cache {
 	public function storeScores( array $scores ) {
 		$dbData = [];
 
-		// Dig down to the scores.
-		$wikiId = Api::getWikiID();
-		$scores = $scores[$wikiId]['scores'];
-
 		foreach ( $scores as $revision => $revisionData ) {
 			$this->processRevision( $dbData, $revision, $revisionData );
 		}

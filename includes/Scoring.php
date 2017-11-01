@@ -35,6 +35,11 @@ class Scoring {
 			$api->setOriginalRequest( $this->originalRequest );
 		}
 		$wireData = $api->request( array_merge( $params, $extra_params ) );
+
+		// Dig down to the scores.
+		$wikiId = Api::getWikiID();
+		$wireData = $wireData[$wikiId]['scores'];
+
 		return $wireData;
 	}
 

@@ -224,6 +224,10 @@ class OresCacheTest extends MediaWikiLangTestCase {
 			'wgOresWikiId' => 'wiki',
 		] );
 
+		// Nasty that we do this processing here (and nastier that we were
+		// previously doing it in Cache).
+		$scores = $scores['wiki']['scores'];
+
 		$this->cache->storeScores( $scores );
 
 		$dbr = \wfGetDB( DB_REPLICA );
