@@ -85,15 +85,18 @@ class Stats {
 			$key = $this->cache->makeKey( 'ORES', 'threshold_statistics', $model, $wgOresCacheVersion );
 			$result = $this->cache->getWithSetCallback(
 				$key,
-				// FIXME: Should be TTL_DAY, set to TTL_MINUTE during the breaking transition.
-				\WANObjectCache::TTL_MINUTE,
+				\WANObjectCache::TTL_DAY,
 				function () use ( $model ) {
+					$statsdDataFactory = MediaWikiServices::getInstance()->getStatsdDataFactory();
 					// @deprecated Only catching exceptions to allow the
 					// failure to be cached, remove once transition is
 					// complete.
 					try {
-						return $this->fetchStatsFromApi( $model );
+						$result = $this->fetchStatsFromApi( $model );
+						$statsdDataFactory->increment( 'ores.api.stats.ok' );
+						return $result;
 					} catch ( \RuntimeException $ex ) {
+						$statsdDataFactory->increment( 'ores.api.stats.failed' );
 						// Magic to trigger an exception.
 						return -1;
 					}
