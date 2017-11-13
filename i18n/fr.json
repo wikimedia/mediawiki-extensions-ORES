@@ -56,7 +56,7 @@
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Très précis pour trouver les modifications de mauvaise foi les plus évidentes.",
 	"ores-pref-highlight": "Surligner les modifications probablement problématiques avec des couleurs et un « {{int:ores-damaging-letter}} » pour « nécessite une relecture »",
 	"ores-pref-rc-hidenondamaging": "Afficher uniquement les modifications probablement problématiques (et masquer celles probablement bonnes)",
-	"ores-pref-watchlist-hidenondamaging": "Afficher uniquement les modifications probablement problématiques (et masquer celles probablement bonnes)",
+	"ores-pref-watchlist-hidenondamaging": "Afficher uniquement les modifications paraissant problématiques (et masquer celles probablement bonnes)",
 	"prefs-ores": "Score de révision",
 	"apihelp-query+ores-description": "Renvoyer la configuration ORES et les données du modèle pour ce wiki.",
 	"apihelp-query+ores-summary": "Renvoyer la configuration ORES et les données du modèle pour ce wiki.",
