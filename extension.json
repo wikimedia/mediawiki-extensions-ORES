@@ -13,6 +13,8 @@
 		"ORES\\Cache": "includes/Cache.php",
 		"ORES\\Hooks": "includes/Hooks.php",
 		"ORES\\Hooks\\ApiHooksHandler": "includes/Hooks/ApiHooksHandler.php",
+		"ORES\\Hooks\\ChangesListHooksHandler": "includes/Hooks/ChangesListHooksHandler.php",
+		"ORES\\Hooks\\ContributionsHooksHandler": "includes/Hooks/ContributionsHooksHandler.php",
 		"ORES\\Hooks\\PreferencesHookHandler": "includes/Hooks/PreferencesHookHandler.php",
 		"ORES\\FetchScoreJob": "includes/FetchScoreJob.php",
 		"ORES\\Range": "includes/Range.php",
@@ -50,19 +52,19 @@
 			"ORES\\Hooks::onBeforePageDisplay"
 		],
 		"ChangesListSpecialPageStructuredFilters": [
-			"ORES\\Hooks::onChangesListSpecialPageStructuredFilters"
+			"ORES\\Hooks\\ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters"
 		],
 		"ChangesListSpecialPageQuery": [
-			"ORES\\Hooks::onChangesListSpecialPageQuery"
+			"ORES\\Hooks\\ChangesListHooksHandler::onChangesListSpecialPageQuery"
 		],
 		"ContribsPager::getQueryInfo": [
-			"ORES\\Hooks::onContribsGetQueryInfo"
+			"ORES\\Hooks\\ContributionsHooksHandler::onContribsGetQueryInfo"
 		],
 		"EnhancedChangesListModifyBlockLineData": [
-			"ORES\\Hooks::onEnhancedChangesListModifyBlockLineData"
+			"ORES\\Hooks\\ChangesListHooksHandler::onEnhancedChangesListModifyBlockLineData"
 		],
 		"EnhancedChangesListModifyLineData": [
-			"ORES\\Hooks::onEnhancedChangesListModifyLineData"
+			"ORES\\Hooks\\ChangesListHooksHandler::onEnhancedChangesListModifyLineData"
 		],
 		"GetBetaFeaturePreferences": [
 			"ORES\\Hooks::onGetBetaFeaturePreferences"
@@ -74,7 +76,7 @@
 			"ORES\\Hooks::onLoadExtensionSchemaUpdates"
 		],
 		"OldChangesListRecentChangesLine": [
-			"ORES\\Hooks::onOldChangesListRecentChangesLine"
+			"ORES\\Hooks\\ChangesListHooksHandler::onOldChangesListRecentChangesLine"
 		],
 		"RecentChange_save": [
 			"ORES\\Hooks::onRecentChange_save"
@@ -83,13 +85,13 @@
 			"ORES\\Hooks::onRecentChangesPurgeRows"
 		],
 		"SpecialContributions::formatRow::flags": [
-			"ORES\\Hooks::onSpecialContributionsFormatRowFlags"
+			"ORES\\Hooks\\ContributionsHooksHandler::onSpecialContributionsFormatRowFlags"
 		],
 		"ContributionsLineEnding": [
-			"ORES\\Hooks::onContributionsLineEnding"
+			"ORES\\Hooks\\ContributionsHooksHandler::onContributionsLineEnding"
 		],
 		"SpecialContributions::getForm::filters": [
-			"ORES\\Hooks::onSpecialContributionsGetFormFilters"
+			"ORES\\Hooks\\ContributionsHooksHandler::onSpecialContributionsGetFormFilters"
 		]
 	},
 	"ResourceFileModulePaths": {
