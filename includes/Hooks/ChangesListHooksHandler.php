@@ -51,10 +51,13 @@ class ChangesListHooksHandler {
 		if ( Hooks::isModelEnabled( 'damaging' ) ) {
 			if ( $clsp instanceof SpecialRecentChanges ) {
 				$damagingDefault = $clsp->getUser()->getOption( 'oresRCHideNonDamaging' );
+				$highlightDefault = $clsp->getUser()->getBoolOption( 'ores-damaging-flag-rc' );
 			} elseif ( $clsp instanceof SpecialWatchlist ) {
 				$damagingDefault = $clsp->getUser()->getOption( 'oresWatchlistHideNonDamaging' );
+				$highlightDefault = $clsp->getUser()->getBoolOption( 'oresHighlight' );
 			} else {
 				$damagingDefault = false;
+				$highlightDefault = false;
 			}
 
 			$damagingLevels = $stats->getThresholds( 'damaging' );
@@ -170,18 +173,23 @@ class ChangesListHooksHandler {
 				}
 
 				if ( $damagingDefault ) {
-					$newDamagingGroup->setDefault( Hooks::getDamagingLevelPreference( $clsp->getUser
-					() ) );
+					$newDamagingGroup->setDefault( Hooks::getDamagingLevelPreference(
+						$clsp->getUser(),
+						$clsp->getPageTitle()
+					) );
 				}
 
-				if ( $clsp->getUser()->getBoolOption( 'oresHighlight' ) ) {
+				if ( $highlightDefault ) {
 					$levelsColors = [
 						'maybebad' => 'c3',
 						'likelybad' => 'c4',
 						'verylikelybad' => 'c5',
 					];
 
-					$prefLevel = Hooks::getDamagingLevelPreference( $clsp->getUser() );
+					$prefLevel = Hooks::getDamagingLevelPreference(
+						$clsp->getUser(),
+						$clsp->getPageTitle()
+					);
 					$allLevels = array_keys( $levelsColors );
 					$applicableLevels = array_slice( $allLevels, array_search( $prefLevel, $allLevels ) );
 					$applicableLevels = array_intersect( $applicableLevels, array_keys( $filters ) );
@@ -209,7 +217,7 @@ class ChangesListHooksHandler {
 						'default' => $damagingDefault,
 						'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables,
 								&$fields, &$conds, &$query_options, &$join_conds ) {
-							Hooks::hideNonDamagingFilter( $fields, $conds, true, $ctx->getUser() );
+							Hooks::hideNonDamagingFilter( $fields, $conds, true, $ctx->getUser(), $ctx->getTitle() );
 							// Filter out incompatible types; log actions and external rows are not scorable
 							$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
 							// Filter out patrolled edits: the 'r' doesn't appear for them
@@ -493,10 +501,9 @@ class ChangesListHooksHandler {
 	 * @return bool
 	 */
 	public static function getScoreRecentChangesList( $rcObj, IContextSource $context ) {
-		global $wgUser;
 		$threshold = $rcObj->getAttribute( 'ores_damaging_threshold' );
 		if ( $threshold === null ) {
-			$threshold = Hooks::getThreshold( 'damaging', $wgUser );
+			$threshold = Hooks::getThreshold( 'damaging', $context->getUser(), $context->getTitle() );
 		}
 		$score = $rcObj->getAttribute( 'ores_damaging_score' );
 		$patrolled = $rcObj->getAttribute( 'rc_patrolled' );

@@ -29,6 +29,7 @@ use Skin;
 use SpecialRecentChanges;
 use SpecialWatchlist;
 use User;
+use Title;
 
 class Hooks {
 	// The oresDamagingPref preference uses these names for historical reasons
@@ -126,10 +127,15 @@ class Hooks {
 	 * Internal helper to get damaging level preference
 	 * with backward compatibility for old level names
 	 * @param User $user
+	 * @param Title $title
 	 * @return string 'maybebad', 'likelybad', or 'verylikelybad'
 	 */
-	public static function getDamagingLevelPreference( User $user ) {
-		$pref = $user->getOption( 'oresDamagingPref' );
+	public static function getDamagingLevelPreference( User $user, Title $title = null ) {
+		$option = !$title || self::isWLPage( $title ) ?
+				'oresDamagingPref' :
+				'rcOresDamagingPref';
+
+		$pref = $user->getOption( $option );
 		if ( isset( self::$damagingPrefMap[ $pref ] ) ) {
 			$pref = self::$damagingPrefMap[ $pref ];
 		}
@@ -140,12 +146,13 @@ class Hooks {
 	 * Internal helper to get threshold
 	 * @param string $type
 	 * @param User $user
+	 * @param Title|null $title
 	 * @return float|null Threshold, or null if not set
 	 * @throws Exception When $type is not recognized
 	 */
-	public static function getThreshold( $type, User $user ) {
+	public static function getThreshold( $type, User $user, Title $title = null ) {
 		if ( $type === 'damaging' ) {
-			$pref = self::getDamagingLevelPreference( $user );
+			$pref = self::getDamagingLevelPreference( $user, $title );
 			$thresholds = self::getDamagingThresholds();
 			if ( isset( $thresholds[ $pref ] ) ) {
 				return $thresholds[ $pref ];
@@ -246,20 +253,20 @@ class Hooks {
 	}
 
 	/**
-	 * @param IContextSource $context
-	 * @return bool Whether $context->getTitle() is a RecentChanges page
+	 * @param Title $title
+	 * @return bool Whether $title is a RecentChanges page
 	 */
-	private static function isRCPage( IContextSource $context ) {
-		return $context->getTitle()->isSpecial( 'Recentchanges' ) ||
-			$context->getTitle()->isSpecial( 'Recentchangeslinked' );
+	private static function isRCPage( Title $title ) {
+		return $title->isSpecial( 'Recentchanges' ) ||
+			$title->isSpecial( 'Recentchangeslinked' );
 	}
 
 	/**
-	 * @param IContextSource $context
-	 * @return bool Whether $context->getTitle() is the Watchlist page
+	 * @param Title $title
+	 * @return bool Whether $title is the Watchlist page
 	 */
-	private static function isWLPage( IContextSource $context ) {
-		return $context->getTitle()->isSpecial( 'Watchlist' );
+	private static function isWLPage( Title $title ) {
+		return $title->isSpecial( 'Watchlist' );
 	}
 
 	public static function isRCStructuredUiEnabled( IContextSource $context ) {
@@ -295,12 +302,12 @@ class Hooks {
 			return false;
 		}
 
-		if ( self::isRCPage( $context ) ) {
+		if ( self::isRCPage( $context->getTitle() ) ) {
 			return !self::isRCStructuredUiEnabled( $context ) &&
 				$user->getBoolOption( 'ores-damaging-flag-rc' );
 		}
 
-		if ( self::isWLPage( $context ) ) {
+		if ( self::isWLPage( $context->getTitle() ) ) {
 			return !self::isWLStructuredUiEnabled( $context ) &&
 				$user->getBoolOption( 'oresHighlight' );
 		}
@@ -368,11 +375,12 @@ class Hooks {
 		array &$fields,
 		array &$conds,
 		$hidenondamaging,
-		$user
+		User $user,
+		Title $title = null
 	) {
 		$dbr = \wfGetDB( DB_REPLICA );
 		// Add user-based threshold
-		$threshold = self::getThreshold( 'damaging', $user );
+		$threshold = self::getThreshold( 'damaging', $user, $title );
 		if ( $threshold === null ) {
 			return;
 		}
