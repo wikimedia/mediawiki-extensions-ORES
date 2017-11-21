@@ -30,6 +30,7 @@ use RCCacheEntry;
 use RecentChange;
 use SpecialRecentChanges;
 use SpecialWatchlist;
+use Wikimedia\Rdbms\IDatabase;
 
 class ChangesListHooksHandler {
 
@@ -571,7 +572,7 @@ class ChangesListHooksHandler {
 				$ranges
 			);
 
-			return \wfGetDB( DB_REPLICA )->makeList( $betweenConditions, \IDatabase::LIST_OR );
+			return \wfGetDB( DB_REPLICA )->makeList( $betweenConditions, IDatabase::LIST_OR );
 		}
 	}
 

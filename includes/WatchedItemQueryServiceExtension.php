@@ -18,10 +18,10 @@
 
 namespace ORES;
 
-use IDatabase;
 use ORES\Hooks\ApiHooksHandler;
 use ResultWrapper;
 use User;
+use Wikimedia\Rdbms\IDatabase;
 
 class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtension {
 
