@@ -131,7 +131,7 @@ class ContributionsHooksHandler {
 				$page->msg( 'ores-hide-nondamaging-filter' )->text(),
 				'hidenondamaging',
 				'ores-hide-nondamaging',
-				$page->getContext()->getRequest()->getVal( 'hidenondamaging' ),
+				$page->getRequest()->getVal( 'hidenondamaging' ),
 				[ 'class' => 'mw-input' ]
 			)
 		);
