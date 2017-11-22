@@ -248,6 +248,10 @@ class Stats {
 				$statsData
 			);
 
+			if ( $max === null ) {
+				continue;
+			}
+
 			if ( is_numeric( $min ) && is_numeric( $max ) ) {
 				$thresholds[$levelName] = [
 					'min' => $min,
@@ -264,7 +268,9 @@ class Stats {
 		}
 
 		$stat = $config;
-		if ( $bound === 'max' && isset( $statsData['false'][$stat]['threshold'] ) ) {
+		if ( $bound === 'max' && $statsData['false'][$stat] === null ) {
+			return null;
+		} elseif ( $bound === 'max' && isset( $statsData['false'][$stat]['threshold'] ) ) {
 			$threshold = $statsData['false'][$stat]['threshold'];
 			// Invert to turn a "false" threshold to "true".
 			$threshold = 1 - $threshold;
