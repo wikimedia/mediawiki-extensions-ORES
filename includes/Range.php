@@ -67,7 +67,7 @@ class Range {
 	 * @return bool
 	 */
 	public function overlaps( Range $other ) {
-		return max( $this->getMin(), $other->getMin() ) <= min( $this->getMax(), $other->getMax() );
+		return max( $this->min, $other->min ) <= min( $this->max, $other->max );
 	}
 
 	/**
@@ -76,8 +76,8 @@ class Range {
 	 * @param Range $other
 	 */
 	public function combineWith( Range $other ) {
-		$this->min = min( $this->getMin(), $other->getMin() );
-		$this->max = max( $this->getMax(), $other->getMax() );
+		$this->min = min( $this->min, $other->min );
+		$this->max = max( $this->max, $other->max );
 	}
 
 }
