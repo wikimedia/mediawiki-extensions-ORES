@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0edf5380_93b3804c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2017-11-24T15:53:28Z",
+      "side": 1,
+      "message": "Tabs? Quite unusual.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 1
+      },
+      "revId": "90d28dfd54a189585455fc00b0b28aac378f6b8a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_d394e88f",
+        "filename": "i18n/en.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2017-11-24T15:53:28Z",
+      "side": 1,
+      "message": "I think we don\u0027t want to treat these are proper nouns.\n\n\"Revision scoring on watchlist\"\n\"Revision scoring on recent changes, related changes and user contribution pages\"",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 86
+      },
+      "revId": "90d28dfd54a189585455fc00b0b28aac378f6b8a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_93e1c02c",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2017-11-24T15:53:28Z",
+      "side": 1,
+      "message": "I am not sure whether we have established practice for this, but instead of type-hinting it with null, I would remove the null and add mention that it is optional. Nobody should be passing null explicitly.",
+      "range": {
+        "startLine": 130,
+        "startChar": 2,
+        "endLine": 130,
+        "endChar": 28
+      },
+      "revId": "90d28dfd54a189585455fc00b0b28aac378f6b8a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_73debc71",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2017-11-24T15:53:28Z",
+      "side": 1,
+      "message": "Very compact but not super readable.",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 25
+      },
+      "revId": "90d28dfd54a189585455fc00b0b28aac378f6b8a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_f3d80c82",
+        "filename": "includes/Hooks/ContributionsHooksHandler.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2017-11-24T15:53:28Z",
+      "side": 1,
+      "message": "Should be \u0027u\u0027.",
+      "range": {
+        "startLine": 143,
+        "startChar": 4,
+        "endLine": 143,
+        "endChar": 5
+      },
+      "revId": "90d28dfd54a189585455fc00b0b28aac378f6b8a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_93c8a0ac",
+        "filename": "includes/Hooks/ContributionsHooksHandler.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2017-11-24T15:53:28Z",
+      "side": 1,
+      "message": "No such param.",
+      "revId": "90d28dfd54a189585455fc00b0b28aac378f6b8a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
