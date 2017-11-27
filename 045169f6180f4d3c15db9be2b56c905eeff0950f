@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0edf5380_7af7a8f2",
+        "filename": "includes/Stats.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-11-27T13:50:22Z",
+      "side": 1,
+      "message": "How about an ERROR severity?  This isn\u0027t actually a recoverable problem, we\u0027re degrading the service, and sysadmin action needs to be taken.",
+      "revId": "045169f6180f4d3c15db9be2b56c905eeff0950f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
