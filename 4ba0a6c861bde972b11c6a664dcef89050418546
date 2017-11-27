@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0edf5380_0dc8e424",
+        "filename": "includes/Storage/ModelLookup.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-11-27T18:00:10Z",
+      "side": 1,
+      "message": "Upper the \"ID\", just cos \"id\" is a word.",
+      "revId": "4ba0a6c861bde972b11c6a664dcef89050418546",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_6de410a4",
+        "filename": "includes/Storage/ModelLookup.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-11-27T18:00:10Z",
+      "side": 1,
+      "message": "Only latest versions, right?\n\nThis could be called getCurrentModels, as you wish.  But the documentation should definitely explain this constraint.",
+      "revId": "4ba0a6c861bde972b11c6a664dcef89050418546",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_4de94c7b",
+        "filename": "includes/Storage/SqlModelLookup.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-11-27T18:00:10Z",
+      "side": 1,
+      "message": "Why different license blocks here vs. in ModelLookup?",
+      "revId": "4ba0a6c861bde972b11c6a664dcef89050418546",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_4da02c3f",
+        "filename": "includes/Storage/SqlModelLookup.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-11-27T18:00:10Z",
+      "side": 1,
+      "message": "Could be static, eh?",
+      "revId": "4ba0a6c861bde972b11c6a664dcef89050418546",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_2d9168fc",
+        "filename": "includes/Storage/SqlModelLookup.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-11-27T18:00:10Z",
+      "side": 1,
+      "message": "Is this a common signature?  The only example I see in mw-core is WatchedItemQueryService, everywhere else we use the factory.",
+      "revId": "4ba0a6c861bde972b11c6a664dcef89050418546",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
