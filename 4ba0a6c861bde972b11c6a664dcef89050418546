@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0edf5380_8d7874c1",
+        "filename": "includes/Storage/ModelLookup.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-11-27T18:12:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0edf5380_0dc8e424",
+      "revId": "4ba0a6c861bde972b11c6a664dcef89050418546",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0edf5380_6de410a4",
         "filename": "includes/Storage/ModelLookup.php",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-11-27T18:00:10Z",
       "side": 1,
       "message": "Only latest versions, right?\n\nThis could be called getCurrentModels, as you wish.  But the documentation should definitely explain this constraint.",
+      "revId": "4ba0a6c861bde972b11c6a664dcef89050418546",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_ed85c0a0",
+        "filename": "includes/Storage/ModelLookup.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-11-27T18:12:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0edf5380_6de410a4",
       "revId": "4ba0a6c861bde972b11c6a664dcef89050418546",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "0edf5380_2d4e889b",
+        "filename": "includes/Storage/SqlModelLookup.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-11-27T18:12:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0edf5380_4de94c7b",
+      "revId": "4ba0a6c861bde972b11c6a664dcef89050418546",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0edf5380_4da02c3f",
         "filename": "includes/Storage/SqlModelLookup.php",
         "patchSetId": 2
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "0edf5380_0d53c444",
+        "filename": "includes/Storage/SqlModelLookup.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-11-27T18:12:02Z",
+      "side": 1,
+      "message": "Lazy loading sounds better to me.",
+      "parentUuid": "0edf5380_4da02c3f",
+      "revId": "4ba0a6c861bde972b11c6a664dcef89050418546",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0edf5380_2d9168fc",
         "filename": "includes/Storage/SqlModelLookup.php",
         "patchSetId": 2
@@ -81,6 +153,24 @@
       "writtenOn": "2017-11-27T18:00:10Z",
       "side": 1,
       "message": "Is this a common signature?  The only example I see in mw-core is WatchedItemQueryService, everywhere else we use the factory.",
+      "revId": "4ba0a6c861bde972b11c6a664dcef89050418546",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_ad629804",
+        "filename": "includes/Storage/SqlModelLookup.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-11-27T18:12:02Z",
+      "side": 1,
+      "message": "This is the common pattern in Wikibase, we wire all services using a singleton and then have methods like OresServices::getDefaultInstance()-\u003egetModelLookup() and that thing lazy load this class to be able to cache things.",
+      "parentUuid": "0edf5380_2d9168fc",
       "revId": "4ba0a6c861bde972b11c6a664dcef89050418546",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
