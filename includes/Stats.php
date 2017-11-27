@@ -248,7 +248,15 @@ class Stats {
 				$statsData
 			);
 
-			if ( $max === null ) {
+			if ( $max === null || $min === null ) {
+				$data = [
+					'levelName' => $levelName,
+					'levelConfig' => $config,
+					'max' => $max,
+					'min' => $min,
+					'statsData' => $statsData,
+				];
+				$this->logger->error( 'Unable to parse threshold: ' . json_encode( $data ) );
 				continue;
 			}
 
@@ -280,15 +288,7 @@ class Stats {
 			return $threshold;
 		}
 
-		throw new \RuntimeException(
-			'Unable to parse threshold: ' . json_encode(
-			[
-				'levelName' => $levelName,
-				'levelConfig' => $config,
-				'bound' => $bound,
-				'statsData' => $statsData,
-			] )
-		);
+		return null;
 	}
 
 	/**
