@@ -19,6 +19,7 @@ namespace ORES;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use Psr\Log\LoggerInterface;
+use WANObjectCache;
 
 class Stats {
 
@@ -42,7 +43,7 @@ class Stats {
 	 * @param \WANObjectCache $cache
 	 * @param LoggerInterface $logger
 	 */
-	public function __construct( Api $api, \WANObjectCache $cache, LoggerInterface $logger ) {
+	public function __construct( Api $api, WANObjectCache $cache, LoggerInterface $logger ) {
 		$this->api = $api;
 		$this->cache = $cache;
 		$this->logger = $logger;
@@ -52,7 +53,7 @@ class Stats {
 		$config = $this->getFiltersConfig( $model );
 		// Skip if the model is unconfigured or set to false.
 		if ( $config ) {
-			$stats = $this->tryFetchStats( $model, $fromCache );
+			$stats = $this->fetchStats( $model, $fromCache );
 			// Skip if stats are empty.
 			if ( $stats !== false ) {
 				return $this->parseThresholds( $stats, $model );
@@ -84,23 +85,14 @@ class Stats {
 		return $config;
 	}
 
-	private function tryFetchStats( $model, $fromCache ) {
-		try {
-			return $this->fetchStats( $model, $fromCache );
-		} catch ( \RuntimeException $exception ) {
-			$this->logger->error( 'Failed to fetch ORES stats: ' . $exception->getMessage() );
-			return false;
-		}
-	}
-
 	private function fetchStats( $model, $fromCache ) {
 		global $wgOresCacheVersion;
 		if ( $fromCache ) {
 			$key = $this->cache->makeKey( 'ORES', 'threshold_statistics', $model, $wgOresCacheVersion );
 			$result = $this->cache->getWithSetCallback(
 				$key,
-				\WANObjectCache::TTL_DAY,
-				function () use ( $model ) {
+				WANObjectCache::TTL_DAY,
+				function ( $oldValue, &$ttl, &$setOpts, $opts ) use ( $model ) {
 					$statsdDataFactory = MediaWikiServices::getInstance()->getStatsdDataFactory();
 					// @deprecated Only catching exceptions to allow the
 					// failure to be cached, remove once transition is
@@ -108,10 +100,18 @@ class Stats {
 					try {
 						$result = $this->fetchStatsFromApi( $model );
 						$statsdDataFactory->increment( 'ores.api.stats.ok' );
+
 						return $result;
 					} catch ( \RuntimeException $ex ) {
+						// TODO: We can also check the service *before* the
+						// cached value expires, and therefore reuse the old
+						// value until the service recovers in case of failure.
 						$statsdDataFactory->increment( 'ores.api.stats.failed' );
-						throw $ex;
+						$this->logger->error( 'Failed to fetch ORES stats.' );
+
+						// Retry again soon.
+						$ttl = WANObjectCache::TTL_MINUTE;
+						return [];
 					}
 				}
 			);
@@ -276,7 +276,9 @@ class Stats {
 		}
 
 		$stat = $config;
-		if ( $bound === 'max' && $statsData['false'][$stat] === null ) {
+		if ( !isset( $statsData['false'] ) || !isset( $statsData['true'] ) ) {
+			return null;
+		} elseif ( $bound === 'max' && $statsData['false'][$stat] === null ) {
 			return null;
 		} elseif ( $bound === 'max' && isset( $statsData['false'][$stat]['threshold'] ) ) {
 			$threshold = $statsData['false'][$stat]['threshold'];
