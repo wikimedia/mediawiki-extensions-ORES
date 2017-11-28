@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0edf5380_181499eb",
+        "filename": "includes/Stats.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2017-11-28T22:34:05Z",
+      "side": 1,
+      "message": "Might wanna add WANObjectCache here so usage can be without the leading slash.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 28
+      },
+      "revId": "c52cd456fe53fdf6999aedf2cf54d93af0fd7bd8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
