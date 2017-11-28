@@ -22,6 +22,29 @@
       "revId": "c52cd456fe53fdf6999aedf2cf54d93af0fd7bd8",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_78be85d2",
+        "filename": "includes/Stats.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2017-11-28T22:36:41Z",
+      "side": 1,
+      "message": "false is reserved for \"there is no value\" (e.g. when calling get() directly, or when internal wrappers check whether or not to process-cache, etc.).\n\nTo cache an empty value, use something else. E.g. null is most common for this purpose.",
+      "range": {
+        "startLine": 112,
+        "startChar": 13,
+        "endLine": 112,
+        "endChar": 19
+      },
+      "revId": "c52cd456fe53fdf6999aedf2cf54d93af0fd7bd8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
