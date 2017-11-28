@@ -113,7 +113,13 @@ class Stats {
 						$ttl = WANObjectCache::TTL_MINUTE;
 						return [];
 					}
-				}
+				},
+				[
+					// Try to only let one datacenter thread manage cache updates at a time
+					'lockTSE' => 10,
+					// Avoid querying cache servers multiple times in a web request
+					'pcTTL' => WANObjectCache::TTL_PROC_LONG,
+				]
 			);
 			return $result;
 		} else {
