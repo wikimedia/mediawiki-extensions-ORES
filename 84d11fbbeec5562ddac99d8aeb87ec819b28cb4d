@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0edf5380_bed47dbf",
+        "filename": "includes/Storage/ModelLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-11-28T12:32:42Z",
+      "side": 1,
+      "message": "Is this really necessary when the @license tag is present? Can you please remove this junk everywhere and only have a single COPYING file? Than would be awesome.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 3
+      },
+      "revId": "84d11fbbeec5562ddac99d8aeb87ec819b28cb4d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_9ecd3937",
+        "filename": "includes/Storage/ModelLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-11-28T12:32:42Z",
+      "side": 1,
+      "message": "I wish this would help me understand better what kind of \"model\" is meant. \"Model\" is a super-generic word, you know.",
+      "range": {
+        "startLine": 22,
+        "startChar": 36,
+        "endLine": 22,
+        "endChar": 46
+      },
+      "revId": "84d11fbbeec5562ddac99d8aeb87ec819b28cb4d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_5ec3b10a",
+        "filename": "includes/Storage/ModelLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-11-28T12:32:42Z",
+      "side": 1,
+      "message": "I don\u0027t think the interface should talk about \"caching\".\n\nAlso \"version of […] version\" is an awkward description. Is this a version number string like \"0.0.0\"?",
+      "range": {
+        "startLine": 40,
+        "startChar": 19,
+        "endLine": 40,
+        "endChar": 54
+      },
+      "revId": "84d11fbbeec5562ddac99d8aeb87ec819b28cb4d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_de8501b3",
+        "filename": "includes/Storage/ModelLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-11-28T12:32:42Z",
+      "side": 1,
+      "message": "Please be much more specific about what this method will return. For example:\n\n@return array[] Array of [ \u0027id\u0027 \u003d\u003e int $id, \u0027version\u0027 \u003d\u003e string $version ], indexed by model name.",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 53
+      },
+      "revId": "84d11fbbeec5562ddac99d8aeb87ec819b28cb4d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_be559d54",
+        "filename": "includes/Storage/ModelLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-11-28T12:32:42Z",
+      "side": 1,
+      "message": "array[]",
+      "range": {
+        "startLine": 47,
+        "startChar": 12,
+        "endLine": 47,
+        "endChar": 20
+      },
+      "revId": "84d11fbbeec5562ddac99d8aeb87ec819b28cb4d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_defea134",
+        "filename": "includes/Storage/SqlModelLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-11-28T12:32:42Z",
+      "side": 1,
+      "message": "This is just copy-pasted from the interface and should be removed. The @see should be enough.",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 46
+      },
+      "revId": "84d11fbbeec5562ddac99d8aeb87ec819b28cb4d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_fede05dd",
+        "filename": "includes/Storage/SqlModelLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-11-28T12:32:42Z",
+      "side": 1,
+      "message": "array[]",
+      "range": {
+        "startLine": 69,
+        "startChar": 12,
+        "endLine": 69,
+        "endChar": 20
+      },
+      "revId": "84d11fbbeec5562ddac99d8aeb87ec819b28cb4d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
