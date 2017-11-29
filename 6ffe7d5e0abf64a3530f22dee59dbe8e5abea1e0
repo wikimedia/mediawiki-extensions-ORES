@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0edf5380_13311a01",
+        "filename": "includes/Stats.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2017-11-29T01:32:09Z",
+      "side": 1,
+      "message": "This actually happens by default.\n\nBoth the \u0027lowTTL\u0027 and \u0027hotTTR\u0027 option are enabled by default, which means in the minutes leading up to the value expiring, increasingly positive randomness may decide to trigger the callback early for a hit during that time.\n\nFor those hits, the callback will be invoked with a non-false $oldValue.\nSo below you might want to $oldValue ?: [].\n\nThe ttl can still be a minute like now.",
+      "range": {
+        "startLine": 106,
+        "startChar": 9,
+        "endLine": 106,
+        "endChar": 57
+      },
+      "revId": "6ffe7d5e0abf64a3530f22dee59dbe8e5abea1e0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
