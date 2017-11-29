@@ -22,6 +22,7 @@ use Html;
 use ORES\Hooks;
 use RequestContext;
 use SpecialContributions;
+use IContextSource;
 use Xml;
 
 class ContributionsHooksHandler {
@@ -41,8 +42,6 @@ class ContributionsHooksHandler {
 		}
 
 		if ( Hooks::isModelEnabled( 'damaging' ) ) {
-			$request = $pager->getContext()->getRequest();
-
 			Hooks::joinWithOresTables(
 				'damaging',
 				'rev_id',
@@ -54,8 +53,9 @@ class ContributionsHooksHandler {
 			Hooks::hideNonDamagingFilter(
 				$query['fields'],
 				$query['conds'],
-				$request->getVal( 'hidenondamaging' ),
-				$pager->getUser()
+				self::hideNonDamagingPreference( $pager->getContext() ),
+				$pager->getUser(),
+				$pager->getTitle()
 			);
 		}
 	}
@@ -131,10 +131,28 @@ class ContributionsHooksHandler {
 				$page->msg( 'ores-hide-nondamaging-filter' )->text(),
 				'hidenondamaging',
 				'ores-hide-nondamaging',
-				$page->getRequest()->getVal( 'hidenondamaging' ),
+				self::hideNonDamagingPreference( $page->getContext() ),
 				[ 'class' => 'mw-input' ]
 			)
 		);
+	}
+
+	/**
+	 * Get user preference for hiding non-damaging edits, either by:
+	 * - URL parameter 'hidenondamaging' or
+	 * - User preference 'oresRCHideNonDamaging'
+	 *
+	 * @param IContextSource $context
+	 * @return string|boolean $option URL string param or boolean user preference
+	 */
+	private static function hideNonDamagingPreference( IContextSource $context ) {
+		$option = $context->getRequest()->getVal( 'hidenondamaging' );
+
+		if ( $option === null ) {
+			$option = $context->getUser()->getOption( 'oresRCHideNonDamaging' );
+		}
+
+		return $option;
 	}
 
 }

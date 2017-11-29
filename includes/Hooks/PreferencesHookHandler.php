@@ -17,9 +17,6 @@
 namespace ORES\Hooks;
 
 use ORES\Hooks;
-use DerivativeContext;
-use DerivativeRequest;
-use RequestContext;
 use User;
 
 class PreferencesHookHandler {
@@ -32,7 +29,7 @@ class PreferencesHookHandler {
 	 * @param string[] &$preferences
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
-		global $wgOresFiltersThresholds, $wgOresExtensionStatus, $wgHiddenPrefs;
+		global $wgOresFiltersThresholds, $wgOresExtensionStatus;
 
 		if ( !Hooks::oresUiEnabled( $user ) || !Hooks::isModelEnabled( 'damaging' ) ) {
 			return;
@@ -53,11 +50,19 @@ class PreferencesHookHandler {
 				$options[ $text ] = $prefName;
 			}
 		}
-		$oresSection = $wgOresExtensionStatus === 'beta' ? 'rc/ores' : 'watchlist/ores';
+
 		$preferences['oresDamagingPref'] = [
 			'type' => 'select',
 			'label-message' => 'ores-pref-damaging',
-			'section' => $oresSection,
+			'section' => 'watchlist/ores-wl',
+			'options' => $options,
+			'help-message' => 'ores-help-damaging-pref',
+		];
+
+		$preferences['rcOresDamagingPref'] = [
+			'type' => 'select',
+			'label-message' => 'ores-pref-damaging',
+			'section' => 'rc/ores-rc',
 			'options' => $options,
 			'help-message' => 'ores-help-damaging-pref',
 		];
@@ -66,14 +71,14 @@ class PreferencesHookHandler {
 			// highlight damaging edits based on configured sensitivity
 			$preferences['oresHighlight'] = [
 				'type' => 'toggle',
-				'section' => $oresSection,
+				'section' => 'watchlist/ores-wl',
 				'label-message' => 'ores-pref-highlight',
 			];
 
 			// Control whether the "r" appears on RC
 			$preferences['ores-damaging-flag-rc'] = [
 				'type' => 'toggle',
-				'section' => 'rc/advancedrc',
+				'section' => 'rc/ores-rc',
 				'label-message' => 'ores-pref-damaging-flag',
 			];
 		}
@@ -81,26 +86,14 @@ class PreferencesHookHandler {
 		// Make hidenondamaging default
 		$preferences['oresWatchlistHideNonDamaging'] = [
 			'type' => 'toggle',
-			'section' => 'watchlist/ores',
+			'section' => 'watchlist/ores-wl',
 			'label-message' => 'ores-pref-watchlist-hidenondamaging',
 		];
 		$preferences['oresRCHideNonDamaging'] = [
 			'type' => 'toggle',
-			'section' => 'rc/advancedrc',
+			'section' => 'rc/ores-rc',
 			'label-message' => 'ores-pref-rc-hidenondamaging',
 		];
-
-		// Hide RC/wL prefs if enhanced filters are enabled
-		$context = new DerivativeContext( RequestContext::getMain() );
-		$context->setUser( $user );
-		$context->setRequest( new DerivativeRequest( $context->getRequest(), [] ) );
-		$rcFiltersEnabled = Hooks::isRCStructuredUiEnabled( $context );
-		// HACK: Note that this only hides the preferences on the preferences page,
-		// it does not cause them to behave as if they're set to their default value,
-		// because this hook only runs on the preferences page.
-		if ( $rcFiltersEnabled ) {
-			$wgHiddenPrefs[] = 'ores-damaging-flag-rc';
-		}
 	}
 
 }

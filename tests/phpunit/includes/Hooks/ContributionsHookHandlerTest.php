@@ -34,9 +34,11 @@ class ContributionsHookHandlerTest extends \MediaWikiTestCase {
 
 		$this->user = static::getTestUser()->getUser();
 		$this->user->setOption( 'ores-enabled', 1 );
-		$this->user->setOption( 'oresDamagingPref', 'maybebad' );
+		$this->user->setOption( 'rcOresDamagingPref', 'maybebad' );
 		$this->user->setOption( 'oresHighlight', 1 );
 		$this->user->setOption( 'ores-damaging-flag-rc', 1 );
+		$this->user->setOption( 'rcenhancedfilters', null );
+		$this->user->setOption( 'rcenhancedfilters-disable', true );
 		$this->user->saveSettings();
 
 		$this->context = self::getContext( $this->user );

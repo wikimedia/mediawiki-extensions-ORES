@@ -46,22 +46,23 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$preferences = [];
 		PreferencesHookHandler::onGetPreferences( $this->user, $preferences );
 		$this->assertArrayHasKey( 'oresDamagingPref', $preferences );
+		$this->assertArrayHasKey( 'rcOresDamagingPref', $preferences );
 		$this->assertArrayHasKey( 'oresWatchlistHideNonDamaging', $preferences );
 		$this->assertArrayHasKey( 'oresRCHideNonDamaging', $preferences );
 	}
 
 	public function testGetThreshold() {
-		$this->user->setOption( 'oresDamagingPref', 'maybebad' );
+		$this->user->setOption( 'rcOresDamagingPref', 'maybebad' );
 		$this->assertEquals(
 			0.16,
-			Hooks::getThreshold( 'damaging', $this->user )
+			Hooks::getThreshold( 'damaging', $this->user, $this->context->getTitle() )
 		);
 
 		// b/c
-		$this->user->setOption( 'oresDamagingPref', 'soft' );
+		$this->user->setOption( 'rcOresDamagingPref', 'soft' );
 		$this->assertEquals(
 			0.56,
-			Hooks::getThreshold( 'damaging', $this->user )
+			Hooks::getThreshold( 'damaging', $this->user, $this->context->getTitle() )
 		);
 	}
 
@@ -69,7 +70,7 @@ class OresHooksTest extends \MediaWikiTestCase {
 		$prefs = [];
 		PreferencesHookHandler::onGetPreferences( $this->user, $prefs );
 
-		$this->assertSame( 5, count( $prefs ) );
+		$this->assertSame( 6, count( $prefs ) );
 	}
 
 	public function testOnGetBetaFeaturePreferences_on() {
