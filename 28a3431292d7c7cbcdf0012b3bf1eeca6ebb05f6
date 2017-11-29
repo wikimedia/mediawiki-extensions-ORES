@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0edf5380_1e211ead",
+        "filename": "includes/Storage/ModelLookup.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-11-29T16:27:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0edf5380_dbba281e",
+      "range": {
+        "startLine": 32,
+        "startChar": 16,
+        "endLine": 32,
+        "endChar": 22
+      },
+      "revId": "28a3431292d7c7cbcdf0012b3bf1eeca6ebb05f6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0edf5380_bb9ac4bb",
         "filename": "includes/Storage/ModelLookup.php",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-29T11:20:18Z",
       "side": 1,
       "message": "As above.",
+      "range": {
+        "startLine": 40,
+        "startChar": 19,
+        "endLine": 40,
+        "endChar": 25
+      },
+      "revId": "28a3431292d7c7cbcdf0012b3bf1eeca6ebb05f6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_7e166a5b",
+        "filename": "includes/Storage/ModelLookup.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-11-29T16:27:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0edf5380_bb9ac4bb",
       "range": {
         "startLine": 40,
         "startChar": 19,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0edf5380_5e1ba682",
+        "filename": "includes/Storage/SqlModelLookup.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-11-29T16:27:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0edf5380_1b8bf073",
+      "range": {
+        "startLine": 37,
+        "startChar": 16,
+        "endLine": 37,
+        "endChar": 46
+      },
+      "revId": "28a3431292d7c7cbcdf0012b3bf1eeca6ebb05f6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0edf5380_7b803c4c",
         "filename": "includes/Storage/SqlModelLookup.php",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2017-11-29T11:20:18Z",
       "side": 1,
       "message": "This is more copy-paste that could be avoided. I believe the @see is enough.",
+      "range": {
+        "startLine": 53,
+        "startChar": 19,
+        "endLine": 53,
+        "endChar": 54
+      },
+      "revId": "28a3431292d7c7cbcdf0012b3bf1eeca6ebb05f6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_be10f25c",
+        "filename": "includes/Storage/SqlModelLookup.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-11-29T16:27:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0edf5380_7b803c4c",
       "range": {
         "startLine": 53,
         "startChar": 19,
