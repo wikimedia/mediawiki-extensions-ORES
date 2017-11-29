@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0edf5380_5b857859",
+        "filename": "includes/Storage/ModelLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-11-29T11:20:18Z",
+      "side": 1,
+      "message": "Sure. This was meant as a suggestion for a later patch.",
+      "parentUuid": "0edf5380_48eacc74",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 3
+      },
+      "revId": "84d11fbbeec5562ddac99d8aeb87ec819b28cb4d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0edf5380_9ecd3937",
         "filename": "includes/Storage/ModelLookup.php",
         "patchSetId": 3
