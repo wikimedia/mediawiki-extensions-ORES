@@ -564,6 +564,7 @@ class ChangesListHooksHandler {
 				);
 				$overlap = reset( $result );
 				if ( $overlap ) {
+					/** @var Range $overlap */
 					$overlap->combineWith( $range );
 				} else {
 					$ranges[] = $range;
