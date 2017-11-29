@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0edf5380_48eacc74",
+        "filename": "includes/Storage/ModelLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-11-29T10:11:03Z",
+      "side": 1,
+      "message": "Yeah, but it\u0027s already there in other files, I think we should do this in later patches",
+      "parentUuid": "0edf5380_bed47dbf",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 3
+      },
+      "revId": "84d11fbbeec5562ddac99d8aeb87ec819b28cb4d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0edf5380_9ecd3937",
         "filename": "includes/Storage/ModelLookup.php",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-28T12:32:42Z",
       "side": 1,
       "message": "I wish this would help me understand better what kind of \"model\" is meant. \"Model\" is a super-generic word, you know.",
+      "range": {
+        "startLine": 22,
+        "startChar": 36,
+        "endLine": 22,
+        "endChar": 46
+      },
+      "revId": "84d11fbbeec5562ddac99d8aeb87ec819b28cb4d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_c8fedc34",
+        "filename": "includes/Storage/ModelLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-11-29T10:11:03Z",
+      "side": 1,
+      "message": "In this extension, model has its own meaning which the \"model\" in concept of ORES.",
+      "parentUuid": "0edf5380_9ecd3937",
       "range": {
         "startLine": 22,
         "startChar": 36,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0edf5380_68e9907b",
+        "filename": "includes/Storage/ModelLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-11-29T10:11:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0edf5380_5ec3b10a",
+      "range": {
+        "startLine": 40,
+        "startChar": 19,
+        "endLine": 40,
+        "endChar": 54
+      },
+      "revId": "84d11fbbeec5562ddac99d8aeb87ec819b28cb4d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0edf5380_de8501b3",
         "filename": "includes/Storage/ModelLookup.php",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2017-11-28T12:32:42Z",
       "side": 1,
       "message": "Please be much more specific about what this method will return. For example:\n\n@return array[] Array of [ \u0027id\u0027 \u003d\u003e int $id, \u0027version\u0027 \u003d\u003e string $version ], indexed by model name.",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 53
+      },
+      "revId": "84d11fbbeec5562ddac99d8aeb87ec819b28cb4d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_88e4d4a4",
+        "filename": "includes/Storage/ModelLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-11-29T10:11:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0edf5380_de8501b3",
       "range": {
         "startLine": 45,
         "startChar": 4,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "0edf5380_28ef8883",
+        "filename": "includes/Storage/ModelLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-11-29T10:11:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0edf5380_be559d54",
+      "range": {
+        "startLine": 47,
+        "startChar": 12,
+        "endLine": 47,
+        "endChar": 20
+      },
+      "revId": "84d11fbbeec5562ddac99d8aeb87ec819b28cb4d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0edf5380_defea134",
         "filename": "includes/Storage/SqlModelLookup.php",
         "patchSetId": 3
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "0edf5380_a8fb9843",
+        "filename": "includes/Storage/SqlModelLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-11-29T10:11:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0edf5380_defea134",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 46
+      },
+      "revId": "84d11fbbeec5562ddac99d8aeb87ec819b28cb4d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0edf5380_fede05dd",
         "filename": "includes/Storage/SqlModelLookup.php",
         "patchSetId": 3
@@ -151,6 +295,30 @@
       "writtenOn": "2017-11-28T12:32:42Z",
       "side": 1,
       "message": "array[]",
+      "range": {
+        "startLine": 69,
+        "startChar": 12,
+        "endLine": 69,
+        "endChar": 20
+      },
+      "revId": "84d11fbbeec5562ddac99d8aeb87ec819b28cb4d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_08f9e44a",
+        "filename": "includes/Storage/SqlModelLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-11-29T10:11:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0edf5380_fede05dd",
       "range": {
         "startLine": 69,
         "startChar": 12,
