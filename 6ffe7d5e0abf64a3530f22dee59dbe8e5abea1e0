@@ -22,6 +22,30 @@
       "revId": "6ffe7d5e0abf64a3530f22dee59dbe8e5abea1e0",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0edf5380_a50c613e",
+        "filename": "includes/Stats.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2017-11-29T01:38:10Z",
+      "side": 1,
+      "message": "Asked Aaron for advice on this. He recommends that in the case where $oldValue still exists, would be better to change $ttl to TTL_UNCACHEABLE instead. That will instruct WANObjectCache to leave the old value unchanged (instead of re-creating it as new value with 1 minute expiry). This means that it won\u0027t have the risk of indefinite renewal and avoids other race conditions.\n\nFor example:\n\n if ( $oldValue ) {\n   $ttl \u003d $cache::TTL_UNCACHEABLE;\n   return $oldValue;\n } else {\n   $ttl \u003d $cache:TTL_MINUTE;\n   return [];\n }",
+      "parentUuid": "0edf5380_13311a01",
+      "range": {
+        "startLine": 106,
+        "startChar": 9,
+        "endLine": 106,
+        "endChar": 57
+      },
+      "revId": "6ffe7d5e0abf64a3530f22dee59dbe8e5abea1e0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
