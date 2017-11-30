@@ -70,7 +70,10 @@ class ContributionsHooksHandler {
 		}
 
 		// Doesn't have ores score, skipping.
-		if ( !isset( $row->ores_damaging_score ) ) {
+		if (
+			!isset( $row->ores_damaging_score ) ||
+			!isset( $row->ores_damaging_threshold )
+		) {
 			return;
 		}
 
