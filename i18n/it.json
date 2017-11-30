@@ -16,7 +16,7 @@
 	"ores-damaging-legend": "Questa modifica potrebbe avere problemi e dovrebbe essere rivista ([[:mw:Special:MyLanguage/ORES review tool|ulteriori informazioni]])",
 	"ores-hide-nondamaging-filter": "Nascondi probabili buone modifiche",
 	"ores-pref-damaging": "Soglia di predizione",
-	"ores-help-damaging-pref": "Imposta il livello di sensibilità delle opzioni \"Evidenzia le modifiche apparentemente problematiche...\" e \"Mostra solo le modifiche apparentemente problematiche...\" nelle pagine delle ultime modifiche e degli osservati speciali.",
+	"ores-help-damaging-pref": "Modifica l'impostazione della \"soglia\" per rendere le opzioni sotto più o meno selettive.",
 	"ores-rcfilters-whats-this-link-text": "Ulteriori informazioni",
 	"ores-rcfilters-damaging-likelygood-label": "Molto probabilmente buona",
 	"ores-rcfilters-damaging-maybebad-label": "Potrebbe avere problemi",
@@ -26,6 +26,5 @@
 	"ores-rcfilters-goodfaith-maybebad-label": "Potrebbe essere in malafede",
 	"ores-rcfilters-goodfaith-bad-label": "Probabile in malafede",
 	"ores-pref-rc-hidenondamaging": "Mostra solo le modifiche apparentemente problematiche (e nascondi le probabili buone modifiche)",
-	"ores-pref-watchlist-hidenondamaging": "Mostra solo le modifiche apparentemente problematiche (e nascondi le probabili buone modifiche)",
-	"prefs-ores": "Revisione del punteggio"
+	"ores-pref-watchlist-hidenondamaging": "Mostra solo le modifiche apparentemente problematiche (e nascondi le probabili buone modifiche)"
 }

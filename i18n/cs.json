@@ -14,7 +14,7 @@
 	"ores-damaging-legend": "Tato editace může být problematická a měla by se zkontrolovat ([[:mw:Special:MyLanguage/ORES review tool|další informace]])",
 	"ores-hide-nondamaging-filter": "Skrýt pravděpodobně dobré editace",
 	"ores-pref-damaging": "Práh predikce",
-	"ores-pref-damaging-flag": "Zvýrazňovat pravděpodobně problematické editace barvami a „{{int:ores-damaging-letter}}“ jako „problematická“ (hranici, za kterou dojde k označení editace, změníte volbou „{{int:ores-pref-damaging}}“ v záložce Sledované stránky)",
+	"ores-pref-damaging-flag": "Zvýrazňovat pravděpodobně problematické editace barvami a „{{int:ores-damaging-letter}}“ jako „problematická“",
 	"ores-damaging-maybebad": "Může mít problémy (označí většinu problematických editací, ale včetně mnoha falešných pozitiv)",
 	"ores-damaging-likelybad": "Pravděpodobně má problémy (střední pravděpodobnost)",
 	"ores-damaging-verylikelybad": "Velmi pravděpodobně má problémy (označí málo falešných pozitiv, ale najde menší % problematických editací)",
@@ -50,6 +50,5 @@
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "S velmi vysokou přesností odhalí většinu editací s očividně špatným úmyslem.",
 	"ores-pref-highlight": "Zvýrazňovat pravděpodobně problematické editace pomocí barev a „{{int:ores-damaging-letter}}“ jako „problematické“",
 	"ores-pref-rc-hidenondamaging": "Zobrazovat pouze pravděpodobně problematické editace (a skrýt pravděpodobně dobré editace)",
-	"ores-pref-watchlist-hidenondamaging": "Zobrazovat pouze pravděpodobně problematické editace (a skrýt pravděpodobně dobré editace)",
-	"prefs-ores": "Skórování revizí"
+	"ores-pref-watchlist-hidenondamaging": "Zobrazovat pouze pravděpodobně problematické editace (a skrýt pravděpodobně dobré editace)"
 }

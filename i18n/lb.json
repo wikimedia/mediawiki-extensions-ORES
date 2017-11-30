@@ -29,7 +29,7 @@
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Ganz genee beim Fanne vun den evidentsten Ännerung mat schlechter Absicht.",
 	"ores-pref-rc-hidenondamaging": "Nëmme wahrscheinech-problematesch Ännerunge weisen (a wahrscheinlech gutt Ännerunge verstoppen)",
 	"ores-pref-watchlist-hidenondamaging": "Nëmme wahrscheinlech problematesch Ännerunge weisen (a wahrscheinlech gutt Ännerunge verstoppen)",
-	"prefs-ores": "Bewäertung vun der Versioun",
+	"prefs-ores-wl": "Bewäertung vun de Versiounen op der Iwwerwaachungslëscht",
 	"apihelp-query+ores-example-simple": "ORES-Donnéeën ofruffen",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-Score fir d'Versioun.",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES-Score fir d'Versioun",

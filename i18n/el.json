@@ -2,12 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"GR",
-			"Thodoris"
+			"Thodoris",
+			"KATRINE1992"
 		]
 	},
 	"ores-damaging-legend": "This edit may have problems and should be reviewed ([[:mw:Special:MyLanguage/ORES review tool|more info]])",
+	"ores-pref-damaging-flag": "Φωτίσετε με χρώμα πιθανά λάθη έκδοσης και χρωματίστε επίσης το likely problem edits with colors and an \"{{int:ores-damaging-letter}}\"  \"χρειάζεται έλεγχο\"",
+	"ores-help-damaging-pref": "Αλλάξετε την ρύθμιση ''βάση'' για να κάνετε επιλογές",
 	"ores-rcfilters-whats-this-link-text": "Μάθετε περισσότερα",
 	"ores-rcfilters-damaging-verylikelybad-label": "Πολύ πιθανό να έχει προβλήματα",
 	"ores-pref-rc-hidenondamaging": "Εμφάνιση μόνο το πιθανό πρόβλημα να επεξεργάζεται (και να κρύψει μάλλον καλές επεξεργασίες)",
-	"ores-pref-watchlist-hidenondamaging": "Εμφάνιση μόνο το πιθανό πρόβλημα να επεξεργάζεται (και να κρύψει μάλλον καλές επεξεργασίες)"
+	"ores-pref-watchlist-hidenondamaging": "Εμφάνιση μόνο το πιθανό πρόβλημα να επεξεργάζεται (και να κρύψει μάλλον καλές επεξεργασίες)",
+	"prefs-ores-wl": "Σκορ επανάληψης στη λίστα Παρακολούθησης",
+	"prefs-ores-rc": "Σκορ (βαθμολογία)επανάληψης σε Πρόσφατες αλλαγές, Σχετικές αλλαγές, και Συνεισφορές"
 }
