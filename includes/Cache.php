@@ -169,30 +169,6 @@ class Cache {
 	}
 
 	/**
-	 * @param string $model
-	 *
-	 * @throws RuntimeException
-	 * @return string cached id of last seen version
-	 */
-	protected function getModelId( $model ) {
-		if ( isset( self::$modelIds[$model] ) ) {
-			return self::$modelIds[$model];
-		}
-
-		$modelId = \wfGetDB( DB_REPLICA )->selectField( 'ores_model',
-			'oresm_id',
-			[ 'oresm_name' => $model, 'oresm_is_current' => 1 ],
-			__METHOD__
-		);
-		if ( $modelId === false ) {
-			throw new RuntimeException( "No model available for [{$model}]" );
-		}
-
-		self::$modelIds[$model] = $modelId;
-		return $modelId;
-	}
-
-	/**
 	 * Convert data returned by Scoring::getScores() into ores_classification rows
 	 *
 	 * @note No row is generated for class 0
@@ -206,6 +182,7 @@ class Cache {
 		global $wgOresModelClasses;
 		// Map to database fields.
 
+		$modelLookup = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' );
 		foreach ( $revisionData as $model => $modelOutputs ) {
 			if ( isset( $modelOutputs['error'] ) ) {
 				call_user_func( $this->errorCallback, $modelOutputs['error']['message'], $revision );
@@ -220,7 +197,7 @@ class Cache {
 				$prediction = 'true';
 			}
 
-			$modelId = $this->getModelId( $model );
+			$modelId = $modelLookup->getModelId( $model );
 			if ( !isset( $wgOresModelClasses[ $model ] ) ) {
 				throw new RuntimeException( "Model $model is not configured" );
 			}
@@ -244,15 +221,6 @@ class Cache {
 				];
 			}
 		}
-	}
-
-	public function getModels() {
-		$models = \wfGetDB( DB_REPLICA )->selectFieldValues( 'ores_model',
-			'oresm_name',
-			[],
-			__METHOD__
-		);
-		return $models;
 	}
 
 	public static function instance() {

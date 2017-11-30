@@ -10,7 +10,7 @@ use ORES;
  * @group Database
  * @covers ORES\Cache
  */
-class OresCacheTest extends MediaWikiLangTestCase {
+class CacheTest extends MediaWikiLangTestCase {
 
 	const DAMAGING_OLD = 1;
 	const REVERTED = 2;
@@ -79,12 +79,6 @@ class OresCacheTest extends MediaWikiLangTestCase {
 		$this->assertSame( $expectedData, $this->cache->filterScores( $data, $whitelist ) );
 	}
 
-	public function testGetModels() {
-		$models = $this->cache->getModels();
-		// TODO: Fix duplicate entries
-		$this->assertSame( [ 'damaging', 'damaging', 'reverted' ], $models );
-	}
-
 	public function processRevisionProvider() {
 		return [
 			[
@@ -104,7 +98,7 @@ class OresCacheTest extends MediaWikiLangTestCase {
 				[
 					[
 						'oresc_rev' => 1111,
-						'oresc_model' => (string)self::DAMAGING,
+						'oresc_model' => self::DAMAGING,
 						'oresc_class' => 1,
 						'oresc_probability' => 0.9,
 						'oresc_is_predicted' => true
@@ -130,14 +124,14 @@ class OresCacheTest extends MediaWikiLangTestCase {
 				[
 					[
 						'oresc_rev' => 12345,
-						'oresc_model' => (string)self::DAMAGING,
+						'oresc_model' => self::DAMAGING,
 						'oresc_class' => 1,
 						'oresc_probability' => 0.6,
 						'oresc_is_predicted' => true
 					],
 					[
 						'oresc_rev' => 12345,
-						'oresc_model' => (string)self::REVERTED,
+						'oresc_model' => self::REVERTED,
 						'oresc_class' => 1,
 						'oresc_probability' => 0.3,
 						'oresc_is_predicted' => false

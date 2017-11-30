@@ -334,7 +334,7 @@ class ApiHooksHandler {
 				__METHOD__
 			);
 			foreach ( $res2 as $row ) {
-				$models[$row->oresm_id] = $row->oresm_name;
+				$models[(int)$row->oresm_id] = $row->oresm_name;
 			}
 
 			foreach ( $loadedScores as $revid => $data ) {

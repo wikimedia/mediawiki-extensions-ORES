@@ -28,6 +28,9 @@
 	"APIMetaModules": {
 		"ores": "ORES\\ApiQueryORES"
 	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
 	"Hooks": {
 		"APIGetAllowedParams": [
 			"ORES\\Hooks\\ApiHooksHandler::onAPIGetAllowedParams"
