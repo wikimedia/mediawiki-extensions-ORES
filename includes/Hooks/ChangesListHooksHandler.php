@@ -49,7 +49,7 @@ class ChangesListHooksHandler {
 		$logFilter = $changeTypeGroup->getFilter( 'hidelog' );
 
 		if ( Hooks::isModelEnabled( 'damaging' ) ) {
-			if ( $clsp instanceof SpecialRecentChanges || $clsp instanceof SpecialRecentChangesLinked ) {
+			if ( $clsp instanceof SpecialRecentChanges ) {
 				$damagingDefault = $clsp->getUser()->getOption( 'oresRCHideNonDamaging' );
 				$highlightDefault = $clsp->getUser()->getBoolOption( 'ores-damaging-flag-rc' );
 			} elseif ( $clsp instanceof SpecialWatchlist ) {
