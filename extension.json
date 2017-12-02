@@ -19,7 +19,7 @@
 		"ORES\\FetchScoreJob": "includes/FetchScoreJob.php",
 		"ORES\\Range": "includes/Range.php",
 		"ORES\\Scoring": "includes/Scoring.php",
-		"ORES\\Stats": "includes/Stats.php",
+		"ORES\\ThresholdLookup": "includes/ThresholdLookup.php",
 		"ORES\\Storage\\ModelLookup": "includes/Storage/ModelLookup.php",
 		"ORES\\Storage\\SqlModelLookup": "includes/Storage/SqlModelLookup.php",
 		"ORES\\ApiQueryORES": "includes/ApiQueryORES.php",

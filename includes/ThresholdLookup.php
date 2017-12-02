@@ -16,12 +16,11 @@
 
 namespace ORES;
 
-use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use Psr\Log\LoggerInterface;
 use WANObjectCache;
 
-class Stats {
+class ThresholdLookup {
 
 	/**
 	 * @var Api
@@ -29,7 +28,7 @@ class Stats {
 	private $api;
 
 	/**
-	 * @var \WANObjectCache
+	 * @var WANObjectCache
 	 */
 	private $cache;
 
@@ -40,7 +39,7 @@ class Stats {
 
 	/**
 	 * @param Api $api
-	 * @param \WANObjectCache $cache
+	 * @param WANObjectCache $cache
 	 * @param LoggerInterface $logger
 	 */
 	public function __construct( Api $api, WANObjectCache $cache, LoggerInterface $logger ) {
@@ -297,17 +296,6 @@ class Stats {
 		}
 
 		return null;
-	}
-
-	/**
-	 * @return self
-	 */
-	public static function newFromGlobalState() {
-		return new self(
-			Api::newFromContext(),
-			MediaWikiServices::getInstance()->getMainWANObjectCache(),
-			LoggerFactory::getInstance( 'ORES' )
-		);
 	}
 
 }
