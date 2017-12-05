@@ -53,7 +53,6 @@
 	"ores-pref-highlight": "متمایز کردن ویرایش‌های مشکل‌دار با رنگ‌ها و برچسب «{{int:ores-damaging-letter}}» به معنای «نیازمند بازبینی»",
 	"ores-pref-rc-hidenondamaging": "تنها ویرایش‌های احتمالاً مشکل‌دار را نشان بده (و ویرایش‌های احتمالاً خوب را پنهان کن)",
 	"ores-pref-watchlist-hidenondamaging": "تنها ویرایش‌های احتمالاً مشکل‌دار را نشان بده (و ویرایش‌های احتمالاً خوب را پنهان کن)",
-	"prefs-ores": "امتیازدهی به نسخه‌ها",
 	"apihelp-query+ores-description": "بازگردانی تنظیمات و داده‌های مدل ساعن برای این ویکی.",
 	"apihelp-query+ores-summary": "بازگردانی تنظیمات و داده‌های مدل ساعن برای این ویکی.",
 	"apihelp-query+ores-example-simple": "گرفتن اطلاعات ساعن:",

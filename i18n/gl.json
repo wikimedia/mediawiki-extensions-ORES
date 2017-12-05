@@ -50,7 +50,6 @@
 	"ores-pref-highlight": "Resaltar as edicións que probablemente teñen problemas con cores e un «{{int:ores-damaging-letter}}» para «necesita revisión»",
 	"ores-pref-rc-hidenondamaging": "Mostrar só edicións probablemente problemáticas (e ocultar as que probablemente son boas)",
 	"ores-pref-watchlist-hidenondamaging": "Mostrar só edicións probablemente problemáticas (e ocultar as que probablemente son boas)",
-	"prefs-ores": "Puntuación de revisión",
 	"apihelp-query+ores-description": "Devolver a configuración ORES e os datos do modelo para esta wiki.",
 	"apihelp-query+ores-summary": "Devolver a configuración ORES e os datos do modelo para esta wiki.",
 	"apihelp-query+ores-example-simple": "Recuperar os datos ORESː",

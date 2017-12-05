@@ -36,6 +36,5 @@
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Zeer waarschijnlijk met slechte wil",
 	"ores-pref-highlight": "Markeer waarschijnlijk problematische bewerkingen met kleuren en een \"{{int:ores-damaging-letter}}\" voor \"review nodig\"",
 	"ores-pref-rc-hidenondamaging": "Toon alleen mogelijke problematische bewerkingen (en verberg waarschijnlijke goede bewerkingen)",
-	"ores-pref-watchlist-hidenondamaging": "Mogelijke goede bewerkingen op mijn volglijst verbergen",
-	"prefs-ores": "Scoresysteem voor versies"
+	"ores-pref-watchlist-hidenondamaging": "Mogelijke goede bewerkingen op mijn volglijst verbergen"
 }

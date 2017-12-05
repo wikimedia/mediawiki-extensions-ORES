@@ -33,6 +33,5 @@
 	"ores-pref-highlight": "Tô màu các sửa đổi có lẽ có vấn đề và đánh dấu “{{int:ores-damaging-letter}}” có nghĩa “cần đuợc xem lại”",
 	"ores-pref-rc-hidenondamaging": "Chỉ các sửa đổi có lẽ có vấn đề (và ẩn các sửa đổi có lẽ tốt)",
 	"ores-pref-watchlist-hidenondamaging": "Chỉ các sửa đổi có lẽ có vấn đề (và ẩn các sửa đổi có lẽ tốt)",
-	"prefs-ores": "Đánh giá phiên bản",
 	"ores-api-show-note": "Khi sử dụng <kbd>oresreview</kbd> hoặc <kbd>!oresreview</kbd>, các phiên bản không có điểm (ví dụ các phiên bản rất cũ) được xem là không cần xem lại, mặc dù vẫn cần được xem lại nếu được đánh dấu."
 }

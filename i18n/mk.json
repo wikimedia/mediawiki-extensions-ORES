@@ -37,7 +37,6 @@
 	"ores-pref-highlight": "Истакни веројатно штетни уредувања во Набљудувани и Придонеси (користејќи го ORES)",
 	"ores-pref-rc-hidenondamaging": "Прикажи само уредувања што веројатно имаат проблеми (и скриј ги веројатно добрите)",
 	"ores-pref-watchlist-hidenondamaging": "Прикажи само уредувања што може да имаат проблеми (и скриј ги веројатно добрите)",
-	"prefs-ores": "Оценка на преработки",
 	"apihelp-query+ores-description": "Дава ORES-поставеност и податоци за моделот за ова вики.",
 	"apihelp-query+ores-example-simple": "Преземи ORES-податоци:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-оценки на преработката.",

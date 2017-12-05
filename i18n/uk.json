@@ -50,7 +50,6 @@
 	"ores-pref-highlight": "Виділяти вірогідно проблематичні редагування кольорами і позначкою «{{int:ores-damaging-letter}}» для тих, що «потребують перевірки»",
 	"ores-pref-rc-hidenondamaging": "Показати лише вірогідно проблематичні редагування (і приховати вірогідно позитивні)",
 	"ores-pref-watchlist-hidenondamaging": "Показати лише вірогідно проблематичні редагування (і приховати вірогідно позитивні)",
-	"prefs-ores": "Оцінка редагувань",
 	"apihelp-query+ores-description": "Повернути ORES-конфігурацію і модельні дані для цієї вікі.",
 	"apihelp-query+ores-summary": "Вивести ORES-конфігурацію і модельні дані для цієї вікі.",
 	"apihelp-query+ores-example-simple": "Отримати дані ORES:",

@@ -23,6 +23,5 @@
 	"ores-rcfilters-goodfaith-bad-desc-low": "Sa srednjom preciznošću, pronalazi prosečnu frakciju zlonamerne izmene.",
 	"ores-rcfilters-goodfaith-bad-desc-high": "Sa srednjom preciznošću, pronalazi većinu zlonamjernih izmjena.",
 	"ores-pref-highlight": "Označi potencijalno problematične izmene bojama i sa „{{int:ores-damaging-letter}}” za „potreban pregled”",
-	"ores-pref-watchlist-hidenondamaging": "Prikaži samo potencijalno problematične izmene (i sakrij verovatno dobre izmene)",
-	"prefs-ores": "Ocjenjivanje izmjena"
+	"ores-pref-watchlist-hidenondamaging": "Prikaži samo potencijalno problematične izmene (i sakrij verovatno dobre izmene)"
 }

@@ -52,7 +52,6 @@
 	"ores-pref-highlight": "להדגיש עריכות שכנראה בעייתיות בצבעים וב\"{{int:ores-damaging-letter}}\" עבור \"נדרשת סקירה\"",
 	"ores-pref-rc-hidenondamaging": "להציג עריכות שכנראה בעייתיות (והסתרה של עריכות שכנראה טובות)",
 	"ores-pref-watchlist-hidenondamaging": "להציג עריכות שכנראה בעייתיות (והסתרה של עריכות שכנראה טובות)",
-	"prefs-ores": "דירוג גרסאות",
 	"apihelp-query+ores-description": "החזרת הגדרות ORES ונתוני דגם עבור הוויקי הזה.",
 	"apihelp-query+ores-example-simple": "אחזור נתוני ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "דירוגי ORES עבור הגרסה הזאת.",

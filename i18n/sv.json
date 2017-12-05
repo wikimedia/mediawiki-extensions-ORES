@@ -29,7 +29,6 @@
 	"ores-pref-highlight": "Färgmarkera troliga problematiska redigeringar och en \"{{int:ores-damaging-letter}}\" för \"behöver granskning\"",
 	"ores-pref-rc-hidenondamaging": "Visa endast problematiska redigeringar (och dölj redigeringar med troligtvis goda avsikter)",
 	"ores-pref-watchlist-hidenondamaging": "Visa endast troligtvis problematiska redigeringar (och dölj redigeringar med troligtvis goda avsikter)",
-	"prefs-ores": "Sidversionspoäng",
 	"apihelp-query+ores-example-simple": "Hämta ORES-data:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-poäng för sidversionen.",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES-poäng för sidversionen.",
