@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eee3df47_858b1072",
+        "filename": "tests/phpunit/includes/ServiceWiringTest.php",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-12-06T15:50:58Z",
+      "side": 1,
+      "message": "Referencing a file instead of a full qualified class name is, I think, not going to do anything, and might even make certain tools fail.",
+      "range": {
+        "startLine": 9,
+        "startChar": 11,
+        "endLine": 9,
+        "endChar": 28
+      },
+      "revId": "18708e574ec2676cbdedb374d1b3746fc2cd74a5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
