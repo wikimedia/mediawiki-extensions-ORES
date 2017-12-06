@@ -18,6 +18,7 @@
 
 namespace ORES;
 
+use MediaWiki\MediaWikiServices;
 use ORES\Hooks\ApiHooksHandler;
 use ResultWrapper;
 use User;
@@ -80,12 +81,13 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 				], $db::LIST_OR );
 			}
 
-			$joinConds['ores_model'] = [ $join,
-				'oresm_name = ' . $db->addQuotes( 'damaging' ) . ' AND oresm_is_current = 1'
-			];
-			$joinConds['ores_classification'] = [ $join,
-				"rc_this_oldid = oresc_rev AND oresc_model = oresm_id AND oresc_class = 1"
-			];
+			$modelId = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )
+				->getModelId( 'damaging' );
+			$joinConds['ores_classification'] = [ $join, [
+				'rc_this_oldid' => 'oresc_rev',
+				'oresc_model' => $modelId,
+				'oresc_class' => 1
+			] ];
 		}
 	}
 

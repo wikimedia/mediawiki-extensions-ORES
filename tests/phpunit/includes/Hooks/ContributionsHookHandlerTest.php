@@ -5,6 +5,7 @@ namespace ORES\Tests;
 use ContribsPager;
 use IContextSource;
 use ORES\Hooks\ContributionsHooksHandler;
+use ORES\Storage\HashModelLookup;
 use RequestContext;
 use SpecialPage;
 use User;
@@ -31,6 +32,13 @@ class ContributionsHookHandlerTest extends \MediaWikiTestCase {
 			],
 			'wgOresWikiId' => 'testwiki',
 		] );
+
+		$modelData = [
+			'reverted' => [ 'id' => 2, 'version' => '0.0.1' ],
+			'damaging' => [ 'id' => 5, 'version' => '0.0.2' ],
+			'goodfaith' => [ 'id' => 7, 'version' => '0.0.3' ],
+		];
+		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
 
 		$this->user = static::getTestUser()->getUser();
 		$this->user->setOption( 'ores-enabled', 1 );
@@ -62,7 +70,6 @@ class ContributionsHookHandlerTest extends \MediaWikiTestCase {
 	public function provideOnContribsGetQueryInfo() {
 		$expected = [
 			'tables' => [
-				'ores_damaging_mdl' => 'ores_model',
 				'ores_damaging_cls' => 'ores_classification'
 			],
 			'fields' => [
@@ -71,18 +78,11 @@ class ContributionsHookHandlerTest extends \MediaWikiTestCase {
 			],
 			'conds' => [],
 			'join_conds' => [
-				'ores_damaging_mdl' => [
-					'LEFT JOIN',
-					[
-						'ores_damaging_mdl.oresm_is_current' => 1,
-						'ores_damaging_mdl.oresm_name' => 'damaging'
-					]
-				],
 				'ores_damaging_cls' => [
 					'LEFT JOIN',
 					[
-						'ores_damaging_cls.oresc_model = ores_damaging_mdl.oresm_id',
-						'rev_id = ores_damaging_cls.oresc_rev',
+						'ores_damaging_cls.oresc_model' => 5,
+						'ores_damaging_cls.oresc_rev' => 'rev_id',
 						'ores_damaging_cls.oresc_class' => 1
 					]
 				]

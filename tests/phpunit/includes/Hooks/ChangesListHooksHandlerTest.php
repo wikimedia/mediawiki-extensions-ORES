@@ -9,6 +9,7 @@ use FauxRequest;
 use FormOptions;
 use IContextSource;
 use ORES\Hooks\ChangesListHooksHandler;
+use ORES\Storage\HashModelLookup;
 use RCCacheEntry;
 use RecentChange;
 use RequestContext;
@@ -38,6 +39,12 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 			'wgOresWikiId' => 'testwiki',
 		] );
 
+		$modelData = [
+			'reverted' => [ 'id' => 2, 'version' => '0.0.1' ],
+			'damaging' => [ 'id' => 5, 'version' => '0.0.2' ],
+			'goodfaith' => [ 'id' => 7, 'version' => '0.0.3' ],
+		];
+		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
 		$this->user = static::getTestUser()->getUser();
 		$this->user->setOption( 'ores-enabled', 1 );
 		$this->user->setOption( 'rcOresDamagingPref', 'maybebad' );
@@ -76,6 +83,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 			'wgUser' => $this->user,
 			'wgOresModels' => $modelConfig
 		] );
+
 		$tables = [];
 		$fields = [];
 		$conds = [];
@@ -109,23 +117,16 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 				[ 'damaging' => true, 'goodfaith' => false ],
 				[
 					'tables' => [
-						'ores_damaging_mdl' => 'ores_model',
 						'ores_damaging_cls' => 'ores_classification'
 					],
 					'fields' => [
 						'ores_damaging_score' => 'ores_damaging_cls.oresc_probability',
 					],
 					'join_conds' => [
-						'ores_damaging_mdl' => [ 'LEFT JOIN',
-							[
-								'ores_damaging_mdl.oresm_is_current' => 1,
-								'ores_damaging_mdl.oresm_name' => 'damaging'
-							]
-						],
 						'ores_damaging_cls' => [ 'LEFT JOIN',
 							[
-								'ores_damaging_cls.oresc_model = ores_damaging_mdl.oresm_id',
-								'rc_this_oldid = ores_damaging_cls.oresc_rev',
+								'ores_damaging_cls.oresc_model' => 5,
+								'ores_damaging_cls.oresc_rev' => 'rc_this_oldid',
 								'ores_damaging_cls.oresc_class' => 1
 							]
 						]
@@ -136,23 +137,16 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 				[ 'damaging' => false, 'goodfaith' => true ],
 				[
 					'tables' => [
-						'ores_goodfaith_mdl' => 'ores_model',
 						'ores_goodfaith_cls' => 'ores_classification'
 					],
 					'fields' => [
 						'ores_goodfaith_score' => 'ores_goodfaith_cls.oresc_probability',
 					],
 					'join_conds' => [
-						'ores_goodfaith_mdl' => [ 'LEFT JOIN',
-							[
-								'ores_goodfaith_mdl.oresm_is_current' => 1,
-								'ores_goodfaith_mdl.oresm_name' => 'goodfaith'
-							]
-						],
 						'ores_goodfaith_cls' => [ 'LEFT JOIN',
 							[
-								'ores_goodfaith_cls.oresc_model = ores_goodfaith_mdl.oresm_id',
-								'rc_this_oldid = ores_goodfaith_cls.oresc_rev',
+								'ores_goodfaith_cls.oresc_model' => 7,
+								'ores_goodfaith_cls.oresc_rev' => 'rc_this_oldid',
 								'ores_goodfaith_cls.oresc_class' => 1
 							]
 						]
@@ -163,9 +157,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 				[ 'damaging' => true, 'goodfaith' => true ],
 				[
 					'tables' => [
-						'ores_damaging_mdl' => 'ores_model',
 						'ores_damaging_cls' => 'ores_classification',
-						'ores_goodfaith_mdl' => 'ores_model',
 						'ores_goodfaith_cls' => 'ores_classification'
 					],
 					'fields' => [
@@ -173,29 +165,17 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 						'ores_goodfaith_score' => 'ores_goodfaith_cls.oresc_probability',
 					],
 					'join_conds' => [
-						'ores_damaging_mdl' => [ 'LEFT JOIN',
-							[
-								'ores_damaging_mdl.oresm_is_current' => 1,
-								'ores_damaging_mdl.oresm_name' => 'damaging'
-							]
-						],
 						'ores_damaging_cls' => [ 'LEFT JOIN',
 							[
-								'ores_damaging_cls.oresc_model = ores_damaging_mdl.oresm_id',
-								'rc_this_oldid = ores_damaging_cls.oresc_rev',
+								'ores_damaging_cls.oresc_model' => 5,
+								'ores_damaging_cls.oresc_rev' => 'rc_this_oldid',
 								'ores_damaging_cls.oresc_class' => 1
-							]
-						],
-						'ores_goodfaith_mdl' => [ 'LEFT JOIN',
-							[
-								'ores_goodfaith_mdl.oresm_is_current' => 1,
-								'ores_goodfaith_mdl.oresm_name' => 'goodfaith'
 							]
 						],
 						'ores_goodfaith_cls' => [ 'LEFT JOIN',
 							[
-								'ores_goodfaith_cls.oresc_model = ores_goodfaith_mdl.oresm_id',
-								'rc_this_oldid = ores_goodfaith_cls.oresc_rev',
+								'ores_goodfaith_cls.oresc_model' => 7,
+								'ores_goodfaith_cls.oresc_rev' => 'rc_this_oldid',
 								'ores_goodfaith_cls.oresc_class' => 1
 							]
 						]

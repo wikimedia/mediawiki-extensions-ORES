@@ -20,6 +20,7 @@
 		"ORES\\Range": "includes/Range.php",
 		"ORES\\Scoring": "includes/Scoring.php",
 		"ORES\\ThresholdLookup": "includes/ThresholdLookup.php",
+		"ORES\\Storage\\HashModelLookup": "includes/Storage/HashModelLookup.php",
 		"ORES\\Storage\\ModelLookup": "includes/Storage/ModelLookup.php",
 		"ORES\\Storage\\SqlModelLookup": "includes/Storage/SqlModelLookup.php",
 		"ORES\\ApiQueryORES": "includes/ApiQueryORES.php",
