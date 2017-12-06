@@ -30,7 +30,9 @@ class PurgeScoreCache extends Maintenance {
 		if ( $this->hasOption( 'model' ) ) {
 			$models = [ $this->getOption( 'model' ) ];
 		} else {
-			$models = Cache::instance()->getModels();
+			$models = array_keys(
+				MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )->getModels()
+			);
 		}
 
 		$this->output( "Purging ORES scores:\n" );
