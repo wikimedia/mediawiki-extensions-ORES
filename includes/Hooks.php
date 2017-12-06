@@ -22,6 +22,7 @@ use Exception;
 use JobQueueGroup;
 use IContextSource;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
 use OutputPage;
 use RecentChange;
 use RequestContext;
@@ -189,7 +190,7 @@ class Hooks {
 	}
 
 	public static function getDamagingThresholds() {
-		$stats = Stats::newFromGlobalState();
+		$stats = MediaWikiServices::getInstance()->getService( 'ORESThresholdLookup' );
 		$thresholds = [];
 		foreach ( $stats->getThresholds( 'damaging' ) as $name => $bounds ) {
 			$thresholds[ $name ] = $bounds[ 'min' ];

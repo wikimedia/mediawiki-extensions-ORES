@@ -10,9 +10,9 @@ use WANObjectCache;
 
 /**
  * @group ORES
- * @covers ORES\Stats
+ * @covers ORES\ThresholdLookup
  */
-class StatsTest extends \MediaWikiTestCase {
+class ThresholdLookupTest extends \MediaWikiTestCase {
 
 	protected function setUp() {
 		parent::setUp();
@@ -41,7 +41,7 @@ class StatsTest extends \MediaWikiTestCase {
 	public function testGetThresholds_modelConfigNotFound() {
 		$api = $this->getMockBuilder( Api::class )->getMock();
 		$logger = $this->getLoggerMock();
-		$stats = new ORES\Stats( $api, WANObjectCache::newEmpty(), $logger );
+		$stats = new ORES\ThresholdLookup( $api, WANObjectCache::newEmpty(), $logger );
 
 		$thresholds = $stats->getThresholds( 'unknown_model' );
 
@@ -77,7 +77,7 @@ class StatsTest extends \MediaWikiTestCase {
 		// FIXME: Review and check for logging.
 		// $logger->expects( $this->exactly( 2 ) )->method( 'warning' );
 
-		$stats = new ORES\Stats( $api, WANObjectCache::newEmpty(), $logger );
+		$stats = new ORES\ThresholdLookup( $api, WANObjectCache::newEmpty(), $logger );
 
 		$thresholds = $stats->getThresholds( 'goodfaith' );
 
@@ -122,7 +122,7 @@ class StatsTest extends \MediaWikiTestCase {
 					],
 			] ] ] ] ] ] );
 
-		$stats = new ORES\Stats(
+		$stats = new ORES\ThresholdLookup(
 			$api,
 			WANObjectCache::newEmpty(),
 			LoggerFactory::getInstance( 'test' )
@@ -184,7 +184,7 @@ class StatsTest extends \MediaWikiTestCase {
 					],
 			] ] ] ] ] ] );
 
-		$stats = new ORES\Stats(
+		$stats = new ORES\ThresholdLookup(
 			$api,
 			WANObjectCache::newEmpty(),
 			LoggerFactory::getInstance( 'test' )

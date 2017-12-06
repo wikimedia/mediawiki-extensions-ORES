@@ -3,6 +3,7 @@
 namespace ORES;
 
 use Maintenance;
+use MediaWiki\MediaWikiServices;
 
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
@@ -22,7 +23,7 @@ class DumpThresholds extends Maintenance {
 	public function execute() {
 		$this->output( "Starting..." );
 		$models = $this->getModels();
-		$stats = Stats::newFromGlobalState();
+		$stats = MediaWikiServices::getInstance()->getService( 'ORESThresholdLookup' );
 
 		foreach ( $models as $name => $info ) {
 			$this->output( "\n$name\n" );

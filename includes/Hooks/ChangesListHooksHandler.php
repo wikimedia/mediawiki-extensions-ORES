@@ -23,9 +23,9 @@ use ChangesListStringOptionsFilterGroup;
 use EnhancedChangesList;
 use FormOptions;
 use IContextSource;
+use MediaWiki\MediaWikiServices;
 use ORES\Hooks;
 use ORES\Range;
-use ORES\Stats;
 use RCCacheEntry;
 use RecentChange;
 use SpecialRecentChanges;
@@ -43,7 +43,7 @@ class ChangesListHooksHandler {
 			return;
 		}
 
-		$stats = Stats::newFromGlobalState();
+		$stats = MediaWikiServices::getInstance()->getService( 'ORESThresholdLookup' );
 
 		$changeTypeGroup = $clsp->getFilterGroup( 'changeType' );
 		$logFilter = $changeTypeGroup->getFilter( 'hidelog' );
@@ -538,7 +538,7 @@ class ChangesListHooksHandler {
 	}
 
 	private static function buildRangeFilter( $name, $filterValue ) {
-		$stats = Stats::newFromGlobalState();
+		$stats = MediaWikiServices::getInstance()->getService( 'ORESThresholdLookup' );
 		$thresholds = $stats->getThresholds( $name );
 
 		$selectedLevels = is_array( $filterValue ) ? $filterValue :
