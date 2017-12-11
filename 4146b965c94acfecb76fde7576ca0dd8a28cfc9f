@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eee3df47_de3e5d86",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-11T17:49:10Z",
+      "side": 1,
+      "message": "+1 for mentioning the signature.  You could also be specific and say InvalidArgumentException.",
+      "revId": "4146b965c94acfecb76fde7576ca0dd8a28cfc9f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eee3df47_7e8ab16f",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-11T17:49:10Z",
+      "side": 1,
+      "message": "Looks like you\u0027re planning to abandon setErrorCallback?  Good riddance!  It seemed like a difficult task the last I looked, but now I see that callers are erroring out the entire revision, so it this actually makes sense to throw the exception before we\u0027ve looked at all models.",
+      "revId": "4146b965c94acfecb76fde7576ca0dd8a28cfc9f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eee3df47_5e96cd96",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-11T17:49:10Z",
+      "side": 1,
+      "message": "My preference would be to assign to a temporary variable before array_merging, but just because I\u0027m allergic to having more than one statement per line. \u003c/pedantic mode\u003e",
+      "revId": "4146b965c94acfecb76fde7576ca0dd8a28cfc9f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eee3df47_9e34d5a8",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-11T17:49:10Z",
+      "side": 1,
+      "message": "Ooh I really like that we\u0027re consistent now, rather than throwing some exceptions here and calling errorCallback there.",
+      "revId": "4146b965c94acfecb76fde7576ca0dd8a28cfc9f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
