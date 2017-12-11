@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eee3df47_9b8ce733",
+        "filename": "includes/ApiQueryORES.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-11T17:30:58Z",
+      "side": 1,
+      "message": "Nice!",
+      "revId": "36748ca523c4a631f288bba1985f8d88f6e71165",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eee3df47_9bda2720",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-11T17:30:58Z",
+      "side": 1,
+      "message": "Not the fault of this patch, but we might want to denormalize these tables a bit, so that we don\u0027t need DBA help to roll out new models.  My thought is that we add a \u0027model\u0027 column, and use a generic table like \"ores_model_classification\".",
+      "revId": "36748ca523c4a631f288bba1985f8d88f6e71165",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eee3df47_9b650744",
+        "filename": "includes/Hooks/ApiHooksHandler.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-11T17:30:58Z",
+      "side": 1,
+      "message": "\"Datum\" is a bit silly, plus it still contains plural data, but I won\u0027t begrudge having some fun here!",
+      "revId": "36748ca523c4a631f288bba1985f8d88f6e71165",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eee3df47_7b68031a",
+        "filename": "includes/Hooks/ApiHooksHandler.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-11T17:30:58Z",
+      "side": 1,
+      "message": "Tiny cleanup would be to move the id-\u003ename map used below to here, then just grab array_keys.",
+      "revId": "36748ca523c4a631f288bba1985f8d88f6e71165",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eee3df47_1b645710",
+        "filename": "includes/Storage/HashModelLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-11T17:30:58Z",
+      "side": 1,
+      "message": "If this is for testing only, please move it to tests/includes",
+      "revId": "36748ca523c4a631f288bba1985f8d88f6e71165",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eee3df47_3b079b20",
+        "filename": "tests/phpunit/includes/Hooks/ChangesListHooksHandlerTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-11T17:30:58Z",
+      "side": 1,
+      "message": "Love it!",
+      "revId": "36748ca523c4a631f288bba1985f8d88f6e71165",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
