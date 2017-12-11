@@ -19,6 +19,7 @@ namespace ORES;
 use ApiResult;
 use ApiQuery;
 use ApiQueryBase;
+use MediaWiki\MediaWikiServices;
 
 /**
  * A query action to return meta information about ORES models and
@@ -50,14 +51,12 @@ class ApiQueryORES extends ApiQueryBase {
 		ApiResult::setArrayType( $data['models'], 'assoc' );
 		ApiResult::setIndexedTagName( $data['namespaces'], 'ns' );
 
-		$this->addTables( 'ores_model' );
-		$this->addFields( [ 'oresm_name', 'oresm_version', 'oresm_is_current' ] );
-		$this->addWhere( [ 'oresm_is_current' => 1 ] );
-		$res = $this->select( __METHOD__ );
+		$models = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )
+			->getModels();
 
-		foreach ( $res as $row ) {
-			$data['models'][$row->oresm_name] = [
-				'version' => $row->oresm_version,
+		foreach ( $models as $modelName => $modelData ) {
+			$data['models'][$modelName] = [
+				'version' => $modelData['version'],
 			];
 		}
 

@@ -30,6 +30,7 @@ use ApiResult;
 use DeferredUpdates;
 use JobQueueGroup;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
 use ORES\Cache;
 use ORES\FetchScoreJob;
 use ORES\Hooks;
@@ -137,7 +138,6 @@ class ApiHooksHandler {
 			$threshold = Hooks::getThreshold( 'damaging', $module->getUser(), $module->getTitle() );
 			$dbr = \wfGetDB( DB_REPLICA );
 
-			$tables[] = 'ores_model';
 			$tables[] = 'ores_classification';
 
 			if ( isset( $show['oresreview'] ) ) {
@@ -158,12 +158,13 @@ class ApiHooksHandler {
 				], $dbr::LIST_OR );
 			}
 
-			$joinConds['ores_model'] = [ $join,
-				'oresm_name = ' . $dbr->addQuotes( 'damaging' ) . ' AND oresm_is_current = 1'
-			];
-			$joinConds['ores_classification'] = [ $join,
-				"$field = oresc_rev AND oresc_model = oresm_id AND oresc_class = 1"
-			];
+			$modelId = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )
+				->getModelId( 'damaging' );
+			$joinConds['ores_classification'] = [ $join, [
+				'oresc_rev' => $field,
+				'oresc_model' => $modelId,
+				'oresc_class' => 1
+			] ];
 		}
 	}
 
@@ -258,15 +259,20 @@ class ApiHooksHandler {
 		$needsContinuation = false;
 		$scores = [];
 
+		$modelData = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )
+			->getModels();
+		$modelIds = [];
+		foreach ( $modelData as $modelName => $modelDatum ) {
+			$modelIds[] = $modelDatum['id'];
+		}
 		// Load cached score data
 		$dbr = \wfGetDB( DB_REPLICA );
 		$res2 = $dbr->select(
-			[ 'ores_classification', 'ores_model' ],
-			[ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresm_name' ],
+			[ 'ores_classification' ],
+			[ 'oresc_rev', 'oresc_class', 'oresc_probability' ],
 			[
 				'oresc_rev' => $revids,
-				'oresc_model = oresm_id',
-				'oresm_is_current' => 1,
+				'oresc_model' => $modelIds,
 			],
 			__METHOD__
 		);
@@ -327,14 +333,8 @@ class ApiHooksHandler {
 			} );
 
 			$models = [];
-			$res2 = $dbr->select(
-				[ 'ores_model' ],
-				[ 'oresm_id', 'oresm_name' ],
-				[ 'oresm_is_current' => 1 ],
-				__METHOD__
-			);
-			foreach ( $res2 as $row ) {
-				$models[(int)$row->oresm_id] = $row->oresm_name;
+			foreach ( $modelData as $modelName => $modelDatum ) {
+				$models[$modelDatum['id']] = $modelName;
 			}
 
 			foreach ( $loadedScores as $revid => $data ) {

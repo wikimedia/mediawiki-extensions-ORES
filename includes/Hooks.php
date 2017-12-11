@@ -356,18 +356,16 @@ class Hooks {
 			);
 		}
 
-		$tables["ores_${type}_mdl"] = 'ores_model';
+		$modelId = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )->getModelId(
+			$type
+		);
 		$tables["ores_${type}_cls"] = 'ores_classification';
 
 		$fields["ores_${type}_score"] = "ores_${type}_cls.oresc_probability";
 
-		$join_conds["ores_${type}_mdl"] = [ 'LEFT JOIN', [
-			"ores_${type}_mdl.oresm_is_current" => 1,
-			"ores_${type}_mdl.oresm_name" => $type,
-		] ];
 		$join_conds["ores_${type}_cls"] = [ 'LEFT JOIN', [
-			"ores_${type}_cls.oresc_model = ores_${type}_mdl.oresm_id",
-			"$revIdField = ores_${type}_cls.oresc_rev",
+			"ores_${type}_cls.oresc_model" => $modelId,
+			"ores_${type}_cls.oresc_rev" => $revIdField,
 			"ores_${type}_cls.oresc_class" => 1
 		] ];
 	}
