@@ -261,10 +261,12 @@ class ApiHooksHandler {
 
 		$modelData = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )
 			->getModels();
-		$modelIds = [];
+
+		$models = [];
 		foreach ( $modelData as $modelName => $modelDatum ) {
-			$modelIds[] = $modelDatum['id'];
+			$models[$modelDatum['id']] = $modelName;
 		}
+
 		// Load cached score data
 		$dbr = \wfGetDB( DB_REPLICA );
 		$res2 = $dbr->select(
@@ -272,7 +274,7 @@ class ApiHooksHandler {
 			[ 'oresc_rev', 'oresc_class', 'oresc_probability' ],
 			[
 				'oresc_rev' => $revids,
-				'oresc_model' => $modelIds,
+				'oresc_model' => array_keys( $models ),
 			],
 			__METHOD__
 		);
