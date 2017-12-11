@@ -17,6 +17,7 @@
 		"ORES\\Hooks\\ContributionsHooksHandler": "includes/Hooks/ContributionsHooksHandler.php",
 		"ORES\\Hooks\\PreferencesHookHandler": "includes/Hooks/PreferencesHookHandler.php",
 		"ORES\\FetchScoreJob": "includes/FetchScoreJob.php",
+		"ORES\\Parser\\ScoreParser": "includes/Parser/ScoreParser.php",
 		"ORES\\Range": "includes/Range.php",
 		"ORES\\Scoring": "includes/Scoring.php",
 		"ORES\\ThresholdLookup": "includes/ThresholdLookup.php",
