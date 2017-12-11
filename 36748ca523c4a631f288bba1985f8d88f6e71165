@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "eee3df47_3ebae91e",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-12-11T17:45:06Z",
+      "side": 1,
+      "message": "I don\u0027t think we need DBAs to roll out any model, this is the way we name ores_classification tables for different queries.",
+      "parentUuid": "eee3df47_9bda2720",
+      "revId": "36748ca523c4a631f288bba1985f8d88f6e71165",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eee3df47_9b650744",
         "filename": "includes/Hooks/ApiHooksHandler.php",
         "patchSetId": 3
@@ -47,6 +65,24 @@
       "writtenOn": "2017-12-11T17:30:58Z",
       "side": 1,
       "message": "\"Datum\" is a bit silly, plus it still contains plural data, but I won\u0027t begrudge having some fun here!",
+      "revId": "36748ca523c4a631f288bba1985f8d88f6e71165",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eee3df47_be84395f",
+        "filename": "includes/Hooks/ApiHooksHandler.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-12-11T17:45:06Z",
+      "side": 1,
+      "message": "hmm, yeah but meh :D",
+      "parentUuid": "eee3df47_9b650744",
       "revId": "36748ca523c4a631f288bba1985f8d88f6e71165",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "eee3df47_bed2795b",
+        "filename": "includes/Hooks/ApiHooksHandler.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-12-11T17:45:06Z",
+      "side": 1,
+      "message": "I will do that in a follow up if that\u0027s okay, there is a patch which based on this one which I don\u0027t want to rebase.",
+      "parentUuid": "eee3df47_7b68031a",
+      "revId": "36748ca523c4a631f288bba1985f8d88f6e71165",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eee3df47_1b645710",
         "filename": "includes/Storage/HashModelLookup.php",
         "patchSetId": 3
@@ -87,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "eee3df47_5ec40d93",
+        "filename": "includes/Storage/HashModelLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-12-11T17:45:06Z",
+      "side": 1,
+      "message": "Even though I use it for testing, I think it should stay here because there can be installations that want to use this as their own model lookup service (you can do it in Localsettings.php) but no strong preferences.",
+      "parentUuid": "eee3df47_1b645710",
+      "revId": "36748ca523c4a631f288bba1985f8d88f6e71165",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eee3df47_3b079b20",
         "filename": "tests/phpunit/includes/Hooks/ChangesListHooksHandlerTest.php",
         "patchSetId": 3
@@ -98,6 +170,24 @@
       "writtenOn": "2017-12-11T17:30:58Z",
       "side": 1,
       "message": "Love it!",
+      "revId": "36748ca523c4a631f288bba1985f8d88f6e71165",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eee3df47_3ebf89f7",
+        "filename": "tests/phpunit/includes/Hooks/ChangesListHooksHandlerTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-12-11T17:45:06Z",
+      "side": 1,
+      "message": "\u003c3",
+      "parentUuid": "eee3df47_3b079b20",
       "revId": "36748ca523c4a631f288bba1985f8d88f6e71165",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
