@@ -29,11 +29,13 @@ use ApiQueryWatchlist;
 use ApiResult;
 use DeferredUpdates;
 use JobQueueGroup;
+use InvalidArgumentException;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use ORES\Cache;
 use ORES\FetchScoreJob;
 use ORES\Hooks;
+use ORES\Parser\ScoreParser;
 use ORES\Scoring;
 use ORES\WatchedItemQueryServiceExtension;
 use RequestContext;
@@ -324,31 +326,13 @@ class ApiHooksHandler {
 			$loadedScores = Scoring::instance()->getScores( $revids );
 
 			$cache = Cache::instance();
-			$cache->setErrorCallback( function ( $mssg, $revision ) use ( &$scores ) {
-				$scores[$revision] = [];
-				$logger = LoggerFactory::getInstance( 'ORES' );
-				$logger->info( "Scoring errored for $revision: $mssg\n" );
-			} );
 			$cacheableScores = $cache->filterScores( $loadedScores, $cacheableRevids );
 			DeferredUpdates::addCallableUpdate( function () use ( $cache, $cacheableScores ) {
 				$cache->storeScores( $cacheableScores );
 			} );
 
-			$models = [];
-			foreach ( $modelData as $modelName => $modelDatum ) {
-				$models[$modelDatum['id']] = $modelName;
-			}
-
 			foreach ( $loadedScores as $revid => $data ) {
-				$dbData = [];
-				$cache->processRevision( $dbData, $revid, $data );
-				foreach ( $dbData as $row ) {
-					$scores[$revid][] = (object)[
-						'oresc_class' => $row['oresc_class'],
-						'oresc_probability' => $row['oresc_probability'],
-						'oresm_name' => $models[$row['oresc_model']],
-					];
-				}
+				$scores[$revid] = self::processRevision( $revid, $data, $models );
 			}
 
 			if ( !$needsContinuation && array_diff( $revids, array_keys( $loadedScores ) ) ) {
@@ -358,6 +342,38 @@ class ApiHooksHandler {
 		}
 
 		return [ $scores, $needsContinuation ];
+	}
+
+	/**
+	 * @param int $revid
+	 * @param array[] $data
+	 * @param string[] $models
+	 * @return array
+	 */
+	private static function processRevision( $revid, $data, $models ) {
+		global $wgOresModelClasses;
+		$parser = new ScoreParser(
+			MediaWikiServices::getInstance()->getService( 'ORESModelLookup' ),
+			$wgOresModelClasses
+		);
+		try {
+			$dbData = $parser->processRevision( $revid, $data );
+		} catch ( InvalidArgumentException $exception ) {
+			$logger = LoggerFactory::getInstance( 'ORES' );
+			$mssg = $exception->getMessage();
+			$logger->info( "Scoring errored for $revid: $mssg\n" );
+			return [];
+		}
+		$scores = [];
+		foreach ( $dbData as $row ) {
+			$scores[] = (object)[
+				'oresc_class' => $row['oresc_class'],
+				'oresc_probability' => $row['oresc_probability'],
+				'oresm_name' => $models[$row['oresc_model']],
+			];
+		}
+
+		return $scores;
 	}
 
 	/**
