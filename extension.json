@@ -8,24 +8,8 @@
 		"Adam Roses Wight"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:ORES",
-	"AutoloadClasses": {
-		"ORES\\Api": "includes/Api.php",
-		"ORES\\Cache": "includes/Cache.php",
-		"ORES\\Hooks": "includes/Hooks.php",
-		"ORES\\Hooks\\ApiHooksHandler": "includes/Hooks/ApiHooksHandler.php",
-		"ORES\\Hooks\\ChangesListHooksHandler": "includes/Hooks/ChangesListHooksHandler.php",
-		"ORES\\Hooks\\ContributionsHooksHandler": "includes/Hooks/ContributionsHooksHandler.php",
-		"ORES\\Hooks\\PreferencesHookHandler": "includes/Hooks/PreferencesHookHandler.php",
-		"ORES\\FetchScoreJob": "includes/FetchScoreJob.php",
-		"ORES\\Parser\\ScoreParser": "includes/Parser/ScoreParser.php",
-		"ORES\\Range": "includes/Range.php",
-		"ORES\\Scoring": "includes/Scoring.php",
-		"ORES\\ThresholdLookup": "includes/ThresholdLookup.php",
-		"ORES\\Storage\\HashModelLookup": "includes/Storage/HashModelLookup.php",
-		"ORES\\Storage\\ModelLookup": "includes/Storage/ModelLookup.php",
-		"ORES\\Storage\\SqlModelLookup": "includes/Storage/SqlModelLookup.php",
-		"ORES\\ApiQueryORES": "includes/ApiQueryORES.php",
-		"ORES\\WatchedItemQueryServiceExtension": "includes/WatchedItemQueryServiceExtension.php"
+	"AutoloadNamespaces": {
+		"ORES\\": "includes/"
 	},
 	"APIMetaModules": {
 		"ores": "ORES\\ApiQueryORES"
@@ -134,73 +118,99 @@
 		"ORESFetchScoreJob": "ORES\\FetchScoreJob"
 	},
 	"config": {
-		"OresExtensionStatus": "on",
-		"OresUiEnabled": true,
-		"OresBaseUrl": "https://ores.wikimedia.org/",
-		"OresExcludeBots": true,
-		"OresModels": {
-			"damaging": true,
-			"goodfaith": true,
-			"reverted": true,
-			"wp10": true,
-			"draftquality": false
+		"OresExtensionStatus": {
+			"value": "on"
 		},
-		"OresModelClasses": {
-			"damaging": {
-				"false": 0,
-				"true": 1
-			},
-			"goodfaith": {
-				"false": 0,
-				"true": 1
-			},
-			"reverted": {
-				"false": 0,
-				"true": 1
-			},
-			"wp10": {
-				"B": 0,
-				"C": 1,
-				"FA": 2,
-				"GA": 3,
-				"Start": 4,
-				"Stub": 5
-			},
-			"draftquality": {
-				"attack": 0,
-				"OK": 1,
-				"spam": 2,
-				"vandalism": 3
+		"OresUiEnabled": {
+			"value": true
+		},
+		"OresBaseUrl": {
+			"value": "https://ores.wikimedia.org/"
+		},
+		"OresExcludeBots": {
+			"value": true
+		},
+		"OresModels": {
+			"value": {
+				"damaging": true,
+				"goodfaith": true,
+				"reverted": true,
+				"wp10": true,
+				"draftquality": false
 			}
 		},
-		"@OresFiltersThresholds": "Interval endpoints are calculated using a formula.\n\nTODO: Simplify the grammar and support lists of conditions to build a threshold.",
+		"OresModelClasses": {
+			"value": {
+				"damaging": {
+					"false": 0,
+					"true": 1
+				},
+				"goodfaith": {
+					"false": 0,
+					"true": 1
+				},
+				"reverted": {
+					"false": 0,
+					"true": 1
+				},
+				"wp10": {
+					"B": 0,
+					"C": 1,
+					"FA": 2,
+					"GA": 3,
+					"Start": 4,
+					"Stub": 5
+				},
+				"draftquality": {
+					"attack": 0,
+					"OK": 1,
+					"spam": 2,
+					"vandalism": 3
+				}
+			}
+		},
 		"OresFiltersThresholds": {
-			"damaging": {
-				"likelygood": { "min": 0, "max": "recall_at_precision(min_precision=0.995)" },
-				"maybebad": { "min": "filter_rate_at_recall(min_recall=0.9)", "max": 1 },
-				"likelybad": { "min": "recall_at_precision(min_precision=0.6)", "max": 1 },
-				"verylikelybad": { "min": "recall_at_precision(min_precision=0.9)", "max": 1 }
+			"value": {
+				"damaging": {
+					"likelygood": { "min": 0, "max": "recall_at_precision(min_precision=0.995)" },
+					"maybebad": { "min": "filter_rate_at_recall(min_recall=0.9)", "max": 1 },
+					"likelybad": { "min": "recall_at_precision(min_precision=0.6)", "max": 1 },
+					"verylikelybad": { "min": "recall_at_precision(min_precision=0.9)", "max": 1 }
+				},
+				"goodfaith": {
+					"likelygood": { "min": "recall_at_precision(min_precision=0.995)", "max": 1 },
+					"maybebad": { "min": 0, "max": "filter_rate_at_recall(min_recall=0.9)" },
+					"likelybad": { "min": 0, "max": "recall_at_precision(min_precision=0.6)" },
+					"verylikelybad": false
+				}
 			},
-			"goodfaith": {
-				"likelygood": { "min": "recall_at_precision(min_precision=0.995)", "max": 1 },
-				"maybebad": { "min": 0, "max": "filter_rate_at_recall(min_recall=0.9)" },
-				"likelybad": { "min": 0, "max": "recall_at_precision(min_precision=0.6)" },
-				"verylikelybad": false
-			},
-			"_merge_strategy": "array_plus_2d"
+			"description": "Interval endpoints are calculated using a formula.\n\nTODO: Simplify the grammar and support lists of conditions to build a threshold.",
+			"merge_strategy": "array_plus_2d"
 		},
-		"OresEnabledNamespaces": {},
+		"OresEnabledNamespaces": {
+			"value": {}
+		},
 		"OresDraftQualityNS": {
-			"0": true,
-			"_merge_strategy": "array_plus"
+			"value": {
+				"0": true
+			},
+			"merge_strategy": "array_plus"
 		},
-		"OresWikiId": null,
-		"@OresRevisionsPerBatch": "Number of revisions to fetch scores for from the ORES API per request when the MediaWiki API is asked to score revisions which are not cached. Set to 0 to disable fetching (scores will still be fetched for new edits).",
-		"OresRevisionsPerBatch": 30,
-		"@OresAPIMaxBatchJobs": "Number of jobs to schedule to fetch scores in the background when more than OresRevisionsPerBatch missing scores have been requested. Each job will fetch scores for another OresRevisionsPerBatch revisions, as long as they are cacheable (within the recentchanges table).",
-		"OresAPIMaxBatchJobs": 3,
-		"@OresCacheVersion": "Increment to invalidate the cached thresholds.",
-		"OresCacheVersion": 1
+		"OresWikiId": {
+			"value": null
+		},
+		"OresRevisionsPerBatch": {
+			"value": 30,
+			"description": "Number of revisions to fetch scores for from the ORES API per request when the MediaWiki API is asked to score revisions which are not cached. Set to 0 to disable fetching (scores will still be fetched for new edits)."
+		},
+		"OresAPIMaxBatchJobs": {
+			"value": 3,
+			"description": "Number of jobs to schedule to fetch scores in the background when more than OresRevisionsPerBatch missing scores have been requested. Each job will fetch scores for another OresRevisionsPerBatch revisions, as long as they are cacheable (within the recentchanges table)."
+		},
+		"OresCacheVersion": {
+			"value": 1,
+			"description": "Increment to invalidate the cached thresholds."
+		}
 	},
 	"RecentChangesFlags": {
 		"damaging": {
@@ -218,5 +228,5 @@
 		"oresRCHideNonDamaging": false,
 		"oresWatchlistHideNonDamaging": false
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }
