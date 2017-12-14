@@ -412,7 +412,7 @@ class ApiHooksHandler {
 		}
 
 		foreach ( $scores as $row ) {
-			if ( !isset( $classMap[$row->oresm_name][$row->oresc_class] ) ) {
+			if ( !isset( $row->oresm_name ) || !isset( $classMap[$row->oresm_name][$row->oresc_class] ) ) {
 				// Missing configuration, ignore it
 				continue;
 			}
