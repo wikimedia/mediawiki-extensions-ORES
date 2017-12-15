@@ -365,7 +365,7 @@ class Hooks {
 
 		$join_conds["ores_${type}_cls"] = [ 'LEFT JOIN', [
 			"ores_${type}_cls.oresc_model" => $modelId,
-			"ores_${type}_cls.oresc_rev" => $revIdField,
+			"ores_${type}_cls.oresc_rev=$revIdField",
 			"ores_${type}_cls.oresc_class" => 1
 		] ];
 	}

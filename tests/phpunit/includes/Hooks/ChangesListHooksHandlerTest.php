@@ -126,7 +126,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 						'ores_damaging_cls' => [ 'LEFT JOIN',
 							[
 								'ores_damaging_cls.oresc_model' => 5,
-								'ores_damaging_cls.oresc_rev' => 'rc_this_oldid',
+								'ores_damaging_cls.oresc_rev=rc_this_oldid',
 								'ores_damaging_cls.oresc_class' => 1
 							]
 						]
@@ -146,7 +146,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 						'ores_goodfaith_cls' => [ 'LEFT JOIN',
 							[
 								'ores_goodfaith_cls.oresc_model' => 7,
-								'ores_goodfaith_cls.oresc_rev' => 'rc_this_oldid',
+								'ores_goodfaith_cls.oresc_rev=rc_this_oldid',
 								'ores_goodfaith_cls.oresc_class' => 1
 							]
 						]
@@ -168,14 +168,14 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 						'ores_damaging_cls' => [ 'LEFT JOIN',
 							[
 								'ores_damaging_cls.oresc_model' => 5,
-								'ores_damaging_cls.oresc_rev' => 'rc_this_oldid',
+								'ores_damaging_cls.oresc_rev=rc_this_oldid',
 								'ores_damaging_cls.oresc_class' => 1
 							]
 						],
 						'ores_goodfaith_cls' => [ 'LEFT JOIN',
 							[
 								'ores_goodfaith_cls.oresc_model' => 7,
-								'ores_goodfaith_cls.oresc_rev' => 'rc_this_oldid',
+								'ores_goodfaith_cls.oresc_rev=rc_this_oldid',
 								'ores_goodfaith_cls.oresc_class' => 1
 							]
 						]

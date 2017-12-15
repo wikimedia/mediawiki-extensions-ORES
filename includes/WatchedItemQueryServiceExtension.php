@@ -84,7 +84,7 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 			$modelId = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )
 				->getModelId( 'damaging' );
 			$joinConds['ores_classification'] = [ $join, [
-				'rc_this_oldid' => 'oresc_rev',
+				'rc_this_oldid=oresc_rev',
 				'oresc_model' => $modelId,
 				'oresc_class' => 1
 			] ];

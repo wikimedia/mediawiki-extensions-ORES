@@ -161,7 +161,7 @@ class ApiHooksHandler {
 			$modelId = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )
 				->getModelId( 'damaging' );
 			$joinConds['ores_classification'] = [ $join, [
-				'oresc_rev' => $field,
+				"oresc_rev=$field",
 				'oresc_model' => $modelId,
 				'oresc_class' => 1
 			] ];

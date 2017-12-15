@@ -82,7 +82,7 @@ class ContributionsHookHandlerTest extends \MediaWikiTestCase {
 					'LEFT JOIN',
 					[
 						'ores_damaging_cls.oresc_model' => 5,
-						'ores_damaging_cls.oresc_rev' => 'rev_id',
+						'ores_damaging_cls.oresc_rev=rev_id',
 						'ores_damaging_cls.oresc_class' => 1
 					]
 				]
