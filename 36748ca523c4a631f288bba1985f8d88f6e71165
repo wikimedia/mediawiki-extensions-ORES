@@ -177,6 +177,23 @@
     },
     {
       "key": {
+        "uuid": "eee3df47_91e78d0c",
+        "filename": "includes/WatchedItemQueryServiceExtension.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2017-12-15T00:49:49Z",
+      "side": 1,
+      "message": "This caused https://phabricator.wikimedia.org/T182936 , because it generates SQL like ON rc_this_oldid\u003d\u0027oresc_rev\u0027 , as opposed to ON rc_this_oldid\u003doresc_rev",
+      "revId": "36748ca523c4a631f288bba1985f8d88f6e71165",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eee3df47_3b079b20",
         "filename": "tests/phpunit/includes/Hooks/ChangesListHooksHandlerTest.php",
         "patchSetId": 3
