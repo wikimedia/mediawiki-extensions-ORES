@@ -8,7 +8,7 @@ use ORES;
  * @group ORES
  * @covers ORES\Api
  */
-class OresApiTest extends \MediaWikiTestCase {
+class ApiTest extends \MediaWikiTestCase {
 
 	/**
 	 * @var ORES\Api

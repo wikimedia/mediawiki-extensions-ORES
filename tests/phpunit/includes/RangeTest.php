@@ -9,7 +9,7 @@ use PHPUnit_Framework_TestCase;
  * @group ORES
  * @covers ORES\Range
  */
-class OresRangeTest extends PHPUnit_Framework_TestCase {
+class RangeTest extends PHPUnit_Framework_TestCase {
 
 	public function testConstructor() {
 		$r = new Range( 1, 2 );

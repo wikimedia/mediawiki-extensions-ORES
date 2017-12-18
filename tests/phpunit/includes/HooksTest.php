@@ -13,7 +13,7 @@ use User;
  * @group ORES
  * @covers ORES\Hooks
  */
-class OresHooksTest extends \MediaWikiTestCase {
+class HooksTest extends \MediaWikiTestCase {
 
 	protected $user;
 
