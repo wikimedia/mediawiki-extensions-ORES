@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cee8db29_75bd0aad",
+        "filename": "includes/Hooks/PreferencesHookHandler.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2017-12-18T16:08:35Z",
+      "side": 1,
+      "message": "You shouldn\u0027t set $wgHiddenPrefs here (I know we did it in the past, but we moved away from it). If you never intend for the preference to be visible on the preferences page, just give it \u0027type\u0027 \u003d\u003e \u0027api\u0027.\n\nHowever, I don\u0027t think this works because I don\u0027t see the \u0027oresContribsHideNonDamaging\u0027 preference being created anywhere.",
+      "revId": "8f77d5d59e7ad3a2d193063fdc1488fe2b6bcf77",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
