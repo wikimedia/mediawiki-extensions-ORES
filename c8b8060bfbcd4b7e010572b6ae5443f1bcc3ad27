@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cee8db29_95e1ae9a",
+        "filename": "includes/Storage/ScoreStorage.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-18T16:34:58Z",
+      "side": 1,
+      "message": "\"This callback is called when we cannot parse a revision score response.  The signature is errorCallback( string $errorMessage, string $revisionID ) -\u003e void...\n\nIf no error callback is specified, then the default behavior is to throw a RuntimeException.",
+      "revId": "c8b8060bfbcd4b7e010572b6ae5443f1bcc3ad27",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_b5ee7284",
+        "filename": "includes/Storage/SqlScoreStorage.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-18T16:34:58Z",
+      "side": 1,
+      "message": "sp \"argument\"",
+      "range": {
+        "startLine": 46,
+        "startChar": 26,
+        "endLine": 46,
+        "endChar": 27
+      },
+      "revId": "c8b8060bfbcd4b7e010572b6ae5443f1bcc3ad27",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_f59f5a04",
+        "filename": "tests/phpunit/includes/Storage/SqlScoreStorageTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-18T16:34:58Z",
+      "side": 1,
+      "message": "fwiw, this isn\u0027t very specific and could be thrown by something else.  You could expect an exact message, though...",
+      "revId": "c8b8060bfbcd4b7e010572b6ae5443f1bcc3ad27",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
