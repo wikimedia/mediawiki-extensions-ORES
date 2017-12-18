@@ -246,7 +246,7 @@ class Hooks {
 		if ( $wgOresExtensionStatus === 'beta' ) {
 			return $user &&
 				$user->isLoggedIn() &&
-				class_exists( BetaFeatures::class ) &&
+				ExtensionRegistry::getInstance()->isLoaded( 'BetaFeatures' ) &&
 				BetaFeatures::isFeatureEnabled( $user, 'ores-enabled' );
 		}
 
