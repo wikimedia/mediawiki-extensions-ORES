@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cee8db29_12963ff3",
+        "filename": "includes/Hooks/ApiHooksHandler.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-20T21:09:43Z",
+      "side": 1,
+      "message": "This matches existing behavior, which is ideal.  But do we want to change this to add an \"error\" key?",
+      "revId": "6157c3efa1c6d7963a7b567224a02838fb779828",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
