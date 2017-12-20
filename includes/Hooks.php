@@ -384,7 +384,7 @@ class Hooks {
 			return;
 		}
 		// FIXME: This is not a "filter" but an undocumented side effect of this function.
-		$fields['ores_damaging_threshold'] = $dbr->addQuotes( $threshold );
+		$fields['ores_damaging_threshold'] = $threshold;
 
 		if ( $hidenondamaging ) {
 			// Filter out non-damaging edits.

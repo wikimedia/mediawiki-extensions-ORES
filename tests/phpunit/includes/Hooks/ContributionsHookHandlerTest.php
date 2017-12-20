@@ -74,7 +74,7 @@ class ContributionsHookHandlerTest extends \MediaWikiTestCase {
 			],
 			'fields' => [
 				'ores_damaging_score' => 'ores_damaging_cls.oresc_probability',
-				'ores_damaging_threshold' => "'0.16'"
+				'ores_damaging_threshold' => 0.16,
 			],
 			'conds' => [],
 			'join_conds' => [
