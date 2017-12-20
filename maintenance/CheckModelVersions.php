@@ -39,13 +39,13 @@ class CheckModelVersions extends Maintenance {
 			$dbw->upsert( 'ores_model',
 				[
 					'oresm_name' => $name,
-					'oresm_version' => $dbw->addQuotes( $info['version'] ),
+					'oresm_version' => $info['version'],
 					'oresm_is_current' => 1,
 				],
 				[ 'oresm_name', 'oresm_version' ],
 				[
 					'oresm_name' => $name,
-					'oresm_version' => $dbw->addQuotes( $info['version'] ),
+					'oresm_version' => $info['version'],
 					'oresm_is_current' => 1,
 				],
 				__METHOD__
