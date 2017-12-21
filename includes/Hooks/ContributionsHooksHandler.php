@@ -141,21 +141,28 @@ class ContributionsHooksHandler {
 	}
 
 	/**
-	 * Get user preference for hiding non-damaging edits, either by:
-	 * - URL parameter 'hidenondamaging' or
-	 * - User preference 'oresRCHideNonDamaging'
+	 * Get user preference for hiding non-damaging edits.
+	 * - If form is submitted: filter is enabled if the hidenondamaging is set, disabled otherwise.
+	 * - If Contributions page is opened regularly: filter is enabled if the parameter is set or
+	 * the preference is enabled, disabled otherwise.
 	 *
 	 * @param IContextSource $context
-	 * @return string|boolean $option URL string param or boolean user preference
+	 * @return boolean True if non damaging preference should be enabled
 	 */
 	private static function hideNonDamagingPreference( IContextSource $context ) {
-		$option = $context->getRequest()->getVal( 'hidenondamaging' );
+		$checkbox = $context->getRequest()->getBool( 'hidenondamaging' );
+		$preference = $context->getUser()->getOption( 'oresRCHideNonDamaging' );
 
-		if ( $option === null ) {
-			$option = $context->getUser()->getOption( 'oresRCHideNonDamaging' );
+		// Unchecked options aren't submitted with HTML form, so we have hidenondamaging=1 or null.
+		// To distinguish when form on Special:Contributions is submitted, we check for
+		// hidden parameter on the Special:Contributions form, with name 'limit'.
+		// Watchlist special page defines similar hidden input field, called 'action'
+		// which is used in the same fashion as we are using 'limit' here.
+		if ( $context->getRequest()->getBool( 'limit' ) ) {
+			return $checkbox;
 		}
 
-		return $option;
+		return $preference || $checkbox;
 	}
 
 }
