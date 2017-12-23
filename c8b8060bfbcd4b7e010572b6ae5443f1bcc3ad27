@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cee8db29_cdf54ac9",
+        "filename": "includes/Storage/ScoreStorage.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-12-23T14:02:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cee8db29_95e1ae9a",
+      "revId": "c8b8060bfbcd4b7e010572b6ae5443f1bcc3ad27",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cee8db29_b5ee7284",
         "filename": "includes/Storage/SqlScoreStorage.php",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "cee8db29_adf286dd",
+        "filename": "includes/Storage/SqlScoreStorage.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-12-23T14:02:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cee8db29_b5ee7284",
+      "range": {
+        "startLine": 46,
+        "startChar": 26,
+        "endLine": 46,
+        "endChar": 27
+      },
+      "revId": "c8b8060bfbcd4b7e010572b6ae5443f1bcc3ad27",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cee8db29_f59f5a04",
         "filename": "tests/phpunit/includes/Storage/SqlScoreStorageTest.php",
         "patchSetId": 1
@@ -53,6 +95,24 @@
       "writtenOn": "2017-12-18T16:34:58Z",
       "side": 1,
       "message": "fwiw, this isn\u0027t very specific and could be thrown by something else.  You could expect an exact message, though...",
+      "revId": "c8b8060bfbcd4b7e010572b6ae5443f1bcc3ad27",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_8d22224f",
+        "filename": "tests/phpunit/includes/Storage/SqlScoreStorageTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-12-23T14:02:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cee8db29_f59f5a04",
       "revId": "c8b8060bfbcd4b7e010572b6ae5443f1bcc3ad27",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
