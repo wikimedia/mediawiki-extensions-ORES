@@ -7,8 +7,6 @@ use ORES\Storage\ModelLookup;
 use ORES\ThresholdLookup;
 
 /**
- * @covers ORES\ServiceWiring.php
- *
  * @license GNU GPL v2+
  * @author Addshore
  * @author Amir Sarabadani
