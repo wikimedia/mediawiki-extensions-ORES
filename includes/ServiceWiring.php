@@ -29,7 +29,8 @@ return [
 		return new ThresholdLookup(
 			Api::newFromContext(),
 			$services->getMainWANObjectCache(),
-			LoggerFactory::getInstance( 'ORES' )
+			LoggerFactory::getInstance( 'ORES' ),
+			$services->getService( 'ORESModelLookup' )
 		);
 	}
 
