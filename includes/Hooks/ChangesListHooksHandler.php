@@ -464,8 +464,8 @@ class ChangesListHooksHandler {
 	public static function onOldChangesListRecentChangesLine(
 		ChangesList &$changesList,
 		&$s,
-		$rc,
-		&$classes = []
+		RecentChange $rc,
+		array &$classes = []
 	) {
 		if ( !Hooks::oresUiEnabled( $changesList->getUser() ) ) {
 			return;
@@ -500,7 +500,7 @@ class ChangesListHooksHandler {
 	 * @param IContextSource $context
 	 * @return bool
 	 */
-	public static function getScoreRecentChangesList( $rcObj, IContextSource $context ) {
+	public static function getScoreRecentChangesList( RecentChange $rcObj, IContextSource $context ) {
 		$threshold = $rcObj->getAttribute( 'ores_damaging_threshold' );
 		if ( $threshold === null ) {
 			$threshold = Hooks::getThreshold( 'damaging', $context->getUser(), $context->getTitle() );

@@ -36,7 +36,7 @@ class Cache {
 	 *
 	 * @param callable $errorCallback the callback function
 	 */
-	public function setErrorCallback( $errorCallback ) {
+	public function setErrorCallback( callable $errorCallback ) {
 		$this->errorCallback = $errorCallback;
 	}
 
@@ -92,7 +92,7 @@ class Cache {
 	 *
 	 * @throws RuntimeException
 	 */
-	public function processRevision( &$dbData, $revision, array $revisionData ) {
+	public function processRevision( array &$dbData, $revision, array $revisionData ) {
 		global $wgOresModelClasses;
 		// Map to database fields.
 

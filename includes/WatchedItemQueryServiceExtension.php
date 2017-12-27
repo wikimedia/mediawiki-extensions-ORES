@@ -20,9 +20,9 @@ namespace ORES;
 
 use MediaWiki\MediaWikiServices;
 use ORES\Hooks\ApiHooksHandler;
-use ResultWrapper;
 use User;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\ResultWrapper;
 
 class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtension {
 

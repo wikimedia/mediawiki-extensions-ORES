@@ -30,7 +30,7 @@ class ThresholdParser {
 		$this->logger = $logger;
 	}
 
-	public function parseThresholds( $statsData, $model ) {
+	public function parseThresholds( array $statsData, $model ) {
 		$thresholds = [];
 		foreach ( $this->getFiltersConfig( $model ) as $levelName => $config ) {
 			if ( $config === false ) {
@@ -65,6 +65,11 @@ class ThresholdParser {
 		return $thresholds;
 	}
 
+	/**
+	 * @param string $model
+	 *
+	 * @return array|bool
+	 */
 	public function getFiltersConfig( $model ) {
 		global $wgOresFiltersThresholds;
 		if ( !isset( $wgOresFiltersThresholds[$model] ) ) {
@@ -110,7 +115,7 @@ class ThresholdParser {
 		}
 	}
 
-	private function extractBoundValue( $bound, $config, $statsData ) {
+	private function extractBoundValue( $bound, $config, array $statsData ) {
 		if ( is_numeric( $config ) ) {
 			return $config;
 		}

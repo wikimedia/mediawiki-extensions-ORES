@@ -40,9 +40,9 @@ use ORES\Scoring;
 use ORES\WatchedItemQueryServiceExtension;
 use RequestContext;
 use Title;
-use ResultWrapper;
 use WatchedItem;
 use WatchedItemQueryService;
+use Wikimedia\Rdbms\ResultWrapper;
 
 class ApiHooksHandler {
 
@@ -61,7 +61,7 @@ class ApiHooksHandler {
 	 * @param array &$params Parameter data
 	 * @param int $flags zero or OR-ed flags like ApiBase::GET_VALUES_FOR_HELP
 	 */
-	public static function onAPIGetAllowedParams( &$module, &$params, $flags ) {
+	public static function onAPIGetAllowedParams( ApiBase &$module, array &$params, $flags ) {
 		if ( $module instanceof ApiQueryRevisions ||
 			$module instanceof ApiQueryAllRevisions ||
 			$module instanceof ApiQueryRecentChanges ||
@@ -197,7 +197,7 @@ class ApiHooksHandler {
 	 * @param ResultWrapper|bool $res
 	 * @param array &$hookData Inter-hook communication
 	 */
-	public static function onApiQueryBaseAfterQuery( ApiQueryBase $module, $res, &$hookData ) {
+	public static function onApiQueryBaseAfterQuery( ApiQueryBase $module, $res, array &$hookData ) {
 		if ( !$res ) {
 			return;
 		}
@@ -255,7 +255,7 @@ class ApiHooksHandler {
 	 * @param int[] $revids Revision IDs
 	 * @return array [ array $scores, bool $needsContinuation ]
 	 */
-	public static function loadScoresForRevisions( $revids ) {
+	public static function loadScoresForRevisions( array $revids ) {
 		global $wgOresAPIMaxBatchJobs, $wgOresRevisionsPerBatch;
 
 		$needsContinuation = false;
@@ -350,7 +350,7 @@ class ApiHooksHandler {
 	 * @param string[] $models
 	 * @return array
 	 */
-	private static function processRevision( $revid, $data, $models ) {
+	private static function processRevision( $revid, array $data, array $models ) {
 		global $wgOresModelClasses;
 		$parser = new ScoreParser(
 			MediaWikiServices::getInstance()->getService( 'ORESModelLookup' ),
@@ -390,7 +390,12 @@ class ApiHooksHandler {
 	 * @param array &$hookData Inter-hook communication
 	 * @return bool False to stop processing the result set
 	 */
-	public static function onApiQueryBaseProcessRow( $module, $row, &$data, &$hookData ) {
+	public static function onApiQueryBaseProcessRow(
+		ApiQueryBase $module,
+		$row,
+		array &$data,
+		array &$hookData
+	) {
 		if ( isset( $hookData['oresField'] ) &&
 			( !$hookData['oresCheckRCType'] ||
 				(int)$row->rc_type === RC_NEW || (int)$row->rc_type === RC_EDIT
@@ -471,7 +476,7 @@ class ApiHooksHandler {
 	 * @param array &$options
 	 */
 	public static function onApiQueryWatchlistPrepareWatchedItemQueryServiceOptions(
-		ApiQueryBase $module, $params, &$options
+		ApiQueryBase $module, array $params, array &$options
 	) {
 		if ( in_array( 'oresscores', $params['prop'], true ) ) {
 			$options['includeFields'][] = 'oresscores';
@@ -500,7 +505,7 @@ class ApiHooksHandler {
 	 * @param array &$output
 	 */
 	public static function onApiQueryWatchlistExtractOutputData(
-		ApiQueryBase $module, WatchedItem $watchedItem, $recentChangeInfo, &$output
+		ApiQueryBase $module, WatchedItem $watchedItem, array $recentChangeInfo, array &$output
 	) {
 		if ( isset( $recentChangeInfo['oresScores'] ) ) {
 			self::addScoresForAPI( $output, $recentChangeInfo['oresScores'] );

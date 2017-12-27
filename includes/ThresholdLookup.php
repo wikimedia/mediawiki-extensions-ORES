@@ -177,7 +177,7 @@ class ThresholdLookup {
 		return $resultMap;
 	}
 
-	protected function extractKeyPath( $data, $keyPath ) {
+	protected function extractKeyPath( array $data, array $keyPath ) {
 		$current = $data;
 		foreach ( $keyPath as $key ) {
 			if ( !isset( $current[$key] ) ) {
@@ -186,7 +186,6 @@ class ThresholdLookup {
 			}
 			$current = $current[$key];
 		}
-
 		return $current;
 	}
 

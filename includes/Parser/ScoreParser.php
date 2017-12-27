@@ -63,13 +63,13 @@ class ScoreParser {
 	}
 
 	/**
-	 * @param $revision
-	 * @param $model
-	 * @param $modelOutputs
+	 * @param int $revision
+	 * @param string $model
+	 * @param array[] $modelOutputs
 	 *
 	 * @return array
 	 */
-	private function processRevisionPerModel( $revision, $model, $modelOutputs ) {
+	private function processRevisionPerModel( $revision, $model, array $modelOutputs ) {
 		$processedData = [];
 		$prediction = $modelOutputs['score']['prediction'];
 		// Kludge out booleans so we can match prediction against class name.

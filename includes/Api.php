@@ -78,11 +78,11 @@ class Api {
 	/**
 	 * Make an ORES API request and return the decoded result.
 	 *
-	 * @param array $params optional GET parameters
+	 * @param array $params
 	 * @return array Decoded response
 	 *
 	 */
-	public function request( $params = [] ) {
+	public function request( array $params ) {
 		$logger = LoggerFactory::getInstance( 'ORES' );
 
 		$url = $this->getUrl();

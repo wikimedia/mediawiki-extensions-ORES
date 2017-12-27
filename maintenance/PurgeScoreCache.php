@@ -116,7 +116,12 @@ class PurgeScoreCache extends Maintenance {
 	 * @return int The number of deleted rows
 	 * @see Database::select
 	 */
-	private function deleteRows( $tables, $conditions, $join_conds, $batchSize = 1000 ) {
+	private function deleteRows(
+		array $tables,
+		array $conditions,
+		array $join_conds,
+		$batchSize = 1000
+	) {
 		$dbr = \wfGetDB( DB_REPLICA );
 		$dbw = \wfGetDB( DB_MASTER );
 
