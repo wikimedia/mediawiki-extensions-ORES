@@ -38,6 +38,11 @@ class ThresholdLookup {
 	private $logger;
 
 	/**
+	 * @var ThresholdParser
+	 */
+	private $thresholdParser;
+
+	/**
 	 * @param Api $api
 	 * @param WANObjectCache $cache
 	 * @param LoggerInterface $logger
@@ -46,42 +51,21 @@ class ThresholdLookup {
 		$this->api = $api;
 		$this->cache = $cache;
 		$this->logger = $logger;
+		// TODO: Inject
+		$this->thresholdParser = new ThresholdParser( $logger );
 	}
 
 	public function getThresholds( $model, $fromCache = true ) {
-		$config = $this->getFiltersConfig( $model );
+		$config = $this->thresholdParser->getFiltersConfig( $model );
 		// Skip if the model is unconfigured or set to false.
 		if ( $config ) {
 			$stats = $this->fetchStats( $model, $fromCache );
 			// Skip if stats are empty.
 			if ( $stats !== false ) {
-				return $this->parseThresholds( $stats, $model );
+				return $this->thresholdParser->parseThresholds( $stats, $model );
 			}
 		}
 		return [];
-	}
-
-	private function getFiltersConfig( $model ) {
-		global $wgOresFiltersThresholds;
-		if ( !isset( $wgOresFiltersThresholds[$model] ) ) {
-			return false;
-		}
-		$config = $wgOresFiltersThresholds[$model];
-
-		// Convert old config to new grammar.
-		// @deprecated Remove once all config is migrated.
-		foreach ( $config as $levelName => &$levelConfig ) {
-			if ( $levelConfig === false ) {
-				continue;
-			}
-			foreach ( $levelConfig as $bound => &$formula ) {
-				if ( false !== strpos( $formula, '(' ) ) {
-					// Old-style formula, convert it to new-style.
-					$formula = $this->mungeV1Forumula( $formula );
-				}
-			}
-		}
-		return $config;
 	}
 
 	private function fetchStats( $model, $fromCache ) {
@@ -131,7 +115,7 @@ class ThresholdLookup {
 		$trueFormulas = [];
 		$falseFormulas = [];
 		$calculatedThresholds = [];
-		foreach ( $this->getFiltersConfig( $model ) as $levelName => $config ) {
+		foreach ( $this->thresholdParser->getFiltersConfig( $model ) as $levelName => $config ) {
 			if ( $config === false ) {
 				continue;
 			}
@@ -193,32 +177,6 @@ class ThresholdLookup {
 		return $resultMap;
 	}
 
-	/**
-	 * Converts an old-style configuration to new-style.
-	 * @deprecated Can be removed once all threshold config is written in the new grammar.
-	 */
-	protected function mungeV1Forumula( $v1Formula ) {
-		if ( false !== strpos( $v1Formula, '@' ) ) {
-			// This is new-style already, pass through.
-			return $v1Formula;
-		} elseif ( preg_match(
-			'/recall_at_precision\(min_precision=(0\.\d+)\)/',
-			$v1Formula, $matches )
-		) {
-			$min_precision = floatval( $matches[1] );
-			return "maximum recall @ precision >= {$min_precision}";
-		} elseif ( preg_match(
-			'/filter_rate_at_recall\(min_recall=(0\.\d+)\)/',
-			$v1Formula, $matches )
-		) {
-			$min_recall = floatval( $matches[1] );
-			return "maximum filter_rate @ recall >= {$min_recall}";
-		} else {
-			// We ran out of guesses.
-			throw new \RuntimeException( "Failed to parse threshold formula [{$v1Formula}]" );
-		}
-	}
-
 	protected function extractKeyPath( $data, $keyPath ) {
 		$current = $data;
 		foreach ( $keyPath as $key ) {
@@ -228,74 +186,8 @@ class ThresholdLookup {
 			}
 			$current = $current[$key];
 		}
+
 		return $current;
-	}
-
-	private function parseThresholds( $statsData, $model ) {
-		$thresholds = [];
-		foreach ( $this->getFiltersConfig( $model ) as $levelName => $config ) {
-			if ( $config === false ) {
-				// level is disabled
-				continue;
-			}
-
-			$min = $this->extractBoundValue(
-				$levelName,
-				'min',
-				$config['min'],
-				$statsData
-			);
-
-			$max = $this->extractBoundValue(
-				$levelName,
-				'max',
-				$config['max'],
-				$statsData
-			);
-
-			if ( $max === null || $min === null ) {
-				$data = [
-					'levelName' => $levelName,
-					'levelConfig' => $config,
-					'max' => $max,
-					'min' => $min,
-					'statsData' => $statsData,
-				];
-				$this->logger->error( 'Unable to parse threshold: ' . json_encode( $data ) );
-				continue;
-			}
-
-			if ( is_numeric( $min ) && is_numeric( $max ) ) {
-				$thresholds[$levelName] = [
-					'min' => $min,
-					'max' => $max,
-				];
-			}
-		}
-		return $thresholds;
-	}
-
-	private function extractBoundValue( $levelName, $bound, $config, $statsData ) {
-		if ( is_numeric( $config ) ) {
-			return $config;
-		}
-
-		$stat = $config;
-		if ( !isset( $statsData['false'] ) || !isset( $statsData['true'] ) ) {
-			return null;
-		} elseif ( $bound === 'max' && $statsData['false'][$stat] === null ) {
-			return null;
-		} elseif ( $bound === 'max' && isset( $statsData['false'][$stat]['threshold'] ) ) {
-			$threshold = $statsData['false'][$stat]['threshold'];
-			// Invert to turn a "false" threshold to "true".
-			$threshold = 1 - $threshold;
-			return $threshold;
-		} elseif ( isset( $statsData['true'][$stat]['threshold'] ) ) {
-			$threshold = $statsData['true'][$stat]['threshold'];
-			return $threshold;
-		}
-
-		return null;
 	}
 
 }
