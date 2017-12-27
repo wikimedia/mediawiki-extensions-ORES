@@ -40,7 +40,7 @@ class RangeTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider overlapsProvider
 	 */
-	public function testOverlaps( $r1, $r2, $expectedOverlap ) {
+	public function testOverlaps( array $r1, array $r2, $expectedOverlap ) {
 		$r1 = new Range( $r1[0], $r1[1] );
 		$r2 = new Range( $r2[0], $r2[1] );
 		$this->assertEquals( $expectedOverlap, $r1->overlaps( $r2 ) );
@@ -58,7 +58,7 @@ class RangeTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider combineWithProvider
 	 */
-	public function testCombineWith( $r1, $r2, $expectedRange ) {
+	public function testCombineWith( array $r1, array $r2, $expectedRange ) {
 		$r1 = new Range( $r1[0], $r1[1] );
 		$r2 = new Range( $r2[0], $r2[1] );
 

@@ -83,7 +83,7 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 	/**
 	 * @dataProvider processRevisionProvider
 	 */
-	public function testProcessRevision( $revisionData, $expected, $revId ) {
+	public function testProcessRevision( array $revisionData, array $expected, $revId ) {
 		$modelData = [
 			'reverted' => [ 'id' => self::REVERTED, 'version' => '0.0.1' ],
 			'damaging' => [ 'id' => self::DAMAGING, 'version' => '0.0.2' ],
@@ -145,7 +145,7 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 	/**
 	 * @dataProvider processRevisionInvalidProvider
 	 */
-	public function testProcessRevisionInvalid( $revisionData, $revId ) {
+	public function testProcessRevisionInvalid( array $revisionData, $revId ) {
 		$this->setExpectedException( InvalidArgumentException::class );
 		$modelData = [
 			'reverted' => [ 'id' => self::REVERTED, 'version' => '0.0.1' ],

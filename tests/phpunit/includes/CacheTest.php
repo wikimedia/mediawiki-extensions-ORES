@@ -145,7 +145,7 @@ class CacheTest extends MediaWikiLangTestCase {
 	/**
 	 * @dataProvider processRevisionProvider
 	 */
-	public function testProcessRevision( $revisionData, $expected, $revId ) {
+	public function testProcessRevision( array $revisionData, array $expected, $revId ) {
 		$data = [];
 		$this->cache->processRevision( $data, $revId, $revisionData );
 
@@ -213,7 +213,7 @@ class CacheTest extends MediaWikiLangTestCase {
 	/**
 	 * @dataProvider storeScoresProvider
 	 */
-	public function testStoreScores( $scores, $expected, $revIds ) {
+	public function testStoreScores( array $scores, array $expected, array $revIds ) {
 		$this->setMwGlobals( [
 			'wgOresWikiId' => 'wiki',
 		] );
