@@ -105,8 +105,8 @@ class PopulateDatabase extends Maintenance {
 	 * Process several edits and store the scores in the database
 	 *
 	 * @param array $revs array of revision ids
-	 * @param Scoring $scoring scoring object
-	 * @param Cache $cache cahe object
+	 * @param Scoring $scoring
+	 * @param Cache $cache
 	 */
 	private function processScores( array $revs, Scoring $scoring, Cache $cache ) {
 		$size = count( $revs );
