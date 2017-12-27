@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cee8db29_18ec84f1",
+        "filename": "includes/ThresholdParser.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-12-27T12:56:32Z",
+      "side": 1,
+      "message": "This and some other methods below entirely miss their PHPDoc block.\n\nAlso it looks like a strict \"array\" type hint can be added to some of the method parameters.",
+      "revId": "4ed5c231a35187c766a76e7a7c067feba3aa5292",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
