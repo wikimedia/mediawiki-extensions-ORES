@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cee8db29_dfcafe49",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-28T14:31:40Z",
+      "side": 1,
+      "message": ": API response",
+      "revId": "eded28890d6403e4c7b91bb7c2f8d192129904fd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_3fd84a22",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-28T14:31:40Z",
+      "side": 1,
+      "message": ": We return null if the versions match, otherwise return the new model version to update to.",
+      "revId": "eded28890d6403e4c7b91bb7c2f8d192129904fd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_ffcd4263",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-28T14:31:40Z",
+      "side": 1,
+      "message": "Either the function name or doc block should explain what this does.  How about \"checkModelNewerVersion\"?",
+      "revId": "eded28890d6403e4c7b91bb7c2f8d192129904fd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_1fd586e8",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-28T14:31:40Z",
+      "side": 1,
+      "message": "Is this not an error condition?",
+      "revId": "eded28890d6403e4c7b91bb7c2f8d192129904fd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_7f00126e",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-28T14:31:40Z",
+      "side": 1,
+      "message": "I like that a downgrade also triggers update logic.",
+      "revId": "eded28890d6403e4c7b91bb7c2f8d192129904fd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_5f054e7b",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-28T14:31:40Z",
+      "side": 1,
+      "message": "Nice.",
+      "revId": "eded28890d6403e4c7b91bb7c2f8d192129904fd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_bffa9a71",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-28T14:31:40Z",
+      "side": 1,
+      "message": "I don\u0027t think is_current should be in the where clause.  If a row somehow exists with name\u003d$model, version\u003d\u003e$newVersion, is_current\u003d\u003e0, we\u0027ll miss updating it and will insert a duplicate.",
+      "revId": "eded28890d6403e4c7b91bb7c2f8d192129904fd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
