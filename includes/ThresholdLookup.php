@@ -17,7 +17,9 @@
 namespace ORES;
 
 use MediaWiki\MediaWikiServices;
+use ORES\Storage\ModelLookup;
 use Psr\Log\LoggerInterface;
+use RuntimeException;
 use WANObjectCache;
 
 class ThresholdLookup {
@@ -38,6 +40,11 @@ class ThresholdLookup {
 	private $logger;
 
 	/**
+	 * @var ModelLookup
+	 */
+	private $modelLookup;
+
+	/**
 	 * @var ThresholdParser
 	 */
 	private $thresholdParser;
@@ -46,21 +53,26 @@ class ThresholdLookup {
 	 * @param Api $api
 	 * @param WANObjectCache $cache
 	 * @param LoggerInterface $logger
+	 * @param ModelLookup $modelLookup
 	 */
-	public function __construct( Api $api, WANObjectCache $cache, LoggerInterface $logger ) {
+	public function __construct(
+		Api $api,
+		WANObjectCache $cache,
+		LoggerInterface $logger,
+		ModelLookup $modelLookup
+	) {
 		$this->api = $api;
 		$this->cache = $cache;
 		$this->logger = $logger;
+		$this->modelLookup = $modelLookup;
 		// TODO: Inject
 		$this->thresholdParser = new ThresholdParser( $logger );
 	}
 
 	public function getThresholds( $model, $fromCache = true ) {
 		$config = $this->thresholdParser->getFiltersConfig( $model );
-		// Skip if the model is unconfigured or set to false.
 		if ( $config ) {
-			$stats = $this->fetchStats( $model, $fromCache );
-			// Skip if stats are empty.
+			$stats = $this->fetchThresholds( $model, $fromCache );
 			if ( $stats !== false ) {
 				return $this->thresholdParser->parseThresholds( $stats, $model );
 			}
@@ -68,50 +80,48 @@ class ThresholdLookup {
 		return [];
 	}
 
-	private function fetchStats( $model, $fromCache ) {
-		global $wgOresCacheVersion;
+	private function fetchThresholds( $model, $fromCache ) {
 		if ( $fromCache ) {
-			$key = $this->cache->makeKey( 'ORES', 'threshold_statistics', $model, $wgOresCacheVersion );
-			$result = $this->cache->getWithSetCallback(
-				$key,
-				WANObjectCache::TTL_DAY,
-				function ( $oldValue, &$ttl, &$setOpts, $opts ) use ( $model ) {
-					$statsdDataFactory = MediaWikiServices::getInstance()->getStatsdDataFactory();
-					// @deprecated Only catching exceptions to allow the
-					// failure to be cached, remove once transition is
-					// complete.
-					try {
-						$result = $this->fetchStatsFromApi( $model );
-						$statsdDataFactory->increment( 'ores.api.stats.ok' );
-
-						return $result;
-					} catch ( \RuntimeException $ex ) {
-						// TODO: We can also check the service *before* the
-						// cached value expires, and therefore reuse the old
-						// value until the service recovers in case of failure.
-						$statsdDataFactory->increment( 'ores.api.stats.failed' );
-						$this->logger->error( 'Failed to fetch ORES stats.' );
-
-						// Retry again soon.
-						$ttl = WANObjectCache::TTL_MINUTE;
-						return [];
-					}
-				},
-				[
-					// Try to only let one datacenter thread manage cache updates at a time
-					'lockTSE' => 10,
-					// Avoid querying cache servers multiple times in a web request
-					'pcTTL' => WANObjectCache::TTL_PROC_LONG,
-				]
-			);
-			return $result;
+			return $this->fetchThresholdsFromCache( $model );
 		} else {
 			$this->logger->info( 'Forcing stats fetch, bypassing cache.' );
-			return $this->fetchStatsFromApi( $model );
+			return $this->fetchThresholdsFromApi( $model );
 		}
 	}
 
-	private function fetchStatsFromApi( $model ) {
+	private function fetchThresholdsFromCache( $model ) {
+		global $wgOresCacheVersion;
+		$modelVersion = $this->modelLookup->getModelVersion( $model );
+		$key = $this->cache->makeKey(
+			'ORES',
+			'threshold_statistics',
+			$model,
+			$modelVersion,
+			$wgOresCacheVersion
+		);
+		return $this->cache->getWithSetCallback(
+			$key,
+			WANObjectCache::TTL_DAY,
+			function ( $oldValue, &$ttl, &$setOpts, $opts ) use ( $model ) {
+				$statsdDataFactory = MediaWikiServices::getInstance()->getStatsdDataFactory();
+				try {
+					$result = $this->fetchThresholdsFromApi( $model );
+					$statsdDataFactory->increment( 'ores.api.stats.ok' );
+
+					return $result;
+				} catch ( RuntimeException $ex ) {
+					$statsdDataFactory->increment( 'ores.api.stats.failed' );
+					$this->logger->error( 'Failed to fetch ORES stats.' );
+
+					$ttl = WANObjectCache::TTL_MINUTE;
+					return [];
+				}
+			},
+			[ 'lockTSE' => 10, 'pcTTL' => WANObjectCache::TTL_PROC_LONG ]
+		);
+	}
+
+	private function fetchThresholdsFromApi( $model ) {
 		$trueFormulas = [];
 		$falseFormulas = [];
 		$calculatedThresholds = [];
@@ -121,13 +131,7 @@ class ThresholdLookup {
 			}
 			foreach ( $config as $bound => $formula ) {
 				$outcome = ( $bound === 'min' ) ? 'true' : 'false';
-				// Collect calculated field formulas.
-				// FIXME: Don't rely on magic patterns to identify calculated fields.
-
 				if ( false !== strpos( $formula, '@' ) ) {
-					// Formula, add it to the list of stats to fetch.
-
-					// Write as an API parameter.
 					$calculatedThresholds[] = "statistics.thresholds.{$outcome}.\"{$formula}\"";
 					if ( $outcome === 'true' ) {
 						$trueFormulas[] = $formula;
@@ -139,7 +143,6 @@ class ThresholdLookup {
 		}
 
 		if ( count( $calculatedThresholds ) === 0 ) {
-			// If nothing needs to be calculated, don't hit the API.
 			return [];
 		}
 
@@ -147,7 +150,6 @@ class ThresholdLookup {
 		$data = $this->api->request( [ 'models' => $model, 'model_info' => $formulaParam ] );
 		$wikiId = Api::getWikiID();
 
-		// Traverse the data path.
 		$prefix = [ $wikiId, 'models', $model, 'statistics', 'thresholds' ];
 
 		$resultMap = [];
@@ -156,8 +158,6 @@ class ThresholdLookup {
 			$pathParts = array_merge( $prefix, [ 'false' ] );
 			$result = $this->extractKeyPath( $data, $pathParts );
 
-			// Interpret the response in the same order as we built our request.
-			// FIXME: This is fragile.  Better if the results have identifying keys.
 			foreach ( $falseFormulas as $index => $formula ) {
 				$resultMap['false'][$formula] = $result[$index];
 			}
@@ -167,8 +167,6 @@ class ThresholdLookup {
 			$pathParts = array_merge( $prefix, [ 'true' ] );
 			$result = $this->extractKeyPath( $data, $pathParts );
 
-			// Interpret the response in the same order as we built our request.
-			// This seems fragile enough to warrant a FIXME.
 			foreach ( $trueFormulas as $index => $formula ) {
 				$resultMap['true'][$formula] = $result[$index];
 			}
@@ -182,7 +180,7 @@ class ThresholdLookup {
 		foreach ( $keyPath as $key ) {
 			if ( !isset( $current[$key] ) ) {
 				$fullPath = implode( '.', $keyPath );
-				throw new \RuntimeException( "Failed to parse data at key [{$fullPath}]" );
+				throw new RuntimeException( "Failed to parse data at key [{$fullPath}]" );
 			}
 			$current = $current[$key];
 		}
