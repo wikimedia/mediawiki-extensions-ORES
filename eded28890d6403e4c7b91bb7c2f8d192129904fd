@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cee8db29_1f310601",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-12-28T17:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cee8db29_dfcafe49",
+      "revId": "eded28890d6403e4c7b91bb7c2f8d192129904fd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cee8db29_3fd84a22",
         "filename": "includes/Parser/ScoreParser.php",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-12-28T14:31:40Z",
       "side": 1,
       "message": ": We return null if the versions match, otherwise return the new model version to update to.",
+      "revId": "eded28890d6403e4c7b91bb7c2f8d192129904fd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_df0dde42",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-12-28T17:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cee8db29_3fd84a22",
       "revId": "eded28890d6403e4c7b91bb7c2f8d192129904fd",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -64,6 +100,24 @@
       "writtenOn": "2017-12-28T14:31:40Z",
       "side": 1,
       "message": "Is this not an error condition?",
+      "revId": "eded28890d6403e4c7b91bb7c2f8d192129904fd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_ff10a25d",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-12-28T17:59:33Z",
+      "side": 1,
+      "message": "I doubt that, I want this to be as safe as possible",
+      "parentUuid": "cee8db29_1fd586e8",
       "revId": "eded28890d6403e4c7b91bb7c2f8d192129904fd",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -115,6 +169,24 @@
       "writtenOn": "2017-12-28T14:31:40Z",
       "side": 1,
       "message": "I don\u0027t think is_current should be in the where clause.  If a row somehow exists with name\u003d$model, version\u003d\u003e$newVersion, is_current\u003d\u003e0, we\u0027ll miss updating it and will insert a duplicate.",
+      "revId": "eded28890d6403e4c7b91bb7c2f8d192129904fd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_5f21ceab",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2017-12-28T17:59:33Z",
+      "side": 1,
+      "message": "That is not the where clause, upsert function makes the where condition based on the unique index (the third parameter).",
+      "parentUuid": "cee8db29_bffa9a71",
       "revId": "eded28890d6403e4c7b91bb7c2f8d192129904fd",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
