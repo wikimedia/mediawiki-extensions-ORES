@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cee8db29_7ad78028",
+        "filename": "includes/ThresholdLookup.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-12-28T19:43:07Z",
+      "side": 1,
+      "message": "For future reference: This is the main change in this patch. Unfortunately it\u0027s a bit hidden because of the not so optimal diff. Previously the version number was not part of the cache key.",
+      "range": {
+        "startLine": 99,
+        "startChar": 3,
+        "endLine": 99,
+        "endChar": 16
+      },
+      "revId": "b4df0b22b2ae4361c8b7cdc61fbc1d8ef8d3c179",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_5a2d5c40",
+        "filename": "tests/phpunit/includes/ThresholdLookupTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-12-28T19:43:07Z",
+      "side": 1,
+      "message": "I prefer the naming scheme \"newThresholdLookup\" for such methods. The word \"get…\" in front is not wrong, but also doesn\u0027t add much.",
+      "range": {
+        "startLine": 43,
+        "startChar": 18,
+        "endLine": 43,
+        "endChar": 39
+      },
+      "revId": "b4df0b22b2ae4361c8b7cdc61fbc1d8ef8d3c179",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_9a27e45e",
+        "filename": "tests/phpunit/includes/ThresholdLookupTest.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-12-28T19:43:07Z",
+      "side": 1,
+      "message": "This might be a chance to make use of the ?: operator:\n\nreturn new ThresholdLookup(\n    $api ?: $this-\u003egetMockBuilder( Api::class )-\u003egetMock(),\n    WANObjectCache::newEmpty(),\n    $logger ?: $this-\u003egetLoggerMock(),\n    new HashModelLookup( $modelData )\n);\n\nNot super awesome to read in this case. You decide. :-)",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 50,
+        "endChar": 3
+      },
+      "revId": "b4df0b22b2ae4361c8b7cdc61fbc1d8ef8d3c179",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
