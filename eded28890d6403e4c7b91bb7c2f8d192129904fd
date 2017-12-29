@@ -124,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "cee8db29_fa10b05d",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-29T00:43:07Z",
+      "side": 1,
+      "message": "We don\u0027t have to crash, but maybe log a message?  Once the surrounding logic is correct, presence of these keys should be an invariant.",
+      "parentUuid": "cee8db29_ff10a25d",
+      "revId": "eded28890d6403e4c7b91bb7c2f8d192129904fd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cee8db29_7f00126e",
         "filename": "includes/Parser/ScoreParser.php",
         "patchSetId": 1
@@ -187,6 +205,24 @@
       "side": 1,
       "message": "That is not the where clause, upsert function makes the where condition based on the unique index (the third parameter).",
       "parentUuid": "cee8db29_bffa9a71",
+      "revId": "eded28890d6403e4c7b91bb7c2f8d192129904fd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_783789e0",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-29T00:43:07Z",
+      "side": 1,
+      "message": "That\u0027s right, thanks.  Re-reading, you do want the is_current, because this is the row that will be inserted if the update doesn\u0027t match.",
+      "parentUuid": "cee8db29_5f21ceab",
       "revId": "eded28890d6403e4c7b91bb7c2f8d192129904fd",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
