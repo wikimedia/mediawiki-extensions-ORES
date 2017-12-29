@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cee8db29_f82279a1",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-29T00:43:07Z",
+      "side": 1,
+      "message": "I just noticed, $modelOutputs doesn\u0027t contain the data we need, it\u0027s only the subset of the results starting at $apiResponse[$wiki][$scores][$revid][$model].  This function expects to see $apiResponse[$wiki].",
+      "revId": "22efeeef7fa4399f197e291bb0ddb200d04344b0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_583285f0",
+        "filename": "tests/phpunit/includes/Parser/ScoreParserTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-29T00:43:07Z",
+      "side": 1,
+      "message": "Needs to be in @group Database, now.\n\nI\u0027m not sure we need @group ORES on our tests, unless we plan to have the ORES group cross multiple extensions?",
+      "revId": "22efeeef7fa4399f197e291bb0ddb200d04344b0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_b83111ec",
+        "filename": "tests/phpunit/includes/Parser/ScoreParserTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2017-12-29T00:43:07Z",
+      "side": 1,
+      "message": "Looks great!",
+      "revId": "22efeeef7fa4399f197e291bb0ddb200d04344b0",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
