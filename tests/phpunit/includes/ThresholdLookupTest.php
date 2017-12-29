@@ -4,9 +4,11 @@ namespace ORES\Tests;
 
 use HashBagOStuff;
 use MediaWiki\Logger\LoggerFactory;
+use NullStatsdDataFactory;
 use ORES\Api;
 use ORES\Storage\HashModelLookup;
 use ORES\ThresholdLookup;
+use ORES\ThresholdParser;
 use Psr\Log\LoggerInterface;
 use WANObjectCache;
 
@@ -59,7 +61,9 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 			$api,
 			WANObjectCache::newEmpty(),
 			$logger,
-			new HashModelLookup( $modelData )
+			new HashModelLookup( $modelData ),
+			new ThresholdParser( $this->getLoggerMock() ),
+			new NullStatsdDataFactory()
 		);
 	}
 
@@ -251,7 +255,9 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 			$api,
 			$cache,
 			$this->getLoggerMock(),
-			new HashModelLookup( $modelData )
+			new HashModelLookup( $modelData ),
+			new ThresholdParser( $this->getLoggerMock() ),
+			new NullStatsdDataFactory()
 		);
 
 		$thresholdLookup->getThresholds( 'damaging' );
@@ -260,7 +266,10 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 			'false' => [ 'maximum recall @ precision >= 0.98' => [ 'threshold' => 0.259 ] ],
 			'true' => [ 'maximum recall @ precision >= 0.9' => [ 'threshold' => 0.945 ] ]
 		];
-		$this->assertSame( $expected, $cache->get( 'local:ORES:threshold_statistics:damaging:0.0.2:1' ) );
+		$this->assertEquals(
+			$expected,
+			$cache->get( 'local:ORES:threshold_statistics:damaging:0.0.2:1' )
+		);
 	}
 
 }
