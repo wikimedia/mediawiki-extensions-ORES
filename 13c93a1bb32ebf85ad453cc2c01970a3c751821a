@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cee8db29_3b721be3",
+        "filename": "includes/ThresholdLookup.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-12-29T13:54:34Z",
+      "side": 1,
+      "message": "Ideally such a section already tells a story about the class in question. Here it\u0027s really hard to tell what\u0027s going on:\n\n* There is some API, but it\u0027s entirely unclear what it\u0027s purpose is.\n* There is some other lookup, a parser, and a cache. All quite generic.\n* There is some logging stuff (logger and stats), but not next to each other.\n\nArranging these services (in terms of the order they appear here) might help.\n\nCan you please rename the generic \"api\" and \"cache\" variables and class properties to explain better what they actually represent?",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 47
+      },
+      "revId": "13c93a1bb32ebf85ad453cc2c01970a3c751821a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cee8db29_7b7ca3b4",
+        "filename": "includes/ThresholdLookup.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2017-12-29T13:54:34Z",
+      "side": 1,
+      "message": "This is super generic. What API, what \"response\", \"parse\" what?",
+      "range": {
+        "startLine": 169,
+        "startChar": 18,
+        "endLine": 169,
+        "endChar": 34
+      },
+      "revId": "13c93a1bb32ebf85ad453cc2c01970a3c751821a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
