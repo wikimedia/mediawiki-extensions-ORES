@@ -273,7 +273,7 @@ class ApiHooksHandler {
 		$dbr = \wfGetDB( DB_REPLICA );
 		$res2 = $dbr->select(
 			[ 'ores_classification' ],
-			[ 'oresc_rev', 'oresc_class', 'oresc_probability' ],
+			[ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ],
 			[
 				'oresc_rev' => $revids,
 				'oresc_model' => array_keys( $models ),
@@ -412,7 +412,15 @@ class ApiHooksHandler {
 				return !$hookData['oresNeedsContinuation'];
 			}
 
-			self::addScoresForAPI( $data, $hookData['oresScores'][$revid] );
+			$modelData = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )
+				->getModels();
+
+			$models = [];
+			foreach ( $modelData as $modelName => $modelDatum ) {
+				$models[$modelDatum['id']] = $modelName;
+			}
+
+			self::addScoresForAPI( $data, $hookData['oresScores'][$revid], $models );
 		}
 
 		return true;
@@ -424,7 +432,7 @@ class ApiHooksHandler {
 	 * @param array &$data Output array
 	 * @param array $scores Array of score data
 	 */
-	private static function addScoresForAPI( array &$data, array $scores ) {
+	private static function addScoresForAPI( array &$data, array $scores, array $models ) {
 		global $wgOresModelClasses;
 		static $classMap = null;
 
@@ -433,6 +441,10 @@ class ApiHooksHandler {
 		}
 
 		foreach ( $scores as $row ) {
+			if ( !isset( $row->oresm_name ) && isset( $row->oresc_model ) ) {
+				$row->oresm_name = $models[$row->oresc_model];
+			}
+
 			if ( !isset( $row->oresm_name ) || !isset( $classMap[$row->oresm_name][$row->oresc_class] ) ) {
 				// Missing configuration, ignore it
 				continue;
@@ -508,7 +520,14 @@ class ApiHooksHandler {
 		ApiQueryBase $module, WatchedItem $watchedItem, array $recentChangeInfo, array &$output
 	) {
 		if ( isset( $recentChangeInfo['oresScores'] ) ) {
-			self::addScoresForAPI( $output, $recentChangeInfo['oresScores'] );
+			$modelData = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )
+				->getModels();
+
+			$models = [];
+			foreach ( $modelData as $modelName => $modelDatum ) {
+				$models[$modelDatum['id']] = $modelName;
+			}
+			self::addScoresForAPI( $output, $recentChangeInfo['oresScores'], $models );
 		}
 	}
 
