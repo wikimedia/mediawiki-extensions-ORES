@@ -16,6 +16,7 @@
 
 namespace ORES;
 
+use MediaWiki\MediaWikiServices;
 use WebRequest;
 
 class Scoring {
@@ -52,9 +53,76 @@ class Scoring {
 
 		// Dig down to the scores.
 		$wikiId = Api::getWikiID();
+		if ( array_key_exists( 'models', $wireData[$wikiId] ) ) {
+			foreach ( $wireData[$wikiId]['models'] as $model => $modelOutputs ) {
+				$responseVersion = $this->checkModelVersion( $model, $modelOutputs );
+				if ( $responseVersion !== null ) {
+					$this->updateModelVersion( $model, $responseVersion );
+				}
+			}
+
+		}
 		$wireData = $wireData[$wikiId]['scores'];
 
 		return $wireData;
+	}
+
+	/**
+	 * @param string $model API response
+	 * @param array $modelOutputs
+	 * @return null|string return null if the versions match, otherwise return
+	 * the new model version to update to
+	 */
+	public function checkModelVersion( $model, $modelOutputs ) {
+		if ( !array_key_exists( 'version', $modelOutputs ) ) {
+			return null;
+		}
+
+		$modelLookup = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' );
+		$storageVersion = $modelLookup->getModelVersion( $model );
+		$responseVersion = $modelOutputs['version'];
+
+		if ( $storageVersion === $responseVersion ) {
+			return null;
+		}
+
+		return $responseVersion;
+	}
+
+	/**
+	 * @param string $model
+	 * @param string $responseVersion
+	 */
+	public function updateModelVersion( $model, $responseVersion ) {
+		// TODO: Move to ModelStorage service
+		$dbw = \wfGetDB( DB_MASTER );
+		$dbw->update(
+			'ores_model',
+			[
+				'oresm_is_current' => 0,
+			],
+			[
+				'oresm_name' => $model,
+				'oresm_version != ' . $dbw->addQuotes( $responseVersion ),
+			],
+			__METHOD__
+		);
+
+		$dbw->upsert(
+			'ores_model',
+			[
+				'oresm_name' => $model,
+				'oresm_version' => $responseVersion,
+				'oresm_is_current' => 1,
+			],
+			[ 'oresm_name', 'oresm_version' ],
+			[
+				'oresm_name' => $model,
+				'oresm_version' => $responseVersion,
+				'oresm_is_current' => 1,
+			],
+			__METHOD__
+		);
 	}
 
 	/**
