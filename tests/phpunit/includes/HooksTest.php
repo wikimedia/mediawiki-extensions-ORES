@@ -5,6 +5,7 @@ namespace ORES\Tests;
 use IContextSource;
 use ORES\Hooks;
 use ORES\Hooks\PreferencesHookHandler;
+use ORES\Storage\HashModelLookup;
 use RequestContext;
 use SpecialPage;
 use User;
@@ -52,6 +53,9 @@ class HooksTest extends \MediaWikiTestCase {
 	}
 
 	public function testGetThreshold() {
+		$modelData = [ 'damaging' => [ 'id' => 5, 'version' => '0.0.2' ] ];
+		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
+
 		$this->user->setOption( 'rcOresDamagingPref', 'maybebad' );
 		$this->assertEquals(
 			0.16,

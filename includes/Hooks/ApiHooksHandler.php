@@ -32,7 +32,6 @@ use JobQueueGroup;
 use InvalidArgumentException;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
-use ORES\Cache;
 use ORES\FetchScoreJob;
 use ORES\Hooks;
 use ORES\Parser\ScoreParser;
@@ -325,10 +324,10 @@ class ApiHooksHandler {
 
 			$loadedScores = Scoring::instance()->getScores( $revids );
 
-			$cache = Cache::instance();
-			$cacheableScores = $cache->filterScores( $loadedScores, $cacheableRevids );
-			DeferredUpdates::addCallableUpdate( function () use ( $cache, $cacheableScores ) {
-				$cache->storeScores( $cacheableScores );
+			$cacheableScores = array_intersect_key( $loadedScores, array_flip( $cacheableRevids ) );
+			DeferredUpdates::addCallableUpdate( function () use ( $cacheableScores ) {
+				$scoreStorage = MediaWikiServices::getInstance()->getService( 'ORESScoreStorage' );
+				$scoreStorage->storeScores( $cacheableScores );
 			} );
 
 			foreach ( $loadedScores as $revid => $data ) {

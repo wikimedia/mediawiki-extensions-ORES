@@ -4,6 +4,7 @@ namespace ORES;
 
 use Maintenance;
 use MediaWiki\MediaWikiServices;
+use ORES\Storage\ScoreStorage;
 
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
@@ -43,10 +44,8 @@ class PopulateDatabase extends Maintenance {
 		global $wgOresExcludeBots, $wgOresRevisionsPerBatch;
 
 		$scoring = Scoring::instance();
-		$cache = Cache::instance();
-		$cache->setErrorCallback( function ( $mssg, $revision ) {
-			$this->output( "Scoring errored for $revision: $mssg\n" );
-		} );
+		/** @var ScoreStorage $scoreStorage */
+		$scoreStorage = MediaWikiServices::getInstance()->getService( 'ORESScoreStorage' );
 		$this->batchSize = $this->getOption( 'batch', 5000 );
 		$this->revisionLimit = $this->getOption( 'number', 1000 );
 		$this->apiBatchSize = $this->getOption( 'apibatch', $wgOresRevisionsPerBatch ?: 30 );
@@ -81,13 +80,13 @@ class PopulateDatabase extends Maintenance {
 			foreach ( $res as $row ) {
 				$pack[] = $row->rc_this_oldid;
 				if ( count( $pack ) % $this->apiBatchSize === 0 ) {
-					$this->processScores( $pack, $scoring, $cache );
+					$this->processScores( $pack, $scoring, $scoreStorage );
 					$pack = [];
 				}
 				$latestRcId = $row->rc_id;
 			}
 			if ( $pack !== [] ) {
-				$this->processScores( $pack, $scoring, $cache );
+				$this->processScores( $pack, $scoring, $scoreStorage );
 			}
 
 			$count += $this->batchSize;
@@ -106,14 +105,19 @@ class PopulateDatabase extends Maintenance {
 	 *
 	 * @param array $revs array of revision ids
 	 * @param Scoring $scoring
-	 * @param Cache $cache
+	 * @param ScoreStorage $scoreStorage service to store scores in persistence layer
 	 */
-	private function processScores( array $revs, Scoring $scoring, Cache $cache ) {
+	private function processScores( array $revs, Scoring $scoring, ScoreStorage $scoreStorage ) {
 		$size = count( $revs );
 		$this->output( "Processing $size revisions\n" );
 
 		$scores = $scoring->getScores( $revs );
-		$cache->storeScores( $scores );
+		$scoreStorage->storeScores(
+			$scores,
+			function ( $mssg, $revision ) {
+				$this->output( "Scoring errored for $revision: $mssg\n" );
+			}
+		);
 	}
 
 }

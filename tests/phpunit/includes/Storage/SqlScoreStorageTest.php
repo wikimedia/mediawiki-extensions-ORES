@@ -180,4 +180,75 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 		);
 	}
 
+	public function testPurgeRows() {
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->insert(
+			'ores_classification',
+			[
+				[
+					'oresc_rev' => '12346',
+					'oresc_model' => (string)self::REVERTED,
+					'oresc_class' => '1',
+					'oresc_probability' => '0.876',
+					'oresc_is_predicted' => '1'
+				],
+				[
+					'oresc_rev' => '12346',
+					'oresc_model' => (string)self::DAMAGING,
+					'oresc_class' => '1',
+					'oresc_probability' => '0.067',
+					'oresc_is_predicted' => '0'
+				],
+				[
+					'oresc_rev' => '12345',
+					'oresc_model' => (string)self::DAMAGING,
+					'oresc_class' => '1',
+					'oresc_probability' => '0.067',
+					'oresc_is_predicted' => '0'
+				],
+				[
+					'oresc_rev' => '12344',
+					'oresc_model' => (string)self::REVERTED,
+					'oresc_class' => '1',
+					'oresc_probability' => '0.876',
+					'oresc_is_predicted' => '1'
+				],
+				[
+					'oresc_rev' => '12344',
+					'oresc_model' => (string)self::GOODFAITH,
+					'oresc_class' => '1',
+					'oresc_probability' => '0.86',
+					'oresc_is_predicted' => '1'
+				],
+			]
+		);
+
+		$this->storage->purgeRows( [ 12344, 12346 ] );
+
+		$res = wfGetDB( DB_REPLICA )->select(
+			'ores_classification',
+			[
+				'oresc_rev',
+				'oresc_model',
+				'oresc_class',
+				'oresc_probability',
+				'oresc_is_predicted'
+			],
+			'',
+			__METHOD__
+		);
+
+		$expected = [
+			(object)[
+				'oresc_rev' => '12345',
+				'oresc_model' => (string)self::DAMAGING,
+				'oresc_class' => '1',
+				'oresc_probability' => '0.067',
+				'oresc_is_predicted' => '0'
+			]
+		];
+
+		$this->assertEquals( $expected, iterator_to_array( $res, false ) );
+	}
+
 }

@@ -40,7 +40,6 @@ class SqlScoreStorage implements ScoreStorage {
 	 *
 	 * @param array[] $scores
 	 * @param callable $errorCallback
-	 * @return int
 	 */
 	public function storeScores( $scores, callable $errorCallback = null ) {
 		// TODO: Make it an argument and deprecate the whole config variable
@@ -71,6 +70,19 @@ class SqlScoreStorage implements ScoreStorage {
 			$dbData,
 			__METHOD__,
 			[ 'IGNORE' ]
+		);
+	}
+
+	/**
+	 * @see ScoreStorage::purgeRows()
+	 *
+	 * @param int[] $revIds array of revision ids to clean scores
+	 */
+	public function purgeRows( array $revIds ) {
+		$this->loadBalancer->getConnection( DB_MASTER )->delete(
+			'ores_classification',
+			[ 'oresc_rev' => $revIds ],
+			__METHOD__
 		);
 	}
 

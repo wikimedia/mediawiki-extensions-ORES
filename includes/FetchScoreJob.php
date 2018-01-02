@@ -18,6 +18,7 @@ namespace ORES;
 
 use Job;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
 use Title;
 
 class FetchScoreJob extends Job {
@@ -77,13 +78,16 @@ class FetchScoreJob extends Job {
 			$models = null;
 		}
 		$scores = $scoring->getScores( $this->params['revid'], $models, $this->params['extra_params'] );
-		$cache = Cache::instance();
+		$scoreStorage = MediaWikiServices::getInstance()->getService( 'ORESScoreStorage' );
+
 		$success = true;
-		$cache->setErrorCallback( function ( $mssg, $revision ) use ( &$success, $logger ) {
-			$logger->warning( "Scoring errored for $revision: $mssg\n" );
-			$success = false;
-		} );
-		$cache->storeScores( $scores );
+		$scoreStorage->storeScores(
+			$scores,
+			function ( $mssg, $revision ) use ( &$success, $logger ) {
+				$logger->warning( "Scoring errored for $revision: $mssg\n" );
+				$success = false;
+			}
+		);
 		if ( $success === true ) {
 			$logger->debug( 'Stored scores: ' . json_encode( $scores ) );
 		}

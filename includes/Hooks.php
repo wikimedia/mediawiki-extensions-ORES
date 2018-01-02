@@ -121,7 +121,7 @@ class Hooks {
 		foreach ( $rows as $row ) {
 			$revIds[] = $row->rc_this_oldid;
 		}
-		Cache::instance()->purgeRows( $revIds );
+		MediaWikiServices::getInstance()->getService( 'ORESScoreStorage' )->purgeRows( $revIds );
 	}
 
 	/**

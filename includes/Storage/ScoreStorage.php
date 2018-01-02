@@ -32,4 +32,11 @@ interface ScoreStorage {
 	 */
 	public function storeScores( $scores, callable $errorCallback = null );
 
+	/**
+	 * Purge a given set of revision ids.
+	 *
+	 * @param int[] $revIds array of revision ids to clean scores
+	 */
+	public function purgeRows( array $revIds );
+
 }
