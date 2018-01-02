@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aeed6739_3a424314",
+        "filename": "includes/Scoring.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-02T16:14:19Z",
+      "side": 1,
+      "message": "What do we do with the output?  Need to updateModelVersion here.",
+      "revId": "640ad36c2b22031871bb8113181a99caaea5ac66",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeed6739_dac23788",
+        "filename": "includes/Scoring.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-02T16:14:19Z",
+      "side": 1,
+      "message": "Would still be nice to log here.  If the API response is actually missing this key, then we\u0027ll never be checking anything in this function.",
+      "revId": "640ad36c2b22031871bb8113181a99caaea5ac66",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
