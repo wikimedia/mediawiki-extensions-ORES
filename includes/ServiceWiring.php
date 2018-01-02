@@ -31,7 +31,9 @@ return [
 			Api::newFromContext(),
 			$services->getMainWANObjectCache(),
 			LoggerFactory::getInstance( 'ORES' ),
-			$services->getService( 'ORESModelLookup' )
+			$services->getService( 'ORESModelLookup' ),
+			new ThresholdParser( LoggerFactory::getInstance( 'ORES' ) ),
+			$services->getStatsdDataFactory()
 		);
 	},
 
