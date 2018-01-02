@@ -103,6 +103,30 @@
       "revId": "13c93a1bb32ebf85ad453cc2c01970a3c751821a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeed6739_40cd9a33",
+        "filename": "includes/ThresholdLookup.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-01-02T19:30:22Z",
+      "side": 1,
+      "message": "I changed name of the method to your suggestion and added phpdoc.",
+      "parentUuid": "aeed6739_8571740e",
+      "range": {
+        "startLine": 169,
+        "startChar": 18,
+        "endLine": 169,
+        "endChar": 34
+      },
+      "revId": "13c93a1bb32ebf85ad453cc2c01970a3c751821a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
