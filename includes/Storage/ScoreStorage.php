@@ -35,7 +35,7 @@ interface ScoreStorage {
 	/**
 	 * Purge a given set of revision ids.
 	 *
-	 * @param int[] $revIds array of revision ids to clean scores
+	 * @param int[] $revIds array of revision ids to remove from cached scores
 	 */
 	public function purgeRows( array $revIds );
 

@@ -324,6 +324,7 @@ class ApiHooksHandler {
 
 			$loadedScores = Scoring::instance()->getScores( $revids );
 
+			// Filter loaded scores to store cacheable ones
 			$cacheableScores = array_intersect_key( $loadedScores, array_flip( $cacheableRevids ) );
 			DeferredUpdates::addCallableUpdate( function () use ( $cacheableScores ) {
 				$scoreStorage = MediaWikiServices::getInstance()->getService( 'ORESScoreStorage' );
