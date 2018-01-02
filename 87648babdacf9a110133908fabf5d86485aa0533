@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aeed6739_cb7a6b1f",
+        "filename": "includes/Hooks/ApiHooksHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-02T20:44:17Z",
+      "side": 1,
+      "message": "This is worth a comment.",
+      "revId": "87648babdacf9a110133908fabf5d86485aa0533",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeed6739_0b8bb31c",
+        "filename": "includes/Storage/ScoreStorage.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-02T20:44:17Z",
+      "side": 1,
+      "message": "\"to remove from cached scores\"",
+      "revId": "87648babdacf9a110133908fabf5d86485aa0533",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
