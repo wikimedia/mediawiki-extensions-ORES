@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aeed6739_9a10af5d",
+        "filename": "includes/ServiceWiring.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-02T17:17:45Z",
+      "side": 1,
+      "message": "Noting the irony that the DI framework uses one of the least-testable anti-patterns in PHP, to return a value from an \"include\" statement.",
+      "revId": "876b41aa3ec27b1d5c14330aa007700f7d188f80",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeed6739_250a2825",
+        "filename": "includes/Storage/SqlScoreStorage.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-02T17:17:45Z",
+      "side": 1,
+      "message": "Looks good: this skips insert if (ores_model, ores_rev, ores_class) exists.",
+      "revId": "876b41aa3ec27b1d5c14330aa007700f7d188f80",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
