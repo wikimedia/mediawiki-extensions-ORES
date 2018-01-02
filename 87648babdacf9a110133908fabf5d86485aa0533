@@ -33,6 +33,24 @@
       "revId": "87648babdacf9a110133908fabf5d86485aa0533",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeed6739_8bcd0365",
+        "filename": "includes/Storage/ScoreStorage.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-01-02T20:51:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeed6739_0b8bb31c",
+      "revId": "87648babdacf9a110133908fabf5d86485aa0533",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
