@@ -56,6 +56,9 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 		$this->context = self::getContext( $this->user );
 	}
 
+	/**
+	 * @covers ORES\Hooks\ChangesListHooksHandler::getScoreRecentChangesList
+	 */
 	public function testOresRCObj() {
 		$row = new \stdClass();
 		$row->ores_damaging_threshold = 0.2;
@@ -77,6 +80,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 
 	/**
 	 * @dataProvider onChangesListSpecialPageQuery_provider
+	 * @covers ORES\Hooks\ChangesListHooksHandler::onChangesListSpecialPageQuery
 	 */
 	public function testOnChangesListSpecialPageQuery( array $modelConfig, array $expectedQuery ) {
 		$this->setMwGlobals( [
@@ -185,6 +189,9 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 		];
 	}
 
+	/**
+	 * @covers ORES\Hooks\ChangesListHooksHandler::onEnhancedChangesListModifyLineData
+	 */
 	public function testOnEnhancedChangesListModifyLineDataDamaging() {
 		$row = new \stdClass();
 		$row->ores_damaging_threshold = 0.2;
@@ -227,6 +234,9 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 		$this->assertSame( [ 'damaging' ], $classes );
 	}
 
+	/**
+	 * @covers ORES\Hooks\ChangesListHooksHandler::onEnhancedChangesListModifyLineData
+	 */
 	public function testOnEnhancedChangesListModifyLineDataNonDamaging() {
 		$row = new \stdClass();
 		$row->ores_damaging_threshold = 0.4;
@@ -273,6 +283,9 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 		$this->assertSame( [], $classes );
 	}
 
+	/**
+	 * @covers ORES\Hooks\ChangesListHooksHandler::onOldChangesListRecentChangesLine
+	 */
 	public function testOnOldChangesListModifyLineDataDamaging() {
 		$row = new \stdClass();
 		$row->ores_damaging_threshold = 0.2;
@@ -328,6 +341,9 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 		$this->assertSame( [ 'ores-highlight', 'damaging' ], $classes );
 	}
 
+	/**
+	 * @covers ORES\Hooks\ChangesListHooksHandler::onOldChangesListRecentChangesLine
+	 */
 	public function testOnOldChangesListModifyLineDataNonDamaging() {
 		$row = new \stdClass();
 		$row->ores_damaging_threshold = 0.4;

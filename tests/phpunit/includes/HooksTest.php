@@ -43,6 +43,10 @@ class HooksTest extends \MediaWikiTestCase {
 		$this->context = self::getContext( $this->user );
 	}
 
+	/**
+	 * @covers ORES\Hooks\PreferencesHookHandler::onGetPreferences
+	 * @todo Move to a dedicated file
+	 */
 	public function testOresPrefs() {
 		$preferences = [];
 		PreferencesHookHandler::onGetPreferences( $this->user, $preferences );
@@ -52,6 +56,9 @@ class HooksTest extends \MediaWikiTestCase {
 		$this->assertArrayHasKey( 'oresRCHideNonDamaging', $preferences );
 	}
 
+	/**
+	 * @covers ORES\Hooks::getThreshold
+	 */
 	public function testGetThreshold() {
 		$modelData = [ 'damaging' => [ 'id' => 5, 'version' => '0.0.2' ] ];
 		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
@@ -70,6 +77,10 @@ class HooksTest extends \MediaWikiTestCase {
 		);
 	}
 
+	/**
+	 * @covers ORES\Hooks\PreferencesHookHandler::onGetPreferences
+	 * @todo Move to a dedicated file
+	 */
 	public function testOnGetPreferencesEnabled() {
 		$prefs = [];
 		PreferencesHookHandler::onGetPreferences( $this->user, $prefs );
@@ -77,6 +88,9 @@ class HooksTest extends \MediaWikiTestCase {
 		$this->assertSame( 6, count( $prefs ) );
 	}
 
+	/**
+	 * @covers ORES\Hooks::onGetBetaFeaturePreferences
+	 */
 	public function testOnGetBetaFeaturePreferences_on() {
 		$this->setMwGlobals( 'wgOresExtensionStatus', 'on' );
 		$prefs = [];
@@ -85,6 +99,9 @@ class HooksTest extends \MediaWikiTestCase {
 		$this->assertSame( 0, count( $prefs ) );
 	}
 
+	/**
+	 * @covers ORES\Hooks::onGetBetaFeaturePreferences
+	 */
 	public function testOnGetBetaFeaturePreferences_off() {
 		$this->setMwGlobals( 'wgOresExtensionStatus', 'off' );
 		$prefs = [];
@@ -93,6 +110,9 @@ class HooksTest extends \MediaWikiTestCase {
 		$this->assertSame( 0, count( $prefs ) );
 	}
 
+	/**
+	 * @covers ORES\Hooks::onGetBetaFeaturePreferences
+	 */
 	public function testOnGetBetaFeaturePreferences_beta() {
 		$this->setMwGlobals( 'wgOresExtensionStatus', 'beta' );
 		$prefs = [];
