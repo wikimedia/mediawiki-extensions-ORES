@@ -25,6 +25,9 @@ class ApiTest extends \MediaWikiTestCase {
 		$this->api = new ORES\Api();
 	}
 
+	/**
+	 * @covers ORES\Api::getUrl
+	 */
 	public function testApiUrl() {
 		$url = $this->api->getUrl();
 		$this->assertSame( "https://ores-beta.wmflabs.org/v3/scores/testwiki/", $url );

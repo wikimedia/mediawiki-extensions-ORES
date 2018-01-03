@@ -100,6 +100,7 @@ class ContributionsHookHandlerTest extends \MediaWikiTestCase {
 
 	/**
 	 * @dataProvider provideOnContribsGetQueryInfo
+	 * @covers ORES\Hooks\ContributionsHooksHandler::onContribsGetQueryInfo
 	 */
 	public function testOnContribsGetQueryInfo( array $expected, $nonDamaging ) {
 		$cp =
@@ -136,6 +137,9 @@ class ContributionsHookHandlerTest extends \MediaWikiTestCase {
 		$this->assertSame( $expected['join_conds'], $query['join_conds'] );
 	}
 
+	/**
+	 * @covers ORES\Hooks\ContributionsHooksHandler::onSpecialContributionsFormatRowFlags
+	 */
 	public function testOnSpecialContributionsFormatRowFlagsDamaging() {
 		$row = new \stdClass();
 		$row->ores_damaging_threshold = 0.2;
@@ -150,6 +154,9 @@ class ContributionsHookHandlerTest extends \MediaWikiTestCase {
 			$flags );
 	}
 
+	/**
+	 * @covers ORES\Hooks\ContributionsHooksHandler::onSpecialContributionsFormatRowFlags
+	 */
 	public function testOnSpecialContributionsFormatRowFlagsNonDamaging() {
 		$row = new \stdClass();
 		$row->ores_damaging_threshold = 0.4;
@@ -163,6 +170,9 @@ class ContributionsHookHandlerTest extends \MediaWikiTestCase {
 		$this->assertSame( [], $flags );
 	}
 
+	/**
+	 * @covers ORES\Hooks\ContributionsHooksHandler::onContributionsLineEnding
+	 */
 	public function testOnContributionsLineEndingDamaging() {
 		$cp =
 			$this->getMockBuilder( ContribsPager::class )->disableOriginalConstructor()->getMock();
@@ -193,6 +203,9 @@ class ContributionsHookHandlerTest extends \MediaWikiTestCase {
 		$this->assertSame( [], $ret );
 	}
 
+	/**
+	 * @covers ORES\Hooks\ContributionsHooksHandler::onContributionsLineEnding
+	 */
 	public function testOnContributionsLineEndingNonDamaging() {
 		$cp =
 			$this->getMockBuilder( ContribsPager::class )->disableOriginalConstructor()->getMock();
