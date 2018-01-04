@@ -19,20 +19,22 @@ namespace ORES;
 use MediaWiki\MediaWikiServices;
 use WebRequest;
 
-class Scoring {
+class ScoreFetcher implements ScoreLookup {
+
 	/** @var WebRequest|string[]|null */
 	private $originalRequest;
 
 	/**
-	 * @param int|array $revisions Single or multiple revisions
-	 * @param string|array|null $models Single or multiple model names.  If
-	 * left empty, all configured models are queries.
-	 * @param array $extra_params to be passed to ORES endpoint
+	 * @see ScoreLookup::getScores()
 	 *
-	 * @return array Results in the form returned by ORES
-	 * @throws \RuntimeException
+	 * @param int|array $revisions Single or multiple revisions
+	 * @param string|array|null $models Single or multiple model names. If
+	 * left empty, all configured models are queried.
+	 * @param bool $precache either the request is made for precaching or not
+	 *
+	 * @return array Results in the form returned by ORES API
 	 */
-	public function getScores( $revisions, $models = null, array $extra_params = [] ) {
+	public function getScores( $revisions, $models = null, $precache = false ) {
 		if ( !$models ) {
 			global $wgOresModels;
 			$models = array_keys( array_filter( $wgOresModels ) );
@@ -42,6 +44,9 @@ class Scoring {
 			'models' => implode( '|', (array)$models ),
 			'revids' => implode( '|', (array)$revisions ),
 		];
+		if ( $precache === true ) {
+			$params['precache'] = true;
+		}
 
 		if ( $this->originalRequest === null ) {
 			$api = Api::newFromContext();
@@ -49,22 +54,27 @@ class Scoring {
 			$api = new Api();
 			$api->setOriginalRequest( $this->originalRequest );
 		}
-		$wireData = $api->request( array_merge( $params, $extra_params ) );
 
-		// Dig down to the scores.
+		$wireData = $api->request( $params );
+
 		$wikiId = Api::getWikiID();
 		if ( array_key_exists( 'models', $wireData[$wikiId] ) ) {
-			foreach ( $wireData[$wikiId]['models'] as $model => $modelOutputs ) {
-				$responseVersion = $this->checkModelVersion( $model, $modelOutputs );
-				if ( $responseVersion !== null ) {
-					$this->updateModelVersion( $model, $responseVersion );
-				}
-			}
-
+			$this->checkAndUpdateModels( $wireData[$wikiId]['models'] );
 		}
-		$wireData = $wireData[$wikiId]['scores'];
 
-		return $wireData;
+		return $wireData[$wikiId]['scores'];
+	}
+
+	/**
+	 * @param array $modelData Model information returned by the API
+	 */
+	private function checkAndUpdateModels( array $modelData ) {
+		foreach ( $modelData as $model => $modelOutputs ) {
+			$responseVersion = $this->checkModelVersion( $model, $modelOutputs );
+			if ( $responseVersion !== null ) {
+				$this->updateModelVersion( $model, $responseVersion );
+			}
+		}
 	}
 
 	/**

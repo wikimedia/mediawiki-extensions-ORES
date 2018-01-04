@@ -35,7 +35,7 @@ use MediaWiki\MediaWikiServices;
 use ORES\FetchScoreJob;
 use ORES\Hooks;
 use ORES\Parser\ScoreParser;
-use ORES\Scoring;
+use ORES\ScoreFetcher;
 use ORES\WatchedItemQueryServiceExtension;
 use RequestContext;
 use Title;
@@ -322,7 +322,7 @@ class ApiHooksHandler {
 				}
 			}
 
-			$loadedScores = Scoring::instance()->getScores( $revids );
+			$loadedScores = ScoreFetcher::instance()->getScores( $revids );
 
 			// Filter loaded scores to store cacheable ones
 			$cacheableScores = array_intersect_key( $loadedScores, array_flip( $cacheableRevids ) );
@@ -361,7 +361,7 @@ class ApiHooksHandler {
 		} catch ( InvalidArgumentException $exception ) {
 			$logger = LoggerFactory::getInstance( 'ORES' );
 			$mssg = $exception->getMessage();
-			$logger->info( "Scoring errored for $revid: $mssg\n" );
+			$logger->info( "ScoreFetcher errored for $revid: $mssg\n" );
 			return [];
 		}
 		$scores = [];

@@ -37,11 +37,11 @@ class ScoreParser {
 	}
 
 	/**
-	 * Convert data returned by Scoring::getScores() into ores_classification rows
+	 * Convert data returned by ScoreFetcher::getScores() into ores_classification rows
 	 *
 	 * @note No row is generated for class 0
 	 * @param int $revision Revision being processed
-	 * @param array $revisionData Data returned by Scoring::getScores() for the revision.
+	 * @param array $revisionData Data returned by ScoreFetcher::getScores() for the revision.
 	 *
 	 * @return array[]
 	 * @throws RuntimeException

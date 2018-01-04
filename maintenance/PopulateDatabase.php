@@ -43,7 +43,7 @@ class PopulateDatabase extends Maintenance {
 	public function execute() {
 		global $wgOresExcludeBots, $wgOresRevisionsPerBatch;
 
-		$scoring = Scoring::instance();
+		$scoring = ScoreFetcher::instance();
 		/** @var ScoreStorage $scoreStorage */
 		$scoreStorage = MediaWikiServices::getInstance()->getService( 'ORESScoreStorage' );
 		$this->batchSize = $this->getOption( 'batch', 5000 );
@@ -104,10 +104,10 @@ class PopulateDatabase extends Maintenance {
 	 * Process several edits and store the scores in the database
 	 *
 	 * @param array $revs array of revision ids
-	 * @param Scoring $scoring
+	 * @param ScoreFetcher $scoring
 	 * @param ScoreStorage $scoreStorage service to store scores in persistence layer
 	 */
-	private function processScores( array $revs, Scoring $scoring, ScoreStorage $scoreStorage ) {
+	private function processScores( array $revs, ScoreFetcher $scoring, ScoreStorage $scoreStorage ) {
 		$size = count( $revs );
 		$this->output( "Processing $size revisions\n" );
 
@@ -115,7 +115,7 @@ class PopulateDatabase extends Maintenance {
 		$scoreStorage->storeScores(
 			$scores,
 			function ( $mssg, $revision ) {
-				$this->output( "Scoring errored for $revision: $mssg\n" );
+				$this->output( "ScoreFetcher errored for $revision: $mssg\n" );
 			}
 		);
 	}

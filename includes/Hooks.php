@@ -102,7 +102,7 @@ class Hooks {
 					'userAgent' => $request->getHeader( 'User-Agent' ),
 				],
 				'models' => $models,
-				'extra_params' => [ 'precache' => 'true' ],
+				'precache' => true,
 			] );
 			JobQueueGroup::singleton()->push( $job );
 			$logger->debug( 'Job pushed for {revid}', [

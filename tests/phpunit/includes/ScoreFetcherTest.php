@@ -2,15 +2,15 @@
 
 namespace ORES\Tests;
 
-use ORES\Scoring;
+use ORES\ScoreFetcher;
 use ORES\Storage\HashModelLookup;
 
 /**
  * @group ORES
  * @group Database
- * @covers ORES\Scoring
+ * @covers ORES\ScoreFetcher
  */
-class ScoringTest extends \MediaWikiTestCase {
+class ScoreFetcherTest extends \MediaWikiTestCase {
 
 	const REVERTED = 2;
 	const DAMAGING = 3;
@@ -41,7 +41,7 @@ class ScoringTest extends \MediaWikiTestCase {
 	 * @dataProvider provideTestCheckModelVersion
 	 */
 	public function testCheckModelVersion( $expected, $model, array $response ) {
-		$scoring = Scoring::instance();
+		$scoring = ScoreFetcher::instance();
 
 		$this->assertSame( $expected, $scoring->checkModelVersion( $model, $response ) );
 	}
@@ -56,7 +56,7 @@ class ScoringTest extends \MediaWikiTestCase {
 			],
 			__METHOD__
 		);
-		$scoring = Scoring::instance();
+		$scoring = ScoreFetcher::instance();
 		$scoring->updateModelVersion( 'damaging', '0.0.4' );
 
 		$res = wfGetDB( DB_REPLICA )->select(
