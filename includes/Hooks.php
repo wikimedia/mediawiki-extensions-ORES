@@ -18,6 +18,7 @@ namespace ORES;
 
 use BetaFeatures;
 use DatabaseUpdater;
+use ExtensionRegistry;
 use Exception;
 use JobQueueGroup;
 use IContextSource;
@@ -116,7 +117,7 @@ class Hooks {
 	 *
 	 * @param \stdClass[] $rows
 	 */
-	public function onRecentChangesPurgeRows( array $rows ) {
+	public static function onRecentChangesPurgeRows( array $rows ) {
 		$revIds = [];
 		foreach ( $rows as $row ) {
 			$revIds[] = $row->rc_this_oldid;
