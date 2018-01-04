@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aeed6739_bb6e4b28",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-04T01:57:29Z",
+      "side": 1,
+      "message": "Going from \u0027true\u0027 to bool true caused a bit of reviewer anxiety, but I think this\u0027ll work.  FormatJson::encode(true) yields \u0027true\u0027, so I think this will survive the serialization codec and will come back \u003d\u003d\u003d true when running the job.",
+      "revId": "89d5ce805436c736d669561477f13f071fa3a655",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeed6739_bb276b0c",
+        "filename": "includes/ScoreFetcher.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-04T01:57:29Z",
+      "side": 1,
+      "message": "Much better!",
+      "revId": "89d5ce805436c736d669561477f13f071fa3a655",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeed6739_3b1b5bd6",
+        "filename": "includes/ScoreFetcher.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-04T01:57:29Z",
+      "side": 1,
+      "message": "Not the fault of this patch, but if !exists(...\u0027models\u0027), we should log a \"WTF\"",
+      "revId": "89d5ce805436c736d669561477f13f071fa3a655",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeed6739_9b10a7af",
+        "filename": "includes/ScoreFetcher.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-04T01:57:29Z",
+      "side": 1,
+      "message": "Just noticed that this variable should be called \"$newerVersion\", maybe.",
+      "revId": "89d5ce805436c736d669561477f13f071fa3a655",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
