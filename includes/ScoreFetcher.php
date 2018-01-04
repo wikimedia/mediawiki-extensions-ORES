@@ -16,6 +16,7 @@
 
 namespace ORES;
 
+use InvalidArgumentException;
 use MediaWiki\MediaWikiServices;
 use WebRequest;
 
@@ -89,7 +90,12 @@ class ScoreFetcher implements ScoreLookup {
 		}
 
 		$modelLookup = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' );
-		$storageVersion = $modelLookup->getModelVersion( $model );
+		try {
+			$storageVersion = $modelLookup->getModelVersion( $model );
+		} catch ( InvalidArgumentException $exception ) {
+			$storageVersion = null;
+		}
+
 		$responseVersion = $modelOutputs['version'];
 
 		if ( $storageVersion === $responseVersion ) {
