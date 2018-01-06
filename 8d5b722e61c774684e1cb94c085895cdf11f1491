@@ -22,6 +22,30 @@
       "revId": "8d5b722e61c774684e1cb94c085895cdf11f1491",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeed6739_f610d8af",
+        "filename": "tests/phpunit/includes/Storage/HashModelLookupTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-01-06T08:13:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeed6739_76efa8ad",
+      "range": {
+        "startLine": 13,
+        "startChar": 34,
+        "endLine": 13,
+        "endChar": 55
+      },
+      "revId": "8d5b722e61c774684e1cb94c085895cdf11f1491",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
