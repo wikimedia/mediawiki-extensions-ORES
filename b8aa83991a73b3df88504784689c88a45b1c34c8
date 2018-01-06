@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aeed6739_36ec00f2",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2018-01-06T08:08:56Z",
+      "side": 1,
+      "message": "Just call it setScoreFetcher?",
+      "range": {
+        "startLine": 56,
+        "startChar": 17,
+        "endLine": 56,
+        "endChar": 33
+      },
+      "revId": "b8aa83991a73b3df88504784689c88a45b1c34c8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeed6739_76d84823",
+        "filename": "tests/phpunit/includes/FetchScoreJobTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2018-01-06T08:08:56Z",
+      "side": 1,
+      "message": "It\u0027s not obvious to me why language matters here",
+      "range": {
+        "startLine": 15,
+        "startChar": 33,
+        "endLine": 15,
+        "endChar": 54
+      },
+      "revId": "b8aa83991a73b3df88504784689c88a45b1c34c8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeed6739_d6e834b2",
+        "filename": "tests/phpunit/includes/FetchScoreJobTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 458
+      },
+      "writtenOn": "2018-01-06T08:08:56Z",
+      "side": 1,
+      "message": "Instead of modifying what the function returned, can\u0027t you change $expected?",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 55
+      },
+      "revId": "b8aa83991a73b3df88504784689c88a45b1c34c8",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
