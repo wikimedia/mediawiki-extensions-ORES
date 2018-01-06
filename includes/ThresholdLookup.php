@@ -25,9 +25,9 @@ use WANObjectCache;
 class ThresholdLookup {
 
 	/**
-	 * @var Api
+	 * @var ORESService
 	 */
-	private $api;
+	private $oresService;
 
 	/**
 	 * @var WANObjectCache
@@ -55,7 +55,7 @@ class ThresholdLookup {
 	private $statsdDataFactory;
 
 	/**
-	 * @param Api $api
+	 * @param ORESService $oresService
 	 * @param WANObjectCache $cache
 	 * @param LoggerInterface $logger
 	 * @param ModelLookup $modelLookup
@@ -63,14 +63,14 @@ class ThresholdLookup {
 	 * @param StatsdDataFactoryInterface $statsdDataFactory
 	 */
 	public function __construct(
-		Api $api,
+		ORESService $oresService,
 		WANObjectCache $cache,
 		LoggerInterface $logger,
 		ModelLookup $modelLookup,
 		ThresholdParser $thresholdParser,
 		StatsdDataFactoryInterface $statsdDataFactory
 	) {
-		$this->api = $api;
+		$this->oresService = $oresService;
 		$this->cache = $cache;
 		$this->logger = $logger;
 		$this->modelLookup = $modelLookup;
@@ -143,11 +143,11 @@ class ThresholdLookup {
 			return [];
 		}
 
-		$data = $this->api->request(
+		$data = $this->oresService->request(
 			[ 'models' => $model, 'model_info' => implode( "|", $calculatedThresholds ) ]
 		);
 
-		$prefix = [ Api::getWikiID(), 'models', $model, 'statistics', 'thresholds' ];
+		$prefix = [ ORESService::getWikiID(), 'models', $model, 'statistics', 'thresholds' ];
 		$resultMap = [];
 
 		foreach ( $formulae as $outcome => $outcomeFormulae ) {

@@ -50,15 +50,15 @@ class ScoreFetcher implements ScoreLookup {
 		}
 
 		if ( $this->originalRequest === null ) {
-			$api = Api::newFromContext();
+			$oresService = ORESService::newFromContext();
 		} else {
-			$api = new Api();
-			$api->setOriginalRequest( $this->originalRequest );
+			$oresService = new ORESService();
+			$oresService->setOriginalRequest( $this->originalRequest );
 		}
 
-		$wireData = $api->request( $params );
+		$wireData = $oresService->request( $params );
 
-		$wikiId = Api::getWikiID();
+		$wikiId = ORESService::getWikiID();
 		if ( array_key_exists( 'models', $wireData[$wikiId] ) ) {
 			$this->checkAndUpdateModels( $wireData[$wikiId]['models'] );
 		}

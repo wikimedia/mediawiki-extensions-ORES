@@ -40,9 +40,9 @@ class DumpThresholds extends Maintenance {
 	 */
 	protected function getModels() {
 		$timestamp = \wfTimestampNow();
-		$api = new Api();
+		$oresService = new ORESService();
 		// Bypass the varnish cache
-		$modelData = $api->request( [ $timestamp => true ] );
+		$modelData = $oresService->request( [ $timestamp => true ] );
 		if ( empty( $modelData['models'] ) ) {
 			throw new \RuntimeException( 'Bad response from ORES when requesting models: '
 				. json_encode( $modelData ) );

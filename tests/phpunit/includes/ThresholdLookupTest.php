@@ -5,7 +5,7 @@ namespace ORES\Tests;
 use HashBagOStuff;
 use MediaWiki\Logger\LoggerFactory;
 use NullStatsdDataFactory;
-use ORES\Api;
+use ORES\ORESService;
 use ORES\Storage\HashModelLookup;
 use ORES\ThresholdLookup;
 use ORES\ThresholdParser;
@@ -42,9 +42,9 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 			->getMock();
 	}
 
-	private function getNewThresholdLookup( $api = null, $logger = null ) {
-		if ( $api === null ) {
-			$api = $this->getMockBuilder( Api::class )->getMock();
+	private function getNewThresholdLookup( $oresService = null, $logger = null ) {
+		if ( $oresService === null ) {
+			$oresService = $this->getMockBuilder( ORESService::class )->getMock();
 		}
 
 		if ( $logger === null ) {
@@ -58,7 +58,7 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 		];
 
 		return new ThresholdLookup(
-			$api,
+			$oresService,
 			WANObjectCache::newEmpty(),
 			$logger,
 			new HashModelLookup( $modelData ),
@@ -79,8 +79,8 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 	}
 
 	public function testGetThresholds_everythingGoesWrong() {
-		$api = $this->getMockBuilder( Api::class )->getMock();
-		$api->expects( $this->exactly( 1 ) )
+		$oresService = $this->getMockBuilder( ORESService::class )->getMock();
+		$oresService->expects( $this->exactly( 1 ) )
 			->method( 'request' )
 			->with( [
 				'models' => 'goodfaith',
@@ -99,7 +99,7 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 			],
 		] );
 
-		$stats = $this->getNewThresholdLookup( $api );
+		$stats = $this->getNewThresholdLookup( $oresService );
 
 		$thresholds = $stats->getThresholds( 'goodfaith' );
 
@@ -119,8 +119,8 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 			'wgOresWikiId' => 'wiki',
 		] );
 
-		$api = $this->getMockBuilder( Api::class )->getMock();
-		$api->expects( $this->exactly( 1 ) )
+		$oresService = $this->getMockBuilder( ORESService::class )->getMock();
+		$oresService->expects( $this->exactly( 1 ) )
 			->method( 'request' )
 			->with( [
 				'models' => 'damaging',
@@ -140,7 +140,7 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 					],
 			] ] ] ] ] ] );
 
-		$stats = $this->getNewThresholdLookup( $api, LoggerFactory::getInstance( 'test' ) );
+		$stats = $this->getNewThresholdLookup( $oresService, LoggerFactory::getInstance( 'test' ) );
 		$thresholds = $stats->getThresholds( 'damaging' );
 
 		$this->assertEquals(
@@ -175,8 +175,8 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 			'wgOresWikiId' => 'wiki',
 		] );
 
-		$api = $this->getMockBuilder( Api::class )->getMock();
-		$api->expects( $this->exactly( 1 ) )
+		$oresService = $this->getMockBuilder( ORESService::class )->getMock();
+		$oresService->expects( $this->exactly( 1 ) )
 			->method( 'request' )
 			->with( [
 				'models' => 'damaging',
@@ -196,7 +196,7 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 					],
 			] ] ] ] ] ] );
 
-		$stats = $this->getNewThresholdLookup( $api, LoggerFactory::getInstance( 'test' ) );
+		$stats = $this->getNewThresholdLookup( $oresService, LoggerFactory::getInstance( 'test' ) );
 		$thresholds = $stats->getThresholds( 'damaging' );
 
 		$this->assertEquals(
@@ -231,8 +231,8 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 			'wgOresWikiId' => 'wiki',
 		] );
 
-		$api = $this->getMockBuilder( Api::class )->getMock();
-		$api->expects( $this->exactly( 1 ) )
+		$oresService = $this->getMockBuilder( ORESService::class )->getMock();
+		$oresService->expects( $this->exactly( 1 ) )
 			->method( 'request' )
 			->with( [
 				'models' => 'damaging',
@@ -252,7 +252,7 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 
 		$cache = new WANObjectCache( [ 'cache' => new HashBagOStuff() ] );
 		$thresholdLookup = new ThresholdLookup(
-			$api,
+			$oresService,
 			$cache,
 			$this->getLoggerMock(),
 			new HashModelLookup( $modelData ),

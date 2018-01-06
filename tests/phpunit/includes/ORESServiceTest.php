@@ -6,14 +6,14 @@ use ORES;
 
 /**
  * @group ORES
- * @covers ORES\Api
+ * @covers ORES\ORESService
  */
-class ApiTest extends \MediaWikiTestCase {
+class ORESServiceTest extends \MediaWikiTestCase {
 
 	/**
-	 * @var ORES\Api
+	 * @var ORES\ORESService
 	 */
-	protected $api;
+	protected $oresService;
 
 	protected function setUp() {
 		parent::setUp();
@@ -22,14 +22,14 @@ class ApiTest extends \MediaWikiTestCase {
 			'wgOresBaseUrl' => 'https://ores-beta.wmflabs.org/',
 			'wgOresWikiId' => 'testwiki',
 		] );
-		$this->api = new ORES\Api();
+		$this->oresService = new ORES\ORESService();
 	}
 
 	/**
-	 * @covers ORES\Api::getUrl
+	 * @covers ORES\ORESService::getUrl
 	 */
-	public function testApiUrl() {
-		$url = $this->api->getUrl();
+	public function testServiceUrl() {
+		$url = $this->oresService->getUrl();
 		$this->assertSame( "https://ores-beta.wmflabs.org/v3/scores/testwiki/", $url );
 	}
 
