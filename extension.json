@@ -1,7 +1,7 @@
 {
 	"name": "ORES",
 	"descriptionmsg": "ores-desc",
-	"license-name": "GPL-3.0+",
+	"license-name": "GPL-3.0-or-later",
 	"author": [
 		"Kunal Mehta",
 		"Amir Sarabadani",
