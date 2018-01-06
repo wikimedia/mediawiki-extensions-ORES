@@ -1,17 +1,4 @@
-New globals:
+This is a MediaWiki extension to integrate data from the ORES service
+(<https://www.mediawiki.org/wiki/ORES>) with the MediaWiki database and recent changes.
 
-$wgOresBaseUrl - API endpoint base URL for ORES requests.  The specific
-route and parameters will be appended to this URL.
-
-$wgOresModels - Array of models we want to fetch from the server and cache in
-the database.
-TODO: Should we default to fetching all available models?
-
-$wgOresDamagingThreshold - Score cutoff above which an edit is flagged as
-possibly damaging in the Recent Changes feed.
-
-$wgOresWikiId - Optional database ID for making ORES requests to a different
-wiki ID.  An important special name is "testwiki", which accesses a pseudomodel
-available for testing without setting up an ORES server to score your wiki.
-This pseudomodel will emit scores deterministically correlated to the revision ID,
-e.g. https://ores.wikimedia.org/scores/testwiki/reverted/?revids=1|2|3|4|5|6|7|8|9
+See the wiki page for more information: <https://www.mediawiki.org/wiki/Extension:ORES>.
