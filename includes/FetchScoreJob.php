@@ -24,6 +24,11 @@ use Title;
 class FetchScoreJob extends Job {
 
 	/**
+	 * @var ScoreFetcher
+	 */
+	private $scoreFetcher;
+
+	/**
 	 * @param Title $title
 	 * @param array $params
 	 *   - 'revid': (int|int[]) revision IDs for which to fetch the score
@@ -40,6 +45,16 @@ class FetchScoreJob extends Job {
 		parent::__construct( 'ORESFetchScoreJob', $title, $params );
 
 		$this->removeDuplicates = $expensive;
+		$this->scoreFetcher = ScoreFetcher::instance();
+	}
+
+	/**
+	 * ScoreFetcher service override for testing
+	 *
+	 * @param ScoreFetcher $scoreFetcher
+	 */
+	public function setScoreFetcher( ScoreFetcher $scoreFetcher ) {
+		$this->scoreFetcher = $scoreFetcher;
 	}
 
 	public function run() {
@@ -68,16 +83,19 @@ class FetchScoreJob extends Job {
 		}
 
 		$logger->info( 'Fetching scores for revision ' . json_encode( $this->params ) );
-		$scoring = ScoreFetcher::instance();
 		if ( isset( $this->params['originalRequest'] ) ) {
-			$scoring->setOriginalRequest( $this->params['originalRequest'] );
+			$this->scoreFetcher->setOriginalRequest( $this->params['originalRequest'] );
 		}
 		if ( isset( $this->params['models'] ) ) {
 			$models = $this->params['models'];
 		} else {
 			$models = null;
 		}
-		$scores = $scoring->getScores( $this->params['revid'], $models, $this->params['precache'] );
+		$scores = $this->scoreFetcher->getScores(
+			$this->params['revid'],
+			$models,
+			$this->params['precache']
+		);
 		$scoreStorage = MediaWikiServices::getInstance()->getService( 'ORESScoreStorage' );
 
 		$success = true;
