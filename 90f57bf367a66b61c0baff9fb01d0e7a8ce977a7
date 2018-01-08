@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aeed6739_258ddfd7",
+        "filename": "includes/Hooks/ChangesListHooksHandler.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-08T14:27:14Z",
+      "side": 1,
+      "message": "It\u0027s fine to leave this patch a pure refactor, but in the future should we guard the `damaging` filters with Hooks::isModelEnabled?",
+      "revId": "90f57bf367a66b61c0baff9fb01d0e7a8ce977a7",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
