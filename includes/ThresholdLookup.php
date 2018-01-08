@@ -16,13 +16,23 @@
 
 namespace ORES;
 
-use Liuggio\StatsdClient\Factory\StatsdDataFactoryInterface;
+use IBufferingStatsdDataFactory;
 use ORES\Storage\ModelLookup;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
 use WANObjectCache;
 
 class ThresholdLookup {
+
+	/**
+	 * @var ThresholdParser
+	 */
+	private $thresholdParser;
+
+	/**
+	 * @var ModelLookup
+	 */
+	private $modelLookup;
 
 	/**
 	 * @var ORESService
@@ -40,41 +50,31 @@ class ThresholdLookup {
 	private $logger;
 
 	/**
-	 * @var ModelLookup
-	 */
-	private $modelLookup;
-
-	/**
-	 * @var ThresholdParser
-	 */
-	private $thresholdParser;
-
-	/**
-	 * @var StatsdDataFactoryInterface
+	 * @var IBufferingStatsdDataFactory
 	 */
 	private $statsdDataFactory;
 
 	/**
+	 * @param ThresholdParser $thresholdParser
+	 * @param ModelLookup $modelLookup
 	 * @param ORESService $oresService
 	 * @param WANObjectCache $cache
 	 * @param LoggerInterface $logger
-	 * @param ModelLookup $modelLookup
-	 * @param ThresholdParser $thresholdParser
-	 * @param StatsdDataFactoryInterface $statsdDataFactory
+	 * @param IBufferingStatsdDataFactory $statsdDataFactory
 	 */
 	public function __construct(
+		ThresholdParser $thresholdParser,
+		ModelLookup $modelLookup,
 		ORESService $oresService,
 		WANObjectCache $cache,
 		LoggerInterface $logger,
-		ModelLookup $modelLookup,
-		ThresholdParser $thresholdParser,
-		StatsdDataFactoryInterface $statsdDataFactory
+		IBufferingStatsdDataFactory $statsdDataFactory
 	) {
+		$this->thresholdParser = $thresholdParser;
+		$this->modelLookup = $modelLookup;
 		$this->oresService = $oresService;
 		$this->cache = $cache;
 		$this->logger = $logger;
-		$this->modelLookup = $modelLookup;
-		$this->thresholdParser = $thresholdParser;
 		$this->statsdDataFactory = $statsdDataFactory;
 	}
 
