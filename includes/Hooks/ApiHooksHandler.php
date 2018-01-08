@@ -245,7 +245,7 @@ class ApiHooksHandler {
 	 * Load ORES score data for a list of revisions
 	 *
 	 * Scores already cached are fetched from the database, and up to
-	 * $wgOresRevisionsPerBatch uncached revisions are fetched from the scoring
+	 * $wgOresRevisionsPerBatch uncached revisions are fetched from the score fetcher
 	 * service immediately. If there are still more uncached revisions, up to
 	 * $wgOresAPIMaxBatchJobs FetchScoreJobs are submitted to the job queue for
 	 * batches of $wgOresRevisionsPerBatch revisions in the hope that they will

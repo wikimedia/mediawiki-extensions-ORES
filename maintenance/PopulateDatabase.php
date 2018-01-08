@@ -43,7 +43,7 @@ class PopulateDatabase extends Maintenance {
 	public function execute() {
 		global $wgOresExcludeBots, $wgOresRevisionsPerBatch;
 
-		$scoring = ScoreFetcher::instance();
+		$scoreFetcher = ScoreFetcher::instance();
 		/** @var ScoreStorage $scoreStorage */
 		$scoreStorage = MediaWikiServices::getInstance()->getService( 'ORESScoreStorage' );
 		$this->batchSize = $this->getOption( 'batch', 5000 );
@@ -80,13 +80,13 @@ class PopulateDatabase extends Maintenance {
 			foreach ( $res as $row ) {
 				$pack[] = $row->rc_this_oldid;
 				if ( count( $pack ) % $this->apiBatchSize === 0 ) {
-					$this->processScores( $pack, $scoring, $scoreStorage );
+					$this->processScores( $pack, $scoreFetcher, $scoreStorage );
 					$pack = [];
 				}
 				$latestRcId = $row->rc_id;
 			}
 			if ( $pack !== [] ) {
-				$this->processScores( $pack, $scoring, $scoreStorage );
+				$this->processScores( $pack, $scoreFetcher, $scoreStorage );
 			}
 
 			$count += $this->batchSize;
@@ -104,14 +104,18 @@ class PopulateDatabase extends Maintenance {
 	 * Process several edits and store the scores in the database
 	 *
 	 * @param array $revs array of revision ids
-	 * @param ScoreFetcher $scoring
+	 * @param ScoreFetcher $scoreFetcher
 	 * @param ScoreStorage $scoreStorage service to store scores in persistence layer
 	 */
-	private function processScores( array $revs, ScoreFetcher $scoring, ScoreStorage $scoreStorage ) {
+	private function processScores(
+		array $revs,
+		ScoreFetcher $scoreFetcher,
+		ScoreStorage $scoreStorage
+	) {
 		$size = count( $revs );
 		$this->output( "Processing $size revisions\n" );
 
-		$scores = $scoring->getScores( $revs );
+		$scores = $scoreFetcher->getScores( $revs );
 		$scoreStorage->storeScores(
 			$scores,
 			function ( $mssg, $revision ) {
