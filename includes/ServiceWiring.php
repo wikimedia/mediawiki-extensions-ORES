@@ -28,11 +28,11 @@ return [
 
 	'ORESThresholdLookup' => function ( MediaWikiServices $services ) {
 		return new ThresholdLookup(
+			new ThresholdParser( LoggerFactory::getInstance( 'ORES' ) ),
+			$services->getService( 'ORESModelLookup' ),
 			ORESService::newFromContext(),
 			$services->getMainWANObjectCache(),
 			LoggerFactory::getInstance( 'ORES' ),
-			$services->getService( 'ORESModelLookup' ),
-			new ThresholdParser( LoggerFactory::getInstance( 'ORES' ) ),
 			$services->getStatsdDataFactory()
 		);
 	},

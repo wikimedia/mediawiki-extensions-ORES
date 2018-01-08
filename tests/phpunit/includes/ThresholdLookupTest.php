@@ -58,11 +58,11 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 		];
 
 		return new ThresholdLookup(
+			new ThresholdParser( $this->getLoggerMock() ),
+			new HashModelLookup( $modelData ),
 			$oresService,
 			WANObjectCache::newEmpty(),
 			$logger,
-			new HashModelLookup( $modelData ),
-			new ThresholdParser( $this->getLoggerMock() ),
 			new NullStatsdDataFactory()
 		);
 	}
@@ -252,11 +252,11 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 
 		$cache = new WANObjectCache( [ 'cache' => new HashBagOStuff() ] );
 		$thresholdLookup = new ThresholdLookup(
+			new ThresholdParser( $this->getLoggerMock() ),
+			new HashModelLookup( $modelData ),
 			$oresService,
 			$cache,
 			$this->getLoggerMock(),
-			new HashModelLookup( $modelData ),
-			new ThresholdParser( $this->getLoggerMock() ),
 			new NullStatsdDataFactory()
 		);
 
