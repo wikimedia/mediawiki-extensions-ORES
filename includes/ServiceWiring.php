@@ -28,7 +28,7 @@ return [
 
 	'ORESThresholdLookup' => function ( MediaWikiServices $services ) {
 		return new ThresholdLookup(
-			Api::newFromContext(),
+			ORESService::newFromContext(),
 			$services->getMainWANObjectCache(),
 			LoggerFactory::getInstance( 'ORES' ),
 			$services->getService( 'ORESModelLookup' ),

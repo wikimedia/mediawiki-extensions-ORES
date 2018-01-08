@@ -26,14 +26,14 @@ use WebRequest;
 /**
  * Common methods for accessing an ORES server.
  */
-class Api {
+class ORESService {
 	/** @var WebRequest|string[]|null */
 	private $originalRequest;
 
 	const API_VERSION = 3;
 
 	/**
-	 * @return Api
+	 * @return ORESService
 	 */
 	public static function newFromContext() {
 		$self = new self();
