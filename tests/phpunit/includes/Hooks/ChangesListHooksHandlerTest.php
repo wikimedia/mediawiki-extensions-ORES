@@ -15,6 +15,7 @@ use RecentChange;
 use RequestContext;
 use SpecialPage;
 use User;
+use Wikimedia\TestingAccessWrapper;
 
 /**
  * @group ORES
@@ -56,13 +57,14 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 		$this->context = self::getContext( $this->user );
 	}
 
-	/**
-	 * @covers ORES\Hooks\ChangesListHooksHandler::getScoreRecentChangesList
-	 */
-	public function testOresRCObj() {
+	protected function makeRcEntry( $isDamaging = false ) {
 		$row = new \stdClass();
 		$row->ores_damaging_threshold = 0.2;
-		$row->ores_damaging_score = 0.3;
+		if ( $isDamaging ) {
+			$row->ores_damaging_score = 0.3;
+		} else {
+			$row->ores_damaging_score = 0.1;
+		}
 		$row->rc_patrolled = 0;
 		$row->rc_timestamp = '20150921134808';
 		$row->rc_deleted = 0;
@@ -71,11 +73,18 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 		$row->rc_comment_data = null;
 
 		$rc = RecentChange::newFromRow( $row );
-		$this->assertTrue( ChangesListHooksHandler::getScoreRecentChangesList( $rc, $this->context ) );
+		return $rc;
+	}
 
-		$row->ores_damaging_threshold = 0.4;
-		$rc = RecentChange::newFromRow( $row );
-		$this->assertFalse( ChangesListHooksHandler::getScoreRecentChangesList( $rc, $this->context ) );
+	/**
+	 * @covers ORES\Hooks\ChangesListHooksHandler::getScoreRecentChangesList
+	 */
+	public function testGetScoreRecentChangesList() {
+		$this->assertTrue( ChangesListHooksHandler::getScoreRecentChangesList(
+			$this->makeRcEntry( true ), $this->context ) );
+
+		$this->assertFalse( ChangesListHooksHandler::getScoreRecentChangesList(
+			$this->makeRcEntry( false ), $this->context ) );
 	}
 
 	/**
@@ -193,16 +202,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 	 * @covers ORES\Hooks\ChangesListHooksHandler::onEnhancedChangesListModifyLineData
 	 */
 	public function testOnEnhancedChangesListModifyLineDataDamaging() {
-		$row = new \stdClass();
-		$row->ores_damaging_threshold = 0.2;
-		$row->ores_damaging_score = 0.3;
-		$row->rc_patrolled = 0;
-		$row->rc_timestamp = '20150921134808';
-		$row->rc_deleted = 0;
-		$row->rc_comment = '';
-		$row->rc_comment_text = '';
-		$row->rc_comment_data = null;
-		$rc = RecentChange::newFromRow( $row );
+		$rc = $this->makeRcEntry( true );
 		$rc = RCCacheEntry::newFromParent( $rc );
 
 		$ecl = $this->getMockBuilder( EnhancedChangesList::class )
@@ -238,16 +238,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 	 * @covers ORES\Hooks\ChangesListHooksHandler::onEnhancedChangesListModifyLineData
 	 */
 	public function testOnEnhancedChangesListModifyLineDataNonDamaging() {
-		$row = new \stdClass();
-		$row->ores_damaging_threshold = 0.4;
-		$row->ores_damaging_score = 0.3;
-		$row->rc_patrolled = 0;
-		$row->rc_timestamp = '20150921134808';
-		$row->rc_deleted = 0;
-		$row->rc_comment = '';
-		$row->rc_comment_text = '';
-		$row->rc_comment_data = null;
-		$rc = RecentChange::newFromRow( $row );
+		$rc = $this->makeRcEntry( false );
 		$rc = RCCacheEntry::newFromParent( $rc );
 
 		$ecl = $this->getMockBuilder( EnhancedChangesList::class )
@@ -287,16 +278,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 	 * @covers ORES\Hooks\ChangesListHooksHandler::onOldChangesListRecentChangesLine
 	 */
 	public function testOnOldChangesListModifyLineDataDamaging() {
-		$row = new \stdClass();
-		$row->ores_damaging_threshold = 0.2;
-		$row->ores_damaging_score = 0.3;
-		$row->rc_patrolled = 0;
-		$row->rc_timestamp = '20150921134808';
-		$row->rc_deleted = 0;
-		$row->rc_comment = '';
-		$row->rc_comment_text = '';
-		$row->rc_comment_data = null;
-		$rc = RecentChange::newFromRow( $row );
+		$rc = $this->makeRcEntry( true );
 		$rc = RCCacheEntry::newFromParent( $rc );
 
 		$config = $this->getMockBuilder( Config::class )->getMock();
@@ -345,16 +327,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 	 * @covers ORES\Hooks\ChangesListHooksHandler::onOldChangesListRecentChangesLine
 	 */
 	public function testOnOldChangesListModifyLineDataNonDamaging() {
-		$row = new \stdClass();
-		$row->ores_damaging_threshold = 0.4;
-		$row->ores_damaging_score = 0.3;
-		$row->rc_patrolled = 0;
-		$row->rc_timestamp = '20150921134808';
-		$row->rc_deleted = 0;
-		$row->rc_comment = '';
-		$row->rc_comment_text = '';
-		$row->rc_comment_data = null;
-		$rc = RecentChange::newFromRow( $row );
+		$rc = $this->makeRcEntry( false );
 		$rc = RCCacheEntry::newFromParent( $rc );
 
 		$cl = $this->getMockBuilder( ChangesList::class )
@@ -395,6 +368,70 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 		$context->setTitle( SpecialPage::getTitleFor( 'Recentchanges' ) );
 
 		return $context;
+	}
+
+	/**
+	 * @covers ORES\Hooks\ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters
+	 */
+	public function testOnChangesListSpecialPageStructuredFilters_Recentchangeslinked() {
+		$changesListSpecialPage = new \SpecialRecentChangesLinked();
+		$changesListSpecialPage->setContext( $this->context );
+		$wrappedClsp = TestingAccessWrapper::newFromObject( $changesListSpecialPage );
+		$wrappedClsp->registerFilters();
+
+		$originalFilters = $wrappedClsp->getFilterGroups();
+
+		ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters( $changesListSpecialPage );
+
+		$updatedFilters = $wrappedClsp->getFilterGroups();
+
+		$this->assertEquals( $originalFilters, $updatedFilters );
+	}
+
+	/**
+	 * @covers ORES\Hooks\ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters
+	 */
+	public function testOnChangesListSpecialPageStructuredFilters_Recentchanges() {
+		$changesListSpecialPage = new \SpecialRecentChanges();
+		$changesListSpecialPage->setContext( $this->context );
+		$wrappedClsp = TestingAccessWrapper::newFromObject( $changesListSpecialPage );
+		$wrappedClsp->registerFilters();
+
+		ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters( $changesListSpecialPage );
+
+		$damagingFilterGroup = $changesListSpecialPage->getFilterGroup( 'damaging' );
+		$this->assertNotNull( $damagingFilterGroup );
+		$maybebadFilter = $damagingFilterGroup->getFilter( 'maybebad' );
+		$this->assertNotNull( $maybebadFilter );
+
+		$goodfaithFilterGroup = $changesListSpecialPage->getFilterGroup( 'goodfaith' );
+		$this->assertNull( $goodfaithFilterGroup );
+	}
+
+	/**
+	 * @covers ORES\Hooks\ChangesListHooksHandler::onEnhancedChangesListModifyBlockLineData
+	 */
+	public function testOnEnhancedChangesListModifyBlockLineData() {
+		$ecl = new EnhancedChangesList( $this->context );
+		$rc = RCCacheEntry::newFromParent( $this->makeRcEntry( true ) );
+		$data = [
+			'attribs' => [
+				'class' => [],
+			],
+			'recentChangesFlags' => [],
+		];
+		$expected = [
+			'attribs' => [
+				'class' => [ 'damaging' ],
+			],
+			'recentChangesFlags' => [
+				'damaging' => true
+			],
+		];
+
+		ChangesListHooksHandler::onEnhancedChangesListModifyBlockLineData( $ecl, $data, $rc );
+
+		$this->assertEquals( $expected, $data );
 	}
 
 }
