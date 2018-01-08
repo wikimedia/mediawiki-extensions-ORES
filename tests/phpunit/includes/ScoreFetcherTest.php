@@ -41,9 +41,9 @@ class ScoreFetcherTest extends \MediaWikiTestCase {
 	 * @dataProvider provideTestCheckModelVersion
 	 */
 	public function testCheckModelVersion( $expected, $model, array $response ) {
-		$scoring = ScoreFetcher::instance();
+		$scoreFetcher = ScoreFetcher::instance();
 
-		$this->assertSame( $expected, $scoring->checkModelVersion( $model, $response ) );
+		$this->assertSame( $expected, $scoreFetcher->checkModelVersion( $model, $response ) );
 	}
 
 	public function testUpdateModelVersion() {
@@ -56,8 +56,8 @@ class ScoreFetcherTest extends \MediaWikiTestCase {
 			],
 			__METHOD__
 		);
-		$scoring = ScoreFetcher::instance();
-		$scoring->updateModelVersion( 'damaging', '0.0.4' );
+		$scoreFetcher = ScoreFetcher::instance();
+		$scoreFetcher->updateModelVersion( 'damaging', '0.0.4' );
 
 		$res = wfGetDB( DB_REPLICA )->select(
 			'ores_model',
