@@ -4,9 +4,12 @@ namespace ORES\Tests;
 
 use ORES\Storage\HashModelLookup;
 use ORES\WatchedItemQueryServiceExtension;
+use TitleValue;
+use WatchedItem;
 
 /**
  * @group ORES
+ * @group Database
  * @covers ORES\WatchedItemQueryServiceExtension
  */
 class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
@@ -15,6 +18,8 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
 
 	protected function setUp() {
 		parent::setUp();
+
+		$this->tablesUsed = TestHelper::getTablesUsed();
 
 		$this->setMwGlobals( [
 			'wgOresFiltersThresholds' => [
@@ -54,8 +59,14 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
 		$db = wfGetDB( DB_REPLICA );
 		$service = new WatchedItemQueryServiceExtension();
 		$service->modifyWatchedItemsWithRCInfoQuery(
-			$this->user, $options, $db, $tables, $fields, $conds,
-			$dbOptions, $joinConds );
+			$this->user,
+			$options,
+			$db,
+			$tables,
+			$fields,
+			$conds,
+			$dbOptions,
+			$joinConds );
 
 		$this->assertEquals( [
 			'rc_this_oldid',
@@ -94,8 +105,14 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
 		$db = wfGetDB( DB_REPLICA );
 		$service = new WatchedItemQueryServiceExtension();
 		$service->modifyWatchedItemsWithRCInfoQuery(
-			$this->user, $options, $db, $tables, $fields, $conds,
-			$dbOptions, $joinConds );
+			$this->user,
+			$options,
+			$db,
+			$tables,
+			$fields,
+			$conds,
+			$dbOptions,
+			$joinConds );
 
 		$this->assertEquals( [
 			'rc_this_oldid',
@@ -115,6 +132,50 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
 				'oresc_class' => 1,
 			], ],
 		], $joinConds );
+	}
+
+	/**
+	 * @covers ORES\WatchedItemQueryServiceExtension::modifyWatchedItemsWithRCInfo
+	 */
+	public function testModifyWatchedItemsWithRCInfo() {
+		$options = [
+			'includeFields' => [ 'oresscores' ],
+			'usedInGenerator' => false,
+		];
+		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
+		$status = TestHelper::doPageEdit( $this->user, $target, 'Create the page' );
+		$revision = $status->getValue()['revision'];
+		TestHelper::insertOresData(
+			$revision,
+			[ 'damaging' => 0.4 ]
+		);
+		$items = [
+			[
+				new WatchedItem( $this->user,
+					new TitleValue( NS_MAIN, 'Test123' ),
+					'201801020304' ),
+				[
+					'rc_type' => RC_NEW,
+					'rc_this_oldid' => $revision->getId(),
+				],
+			],
+		];
+		$res = [];
+		$startFrom = [];
+		$db = wfGetDB( DB_MASTER );
+		$service = new WatchedItemQueryServiceExtension();
+		$service->modifyWatchedItemsWithRCInfo(
+			$this->user, $options, $db, $items, $res, $startFrom );
+
+		$this->assertTrue( array_key_exists( 'oresScores', $items[0][1] ) );
+		$this->assertEquals( [
+			'oresc_rev' => '2',
+			'oresc_class' => '1',
+			'oresc_probability' => '0.400',
+			'oresc_model' => '5',
+		], get_object_vars( $items[0][1]['oresScores'][0] ) );
+		$this->assertEmpty( $res );
+		$this->assertEmpty( $startFrom );
 	}
 
 }
