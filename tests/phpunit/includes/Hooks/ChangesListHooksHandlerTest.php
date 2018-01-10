@@ -51,6 +51,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 		$this->user->setOption( 'rcOresDamagingPref', 'maybebad' );
 		$this->user->setOption( 'oresHighlight', 1 );
 		$this->user->setOption( 'ores-damaging-flag-rc', 1 );
+		$this->user->setOption( 'oresRCHideNonDamaging', 1 );
 		$this->user->setOption( 'rcenhancedfilters-disable', true );
 		$this->user->saveSettings();
 
@@ -403,6 +404,36 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 		$this->assertNotNull( $damagingFilterGroup );
 		$maybebadFilter = $damagingFilterGroup->getFilter( 'maybebad' );
 		$this->assertNotNull( $maybebadFilter );
+
+		$this->assertEquals( 'maybebad', $damagingFilterGroup->getDefault() );
+
+		$goodfaithFilterGroup = $changesListSpecialPage->getFilterGroup( 'goodfaith' );
+		$this->assertNull( $goodfaithFilterGroup );
+	}
+
+	/**
+	 * @covers ORES\Hooks\ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters
+	 */
+	public function testOnChangesListSpecialPageStructuredFilters_Watchlist() {
+		$this->user->setOption( 'oresWatchlistHideNonDamaging', 0 );
+		$this->user->setOption( 'oresHighlight', 1 );
+
+		$changesListSpecialPage = new \SpecialWatchlist();
+		$changesListSpecialPage->setContext( $this->context );
+		$wrappedClsp = TestingAccessWrapper::newFromObject( $changesListSpecialPage );
+		$wrappedClsp->registerFilters();
+
+		ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters( $changesListSpecialPage );
+
+		$damagingFilterGroup = $changesListSpecialPage->getFilterGroup( 'damaging' );
+		$this->assertNotNull( $damagingFilterGroup );
+		$maybebadFilter = $damagingFilterGroup->getFilter( 'maybebad' );
+		$this->assertNotNull( $maybebadFilter );
+
+		$this->assertEquals( '', $damagingFilterGroup->getDefault() );
+
+		$filterJsData = $damagingFilterGroup->getFilter( 'likelybad' )->getJsData();
+		$this->assertEquals( 'c4', $filterJsData['defaultHighlightColor'] );
 
 		$goodfaithFilterGroup = $changesListSpecialPage->getFilterGroup( 'goodfaith' );
 		$this->assertNull( $goodfaithFilterGroup );
