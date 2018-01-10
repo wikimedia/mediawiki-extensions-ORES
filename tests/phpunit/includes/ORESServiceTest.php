@@ -2,6 +2,7 @@
 
 namespace ORES\Tests;
 
+use MediaWiki\Logger\LoggerFactory;
 use ORES;
 
 /**
@@ -22,7 +23,7 @@ class ORESServiceTest extends \MediaWikiTestCase {
 			'wgOresBaseUrl' => 'https://ores-beta.wmflabs.org/',
 			'wgOresWikiId' => 'testwiki',
 		] );
-		$this->oresService = new ORES\ORESService();
+		$this->oresService = new ORES\ORESService( LoggerFactory::getInstance( 'ORES' ) );
 	}
 
 	/**

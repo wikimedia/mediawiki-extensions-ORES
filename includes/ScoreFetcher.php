@@ -18,12 +18,8 @@ namespace ORES;
 
 use InvalidArgumentException;
 use MediaWiki\MediaWikiServices;
-use WebRequest;
 
 class ScoreFetcher implements ScoreLookup {
-
-	/** @var WebRequest|string[]|null */
-	private $originalRequest;
 
 	/**
 	 * @see ScoreLookup::getScores()
@@ -32,10 +28,16 @@ class ScoreFetcher implements ScoreLookup {
 	 * @param string|array|null $models Single or multiple model names. If
 	 * left empty, all configured models are queried.
 	 * @param bool $precache either the request is made for precaching or not
-	 *
+
+	 * @param null $originalRequest
 	 * @return array Results in the form returned by ORES API
 	 */
-	public function getScores( $revisions, $models = null, $precache = false ) {
+	public function getScores(
+		$revisions,
+		$models = null,
+		$precache = false,
+		$originalRequest = null
+	) {
 		if ( !$models ) {
 			global $wgOresModels;
 			$models = array_keys( array_filter( $wgOresModels ) );
@@ -49,14 +51,8 @@ class ScoreFetcher implements ScoreLookup {
 			$params['precache'] = true;
 		}
 
-		if ( $this->originalRequest === null ) {
-			$oresService = ORESService::newFromContext();
-		} else {
-			$oresService = new ORESService();
-			$oresService->setOriginalRequest( $this->originalRequest );
-		}
-
-		$wireData = $oresService->request( $params );
+		$oresService = MediaWikiServices::getInstance()->getService( 'ORESService' );
+		$wireData = $oresService->request( $params, $originalRequest );
 
 		$wikiId = ORESService::getWikiID();
 		if ( array_key_exists( 'models', $wireData[$wikiId] ) ) {
@@ -139,13 +135,6 @@ class ScoreFetcher implements ScoreLookup {
 			],
 			__METHOD__
 		);
-	}
-
-	/**
-	 * @param WebRequest|string[] $originalRequest See MwHttpRequest::setOriginalRequest()
-	 */
-	public function setOriginalRequest( $originalRequest ) {
-		$this->originalRequest = $originalRequest;
 	}
 
 	public static function instance() {

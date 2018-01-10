@@ -17,8 +17,8 @@
 namespace ORES;
 
 use FormatJson;
-use MediaWiki\Logger\LoggerFactory;
 use MWHttpRequest;
+use Psr\Log\LoggerInterface;
 use RequestContext;
 use RuntimeException;
 use WebRequest;
@@ -27,27 +27,19 @@ use WebRequest;
  * Common methods for accessing an ORES server.
  */
 class ORESService {
-	/** @var WebRequest|string[]|null */
-	private $originalRequest;
 
 	const API_VERSION = 3;
 
 	/**
-	 * @return ORESService
+	 * @var LoggerInterface
 	 */
-	public static function newFromContext() {
-		$self = new self();
-		if ( empty( $GLOBALS['wgCommandLineMode'] ) ) {
-			$self->setOriginalRequest( RequestContext::getMain()->getRequest() );
-		}
-		return $self;
-	}
+	private $logger;
 
 	/**
-	 * @param WebRequest|string[] $originalRequest See MwHttpRequest::setOriginalRequest()
+	 * @param LoggerInterface $logger
 	 */
-	public function setOriginalRequest( $originalRequest ) {
-		$this->originalRequest = $originalRequest;
+	public function __construct( LoggerInterface $logger ) {
+		$this->logger = $logger;
 	}
 
 	/**
@@ -79,24 +71,30 @@ class ORESService {
 	 * Make an ORES API request and return the decoded result.
 	 *
 	 * @param array $params
-	 * @return array Decoded response
+	 * @param WebRequest|string[] $originalRequest See MwHttpRequest::setOriginalRequest()
 	 *
+	 * @return array Decoded response
 	 */
-	public function request( array $params ) {
-		$logger = LoggerFactory::getInstance( 'ORES' );
-
+	public function request(
+		array $params,
+		$originalRequest = null
+	) {
 		$url = $this->getUrl();
 		$params['format'] = 'json';
 		$url = wfAppendQuery( $url, $params );
-		$logger->debug( "Requesting: {$url}" );
-		$req = MWHttpRequest::factory( $url, $this->getMWHttpRequestOptions(), __METHOD__ );
+		$this->logger->debug( "Requesting: {$url}" );
+		$req = MWHttpRequest::factory(
+			$url,
+			$this->getMWHttpRequestOptions( $originalRequest ),
+			__METHOD__
+		);
 		$status = $req->execute();
 		if ( !$status->isOK() ) {
 			throw new RuntimeException( "Failed to make ORES request to [{$url}], "
 				. $status->getMessage()->text() );
 		}
 		$json = $req->getContent();
-		$logger->debug( "Raw response: {$json}" );
+		$this->logger->debug( "Raw response: {$json}" );
 		$data = FormatJson::decode( $json, true );
 		if ( !$data || !empty( $data['error'] ) ) {
 			throw new RuntimeException( "Bad response from ORES endpoint [{$url}]: {$json}" );
@@ -104,8 +102,17 @@ class ORESService {
 		return $data;
 	}
 
-	protected function getMWHttpRequestOptions() {
-		return $this->originalRequest ? [ 'originalRequest' => $this->originalRequest ] : [];
+	/**
+	 * @param WebRequest|string[] $originalRequest See MwHttpRequest::setOriginalRequest()
+	 *
+	 * @return array
+	 */
+	private function getMWHttpRequestOptions( $originalRequest ) {
+		if ( $originalRequest === null && empty( $GLOBALS['wgCommandLineMode'] ) ) {
+			$originalRequest = RequestContext::getMain()->getRequest();
+		}
+
+		return $originalRequest ? [ 'originalRequest' => $originalRequest ] : [];
 	}
 
 }

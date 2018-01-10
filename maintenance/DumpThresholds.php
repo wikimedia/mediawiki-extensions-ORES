@@ -40,7 +40,7 @@ class DumpThresholds extends Maintenance {
 	 */
 	protected function getModels() {
 		$timestamp = \wfTimestampNow();
-		$oresService = new ORESService();
+		$oresService = MediaWikiServices::getInstance()->getService( 'ORESService' );
 		// Bypass the varnish cache
 		$modelData = $oresService->request( [ $timestamp => true ] );
 		if ( empty( $modelData['models'] ) ) {
