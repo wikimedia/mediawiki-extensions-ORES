@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ef26315_5858058d",
+        "filename": "tests/phpunit/includes/WatchedItemQueryServiceExtensionTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-01-10T19:50:14Z",
+      "side": 1,
+      "message": ":P",
+      "range": {
+        "startLine": 163,
+        "startChar": 17,
+        "endLine": 163,
+        "endChar": 26
+      },
+      "revId": "36c11197398472d45248cfb33b072f9bc9a192da",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
