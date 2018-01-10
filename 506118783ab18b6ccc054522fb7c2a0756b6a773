@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ef26315_2dfb3946",
+        "filename": "tests/selenium/.eslintrc.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-10T18:11:38Z",
+      "side": 1,
+      "message": "This relative path is scary.  Can we extend \"wikimedia\" instead?",
+      "revId": "506118783ab18b6ccc054522fb7c2a0756b6a773",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
