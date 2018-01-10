@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ef26315_4dd7a5c4",
+        "filename": "tests/phpunit/includes/ORESServiceTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-10T18:08:19Z",
+      "side": 1,
+      "message": "\"use\" statement?",
+      "revId": "13fd7fe23478456292aec9723693fcddf5399c06",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef26315_cde9f580",
+        "filename": "tests/phpunit/includes/ServiceWiringTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-10T18:08:19Z",
+      "side": 1,
+      "message": "This is a strange test.  We should be checkout ServiceWiring.php, but instead we\u0027re testing MediaWiki\u0027s internals.",
+      "revId": "13fd7fe23478456292aec9723693fcddf5399c06",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
