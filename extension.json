@@ -12,7 +12,8 @@
 		"MediaWiki": ">= 1.31.0"
 	},
 	"AutoloadNamespaces": {
-		"ORES\\": "includes/"
+		"ORES\\": "includes/",
+		"ORES\\Tests\\": "tests/phpunit/includes/"
 	},
 	"APIMetaModules": {
 		"ores": "ORES\\ApiQueryORES"

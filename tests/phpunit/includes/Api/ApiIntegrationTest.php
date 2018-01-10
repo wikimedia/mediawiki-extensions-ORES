@@ -2,16 +2,10 @@
 
 namespace ORES\Tests\Api;
 
-use ContentHandler;
-use MediaWiki\Linker\LinkTarget;
-use MediaWiki\MediaWikiServices;
 use ORES\Storage\HashModelLookup;
-use ORES\Storage\ModelLookup;
-use Revision;
-use Title;
 use TitleValue;
-use User;
-use WikiPage;
+
+use ORES\Tests\TestHelper;
 
 /**
  * @group API
@@ -26,10 +20,7 @@ class ApiIntegrationTest extends \ApiTestCase {
 	public function __construct( $name = null, array $data = [], $dataName = '' ) {
 		parent::__construct( $name, $data, $dataName );
 
-		$this->tablesUsed[] = 'recentchanges';
-		$this->tablesUsed[] = 'page';
-		$this->tablesUsed[] = 'ores_model';
-		$this->tablesUsed[] = 'ores_classification';
+		$this->tablesUsed = TestHelper::getTablesUsed();
 	}
 
 	protected function setUp() {
@@ -37,9 +28,8 @@ class ApiIntegrationTest extends \ApiTestCase {
 
 		self::$users['ORESApiIntegrationTestUser'] = $this->getMutableTestUser();
 		$this->doLogin( 'ORESApiIntegrationTestUser' );
-		wfGetDB( DB_MASTER )->delete( 'recentchanges', '*', __METHOD__ );
-		wfGetDB( DB_MASTER )->delete( 'ores_model', '*', __METHOD__ );
-		wfGetDB( DB_MASTER )->delete( 'ores_classification', '*', __METHOD__ );
+
+		TestHelper::clearOresTables();
 
 		$this->setMwGlobals(
 			[
@@ -112,8 +102,8 @@ class ApiIntegrationTest extends \ApiTestCase {
 
 	public function testListRecentChanges_getOresScores() {
 		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
-		$status = $this->doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
-		$this->insertOresData(
+		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
+		TestHelper::insertOresData(
 			$status->getValue()['revision'],
 			[ 'damaging' => 0.4, 'goodfaith' => 0.7 ]
 		);
@@ -131,43 +121,8 @@ class ApiIntegrationTest extends \ApiTestCase {
 		$this->assertEquals( $result[0]['query']['recentchanges'][0]['oresscores'], $expected );
 	}
 
-	private function doPageEdit( User $user, LinkTarget $target, $summary ) {
-		static $i = 0;
-
-		$title = Title::newFromLinkTarget( $target );
-		$page = WikiPage::factory( $title );
-		$status = $page->doEditContent(
-			ContentHandler::makeContent( __CLASS__ . $i++, $title ),
-			$summary,
-			0,
-			false,
-			$user
-		);
-		if ( !$status->isOK() ) {
-			$this->fail();
-		}
-		return $status;
-	}
-
 	private function getLoggedInTestUser() {
 		return self::$users['ORESApiIntegrationTestUser']->getUser();
-	}
-
-	private function insertOresData( Revision $revision, $scores ) {
-		/** @var ModelLookup $modelLookup */
-		$modelLookup = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' );
-		// TODO: Use ScoreStorage
-		$dbData = [];
-		foreach ( $scores as $modelName => $score ) {
-			$dbData[] = [
-				'oresc_rev' => $revision->getId(),
-				'oresc_model' => $modelLookup->getModelId( $modelName ),
-				'oresc_class' => 1,
-				'oresc_probability' => $score,
-				'oresc_is_predicted' => 0
-			];
-		}
-		wfGetDB( DB_MASTER )->insert( 'ores_classification', $dbData );
 	}
 
 	private function doListRecentChangesRequest( array $params = [] ) {
@@ -183,8 +138,8 @@ class ApiIntegrationTest extends \ApiTestCase {
 
 	public function testListRecentChanges_showOresReview() {
 		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
-		$status = $this->doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
-		$this->insertOresData(
+		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
+		TestHelper::insertOresData(
 			$status->getValue()['revision'],
 			[ 'damaging' => 0.6, 'goodfaith' => 0.3 ]
 		);
@@ -204,8 +159,8 @@ class ApiIntegrationTest extends \ApiTestCase {
 
 	public function testListRecentChanges_showOresReviewNotNeedingReview() {
 		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
-		$status = $this->doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
-		$this->insertOresData(
+		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
+		TestHelper::insertOresData(
 			$status->getValue()['revision'],
 			[ 'damaging' => 0.4, 'goodfaith' => 0.7 ]
 		);
@@ -219,8 +174,8 @@ class ApiIntegrationTest extends \ApiTestCase {
 
 	public function testListRecentChanges_showNotOresReview() {
 		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
-		$status = $this->doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
-		$this->insertOresData(
+		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
+		TestHelper::insertOresData(
 			$status->getValue()['revision'],
 			[ 'damaging' => 0.6, 'goodfaith' => 0.3 ]
 		);
@@ -234,8 +189,8 @@ class ApiIntegrationTest extends \ApiTestCase {
 
 	public function testListRecentChanges_showNotOresReviewNotNeedingReview() {
 		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
-		$status = $this->doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
-		$this->insertOresData(
+		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
+		TestHelper::insertOresData(
 			$status->getValue()['revision'],
 			[ 'damaging' => 0.4, 'goodfaith' => 0.7 ]
 		);
