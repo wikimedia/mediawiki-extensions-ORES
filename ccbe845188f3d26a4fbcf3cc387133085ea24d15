@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ef26315_fecc613a",
+        "filename": "tests/phpunit/includes/WatchedItemQueryServiceExtensionTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-01-10T04:59:43Z",
+      "side": 1,
+      "message": "It uses connection to master, if it\u0027s writing to the database, we need to add tables used in the setUp otherwise it will leave dirt in the database. If it\u0027s not writing, I guess replica would be fine.",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 94,
+        "endChar": 29
+      },
+      "revId": "ccbe845188f3d26a4fbcf3cc387133085ea24d15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef26315_bee93981",
+        "filename": "tests/phpunit/includes/WatchedItemQueryServiceExtensionTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-01-10T04:59:43Z",
+      "side": 1,
+      "message": "Mediawiki coding convention is to either have all arguments in one line or each in one line (unlike python, I guess it\u0027s because arguments are not named in php)",
+      "range": {
+        "startLine": 97,
+        "startChar": 3,
+        "endLine": 98,
+        "endChar": 28
+      },
+      "revId": "ccbe845188f3d26a4fbcf3cc387133085ea24d15",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
