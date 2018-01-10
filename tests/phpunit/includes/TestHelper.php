@@ -16,6 +16,7 @@ class TestHelper {
 		$tablesUsed = [
 			'recentchanges',
 			'page',
+			'revision',
 			'ores_model',
 			'ores_classification',
 		];
