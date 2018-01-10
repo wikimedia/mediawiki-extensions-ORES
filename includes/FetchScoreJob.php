@@ -83,18 +83,23 @@ class FetchScoreJob extends Job {
 		}
 
 		$logger->info( 'Fetching scores for revision ' . json_encode( $this->params ) );
-		if ( isset( $this->params['originalRequest'] ) ) {
-			$this->scoreFetcher->setOriginalRequest( $this->params['originalRequest'] );
-		}
 		if ( isset( $this->params['models'] ) ) {
 			$models = $this->params['models'];
 		} else {
 			$models = null;
 		}
+
+		if ( isset( $this->params['originalRequest'] ) ) {
+			$originalRequest = $this->params['originalRequest'];
+		} else {
+			$originalRequest = null;
+		}
+
 		$scores = $this->scoreFetcher->getScores(
 			$this->params['revid'],
 			$models,
-			$this->params['precache']
+			$this->params['precache'],
+			$originalRequest
 		);
 		$scoreStorage = MediaWikiServices::getInstance()->getService( 'ORESScoreStorage' );
 

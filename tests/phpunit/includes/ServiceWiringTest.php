@@ -3,7 +3,9 @@
 namespace ORES\Tests;
 
 use MediaWiki\MediaWikiServices;
+use ORES\ORESService;
 use ORES\Storage\ModelLookup;
+use ORES\Storage\ScoreStorage;
 use ORES\ThresholdLookup;
 
 /**
@@ -16,7 +18,9 @@ class ServiceWiringTest extends \MediaWikiTestCase {
 	public function provideServices() {
 		return [
 			[ 'ORESModelLookup', ModelLookup::class ],
-			[ 'ORESThresholdLookup', ThresholdLookup::class ]
+			[ 'ORESThresholdLookup', ThresholdLookup::class ],
+			[ 'ORESScoreStorage', ScoreStorage::class ],
+			[ 'ORESService', ORESService::class ],
 		];
 	}
 

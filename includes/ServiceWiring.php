@@ -30,7 +30,7 @@ return [
 		return new ThresholdLookup(
 			new ThresholdParser( LoggerFactory::getInstance( 'ORES' ) ),
 			$services->getService( 'ORESModelLookup' ),
-			ORESService::newFromContext(),
+			$services->getService( 'ORESService' ),
 			$services->getMainWANObjectCache(),
 			LoggerFactory::getInstance( 'ORES' ),
 			$services->getStatsdDataFactory()
@@ -41,6 +41,12 @@ return [
 		return new SqlScoreStorage(
 			$services->getDBLoadBalancer(),
 			$services->getService( 'ORESModelLookup' )
+		);
+	},
+
+	'ORESService' => function ( MediaWikiServices $services ) {
+		return new ORESService(
+			LoggerFactory::getInstance( 'ORES' )
 		);
 	},
 
