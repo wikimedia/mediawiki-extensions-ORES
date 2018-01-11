@@ -43,10 +43,10 @@ class PurgeScoreCache extends Maintenance {
 				$description = 'old rows';
 			} elseif ( $this->hasOption( 'all' ) ) {
 				$deletedRows = $this->purge( $model, true, $this->mBatchSize );
-				$description = 'old model versions';
+				$description = 'scores from all model versions';
 			} else {
 				$deletedRows = $this->purge( $model, false, $this->mBatchSize );
-				$description = 'all rows';
+				$description = 'scores from old model versions';
 			}
 			if ( $deletedRows ) {
 				$this->output( "   ...purging $description from '$model' model': deleted $deletedRows rows\n" );
@@ -120,7 +120,7 @@ class PurgeScoreCache extends Maintenance {
 		array $tables,
 		array $conditions,
 		array $join_conds,
-		$batchSize = 1000
+		$batchSize
 	) {
 		$dbr = \wfGetDB( DB_REPLICA );
 		$dbw = \wfGetDB( DB_MASTER );
