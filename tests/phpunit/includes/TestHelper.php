@@ -12,6 +12,10 @@ use WikiPage;
 
 class TestHelper {
 
+	const DAMAGING_OLD = 1;
+	const REVERTED = 2;
+	const DAMAGING = 3;
+
 	public static function getTablesUsed() {
 		$tablesUsed = [
 			'recentchanges',
@@ -24,20 +28,67 @@ class TestHelper {
 	}
 
 	public static function clearOresTables() {
-		wfGetDB( DB_MASTER )->delete( 'recentchanges', '*', __METHOD__ );
-		wfGetDB( DB_MASTER )->delete( 'ores_model', '*', __METHOD__ );
-		wfGetDB( DB_MASTER )->delete( 'ores_classification', '*', __METHOD__ );
+		\wfGetDB( DB_MASTER )->delete( 'recentchanges', '*', __METHOD__ );
+		\wfGetDB( DB_MASTER )->delete( 'ores_model', '*', __METHOD__ );
+		\wfGetDB( DB_MASTER )->delete( 'ores_classification', '*', __METHOD__ );
 	}
 
-	public static function insertOresData( Revision $revision, $scores ) {
+	public static function insertModelData() {
+		$db = \wfGetDB( DB_MASTER );
+		$dump = [
+			[
+				'oresm_id' => self::DAMAGING,
+				'oresm_name' => 'damaging',
+				'oresm_version' => '0.0.2',
+				'oresm_is_current' => true
+			],
+			[
+				'oresm_id' => self::REVERTED,
+				'oresm_name' => 'reverted',
+				'oresm_version' => '0.0.1',
+				'oresm_is_current' => true
+			],
+			[
+				'oresm_id' => self::DAMAGING_OLD,
+				'oresm_name' => 'damaging',
+				'oresm_version' => '0.0.1',
+				'oresm_is_current' => false
+			],
+		];
+
+		$db->delete( 'ores_model', '*' );
+
+		foreach ( $dump as $row ) {
+			$db->insert( 'ores_model', $row );
+		}
+	}
+
+	/**
+	 * @param Revision|int $revision
+	 * @param array $scores
+	 */
+	public static function insertOresData( $revision, $scores ) {
+		if ( is_numeric( $revision ) ) {
+			$revisionId = $revision;
+		} else {
+			$revisionId = $revision->getId();
+		}
 		/** @var ModelLookup $modelLookup */
 		$modelLookup = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' );
 		// TODO: Use ScoreStorage
 		$dbData = [];
 		foreach ( $scores as $modelName => $score ) {
+			// Dirty trick that lets tests insert data for old models by
+			// specifying its ID.
+			if ( is_numeric( $modelName ) ) {
+				$modelId = $modelName;
+			} else {
+				$modelId = $modelLookup->getModelId( $modelName );
+			}
+
 			$dbData[] = [
-				'oresc_rev' => $revision->getId(),
-				'oresc_model' => $modelLookup->getModelId( $modelName ),
+				'oresc_rev' => $revisionId,
+				'oresc_model' => $modelId,
 				'oresc_class' => 1,
 				'oresc_probability' => $score,
 				'oresc_is_predicted' => 0

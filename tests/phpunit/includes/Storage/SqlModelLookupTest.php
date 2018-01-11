@@ -14,10 +14,6 @@ use ORES\Storage\SqlModelLookup;
  */
 class SqlModelLookupTest extends MediaWikiLangTestCase {
 
-	const DAMAGING_OLD = 1;
-	const REVERTED = 2;
-	const DAMAGING = 3;
-
 	/**
 	 * @var SqlModelLookup
 	 */
@@ -27,52 +23,22 @@ class SqlModelLookupTest extends MediaWikiLangTestCase {
 		parent::setUp();
 
 		$this->tablesUsed[] = 'ores_model';
-		self::insertModelData();
+		TestHelper::insertModelData();
 		$this->storage = new SqlModelLookup( MediaWikiServices::getInstance()->getDBLoadBalancer() );
-	}
-
-	public static function insertModelData() {
-		$db = \wfGetDB( DB_MASTER );
-		$dump = [
-			[
-				'oresm_id' => self::DAMAGING,
-				'oresm_name' => 'damaging',
-				'oresm_version' => '0.0.2',
-				'oresm_is_current' => true
-			],
-			[
-				'oresm_id' => self::REVERTED,
-				'oresm_name' => 'reverted',
-				'oresm_version' => '0.0.1',
-				'oresm_is_current' => true
-			],
-			[
-				'oresm_id' => self::DAMAGING_OLD,
-				'oresm_name' => 'damaging',
-				'oresm_version' => '0.0.1',
-				'oresm_is_current' => false
-			],
-		];
-
-		$db->delete( 'ores_model', '*' );
-
-		foreach ( $dump as $row ) {
-			$db->insert( 'ores_model', $row );
-		}
 	}
 
 	public function testGetModels() {
 		$models = $this->storage->getModels();
 		$expected = [
-			'reverted' => [ 'id' => self::REVERTED, 'version' => '0.0.1' ],
-			'damaging' => [ 'id' => self::DAMAGING, 'version' => '0.0.2' ]
+			'reverted' => [ 'id' => TestHelper::REVERTED, 'version' => '0.0.1' ],
+			'damaging' => [ 'id' => TestHelper::DAMAGING, 'version' => '0.0.2' ]
 		];
 		$this->assertEquals( $expected, $models );
 	}
 
 	public function testGetModelId() {
-		$this->assertEquals( self::REVERTED, $this->storage->getModelId( 'reverted' ) );
-		$this->assertEquals( self::DAMAGING, $this->storage->getModelId( 'damaging' ) );
+		$this->assertEquals( TestHelper::REVERTED, $this->storage->getModelId( 'reverted' ) );
+		$this->assertEquals( TestHelper::DAMAGING, $this->storage->getModelId( 'damaging' ) );
 	}
 
 	public function testGetInvalidModelId() {
