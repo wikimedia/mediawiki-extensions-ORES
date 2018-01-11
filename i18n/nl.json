@@ -16,7 +16,7 @@
 	"ores-damaging-legend": "Deze bewerking kan problemen bevatten en dient beoordeeld te worden ([[:mw:Special:MyLanguage/ORES review tool|meer info]])",
 	"ores-hide-nondamaging-filter": "Mogelijk goede bewerkingen verbergen",
 	"ores-pref-damaging": "Voorspellingsdrempel",
-	"ores-pref-damaging-flag": "Markeer waarschijnlijk problematische bewerkingen met kleuren en een \"{{int:ores-damaging-letter}}\" voor \"review nodig\" (om het niveau in te stellen waarop bewerkingen gemarkeerd worden, gebruik de \"{{int:ores-pref-damaging}}\" instelling in je volglijst-voorkeuren)",
+	"ores-pref-damaging-flag": "Markeer waarschijnlijk problematische bewerkingen met kleuren en een \"{{int:ores-damaging-letter}}\" voor \"review nodig\"",
 	"ores-damaging-maybebad": "Heeft wellicht problemen (markeer de meeste problematische bewerkingen maar omvat ook vele valse positieven)",
 	"ores-damaging-likelybad": "Heeft waarschijnlijk problemen (gemiddelde kans)",
 	"ores-damaging-verylikelybad": "Heeft zeer waarschijnlijk problemen (markeert enkele valse positieven maar vindt een kleiner percentage van problematische bewerkingen)",
