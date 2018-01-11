@@ -37,9 +37,11 @@ class ChangesListHooksHandler {
 	public static function onChangesListSpecialPageStructuredFilters(
 		ChangesListSpecialPage $clsp
 	) {
-		// ORES is disabled on Recentchangeslinked: T163063
-		if ( !Hooks::oresUiEnabled( $clsp->getUser() ) || $clsp->getName() === 'Recentchangeslinked'
-		) {
+		if ( !Hooks::oresUiEnabled( $clsp->getUser() ) ) {
+			return;
+		}
+
+		if ( self::oresDisabledOnRcl( $clsp->getName(), $clsp->getContext()->getRequest() ) ) {
 			return;
 		}
 
@@ -88,8 +90,7 @@ class ChangesListHooksHandler {
 							// Make the joins INNER JOINs instead of LEFT JOINs
 							$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
 							$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
-							// Performance hack: add STRAIGHT_JOIN (T146111) but not for Watchlist (T176456 / T164796)
-							if ( $specialClassName !== 'SpecialWatchlist' ) {
+							if ( self::shouldStraightJoin( $specialClassName ) ) {
 								$query_options[] = 'STRAIGHT_JOIN';
 							}
 						}
@@ -175,8 +176,7 @@ class ChangesListHooksHandler {
 							// Make the joins INNER JOINs instead of LEFT JOINs
 							$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
 							$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
-							// Performance hack: add STRAIGHT_JOIN (T146111) but not for Watchlist (T176456 / T164796)
-							if ( $specialClassName !== 'SpecialWatchlist' ) {
+							if ( self::shouldStraightJoin( $specialClassName ) ) {
 								$query_options[] = 'STRAIGHT_JOIN';
 							}
 						},
@@ -216,8 +216,7 @@ class ChangesListHooksHandler {
 							// Make the joins INNER JOINs instead of LEFT JOINs
 							$join_conds['ores_goodfaith_mdl'][0] = 'INNER JOIN';
 							$join_conds['ores_goodfaith_cls'][0] = 'INNER JOIN';
-							// Performance hack: add STRAIGHT_JOIN (T146111) but not for Watchlist (T176456 / T164796)
-							if ( $specialClassName !== 'SpecialWatchlist' ) {
+							if ( self::shouldStraightJoin( $specialClassName ) ) {
 								$query_options[] = 'STRAIGHT_JOIN';
 							}
 						}
@@ -252,6 +251,13 @@ class ChangesListHooksHandler {
 				$clsp->registerFilterGroup( $goodfaithGroup );
 			}
 		}
+	}
+
+	private static function shouldStraightJoin( $specialClassName ) {
+		// Performance hack: add STRAIGHT_JOIN (T146111) but not for Watchlist (T176456 / T164796)
+		// New theory is that STRAIGHT JOIN should be used for unfiltered queries (RecentChanges)
+		// but not for filtered queries (Watchlist and RecentChangesLinked) (T179718)
+		return $specialClassName === 'SpecialRecentChanges';
 	}
 
 	private static function getDamagingStructuredFiltersOnChangesList( array $damagingLevels ) {
@@ -371,10 +377,13 @@ class ChangesListHooksHandler {
 		$name, array &$tables, array &$fields, array &$conds,
 		array &$query_options, array &$join_conds, FormOptions $opts
 	) {
-		global $wgUser;
+		global $wgUser, $wgRequest;
 
-		// ORES is disabled on Recentchangeslinked: T163063
-		if ( !Hooks::oresUiEnabled( $wgUser ) || $name === 'Recentchangeslinked' ) {
+		if ( !Hooks::oresUiEnabled( $wgUser ) ) {
+			return;
+		}
+
+		if ( self::oresDisabledOnRcl( $name, $wgRequest ) ) {
 			return;
 		}
 
@@ -595,6 +604,15 @@ class ChangesListHooksHandler {
 
 			return \wfGetDB( DB_REPLICA )->makeList( $betweenConditions, IDatabase::LIST_OR );
 		}
+	}
+
+	private static function oresDisabledOnRcl( $name, $request ) {
+		return (
+			// ORES is disabled on Recentchangeslinked: T163063
+			$name === 'Recentchangeslinked' &&
+			// Tentatively re-enabled behind a request param for testing: T179718
+			!$request->getBool( 'experimental_ores_on_rcl' )
+		);
 	}
 
 }
