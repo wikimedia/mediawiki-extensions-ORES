@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "8ef26315_56b443e4",
+        "filename": "includes/ApiQueryORES.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-01-12T17:17:32Z",
+      "side": 1,
+      "message": "I\u0027m backing up from my idea. I think we might be splitting the class to general helper/api helper/hooks helper/etc. Later.",
+      "parentUuid": "8ef26315_76e17ffb",
+      "revId": "3248a834eb830d71e095b0dbe04e18e0b07c534a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ef26315_f6ebcf07",
         "filename": "includes/Hooks.php",
         "patchSetId": 2
