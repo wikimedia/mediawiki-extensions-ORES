@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ef26315_e1266ab4",
+        "filename": "tests/phpunit/maintenance/PopulateDatabaseTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-01-12T10:29:45Z",
+      "side": 1,
+      "message": "This is like OMG, is there a better to construct service responses? like factoring them into a method in this class?",
+      "range": {
+        "startLine": 53,
+        "startChar": 5,
+        "endLine": 70,
+        "endChar": 7
+      },
+      "revId": "98d3592a6e1836dbf53023d3fea9e611f526de9a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
