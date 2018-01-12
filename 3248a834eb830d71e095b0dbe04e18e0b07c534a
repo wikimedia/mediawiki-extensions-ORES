@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ef26315_76f7bff2",
+        "filename": "includes/ApiQueryORES.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-12T17:06:58Z",
+      "side": 1,
+      "message": "The plural is strange.  Also, I\u0027m bothered that a Hooks helper would be used outside of Hooks.  Maybe move it up a level?",
+      "revId": "3248a834eb830d71e095b0dbe04e18e0b07c534a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef26315_f6ebcf07",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-12T17:06:58Z",
+      "side": 1,
+      "message": "\\o/",
+      "revId": "3248a834eb830d71e095b0dbe04e18e0b07c534a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef26315_96440b1e",
+        "filename": "includes/Hooks/Helpers.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-12T17:06:58Z",
+      "side": 1,
+      "message": "ah that definitely is a Hooks\\Helper",
+      "revId": "3248a834eb830d71e095b0dbe04e18e0b07c534a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef26315_365a57fa",
+        "filename": "includes/Hooks/Helpers.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-12T17:06:58Z",
+      "side": 1,
+      "message": "More of a general helper...  OresContext?",
+      "revId": "3248a834eb830d71e095b0dbe04e18e0b07c534a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef26315_966b6b82",
+        "filename": "includes/Hooks/Helpers.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-12T17:06:58Z",
+      "side": 1,
+      "message": "Should threshold stuff be part of Stats?  or since it\u0027s user-related, OresContext?",
+      "revId": "3248a834eb830d71e095b0dbe04e18e0b07c534a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
