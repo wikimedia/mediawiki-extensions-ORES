@@ -16,6 +16,24 @@
       "revId": "506118783ab18b6ccc054522fb7c2a0756b6a773",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef26315_615ffa44",
+        "filename": "tests/selenium/.eslintrc.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 487
+      },
+      "writtenOn": "2018-01-12T14:02:46Z",
+      "side": 1,
+      "message": "It is extending eslintrc already present in the repository root.\n\nIt\u0027s the pattern we use:\n\nhttps://phabricator.wikimedia.org/source/mediawiki/browse/master/tests/selenium/.eslintrc.json\nhttps://phabricator.wikimedia.org/diffusion/EPOP/browse/master/tests/selenium/.eslintrc.json\nhttps://phabricator.wikimedia.org/diffusion/ECHO/browse/master/tests/selenium/.eslintrc.json\nhttps://phabricator.wikimedia.org/diffusion/ERAR/browse/master/tests/selenium/.eslintrc.json",
+      "parentUuid": "8ef26315_2dfb3946",
+      "revId": "506118783ab18b6ccc054522fb7c2a0756b6a773",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
