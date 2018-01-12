@@ -62,9 +62,6 @@
 		"EnhancedChangesListModifyLineData": [
 			"ORES\\Hooks\\ChangesListHooksHandler::onEnhancedChangesListModifyLineData"
 		],
-		"GetBetaFeaturePreferences": [
-			"ORES\\Hooks::onGetBetaFeaturePreferences"
-		],
 		"GetPreferences": [
 			"ORES\\Hooks\\PreferencesHookHandler::onGetPreferences"
 		],
@@ -123,9 +120,6 @@
 		"ORESFetchScoreJob": "ORES\\FetchScoreJob"
 	},
 	"config": {
-		"OresExtensionStatus": {
-			"value": "on"
-		},
 		"OresUiEnabled": {
 			"value": true
 		},

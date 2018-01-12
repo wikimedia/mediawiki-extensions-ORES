@@ -16,9 +16,7 @@
 
 namespace ORES;
 
-use BetaFeatures;
 use DatabaseUpdater;
-use ExtensionRegistry;
 use Exception;
 use JobQueueGroup;
 use IContextSource;
@@ -201,36 +199,13 @@ class Hooks {
 	}
 
 	/**
-	 * Make a beta feature
-	 *
-	 * @param User $user
-	 * @param string[] &$prefs
-	 */
-	public static function onGetBetaFeaturePreferences( User $user, array &$prefs ) {
-		global $wgOresExtensionStatus, $wgExtensionAssetsPath;
-
-		if ( $wgOresExtensionStatus === 'beta' ) {
-			$prefs['ores-enabled'] = [
-				'label-message' => 'ores-beta-feature-message',
-				'desc-message' => 'ores-beta-feature-description',
-				'screenshot' => [
-					'ltr' => "$wgExtensionAssetsPath/ORES/images/ORES-beta-features-ltr.svg",
-					'rtl' => "$wgExtensionAssetsPath/ORES/images/ORES-beta-features-rtl.svg",
-				],
-				'info-link' => 'https://www.mediawiki.org/wiki/ORES_review_tool',
-				'discussion-link' => 'https://www.mediawiki.org/wiki/Talk:ORES_review_tool',
-			];
-		}
-	}
-
-	/**
 	 * Check whether ores is enabled
 	 *
 	 * @param User $user
 	 * @return bool
 	 */
 	public static function oresUiEnabled( User $user ) {
-		global $wgOresExtensionStatus, $wgOresUiEnabled;
+		global $wgOresUiEnabled;
 
 		// Is the UI enabled or not?  If not, we've been deployed in
 		// infrastructure-only mode, so hide all the UI elements.
@@ -238,20 +213,7 @@ class Hooks {
 			return false;
 		}
 
-		// enabled by default for everybody
-		if ( $wgOresExtensionStatus === 'on' ) {
-			return true;
-		}
-
-		// exists as a beta feature, enabled by $user
-		if ( $wgOresExtensionStatus === 'beta' ) {
-			return $user &&
-				$user->isLoggedIn() &&
-				ExtensionRegistry::getInstance()->isLoaded( 'BetaFeatures' ) &&
-				BetaFeatures::isFeatureEnabled( $user, 'ores-enabled' );
-		}
-
-		return false;
+		return true;
 	}
 
 	/**

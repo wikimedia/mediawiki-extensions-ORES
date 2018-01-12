@@ -9,8 +9,6 @@
 			"Wladek92"
 		]
 	},
-	"ores-beta-feature-description": "Description of ORES in beta features page.",
-	"ores-beta-feature-message": "Title of ORES section in beta features page.",
 	"ores-desc": "{{desc|name=ORES|url=https://www.mediawiki.org/wiki/Extension:ORES}}",
 	"ores-damaging-filter": "Label to toggle filtering on ORES data. Parameters:\n* $1 - Action to be performed by toggling. Can be either 'show' or 'hide'.",
 	"ores-damaging-letter": "Single letter for tagging possibly damaging recent changes.",

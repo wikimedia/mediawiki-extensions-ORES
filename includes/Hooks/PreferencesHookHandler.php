@@ -29,7 +29,7 @@ class PreferencesHookHandler {
 	 * @param string[] &$preferences
 	 */
 	public static function onGetPreferences( User $user, array &$preferences ) {
-		global $wgOresFiltersThresholds, $wgOresExtensionStatus;
+		global $wgOresFiltersThresholds;
 
 		if ( !Hooks::oresUiEnabled( $user ) || !Hooks::isModelEnabled( 'damaging' ) ) {
 			return;
@@ -67,21 +67,19 @@ class PreferencesHookHandler {
 			'help-message' => 'ores-help-damaging-pref',
 		];
 
-		if ( $wgOresExtensionStatus !== 'beta' ) {
-			// highlight damaging edits based on configured sensitivity
-			$preferences['oresHighlight'] = [
-				'type' => 'toggle',
-				'section' => 'watchlist/ores-wl',
-				'label-message' => 'ores-pref-highlight',
-			];
+		// highlight damaging edits based on configured sensitivity
+		$preferences['oresHighlight'] = [
+			'type' => 'toggle',
+			'section' => 'watchlist/ores-wl',
+			'label-message' => 'ores-pref-highlight',
+		];
 
-			// Control whether the "r" appears on RC
-			$preferences['ores-damaging-flag-rc'] = [
-				'type' => 'toggle',
-				'section' => 'rc/ores-rc',
-				'label-message' => 'ores-pref-damaging-flag',
-			];
-		}
+		// Control whether the "r" appears on RC
+		$preferences['ores-damaging-flag-rc'] = [
+			'type' => 'toggle',
+			'section' => 'rc/ores-rc',
+			'label-message' => 'ores-pref-damaging-flag',
+		];
 
 		// Make hidenondamaging default
 		$preferences['oresWatchlistHideNonDamaging'] = [

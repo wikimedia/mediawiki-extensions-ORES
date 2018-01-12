@@ -212,40 +212,6 @@ class HooksTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks::onGetBetaFeaturePreferences
-	 */
-	public function testOnGetBetaFeaturePreferences_on() {
-		$this->setMwGlobals( 'wgOresExtensionStatus', 'on' );
-		$prefs = [];
-		Hooks::onGetBetaFeaturePreferences( $this->user, $prefs );
-
-		$this->assertSame( 0, count( $prefs ) );
-	}
-
-	/**
-	 * @covers ORES\Hooks::onGetBetaFeaturePreferences
-	 */
-	public function testOnGetBetaFeaturePreferences_off() {
-		$this->setMwGlobals( 'wgOresExtensionStatus', 'off' );
-		$prefs = [];
-		Hooks::onGetBetaFeaturePreferences( $this->user, $prefs );
-
-		$this->assertSame( 0, count( $prefs ) );
-	}
-
-	/**
-	 * @covers ORES\Hooks::onGetBetaFeaturePreferences
-	 */
-	public function testOnGetBetaFeaturePreferences_beta() {
-		$this->setMwGlobals( 'wgOresExtensionStatus', 'beta' );
-		$prefs = [];
-		Hooks::onGetBetaFeaturePreferences( $this->user, $prefs );
-
-		$this->assertSame( 1, count( $prefs ) );
-		$this->assertArrayHasKey( 'ores-enabled', $prefs );
-	}
-
-	/**
 	 * @param User $user
 	 *
 	 * @return IContextSource
