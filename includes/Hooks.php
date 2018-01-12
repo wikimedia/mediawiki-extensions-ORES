@@ -118,7 +118,7 @@ class Hooks {
 	 * @param Skin &$skin
 	 */
 	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
-		if ( !Helpers::oresUiEnabled( $out->getUser() ) ) {
+		if ( !Helpers::oresUiEnabled() ) {
 			return;
 		}
 

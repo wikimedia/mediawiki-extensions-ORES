@@ -109,7 +109,7 @@ class Helpers {
 	public static function isDamagingFlagEnabled( IContextSource $context ) {
 		$user = $context->getUser();
 
-		if ( !self::oresUiEnabled( $user ) ) {
+		if ( !self::oresUiEnabled() ) {
 			return false;
 		}
 
@@ -148,19 +148,12 @@ class Helpers {
 	/**
 	 * Check whether ores is enabled
 	 *
-	 * @param User $user
 	 * @return bool
 	 */
-	public static function oresUiEnabled( User $user ) {
+	public static function oresUiEnabled() {
 		global $wgOresUiEnabled;
 
-		// Is the UI enabled or not?  If not, we've been deployed in
-		// infrastructure-only mode, so hide all the UI elements.
-		if ( !$wgOresUiEnabled ) {
-			return false;
-		}
-
-		return true;
+		return (bool)$wgOresUiEnabled;
 	}
 
 	/**

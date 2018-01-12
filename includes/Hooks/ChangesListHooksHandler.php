@@ -36,7 +36,7 @@ class ChangesListHooksHandler {
 	public static function onChangesListSpecialPageStructuredFilters(
 		ChangesListSpecialPage $clsp
 	) {
-		if ( !Helpers::oresUiEnabled( $clsp->getUser() ) ) {
+		if ( !Helpers::oresUiEnabled() ) {
 			return;
 		}
 
@@ -374,9 +374,9 @@ class ChangesListHooksHandler {
 		$name, array &$tables, array &$fields, array &$conds,
 		array &$query_options, array &$join_conds, FormOptions $opts
 	) {
-		global $wgUser, $wgRequest;
+		global $wgRequest;
 
-		if ( !Helpers::oresUiEnabled( $wgUser ) ) {
+		if ( !Helpers::oresUiEnabled() ) {
 			return;
 		}
 
@@ -410,7 +410,7 @@ class ChangesListHooksHandler {
 		RCCacheEntry $rcObj,
 		array &$classes
 	) {
-		if ( !Helpers::oresUiEnabled( $ecl->getUser() ) ) {
+		if ( !Helpers::oresUiEnabled() ) {
 			return;
 		}
 
@@ -429,7 +429,7 @@ class ChangesListHooksHandler {
 		array &$data,
 		RCCacheEntry $rcObj
 	) {
-		if ( !Helpers::oresUiEnabled( $ecl->getUser() ) ) {
+		if ( !Helpers::oresUiEnabled() ) {
 			return;
 		}
 
@@ -476,7 +476,7 @@ class ChangesListHooksHandler {
 		RecentChange $rc,
 		array &$classes = []
 	) {
-		if ( !Helpers::oresUiEnabled( $changesList->getUser() ) ) {
+		if ( !Helpers::oresUiEnabled() ) {
 			return;
 		}
 
