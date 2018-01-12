@@ -1,6 +1,6 @@
 <?php
 
-namespace ORES;
+namespace ORES\Maintenance;
 
 use Maintenance;
 use MediaWiki\MediaWikiServices;

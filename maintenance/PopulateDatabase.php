@@ -1,9 +1,10 @@
 <?php
 
-namespace ORES;
+namespace ORES\Maintenance;
 
 use Maintenance;
 use MediaWiki\MediaWikiServices;
+use ORES\ScoreFetcher;
 use ORES\Storage\ScoreStorage;
 
 require_once getenv( 'MW_INSTALL_PATH' ) !== false

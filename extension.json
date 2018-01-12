@@ -13,6 +13,7 @@
 	},
 	"AutoloadNamespaces": {
 		"ORES\\": "includes/",
+		"ORES\\Maintenance\\": "maintenance/",
 		"ORES\\Tests\\": "tests/phpunit/includes/"
 	},
 	"APIMetaModules": {
