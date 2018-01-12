@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8ef26315_76e17ffb",
+        "filename": "includes/ApiQueryORES.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-01-12T17:11:47Z",
+      "side": 1,
+      "message": "Good idea, will do it ASAP.",
+      "parentUuid": "8ef26315_76f7bff2",
+      "revId": "3248a834eb830d71e095b0dbe04e18e0b07c534a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ef26315_f6ebcf07",
         "filename": "includes/Hooks.php",
         "patchSetId": 2
@@ -81,6 +99,24 @@
       "writtenOn": "2018-01-12T17:06:58Z",
       "side": 1,
       "message": "Should threshold stuff be part of Stats?  or since it\u0027s user-related, OresContext?",
+      "revId": "3248a834eb830d71e095b0dbe04e18e0b07c534a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef26315_d6133304",
+        "filename": "includes/Hooks/Helpers.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-01-12T17:11:47Z",
+      "side": 1,
+      "message": "We don\u0027t have OresContext but we should have some sort of it.",
+      "parentUuid": "8ef26315_966b6b82",
       "revId": "3248a834eb830d71e095b0dbe04e18e0b07c534a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
