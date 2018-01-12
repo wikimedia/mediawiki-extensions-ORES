@@ -24,7 +24,6 @@ use EnhancedChangesList;
 use FormOptions;
 use IContextSource;
 use MediaWiki\MediaWikiServices;
-use ORES\Hooks;
 use ORES\Range;
 use RCCacheEntry;
 use RecentChange;
@@ -37,7 +36,7 @@ class ChangesListHooksHandler {
 	public static function onChangesListSpecialPageStructuredFilters(
 		ChangesListSpecialPage $clsp
 	) {
-		if ( !Hooks::oresUiEnabled( $clsp->getUser() ) ) {
+		if ( !Helpers::oresUiEnabled( $clsp->getUser() ) ) {
 			return;
 		}
 
@@ -50,7 +49,7 @@ class ChangesListHooksHandler {
 		$changeTypeGroup = $clsp->getFilterGroup( 'changeType' );
 		$logFilter = $changeTypeGroup->getFilter( 'hidelog' );
 
-		if ( Hooks::isModelEnabled( 'damaging' ) ) {
+		if ( Helpers::isModelEnabled( 'damaging' ) ) {
 			if ( $clsp instanceof SpecialRecentChanges ) {
 				$damagingDefault = $clsp->getUser()->getOption( 'oresRCHideNonDamaging' );
 				$highlightDefault = $clsp->getUser()->getBoolOption( 'ores-damaging-flag-rc' );
@@ -124,10 +123,8 @@ class ChangesListHooksHandler {
 				}
 
 				if ( $damagingDefault ) {
-					$newDamagingGroup->setDefault( Hooks::getDamagingLevelPreference(
-						$clsp->getUser(),
-						$clsp->getPageTitle()
-					) );
+					$newDamagingGroup->setDefault( Helpers::getDamagingLevelPreference( $clsp->getUser(),
+						$clsp->getPageTitle() ) );
 				}
 
 				if ( $highlightDefault ) {
@@ -137,10 +134,9 @@ class ChangesListHooksHandler {
 						'verylikelybad' => 'c5',
 					];
 
-					$prefLevel = Hooks::getDamagingLevelPreference(
-						$clsp->getUser(),
-						$clsp->getPageTitle()
-					);
+					$prefLevel =
+						Helpers::getDamagingLevelPreference( $clsp->getUser(),
+							$clsp->getPageTitle() );
 					$allLevels = array_keys( $levelsColors );
 					$applicableLevels = array_slice( $allLevels, array_search( $prefLevel, $allLevels ) );
 					$applicableLevels = array_intersect( $applicableLevels, array_keys( $filters ) );
@@ -168,7 +164,8 @@ class ChangesListHooksHandler {
 						'default' => $damagingDefault,
 						'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables,
 								&$fields, &$conds, &$query_options, &$join_conds ) {
-							Hooks::hideNonDamagingFilter( $fields, $conds, true, $ctx->getUser(), $ctx->getTitle() );
+							Helpers::hideNonDamagingFilter( $fields, $conds, true, $ctx->getUser(),
+								$ctx->getTitle() );
 							// Filter out incompatible types; log actions and external rows are not scorable
 							$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
 							// Filter out patrolled edits: the 'r' doesn't appear for them
@@ -187,7 +184,7 @@ class ChangesListHooksHandler {
 
 			$clsp->registerFilterGroup( $legacyDamagingGroup );
 		}
-		if ( Hooks::isModelEnabled( 'goodfaith' ) ) {
+		if ( Helpers::isModelEnabled( 'goodfaith' ) ) {
 			$filters = self::getGoodFaithStructuredFiltersOnChangesList(
 				$stats->getThresholds( 'goodfaith' )
 			);
@@ -379,7 +376,7 @@ class ChangesListHooksHandler {
 	) {
 		global $wgUser, $wgRequest;
 
-		if ( !Hooks::oresUiEnabled( $wgUser ) ) {
+		if ( !Helpers::oresUiEnabled( $wgUser ) ) {
 			return;
 		}
 
@@ -387,23 +384,13 @@ class ChangesListHooksHandler {
 			return;
 		}
 
-		if ( Hooks::isModelEnabled( 'damaging' ) ) {
-			Hooks::joinWithOresTables(
-				'damaging',
-				'rc_this_oldid',
-				$tables,
-				$fields,
-				$join_conds
-			);
+		if ( Helpers::isModelEnabled( 'damaging' ) ) {
+			Helpers::joinWithOresTables( 'damaging', 'rc_this_oldid', $tables, $fields,
+				$join_conds );
 		}
-		if ( Hooks::isModelEnabled( 'goodfaith' ) ) {
-			Hooks::joinWithOresTables(
-				'goodfaith',
-				'rc_this_oldid',
-				$tables,
-				$fields,
-				$join_conds
-			);
+		if ( Helpers::isModelEnabled( 'goodfaith' ) ) {
+			Helpers::joinWithOresTables( 'goodfaith', 'rc_this_oldid', $tables, $fields,
+				$join_conds );
 		}
 	}
 
@@ -423,7 +410,7 @@ class ChangesListHooksHandler {
 		RCCacheEntry $rcObj,
 		array &$classes
 	) {
-		if ( !Hooks::oresUiEnabled( $ecl->getUser() ) ) {
+		if ( !Helpers::oresUiEnabled( $ecl->getUser() ) ) {
 			return;
 		}
 
@@ -442,7 +429,7 @@ class ChangesListHooksHandler {
 		array &$data,
 		RCCacheEntry $rcObj
 	) {
-		if ( !Hooks::oresUiEnabled( $ecl->getUser() ) ) {
+		if ( !Helpers::oresUiEnabled( $ecl->getUser() ) ) {
 			return;
 		}
 
@@ -467,7 +454,7 @@ class ChangesListHooksHandler {
 	) {
 		$damaging = self::getScoreRecentChangesList( $rcObj, $context );
 
-		if ( $damaging && Hooks::isDamagingFlagEnabled( $context ) ) {
+		if ( $damaging && Helpers::isDamagingFlagEnabled( $context ) ) {
 			$classes[] = 'damaging';
 			$data['recentChangesFlags']['damaging'] = true;
 		}
@@ -489,19 +476,19 @@ class ChangesListHooksHandler {
 		RecentChange $rc,
 		array &$classes = []
 	) {
-		if ( !Hooks::oresUiEnabled( $changesList->getUser() ) ) {
+		if ( !Helpers::oresUiEnabled( $changesList->getUser() ) ) {
 			return;
 		}
 
 		$damaging = self::getScoreRecentChangesList( $rc, $changesList->getContext() );
 		if ( $damaging ) {
 			// Add highlight class
-			if ( Hooks::isHighlightEnabled( $changesList ) ) {
+			if ( Helpers::isHighlightEnabled( $changesList ) ) {
 				$classes[] = 'ores-highlight';
 			}
 
 			// Add damaging class and flag
-			if ( Hooks::isDamagingFlagEnabled( $changesList ) ) {
+			if ( Helpers::isDamagingFlagEnabled( $changesList ) ) {
 				$classes[] = 'damaging';
 
 				$separator = ' <span class="mw-changeslist-separator">. .</span> ';
@@ -525,7 +512,8 @@ class ChangesListHooksHandler {
 	public static function getScoreRecentChangesList( RecentChange $rcObj, IContextSource $context ) {
 		$threshold = $rcObj->getAttribute( 'ores_damaging_threshold' );
 		if ( $threshold === null ) {
-			$threshold = Hooks::getThreshold( 'damaging', $context->getUser(), $context->getTitle() );
+			$threshold =
+				Helpers::getThreshold( 'damaging', $context->getUser(), $context->getTitle() );
 		}
 		$score = $rcObj->getAttribute( 'ores_damaging_score' );
 		$patrolled = $rcObj->getAttribute( 'rc_patrolled' );
@@ -537,12 +525,8 @@ class ChangesListHooksHandler {
 			return false;
 		}
 
-		Hooks::addRowData(
-			$context,
-			$rcObj->getAttribute( 'rc_this_oldid' ),
-			(float)$score,
-			'damaging'
-		);
+		Helpers::addRowData( $context, $rcObj->getAttribute( 'rc_this_oldid' ), (float)$score,
+			'damaging' );
 
 		return $score && $score >= $threshold && !$patrolled;
 	}

@@ -16,7 +16,6 @@
 
 namespace ORES\Hooks;
 
-use ORES\Hooks;
 use User;
 
 class PreferencesHookHandler {
@@ -31,12 +30,12 @@ class PreferencesHookHandler {
 	public static function onGetPreferences( User $user, array &$preferences ) {
 		global $wgOresFiltersThresholds;
 
-		if ( !Hooks::oresUiEnabled( $user ) || !Hooks::isModelEnabled( 'damaging' ) ) {
+		if ( !Helpers::oresUiEnabled( $user ) || !Helpers::isModelEnabled( 'damaging' ) ) {
 			return;
 		}
 
 		$options = [];
-		foreach ( Hooks::$damagingPrefMap as $prefName => $level ) {
+		foreach ( Helpers::$damagingPrefMap as $prefName => $level ) {
 			// In other places, we look at the keys of getDamagingThresholds() to determine which
 			// damaging levels exist, but it can drop levels from its output if the ORES API
 			// has issues. We don't want preference definitions to be potentially unstable.

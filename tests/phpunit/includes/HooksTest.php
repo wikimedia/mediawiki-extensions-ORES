@@ -2,20 +2,14 @@
 
 namespace ORES\Tests;
 
-use IContextSource;
 use JobQueueGroup;
 use ORES\Hooks;
 use ORES\Hooks\PreferencesHookHandler;
 use ORES\Storage\HashModelLookup;
 use ORES\Storage\ScoreStorage;
-use ORES\ThresholdLookup;
 use OutputPage;
 use RecentChange;
-use RequestContext;
 use SkinFactory;
-use SpecialPage;
-use User;
-use Title;
 
 /**
  * @group ORES
@@ -47,7 +41,7 @@ class HooksTest extends \MediaWikiTestCase {
 		$this->user->setOption( 'ores-damaging-flag-rc', 1 );
 		$this->user->saveSettings();
 
-		$this->context = self::getContext( $this->user );
+		$this->context = HelpersTest::getContext( $this->user );
 	}
 
 	/**
@@ -90,40 +84,6 @@ class HooksTest extends \MediaWikiTestCase {
 		$this->setService( 'ORESScoreStorage', $mock );
 
 		Hooks::onRecentChangesPurgeRows( $rows );
-	}
-
-	/**
-	 * @covers ORES\Hooks::getDamagingLevelPreference
-	 */
-	public function testGetDamagingLevelPreference_Watchlist() {
-		$level = Hooks::getDamagingLevelPreference( $this->user,
-			Title::newFromText( 'Watchlist', NS_SPECIAL ) );
-
-		$this->assertEquals( 'maybebad', $level );
-	}
-
-	/**
-	 * @covers ORES\Hooks::getThreshold
-	 */
-	public function testGetThreshold_null() {
-		$mock = $this->createMock( ThresholdLookup::class );
-		$mock->method( 'getThresholds' )
-			->willReturn( [] );
-
-		$this->setService( 'ORESThresholdLookup', $mock );
-		$threshold = Hooks::getThreshold( 'damaging', $this->user );
-
-		$this->assertNull( $threshold );
-	}
-
-	/**
-	 * @covers ORES\Hooks::getThreshold
-	 *
-	 * @expectedException Exception
-	 * @expectedExceptionMessageRegExp "Unknown ORES test: 'not_a_thing'"
-	 */
-	public function testGetThreshold_invalid() {
-		$threshold = Hooks::getThreshold( 'not_a_thing', $this->user );
 	}
 
 	/**
@@ -180,27 +140,6 @@ class HooksTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks::getThreshold
-	 */
-	public function testGetThreshold() {
-		$modelData = [ 'damaging' => [ 'id' => 5, 'version' => '0.0.2' ] ];
-		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
-
-		$this->user->setOption( 'rcOresDamagingPref', 'maybebad' );
-		$this->assertEquals(
-			0.16,
-			Hooks::getThreshold( 'damaging', $this->user, $this->context->getTitle() )
-		);
-
-		// b/c
-		$this->user->setOption( 'rcOresDamagingPref', 'soft' );
-		$this->assertEquals(
-			0.56,
-			Hooks::getThreshold( 'damaging', $this->user, $this->context->getTitle() )
-		);
-	}
-
-	/**
 	 * @covers ORES\Hooks\PreferencesHookHandler::onGetPreferences
 	 * @todo Move to a dedicated file
 	 */
@@ -209,68 +148,6 @@ class HooksTest extends \MediaWikiTestCase {
 		PreferencesHookHandler::onGetPreferences( $this->user, $prefs );
 
 		$this->assertSame( 6, count( $prefs ) );
-	}
-
-	/**
-	 * @param User $user
-	 *
-	 * @return IContextSource
-	 */
-	private static function getContext( User $user ) {
-		$context = new RequestContext();
-
-		$context->setLanguage( 'en' );
-		$context->setUser( $user );
-		$context->setTitle( SpecialPage::getTitleFor( 'Recentchanges' ) );
-
-		return $context;
-	}
-
-	/**
-	 * @covers ORES\Hooks::joinWithOresTables
-	 */
-	public function testJoinWithOresTables() {
-		$modelData = [ 'damaging' => [ 'id' => 5, 'version' => '0.0.2' ] ];
-		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
-
-		$tables = [];
-		$fields = [];
-		$join_conds = [];
-		Hooks::joinWithOresTables( 'damaging', 'rc_this_oldid',
-			$tables, $fields, $join_conds );
-
-		$this->assertEquals( [
-			'ores_damaging_cls' => 'ores_classification',
-		], $tables );
-		$this->assertEquals( [
-			'ores_damaging_score' => 'ores_damaging_cls.oresc_probability',
-		], $fields );
-		$this->assertEquals( [
-			'ores_damaging_cls' => [ 'LEFT JOIN', [
-				'ores_damaging_cls.oresc_model' => 5,
-				'ores_damaging_cls.oresc_rev=rc_this_oldid',
-				'ores_damaging_cls.oresc_class' => 1,
-			], ],
-		], $join_conds );
-	}
-
-	/**
-	 * @covers ORES\Hooks::hideNonDamagingFilter
-	 */
-	public function testHideNonDamagingFilter() {
-		$modelData = [ 'damaging' => [ 'id' => 5, 'version' => '0.0.2' ] ];
-		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
-
-		$fields = [];
-		$conds = [];
-		Hooks::hideNonDamagingFilter( $fields, $conds, true, $this->user );
-
-		$this->assertEquals( [
-			'ores_damaging_threshold' => 0.16,
-		], $fields );
-		$this->assertEquals( [
-			'ores_damaging_cls.oresc_probability > \'0.16\'',
-		], $conds );
 	}
 
 }

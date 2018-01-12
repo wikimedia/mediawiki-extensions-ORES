@@ -20,6 +20,7 @@ use ApiResult;
 use ApiQuery;
 use ApiQueryBase;
 use MediaWiki\MediaWikiServices;
+use ORES\Hooks\Helpers;
 
 /**
  * A query action to return meta information about ORES models and
@@ -43,7 +44,7 @@ class ApiQueryORES extends ApiQueryBase {
 			'wikiid' => $wgOresWikiId ?: wfWikiID(),
 			'models' => [],
 			'excludebots' => (bool)$wgOresExcludeBots,
-			'damagingthresholds' => Hooks::getDamagingThresholds(),
+			'damagingthresholds' => Helpers::getDamagingThresholds(),
 			'namespaces' => $wgOresEnabledNamespaces
 				? array_keys( array_filter( $wgOresEnabledNamespaces ) )
 				: \MWNamespace::getValidNamespaces(),

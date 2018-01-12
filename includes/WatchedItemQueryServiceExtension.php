@@ -20,6 +20,7 @@ namespace ORES;
 
 use MediaWiki\MediaWikiServices;
 use ORES\Hooks\ApiHooksHandler;
+use ORES\Hooks\Helpers;
 use User;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ResultWrapper;
@@ -57,11 +58,11 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 			}
 		}
 
-		$show = Hooks::isModelEnabled( 'damaging' ) && isset( $options['filters'] )
+		$show = Helpers::isModelEnabled( 'damaging' ) && isset( $options['filters'] )
 			? array_flip( $options['filters'] )
 			: [];
 		if ( isset( $show['oresreview'] ) || isset( $show['!oresreview'] ) ) {
-			$threshold = Hooks::getThreshold( 'damaging', $user );
+			$threshold = Helpers::getThreshold( 'damaging', $user );
 
 			$tables[] = 'ores_model';
 			$tables[] = 'ores_classification';

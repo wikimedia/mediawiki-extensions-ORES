@@ -33,7 +33,6 @@ use InvalidArgumentException;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use ORES\FetchScoreJob;
-use ORES\Hooks;
 use ORES\Parser\ScoreParser;
 use ORES\ScoreFetcher;
 use ORES\WatchedItemQueryServiceExtension;
@@ -70,7 +69,7 @@ class ApiHooksHandler {
 			$params['prop'][ApiBase::PARAM_TYPE][] = 'oresscores';
 		}
 
-		if ( Hooks::isModelEnabled( 'damaging' ) && (
+		if ( Helpers::isModelEnabled( 'damaging' ) && (
 			$module instanceof ApiQueryRecentChanges ||
 			$module instanceof ApiQueryWatchlist ||
 			$module instanceof ApiQueryContributions
@@ -124,7 +123,7 @@ class ApiHooksHandler {
 			return;
 		}
 
-		$show = Hooks::isModelEnabled( 'damaging' ) && isset( $params['show'] )
+		$show = Helpers::isModelEnabled( 'damaging' ) && isset( $params['show'] )
 			? array_flip( $params['show'] )
 			: [];
 		if ( isset( $show['oresreview'] ) || isset( $show['!oresreview'] ) ) {
@@ -136,7 +135,8 @@ class ApiHooksHandler {
 				}
 			}
 
-			$threshold = Hooks::getThreshold( 'damaging', $module->getUser(), $module->getTitle() );
+			$threshold =
+				Helpers::getThreshold( 'damaging', $module->getUser(), $module->getTitle() );
 			$dbr = \wfGetDB( DB_REPLICA );
 
 			$tables[] = 'ores_classification';

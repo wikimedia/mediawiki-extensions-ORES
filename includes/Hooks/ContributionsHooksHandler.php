@@ -19,7 +19,6 @@ namespace ORES\Hooks;
 use ChangesList;
 use ContribsPager;
 use Html;
-use ORES\Hooks;
 use RequestContext;
 use SpecialContributions;
 use IContextSource;
@@ -37,26 +36,17 @@ class ContributionsHooksHandler {
 		ContribsPager $pager,
 		&$query
 	) {
-		if ( !Hooks::oresUiEnabled( $pager->getUser() ) ) {
+		if ( !Helpers::oresUiEnabled( $pager->getUser() ) ) {
 			return;
 		}
 
-		if ( Hooks::isModelEnabled( 'damaging' ) ) {
-			Hooks::joinWithOresTables(
-				'damaging',
-				'rev_id',
-				$query['tables'],
-				$query['fields'],
-				$query['join_conds']
-			);
+		if ( Helpers::isModelEnabled( 'damaging' ) ) {
+			Helpers::joinWithOresTables( 'damaging', 'rev_id', $query['tables'], $query['fields'],
+				$query['join_conds'] );
 
-			Hooks::hideNonDamagingFilter(
-				$query['fields'],
-				$query['conds'],
-				self::hideNonDamagingPreference( $pager->getContext() ),
-				$pager->getUser(),
-				$pager->getTitle()
-			);
+			Helpers::hideNonDamagingFilter( $query['fields'], $query['conds'],
+				self::hideNonDamagingPreference( $pager->getContext() ), $pager->getUser(),
+				$pager->getTitle() );
 		}
 	}
 
@@ -65,7 +55,7 @@ class ContributionsHooksHandler {
 		$row,
 		array &$flags
 	) {
-		if ( !Hooks::oresUiEnabled( $context->getUser() ) ) {
+		if ( !Helpers::oresUiEnabled( $context->getUser() ) ) {
 			return;
 		}
 
@@ -77,10 +67,10 @@ class ContributionsHooksHandler {
 			return;
 		}
 
-		Hooks::addRowData( $context, $row->rev_id, (float)$row->ores_damaging_score, 'damaging' );
+		Helpers::addRowData( $context, $row->rev_id, (float)$row->ores_damaging_score, 'damaging' );
 
 		if (
-			Hooks::isDamagingFlagEnabled( $context ) &&
+			Helpers::isDamagingFlagEnabled( $context ) &&
 			$row->ores_damaging_score > $row->ores_damaging_threshold
 		) {
 			// Prepend the "r" flag
@@ -94,7 +84,7 @@ class ContributionsHooksHandler {
 		$row,
 		array &$classes
 	) {
-		if ( !Hooks::oresUiEnabled( $pager->getUser() ) ) {
+		if ( !Helpers::oresUiEnabled( $pager->getUser() ) ) {
 			return;
 		}
 
@@ -104,10 +94,10 @@ class ContributionsHooksHandler {
 		}
 
 		if ( $row->ores_damaging_score > $row->ores_damaging_threshold ) {
-			if ( Hooks::isHighlightEnabled( $pager ) ) {
+			if ( Helpers::isHighlightEnabled( $pager ) ) {
 				$classes[] = 'ores-highlight';
 			}
-			if ( Hooks::isDamagingFlagEnabled( $pager ) ) {
+			if ( Helpers::isDamagingFlagEnabled( $pager ) ) {
 				$classes[] = 'damaging';
 			}
 		}
@@ -123,7 +113,7 @@ class ContributionsHooksHandler {
 		SpecialContributions $page,
 		array &$filters
 	) {
-		if ( !Hooks::oresUiEnabled( $page->getUser() ) || !Hooks::isModelEnabled( 'damaging' ) ) {
+		if ( !Helpers::oresUiEnabled( $page->getUser() ) || !Helpers::isModelEnabled( 'damaging' ) ) {
 			return;
 		}
 
