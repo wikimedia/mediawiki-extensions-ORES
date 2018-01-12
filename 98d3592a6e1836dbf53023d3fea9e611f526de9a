@@ -22,6 +22,30 @@
       "revId": "98d3592a6e1836dbf53023d3fea9e611f526de9a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef26315_f35c8150",
+        "filename": "tests/phpunit/maintenance/PopulateDatabaseTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-12T16:28:11Z",
+      "side": 1,
+      "message": "lol, ok ok",
+      "parentUuid": "8ef26315_e1266ab4",
+      "range": {
+        "startLine": 53,
+        "startChar": 5,
+        "endLine": 70,
+        "endChar": 7
+      },
+      "revId": "98d3592a6e1836dbf53023d3fea9e611f526de9a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
