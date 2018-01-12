@@ -5,7 +5,6 @@
 			"Jeblad"
 		]
 	},
-	"ores-beta-feature-description": "ORES er eit verktøy basert på kunstig intelligens som uthevar endringar på siste endringar og overvakingslista som sannsynlegvis er skadelege.",
 	"ores-damaging-filter": "$1 sannsynlegvis god endring",
 	"ores-damaging-legend": "Endringa kan ha problem og bør undersøkjast ([[:mw:Special:MyLanguage/ORES review tool|meir]])",
 	"ores-rcfilters-whats-this-link-text": "Lær meir",

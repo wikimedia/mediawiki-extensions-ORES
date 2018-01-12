@@ -9,8 +9,6 @@
 			"Eduardo Addad de Oliveira"
 		]
 	},
-	"ores-beta-feature-description": "O ORES é uma ferramenta baseada em inteligência artificial que destaca edições possivelmente prejudiciais nas mudanças recentes e na lista de páginas vigiadas.",
-	"ores-beta-feature-message": "ORES",
 	"ores-desc": "Expõe pontuações automatizadas de revisões na interface",
 	"ores-damaging-filter": "$1 edições possivelmente boas",
 	"ores-damaging-letter": "r",

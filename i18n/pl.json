@@ -7,7 +7,6 @@
 			"WTM"
 		]
 	},
-	"ores-beta-feature-description": "ORES jest narzędziem wykorzystującym maszynowe uczenie się. Na ostatnich zmianach i obserwowanych wyszukuje ono edycje, które prawdopodobnie są szkodliwe.",
 	"ores-desc": "Pokaż automatycznie wygenerowaną ocenę wersji",
 	"ores-damaging-filter": "$1 prawdopodobnie dobre edycje",
 	"ores-damaging-letter": "p",

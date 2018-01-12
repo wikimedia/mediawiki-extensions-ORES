@@ -7,7 +7,6 @@
 			"Hamilton Abreu"
 		]
 	},
-	"ores-beta-feature-description": "ORES é uma ferramenta baseada em inteligência artificial que destaca as edições possivelmente prejudiciais nas mudanças recentes e na lista de páginas vigiadas.",
 	"ores-desc": "Expõe na interface a pontuação automática das edições",
 	"ores-damaging-filter": "$1 edições provavelmente boas",
 	"ores-damaging-letter": "r",

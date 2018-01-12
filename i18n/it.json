@@ -8,7 +8,6 @@
 			"Selven"
 		]
 	},
-	"ores-beta-feature-description": "ORES è uno strumento basato sull'intelligenza artificiale che mette in evidenza contributi probabilmente dannosi nelle ultime modifiche e negli osservati speciali.",
 	"ores-desc": "Visualizzare le valutazioni automatiche di revisione nell'interfaccia",
 	"ores-damaging-filter": "$1 probabili buone modifiche",
 	"ores-damaging-letter": "r",

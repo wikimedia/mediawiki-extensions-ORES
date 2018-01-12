@@ -6,8 +6,6 @@
 			"Wnme"
 		]
 	},
-	"ores-beta-feature-description": "ORES ist ein KI-basiertes Werkzeug, das vermutlich zerstörerische Bearbeitungen in den letzten Änderungen und auf der Beobachtungsliste hervorhebt.",
-	"ores-beta-feature-message": "ORES",
 	"ores-desc": "Zeigt automatisierte Versionsbewertungen in der Oberfläche an",
 	"ores-damaging-filter": "Vermutlich gute Bearbeitungen $1",
 	"ores-damaging-letter": "ü",

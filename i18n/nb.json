@@ -7,7 +7,6 @@
 			"Jon Harald Søby"
 		]
 	},
-	"ores-beta-feature-description": "ORES er et AI-basert verktøy som viser sannsynlige ødeleggende redigeringer i siste endringer og på overvåkingslisten.",
 	"ores-desc": "Vis automatisk revisjonsskår i grensesnittet",
 	"ores-damaging-filter": "$1 sannsynligvis gode redigeringer",
 	"ores-damaging-letter": "r",

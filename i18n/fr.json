@@ -12,7 +12,6 @@
 			"Pols12"
 		]
 	},
-	"ores-beta-feature-description": "ORES est un outil basé sur une intelligence artificielle qui met en évidence des mises à jour potentiellement nuisibles dans les modifications faites récemment et dans les listes de suivi.",
 	"ores-desc": "Exposer les notes de révision automatisées dans l’interface",
 	"ores-damaging-filter": "$1 les modifications probablement bonnes",
 	"ores-damaging-letter": "r",
