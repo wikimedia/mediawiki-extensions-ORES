@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ef26315_16de3b14",
+        "filename": "includes/Hooks/Helpers.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-12T17:29:52Z",
+      "side": 1,
+      "message": "\"return (bool)$wgOresUiEnabled\" ?",
+      "revId": "aa62d2a02536733062f24e5beecc1731300974cf",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
