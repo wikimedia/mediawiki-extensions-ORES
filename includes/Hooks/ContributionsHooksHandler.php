@@ -36,7 +36,7 @@ class ContributionsHooksHandler {
 		ContribsPager $pager,
 		&$query
 	) {
-		if ( !Helpers::oresUiEnabled( $pager->getUser() ) ) {
+		if ( !Helpers::oresUiEnabled() ) {
 			return;
 		}
 
@@ -55,7 +55,7 @@ class ContributionsHooksHandler {
 		$row,
 		array &$flags
 	) {
-		if ( !Helpers::oresUiEnabled( $context->getUser() ) ) {
+		if ( !Helpers::oresUiEnabled() ) {
 			return;
 		}
 
@@ -84,7 +84,7 @@ class ContributionsHooksHandler {
 		$row,
 		array &$classes
 	) {
-		if ( !Helpers::oresUiEnabled( $pager->getUser() ) ) {
+		if ( !Helpers::oresUiEnabled() ) {
 			return;
 		}
 
@@ -113,7 +113,7 @@ class ContributionsHooksHandler {
 		SpecialContributions $page,
 		array &$filters
 	) {
-		if ( !Helpers::oresUiEnabled( $page->getUser() ) || !Helpers::isModelEnabled( 'damaging' ) ) {
+		if ( !Helpers::oresUiEnabled() || !Helpers::isModelEnabled( 'damaging' ) ) {
 			return;
 		}
 

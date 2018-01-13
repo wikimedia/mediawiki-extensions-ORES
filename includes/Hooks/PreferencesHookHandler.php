@@ -30,7 +30,7 @@ class PreferencesHookHandler {
 	public static function onGetPreferences( User $user, array &$preferences ) {
 		global $wgOresFiltersThresholds;
 
-		if ( !Helpers::oresUiEnabled( $user ) || !Helpers::isModelEnabled( 'damaging' ) ) {
+		if ( !Helpers::oresUiEnabled() || !Helpers::isModelEnabled( 'damaging' ) ) {
 			return;
 		}
 
