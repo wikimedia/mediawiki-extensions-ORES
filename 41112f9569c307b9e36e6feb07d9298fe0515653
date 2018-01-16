@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ef26315_9f26d0c7",
+        "filename": "tests/phpunit/maintenance/PopulateDatabaseTest.php",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-01-16T15:47:27Z",
+      "side": 1,
+      "message": "This is indented twice,",
+      "range": {
+        "startLine": 47,
+        "startChar": 5,
+        "endLine": 47,
+        "endChar": 7
+      },
+      "revId": "41112f9569c307b9e36e6feb07d9298fe0515653",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
