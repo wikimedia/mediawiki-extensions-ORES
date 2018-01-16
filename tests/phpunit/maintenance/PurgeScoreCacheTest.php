@@ -37,12 +37,15 @@ class PurgeScoreCacheTest extends \MediaWikiTestCase {
 		$this->maintenance = new PurgeScoreCache();
 
 		TestHelper::clearOresTables();
+		TestHelper::insertModelData();
 
 		// Reset service to purge cached models.
 		MediaWikiServices::getInstance()->resetServiceForTesting( 'ORESModelLookup' );
 	}
 
-	public function testPurgeScoreCache_noop() {
+	public function testPurgeScoreCache_emptyDb() {
+		TestHelper::clearOresTables();
+
 		// FIXME: Shouldn't be necessary once we capture output.
 		$this->maintenance->loadWithArgv( [ '--quiet' ] );
 
@@ -55,7 +58,6 @@ class PurgeScoreCacheTest extends \MediaWikiTestCase {
 
 	public function testPurgeScoreCache_bad_model() {
 		$revId = mt_rand( 1000, 9999 );
-		TestHelper::insertModelData();
 		TestHelper::insertOresData( $revId, [
 			'damaging' => 0.1,
 		] );
@@ -81,7 +83,6 @@ class PurgeScoreCacheTest extends \MediaWikiTestCase {
 
 	public function testPurgeScoreCache_all() {
 		$revId = mt_rand( 1000, 9999 );
-		TestHelper::insertModelData();
 		TestHelper::insertOresData( $revId, [
 			TestHelper::DAMAGING_OLD => 0.2,
 			'damaging' => 0.1,
@@ -103,7 +104,6 @@ class PurgeScoreCacheTest extends \MediaWikiTestCase {
 
 	public function testPurgeScoreCache_oldModels() {
 		$revId = mt_rand( 1000, 9999 );
-		TestHelper::insertModelData();
 		TestHelper::insertOresData( $revId, [
 			TestHelper::DAMAGING_OLD => 0.2,
 			'damaging' => 0.1,
@@ -134,7 +134,6 @@ class PurgeScoreCacheTest extends \MediaWikiTestCase {
 		$revId = mt_rand( 1000, 9999 );
 		$revIdOld = $revId - 1;
 
-		TestHelper::insertModelData();
 		TestHelper::insertOresData( $revId, [
 			'damaging' => 0.1,
 		] );
@@ -167,7 +166,6 @@ class PurgeScoreCacheTest extends \MediaWikiTestCase {
 
 	public function testPurgeScoreCache_oneModel() {
 		$revId = mt_rand( 1000, 9999 );
-		TestHelper::insertModelData();
 		TestHelper::insertOresData( $revId, [
 			'damaging' => 0.1,
 			'reverted' => 0.3,
