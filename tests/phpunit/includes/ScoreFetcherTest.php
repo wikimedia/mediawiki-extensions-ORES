@@ -2,7 +2,6 @@
 
 namespace ORES\Tests;
 
-use ORES\ORESService;
 use ORES\ScoreFetcher;
 use ORES\Storage\HashModelLookup;
 
@@ -25,51 +24,12 @@ class ScoreFetcherTest extends \MediaWikiTestCase {
 			'goodfaith' => [ 'id' => self::GOODFAITH, 'version' => '0.0.3' ],
 		];
 		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
-		$this->setService( 'ORESService', $this->getORESServiceMock() );
+		$mockOresService = MockOresServiceBuilder::getORESServiceMock( $this );
+		$this->setService( 'ORESService', $mockOresService );
 		$this->setMwGlobals( [
 			'wgOresModels' => [ 'damaging' => true ],
 		] );
 		$this->tablesUsed[] = 'ores_model';
-	}
-
-	private function getORESServiceMock() {
-		$mock = $this->getMockBuilder( ORESService::class )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$mock->expects( $this->any() )
-			->method( 'request' )
-			->willReturnCallback( [ $this, 'mockORESResponse' ] );
-
-		return $mock;
-	}
-
-	public static function mockORESResponse( array $params, $originalRequest = null ) {
-		$models = [];
-		foreach ( explode( '|', $params['models'] ) as $model ) {
-			$models[$model] = [ 'version' => '0.0.4' ];
-		}
-
-		$scores = [];
-		foreach ( explode( '|', $params['revids'] ) as $revid ) {
-			$scores[(string)$revid] = self::mockRevisionResponse( $revid, array_keys( $models ) );
-		}
-
-		return [ ORESService::getWikiID() => [ 'models' => $models, 'scores' => $scores ] ];
-	}
-
-	public static function mockRevisionResponse( $revid, $models ) {
-		$result = [];
-		foreach ( $models as $model ) {
-			$result[$model] = [ 'score' => [] ];
-			$probability = (float)strrev( substr( $revid, -2 ) ) / 100;
-			$result[$model]['score']['probability'] = [
-				'true' => $probability,
-				'false' => 1 - $probability
-			];
-			$result[$model]['score']['prediction'] = $probability > 0.5;
-		}
-		return $result;
 	}
 
 	public function provideTestGetScores() {
