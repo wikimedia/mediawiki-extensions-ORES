@@ -49,5 +49,6 @@
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "S velmi vysokou přesností odhalí většinu editací s očividně špatným úmyslem.",
 	"ores-pref-highlight": "Zvýrazňovat pravděpodobně problematické editace pomocí barev a „{{int:ores-damaging-letter}}“ jako „problematické“",
 	"ores-pref-rc-hidenondamaging": "Zobrazovat pouze pravděpodobně problematické editace (a skrýt pravděpodobně dobré editace)",
-	"ores-pref-watchlist-hidenondamaging": "Zobrazovat pouze pravděpodobně problematické editace (a skrýt pravděpodobně dobré editace)"
+	"ores-pref-watchlist-hidenondamaging": "Zobrazovat pouze pravděpodobně problematické editace (a skrýt pravděpodobně dobré editace)",
+	"prefs-ores-wl": "Skórování revizí na seznamu sledovaných stránek"
 }
