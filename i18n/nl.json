@@ -5,7 +5,8 @@
 			"Sjoerddebruin",
 			"Dinosaur918",
 			"Mainframe98",
-			"Romaine"
+			"Romaine",
+			"Mar(c)"
 		]
 	},
 	"ores-desc": "Automatische terugdraaiscores weergeven in de interface",
@@ -15,11 +16,11 @@
 	"ores-damaging-legend": "Deze bewerking kan problemen bevatten en dient beoordeeld te worden ([[:mw:Special:MyLanguage/ORES review tool|meer info]])",
 	"ores-hide-nondamaging-filter": "Mogelijk goede bewerkingen verbergen",
 	"ores-pref-damaging": "Voorspellingsdrempel",
-	"ores-pref-damaging-flag": "Markeer waarschijnlijk problematische bewerkingen met kleuren en een \"{{int:ores-damaging-letter}}\" voor \"review nodig\"",
-	"ores-damaging-maybebad": "Heeft wellicht problemen (markeer de meeste problematische bewerkingen maar omvat ook vele valse positieven)",
+	"ores-pref-damaging-flag": "Waarschijnlijke probleembewerkingen met kleuren markeren, en \"review nodig\" met een \"{{int:ores-damaging-letter}}\"",
+	"ores-damaging-maybebad": "Heeft wellicht problemen (markeert de meeste probleembewerkingen maar omvat ook veel valse positieven)",
 	"ores-damaging-likelybad": "Heeft waarschijnlijk problemen (gemiddelde kans)",
-	"ores-damaging-verylikelybad": "Heeft zeer waarschijnlijk problemen (markeert enkele valse positieven maar vindt een kleiner percentage van problematische bewerkingen)",
-	"ores-help-damaging-pref": "Deze drempel bepaalt de gevoeligheid van ORES bij het markeren van bewerkingen die gecontroleerd moeten worden",
+	"ores-damaging-verylikelybad": "Heeft zeer waarschijnlijk problemen (markeert weinig valse positieven maar vindt een kleiner percentage van probleembewerkingen)",
+	"ores-help-damaging-pref": "Wijzig de 'drempel'-instelling om de onderstaande opties breder of selectiever te maken.",
 	"ores-rcfilters-whats-this-link-text": "Meer lezen",
 	"ores-rcfilters-damaging-title": "Kwaliteitsvoorspellingen voor bijdragen",
 	"ores-rcfilters-damaging-whats-this-header": "Over kwaliteitsvoorspellingen voor bijdragen",
@@ -34,6 +35,7 @@
 	"ores-rcfilters-goodfaith-bad-label": "Waarschijnlijk met slechte wil",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Zeer waarschijnlijk met slechte wil",
 	"ores-pref-highlight": "Markeer waarschijnlijk problematische bewerkingen met kleuren en een \"{{int:ores-damaging-letter}}\" voor \"review nodig\"",
-	"ores-pref-rc-hidenondamaging": "Toon alleen mogelijke problematische bewerkingen (en verberg waarschijnlijke goede bewerkingen)",
-	"ores-pref-watchlist-hidenondamaging": "Mogelijke goede bewerkingen op mijn volglijst verbergen"
+	"ores-pref-rc-hidenondamaging": "Alleen waarschijnlijke probleembewerkingen tonen (en mogelijk goede bewerkingen verbergen)",
+	"ores-pref-watchlist-hidenondamaging": "Mogelijke goede bewerkingen op mijn volglijst verbergen",
+	"prefs-ores-rc": "Revisiescoring op Recente wijzigingen, Verwante wijzigingen en Bijdragen"
 }
