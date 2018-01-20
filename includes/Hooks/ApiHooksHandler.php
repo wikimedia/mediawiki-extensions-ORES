@@ -260,26 +260,18 @@ class ApiHooksHandler {
 		$needsContinuation = false;
 		$scores = [];
 
-		$modelData = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )
-			->getModels();
+		$services = MediaWikiServices::getInstance();
+		$modelLookup = $services->getService( 'ORESModelLookup' );
+		$scoreLookup = $services->getService( 'OREScoreLookup' );
 
 		$models = [];
-		foreach ( $modelData as $modelName => $modelDatum ) {
+		foreach ( $modelLookup->getModels() as $modelName => $modelDatum ) {
 			$models[$modelDatum['id']] = $modelName;
 		}
 
 		// Load cached score data
-		$dbr = \wfGetDB( DB_REPLICA );
-		$res2 = $dbr->select(
-			[ 'ores_classification' ],
-			[ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ],
-			[
-				'oresc_rev' => $revids,
-				'oresc_model' => array_keys( $models ),
-			],
-			__METHOD__
-		);
-		foreach ( $res2 as $row ) {
+		$dbResult = $scoreLookup->getScores( $revids, array_values( $models ) );
+		foreach ( $dbResult as $row ) {
 			$scores[$row->oresc_rev][] = $row;
 		}
 
@@ -289,7 +281,7 @@ class ApiHooksHandler {
 		$revids = array_diff( $revids, array_keys( $scores ) );
 		if ( $revids && $wgOresRevisionsPerBatch ) {
 			// To limit data size, only scores for revisions still in RC will be cached in DB.
-			$cacheableRevids = $dbr->selectFieldValues(
+			$cacheableRevids = wfGetDB( DB_REPLICA )->selectFieldValues(
 				[ 'recentchanges' ],
 				'rc_this_oldid',
 				[

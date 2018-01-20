@@ -19,6 +19,7 @@ namespace ORES;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use ORES\Storage\SqlModelLookup;
+use ORES\Storage\SqlScoreLookup;
 use ORES\Storage\SqlScoreStorage;
 
 return [
@@ -47,6 +48,13 @@ return [
 	'ORESService' => function ( MediaWikiServices $services ) {
 		return new ORESService(
 			LoggerFactory::getInstance( 'ORES' )
+		);
+	},
+
+	'OREScoreLookup' => function ( MediaWikiServices $services ) {
+		return new SqlScoreLookup(
+			$services->getService( 'ORESModelLookup' ),
+			$services->getDBLoadBalancer()
 		);
 	},
 

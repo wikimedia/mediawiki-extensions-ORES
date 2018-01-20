@@ -6,6 +6,7 @@ use MediaWiki\MediaWikiServices;
 use ORES\ORESService;
 use ORES\Storage\ModelLookup;
 use ORES\Storage\ScoreStorage;
+use ORES\Storage\SqlScoreLookup;
 use ORES\ThresholdLookup;
 
 /**
@@ -21,6 +22,7 @@ class ServiceWiringTest extends \MediaWikiTestCase {
 			[ 'ORESThresholdLookup', ThresholdLookup::class ],
 			[ 'ORESScoreStorage', ScoreStorage::class ],
 			[ 'ORESService', ORESService::class ],
+			[ 'OREScoreLookup', SqlScoreLookup::class ],
 		];
 	}
 
