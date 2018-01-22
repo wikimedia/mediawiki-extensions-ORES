@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8ef26315_79be5514",
+        "filename": "includes/Hooks/ApiHooksHandler.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-01-22T22:02:03Z",
+      "side": 1,
+      "message": "Done :)",
+      "parentUuid": "8ef26315_130bb027",
+      "revId": "3779ccdfcc9f296671d2770f63bbec121f7a706a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ef26315_f3056414",
         "filename": "includes/Hooks/ApiHooksHandler.php",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2018-01-22T17:46:07Z",
       "side": 1,
       "message": "Personally, I prefer to keep function calls out of the foreach statement, the one in L264 is okay but this one is hard to read.",
+      "revId": "3779ccdfcc9f296671d2770f63bbec121f7a706a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef26315_f9a9c5dd",
+        "filename": "includes/Hooks/ApiHooksHandler.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-01-22T22:02:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ef26315_f3056414",
       "revId": "3779ccdfcc9f296671d2770f63bbec121f7a706a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "8ef26315_59439943",
+        "filename": "includes/Storage/SqlScoreLookup.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-01-22T22:02:03Z",
+      "side": 1,
+      "message": "You are absolutely right but it violates the contract with the interface, the interface hasn\u0027t been thought through and it\u0027s a huge technical debt that I\u0027m introducing. I make a phab card and tackled it in later patches.",
+      "parentUuid": "8ef26315_5315383f",
+      "revId": "3779ccdfcc9f296671d2770f63bbec121f7a706a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ef26315_f31c446c",
         "filename": "includes/Storage/SqlScoreLookup.php",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2018-01-22T17:46:07Z",
       "side": 1,
       "message": "var is now $modelIds, right?",
+      "revId": "3779ccdfcc9f296671d2770f63bbec121f7a706a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef26315_f96a65b0",
+        "filename": "includes/Storage/SqlScoreLookup.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-01-22T22:02:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ef26315_f31c446c",
       "revId": "3779ccdfcc9f296671d2770f63bbec121f7a706a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
