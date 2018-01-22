@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ef26315_130bb027",
+        "filename": "includes/Hooks/ApiHooksHandler.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-22T17:46:07Z",
+      "side": 1,
+      "message": "Might be good to have this be a service lookup?",
+      "revId": "3779ccdfcc9f296671d2770f63bbec121f7a706a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef26315_f3056414",
+        "filename": "includes/Hooks/ApiHooksHandler.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-22T17:46:07Z",
+      "side": 1,
+      "message": "Personally, I prefer to keep function calls out of the foreach statement, the one in L264 is okay but this one is hard to read.",
+      "revId": "3779ccdfcc9f296671d2770f63bbec121f7a706a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef26315_5315383f",
+        "filename": "includes/Storage/SqlScoreLookup.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-22T17:46:07Z",
+      "side": 1,
+      "message": "Flexible input params are a little bit smelly, especially since YAGNI.",
+      "revId": "3779ccdfcc9f296671d2770f63bbec121f7a706a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef26315_f31c446c",
+        "filename": "includes/Storage/SqlScoreLookup.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-22T17:46:07Z",
+      "side": 1,
+      "message": "var is now $modelIds, right?",
+      "revId": "3779ccdfcc9f296671d2770f63bbec121f7a706a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
