@@ -71,7 +71,7 @@ class SqlModelLookup implements ModelLookup {
 	}
 
 	private function getModelData() {
-		if ( $this->modelData === null ) {
+		if ( $this->modelData === null || $this->modelData === [] ) {
 			$this->modelData = [];
 			$result = $this->loadBalancer->getConnection( DB_REPLICA )->select(
 				'ores_model',
