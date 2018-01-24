@@ -3,6 +3,7 @@
 namespace ORES\Tests\Maintenance;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Tests\Maintenance\MaintenanceBaseTestCase;
 
 use ORES\Maintenance\PurgeScoreCache;
 
@@ -25,7 +26,11 @@ use ORES\Tests\TestHelper;
  * @group Database
  * @covers ORES\Maintenance\PurgeScoreCache
  */
-class PurgeScoreCacheTest extends \MediaWikiTestCase {
+class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
+
+	public function getMaintenanceClass() {
+		return PurgeScoreCache::class;
+	}
 
 	public function setUp() {
 		parent::setUp();
@@ -33,8 +38,6 @@ class PurgeScoreCacheTest extends \MediaWikiTestCase {
 			'ores_classification',
 			'ores_model',
 		];
-
-		$this->maintenance = new PurgeScoreCache();
 
 		TestHelper::clearOresTables();
 		TestHelper::insertModelData();
@@ -45,9 +48,6 @@ class PurgeScoreCacheTest extends \MediaWikiTestCase {
 
 	public function testPurgeScoreCache_emptyDb() {
 		TestHelper::clearOresTables();
-
-		// FIXME: Shouldn't be necessary once we capture output.
-		$this->maintenance->loadWithArgv( [ '--quiet' ] );
 
 		$this->maintenance->execute();
 
@@ -62,7 +62,7 @@ class PurgeScoreCacheTest extends \MediaWikiTestCase {
 			'damaging' => 0.1,
 		] );
 
-		$this->maintenance->loadWithArgv( [ '--quiet', '--model', 'not_a_thing' ] );
+		$this->maintenance->loadWithArgv( [ '--model', 'not_a_thing' ] );
 
 		$this->maintenance->execute();
 
@@ -79,6 +79,8 @@ class PurgeScoreCacheTest extends \MediaWikiTestCase {
 			'oresc_probability' => '0.100',
 			'oresc_model' => (string)TestHelper::DAMAGING,
 		] ], iterator_to_array( $remainingScores, false ) );
+
+		$this->expectOutputRegex( '/skipping \'not_a_thing\' model/' );
 	}
 
 	public function testPurgeScoreCache_all() {
@@ -88,7 +90,7 @@ class PurgeScoreCacheTest extends \MediaWikiTestCase {
 			'damaging' => 0.1,
 		] );
 
-		$this->maintenance->loadWithArgv( [ '--quiet', '--all' ] );
+		$this->maintenance->loadWithArgv( [ '--all' ] );
 
 		$this->maintenance->execute();
 
@@ -100,6 +102,10 @@ class PurgeScoreCacheTest extends \MediaWikiTestCase {
 		);
 
 		$this->assertEquals( [], iterator_to_array( $remainingScores, false ) );
+
+		$pattern = '/skipping \'reverted\'.+'
+			. 'purging scores from all model versions from \'damaging\'/s';
+		$this->expectOutputRegex( $pattern );
 	}
 
 	public function testPurgeScoreCache_oldModels() {
@@ -108,8 +114,6 @@ class PurgeScoreCacheTest extends \MediaWikiTestCase {
 			TestHelper::DAMAGING_OLD => 0.2,
 			'damaging' => 0.1,
 		] );
-
-		$this->maintenance->loadWithArgv( [ '--quiet' ] );
 
 		$this->maintenance->execute();
 
@@ -126,6 +130,8 @@ class PurgeScoreCacheTest extends \MediaWikiTestCase {
 			'oresc_probability' => '0.100',
 			'oresc_model' => (string)TestHelper::DAMAGING,
 		] ], iterator_to_array( $remainingScores, false ) );
+
+		$this->expectOutputRegex( '/purging scores from old model versions/' );
 	}
 
 	public function testPurgeScoreCache_nonRecent() {
@@ -145,7 +151,7 @@ class PurgeScoreCacheTest extends \MediaWikiTestCase {
 			'rc_user_text' => 'TestUser',
 		], __METHOD__ );
 
-		$this->maintenance->loadWithArgv( [ '--quiet', '--old' ] );
+		$this->maintenance->loadWithArgv( [ '--old' ] );
 
 		$this->maintenance->execute();
 
@@ -171,7 +177,7 @@ class PurgeScoreCacheTest extends \MediaWikiTestCase {
 			'reverted' => 0.3,
 		] );
 
-		$this->maintenance->loadWithArgv( [ '--quiet', '--model', 'reverted', '--all' ] );
+		$this->maintenance->loadWithArgv( [ '--model', 'reverted', '--all' ] );
 
 		$this->maintenance->execute();
 

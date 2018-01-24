@@ -2,6 +2,7 @@
 
 namespace ORES\Tests\Maintenance;
 
+use MediaWiki\Tests\Maintenance\MaintenanceBaseTestCase;
 use ORES\Maintenance\PopulateDatabase;
 
 use ORES\Tests\MockOresServiceBuilder;
@@ -12,7 +13,11 @@ use ORES\Tests\TestHelper;
  * @group Database
  * @covers ORES\Maintenance\PopulateDatabase
  */
-class PopulateDatabaseTest extends \MediaWikiTestCase {
+class PopulateDatabaseTest extends MaintenanceBaseTestCase {
+
+	public function getMaintenanceClass() {
+		return PopulateDatabase::class;
+	}
 
 	public function setUp() {
 		parent::setUp();
@@ -21,8 +26,6 @@ class PopulateDatabaseTest extends \MediaWikiTestCase {
 			'ores_model',
 			'recentchanges',
 		];
-
-		$this->maintenance = new PopulateDatabase();
 
 		TestHelper::clearOresTables();
 		TestHelper::insertModelData();
@@ -158,9 +161,6 @@ class PopulateDatabaseTest extends \MediaWikiTestCase {
 		foreach ( $oresContents as $revId => $scores ) {
 			TestHelper::insertOresData( $revId, $scores );
 		}
-
-		// FIXME: Write a base maintenance test case that suppresses output.
-		$argv = array_merge( $argv, [ '--quiet' ] );
 
 		$this->maintenance->loadWithArgv( $argv );
 		$this->maintenance->execute();
