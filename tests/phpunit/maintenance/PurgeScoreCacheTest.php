@@ -4,9 +4,8 @@ namespace ORES\Tests\Maintenance;
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Tests\Maintenance\MaintenanceBaseTestCase;
-
 use ORES\Maintenance\PurgeScoreCache;
-
+use ORES\Storage\SqlModelLookup;
 use ORES\Tests\TestHelper;
 
 /*
@@ -43,7 +42,10 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 		TestHelper::insertModelData();
 
 		// Reset service to purge cached models.
-		MediaWikiServices::getInstance()->resetServiceForTesting( 'ORESModelLookup' );
+		$this->setService(
+			'ORESModelLookup',
+			new SqlModelLookup( MediaWikiServices::getInstance()->getDBLoadBalancer() )
+		);
 	}
 
 	public function testPurgeScoreCache_emptyDb() {
