@@ -17,6 +17,7 @@ class DumpThresholds extends Maintenance {
 	public function __construct() {
 		parent::__construct();
 
+		$this->requireExtension( 'ORES' );
 		$this->addDescription( 'Display filtering levels and thresholds for enabled models.' );
 	}
 

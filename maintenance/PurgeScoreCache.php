@@ -17,6 +17,7 @@ class PurgeScoreCache extends Maintenance {
 	public function __construct() {
 		parent::__construct();
 
+		$this->requireExtension( 'ORES' );
 		$this->addDescription( 'Purge out of date (or all) ORES model results' );
 
 		$this->addOption( 'model', 'Model name (optional)', false, true );

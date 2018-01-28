@@ -17,6 +17,7 @@ class CleanDuplicateScores extends Maintenance {
 	public function __construct() {
 		parent::__construct();
 
+		$this->requireExtension( 'ORES' );
 		$this->addDescription( 'Clean up duplicate data in ORES scores' );
 	}
 

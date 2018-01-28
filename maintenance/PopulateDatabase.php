@@ -34,6 +34,7 @@ class PopulateDatabase extends Maintenance {
 	public function __construct() {
 		parent::__construct();
 
+		$this->requireExtension( 'ORES' );
 		$this->addDescription( 'Populate ores_classification table by scoring ' .
 			'the latest edits in recentchanges table that are not scored' );
 		$this->addOption( 'number', 'Number of revisions to be scored', false, true, 'n' );
