@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4efcebec_8de8860d",
+        "filename": "includes/ServiceWiring.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-29T17:28:49Z",
+      "side": 1,
+      "message": "That\u0027s fancy",
+      "revId": "015ba1f486430325467fff36cd20c675f439353d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efcebec_0d275660",
+        "filename": "includes/Storage/PopulatedSqlModelLookup.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-29T17:28:49Z",
+      "side": 1,
+      "message": "I like the decorator idea, but if you\u0027re going to be delegating all the methods, you might as well make this a subclass, right?  Either way is fine with me.",
+      "revId": "015ba1f486430325467fff36cd20c675f439353d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efcebec_cdd8ce82",
+        "filename": "includes/Storage/PopulatedSqlModelLookup.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-29T17:28:49Z",
+      "side": 1,
+      "message": "This gets called twice if $modelData !\u003d\u003d []",
+      "revId": "015ba1f486430325467fff36cd20c675f439353d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efcebec_cd056ec6",
+        "filename": "includes/Storage/PopulatedSqlModelLookup.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-29T17:28:49Z",
+      "side": 1,
+      "message": "If you\u0027re throwing an exception, please catch in getThresholds.  It\u0027s a requirement that we not break the calling page.",
+      "revId": "015ba1f486430325467fff36cd20c675f439353d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efcebec_2d221251",
+        "filename": "includes/Storage/PopulatedSqlModelLookup.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-29T17:28:49Z",
+      "side": 1,
+      "message": "Side effects much? :p",
+      "revId": "015ba1f486430325467fff36cd20c675f439353d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
