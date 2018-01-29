@@ -40,10 +40,6 @@ class ChangesListHooksHandler {
 			return;
 		}
 
-		if ( self::oresDisabledOnRcl( $clsp->getName(), $clsp->getContext()->getRequest() ) ) {
-			return;
-		}
-
 		$stats = MediaWikiServices::getInstance()->getService( 'ORESThresholdLookup' );
 
 		$changeTypeGroup = $clsp->getFilterGroup( 'changeType' );
@@ -374,13 +370,7 @@ class ChangesListHooksHandler {
 		$name, array &$tables, array &$fields, array &$conds,
 		array &$query_options, array &$join_conds, FormOptions $opts
 	) {
-		global $wgRequest;
-
 		if ( !Helpers::oresUiEnabled() ) {
-			return;
-		}
-
-		if ( self::oresDisabledOnRcl( $name, $wgRequest ) ) {
 			return;
 		}
 
@@ -588,15 +578,6 @@ class ChangesListHooksHandler {
 
 			return \wfGetDB( DB_REPLICA )->makeList( $betweenConditions, IDatabase::LIST_OR );
 		}
-	}
-
-	private static function oresDisabledOnRcl( $name, $request ) {
-		return (
-			// ORES is disabled on Recentchangeslinked: T163063
-			$name === 'Recentchangeslinked' &&
-			// Tentatively re-enabled behind a request param for testing: T179718
-			!$request->getBool( 'experimental_ores_on_rcl' )
-		);
 	}
 
 }
