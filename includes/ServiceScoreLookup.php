@@ -19,11 +19,11 @@ namespace ORES;
 use RuntimeException;
 
 /**
- * Service interface for retrieving score data from storage or API.
+ * Service interface for retrieving score data from API.
  *
  * @license GPL-2.0+
  */
-interface ScoreLookup {
+interface ServiceScoreLookup {
 
 	/**
 	 * Method to retrieve scores of given revision and models
