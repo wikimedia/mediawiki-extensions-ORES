@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4efcebec_2d869218",
+        "filename": "tests/selenium/README.md",
+        "patchSetId": 12
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-29T19:10:31Z",
+      "side": 1,
+      "message": "This line seems wrong.  Doc from the README mentioned above sounds more correct,\n\n\u003e To run only one file (for example page.js), you first need to spawn the chromedriver:",
+      "revId": "3d35f93b60feefd2524c76736d01be3552fb0f0a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efcebec_6dfeda36",
+        "filename": "tests/selenium/README.md",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-29T19:10:31Z",
+      "side": 1,
+      "message": "Pedantic: This directory doesn\u0027t exist under mw-vagrant",
+      "revId": "3d35f93b60feefd2524c76736d01be3552fb0f0a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efcebec_0d7636d5",
+        "filename": "tests/selenium/README.md",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-29T19:10:31Z",
+      "side": 1,
+      "message": "The wdio requirement isn\u0027t documented here nor in the main README",
+      "revId": "3d35f93b60feefd2524c76736d01be3552fb0f0a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
