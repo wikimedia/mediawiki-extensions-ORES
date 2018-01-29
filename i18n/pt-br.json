@@ -34,7 +34,7 @@
 	"ores-rcfilters-damaging-maybebad-desc": "Encontra as edições mais erradas ou prejudiciais, mas com menor precisão.",
 	"ores-rcfilters-damaging-likelybad-label": "Provavelmente têm problemas",
 	"ores-rcfilters-damaging-likelybad-desc-low": "Com precisão média, encontra uma fração intermediária de edições de problemas.",
-	"ores-rcfilters-damaging-likelybad-desc-high": "Com alta precisão, encontra a maioria das edições problemáticas.",
+	"ores-rcfilters-damaging-likelybad-desc-high": "Com precisão alta, encontra a maioria das edições problemáticas.",
 	"ores-rcfilters-damaging-verylikelybad-label": "Muito provavelmente têm problemas",
 	"ores-rcfilters-damaging-verylikelybad-desc": "Muito exato em encontrar as edições mais obviamente falhas ou prejudiciais.",
 	"ores-rcfilters-goodfaith-title": "Previsões da intenção do usuário",
