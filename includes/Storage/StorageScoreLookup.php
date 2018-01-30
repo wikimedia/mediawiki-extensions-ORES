@@ -16,43 +16,26 @@
 
 namespace ORES\Storage;
 
+use RuntimeException;
 use Wikimedia\Rdbms\IResultWrapper;
-use Wikimedia\Rdbms\LoadBalancer;
 
-class SqlScoreLookup implements StorageScoreLookup {
-
-	private $modelLookup;
-
-	private $loadBalancer;
-
-	public function __construct(
-		ModelLookup $modelLookup,
-		LoadBalancer $loadBalancer
-	) {
-		$this->modelLookup = $modelLookup;
-		$this->loadBalancer = $loadBalancer;
-	}
+/**
+ * Service interface for retrieving score data from storage.
+ *
+ * @license GPL-2.0+
+ */
+interface StorageScoreLookup {
 
 	/**
-	 * Method to retrieve scores of given revision and models
+	 * Method to retrieve scores of given revision and models from storage
 	 *
 	 * @param int|array $revisions Single or multiple revisions
-	 * @param string|array $models Single or multiple model names.
+	 * @param string|array|null $models Single or multiple model names.  If
+	 * left empty, all configured models are queried.
 	 *
 	 * @return IResultWrapper
+	 * @throws RuntimeException
 	 */
-	public function getScores( $revisions, $models ) {
-		$modelIds = array_map( [ $this->modelLookup, 'getModelId' ], $models );
-
-		return $this->loadBalancer->getConnection( DB_REPLICA )->select(
-			[ 'ores_classification' ],
-			[ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ],
-			[
-				'oresc_rev' => $revisions,
-				'oresc_model' => $modelIds,
-			],
-			__METHOD__
-		);
-	}
+	public function getScores( $revisions, $models );
 
 }

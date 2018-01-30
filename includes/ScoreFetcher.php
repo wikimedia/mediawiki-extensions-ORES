@@ -19,17 +19,17 @@ namespace ORES;
 use InvalidArgumentException;
 use MediaWiki\MediaWikiServices;
 
-class ScoreFetcher implements ScoreLookup {
+class ScoreFetcher implements ServiceScoreLookup {
 
 	/**
-	 * @see ScoreLookup::getScores()
+	 * @see ServiceScoreLookup::getScores()
 	 *
 	 * @param int|array $revisions Single or multiple revisions
 	 * @param string|array|null $models Single or multiple model names. If
 	 * left empty, all configured models are queried.
 	 * @param bool $precache either the request is made for precaching or not
-
 	 * @param null $originalRequest
+	 *
 	 * @return array Results in the form returned by ORES API
 	 */
 	public function getScores(
