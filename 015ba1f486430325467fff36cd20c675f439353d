@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "4efcebec_1d0add24",
+        "filename": "includes/Storage/PopulatedSqlModelLookup.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-30T14:36:47Z",
+      "side": 1,
+      "message": "This is fine too, I hate inheritance so this works for me :)",
+      "parentUuid": "4efcebec_ed4dca9f",
+      "revId": "015ba1f486430325467fff36cd20c675f439353d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4efcebec_cdd8ce82",
         "filename": "includes/Storage/PopulatedSqlModelLookup.php",
         "patchSetId": 2
@@ -153,6 +171,24 @@
       "side": 1,
       "message": "I know :((",
       "parentUuid": "4efcebec_2d221251",
+      "revId": "015ba1f486430325467fff36cd20c675f439353d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efcebec_c20a5429",
+        "filename": "includes/Storage/PopulatedSqlModelLookup.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-01-30T14:36:47Z",
+      "side": 1,
+      "message": "IMO it would be cleaner to have the test \u0026 initialization done in a separate function, \"initializeModels\", and it can have a private side-effect of returning the models, so getModels in this class would become, \"return $this-\u003einitializeModels();\"",
+      "parentUuid": "4efcebec_e863f83c",
       "revId": "015ba1f486430325467fff36cd20c675f439353d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
