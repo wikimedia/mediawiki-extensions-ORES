@@ -3,7 +3,7 @@
 namespace ORES\Tests;
 
 use MediaWiki\Logger\LoggerFactory;
-use ORES;
+use ORES\ORESService;
 
 /**
  * @group ORES
@@ -12,7 +12,7 @@ use ORES;
 class ORESServiceTest extends \MediaWikiTestCase {
 
 	/**
-	 * @var ORES\ORESService
+	 * @var ORESService
 	 */
 	protected $oresService;
 
@@ -23,7 +23,7 @@ class ORESServiceTest extends \MediaWikiTestCase {
 			'wgOresBaseUrl' => 'https://ores-beta.wmflabs.org/',
 			'wgOresWikiId' => 'testwiki',
 		] );
-		$this->oresService = new ORES\ORESService( LoggerFactory::getInstance( 'ORES' ) );
+		$this->oresService = new ORESService( LoggerFactory::getInstance( 'ORES' ) );
 	}
 
 	/**
@@ -32,6 +32,19 @@ class ORESServiceTest extends \MediaWikiTestCase {
 	public function testServiceUrl() {
 		$url = $this->oresService->getUrl();
 		$this->assertSame( "https://ores-beta.wmflabs.org/v3/scores/testwiki/", $url );
+	}
+
+	/**
+	 * @covers ORES\ORESService::getWikiID
+	 */
+	public function testGetWikiID() {
+		$this->assertSame( 'testwiki', ORESService::getWikiID() );
+
+		$this->setMwGlobals( [ 'wgOresWikiId' => 'testwiki2' ] );
+		$this->assertSame( 'testwiki2', ORESService::getWikiID() );
+
+		$this->setMwGlobals( [ 'wgOresWikiId' => null ] );
+		$this->assertSame( wfWikiID(), ORESService::getWikiID() );
 	}
 
 }
