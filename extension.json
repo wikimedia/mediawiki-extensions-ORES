@@ -72,7 +72,7 @@
 			"ORES\\Hooks\\ChangesListHooksHandler::onOldChangesListRecentChangesLine"
 		],
 		"RecentChange_save": [
-			"ORES\\Hooks::onRecentChange_save"
+			"ORES\\Hooks\\RecentChangeSaveHookHandler::onRecentChange_save"
 		],
 		"RecentChangesPurgeRows": [
 			"ORES\\Hooks::onRecentChangesPurgeRows"

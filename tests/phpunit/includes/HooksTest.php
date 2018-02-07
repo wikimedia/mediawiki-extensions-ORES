@@ -2,13 +2,11 @@
 
 namespace ORES\Tests;
 
-use JobQueueGroup;
 use ORES\Hooks;
 use ORES\Hooks\PreferencesHookHandler;
 use ORES\Storage\HashModelLookup;
 use ORES\Storage\ScoreStorage;
 use OutputPage;
-use RecentChange;
 use SkinFactory;
 
 /**
@@ -42,29 +40,6 @@ class HooksTest extends \MediaWikiTestCase {
 		$this->user->saveSettings();
 
 		$this->context = HelpersTest::getContext( $this->user );
-	}
-
-	/**
-	 * @covers ORES\Hooks::onRecentChange_save
-	 */
-	public function testOnRecentChange_save() {
-		JobQueueGroup::singleton()->get( 'ORESFetchScoreJob' )->delete();
-
-		$rc = RecentChange::newFromRow( (object)[
-			'rc_namespace' => NS_MAIN,
-			'rc_title' => 'Test123',
-			'rc_patrolled' => 0,
-			'rc_timestamp' => '20150921134808',
-			'rc_deleted' => 0,
-			'rc_comment' => '',
-			'rc_comment_text' => '',
-			'rc_comment_data' => null,
-			'rc_type' => RC_EDIT,
-			'rc_this_oldid' => mt_rand( 1000, 9999 ),
-		] );
-		Hooks::onRecentChange_save( $rc );
-
-		$this->assertFalse( JobQueueGroup::singleton()->get( 'ORESFetchScoreJob' )->isEmpty() );
 	}
 
 	/**

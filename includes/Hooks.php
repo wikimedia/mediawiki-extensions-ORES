@@ -17,13 +17,9 @@
 namespace ORES;
 
 use DatabaseUpdater;
-use JobQueueGroup;
-use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use ORES\Hooks\Helpers;
 use OutputPage;
-use RecentChange;
-use RequestContext;
 use Skin;
 
 class Hooks {
@@ -44,58 +40,6 @@ class Hooks {
 			__DIR__ . '/../sql/patch-ores-classification-model-class-prob-index.sql' );
 		$updater->dropExtensionIndex( 'ores_classification', 'oresc_rev',
 			__DIR__ . '/../sql/patch-ores-classification-indexes-part-ii.sql' );
-	}
-
-	/**
-	 * Ask the ORES server for scores on this recent change
-	 *
-	 * @param RecentChange $rc
-	 */
-	public static function onRecentChange_save( RecentChange $rc ) {
-		global $wgOresExcludeBots, $wgOresEnabledNamespaces, $wgOresModels, $wgOresDraftQualityNS;
-		if ( $rc->getAttribute( 'rc_bot' ) && $wgOresExcludeBots ) {
-			return;
-		}
-
-		// Check if we actually want score for this namespace
-		$ns = $rc->getAttribute( 'rc_namespace' );
-		if ( $wgOresEnabledNamespaces &&
-			!( isset( $wgOresEnabledNamespaces[$ns] ) &&
-			$wgOresEnabledNamespaces[$ns] )
-		) {
-			return;
-		}
-
-		$rc_type = $rc->getAttribute( 'rc_type' );
-		$models = array_keys( array_filter( $wgOresModels ) );
-		if ( $rc_type === RC_EDIT || $rc_type === RC_NEW ) {
-			// Do not store draftquality data when it's not a new page in article or draft ns
-			if ( $rc_type !== RC_NEW ||
-				!( isset( $wgOresDraftQualityNS[$ns] ) && $wgOresDraftQualityNS[$ns] )
-			) {
-				$models = array_diff( $models, [ 'draftquality' ] );
-			}
-
-			$revid = $rc->getAttribute( 'rc_this_oldid' );
-			$logger = LoggerFactory::getInstance( 'ORES' );
-			$logger->debug( 'Processing edit {revid}', [
-				'revid' => $revid,
-			] );
-			$request = RequestContext::getMain()->getRequest();
-			$job = new FetchScoreJob( $rc->getTitle(), [
-				'revid' => $revid,
-				'originalRequest' => [
-					'ip' => $request->getIP(),
-					'userAgent' => $request->getHeader( 'User-Agent' ),
-				],
-				'models' => $models,
-				'precache' => true,
-			] );
-			JobQueueGroup::singleton()->push( $job );
-			$logger->debug( 'Job pushed for {revid}', [
-				'revid' => $revid,
-			] );
-		}
 	}
 
 	/**
