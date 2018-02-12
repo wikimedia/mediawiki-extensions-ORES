@@ -103,7 +103,6 @@
 			]
 		},
 		"ext.ores.styles": {
-			"position": "top",
 			"styles": "ext.ores.styles.css",
 			"targets": [
 				"desktop",
