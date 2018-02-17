@@ -13,6 +13,7 @@ use ORES\ThresholdLookup;
  * @license GNU GPL v2+
  * @author Addshore
  * @author Amir Sarabadani
+ * @coversNothing
  */
 class ServiceWiringTest extends \MediaWikiTestCase {
 
