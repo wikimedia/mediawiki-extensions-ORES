@@ -6,7 +6,8 @@
 			"SMAUG",
 			"Stryn",
 			"Nike",
-			"Zache"
+			"Zache",
+			"Pyscowicz"
 		]
 	},
 	"ores-desc": "Näytä automaattinen versioiden pisteytys",
@@ -49,6 +50,7 @@
 	"ores-pref-highlight": "Korosta \"huomiota kaipaavat\" muokkaukset, joissa todennäköisesti on ongelmia, värillä ja \"{{int:ores-damaging-letter}}\"-kirjaimella.",
 	"ores-pref-rc-hidenondamaging": "Näytä vain todennäköisesti ongelmalliset muokkaukset (piilottaa todennäköisesti hyvät muokkaukset)",
 	"ores-pref-watchlist-hidenondamaging": "Näytä vain todennäköisesti ongelmalliset muokkaukset (piilottaa todennäköisesti hyvät muokkaukset)",
+	"prefs-ores-rc": "Tarkistuksen pisteytys tuoreissa muutoksissa, liittyvissä muutoksissa ja muokkauksissa",
 	"apihelp-query+ores-description": "Hae ORES-konfiguraatio- ja mallitiedot tälle sivustolle.",
 	"apihelp-query+ores-example-simple": "Haetaan ORES-arvot",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-pisteet tälle versiolle.",
