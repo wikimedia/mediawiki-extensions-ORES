@@ -34,6 +34,7 @@
 	"ores-rcfilters-damaging-maybebad-label": "Saattaa sisältää ongelmia",
 	"ores-rcfilters-damaging-maybebad-desc": "Löytää eniten virheellisiä tai vahingollisia muokkauksia, mutta tarkkuus on alempi.",
 	"ores-rcfilters-damaging-likelybad-label": "Sisältää todennäköisesti ongelmia",
+	"ores-rcfilters-damaging-likelybad-desc-low": "Löytää keskitarkkuudella välijatkeen ongelmallisista muokkauksista.",
 	"ores-rcfilters-damaging-verylikelybad-label": "Sisältää hyvin todennäköisesti ongelmia",
 	"ores-rcfilters-damaging-verylikelybad-desc": "Erittäin tarkka löytämään ilmiselvästi virheelliset tai vahingolliset muokkaukset.",
 	"ores-rcfilters-goodfaith-title": "Käyttäjän aikomuksen ennustamiset",
