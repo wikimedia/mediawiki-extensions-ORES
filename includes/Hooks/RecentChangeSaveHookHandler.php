@@ -95,8 +95,56 @@ class RecentChangeSaveHookHandler {
 			return;
 		}
 
-		$rc_type = $rc->getAttribute( 'rc_type' );
+		$models = [];
+		foreach ( $modelsConfig as $model => $modelConfig ) {
+			// b/c
+			// TODO: Remove it
+			if ( !is_array( $modelConfig ) ) {
+				$this->handleOld( $rc, $modelsConfig, $draftQualityNS );
+				return;
+			}
+
+			$add = $this->checkModel( $rc, $modelConfig );
+			if ( $add === true ) {
+				$models[] = $model;
+			}
+		}
+
+		$this->triggerJob( $rc, $models );
+	}
+
+	private function checkModel( RecentChange $rc, $config ) {
+		if ( $config['enabled'] !== true ) {
+			return false;
+		}
+
+		if ( isset( $config['types'] ) ) {
+			$acceptedTypes = $config['types'];
+		} else {
+			$acceptedTypes = [ RC_EDIT, RC_NEW ];
+		}
+		if ( !in_array( $rc->getAttribute( 'rc_type' ), $acceptedTypes ) ) {
+			return false;
+		}
+
+		$ns = $rc->getAttribute( 'rc_namespace' );
+		if ( isset( $config['namespaces'] ) && !array_key_exists( $ns, $config['namespaces'] ) ) {
+			return false;
+		}
+
+		if ( isset( $config['excludeBots'] ) && $config['excludeBots'] !== false &&
+			$rc->getAttribute( 'rc_bot' )
+		) {
+			return false;
+		}
+
+		return true;
+	}
+
+	private function handleOld( RecentChange $rc, array $modelsConfig, array $draftQualityNS ) {
+		$ns = $rc->getAttribute( 'rc_namespace' );
 		$models = array_keys( array_filter( $modelsConfig ) );
+		$rc_type = $rc->getAttribute( 'rc_type' );
 		if ( $rc_type === RC_EDIT || $rc_type === RC_NEW ) {
 			// Do not store draftquality data when it's not a new page in article or draft ns
 			if ( $rc_type !== RC_NEW ||
@@ -105,24 +153,32 @@ class RecentChangeSaveHookHandler {
 				$models = array_diff( $models, [ 'draftquality' ] );
 			}
 
-			$revid = $rc->getAttribute( 'rc_this_oldid' );
-			$this->logger->debug( 'Processing edit {revid}', [
-				'revid' => $revid,
-			] );
-			$job = new FetchScoreJob( $rc->getTitle(), [
-				'revid' => $revid,
-				'originalRequest' => [
-					'ip' => $this->request->getIP(),
-					'userAgent' => $this->request->getHeader( 'User-Agent' ),
-				],
-				'models' => $models,
-				'precache' => true,
-			] );
-			JobQueueGroup::singleton()->push( $job );
-			$this->logger->debug( 'Job pushed for {revid}', [
-				'revid' => $revid,
-			] );
+			$this->triggerJob( $rc, $models );
 		}
+	}
+
+	private function triggerJob( RecentChange $rc, array $models ) {
+		if ( $models === [] ) {
+			return;
+		}
+
+		$revid = $rc->getAttribute( 'rc_this_oldid' );
+		$this->logger->debug( 'Processing edit {revid}', [
+			'revid' => $revid,
+		] );
+		$job = new FetchScoreJob( $rc->getTitle(), [
+			'revid' => $revid,
+			'originalRequest' => [
+				'ip' => $this->request->getIP(),
+				'userAgent' => $this->request->getHeader( 'User-Agent' ),
+			],
+			'models' => $models,
+			'precache' => true,
+		] );
+		JobQueueGroup::singleton()->push( $job );
+		$this->logger->debug( 'Job pushed for {revid}', [
+			'revid' => $revid,
+		] );
 	}
 
 }
