@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c56b70ba_7fc32d3d",
+        "filename": "tests/phpunit/includes/Storage/PopulatedSqlModelLookupTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-02-19T16:34:18Z",
+      "side": 1,
+      "message": "A bit subtle, thanks for the comment!  \"MO DULL\" is always an option.",
+      "revId": "725e3cc0accc99c0df3b9eb71f8e1006246c438c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
