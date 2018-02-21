@@ -128,7 +128,7 @@ class RecentChangeSaveHookHandler {
 		}
 
 		$ns = $rc->getAttribute( 'rc_namespace' );
-		if ( isset( $config['namespaces'] ) && !array_key_exists( $ns, $config['namespaces'] ) ) {
+		if ( isset( $config['namespaces'] ) && !in_array( $ns, $config['namespaces'] ) ) {
 			return false;
 		}
 
