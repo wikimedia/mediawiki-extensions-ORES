@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "aa43fcff_7b645804",
+        "filename": "tests/selenium/README.md",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 487
+      },
+      "writtenOn": "2018-02-21T10:20:17Z",
+      "side": 1,
+      "message": "Updates to README files is tracked in T187862.",
+      "revId": "3d35f93b60feefd2524c76736d01be3552fb0f0a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4efcebec_2d869218",
         "filename": "tests/selenium/README.md",
         "patchSetId": 12
@@ -13,6 +30,24 @@
       "writtenOn": "2018-01-29T19:10:31Z",
       "side": 1,
       "message": "This line seems wrong.  Doc from the README mentioned above sounds more correct,\n\n\u003e To run only one file (for example page.js), you first need to spawn the chromedriver:",
+      "revId": "3d35f93b60feefd2524c76736d01be3552fb0f0a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "704109ee_504971fd",
+        "filename": "tests/selenium/README.md",
+        "patchSetId": 12
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 487
+      },
+      "writtenOn": "2018-02-21T10:20:17Z",
+      "side": 1,
+      "message": "I did not understand. What is wrong?",
+      "parentUuid": "4efcebec_2d869218",
       "revId": "3d35f93b60feefd2524c76736d01be3552fb0f0a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -36,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "c83591a4_87a79efb",
+        "filename": "tests/selenium/README.md",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 487
+      },
+      "writtenOn": "2018-02-21T10:20:17Z",
+      "side": 1,
+      "message": "mediawiki/core is repository name in gerrit, not folder name. I see that it can be confusing. I will update readme.",
+      "parentUuid": "4efcebec_6dfeda36",
+      "revId": "3d35f93b60feefd2524c76736d01be3552fb0f0a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4efcebec_0d7636d5",
         "filename": "tests/selenium/README.md",
         "patchSetId": 12
@@ -47,6 +100,24 @@
       "writtenOn": "2018-01-29T19:10:31Z",
       "side": 1,
       "message": "The wdio requirement isn\u0027t documented here nor in the main README",
+      "revId": "3d35f93b60feefd2524c76736d01be3552fb0f0a",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23264c09_869c3002",
+        "filename": "tests/selenium/README.md",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 487
+      },
+      "writtenOn": "2018-02-21T10:20:17Z",
+      "side": 1,
+      "message": "It is \"documented\" in mediawiki/core package.json. :) I will update the readme to make it explicit.\n\nhttps://phabricator.wikimedia.org/source/mediawiki/browse/master/package.json;663855090d223a382dbcedf3b868744da7c85ff1$36",
+      "parentUuid": "4efcebec_0d7636d5",
       "revId": "3d35f93b60feefd2524c76736d01be3552fb0f0a",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
