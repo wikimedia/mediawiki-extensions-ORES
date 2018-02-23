@@ -72,6 +72,8 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 		$row->rc_comment = '';
 		$row->rc_comment_text = '';
 		$row->rc_comment_data = null;
+		$row->rc_user = 1;
+		$row->rc_user_text = 'Test user';
 
 		$rc = RecentChange::newFromRow( $row );
 		return $rc;

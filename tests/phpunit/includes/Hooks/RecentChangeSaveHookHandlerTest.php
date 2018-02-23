@@ -29,6 +29,8 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiTestCase {
 			'rc_comment_data' => null,
 			'rc_type' => RC_EDIT,
 			'rc_this_oldid' => mt_rand( 1000, 9999 ),
+			'rc_user' => 1,
+			'rc_user_text' => 'Test user',
 		] );
 		RecentChangeSaveHookHandler::onRecentChange_save( $rc );
 
