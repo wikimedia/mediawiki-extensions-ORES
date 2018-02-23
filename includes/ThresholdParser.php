@@ -86,7 +86,7 @@ class ThresholdParser {
 			foreach ( $levelConfig as $bound => &$formula ) {
 				if ( false !== strpos( $formula, '(' ) ) {
 					// Old-style formula, convert it to new-style.
-					$formula = $this->mungeV1Forumula( $formula );
+					$formula = $this->mungeV1Formula( $formula );
 				}
 			}
 		}
@@ -97,7 +97,7 @@ class ThresholdParser {
 	 * Converts an old-style configuration to new-style.
 	 * @deprecated Can be removed once all threshold config is written in the new grammar.
 	 */
-	private function mungeV1Forumula( $v1Formula ) {
+	private function mungeV1Formula( $v1Formula ) {
 		if ( false !== strpos( $v1Formula, '@' ) ) {
 			return $v1Formula;
 		} elseif ( preg_match( '/recall_at_precision\(min_precision=(0\.\d+)\)/', $v1Formula,
