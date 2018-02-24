@@ -2,13 +2,13 @@
 
 namespace ORES\Tests;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 use ORES\ORESService;
 
 class MockOresServiceBuilder {
 
-	public static function getORESServiceMock( PHPUnit_Framework_TestCase $test ) {
+	public static function getORESServiceMock( TestCase $test ) {
 		$mock = $test->getMockBuilder( ORESService::class )
 			->disableOriginalConstructor()
 			->getMock();
