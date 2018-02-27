@@ -8,7 +8,8 @@
 			"Luzcaru",
 			"Dgstranz",
 			"Pacoexe",
-			"KATRINE1992"
+			"KATRINE1992",
+			"Adamw"
 		]
 	},
 	"ores-desc": "Expone puntuaciones automatizadas de revisiones en la interfaz",
@@ -22,9 +23,9 @@
 	"ores-damaging-maybebad": "Pueden tener problemas (marca la mayoría de ediciones problemáticas, pero entre ellas hay muchos falsos positivos)",
 	"ores-damaging-likelybad": "Probablemente tienen problemas (probabilidad media)",
 	"ores-damaging-verylikelybad": "Muy probablemente tienen problemas (marca pocos falsos positivos, pero encuentra un porcentaje menor de ediciones problemáticas)",
-	"ores-help-damaging-pref": "Fija la sensibilidad de las opciones «Resaltar las ediciones que probablemente tienen problemas...» y «Mostrar solo las ediciones que probablemente tienen problemas...» en la página de cambios recientes y la lista de seguimiento.",
+	"ores-help-damaging-pref": "Cambio el \"umbral\" que pone para hacer las opciones bajo más anchos o más selectivos.",
 	"ores-rcfilters-whats-this-link-text": "Más información",
-	"ores-rcfilters-ores-conflicts-logactions-global": "El filtro de acciones conectadas está en conflicto con uno o más filtros de calidad de las contribuciones o de intenciones del usuario. Los filtros en conflicto están marcados en el área de filtros activos, arriba.",
+	"ores-rcfilters-ores-conflicts-logactions-global": "El filtro de {{int:rcfilters-filter-logactions-label}} está en conflicto con uno o más filtros de calidad de las contribuciones o de intenciones del usuario. Los filtros en conflicto están marcados en el área de filtros activos, arriba.",
 	"ores-rcfilters-logactions-conflicts-ores": "Este filtro está en conflicto con uno o más filtros de calidad de las contribuciones o de intención del usuario. Las predicciones de calidad e intención no están disponibles para acciones de usuarios conectados.",
 	"ores-rcfilters-damaging-title": "Predicciones de calidad de las contribuciones",
 	"ores-rcfilters-damaging-whats-this-header": "Acerca de las predicciones de calidad de las contribuciones",
@@ -58,6 +59,7 @@
 	"prefs-ores-wl": "Puntaje de revisiones en la lista de seguimiento",
 	"prefs-ores-rc": "Puntaje de revisiones de Cambios recientes, Cambios relacionados y Contribuciones",
 	"apihelp-query+ores-description": "Devolver la configuración de ORES y los datos del modelo para este wiki.",
+	"apihelp-query+ores-summary": "Devolver la configuración de ORES y los datos del modelo para este wiki.",
 	"apihelp-query+ores-example-simple": "Obtener datos ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Puntuaciones ORES para la revisión.",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Puntuaciones ORES para la revisión.",
