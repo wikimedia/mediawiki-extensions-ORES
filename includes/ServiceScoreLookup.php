@@ -21,7 +21,7 @@ use RuntimeException;
 /**
  * Service interface for retrieving score data from API.
  *
- * @license GPL-2.0+
+ * @license GPL-3.0-or-later
  */
 interface ServiceScoreLookup {
 

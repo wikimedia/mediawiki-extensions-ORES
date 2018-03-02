@@ -22,7 +22,7 @@ use Wikimedia\Rdbms\IResultWrapper;
 /**
  * Service interface for retrieving score data from storage.
  *
- * @license GPL-2.0+
+ * @license GPL-3.0-or-later
  */
 interface StorageScoreLookup {
 

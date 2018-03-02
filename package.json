@@ -1,9 +1,5 @@
 {
-  "repository": {
-    "type": "git",
-    "url": "https://phabricator.wikimedia.org/diffusion/EORS/"
-  },
-  "license": "GPL-3.0",
+  "private": true,
   "scripts": {
     "test": "grunt test"
   },

@@ -23,7 +23,7 @@ use RuntimeException;
 /**
  * Class for parsing ORES service score response
  *
- * @license GPL-2.0+
+ * @license GPL-3.0-or-later
  */
 class ScoreParser {
 
