@@ -130,11 +130,23 @@
 		},
 		"OresModels": {
 			"value": {
-				"damaging": true,
-				"goodfaith": true,
-				"reverted": true,
-				"wp10": true,
-				"draftquality": false
+				"damaging": {
+					"enabled": true
+				},
+				"goodfaith": {
+					"enabled": true
+				},
+				"reverted": {
+					"enabled": false
+				},
+				"wp10": {
+					"enabled": true,
+					"namespaces": [0]
+				},
+				"draftquality": {
+					"enabled": false,
+					"namespaces": [0]
+				}
 			}
 		},
 		"OresModelClasses": {
