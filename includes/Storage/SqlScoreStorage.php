@@ -18,21 +18,36 @@ namespace ORES\Storage;
 
 use InvalidArgumentException;
 use ORES\Parser\ScoreParser;
+use Psr\Log\LoggerInterface;
 use RuntimeException;
+use Wikimedia\Rdbms\DBError;
 use Wikimedia\Rdbms\LoadBalancer;
 
 class SqlScoreStorage implements ScoreStorage {
 
+	/**
+	 * @var LoadBalancer
+	 */
 	private $loadBalancer;
 
+	/**
+	 * @var ModelLookup
+	 */
 	private $modelLookup;
+
+	/**
+	 * @var LoggerInterface
+	 */
+	private $logger;
 
 	public function __construct(
 		LoadBalancer $loadBalancer,
-		ModelLookup $modelLookup
+		ModelLookup $modelLookup,
+		LoggerInterface $logger
 	) {
 		$this->loadBalancer = $loadBalancer;
 		$this->modelLookup = $modelLookup;
+		$this->logger = $logger;
 	}
 
 	/**
@@ -40,8 +55,14 @@ class SqlScoreStorage implements ScoreStorage {
 	 *
 	 * @param array[] $scores
 	 * @param callable $errorCallback
+	 * @param array $modelsToClean an array of models that need cleanup of old scores after
+	 * inserting new ones
 	 */
-	public function storeScores( $scores, callable $errorCallback = null ) {
+	public function storeScores(
+		$scores,
+		callable $errorCallback = null,
+		array $modelsToClean = []
+	) {
 		// TODO: Make it an argument and deprecate the whole config variable
 		global $wgOresModelClasses;
 
@@ -65,12 +86,23 @@ class SqlScoreStorage implements ScoreStorage {
 			$dbData = array_merge( $dbData, $dbDataPerRevision );
 		}
 
-		$this->loadBalancer->getConnection( DB_MASTER )->insert(
-			'ores_classification',
-			$dbData,
-			__METHOD__,
-			[ 'IGNORE' ]
-		);
+		try {
+			$this->loadBalancer->getConnection( DB_MASTER )->insert(
+				'ores_classification',
+				$dbData,
+				__METHOD__,
+				[ 'IGNORE' ]
+			);
+		} catch ( DBError $exception ) {
+			$this->logger->error(
+				'Inserting new data into the datbase has failed:' . $exception->getMessage()
+			);
+			return;
+		}
+
+		if ( $modelsToClean !== [] ) {
+			$this->cleanUpOldScores( $scores, $modelsToClean );
+		}
 	}
 
 	/**
@@ -84,6 +116,30 @@ class SqlScoreStorage implements ScoreStorage {
 			[ 'oresc_rev' => $revIds ],
 			__METHOD__
 		);
+	}
+
+	private function cleanUpOldScores( $scores, $modelsToClean ) {
+		$modelIds = [];
+		foreach ( $modelsToClean as $model ) {
+			$modelIds[] = $this->modelLookup->getModelId( $model );
+		}
+
+		$newRevisions = array_keys( $scores );
+
+		$parentIds = $this->loadBalancer->getConnection( DB_REPLICA )->selectFieldValues(
+			'recentchanges',
+			'rc_last_oldid',
+			[ 'rc_this_oldid' => $newRevisions ],
+			__METHOD__
+		);
+
+		if ( $parentIds ) {
+			$this->loadBalancer->getConnection( DB_MASTER )->delete(
+				'ores_classification',
+				[ 'oresc_rev' => $parentIds, 'oresc_model' => $modelIds ],
+				__METHOD__
+			);
+		}
 	}
 
 }
