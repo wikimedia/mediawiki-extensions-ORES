@@ -53,7 +53,7 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 					]
 				],
 				[
-					[ 'rc_this_oldid' => '123', 'rc_user_text' => 'TestUser' ]
+					[ 'rc_this_oldid' => '123' ]
 				],
 				[],
 				[],
@@ -75,8 +75,8 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 					]
 				],
 				[
-					[ 'rc_this_oldid' => '123', 'rc_user_text' => 'TestUser' ],
-					[ 'rc_this_oldid' => '321', 'rc_user_text' => 'TestUser' ],
+					[ 'rc_this_oldid' => '123' ],
+					[ 'rc_this_oldid' => '321' ],
 				],
 				[
 					123 => [ 'damaging' => 0.32 ],
@@ -95,8 +95,8 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 					]
 				],
 				[
-					[ 'rc_this_oldid' => '123', 'rc_user_text' => 'TestUser' ],
-					[ 'rc_this_oldid' => '321', 'rc_user_text' => 'TestUser' ],
+					[ 'rc_this_oldid' => '123' ],
+					[ 'rc_this_oldid' => '321' ],
 				],
 				[],
 				[
@@ -116,8 +116,8 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 					]
 				],
 				[
-					[ 'rc_this_oldid' => '123', 'rc_user_text' => 'TestUser', 'rc_bot' => '0' ],
-					[ 'rc_this_oldid' => '321', 'rc_user_text' => 'TestUser', 'rc_bot' => '1' ],
+					[ 'rc_this_oldid' => '123', 'rc_bot' => '0' ],
+					[ 'rc_this_oldid' => '321', 'rc_bot' => '1' ],
 				],
 				[],
 				[],
@@ -141,8 +141,8 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 					]
 				],
 				[
-					[ 'rc_this_oldid' => '123', 'rc_user_text' => 'TestUser' ],
-					[ 'rc_this_oldid' => '321', 'rc_user_text' => 'TestUser' ],
+					[ 'rc_this_oldid' => '123' ],
+					[ 'rc_this_oldid' => '321' ],
 				],
 				[],
 				[
@@ -156,6 +156,25 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 	 * @dataProvider provideTestData
 	 */
 	public function testPopulateDatabase( $expected, $rcContents, $oresContents, $argv ) {
+		global $wgActorTableSchemaMigrationStage;
+
+		$testUser = $this->getTestUser()->getUser();
+		$userData = [];
+		if ( $wgActorTableSchemaMigrationStage > MIGRATION_OLD ) {
+			$userData += [
+				'rc_actor' => $testUser->getActorId(),
+			];
+		}
+		if ( $wgActorTableSchemaMigrationStage < MIGRATION_NEW ) {
+			$userData += [
+				'rc_user' => $testUser->getId(),
+				'rc_user_text' => $testUser->getName(),
+			];
+		}
+		foreach ( $rcContents as &$row ) {
+			$row += $userData;
+		}
+
 		\wfGetDB( DB_MASTER )->insert( 'recentchanges', $rcContents, __METHOD__ );
 
 		foreach ( $oresContents as $revId => $scores ) {
