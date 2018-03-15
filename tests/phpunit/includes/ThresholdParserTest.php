@@ -18,10 +18,10 @@ class ThresholdParserTest extends \MediaWikiTestCase {
 		$this->setMwGlobals( [
 			'wgOresFiltersThresholds' => [
 				'damaging' => [
-					'verylikelygood' => [ 'min' => 0, 'max' => 'recall_at_precision(min_precision=0.98)' ],
+					'verylikelygood' => [ 'min' => 0, 'max' => 'maximum recall @ precision >= 0.98' ],
 					'maybebad' => false,
 					'likelybad' => [ 'min' => 0.81, 'max' => 1 ],
-					'verylikelybad' => [ 'min' => 'recall_at_precision(min_precision=0.9)', 'max' => 1 ],
+					'verylikelybad' => [ 'min' => 'maximum recall @ precision >= 0.9', 'max' => 1 ],
 				],
 			],
 		] );
