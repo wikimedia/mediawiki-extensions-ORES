@@ -46,7 +46,8 @@ return [
 	'ORESScoreStorage' => function ( MediaWikiServices $services ) {
 		return new SqlScoreStorage(
 			$services->getDBLoadBalancer(),
-			$services->getService( 'ORESModelLookup' )
+			$services->getService( 'ORESModelLookup' ),
+			LoggerFactory::getInstance( 'ORES' )
 		);
 	},
 
