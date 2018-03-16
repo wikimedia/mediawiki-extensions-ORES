@@ -125,6 +125,22 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 	}
 
 	public function testPurgeScoreCache_nonRecent() {
+		global $wgActorTableSchemaMigrationStage;
+
+		$testUser = $this->getTestUser()->getUser();
+		$userData = [];
+		if ( $wgActorTableSchemaMigrationStage > MIGRATION_OLD ) {
+			$userData += [
+				'rc_actor' => $testUser->getActorId(),
+			];
+		}
+		if ( $wgActorTableSchemaMigrationStage < MIGRATION_NEW ) {
+			$userData += [
+				'rc_user' => $testUser->getId(),
+				'rc_user_text' => $testUser->getName(),
+			];
+		}
+
 		$this->tablesUsed[] = 'recentchanges';
 
 		$revId = mt_rand( 1000, 9999 );
@@ -138,8 +154,7 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 		] );
 		\wfGetDB( DB_MASTER )->insert( 'recentchanges', [
 			'rc_this_oldid' => $revId,
-			'rc_user_text' => 'TestUser',
-		], __METHOD__ );
+		] + $userData, __METHOD__ );
 
 		$this->maintenance->loadWithArgv( [ '--old' ] );
 
