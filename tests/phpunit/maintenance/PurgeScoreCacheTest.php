@@ -8,18 +8,6 @@ use ORES\Maintenance\PurgeScoreCache;
 use ORES\Storage\SqlModelLookup;
 use ORES\Tests\TestHelper;
 
-/*
- * TODO: It would be ideal to extend a core class like \MaintenanceTest to take
- * care of capturing output and so on, but this doesn't seem to exist yet?
- * See https://phabricator.wikimedia.org/T184775
- *
- * This ficitious test class would have to be autoloadable, otherwise:
- *
- * require_once getenv( 'MW_INSTALL_PATH' ) !== false
- *     ? getenv( 'MW_INSTALL_PATH' ) . '/tests/phpunit/maintenance/MaintenanceTest.php'
- *     : __DIR__ . '/../../../../../tests/phpunit/maintenance/MaintenanceTest.php';
- */
-
 /**
  * @group ORES
  * @group Database
