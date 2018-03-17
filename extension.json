@@ -140,12 +140,14 @@
 					"enabled": false
 				},
 				"wp10": {
-					"enabled": true,
-					"namespaces": [0]
+					"enabled": false,
+					"namespaces": [0],
+					"cleanupParent": true
 				},
 				"draftquality": {
 					"enabled": false,
-					"namespaces": [0]
+					"namespaces": [0],
+					"types": [1]
 				}
 			}
 		},

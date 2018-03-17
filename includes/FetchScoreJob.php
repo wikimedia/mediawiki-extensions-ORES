@@ -61,20 +61,7 @@ class FetchScoreJob extends Job {
 		$logger = LoggerFactory::getInstance( 'ORES' );
 
 		if ( $this->removeDuplicates ) {
-			// Filter out revisions that already have scores by the time this
-			// job runs.
-			$revids = (array)$this->params['revid'];
-			$dbr = \wfGetDB( DB_REPLICA );
-			$revids = array_diff(
-				$revids,
-				$dbr->selectFieldValues(
-					'ores_classification',
-					'oresc_rev',
-					[ 'oresc_rev' => $revids ],
-					__METHOD__,
-					[ 'DISTINCT' ]
-				)
-			);
+			$revids = $this->findDuplicates();
 			if ( !$revids ) {
 				$logger->debug( 'Skipping fetch, no revisions need scores: ' . json_encode( $this->params ) );
 				return true;
@@ -109,12 +96,54 @@ class FetchScoreJob extends Job {
 			function ( $mssg, $revision ) use ( &$success, $logger ) {
 				$logger->warning( "ScoreFetcher errored for $revision: $mssg\n" );
 				$success = false;
-			}
+			},
+			$this->getCleanupModels()
 		);
 		if ( $success === true ) {
 			$logger->debug( 'Stored scores: ' . json_encode( $scores ) );
 		}
 		return $success;
+	}
+
+	private function findDuplicates() {
+		$revids = (array)$this->params['revid'];
+		$dbr = \wfGetDB( DB_REPLICA );
+		$revids = array_diff(
+			$revids,
+			$dbr->selectFieldValues(
+				'ores_classification',
+				'oresc_rev',
+				[ 'oresc_rev' => $revids ],
+				__METHOD__,
+				[ 'DISTINCT' ]
+			)
+		);
+
+		return $revids;
+	}
+
+	private function getCleanupModels() {
+		global $wgOresModels;
+		$models = [];
+		foreach ( $wgOresModels as $modelName => $model ) {
+			// B/C
+			// TODO: Remove it soon
+			if ( !is_array( $model ) ) {
+				return $models;
+			}
+
+			if ( !isset( $model['enabled'] ) || !$model['enabled'] ) {
+				continue;
+			}
+
+			if ( !isset( $model['cleanParent'] ) || !$model['cleanParent'] ) {
+				continue;
+			}
+
+			$models[] = $modelName;
+		}
+
+		return $models;
 	}
 
 }
