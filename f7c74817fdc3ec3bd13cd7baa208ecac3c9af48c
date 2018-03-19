@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dac90d21_2e354408",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-03-19T16:18:59Z",
+      "side": 1,
+      "message": "Okay, I guess the model only targets RC_NEW for now, and the potential migration will be easy, remove this line to include RC_EDIT.  Maybe what bothers me is due to an earlier patch: should this field be called \"recentChangeTypes\"?",
+      "revId": "f7c74817fdc3ec3bd13cd7baa208ecac3c9af48c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b22905cc_edabbef0",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-03-19T16:18:59Z",
+      "side": 1,
+      "message": "Great",
+      "revId": "f7c74817fdc3ec3bd13cd7baa208ecac3c9af48c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f7fa7e7_dcf88757",
+        "filename": "includes/FetchScoreJob.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-03-19T16:18:59Z",
+      "side": 1,
+      "message": "It looks like we\u0027re trying to pass a callback, when it\u0027s just the synchronous function result.  I\u0027d suggest separating statements with a temporary variable.",
+      "revId": "f7c74817fdc3ec3bd13cd7baa208ecac3c9af48c",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
