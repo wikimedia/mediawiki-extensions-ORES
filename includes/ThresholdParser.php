@@ -17,7 +17,6 @@
 namespace ORES;
 
 use Psr\Log\LoggerInterface;
-use RuntimeException;
 
 class ThresholdParser {
 
@@ -76,43 +75,7 @@ class ThresholdParser {
 			return false;
 		}
 		$config = $wgOresFiltersThresholds[$model];
-
-		// Convert old config to new grammar.
-		// @deprecated Remove once all config is migrated.
-		foreach ( $config as $levelName => &$levelConfig ) {
-			if ( $levelConfig === false ) {
-				continue;
-			}
-			foreach ( $levelConfig as $bound => &$formula ) {
-				if ( false !== strpos( $formula, '(' ) ) {
-					// Old-style formula, convert it to new-style.
-					$formula = $this->mungeV1Formula( $formula );
-				}
-			}
-		}
 		return $config;
-	}
-
-	/**
-	 * Converts an old-style configuration to new-style.
-	 * @deprecated Can be removed once all threshold config is written in the new grammar.
-	 */
-	private function mungeV1Formula( $v1Formula ) {
-		if ( false !== strpos( $v1Formula, '@' ) ) {
-			return $v1Formula;
-		} elseif ( preg_match( '/recall_at_precision\(min_precision=(0\.\d+)\)/', $v1Formula,
-			$matches ) ) {
-			$min_precision = floatval( $matches[1] );
-
-			return "maximum recall @ precision >= {$min_precision}";
-		} elseif ( preg_match( '/filter_rate_at_recall\(min_recall=(0\.\d+)\)/', $v1Formula,
-			$matches ) ) {
-			$min_recall = floatval( $matches[1] );
-
-			return "maximum filter_rate @ recall >= {$min_recall}";
-		} else {
-			throw new RuntimeException( "Failed to parse threshold formula [{$v1Formula}]" );
-		}
 	}
 
 	private function extractBoundValue( $bound, $config, array $statsData ) {

@@ -110,64 +110,6 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 		$this->assertEquals( [], $thresholds );
 	}
 
-	public function testGetThresholds_oldFiltersConfig() {
-		$this->setMwGlobals( [
-			'wgOresFiltersThresholds' => [
-				'damaging' => [
-					'verylikelygood' => [ 'min' => 0, 'max' => 'recall_at_precision(min_precision=0.98)' ],
-					'maybebad' => false,
-					'likelybad' => [ 'min' => 0.831, 'max' => 1 ],
-					'verylikelybad' => [ 'min' => 'recall_at_precision(min_precision=0.9)', 'max' => 1 ],
-				],
-			],
-			'wgOresWikiId' => 'wiki',
-		] );
-
-		$oresService = $this->getMockBuilder( ORESService::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$oresService->expects( $this->exactly( 1 ) )
-			->method( 'request' )
-			->with( [
-				'models' => 'damaging',
-				'model_info' => 'statistics.thresholds.false."maximum recall @ precision >= 0.98"'
-					. '|statistics.thresholds.true."maximum recall @ precision >= 0.9"' ] )
-			->willReturn( [ 'wiki' => [ 'models' => [ 'damaging' =>
-				[ 'statistics' => [ 'thresholds' => [
-					'true' => [
-						[
-							'threshold' => 0.945, // verylikelybad min
-						],
-					],
-					'false' => [
-						[
-							'threshold' => 0.259, // verylikelygood max
-						],
-					],
-			] ] ] ] ] ] );
-
-		$stats = $this->getNewThresholdLookup( $oresService, LoggerFactory::getInstance( 'test' ) );
-		$thresholds = $stats->getThresholds( 'damaging' );
-
-		$this->assertEquals(
-			[
-				'verylikelygood' => [
-					'min' => 0,
-					'max' => 0.741,
-				],
-				'likelybad' => [
-					'min' => 0.831,
-					'max' => 1,
-				],
-				'verylikelybad' => [
-					'min' => 0.945,
-					'max' => 1,
-				],
-			],
-			$thresholds
-		);
-	}
-
 	public function testGetThresholds_newFiltersConfig() {
 		$this->setMwGlobals( [
 			'wgOresFiltersThresholds' => [
