@@ -2,20 +2,17 @@
 
 namespace ORES\Tests;
 
+use MediaWiki\MediaWikiServices;
 use ORES\Hooks;
-use ORES\Hooks\PreferencesHookHandler;
 use ORES\Storage\HashModelLookup;
 use ORES\Storage\ScoreStorage;
 use OutputPage;
-use SkinFactory;
 
 /**
  * @group ORES
  * @covers ORES\Hooks
  */
 class HooksTest extends \MediaWikiTestCase {
-
-	protected $user;
 
 	protected $context;
 
@@ -32,14 +29,13 @@ class HooksTest extends \MediaWikiTestCase {
 			'wgOresWikiId' => 'testwiki',
 		] );
 
-		$this->user = static::getTestUser()->getUser();
-		$this->user->setOption( 'ores-enabled', 1 );
-		$this->user->setOption( 'oresDamagingPref', 'maybebad' );
-		$this->user->setOption( 'oresHighlight', 1 );
-		$this->user->setOption( 'ores-damaging-flag-rc', 1 );
-		$this->user->saveSettings();
-
-		$this->context = HelpersTest::getContext( $this->user );
+		$user = static::getTestUser()->getUser();
+		$user->setOption( 'ores-enabled', 1 );
+		$user->setOption( 'oresDamagingPref', 'maybebad' );
+		$user->setOption( 'ores-damaging-flag-rc', 1 );
+		$user->setOption( 'oresHighlight', 1 );
+		$user->saveSettings();
+		$this->context = HelpersTest::getContext( $user );
 	}
 
 	/**
@@ -80,7 +76,7 @@ class HooksTest extends \MediaWikiTestCase {
 			],
 		];
 
-		$skin = SkinFactory::getDefaultInstance()->makeSkin( 'fallback' );
+		$skin = MediaWikiServices::getInstance()->getSkinFactory()->makeSkin( 'fallback' );
 		$outputPage = new OutputPage( $this->context );
 		$outputPage->setProperty( 'oresData', $oresData );
 
@@ -99,30 +95,6 @@ class HooksTest extends \MediaWikiTestCase {
 		$this->assertEquals( [
 			'ext.ores.highlighter',
 		], $modules );
-	}
-
-	/**
-	 * @covers ORES\Hooks\PreferencesHookHandler::onGetPreferences
-	 * @todo Move to a dedicated file
-	 */
-	public function testOresPrefs() {
-		$preferences = [];
-		PreferencesHookHandler::onGetPreferences( $this->user, $preferences );
-		$this->assertArrayHasKey( 'oresDamagingPref', $preferences );
-		$this->assertArrayHasKey( 'rcOresDamagingPref', $preferences );
-		$this->assertArrayHasKey( 'oresWatchlistHideNonDamaging', $preferences );
-		$this->assertArrayHasKey( 'oresRCHideNonDamaging', $preferences );
-	}
-
-	/**
-	 * @covers ORES\Hooks\PreferencesHookHandler::onGetPreferences
-	 * @todo Move to a dedicated file
-	 */
-	public function testOnGetPreferencesEnabled() {
-		$prefs = [];
-		PreferencesHookHandler::onGetPreferences( $this->user, $prefs );
-
-		$this->assertSame( 6, count( $prefs ) );
 	}
 
 }
