@@ -126,12 +126,6 @@ class FetchScoreJob extends Job {
 		global $wgOresModels;
 		$models = [];
 		foreach ( $wgOresModels as $modelName => $model ) {
-			// B/C
-			// TODO: Remove it soon
-			if ( !is_array( $model ) ) {
-				return $models;
-			}
-
 			if ( !isset( $model['enabled'] ) || !$model['enabled'] ) {
 				continue;
 			}

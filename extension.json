@@ -202,12 +202,6 @@
 		"OresEnabledNamespaces": {
 			"value": {}
 		},
-		"OresDraftQualityNS": {
-			"value": {
-				"0": true
-			},
-			"merge_strategy": "array_plus"
-		},
 		"OresWikiId": {
 			"value": null
 		},

@@ -53,7 +53,7 @@ class RecentChangeSaveHookHandler {
 	 * @param RecentChange $rc
 	 */
 	public static function onRecentChange_save( RecentChange $rc ) {
-		global $wgOresExcludeBots, $wgOresEnabledNamespaces, $wgOresModels, $wgOresDraftQualityNS;
+		global $wgOresExcludeBots, $wgOresEnabledNamespaces, $wgOresModels;
 
 		$self = new self(
 			LoggerFactory::getInstance( 'ORES' ),
@@ -64,8 +64,7 @@ class RecentChangeSaveHookHandler {
 			$rc,
 			$wgOresModels,
 			$wgOresExcludeBots,
-			$wgOresEnabledNamespaces,
-			$wgOresDraftQualityNS
+			$wgOresEnabledNamespaces
 		);
 	}
 
@@ -74,14 +73,12 @@ class RecentChangeSaveHookHandler {
 	 * @param array $modelsConfig
 	 * @param bool $excludeBots
 	 * @param array $enabledNamespaces
-	 * @param array $draftQualityNS
 	 */
 	public function handle(
 		RecentChange $rc,
 		array $modelsConfig,
 		$excludeBots,
-		array $enabledNamespaces,
-		array $draftQualityNS
+		array $enabledNamespaces
 	) {
 		if ( $rc->getAttribute( 'rc_bot' ) && $excludeBots ) {
 			return;
@@ -97,13 +94,6 @@ class RecentChangeSaveHookHandler {
 
 		$models = [];
 		foreach ( $modelsConfig as $model => $modelConfig ) {
-			// b/c
-			// TODO: Remove it
-			if ( !is_array( $modelConfig ) ) {
-				$this->handleOld( $rc, $modelsConfig, $draftQualityNS );
-				return;
-			}
-
 			$add = $this->checkModel( $rc, $modelConfig );
 			if ( $add === true ) {
 				$models[] = $model;
@@ -139,22 +129,6 @@ class RecentChangeSaveHookHandler {
 		}
 
 		return true;
-	}
-
-	private function handleOld( RecentChange $rc, array $modelsConfig, array $draftQualityNS ) {
-		$ns = $rc->getAttribute( 'rc_namespace' );
-		$models = array_keys( array_filter( $modelsConfig ) );
-		$rc_type = $rc->getAttribute( 'rc_type' );
-		if ( $rc_type === RC_EDIT || $rc_type === RC_NEW ) {
-			// Do not store draftquality data when it's not a new page in article or draft ns
-			if ( $rc_type !== RC_NEW ||
-				!( isset( $draftQualityNS[$ns] ) && $draftQualityNS[$ns] )
-			) {
-				$models = array_diff( $models, [ 'draftquality' ] );
-			}
-
-			$this->triggerJob( $rc, $models );
-		}
 	}
 
 	private function triggerJob( RecentChange $rc, array $models ) {
