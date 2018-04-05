@@ -71,7 +71,7 @@ class ORESService {
 	 * Make an ORES API request and return the decoded result.
 	 *
 	 * @param array $params
-	 * @param WebRequest|string[] $originalRequest See MwHttpRequest::setOriginalRequest()
+	 * @param WebRequest|string[]|null $originalRequest See MwHttpRequest::setOriginalRequest()
 	 *
 	 * @return array Decoded response
 	 */

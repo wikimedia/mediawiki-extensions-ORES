@@ -181,7 +181,7 @@ class Helpers {
 	 * Internal helper to get damaging level preference
 	 * with backward compatibility for old level names
 	 * @param User $user
-	 * @param Title $title
+	 * @param Title|null $title
 	 * @return string 'maybebad', 'likelybad', or 'verylikelybad'
 	 */
 	public static function getDamagingLevelPreference( User $user, Title $title = null ) {

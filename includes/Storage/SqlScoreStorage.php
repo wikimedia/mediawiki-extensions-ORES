@@ -54,7 +54,7 @@ class SqlScoreStorage implements ScoreStorage {
 	 * @see ModelLookup::getModelId()
 	 *
 	 * @param array[] $scores
-	 * @param callable $errorCallback
+	 * @param callable|null $errorCallback
 	 * @param array $modelsToClean an array of models that need cleanup of old scores after
 	 * inserting new ones
 	 */

@@ -27,8 +27,8 @@ interface ScoreStorage {
 	 * Save scores to the database
 	 *
 	 * @param array[] $scores in the same structure as is returned by ORES.
-	 * @param callable $errorCallback This callback is called when we cannot parse a revision score
-	 *        response. The signature is errorCallback( string $errorMessage, string $revisionID )
+	 * @param callable|null $errorCallback This callback is called when we cannot parse a revision
+	 *   score response. The signature is errorCallback( string $errorMessage, string $revisionID )
 	 */
 	public function storeScores( $scores, callable $errorCallback = null );
 
