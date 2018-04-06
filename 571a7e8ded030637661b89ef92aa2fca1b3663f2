@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1646cb1e_05667173",
+        "filename": "includes/Storage/ScoreStorage.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 161
+      },
+      "writtenOn": "2018-04-06T08:33:04Z",
+      "side": 1,
+      "message": "Adding 5 characters can exceeds the line length. I have not seen yesterday that is was failing.",
+      "range": {
+        "startLine": 30,
+        "startChar": 19,
+        "endLine": 30,
+        "endChar": 24
+      },
+      "revId": "571a7e8ded030637661b89ef92aa2fca1b3663f2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
