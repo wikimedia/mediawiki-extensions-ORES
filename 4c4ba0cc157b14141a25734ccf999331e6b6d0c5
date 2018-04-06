@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "acfa57b4_ea9beaae",
+        "filename": "includes/Storage/ScoreStorage.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2018-04-06T08:37:09Z",
+      "side": 1,
+      "message": "What is your rule for indention in such cases? I like it if this is 1 extra space. You used 2.",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 6
+      },
+      "revId": "4c4ba0cc157b14141a25734ccf999331e6b6d0c5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
