@@ -5,7 +5,7 @@
 			"ديفيد"
 		]
 	},
-	"ores-damaging-legend": "قد يكون هذا التعديل ضارًا وتجب مراجعته [[:mw:Special:MyLanguage/ORES review tool|مزيد من المعلومات]]",
+	"ores-damaging-legend": "قد يكون هذا التعديل ضارًا وتجب مراجعته ([[:mw:Special:MyLanguage/ORES review tool|مزيد من المعلومات]])",
 	"ores-pref-rc-hidenondamaging": "عرض التعديلات التي بها مشاكل على الأرجح فقط (وإخفاء التعديلات الجيدة على الأرجح)",
 	"ores-pref-watchlist-hidenondamaging": "عرض التعديلات التي بها مشاكل على الأرجح فقط (وإخفاء التعديلات الجيدة على الأرجح)"
 }
