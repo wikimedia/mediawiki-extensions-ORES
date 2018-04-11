@@ -26,7 +26,7 @@
 	"ores-rcfilters-ores-conflicts-logactions-global": "Loki-suodatusvalinta on ristiriitainen yhden tai useamman muokkauksen laatua tai käyttäjän tarkoitusta ennustavan suodatinvalinnan kanssa. Nämä valinnat eivät ole käytössä lokimerkinnöille. Ristiriitaiset suodattimet on merkitty yläpuolella olevassa \"Aktiiviset suodattimet\" -kohdassa.",
 	"ores-rcfilters-logactions-conflicts-ores": "Tämä suodatin on ristiriidassa yhden tai useamman muokkauksen laatu tai -tarkoitus suodattimen kanssa. Muokkauksen laatu tai -tarkoitus suodattimet eivät ole käytettävissä lokimerkinnöissä.",
 	"ores-rcfilters-damaging-title": "Muokkauksen laatuennusteet",
-	"ores-rcfilters-damaging-whats-this-header": "Tietoa muokkauksen laatuennusteesta",
+	"ores-rcfilters-damaging-whats-this-header": "Tietoja muokkauksen laatuennusteesta",
 	"ores-rcfilters-damaging-whats-this-body": "Nämä ennusteet on tehty koneoppimiseen perustuvalla ohjelmistolla, jota on opetettu suurella määrällä ihmisten pisteyttämiä muokkauksia. Tiukemmat suodattimet löytävät vähemmän vääriä osumia, mutta useampi virheellinen muokkaus pääsee ohi suodattimesta. Vähemmän tarkat suodattimet löytävät useammin kohteen, mutta niissä on enemmän virheellisiä osumia.",
 	"ores-rcfilters-damaging-conflicts-logactions": "Muokkauksen laatuennusteet eivät ole käytössä kaikentyyppisille muutoksille ja siksi tämä suodatin on ristiriidassa seuraavien muokkaustyyppivalintojen kanssa: {{PLURAL:$2|suodatin|suodattimet}}: $1",
 	"ores-rcfilters-damaging-likelygood-label": "Hyvin todennäköisesti hyvä muokkaus",
