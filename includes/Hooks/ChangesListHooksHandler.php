@@ -165,7 +165,7 @@ class ChangesListHooksHandler {
 							// Filter out incompatible types; log actions and external rows are not scorable
 							$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
 							// Filter out patrolled edits: the 'r' doesn't appear for them
-							$conds['rc_patrolled'] = 0;
+							$conds['rc_patrolled'] = RecentChange::PRC_UNPATROLLED;
 							// Make the joins INNER JOINs instead of LEFT JOINs
 							$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
 							$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
