@@ -1,16 +1,30 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tgr"
+			"Tgr",
+			"Bencemac"
 		]
 	},
 	"ores-desc": "Gépi lapváltozat-pontszámok megjelenítése a felhasználói felületen",
-	"ores-damaging-filter": "jó szerkesztések $1",
+	"ores-damaging-filter": "Valószínűleg jó szerkesztések $1",
 	"ores-damaging-letter": "r",
 	"ores-damaging-title": "Ez a szerkesztés felülvizsgálatot igényel",
-	"ores-damaging-legend": "Ez a szerkesztés ártalmas lehet, és felülvizsgálatot igényel",
+	"ores-damaging-legend": "Ez a szerkesztés problémás lehet, ezért ellenőrzést igényel ([[:mw:Special:MyLanguage/ORES review tool|további információ]])",
+	"ores-hide-nondamaging-filter": "Valószínűleg jó szerkesztések elrejtése",
 	"ores-pref-damaging": "ORES érzékenység",
+	"ores-damaging-maybebad": "Problémák lehetnek (legtöbb problémás szerkesztés jelölése számos téves találattal)",
+	"ores-damaging-likelybad": "Valószínűleg problémák lehetnek (közepes valószínűség)",
+	"ores-damaging-verylikelybad": "Szinte biztosan problémák vannak (kevés téves találat, kis hányadnyi jelölt problémás szerkesztés)",
 	"ores-help-damaging-pref": "Küszöbérték, ami meghatározza, hogy az ORES mennyire aggresszíven jelöljön szerkesztéseket felülviszgálatra szorulónak",
+	"ores-rcfilters-whats-this-link-text": "Tudj meg többet",
+	"ores-rcfilters-damaging-likelygood-label": "Szinte biztosan jó",
+	"ores-rcfilters-damaging-maybebad-label": "Problémák lehetnek",
+	"ores-rcfilters-damaging-likelybad-label": "Valószínűleg problémák vannak",
+	"ores-rcfilters-damaging-verylikelybad-label": "Szinte biztosan problémák vannak",
+	"ores-rcfilters-goodfaith-good-label": "Szinte biztosan jóhiszemű",
+	"ores-rcfilters-goodfaith-maybebad-label": "Rosszhiszemű lehet",
+	"ores-rcfilters-goodfaith-bad-label": "Valószínűleg rosszhiszemű",
+	"ores-rcfilters-goodfaith-verylikelybad-label": "Szinte biztosan rosszhiszemű",
 	"ores-pref-rc-hidenondamaging": "Jó szerkesztések elrejtése a friss változtatásokból",
 	"ores-pref-watchlist-hidenondamaging": "Jó szerkesztések elrejtése a figyelőlistáról"
 }
