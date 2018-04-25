@@ -54,6 +54,7 @@
 	"prefs-ores-wl": "דירוג גרסאות ברשימת המעקב",
 	"prefs-ores-rc": "דירוג גרסאות בשינויים אחרונים, שינויים קשורים, ותרומות",
 	"apihelp-query+ores-description": "החזרת הגדרות ORES ונתוני דגם עבור הוויקי הזה.",
+	"apihelp-query+ores-summary": "החזרת הגדרות ORES ונתוני דגם עבור אתר הוויקי הזה.",
 	"apihelp-query+ores-example-simple": "אחזור נתוני ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "דירוגי ORES עבור הגרסה הזאת.",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "דירוגי ORES עבור הגרסה.",
