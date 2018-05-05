@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Strainu",
-			"Andrei Stroe"
+			"Andrei Stroe",
+			"XXN"
 		]
 	},
 	"ores-desc": "Expune în interfață scorurile automate ale modificărilor",
@@ -26,6 +27,7 @@
 	"ores-rcfilters-damaging-maybebad-label": "Poate avea probleme",
 	"ores-rcfilters-damaging-maybebad-desc": "Găsește majoritatea editărilor cu probleme sau distructive dar cu precizie mai slabă.",
 	"ores-rcfilters-damaging-likelybad-label": "Probabil cu probleme",
+	"ores-rcfilters-damaging-likelybad-desc-low": "Găsește cu o precizie medie o fracțiune intermediară de modificări problematice.",
 	"ores-rcfilters-damaging-likelybad-desc-high": "Cu acuratețe mare, găsește cele mai multe editări cu probleme.",
 	"ores-rcfilters-damaging-verylikelybad-label": "Foarte probabil cu probleme",
 	"ores-rcfilters-damaging-verylikelybad-desc": "Foarte precis în a găsi cele mai evidente editări distructive sau greșite.",
