@@ -21,6 +21,7 @@ use MWHttpRequest;
 use Psr\Log\LoggerInterface;
 use RequestContext;
 use RuntimeException;
+use Status;
 use WebRequest;
 
 /**
@@ -91,7 +92,7 @@ class ORESService {
 		$status = $req->execute();
 		if ( !$status->isOK() ) {
 			throw new RuntimeException( "Failed to make ORES request to [{$url}], "
-				. $status->getMessage()->text() );
+				. Status::wrap( $status )->getMessage()->text() );
 		}
 		$json = $req->getContent();
 		$this->logger->debug( "Raw response: {$json}" );
