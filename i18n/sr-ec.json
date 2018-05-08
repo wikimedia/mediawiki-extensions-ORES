@@ -13,7 +13,7 @@
 	"ores-damaging-filter": "$1 вероватно добре измене",
 	"ores-damaging-letter": "ш",
 	"ores-damaging-title": "Ову измену је потребно прегледати",
-	"ores-damaging-legend": "Ова измена је можда проблематична и требало би је прегледати ([[:mw:Special:MyLanguage/ORES review tool|више информација]])",
+	"ores-damaging-legend": "Потенцијално проблематична измена ([[:mw:Special:MyLanguage/ORES review tool|више информација]])",
 	"ores-hide-nondamaging-filter": "Сакриј вероватно добре измене",
 	"ores-pref-damaging": "Праг предвиђања",
 	"ores-pref-damaging-flag": "Означи потенцијално проблематичне измене бојама и са „{{int:ores-damaging-letter}}” за „потребан преглед”",
