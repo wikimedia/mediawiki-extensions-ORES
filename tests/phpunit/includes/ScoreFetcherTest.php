@@ -27,7 +27,7 @@ class ScoreFetcherTest extends \MediaWikiTestCase {
 		$mockOresService = MockOresServiceBuilder::getORESServiceMock( $this );
 		$this->setService( 'ORESService', $mockOresService );
 		$this->setMwGlobals( [
-			'wgOresModels' => [ 'damaging' => true ],
+			'wgOresModels' => [ 'damaging' => [ 'enabled' => true ] ],
 		] );
 		$this->tablesUsed[] = 'ores_model';
 	}

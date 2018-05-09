@@ -32,7 +32,7 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 		\wfGetDB( DB_MASTER )->delete( 'recentchanges', '*', __METHOD__ );
 
 		$this->setMwGlobals( [
-			'wgOresModels' => [ 'damaging' => true ],
+			'wgOresModels' => [ 'damaging' => [ 'enabled' => true ] ],
 			'wgOresWikiId' => 'wiki',
 			'wgOresExcludeBots' => true,
 		] );

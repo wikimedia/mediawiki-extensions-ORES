@@ -40,7 +40,9 @@ class ScoreFetcher implements ServiceScoreLookup {
 	) {
 		if ( !$models ) {
 			global $wgOresModels;
-			$models = array_keys( array_filter( $wgOresModels ) );
+			$models = array_keys( array_filter( $wgOresModels, function ( $model ) {
+				return $model['enabled'];
+			} ) );
 		}
 
 		$params = [
