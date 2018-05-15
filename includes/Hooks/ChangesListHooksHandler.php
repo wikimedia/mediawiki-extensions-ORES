@@ -454,14 +454,14 @@ class ChangesListHooksHandler {
 	 * Hook for formatting recent changes links
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/OldChangesListRecentChangesLine
 	 *
-	 * @param ChangesList &$changesList
+	 * @param ChangesList $changesList
 	 * @param string &$s
 	 * @param RecentChange $rc
 	 * @param string[] &$classes
 	 * @return bool|void
 	 */
 	public static function onOldChangesListRecentChangesLine(
-		ChangesList &$changesList,
+		ChangesList $changesList,
 		&$s,
 		RecentChange $rc,
 		array &$classes = []

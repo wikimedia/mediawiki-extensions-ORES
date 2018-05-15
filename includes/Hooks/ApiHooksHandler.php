@@ -55,11 +55,11 @@ class ApiHooksHandler {
 	 * The actual implementations of these new parameters are handled by the
 	 * various hook functions below and by \ORES\WatchedItemQueryServiceExtension.
 	 *
-	 * @param ApiBase &$module Module
+	 * @param ApiBase $module Module
 	 * @param array &$params Parameter data
 	 * @param int $flags zero or OR-ed flags like ApiBase::GET_VALUES_FOR_HELP
 	 */
-	public static function onAPIGetAllowedParams( ApiBase &$module, array &$params, $flags ) {
+	public static function onAPIGetAllowedParams( ApiBase $module, array &$params, $flags ) {
 		if ( $module instanceof ApiQueryRevisions ||
 			$module instanceof ApiQueryAllRevisions ||
 			$module instanceof ApiQueryRecentChanges ||
@@ -467,7 +467,8 @@ class ApiHooksHandler {
 	 * @param WatchedItemQueryService $queryService
 	 */
 	public static function onWatchedItemQueryServiceExtensions(
-		&$extensions, WatchedItemQueryService $queryService
+		array &$extensions,
+		WatchedItemQueryService $queryService
 	) {
 		$extensions[] = new WatchedItemQueryServiceExtension();
 	}
