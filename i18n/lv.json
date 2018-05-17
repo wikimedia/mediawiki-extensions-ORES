@@ -5,6 +5,8 @@
 		]
 	},
 	"ores-damaging-title": "Šim labojumam nepieciešama pārskatīšana",
+	"ores-hide-nondamaging-filter": "Paslēpt visticamāk derīgus labojumus",
 	"ores-pref-damaging": "Prognozes slieksnis",
-	"ores-rcfilters-whats-this-link-text": "Uzzināt vairāk"
+	"ores-rcfilters-whats-this-link-text": "Uzzināt vairāk",
+	"ores-pref-rc-hidenondamaging": "Rādīt tikai visticamāk problemātiskus labojumus (un paslēpt visticamāk derīgus labojumus)"
 }

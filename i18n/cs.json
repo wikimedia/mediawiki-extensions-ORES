@@ -17,7 +17,7 @@
 	"ores-damaging-maybebad": "Může mít problémy (označí většinu problematických editací, ale včetně mnoha falešných pozitiv)",
 	"ores-damaging-likelybad": "Pravděpodobně má problémy (střední pravděpodobnost)",
 	"ores-damaging-verylikelybad": "Velmi pravděpodobně má problémy (označí málo falešných pozitiv, ale najde menší % problematických editací)",
-	"ores-help-damaging-pref": "Nastavuje citlivost možností „Zvýrazňovat pravděpodobně problematické editace...“ a „Zobrazovat pouze pravděpodobně problematické editace...“ v posledních změnách a sledovaných stránkách.",
+	"ores-help-damaging-pref": "Změnou nastavení možnosti „práh predikce“ způsobíte, že níže uvedené možnosti budou více nebo méně citlivé.",
 	"ores-rcfilters-whats-this-link-text": "Další informace",
 	"ores-rcfilters-ores-conflicts-logactions-global": "Filtr „{{int:rcfilters-filter-logactions-label}}“ je v konfliktu s jedním nebo více filtry podle kvality příspěvků nebo úmyslu uživatele. Odhad kvality nebo úmyslu není dostupný pro zaznamenané činnosti. Dotyčné filtry jsou označeny nahoře, v prostoru „Aktivní filtry“.",
 	"ores-rcfilters-logactions-conflicts-ores": "Tento filtr je v konfliktu s jedním nebo více filtry podle kvality příspěvků nebo úmyslu uživatele. Odhad kvality nebo úmyslu není dostupný pro zaznamenané činnosti.",
@@ -50,5 +50,6 @@
 	"ores-pref-highlight": "Zvýrazňovat pravděpodobně problematické editace pomocí barev a „{{int:ores-damaging-letter}}“ jako „problematické“",
 	"ores-pref-rc-hidenondamaging": "Zobrazovat pouze pravděpodobně problematické editace (a skrýt pravděpodobně dobré editace)",
 	"ores-pref-watchlist-hidenondamaging": "Zobrazovat pouze pravděpodobně problematické editace (a skrýt pravděpodobně dobré editace)",
-	"prefs-ores-wl": "Skórování revizí na seznamu sledovaných stránek"
+	"prefs-ores-wl": "Skórování revizí na seznamu sledovaných stránek",
+	"prefs-ores-rc": "Skórování revizí v posledních změnách, souvisejících změnách a příspěvcích uživatele"
 }

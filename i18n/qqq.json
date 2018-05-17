@@ -6,7 +6,8 @@
 			"Umherirrender",
 			"Amire80",
 			"Liuxinyu970226",
-			"Wladek92"
+			"Wladek92",
+			"Mormegil"
 		]
 	},
 	"ores-desc": "{{desc|name=ORES|url=https://www.mediawiki.org/wiki/Extension:ORES}}",
@@ -20,7 +21,7 @@
 	"ores-damaging-maybebad": "Name of \"maybe bad\" threshold.",
 	"ores-damaging-likelybad": "Name of \"likely bad\" threshold.",
 	"ores-damaging-verylikelybad": "Name of \"very likely bad\" threshold.",
-	"ores-help-damaging-pref": "Help text for \"ORES sensitivity\" in preferences.\n* \"Highlight likely problem edits\" refers to {{msg-mw|Ores-pref-highlight}}.\n* \"Show only likely problem edits\" refers to {{msg-mw|ores-pref-rc-hidenondamaging}} and {{msg-mw|ores-pref-watchlist-hidenondamaging}}.",
+	"ores-help-damaging-pref": "Help text for \"{{msg-mw|prefs-ores-rc}}\" in preferences. “threshold” refers to {{msg-mw|ores-pref-damaging}}. The “options below” are\n* {{msg-mw|ores-pref-damaging-flag}}\n* {{msg-mw|ores-pref-rc-hidenondamaging}}",
 	"ores-rcfilters-whats-this-link-text": "Text of a link to more information about either Contribution Quality Predictions or User Intent Predictions\n{{Identical|Learn more}}",
 	"ores-rcfilters-ores-conflicts-logactions-global": "Message shown in the result area when both an ORES filter and the 'Logged actions' filter are selected.  This indicates that no results will be shown because log actions are never scored by ORES.\n\n* \"Contribution quality\" is based on {{msg-mw|Ores-rcfilters-damaging-title}}.\n* \"User intent\" is based on {{msg-mw|Ores-rcfilters-goodfaith-title}}.\n* \"Active Filters\" is based on {{msg-mw|rcfilters-activefilters}}.",
 	"ores-rcfilters-logactions-conflicts-ores": "Tooltip shown when hovering over a Logged actions filter tag, when an ORES filter is also selected.\n\n* \"Logged actions\" is {{msg-mw|rcfilters-filter-logactions-label}}.\n* \"Contribution quality\" is based on {{msg-mw|Ores-rcfilters-damaging-title}}.\n* \"User intent\" is based on {{msg-mw|Ores-rcfilters-goodfaith-title}}.",
