@@ -11,7 +11,7 @@
 	"ores-damaging-title": "Ez a szerkesztés felülvizsgálatot igényel",
 	"ores-damaging-legend": "Ez a szerkesztés problémás lehet, ezért ellenőrzést igényel ([[:mw:Special:MyLanguage/ORES review tool|további információ]])",
 	"ores-hide-nondamaging-filter": "Valószínűleg jó szerkesztések elrejtése",
-	"ores-pref-damaging": "ORES érzékenység",
+	"ores-pref-damaging": "Döntési küszöb",
 	"ores-damaging-maybebad": "Problémák lehetnek (legtöbb problémás szerkesztés jelölése számos téves találattal)",
 	"ores-damaging-likelybad": "Valószínűleg problémák lehetnek (közepes valószínűség)",
 	"ores-damaging-verylikelybad": "Szinte biztosan problémák vannak (kevés téves találat, kis hányadnyi jelölt problémás szerkesztés)",

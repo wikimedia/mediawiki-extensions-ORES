@@ -4,5 +4,32 @@
 			"Srdjan m"
 		]
 	},
-	"ores-damaging-legend": "Izmjena je možda problematična i treba je pregledati ([[:mw:Special:MyLanguage/ORES review tool|detaljnije]])"
+	"ores-damaging-letter": "p",
+	"ores-damaging-legend": "Izmjena je možda problematična i treba je pregledati ([[:mw:Special:MyLanguage/ORES review tool|detaljnije]])",
+	"ores-pref-damaging": "Prag predviđanja",
+	"ores-pref-damaging-flag": "Istakni vjerovatno problematične izmjene bojama i slovom \"{{int:ores-damaging-letter}}\" koje označava da je \"potrebna provjera\"",
+	"ores-damaging-maybebad": "Možda problematično (označava većinu problematičnih izmjena, ali uključuje mnogo pogrešnih pogodaka)",
+	"ores-damaging-likelybad": "Vjerovatno problematično (srednja vjerovatnoća)",
+	"ores-damaging-verylikelybad": "Vrlo vjerovatno problematično (uključuje malo pogrešnih pogodaka, ali pronalazi manji postotak problematičnih izmjena)",
+	"ores-help-damaging-pref": "Promijenite \"prag\" da mogućnosti ispod budu šire ili selektivnije.",
+	"ores-rcfilters-damaging-title": "Predviđanje kvaliteta doprinosa",
+	"ores-rcfilters-damaging-likelygood-label": "Vrlo vjerovatno dobro",
+	"ores-rcfilters-damaging-likelygood-desc": "Veoma precizan u pronalaženju gotovo svih neproblematičnih izmjena.",
+	"ores-rcfilters-damaging-maybebad-label": "Možda problematično",
+	"ores-rcfilters-damaging-maybebad-desc": "Pronalazi većinu manjkavih ili štetnih izmjena, ali s manjom tačnosti.",
+	"ores-rcfilters-damaging-likelybad-label": "Vjerovatno problematično",
+	"ores-rcfilters-damaging-likelybad-desc-low": "Sa srednjom tačnosti pronalazi srednji udio problematičnih izmjena.",
+	"ores-rcfilters-damaging-verylikelybad-label": "Vrlo vjerovatno problematično",
+	"ores-rcfilters-damaging-verylikelybad-desc": "Iznimno tačan u pronalaženju najočitije manjkavih ili štetnih izmjena.",
+	"ores-rcfilters-goodfaith-title": "Predviđanje namjera korisnika",
+	"ores-rcfilters-goodfaith-good-label": "Vrlo vjerovatno dobronamjerno",
+	"ores-rcfilters-goodfaith-good-desc": "Veoma tačan u pronalaženju gotovo svih dobronamjernih izmjena.",
+	"ores-rcfilters-goodfaith-maybebad-label": "Možda zlonamjerno",
+	"ores-rcfilters-goodfaith-maybebad-desc": "Pronalazi većinu zlonamjernih izmjena, ali s manjom tačnosti.",
+	"ores-rcfilters-goodfaith-bad-label": "Vjerovatno zlonamjerno",
+	"ores-rcfilters-goodfaith-bad-desc-low": "Sa srednjom tačnosti pronalazi srednji udio zlonamjernih izmjena.",
+	"ores-rcfilters-goodfaith-verylikelybad-label": "Vrlo vjerovatno zlonamjerno",
+	"ores-rcfilters-goodfaith-verylikelybad-desc": "Iznimno tačan u pronalaženju najočitije zlonamjernih izmjena.",
+	"ores-pref-rc-hidenondamaging": "Prikaži samo vjerovatno problematične izmjene (i sakrij vjerovatno dobre)",
+	"prefs-ores-rc": "Ocjena izmjena na nedavnim i srodnim izmjenama te doprinosima"
 }
