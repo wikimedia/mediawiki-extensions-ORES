@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "44ce97c9_ce376bc7",
+        "filename": "includes/SpecialORESModels.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 366
+      },
+      "writtenOn": "2018-05-19T17:16:10Z",
+      "side": 1,
+      "message": "Indeed. No new global calls, tsk.",
+      "parentUuid": "3951474d_071a0b85",
+      "revId": "8ed0cbf001e5a52b5cf8dd43b69acc7b7ce2688d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae92a14a_d4b4f48b",
         "filename": "includes/SpecialORESModels.php",
         "patchSetId": 5
@@ -47,6 +65,24 @@
       "writtenOn": "2018-05-19T17:14:25Z",
       "side": 1,
       "message": "We could use Mustache instead...",
+      "revId": "8ed0cbf001e5a52b5cf8dd43b69acc7b7ce2688d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4764b8b6_e09fd5ce",
+        "filename": "includes/SpecialORESModels.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 366
+      },
+      "writtenOn": "2018-05-19T17:16:10Z",
+      "side": 1,
+      "message": "Please please please do not.",
+      "parentUuid": "f6da9d51_7f0ccaa3",
       "revId": "8ed0cbf001e5a52b5cf8dd43b69acc7b7ce2688d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
