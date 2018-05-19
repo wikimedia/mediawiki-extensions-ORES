@@ -111,6 +111,13 @@
 				"desktop",
 				"mobile"
 			]
+		},
+		"ext.ores.specialoresmodels.styles": {
+			"styles": "ext.ores.specialoresmodels.less",
+			"targets": [
+				"desktop",
+				"mobile"
+			]
 		}
 	},
 	"MessagesDirs": {
@@ -245,6 +252,12 @@
 		"oresHighlight": false,
 		"oresRCHideNonDamaging": false,
 		"oresWatchlistHideNonDamaging": false
+	},
+	"SpecialPages": {
+		"ORESModels": "ORES\\SpecialORESModels::newFromGlobalState"
+	},
+	"ExtensionMessagesFiles": {
+		"ORESAlias": "ORES.alias.php"
 	},
 	"manifest_version": 2
 }

@@ -1,0 +1,24 @@
+{{#models}}
+    <h2>{{title}}</h2>
+    <table class="wikitable" id="mw-specialoresmodels-{{model}}">
+        <thead>
+            <tr>
+                <th>{{header-filter}}</th>
+                <th>{{header-precision}}</th>
+                <th>{{header-recall}}</th>
+                <th colspan=2>{{header-thresholdrange}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#filters}}
+                <tr class="mw-specialoresmodels-row-{{name}}">
+                    <th>{{label}}</th>
+                    <td>{{precision}}</td>
+                    <td>{{recall}}</td>
+                    <td>{{threshold-min}}</td>
+                    <td>{{threshold-max}}</td>
+                </tr>
+            {{/filters}}
+        </tbody>
+    </table>
+{{/models}}
