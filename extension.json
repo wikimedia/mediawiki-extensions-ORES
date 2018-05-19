@@ -191,7 +191,7 @@
 				},
 				"goodfaith": {
 					"likelygood": { "min": "maximum recall @ precision >= 0.995", "max": 1 },
-					"maybebad": { "min": 0, "max": "maximum filter @ recall >= 0.9" },
+					"maybebad": { "min": 0, "max": "maximum filter_rate @ recall >= 0.9" },
 					"likelybad": { "min": 0, "max": "maximum recall @ precision >= 0.6" },
 					"verylikelybad": false
 				}
