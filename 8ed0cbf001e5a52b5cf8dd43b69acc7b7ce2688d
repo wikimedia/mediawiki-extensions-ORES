@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3951474d_071a0b85",
+        "filename": "includes/SpecialORESModels.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-05-19T17:14:25Z",
+      "side": 1,
+      "message": "$this-\u003egetConfig ?",
+      "revId": "8ed0cbf001e5a52b5cf8dd43b69acc7b7ce2688d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae92a14a_d4b4f48b",
+        "filename": "includes/SpecialORESModels.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-05-19T17:14:25Z",
+      "side": 1,
+      "message": "You know better than I, but it looks like a parent::execute call would take care of this preamble.",
+      "revId": "8ed0cbf001e5a52b5cf8dd43b69acc7b7ce2688d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6da9d51_7f0ccaa3",
+        "filename": "includes/SpecialORESModels.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-05-19T17:14:25Z",
+      "side": 1,
+      "message": "We could use Mustache instead...",
+      "revId": "8ed0cbf001e5a52b5cf8dd43b69acc7b7ce2688d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c7e4a4d_7d360cb8",
+        "filename": "includes/SpecialORESModels.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-05-19T17:14:25Z",
+      "side": 1,
+      "message": "Should we be surfacing whether these are positives or negatives?  For example, the default damaging#likelygood threshold is a \"max\", so 99.5% precision means that we are only including 0.5% false positives, i.e. damaging edits.  For the default damaging#verylikelybad threshold of 90% precision, we\u0027re including 10% false positives, in this case non-damaging edits.\n\nIt\u0027s interesting that the filter labels already make an assumption about outcome polarity, which is a larger problem, not the fault of this patch.",
+      "revId": "8ed0cbf001e5a52b5cf8dd43b69acc7b7ce2688d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
