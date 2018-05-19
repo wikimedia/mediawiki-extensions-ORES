@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "2a5d0874_f828158c",
+        "filename": "includes/SpecialORESModels.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-05-19T17:21:44Z",
+      "side": 1,
+      "message": "Happy to defer here, but I\u0027m wondering why not?  It would let us render something better than a table, optimize for mobile and so on...",
+      "parentUuid": "4764b8b6_e09fd5ce",
+      "revId": "8ed0cbf001e5a52b5cf8dd43b69acc7b7ce2688d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c7e4a4d_7d360cb8",
         "filename": "includes/SpecialORESModels.php",
         "patchSetId": 5
