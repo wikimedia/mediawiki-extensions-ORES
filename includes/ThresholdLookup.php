@@ -78,13 +78,18 @@ class ThresholdLookup {
 		$this->statsdDataFactory = $statsdDataFactory;
 	}
 
-	public function getThresholds( $model, $fromCache = true ) {
+	public function getRawThresholdData( $model, $fromCache = true ) {
 		$config = $this->thresholdParser->getFiltersConfig( $model );
 		if ( $config ) {
-			$stats = $this->fetchThresholds( $model, $fromCache );
-			if ( $stats !== false ) {
-				return $this->thresholdParser->parseThresholds( $stats, $model );
-			}
+			return $this->fetchThresholds( $model, $fromCache );
+		}
+		return false;
+	}
+
+	public function getThresholds( $model, $fromCache = true ) {
+		$stats = $this->getRawThresholdData( $model, $fromCache );
+		if ( $stats !== false ) {
+			return $this->thresholdParser->parseThresholds( $stats, $model );
 		}
 		return [];
 	}
