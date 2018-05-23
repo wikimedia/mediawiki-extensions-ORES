@@ -31,9 +31,16 @@ class ScoreParser {
 
 	private $modelClasses;
 
-	public function __construct( ModelLookup $modelLookup, array $modelClasses ) {
+	private $aggregatedModels;
+
+	public function __construct(
+		ModelLookup $modelLookup,
+		array $modelClasses,
+		array $aggregatedModels = []
+	) {
 		$this->modelLookup = $modelLookup;
 		$this->modelClasses = $modelClasses;
+		$this->aggregatedModels = $aggregatedModels;
 	}
 
 	/**
@@ -80,9 +87,11 @@ class ScoreParser {
 		}
 
 		$modelId = $this->modelLookup->getModelId( $model );
+
 		if ( !isset( $this->modelClasses[$model] ) ) {
 			throw new InvalidArgumentException( "Model $model is not configured" );
 		}
+		$weightedSum = 0;
 		foreach ( $modelOutputs['score']['probability'] as $class => $probability ) {
 			$ores_is_predicted = $prediction === $class;
 			if ( !isset( $this->modelClasses[$model][$class] ) ) {
@@ -100,6 +109,19 @@ class ScoreParser {
 				'oresc_class' => $class,
 				'oresc_probability' => $probability,
 				'oresc_is_predicted' => ( $ores_is_predicted ),
+			];
+			$weightedSum += ( $probability * $class );
+		}
+
+		if ( in_array( $model, $this->aggregatedModels ) ) {
+			return [
+				[
+					'oresc_rev' => $revision,
+					'oresc_model' => $modelId,
+					'oresc_class' => 0,
+					'oresc_probability' => $weightedSum / count( $this->modelClasses[$model] ),
+					'oresc_is_predicted' => false,
+				]
 			];
 		}
 
