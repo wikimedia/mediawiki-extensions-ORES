@@ -21,10 +21,10 @@ namespace ORES\Hooks;
 use ApiBase;
 use ApiQueryAllRevisions;
 use ApiQueryBase;
-use ApiQueryContributions;
 use ApiQueryGeneratorBase;
 use ApiQueryRecentChanges;
 use ApiQueryRevisions;
+use ApiQueryUserContribs;
 use ApiQueryWatchlist;
 use ApiResult;
 use DeferredUpdates;
@@ -48,9 +48,9 @@ class ApiHooksHandler {
 	 * Inject parameters into certain API modules
 	 *
 	 * - Adds an 'oresscores' prop to ApiQueryRevisions, ApiQueryAllRevisions,
-	 *   ApiQueryRecentChanges, ApiQueryWatchlist, and ApiQueryContributions
+	 *   ApiQueryRecentChanges, ApiQueryWatchlist, and ApiQueryUserContribs
 	 * - Adds 'oresreview' and '!oresreview' to the 'show' parameters of
-	 *   ApiQueryRecentChanges, ApiQueryWatchlist, and ApiQueryContributions.
+	 *   ApiQueryRecentChanges, ApiQueryWatchlist, and ApiQueryUserContribs.
 	 *
 	 * The actual implementations of these new parameters are handled by the
 	 * various hook functions below and by \ORES\WatchedItemQueryServiceExtension.
@@ -64,7 +64,7 @@ class ApiHooksHandler {
 			$module instanceof ApiQueryAllRevisions ||
 			$module instanceof ApiQueryRecentChanges ||
 			$module instanceof ApiQueryWatchlist ||
-			$module instanceof ApiQueryContributions
+			$module instanceof ApiQueryUserContribs
 		) {
 			$params['prop'][ApiBase::PARAM_TYPE][] = 'oresscores';
 		}
@@ -72,7 +72,7 @@ class ApiHooksHandler {
 		if ( Helpers::isModelEnabled( 'damaging' ) && (
 			$module instanceof ApiQueryRecentChanges ||
 			$module instanceof ApiQueryWatchlist ||
-			$module instanceof ApiQueryContributions
+			$module instanceof ApiQueryUserContribs
 		) ) {
 			$params['show'][ApiBase::PARAM_TYPE][] = 'oresreview';
 			$params['show'][ApiBase::PARAM_TYPE][] = '!oresreview';
@@ -85,7 +85,7 @@ class ApiHooksHandler {
 	 *
 	 * This mainly adds the joins and conditions necessary to implement the
 	 * 'oresreview' and '!oresreview' values added to the 'show' parameters of
-	 * ApiQueryRecentChanges and ApiQueryContributions.
+	 * ApiQueryRecentChanges and ApiQueryUserContribs.
 	 *
 	 * It also ensures that the query from ApiQueryRecentChanges includes the
 	 * fields necessary to process rcprop=oresscores.
@@ -117,7 +117,7 @@ class ApiHooksHandler {
 					$fields[] = 'rc_type';
 				}
 			}
-		} elseif ( $module instanceof ApiQueryContributions ) {
+		} elseif ( $module instanceof ApiQueryUserContribs ) {
 			$field = 'rev_id';
 		} else {
 			return;
@@ -174,7 +174,7 @@ class ApiHooksHandler {
 	 *
 	 * This fetches the data necessary to handle the 'oresscores' prop added to
 	 * ApiQueryRevisions, ApiQueryAllRevisions, ApiQueryRecentChanges, and
-	 * ApiQueryContributions, to avoid having to make up to 5000 fetches to do
+	 * ApiQueryUserContribs, to avoid having to make up to 5000 fetches to do
 	 * it individually per row.
 	 *
 	 * The list of revids is extracted from $res and scores are fetched using
@@ -209,7 +209,7 @@ class ApiHooksHandler {
 
 		if ( $module instanceof ApiQueryRevisions ||
 			$module instanceof ApiQueryAllRevisions ||
-			$module instanceof ApiQueryContributions
+			$module instanceof ApiQueryUserContribs
 		) {
 			$field = 'rev_id';
 			$checkRCType = false;
