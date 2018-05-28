@@ -10,6 +10,7 @@
 	"ores-rcfilters-whats-this-link-text": "Lær meir",
 	"ores-rcfilters-damaging-title": "Utrekning av kvalitetssannsyn",
 	"ores-rcfilters-damaging-whats-this-header": "Om utrekning av kvalitetssannsyn",
+	"ores-rcfilters-goodfaith-title": "Utrekning av intensjonssannsyn",
 	"apihelp-query+ores-example-simple": "Hent ORES-data:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-skår for versjonen.",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES-skår for versjonen."

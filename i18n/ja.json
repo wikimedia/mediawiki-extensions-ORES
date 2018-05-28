@@ -8,7 +8,8 @@
 			"Delim"
 		]
 	},
-	"ores-damaging-filter": "良質だと推測される編集を$1",
+	"ores-desc": "自動化された更新スコアをインタフェース内で表示する",
+	"ores-damaging-filter": "良質だと推測される編集$1件",
 	"ores-damaging-letter": "疑",
 	"ores-damaging-title": "この編集は査読を必要としてます",
 	"ores-damaging-legend": "この編集には問題があるかもしれず、確認が必要です ([[:mw:Special:MyLanguage/ORES review tool|詳細]])",
