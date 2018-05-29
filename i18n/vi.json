@@ -11,11 +11,11 @@
 	"ores-damaging-legend": "Sửa đổi này có thể có vấn đề và cần được xem lại ([[:mw:Special:MyLanguage/ORES review tool|thêm thông tin]])",
 	"ores-hide-nondamaging-filter": "Ẩn các sửa đổi có lẽ tốt",
 	"ores-pref-damaging": "Ngưỡng dự đoán",
-	"ores-pref-damaging-flag": "Tô màu các sửa đổi có lẽ có vấn đề và đánh dấu “{{int:ores-damaging-letter}}” có nghĩa “cần được xem lại” (để đặt mức độ đánh dấu sửa đổi, sử dụng tùy chọn “{{int:ores-pref-damaging}}” trong tùy chọn Danh sách theo dõi)",
+	"ores-pref-damaging-flag": "Tô màu các sửa đổi có lẽ có vấn đề và đánh dấu “{{int:ores-damaging-letter}}” có nghĩa “cần được xem lại”",
 	"ores-damaging-maybebad": "Có thể có vấn đề (đánh dấu phần nhiều sửa đổi có vấn đề nhưng cũng bao gồm nhiều kết quả dương tính giả)",
 	"ores-damaging-likelybad": "Có lẽ có vấn đề (xác xuất trung bình)",
 	"ores-damaging-verylikelybad": "Chắc chắn có vấn đề (đánh dấu ít kết quả dương tính giả nhưng kiếm % thấp hơn trong số sửa đổi có vấn đề)",
-	"ores-help-damaging-pref": "Đặt độ nhạy của các tùy chọn “Tô màu các sửa đổi có lẽ có vấn đề…” và “Chỉ các sửa đổi có lẽ có vấn đề…” trên các trang Thay đổi gần đây và Danh sách theo dõi.",
+	"ores-help-damaging-pref": "Thay đổi tùy chọn “độ nhạy” để mở rộng hoặc thu gọn các tùy chọn bên dưới.",
 	"ores-rcfilters-whats-this-link-text": "Tìm hiểu thêm",
 	"ores-rcfilters-damaging-title": "Dự đoán chất lượng đóng góp",
 	"ores-rcfilters-damaging-whats-this-header": "Giới thiệu về dự đoán chất lượng đóng góp",
@@ -32,5 +32,6 @@
 	"ores-pref-highlight": "Tô màu các sửa đổi có lẽ có vấn đề và đánh dấu “{{int:ores-damaging-letter}}” có nghĩa “cần đuợc xem lại”",
 	"ores-pref-rc-hidenondamaging": "Chỉ các sửa đổi có lẽ có vấn đề (và ẩn các sửa đổi có lẽ tốt)",
 	"ores-pref-watchlist-hidenondamaging": "Chỉ các sửa đổi có lẽ có vấn đề (và ẩn các sửa đổi có lẽ tốt)",
+	"prefs-ores-wl": "Đánh dấu phiên bản trong danh sách theo dõi",
 	"ores-api-show-note": "Khi sử dụng <kbd>oresreview</kbd> hoặc <kbd>!oresreview</kbd>, các phiên bản không có điểm (ví dụ các phiên bản rất cũ) được xem là không cần xem lại, mặc dù vẫn cần được xem lại nếu được đánh dấu."
 }
