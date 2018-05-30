@@ -2,7 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Tgr",
-			"Bencemac"
+			"Bencemac",
+			"Misibacsi",
+			"Tacsipacsi"
 		]
 	},
 	"ores-desc": "Gépi lapváltozat-pontszámok megjelenítése a felhasználói felületen",
@@ -12,19 +14,32 @@
 	"ores-damaging-legend": "Ez a szerkesztés problémás lehet, ezért ellenőrzést igényel ([[:mw:Special:MyLanguage/ORES review tool|további információ]])",
 	"ores-hide-nondamaging-filter": "Valószínűleg jó szerkesztések elrejtése",
 	"ores-pref-damaging": "Döntési küszöb",
+	"ores-pref-damaging-flag": "A problémásnak tűnő szerkesztések színnel való jelölése, és \"{{int:ores-damaging-letter}}\":  \"ellenőrzést igényel\"",
 	"ores-damaging-maybebad": "Problémák lehetnek (legtöbb problémás szerkesztés jelölése számos téves találattal)",
 	"ores-damaging-likelybad": "Valószínűleg problémák lehetnek (közepes valószínűség)",
 	"ores-damaging-verylikelybad": "Szinte biztosan problémák vannak (kevés téves találat, kis hányadnyi jelölt problémás szerkesztés)",
-	"ores-help-damaging-pref": "Küszöbérték, ami meghatározza, hogy az ORES mennyire aggresszíven jelöljön szerkesztéseket felülviszgálatra szorulónak",
+	"ores-help-damaging-pref": "Küszöbérték, ami meghatározza, hogy az ORES mennyire agresszíven jelöljön szerkesztéseket felülvizsgálatra szorulónak.",
 	"ores-rcfilters-whats-this-link-text": "Tudj meg többet",
+	"ores-rcfilters-damaging-title": "A módosítások minőségének megbecslése",
+	"ores-rcfilters-damaging-whats-this-body": "A becslések gépi tanulások alapulnak, sok szerkesztés betáplálása után, ennek pontosságát ember szerkesztők értékelték. Szigorúbb, pontosabb szűrők kevesebb hamis pozitív eredményt adnak, de több kívánatos célt kihagynak. Kevésbé pontos szűrők több kívánatos célt találnak, de több lesz a hamis pozitív eredmény is.",
 	"ores-rcfilters-damaging-likelygood-label": "Szinte biztosan jó",
 	"ores-rcfilters-damaging-maybebad-label": "Problémák lehetnek",
 	"ores-rcfilters-damaging-likelybad-label": "Valószínűleg problémák vannak",
 	"ores-rcfilters-damaging-verylikelybad-label": "Szinte biztosan problémák vannak",
+	"ores-rcfilters-goodfaith-title": "A szerkesztő szándékának megbecslése",
 	"ores-rcfilters-goodfaith-good-label": "Szinte biztosan jóhiszemű",
 	"ores-rcfilters-goodfaith-maybebad-label": "Rosszhiszemű lehet",
 	"ores-rcfilters-goodfaith-bad-label": "Valószínűleg rosszhiszemű",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Szinte biztosan rosszhiszemű",
-	"ores-pref-rc-hidenondamaging": "Jó szerkesztések elrejtése a friss változtatásokból",
-	"ores-pref-watchlist-hidenondamaging": "Jó szerkesztések elrejtése a figyelőlistáról"
+	"ores-pref-rc-hidenondamaging": "Az inkább problémásnak tűnő szerkesztések mutatása (a jó szerkesztések elrejtése)",
+	"ores-pref-watchlist-hidenondamaging": "Az inkább problémásnak tűnő szerkesztések mutatása (a jónak tűnő szerkesztések elrejtése)",
+	"apihelp-query+ores-description": "ORES-konfiguráció és modelladatok lekérése erre a wikire.",
+	"apihelp-query+ores-summary": "ORES-konfiguráció és modelladatok lekérése erre a wikire.",
+	"apihelp-query+ores-example-simple": "ORES adatok lekérése:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "A változat ORES-pontszámai.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "A változat ORES-pontszámai.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "A szerkesztés ORES-pontszámai.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "A szerkesztés ORES-pontszámai.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "A szerkesztés ORES-pontszámai.",
+	"ores-api-show-note": "Az <kbd>oresreview</kbd> vagy <kbd>!oresreview</kbd> használatakor a pontszámmal nem rendelkező (pl. nagyon régi) változatok ellenőrzést nem igénylőként vannak kezelve, akkor is, ha egyébként ellenőrzendőek lennének, ha lenne pontszámuk."
 }
