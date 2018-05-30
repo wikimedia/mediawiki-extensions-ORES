@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de6d171e_4bbf4d92",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-05-30T12:51:53Z",
+      "side": 1,
+      "message": "Okay, so we throw out processedData in this case...",
+      "revId": "72824431941b4d727e14a6ceaf12479148628b87",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a721a27_4540791d",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-05-30T12:51:53Z",
+      "side": 1,
+      "message": "This is weird, doesn\u0027t class\u003d0 already mean something?  For example, in wp10 it\u0027s \"Stub\".  Won\u0027t this be a breaking change for new RCFilters?",
+      "revId": "72824431941b4d727e14a6ceaf12479148628b87",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
