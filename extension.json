@@ -13,8 +13,11 @@
 	},
 	"AutoloadNamespaces": {
 		"ORES\\": "includes/",
-		"ORES\\Maintenance\\": "maintenance/",
-		"ORES\\Tests\\": "tests/phpunit/includes/"
+		"ORES\\Maintenance\\": "maintenance/"
+	},
+	"AutoloadClasses": {
+		"ORES\\Tests\\MockOresServiceBuilder": "tests/phpunit/includes/MockOresServiceBuilder.php",
+		"ORES\\Tests\\TestHelper": "tests/phpunit/includes/TestHelper.php"
 	},
 	"APIMetaModules": {
 		"ores": "ORES\\ApiQueryORES"
