@@ -95,7 +95,9 @@ class FetchScoreJob extends Job {
 			$scores,
 			function ( $mssg, $revision ) use ( &$success, $logger ) {
 				$logger->warning( "ScoreFetcher errored for $revision: $mssg\n" );
-				$success = false;
+				if ( $mssg !== 'RevisionNotFound' ) {
+					$success = false;
+				}
 			},
 			$this->getCleanupModels()
 		);

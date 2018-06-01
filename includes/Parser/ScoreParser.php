@@ -50,7 +50,7 @@ class ScoreParser {
 		$dbData = [];
 		foreach ( $revisionData as $model => $modelOutputs ) {
 			if ( isset( $modelOutputs['error'] ) ) {
-				throw new InvalidArgumentException( $modelOutputs['error']['message'] );
+				throw new InvalidArgumentException( $modelOutputs['error']['type'] );
 			}
 
 			$dbData = array_merge(

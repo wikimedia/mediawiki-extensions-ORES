@@ -117,6 +117,7 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 					'damaging' => [
 						'error' => [
 							'message' => 'YAY, it failed',
+							'type' => 'YAYError',
 						],
 					],
 					'reverted' => [
