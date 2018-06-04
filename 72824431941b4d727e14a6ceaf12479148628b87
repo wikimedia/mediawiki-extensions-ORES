@@ -69,6 +69,41 @@
       "revId": "72824431941b4d727e14a6ceaf12479148628b87",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe36fba8_67f88704",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-06-04T11:05:22Z",
+      "side": 1,
+      "message": "I looked through existing usages and we explicitly asked for oresc_class\u003d1, so I agree this should be safe.",
+      "parentUuid": "e205d4b2_6ede6415",
+      "revId": "72824431941b4d727e14a6ceaf12479148628b87",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1fa1140_3a797804",
+        "filename": "includes/Parser/ScoreParser.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-06-04T11:05:22Z",
+      "side": 1,
+      "message": "Okay, so to get the predicted class the consumer will have to calculate it by denormalizing the weighted sum, and will have to know the order of classes.  Looks like that\u0027s what was planned in the task, so I won\u0027t raise objections.",
+      "revId": "72824431941b4d727e14a6ceaf12479148628b87",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
