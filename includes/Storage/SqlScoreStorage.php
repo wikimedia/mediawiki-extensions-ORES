@@ -63,8 +63,8 @@ class SqlScoreStorage implements ScoreStorage {
 		callable $errorCallback = null,
 		array $modelsToClean = []
 	) {
-		// TODO: Make it an argument and deprecate the whole config variable
-		global $wgOresModelClasses;
+		// TODO: Make $wgOresModelClasses an argument and deprecate the whole config variable
+		global $wgOresModelClasses, $wgOresAggregatedModels;
 
 		if ( $errorCallback === null ) {
 			$errorCallback = function ( $mssg, $revision ) {
@@ -74,7 +74,11 @@ class SqlScoreStorage implements ScoreStorage {
 
 		$dbData = [];
 
-		$scoreParser = new ScoreParser( $this->modelLookup, $wgOresModelClasses );
+		$scoreParser = new ScoreParser(
+			$this->modelLookup,
+			$wgOresModelClasses,
+			$wgOresAggregatedModels
+		);
 		foreach ( $scores as $revision => $revisionData ) {
 			try {
 				$dbDataPerRevision = $scoreParser->processRevision( $revision, $revisionData );

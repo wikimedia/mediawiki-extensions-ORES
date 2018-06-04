@@ -219,6 +219,10 @@
 		"OresCacheVersion": {
 			"value": 1,
 			"description": "Increment to invalidate the cached thresholds."
+		},
+		"OresAggregatedModels": {
+			"value": ["wp10"],
+			"description": "List of models which will have their predictions aggregated to one row."
 		}
 	},
 	"RecentChangesFlags": {
