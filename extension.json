@@ -169,12 +169,12 @@
 					"true": 1
 				},
 				"wp10": {
-					"B": 0,
-					"C": 1,
-					"FA": 2,
-					"GA": 3,
-					"Start": 4,
-					"Stub": 5
+					"Stub": 0,
+					"Start": 1,
+					"C": 2,
+					"B": 3,
+					"GA": 4,
+					"FA": 5
 				},
 				"draftquality": {
 					"attack": 0,
