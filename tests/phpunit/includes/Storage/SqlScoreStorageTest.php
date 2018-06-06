@@ -19,6 +19,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 	const GOODFAITH = 1;
 	const REVERTED = 2;
 	const DAMAGING = 3;
+	const WP10 = 4;
 
 	/**
 	 * @var SqlScoreStorage
@@ -34,6 +35,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 			'reverted' => [ 'id' => self::REVERTED, 'version' => '0.0.1' ],
 			'damaging' => [ 'id' => self::DAMAGING, 'version' => '0.0.2' ],
 			'goodfaith' => [ 'id' => self::GOODFAITH, 'version' => '0.0.3' ],
+			'wp10' => [ 'id' => self::WP10, 'version' => '0.0.4' ],
 		];
 		$this->storage = new SqlScoreStorage(
 			MediaWikiServices::getInstance()->getDBLoadBalancer(),
@@ -314,6 +316,8 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 	}
 
 	public function testPurgeRows() {
+		global $wgOresModels;
+		$wgOresModels['wp10']['enabled'] = true;
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->insert(
 			'ores_classification',
@@ -353,6 +357,13 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 					'oresc_probability' => '0.86',
 					'oresc_is_predicted' => '1'
 				],
+				[
+					'oresc_rev' => '12344',
+					'oresc_model' => (string)self::WP10,
+					'oresc_class' => '1',
+					'oresc_probability' => '0.86',
+					'oresc_is_predicted' => '1'
+				],
 			]
 		);
 
@@ -378,10 +389,18 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 				'oresc_class' => '1',
 				'oresc_probability' => '0.067',
 				'oresc_is_predicted' => '0'
+			],
+			(object)[
+				'oresc_rev' => '12344',
+				'oresc_model' => (string)self::WP10,
+				'oresc_class' => '1',
+				'oresc_probability' => '0.86',
+				'oresc_is_predicted' => '1'
 			]
 		];
 
 		$this->assertEquals( $expected, iterator_to_array( $res, false ) );
+		$wgOresModels['wp10']['enabled'] = false;
 	}
 
 }

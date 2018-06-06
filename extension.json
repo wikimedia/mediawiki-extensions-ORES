@@ -145,7 +145,8 @@
 				"wp10": {
 					"enabled": false,
 					"namespaces": [0],
-					"cleanupParent": true
+					"cleanupParent": true,
+					"keepForever": true
 				},
 				"draftquality": {
 					"enabled": false,

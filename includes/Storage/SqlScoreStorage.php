@@ -115,11 +115,48 @@ class SqlScoreStorage implements ScoreStorage {
 	 * @param int[] $revIds array of revision ids to clean scores
 	 */
 	public function purgeRows( array $revIds ) {
+		global $wgOresModels;
+		$modelsToKeep = [];
+		foreach ( $wgOresModels as $model => $modelData ) {
+			$modelId = $this->checkModelToKeep( $model, $modelData );
+			if ( $modelId !== false ) {
+				$modelsToKeep[] = $modelId;
+			}
+		}
+
+		$conditions = [ 'oresc_rev' => $revIds ];
+		if ( !empty( $modelsToKeep ) ) {
+			$conditions[] = 'oresc_model NOT IN (' . implode( ', ', $modelsToKeep ) . ')';
+		}
+
 		$this->loadBalancer->getConnection( DB_MASTER )->delete(
 			'ores_classification',
-			[ 'oresc_rev' => $revIds ],
+			$conditions,
 			__METHOD__
 		);
+	}
+
+	/**
+	 * @param string $model name
+	 * @param array $modelData
+	 * @return int|bool model id to keep, false otherwise
+	 */
+	private function checkModelToKeep( $model, array $modelData ) {
+		if ( !isset( $modelData['enabled'] ) || !$modelData['enabled'] ) {
+			return false;
+		}
+		if ( !isset( $modelData['keepForever'] ) || !$modelData['keepForever'] ) {
+			return false;
+		}
+
+		try {
+			$modelId = $this->modelLookup->getModelId( $model );
+		} catch ( InvalidArgumentException $exception ) {
+			$this->logger->warning( "Model {$model} can't be found in the model lookup" );
+			return false;
+		}
+
+		return $modelId;
 	}
 
 	private function cleanUpOldScores( $scores, $modelsToClean ) {
