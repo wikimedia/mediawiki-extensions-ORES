@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "f22ac917_5e0b7602",
+        "filename": "includes/Storage/SqlScoreStorage.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-06-11T14:00:26Z",
+      "side": 1,
+      "message": "okay, that works for me!",
+      "parentUuid": "96a0a5f5_b9ba69c6",
+      "revId": "2c6f56040989c81f9e78af2c2315c9cfee07c675",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68303e66_d8d0a7be",
         "filename": "tests/phpunit/includes/Storage/SqlScoreStorageTest.php",
         "patchSetId": 1
@@ -118,6 +136,24 @@
       "side": 1,
       "message": "Yes, At first I went with but at the end it was super complex as I wanted to change one part only and do not redefine the whole global variable. This way seemed simpler.",
       "parentUuid": "68303e66_d8d0a7be",
+      "revId": "2c6f56040989c81f9e78af2c2315c9cfee07c675",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e28ab9f_b8cf8a66",
+        "filename": "tests/phpunit/includes/Storage/SqlScoreStorageTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-06-11T14:00:26Z",
+      "side": 1,
+      "message": "Cool--maybe worth a comment to that effect, then.",
+      "parentUuid": "8c00b5cc_061e1ab0",
       "revId": "2c6f56040989c81f9e78af2c2315c9cfee07c675",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
