@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2cec21bb_a6228391",
+        "filename": "includes/Storage/SqlScoreStorage.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-06-11T11:19:57Z",
+      "side": 1,
+      "message": "note for another day: we should be using getConfig everywhere.",
+      "revId": "2c6f56040989c81f9e78af2c2315c9cfee07c675",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f157b971_b1b196bf",
+        "filename": "includes/Storage/SqlScoreStorage.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-06-11T11:19:57Z",
+      "side": 1,
+      "message": "This loop should be extracted into getModelsToKeep",
+      "revId": "2c6f56040989c81f9e78af2c2315c9cfee07c675",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd52eb8_1b363fd6",
+        "filename": "includes/Storage/SqlScoreStorage.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-06-11T11:19:57Z",
+      "side": 1,
+      "message": "This feels weird, would it be clearer to handle the inverse instead, \"getModelsToPurge\"?",
+      "revId": "2c6f56040989c81f9e78af2c2315c9cfee07c675",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68303e66_d8d0a7be",
+        "filename": "tests/phpunit/includes/Storage/SqlScoreStorageTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-06-11T11:19:57Z",
+      "side": 1,
+      "message": "Use $this-\u003esetMwGlobals instead.",
+      "revId": "2c6f56040989c81f9e78af2c2315c9cfee07c675",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
