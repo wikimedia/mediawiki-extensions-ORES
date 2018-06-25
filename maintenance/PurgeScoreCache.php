@@ -4,6 +4,7 @@ namespace ORES\Maintenance;
 
 use Maintenance;
 use MediaWiki\MediaWikiServices;
+use ORES\ORESServices;
 
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
@@ -32,9 +33,7 @@ class PurgeScoreCache extends Maintenance {
 		if ( $this->hasOption( 'model' ) ) {
 			$models = [ $this->getOption( 'model' ) ];
 		} else {
-			$models = array_keys(
-				MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )->getModels()
-			);
+			$models = array_keys( ORESServices::getModelLookup()->getModels() );
 		}
 
 		$this->output( "Purging ORES scores:\n" );

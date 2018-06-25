@@ -18,7 +18,7 @@ namespace ORES\Hooks;
 
 use Exception;
 use IContextSource;
-use MediaWiki\MediaWikiServices;
+use ORES\ORESServices;
 use SpecialRecentChanges;
 use SpecialWatchlist;
 use Title;
@@ -59,8 +59,7 @@ class Helpers {
 				'Restricted to one lower case word to prevent accidental injection.' );
 		}
 
-		$modelId =
-			MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )->getModelId( $type );
+		$modelId = ORESServices::getModelLookup()->getModelId( $type );
 		$tables["ores_${type}_cls"] = 'ores_classification';
 
 		$fields["ores_${type}_score"] = "ores_${type}_cls.oresc_probability";
@@ -204,9 +203,8 @@ class Helpers {
 	}
 
 	public static function getDamagingThresholds() {
-		$stats = MediaWikiServices::getInstance()->getService( 'ORESThresholdLookup' );
 		$thresholds = [];
-		foreach ( $stats->getThresholds( 'damaging' ) as $name => $bounds ) {
+		foreach ( ORESServices::getThresholdLookup()->getThresholds( 'damaging' ) as $name => $bounds ) {
 			$thresholds[$name] = $bounds['min'];
 		}
 		unset( $thresholds['likelygood'] );

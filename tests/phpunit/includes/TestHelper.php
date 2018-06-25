@@ -4,7 +4,7 @@ namespace ORES\Tests;
 
 use ContentHandler;
 use MediaWiki\Linker\LinkTarget;
-use MediaWiki\MediaWikiServices;
+use ORES\ORESServices;
 use Revision;
 use Title;
 use User;
@@ -73,8 +73,6 @@ class TestHelper {
 		} else {
 			$revisionId = $revision->getId();
 		}
-		/** @var ModelLookup $modelLookup */
-		$modelLookup = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' );
 		// TODO: Use ScoreStorage
 		$dbData = [];
 		foreach ( $scores as $modelName => $score ) {
@@ -83,7 +81,7 @@ class TestHelper {
 			if ( is_numeric( $modelName ) ) {
 				$modelId = $modelName;
 			} else {
-				$modelId = $modelLookup->getModelId( $modelName );
+				$modelId = ORESServices::getModelLookup()->getModelId( $modelName );
 			}
 
 			$dbData[] = [

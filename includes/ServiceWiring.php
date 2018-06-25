@@ -24,21 +24,25 @@ use ORES\Storage\SqlScoreLookup;
 use ORES\Storage\SqlScoreStorage;
 
 return [
+	'ORESLogger' => function ( MediaWikiServices $services ) {
+		return LoggerFactory::getInstance( 'ORES' );
+	},
+
 	'ORESModelLookup' => function ( MediaWikiServices $services ) {
 		return new PopulatedSqlModelLookup(
 			new SqlModelLookup( $services->getDBLoadBalancer() ),
-			$services->getService( 'ORESService' ),
-			LoggerFactory::getInstance( 'ORES' )
+			ORESServices::getORESService(),
+			ORESServices::getLogger()
 		);
 	},
 
 	'ORESThresholdLookup' => function ( MediaWikiServices $services ) {
 		return new ThresholdLookup(
 			new ThresholdParser( LoggerFactory::getInstance( 'ORES' ) ),
-			$services->getService( 'ORESModelLookup' ),
-			$services->getService( 'ORESService' ),
+			ORESServices::getModelLookup(),
+			ORESServices::getORESService(),
 			$services->getMainWANObjectCache(),
-			LoggerFactory::getInstance( 'ORES' ),
+			ORESServices::getLogger(),
 			$services->getStatsdDataFactory()
 		);
 	},
@@ -46,20 +50,20 @@ return [
 	'ORESScoreStorage' => function ( MediaWikiServices $services ) {
 		return new SqlScoreStorage(
 			$services->getDBLoadBalancer(),
-			$services->getService( 'ORESModelLookup' ),
-			LoggerFactory::getInstance( 'ORES' )
+			ORESServices::getModelLookup(),
+			ORESServices::getLogger()
 		);
 	},
 
 	'ORESService' => function ( MediaWikiServices $services ) {
 		return new ORESService(
-			LoggerFactory::getInstance( 'ORES' )
+			ORESServices::getLogger()
 		);
 	},
 
-	'OREScoreLookup' => function ( MediaWikiServices $services ) {
+	'ORESScoreLookup' => function ( MediaWikiServices $services ) {
 		return new SqlScoreLookup(
-			$services->getService( 'ORESModelLookup' ),
+			ORESServices::getModelLookup(),
 			$services->getDBLoadBalancer()
 		);
 	},

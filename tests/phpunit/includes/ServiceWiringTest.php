@@ -23,7 +23,7 @@ class ServiceWiringTest extends \MediaWikiTestCase {
 			[ 'ORESThresholdLookup', ThresholdLookup::class ],
 			[ 'ORESScoreStorage', ScoreStorage::class ],
 			[ 'ORESService', ORESService::class ],
-			[ 'OREScoreLookup', SqlScoreLookup::class ],
+			[ 'ORESScoreLookup', SqlScoreLookup::class ],
 		];
 	}
 

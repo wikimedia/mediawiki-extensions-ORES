@@ -31,8 +31,8 @@ use DeferredUpdates;
 use JobQueueGroup;
 use InvalidArgumentException;
 use MediaWiki\Logger\LoggerFactory;
-use MediaWiki\MediaWikiServices;
 use ORES\FetchScoreJob;
+use ORES\ORESServices;
 use ORES\Parser\ScoreParser;
 use ORES\ScoreFetcher;
 use ORES\WatchedItemQueryServiceExtension;
@@ -159,8 +159,7 @@ class ApiHooksHandler {
 				], $dbr::LIST_OR );
 			}
 
-			$modelId = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )
-				->getModelId( 'damaging' );
+			$modelId = ORESServices::getModelLookup()->getModelId( 'damaging' );
 			$joinConds['ores_classification'] = [ $join, [
 				"oresc_rev=$field",
 				'oresc_model' => $modelId,
@@ -260,17 +259,13 @@ class ApiHooksHandler {
 		$needsContinuation = false;
 		$scores = [];
 
-		$services = MediaWikiServices::getInstance();
-		$modelLookup = $services->getService( 'ORESModelLookup' );
-		$scoreLookup = $services->getService( 'OREScoreLookup' );
-
 		$models = [];
-		foreach ( $modelLookup->getModels() as $modelName => $modelDatum ) {
+		foreach ( ORESServices::getModelLookup()->getModels() as $modelName => $modelDatum ) {
 			$models[$modelDatum['id']] = $modelName;
 		}
 
 		// Load cached score data
-		$dbResult = $scoreLookup->getScores( $revids, array_values( $models ) );
+		$dbResult = ORESServices::getScoreLookup()->getScores( $revids, array_values( $models ) );
 		foreach ( $dbResult as $row ) {
 			$scores[$row->oresc_rev][] = $row;
 		}
@@ -319,8 +314,7 @@ class ApiHooksHandler {
 			// Filter loaded scores to store cacheable ones
 			$cacheableScores = array_intersect_key( $loadedScores, array_flip( $cacheableRevids ) );
 			DeferredUpdates::addCallableUpdate( function () use ( $cacheableScores ) {
-				$scoreStorage = MediaWikiServices::getInstance()->getService( 'ORESScoreStorage' );
-				$scoreStorage->storeScores( $cacheableScores );
+				ORESServices::getScoreStorage()->storeScores( $cacheableScores );
 			} );
 
 			foreach ( $loadedScores as $revid => $data ) {
@@ -345,7 +339,7 @@ class ApiHooksHandler {
 	private static function processRevision( $revid, array $data, array $models ) {
 		global $wgOresModelClasses;
 		$parser = new ScoreParser(
-			MediaWikiServices::getInstance()->getService( 'ORESModelLookup' ),
+			ORESServices::getModelLookup(),
 			$wgOresModelClasses
 		);
 		try {
@@ -404,8 +398,7 @@ class ApiHooksHandler {
 				return !$hookData['oresNeedsContinuation'];
 			}
 
-			$modelData = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )
-				->getModels();
+			$modelData = ORESServices::getModelLookup()->getModels();
 
 			$models = [];
 			foreach ( $modelData as $modelName => $modelDatum ) {
@@ -513,8 +506,7 @@ class ApiHooksHandler {
 		ApiQueryBase $module, WatchedItem $watchedItem, array $recentChangeInfo, array &$output
 	) {
 		if ( isset( $recentChangeInfo['oresScores'] ) ) {
-			$modelData = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )
-				->getModels();
+			$modelData = ORESServices::getModelLookup()->getModels();
 
 			$models = [];
 			foreach ( $modelData as $modelName => $modelDatum ) {

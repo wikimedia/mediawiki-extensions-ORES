@@ -3,7 +3,7 @@
 namespace ORES\Maintenance;
 
 use Maintenance;
-use MediaWiki\MediaWikiServices;
+use ORES\ORESServices;
 
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
@@ -24,7 +24,7 @@ class DumpThresholds extends Maintenance {
 	public function execute() {
 		$this->output( "Starting..." );
 		$models = $this->getModels();
-		$stats = MediaWikiServices::getInstance()->getService( 'ORESThresholdLookup' );
+		$stats = ORESServices::getThresholdLookup();
 
 		foreach ( $models as $name => $info ) {
 			$this->output( "\n$name\n" );
@@ -41,9 +41,8 @@ class DumpThresholds extends Maintenance {
 	 */
 	protected function getModels() {
 		$timestamp = \wfTimestampNow();
-		$oresService = MediaWikiServices::getInstance()->getService( 'ORESService' );
 		// Bypass the varnish cache
-		$modelData = $oresService->request( [ $timestamp => true ] );
+		$modelData = ORESServices::getORESService()->request( [ $timestamp => true ] );
 		if ( empty( $modelData['models'] ) ) {
 			throw new \RuntimeException( 'Bad response from ORES when requesting models: '
 				. json_encode( $modelData ) );

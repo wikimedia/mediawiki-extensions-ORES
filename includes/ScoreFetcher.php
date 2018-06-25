@@ -17,7 +17,6 @@
 namespace ORES;
 
 use InvalidArgumentException;
-use MediaWiki\MediaWikiServices;
 
 class ScoreFetcher implements ServiceScoreLookup {
 
@@ -53,8 +52,7 @@ class ScoreFetcher implements ServiceScoreLookup {
 			$params['precache'] = true;
 		}
 
-		$oresService = MediaWikiServices::getInstance()->getService( 'ORESService' );
-		$wireData = $oresService->request( $params, $originalRequest );
+		$wireData = ORESServices::getORESService()->request( $params, $originalRequest );
 
 		$wikiId = ORESService::getWikiID();
 		if ( array_key_exists( 'models', $wireData[$wikiId] ) ) {
@@ -87,9 +85,8 @@ class ScoreFetcher implements ServiceScoreLookup {
 			return null;
 		}
 
-		$modelLookup = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' );
 		try {
-			$storageVersion = $modelLookup->getModelVersion( $model );
+			$storageVersion = ORESServices::getModelLookup()->getModelVersion( $model );
 		} catch ( InvalidArgumentException $exception ) {
 			$storageVersion = null;
 		}

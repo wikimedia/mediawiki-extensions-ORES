@@ -18,7 +18,6 @@ namespace ORES;
 
 use Job;
 use MediaWiki\Logger\LoggerFactory;
-use MediaWiki\MediaWikiServices;
 use Title;
 
 class FetchScoreJob extends Job {
@@ -88,10 +87,9 @@ class FetchScoreJob extends Job {
 			$this->params['precache'],
 			$originalRequest
 		);
-		$scoreStorage = MediaWikiServices::getInstance()->getService( 'ORESScoreStorage' );
 
 		$success = true;
-		$scoreStorage->storeScores(
+		ORESServices::getScoreStorage()->storeScores(
 			$scores,
 			function ( $mssg, $revision ) use ( &$success, $logger ) {
 				$logger->warning( "ScoreFetcher errored for $revision: $mssg\n" );

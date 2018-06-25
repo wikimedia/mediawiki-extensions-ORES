@@ -4,6 +4,7 @@ namespace ORES\Maintenance;
 
 use Maintenance;
 use MediaWiki\MediaWikiServices;
+use ORES\ORESServices;
 use ORES\ScoreFetcher;
 use ORES\Storage\ScoreStorage;
 
@@ -47,7 +48,7 @@ class PopulateDatabase extends Maintenance {
 
 		$scoreFetcher = ScoreFetcher::instance();
 		/** @var ScoreStorage $scoreStorage */
-		$scoreStorage = MediaWikiServices::getInstance()->getService( 'ORESScoreStorage' );
+		$scoreStorage = ORESServices::getScoreStorage();
 		$this->batchSize = $this->getOption( 'batch', 5000 );
 		$this->revisionLimit = $this->getOption( 'number', 1000 );
 		$this->apiBatchSize = $this->getOption( 'apibatch', $wgOresRevisionsPerBatch ?: 30 );

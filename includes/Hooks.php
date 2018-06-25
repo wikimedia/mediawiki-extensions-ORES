@@ -17,7 +17,6 @@
 namespace ORES;
 
 use DatabaseUpdater;
-use MediaWiki\MediaWikiServices;
 use ORES\Hooks\Helpers;
 use OutputPage;
 use Skin;
@@ -52,7 +51,7 @@ class Hooks {
 		foreach ( $rows as $row ) {
 			$revIds[] = $row->rc_this_oldid;
 		}
-		MediaWikiServices::getInstance()->getService( 'ORESScoreStorage' )->purgeRows( $revIds );
+		ORESServices::getScoreStorage()->purgeRows( $revIds );
 	}
 
 	/**

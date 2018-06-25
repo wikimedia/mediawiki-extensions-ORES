@@ -19,7 +19,6 @@ namespace ORES;
 use ApiResult;
 use ApiQuery;
 use ApiQueryBase;
-use MediaWiki\MediaWikiServices;
 use ORES\Hooks\Helpers;
 
 /**
@@ -52,8 +51,7 @@ class ApiQueryORES extends ApiQueryBase {
 		ApiResult::setArrayType( $data['models'], 'assoc' );
 		ApiResult::setIndexedTagName( $data['namespaces'], 'ns' );
 
-		$models = MediaWikiServices::getInstance()->getService( 'ORESModelLookup' )
-			->getModels();
+		$models = ORESServices::getModelLookup()->getModels();
 
 		foreach ( $models as $modelName => $modelData ) {
 			$data['models'][$modelName] = [
