@@ -18,13 +18,17 @@ namespace ORES\Hooks;
 
 use ChangesList;
 use ChangesListBooleanFilterGroup;
+use ChangesListFilter;
 use ChangesListSpecialPage;
 use ChangesListStringOptionsFilterGroup;
 use EnhancedChangesList;
+use Exception;
 use FormOptions;
 use IContextSource;
+use MWException;
 use ORES\ORESServices;
 use ORES\Range;
+use ORES\ThresholdLookup;
 use RCCacheEntry;
 use RecentChange;
 use SpecialRecentChanges;
@@ -40,209 +44,246 @@ class ChangesListHooksHandler {
 			return;
 		}
 
-		$stats = ORESServices::getThresholdLookup();
+		$thresholdLookup = ORESServices::getThresholdLookup();
 		$changeTypeGroup = $clsp->getFilterGroup( 'changeType' );
 		$logFilter = $changeTypeGroup->getFilter( 'hidelog' );
-
-		if ( Helpers::isModelEnabled( 'damaging' ) ) {
-			if ( $clsp instanceof SpecialRecentChanges ) {
-				$damagingDefault = $clsp->getUser()->getOption( 'oresRCHideNonDamaging' );
-				$highlightDefault = $clsp->getUser()->getBoolOption( 'ores-damaging-flag-rc' );
-			} elseif ( $clsp instanceof SpecialWatchlist ) {
-				$damagingDefault = $clsp->getUser()->getOption( 'oresWatchlistHideNonDamaging' );
-				$highlightDefault = $clsp->getUser()->getBoolOption( 'oresHighlight' );
-			} else {
-				$damagingDefault = false;
-				$highlightDefault = false;
+		try {
+			if ( Helpers::isModelEnabled( 'damaging' ) ) {
+				self::handleDamaging( $clsp, $thresholdLookup, $logFilter );
 			}
 
-			$filters = self::getDamagingStructuredFiltersOnChangesList(
-				$stats->getThresholds( 'damaging' )
+			if ( Helpers::isModelEnabled( 'goodfaith' ) ) {
+				self::handleGoodFaith( $clsp, $thresholdLookup, $logFilter );
+			}
+		} catch ( Exception $exception ) {
+			ORESServices::getLogger()->error(
+				'Error in ChangesListHookHandler: ' . $exception->getMessage()
 			);
+		}
+	}
 
-			if ( $filters ) {
-				$newDamagingGroup = new ChangesListStringOptionsFilterGroup( [
-					'name' => 'damaging',
-					'title' => 'ores-rcfilters-damaging-title',
-					'whatsThisHeader' => 'ores-rcfilters-damaging-whats-this-header',
-					'whatsThisBody' => 'ores-rcfilters-damaging-whats-this-body',
-					'whatsThisUrl' => 'https://www.mediawiki.org/wiki/' .
-						'Special:MyLanguage/Help:New_filters_for_edit_review/Quality_and_Intent_Filters',
-					'whatsThisLinkText' => 'ores-rcfilters-whats-this-link-text',
-					'priority' => 2,
-					'filters' => array_values( $filters ),
-					'default' => ChangesListStringOptionsFilterGroup::NONE,
-					'isFullCoverage' => false,
-					'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables,
-							&$fields, &$conds, &$query_options, &$join_conds, $selectedValues ) {
-						$condition = self::buildRangeFilter( 'damaging', $selectedValues );
-						if ( $condition ) {
-							$conds[] = $condition;
+	/**
+	 * @param ChangesListSpecialPage $clsp
+	 * @param ThresholdLookup $thresholdLookup
+	 * @param ChangesListFilter $logFilter
+	 * @throws MWException
+	 */
+	private static function handleDamaging(
+		ChangesListSpecialPage $clsp,
+		ThresholdLookup $thresholdLookup,
+		ChangesListFilter $logFilter
 
-							// Filter out incompatible types; log actions and external rows are not scorable
-							$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
-							// Make the joins INNER JOINs instead of LEFT JOINs
-							$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
-							$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
-							if ( self::shouldStraightJoin( $specialClassName ) ) {
-								$query_options[] = 'STRAIGHT_JOIN';
-							}
+	) {
+		if ( $clsp instanceof SpecialRecentChanges ) {
+			$damagingDefault = $clsp->getUser()->getOption( 'oresRCHideNonDamaging' );
+			$highlightDefault = $clsp->getUser()->getBoolOption( 'ores-damaging-flag-rc' );
+		} elseif ( $clsp instanceof SpecialWatchlist ) {
+			$damagingDefault = $clsp->getUser()->getOption( 'oresWatchlistHideNonDamaging' );
+			$highlightDefault = $clsp->getUser()->getBoolOption( 'oresHighlight' );
+		} else {
+			$damagingDefault = false;
+			$highlightDefault = false;
+		}
+
+		$filters = self::getDamagingStructuredFiltersOnChangesList(
+			$thresholdLookup->getThresholds( 'damaging' )
+		);
+
+		if ( $filters ) {
+			$newDamagingGroup = new ChangesListStringOptionsFilterGroup( [
+				'name' => 'damaging',
+				'title' => 'ores-rcfilters-damaging-title',
+				'whatsThisHeader' => 'ores-rcfilters-damaging-whats-this-header',
+				'whatsThisBody' => 'ores-rcfilters-damaging-whats-this-body',
+				'whatsThisUrl' => 'https://www.mediawiki.org/wiki/' .
+					'Special:MyLanguage/Help:New_filters_for_edit_review/Quality_and_Intent_Filters',
+				'whatsThisLinkText' => 'ores-rcfilters-whats-this-link-text',
+				'priority' => 2,
+				'filters' => array_values( $filters ),
+				'default' => ChangesListStringOptionsFilterGroup::NONE,
+				'isFullCoverage' => false,
+				'queryCallable' => function ( $specialClassName, $ctx, IDatabase $dbr, &$tables,
+						&$fields, &$conds, &$query_options, &$join_conds, $selectedValues ) {
+					$condition = self::buildRangeFilter( 'damaging', $selectedValues );
+					if ( $condition ) {
+						$conds[] = $condition;
+
+						// Filter out incompatible types; log actions and external rows are not scorable
+						$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
+						// Make the joins INNER JOINs instead of LEFT JOINs
+						$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
+						$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
+						if ( self::shouldStraightJoin( $specialClassName ) ) {
+							$query_options[] = 'STRAIGHT_JOIN';
 						}
-					},
-				] );
-
-				$newDamagingGroup->conflictsWith(
-					$logFilter,
-					'ores-rcfilters-ores-conflicts-logactions-global',
-					'ores-rcfilters-damaging-conflicts-logactions',
-					'ores-rcfilters-logactions-conflicts-ores'
-				);
-
-				if ( isset( $filters[ 'maybebad' ] ) && isset( $filters[ 'likelybad' ] ) ) {
-					$newDamagingGroup->getFilter( 'maybebad' )->setAsSupersetOf(
-						$newDamagingGroup->getFilter( 'likelybad' )
-					);
-				}
-
-				if ( isset( $filters[ 'likelybad' ] ) && isset( $filters[ 'verylikelybad' ] ) ) {
-					$newDamagingGroup->getFilter( 'likelybad' )->setAsSupersetOf(
-						$newDamagingGroup->getFilter( 'verylikelybad' )
-					);
-				}
-
-				// Transitive closure
-				if ( isset( $filters[ 'maybebad' ] ) && isset( $filters[ 'verylikelybad' ] ) ) {
-					$newDamagingGroup->getFilter( 'maybebad' )->setAsSupersetOf(
-						$newDamagingGroup->getFilter( 'verylikelybad' )
-					);
-				}
-
-				if ( $damagingDefault ) {
-					$newDamagingGroup->setDefault( Helpers::getDamagingLevelPreference( $clsp->getUser(),
-						$clsp->getPageTitle() ) );
-				}
-
-				if ( $highlightDefault ) {
-					$levelsColors = [
-						'maybebad' => 'c3',
-						'likelybad' => 'c4',
-						'verylikelybad' => 'c5',
-					];
-
-					$prefLevel =
-						Helpers::getDamagingLevelPreference( $clsp->getUser(),
-							$clsp->getPageTitle() );
-					$allLevels = array_keys( $levelsColors );
-					$applicableLevels = array_slice( $allLevels, array_search( $prefLevel, $allLevels ) );
-					$applicableLevels = array_intersect( $applicableLevels, array_keys( $filters ) );
-
-					foreach ( $applicableLevels as $level ) {
-						$newDamagingGroup
-							->getFilter( $level )
-							->setDefaultHighlightColor( $levelsColors[ $level ] );
 					}
-				}
-
-				$clsp->registerFilterGroup( $newDamagingGroup );
-			}
-
-			// I don't think we need to register a conflict here, since
-			// if we're showing non-damaging, that won't conflict with
-			// anything.
-			$legacyDamagingGroup = new ChangesListBooleanFilterGroup( [
-				'name' => 'ores',
-				'filters' => [
-					[
-						'name' => 'hidenondamaging',
-						'showHide' => 'ores-damaging-filter',
-						'isReplacedInStructuredUi' => true,
-						'default' => $damagingDefault,
-						'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables,
-								&$fields, &$conds, &$query_options, &$join_conds ) {
-							Helpers::hideNonDamagingFilter( $fields, $conds, true, $ctx->getUser(),
-								$ctx->getTitle() );
-							// Filter out incompatible types; log actions and external rows are not scorable
-							$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
-							// Filter out patrolled edits: the 'r' doesn't appear for them
-							$conds['rc_patrolled'] = RecentChange::PRC_UNPATROLLED;
-							// Make the joins INNER JOINs instead of LEFT JOINs
-							$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
-							$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
-							if ( self::shouldStraightJoin( $specialClassName ) ) {
-								$query_options[] = 'STRAIGHT_JOIN';
-							}
-						},
-					]
-				],
-
+				},
 			] );
 
-			$clsp->registerFilterGroup( $legacyDamagingGroup );
-		}
-		if ( Helpers::isModelEnabled( 'goodfaith' ) ) {
-			$filters = self::getGoodFaithStructuredFiltersOnChangesList(
-				$stats->getThresholds( 'goodfaith' )
+			$newDamagingGroup->conflictsWith(
+				$logFilter,
+				'ores-rcfilters-ores-conflicts-logactions-global',
+				'ores-rcfilters-damaging-conflicts-logactions',
+				'ores-rcfilters-logactions-conflicts-ores'
 			);
 
-			if ( $filters ) {
-				$goodfaithGroup = new ChangesListStringOptionsFilterGroup( [
-					'name' => 'goodfaith',
-					'title' => 'ores-rcfilters-goodfaith-title',
-					'whatsThisHeader' => 'ores-rcfilters-goodfaith-whats-this-header',
-					'whatsThisBody' => 'ores-rcfilters-goodfaith-whats-this-body',
-					'whatsThisUrl' => 'https://www.mediawiki.org/wiki/' .
-						'Special:MyLanguage/Help:New_filters_for_edit_review/Quality_and_Intent_Filters',
-					'whatsThisLinkText' => 'ores-rcfilters-whats-this-link-text',
-					'priority' => 1,
-					'filters' => array_values( $filters ),
-					'default' => ChangesListStringOptionsFilterGroup::NONE,
-					'isFullCoverage' => false,
-					'queryCallable' => function ( $specialClassName, $ctx, $dbr, &$tables, &$fields,
-							&$conds, &$query_options, &$join_conds, $selectedValues ) {
-						$condition = self::buildRangeFilter( 'goodfaith', $selectedValues );
-						if ( $condition ) {
-							$conds[] = $condition;
+			if ( isset( $filters[ 'maybebad' ] ) && isset( $filters[ 'likelybad' ] ) ) {
+				$newDamagingGroup->getFilter( 'maybebad' )->setAsSupersetOf(
+					$newDamagingGroup->getFilter( 'likelybad' )
+				);
+			}
 
-							// Filter out incompatible types; log actions and external rows are not scorable
-							$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
-							// Make the joins INNER JOINs instead of LEFT JOINs
-							$join_conds['ores_goodfaith_mdl'][0] = 'INNER JOIN';
-							$join_conds['ores_goodfaith_cls'][0] = 'INNER JOIN';
-							if ( self::shouldStraightJoin( $specialClassName ) ) {
-								$query_options[] = 'STRAIGHT_JOIN';
-							}
+			if ( isset( $filters[ 'likelybad' ] ) && isset( $filters[ 'verylikelybad' ] ) ) {
+				$newDamagingGroup->getFilter( 'likelybad' )->setAsSupersetOf(
+					$newDamagingGroup->getFilter( 'verylikelybad' )
+				);
+			}
+
+			// Transitive closure
+			if ( isset( $filters[ 'maybebad' ] ) && isset( $filters[ 'verylikelybad' ] ) ) {
+				$newDamagingGroup->getFilter( 'maybebad' )->setAsSupersetOf(
+					$newDamagingGroup->getFilter( 'verylikelybad' )
+				);
+			}
+
+			if ( $damagingDefault ) {
+				$newDamagingGroup->setDefault( Helpers::getDamagingLevelPreference( $clsp->getUser(),
+					$clsp->getPageTitle() ) );
+			}
+
+			if ( $highlightDefault ) {
+				$levelsColors = [
+					'maybebad' => 'c3',
+					'likelybad' => 'c4',
+					'verylikelybad' => 'c5',
+				];
+
+				$prefLevel = Helpers::getDamagingLevelPreference(
+					$clsp->getUser(),
+					$clsp->getPageTitle()
+				);
+				$allLevels = array_keys( $levelsColors );
+				$applicableLevels = array_slice( $allLevels, array_search( $prefLevel, $allLevels ) );
+				$applicableLevels = array_intersect( $applicableLevels, array_keys( $filters ) );
+
+				foreach ( $applicableLevels as $level ) {
+					$newDamagingGroup
+						->getFilter( $level )
+						->setDefaultHighlightColor( $levelsColors[$level] );
+				}
+			}
+
+			$clsp->registerFilterGroup( $newDamagingGroup );
+		}
+
+		// I don't think we need to register a conflict here, since
+		// if we're showing non-damaging, that won't conflict with
+		// anything.
+		$legacyDamagingGroup = new ChangesListBooleanFilterGroup( [
+			'name' => 'ores',
+			'filters' => [
+				[
+					'name' => 'hidenondamaging',
+					'showHide' => 'ores-damaging-filter',
+					'isReplacedInStructuredUi' => true,
+					'default' => $damagingDefault,
+					'queryCallable' => function ( $specialClassName, IContextSource $ctx, IDatabase $dbr, &$tables,
+												  &$fields, &$conds, &$query_options, &$join_conds ) {
+						Helpers::hideNonDamagingFilter( $fields, $conds, true, $ctx->getUser(),
+							$ctx->getTitle() );
+						// Filter out incompatible types; log actions and external rows are not scorable
+						$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
+						// Filter out patrolled edits: the 'r' doesn't appear for them
+						$conds['rc_patrolled'] = RecentChange::PRC_UNPATROLLED;
+						// Make the joins INNER JOINs instead of LEFT JOINs
+						$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
+						$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
+						if ( self::shouldStraightJoin( $specialClassName ) ) {
+							$query_options[] = 'STRAIGHT_JOIN';
 						}
 					},
-				] );
+				]
+			],
 
-				if ( isset( $filters['maybebad'] ) && isset( $filters['likelybad'] ) ) {
-					$goodfaithGroup->getFilter( 'maybebad' )->setAsSupersetOf(
-						$goodfaithGroup->getFilter( 'likelybad' )
-					);
-				}
+		] );
 
-				if ( isset( $filters['likelybad'] ) && isset( $filters['verylikelybad'] ) ) {
-					$goodfaithGroup->getFilter( 'likelybad' )->setAsSupersetOf(
-						$goodfaithGroup->getFilter( 'verylikelybad' )
-					);
-				}
+		$clsp->registerFilterGroup( $legacyDamagingGroup );
+	}
 
-				if ( isset( $filters['maybebad'] ) && isset( $filters['verylikelybad'] ) ) {
-					$goodfaithGroup->getFilter( 'maybebad' )->setAsSupersetOf(
-						$goodfaithGroup->getFilter( 'verylikelybad' )
-					);
-				}
+	/**
+	 * @param ChangesListSpecialPage $clsp
+	 * @param ThresholdLookup $thresholdLookup
+	 * @param ChangesListFilter $logFilter
+	 * @throws MWException
+	 */
+	private static function handleGoodFaith(
+		ChangesListSpecialPage $clsp,
+		ThresholdLookup $thresholdLookup,
+		ChangesListFilter $logFilter
+	) {
+		$filters = self::getGoodFaithStructuredFiltersOnChangesList(
+			$thresholdLookup->getThresholds( 'goodfaith' )
+		);
 
-				$goodfaithGroup->conflictsWith(
-					$logFilter,
-					'ores-rcfilters-ores-conflicts-logactions-global',
-					'ores-rcfilters-goodfaith-conflicts-logactions',
-					'ores-rcfilters-logactions-conflicts-ores'
-				);
-
-				$clsp->registerFilterGroup( $goodfaithGroup );
-			}
+		if ( !$filters ) {
+			return;
 		}
+		$goodfaithGroup = new ChangesListStringOptionsFilterGroup( [
+			'name' => 'goodfaith',
+			'title' => 'ores-rcfilters-goodfaith-title',
+			'whatsThisHeader' => 'ores-rcfilters-goodfaith-whats-this-header',
+			'whatsThisBody' => 'ores-rcfilters-goodfaith-whats-this-body',
+			'whatsThisUrl' => 'https://www.mediawiki.org/wiki/' .
+				'Special:MyLanguage/Help:New_filters_for_edit_review/Quality_and_Intent_Filters',
+			'whatsThisLinkText' => 'ores-rcfilters-whats-this-link-text',
+			'priority' => 1,
+			'filters' => array_values( $filters ),
+			'default' => ChangesListStringOptionsFilterGroup::NONE,
+			'isFullCoverage' => false,
+			'queryCallable' => function ( $specialClassName, $ctx, IDatabase $dbr, &$tables, &$fields,
+										 &$conds, &$query_options, &$join_conds, $selectedValues ) {
+				$condition = self::buildRangeFilter( 'goodfaith', $selectedValues );
+				if ( $condition ) {
+					$conds[] = $condition;
+
+					// Filter out incompatible types; log actions and external rows are not scorable
+					$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
+					// Make the joins INNER JOINs instead of LEFT JOINs
+					$join_conds['ores_goodfaith_mdl'][0] = 'INNER JOIN';
+					$join_conds['ores_goodfaith_cls'][0] = 'INNER JOIN';
+					if ( self::shouldStraightJoin( $specialClassName ) ) {
+						$query_options[] = 'STRAIGHT_JOIN';
+					}
+				}
+			},
+		] );
+
+		if ( isset( $filters['maybebad'] ) && isset( $filters['likelybad'] ) ) {
+			$goodfaithGroup->getFilter( 'maybebad' )->setAsSupersetOf(
+				$goodfaithGroup->getFilter( 'likelybad' )
+			);
+		}
+
+		if ( isset( $filters['likelybad'] ) && isset( $filters['verylikelybad'] ) ) {
+			$goodfaithGroup->getFilter( 'likelybad' )->setAsSupersetOf(
+				$goodfaithGroup->getFilter( 'verylikelybad' )
+			);
+		}
+
+		if ( isset( $filters['maybebad'] ) && isset( $filters['verylikelybad'] ) ) {
+			$goodfaithGroup->getFilter( 'maybebad' )->setAsSupersetOf(
+				$goodfaithGroup->getFilter( 'verylikelybad' )
+			);
+		}
+
+		$goodfaithGroup->conflictsWith(
+			$logFilter,
+			'ores-rcfilters-ores-conflicts-logactions-global',
+			'ores-rcfilters-goodfaith-conflicts-logactions',
+			'ores-rcfilters-logactions-conflicts-ores'
+		);
+
+		$clsp->registerFilterGroup( $goodfaithGroup );
 	}
 
 	private static function shouldStraightJoin( $specialClassName ) {
@@ -372,14 +413,17 @@ class ChangesListHooksHandler {
 		if ( !Helpers::oresUiEnabled() ) {
 			return;
 		}
-
-		if ( Helpers::isModelEnabled( 'damaging' ) ) {
-			Helpers::joinWithOresTables( 'damaging', 'rc_this_oldid', $tables, $fields,
-				$join_conds );
-		}
-		if ( Helpers::isModelEnabled( 'goodfaith' ) ) {
-			Helpers::joinWithOresTables( 'goodfaith', 'rc_this_oldid', $tables, $fields,
-				$join_conds );
+		try {
+			if ( Helpers::isModelEnabled( 'damaging' ) ) {
+				Helpers::joinWithOresTables( 'damaging', 'rc_this_oldid', $tables, $fields,
+					$join_conds );
+			}
+			if ( Helpers::isModelEnabled( 'goodfaith' ) ) {
+				Helpers::joinWithOresTables( 'goodfaith', 'rc_this_oldid', $tables, $fields,
+					$join_conds );
+			}
+		} catch ( Exception $exception ) {
+			return;
 		}
 	}
 
@@ -501,8 +545,13 @@ class ChangesListHooksHandler {
 	public static function getScoreRecentChangesList( RecentChange $rcObj, IContextSource $context ) {
 		$threshold = $rcObj->getAttribute( 'ores_damaging_threshold' );
 		if ( $threshold === null ) {
-			$threshold =
-				Helpers::getThreshold( 'damaging', $context->getUser(), $context->getTitle() );
+			try {
+				$threshold =
+					Helpers::getThreshold( 'damaging', $context->getUser(), $context->getTitle() );
+			} catch ( Exception $exception ) {
+				return false;
+			}
+
 		}
 		$score = $rcObj->getAttribute( 'ores_damaging_score' );
 		$patrolled = $rcObj->getAttribute( 'rc_patrolled' );
@@ -521,7 +570,7 @@ class ChangesListHooksHandler {
 	}
 
 	private static function makeApplicableCallback( $model, array $levelData ) {
-		return function ( $ctx, $rc ) use ( $model, $levelData ) {
+		return function ( $ctx, RecentChange $rc ) use ( $model, $levelData ) {
 			$score = $rc->getAttribute( "ores_{$model}_score" );
 			$type = $rc->getAttribute( 'rc_type' );
 			// Log actions and external rows are not scorable; if such a row does have a score, ignore it
@@ -533,8 +582,7 @@ class ChangesListHooksHandler {
 	}
 
 	private static function buildRangeFilter( $name, $filterValue ) {
-		$stats = ORESServices::getThresholdLookup();
-		$thresholds = $stats->getThresholds( $name );
+		$thresholds = ORESServices::getThresholdLookup()->getThresholds( $name );
 
 		$selectedLevels = is_array( $filterValue ) ? $filterValue :
 			explode( ',', strtolower( $filterValue ) );
