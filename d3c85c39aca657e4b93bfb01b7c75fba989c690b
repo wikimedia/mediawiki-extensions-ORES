@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f438c660_fdbf4ec6",
+        "filename": "includes/ServiceWiring.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-06-25T09:48:42Z",
+      "side": 1,
+      "message": "Already found a bug (typo)",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 17
+      },
+      "revId": "d3c85c39aca657e4b93bfb01b7c75fba989c690b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
