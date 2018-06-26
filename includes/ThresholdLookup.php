@@ -172,9 +172,9 @@ class ThresholdLookup {
 	}
 
 	/**
-	 * @param array[] $config associative array mapping boundaries to old formulas
-	 * @param string[] &$formulae associative array mapping boundaries to new formulas
-	 * @param array[] &$calculatedThresholds array that has threshold request param as keys
+	 * @param string[] $config associative array mapping boundaries to old formulas
+	 * @param array[] &$formulae associative array mapping boundaries to new formulas
+	 * @param string[] &$calculatedThresholds array that has threshold request param
 	 */
 	private function prepareThresholdRequestParam(
 		array $config,
