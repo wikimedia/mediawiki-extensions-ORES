@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "21422b4f_78bac807",
+        "filename": "includes/ThresholdLookup.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-06-27T19:30:42Z",
+      "side": 1,
+      "message": "Yes, in future we might want to support different classes but for now \"true\" and \"false\" would suffice.",
+      "parentUuid": "21715d89_31de7aac",
+      "range": {
+        "startLine": 176,
+        "startChar": 48,
+        "endLine": 176,
+        "endChar": 66
+      },
+      "revId": "2a54c0bc78df3b68c86988d181f17239327c8e4f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca18be4c_174f1781",
         "filename": "includes/ThresholdLookup.php",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-06-27T18:26:03Z",
       "side": 1,
       "message": "This is not true.",
+      "range": {
+        "startLine": 177,
+        "startChar": 82,
+        "endLine": 177,
+        "endChar": 89
+      },
+      "revId": "2a54c0bc78df3b68c86988d181f17239327c8e4f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f867782_2338bda4",
+        "filename": "includes/ThresholdLookup.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-06-27T19:30:42Z",
+      "side": 1,
+      "message": "Yes, this needs to be fixed.",
+      "parentUuid": "ca18be4c_174f1781",
       "range": {
         "startLine": 177,
         "startChar": 82,
