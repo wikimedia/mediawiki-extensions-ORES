@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a11bb3eb_65d21861",
+        "filename": "includes/Hooks/ChangesListHooksHandler.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-07-02T16:47:55Z",
+      "side": 1,
+      "message": "I think it\u0027s disrecommended to catch every exception.  Can we be more specific?",
+      "revId": "8cd9c94337893ddc69251b12e19e6667841acd2f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
