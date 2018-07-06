@@ -27,7 +27,6 @@ use FormOptions;
 use IContextSource;
 use MWException;
 use ORES\ORESServices;
-use ORES\Range;
 use ORES\ThresholdLookup;
 use RCCacheEntry;
 use RecentChange;
@@ -104,7 +103,11 @@ class ChangesListHooksHandler {
 				'isFullCoverage' => false,
 				'queryCallable' => function ( $specialClassName, $ctx, IDatabase $dbr, &$tables,
 						&$fields, &$conds, &$query_options, &$join_conds, $selectedValues ) {
-					$condition = self::buildRangeFilter( 'damaging', $selectedValues );
+					$databaseQueryBuilder = ORESServices::getDatabaseQueryBuilder();
+					$condition = $databaseQueryBuilder->buildQuery(
+						'damaging',
+						$selectedValues
+					);
 					if ( $condition ) {
 						$conds[] = $condition;
 
@@ -242,7 +245,11 @@ class ChangesListHooksHandler {
 			'isFullCoverage' => false,
 			'queryCallable' => function ( $specialClassName, $ctx, IDatabase $dbr, &$tables, &$fields,
 										 &$conds, &$query_options, &$join_conds, $selectedValues ) {
-				$condition = self::buildRangeFilter( 'goodfaith', $selectedValues );
+				$databaseQueryBuilder = ORESServices::getDatabaseQueryBuilder();
+				$condition = $databaseQueryBuilder->buildQuery(
+					'goodfaith',
+					$selectedValues
+				);
 				if ( $condition ) {
 					$conds[] = $condition;
 
@@ -579,52 +586,6 @@ class ChangesListHooksHandler {
 			}
 			return $levelData['min'] <= $score && $score <= $levelData['max'];
 		};
-	}
-
-	private static function buildRangeFilter( $name, $filterValue ) {
-		$thresholds = ORESServices::getThresholdLookup()->getThresholds( $name );
-
-		$selectedLevels = is_array( $filterValue ) ? $filterValue :
-			explode( ',', strtolower( $filterValue ) );
-		$selectedLevels = array_intersect(
-			$selectedLevels,
-			array_keys( $thresholds )
-		);
-
-		if ( $selectedLevels ) {
-			$ranges = [];
-			foreach ( $selectedLevels as $level ) {
-				$range = new Range(
-					$thresholds[$level]['min'],
-					$thresholds[$level]['max']
-				);
-
-				$result = array_filter(
-					$ranges,
-					function ( Range $r ) use ( $range ) {
-						return $r->overlaps( $range );
-					}
-				);
-				$overlap = reset( $result );
-				if ( $overlap ) {
-					/** @var Range $overlap */
-					$overlap->combineWith( $range );
-				} else {
-					$ranges[] = $range;
-				}
-			}
-
-			$betweenConditions = array_map(
-				function ( Range $range ) use ( $name ) {
-					$min = $range->getMin();
-					$max = $range->getMax();
-					return "ores_{$name}_cls.oresc_probability BETWEEN $min AND $max";
-				},
-				$ranges
-			);
-
-			return \wfGetDB( DB_REPLICA )->makeList( $betweenConditions, IDatabase::LIST_OR );
-		}
 	}
 
 }

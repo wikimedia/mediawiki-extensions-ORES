@@ -68,4 +68,11 @@ return [
 		);
 	},
 
+	'ORESDatabaseQueryBuilder' => function ( MediaWikiServices $services ) {
+		return new DatabaseQueryBuilder(
+			ORESServices::getThresholdLookup(),
+			$services->getDBLoadBalancer()->getConnection( DB_REPLICA )
+		);
+	}
+
 ];

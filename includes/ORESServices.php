@@ -43,4 +43,9 @@ class ORESServices {
 		return MediaWikiServices::getInstance()->getService( 'ORESScoreLookup' );
 	}
 
+	/** @return DatabaseQueryBuilder */
+	public static function getDatabaseQueryBuilder() {
+		return MediaWikiServices::getInstance()->getService( 'ORESDatabaseQueryBuilder' );
+	}
+
 }
