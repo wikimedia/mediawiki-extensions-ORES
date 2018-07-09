@@ -98,7 +98,7 @@ class Helpers {
 	public static function isModelEnabled( $model ) {
 		global $wgOresModels;
 
-		return isset( $wgOresModels[$model] ) && $wgOresModels[$model];
+		return isset( $wgOresModels[$model]['enabled'] ) && $wgOresModels[$model]['enabled'];
 	}
 
 	/**

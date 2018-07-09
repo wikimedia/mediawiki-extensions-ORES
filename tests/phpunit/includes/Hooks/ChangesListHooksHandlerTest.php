@@ -122,7 +122,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 	public function onChangesListSpecialPageQuery_provider() {
 		return [
 			[
-				[ 'damaging' => false, 'goodfaith' => false ],
+				[ 'damaging' => [ 'enabled' => false ], 'goodfaith' => [ 'enabled' => false ] ],
 				[
 					'tables' => [],
 					'fields' => [],
@@ -130,7 +130,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 				]
 			],
 			[
-				[ 'damaging' => true, 'goodfaith' => false ],
+				[ 'damaging' => [ 'enabled' => true ], 'goodfaith' => [ 'enabled' => false ] ],
 				[
 					'tables' => [
 						'ores_damaging_cls' => 'ores_classification'
@@ -150,7 +150,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 				]
 			],
 			[
-				[ 'damaging' => false, 'goodfaith' => true ],
+				[ 'damaging' => [ 'enabled' => false ], 'goodfaith' => [ 'enabled' => true ] ],
 				[
 					'tables' => [
 						'ores_goodfaith_cls' => 'ores_classification'
@@ -170,7 +170,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 				]
 			],
 			[
-				[ 'damaging' => true, 'goodfaith' => true ],
+				[ 'damaging' => [ 'enabled' => true ], 'goodfaith' => [ 'enabled' => true ] ],
 				[
 					'tables' => [
 						'ores_damaging_cls' => 'ores_classification',

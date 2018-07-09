@@ -34,11 +34,12 @@ class ApiIntegrationTest extends \ApiTestCase {
 		$this->setMwGlobals(
 			[
 				'wgOresModels' => [
-					'damaging' => true,
-					'goodfaith' => true,
-					'reverted' => true,
-					'wp10' => true,
-					'draftquality' => false ],
+					'damaging' => [ 'enabled' => true ],
+					'goodfaith' => [ 'enabled' => true ],
+					'reverted' => [ 'enabled' => true ],
+					'wp10' => [ 'enabled' => true ],
+					'draftquality' => [ 'enabled' => false ]
+				],
 				'wgOresModelClasses' => [
 					'damaging' => [ 'false' => 0, 'true' => 1 ],
 					'goodfaith' => [ 'false' => 0, 'true' => 1 ],
