@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "aee9e59c_bee716e0",
+        "filename": "includes/QueryHelper.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-07-11T20:34:02Z",
+      "side": 1,
+      "message": "Oops!  I somehow missed that you had added this class, thank you.",
+      "parentUuid": "6ca34f8c_6b14d987",
+      "revId": "ce45ea72e13e7fa587551ea95172868504f561c2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caa2f072_c00a8a3c",
         "filename": "includes/QueryHelper.php",
         "patchSetId": 7
