@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d4d3551a_e33167aa",
+        "filename": "extension.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2018-07-11T20:25:50Z",
+      "side": 1,
+      "message": "I put it there so I can use QueryHelper::buildRangeFilter as-is. I was hoping to write fractions but JSON doesn\u0027t like that.\n\nAnother approach would be to special-case it in $thresholdLookup-\u003egetThresholds(), either for \u0027wp10\u0027 or any model that is aggregated.",
+      "parentUuid": "4f148d68_123c1f42",
+      "revId": "ce45ea72e13e7fa587551ea95172868504f561c2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80892c0f_67f2a763",
         "filename": "includes/Hooks/ChangesListHooksHandler.php",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2018-07-11T19:55:28Z",
       "side": 1,
       "message": "edge case-y, but how are we handling database table prefixes?  Not a problem if you don\u0027t want to solve here, it\u0027s not the fault of this patch.\n\nWhy are we specifying the table explicitly now?  It seemed reasonable to calculate the table name within the function.",
+      "revId": "ce45ea72e13e7fa587551ea95172868504f561c2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04c0b060_e6948517",
+        "filename": "includes/Hooks/ChangesListHooksHandler.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2018-07-11T20:25:50Z",
+      "side": 1,
+      "message": "I went back and forth a few times on this... and it does look silly when I look at the diff now. I\u0027ll put it back into buildRangeFilter().\n\nTable aliases are always \u0027ores_{$model}_cls by convention in the extension. This repeated in a few places so it\u0027s not ideal. I don\u0027t if we have to do anything for tables prefixes as long as table names are only used as `$tables[] \u003d \u0027tableName\u0027` or `$tables[\u0027alias\u0027] \u003d \u0027tableName\u0027`",
+      "parentUuid": "80892c0f_67f2a763",
       "revId": "ce45ea72e13e7fa587551ea95172868504f561c2",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6ca34f8c_6b14d987",
+        "filename": "includes/QueryHelper.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2018-07-11T20:25:50Z",
+      "side": 1,
+      "message": "I don\u0027t think this is necessary since Range and the current class are both in the ORES namespace.",
+      "parentUuid": "89795949_58329fca",
+      "revId": "ce45ea72e13e7fa587551ea95172868504f561c2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caa2f072_c00a8a3c",
         "filename": "includes/QueryHelper.php",
         "patchSetId": 7
@@ -64,6 +118,24 @@
       "writtenOn": "2018-07-11T19:55:28Z",
       "side": 1,
       "message": "Namespace qualifier not necessary for global functions.",
+      "revId": "ce45ea72e13e7fa587551ea95172868504f561c2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "036ec5c9_6d800efb",
+        "filename": "includes/QueryHelper.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2018-07-11T20:25:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "caa2f072_c00a8a3c",
       "revId": "ce45ea72e13e7fa587551ea95172868504f561c2",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "b1517120_82fdbe32",
+        "filename": "includes/QueryHelper.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2018-07-11T20:25:50Z",
+      "side": 1,
+      "message": "Used by PageTriage. I\u0027m adding a comment about it for when someone says: \"oh, this is not used, let\u0027s delete it\"",
+      "parentUuid": "174e61f8_b8de6171",
+      "revId": "ce45ea72e13e7fa587551ea95172868504f561c2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ae0f936_0464fcbf",
         "filename": "includes/QueryHelper.php",
         "patchSetId": 7
@@ -98,6 +188,24 @@
       "writtenOn": "2018-07-11T19:55:28Z",
       "side": 1,
       "message": "I guess tableAlias is here to deal with database prefixes?",
+      "revId": "ce45ea72e13e7fa587551ea95172868504f561c2",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "398cb991_e2dd8084",
+        "filename": "includes/QueryHelper.php",
+        "patchSetId": 7
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 2488
+      },
+      "writtenOn": "2018-07-11T20:25:50Z",
+      "side": 1,
+      "message": "I\u0027m not sure when you mean...",
+      "parentUuid": "9ae0f936_0464fcbf",
       "revId": "ce45ea72e13e7fa587551ea95172868504f561c2",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
