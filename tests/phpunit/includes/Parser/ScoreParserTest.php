@@ -130,6 +130,13 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 						'oresc_probability' => 0.004747126844044479,
 						'oresc_is_predicted' => false
 					],
+					[
+						'oresc_rev' => 12347,
+						'oresc_model' => self::WP10,
+						'oresc_class' => 0,
+						'oresc_probability' => 0.0012184138955171303,
+						'oresc_is_predicted' => false
+					],
 				],
 				12347
 			],

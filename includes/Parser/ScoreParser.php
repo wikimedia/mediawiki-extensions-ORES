@@ -98,9 +98,10 @@ class ScoreParser {
 				throw new InvalidArgumentException( "Class $class in model $model is not configured" );
 			}
 			$class = $this->modelClasses[$model][$class];
-			if ( $class === 0 ) {
-				// We don't store rows for class 0, because we can compute the class 0 probability by
-				// subtracting the sum of the probabilities of the other classes from 1
+			if ( $class === 0 && ( count( $this->modelClasses[$model] ) === 2 ) ) {
+				// We don't store rows for class 0 of models with only 2 classes
+				// because we can easily query using reversed conditions on class 1
+				// Example: WHERE class = 0 AND probability > 0.8 -> WHERE class = 1 AND probability <= 0.2
 				continue;
 			}
 			$processedData[] = [
