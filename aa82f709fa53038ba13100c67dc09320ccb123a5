@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cbbe3a21_a2e9c377",
+        "filename": "includes/QueryHelper.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-07-13T09:19:56Z",
+      "side": 1,
+      "message": "This name is very misleading, Query can be applied to querying the ores service. I suggest renaming it to DatabaseQueryHelper or something like that.\nP.S. public methods of this class are \"buildRangeFilter\" and \"buildDiscreteFilter\" it means what it class does is \"to builder filters\" and it\u0027s not query helper. Name of the class should reflect that.",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 17
+      },
+      "revId": "aa82f709fa53038ba13100c67dc09320ccb123a5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca67a19e_ce3244c6",
+        "filename": "includes/QueryHelper.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-07-13T09:19:56Z",
+      "side": 1,
+      "message": "You can flip the condition and cut the function short instead. It would reduce the indentation and makes the code more readable.",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 26
+      },
+      "revId": "aa82f709fa53038ba13100c67dc09320ccb123a5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16be6834_f3ee9baa",
+        "filename": "includes/QueryHelper.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-07-13T09:19:56Z",
+      "side": 1,
+      "message": "Very optional: It would be amazing if you ceneteralize logic for this naming convention using a private method so it would be easier to change if needed in future.",
+      "range": {
+        "startLine": 79,
+        "startChar": 13,
+        "endLine": 79,
+        "endChar": 34
+      },
+      "revId": "aa82f709fa53038ba13100c67dc09320ccb123a5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e81668f0_daeec541",
+        "filename": "includes/QueryHelper.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-07-13T09:19:56Z",
+      "side": 1,
+      "message": "another very optional note: Per better encapsulation, I like to have only one public method (with a bool flag) that you use only to dispatch to these two methods. Something like:\npublic function buildFilter($modelName, $selectedLevels, $discrete\u003dfalse) {\n   if ( $discrete \u003d\u003d\u003d true ) {\n       return $this-\u003ebuildDiscreteFilter( $modelName, $selectedLevels );\n   }\n   return $this-\u003ebuildRangeFilter( $modelName, $selectedLevels );\n}\nAnd turn these two methods to private",
+      "range": {
+        "startLine": 98,
+        "startChar": 17,
+        "endLine": 98,
+        "endChar": 36
+      },
+      "revId": "aa82f709fa53038ba13100c67dc09320ccb123a5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79f17acc_51411d44",
+        "filename": "includes/QueryHelper.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-07-13T09:19:56Z",
+      "side": 1,
+      "message": "This can be simplified to \"ores_$modelName_cls\";",
+      "range": {
+        "startLine": 101,
+        "startChar": 16,
+        "endLine": 101,
+        "endChar": 46
+      },
+      "revId": "aa82f709fa53038ba13100c67dc09320ccb123a5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bec3528d_79c4c3cc",
+        "filename": "includes/QueryHelper.php",
+        "patchSetId": 10
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-07-13T09:19:56Z",
+      "side": 1,
+      "message": "Global functions are evil and we could simply pass it from MediawikiServices and load balancer but I understand it\u0027s just a query builder and doesn\u0027t do anything so feel free to ignore this comment.",
+      "range": {
+        "startLine": 116,
+        "startChar": 10,
+        "endLine": 116,
+        "endChar": 31
+      },
+      "revId": "aa82f709fa53038ba13100c67dc09320ccb123a5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
