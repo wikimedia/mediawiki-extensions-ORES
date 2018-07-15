@@ -4,6 +4,7 @@
 			"Srdjan m"
 		]
 	},
+	"ores-damaging-filter": "$1 vjerovatno dobre izmjene",
 	"ores-damaging-letter": "p",
 	"ores-damaging-legend": "Izmjena je možda problematična i treba je pregledati ([[:mw:Special:MyLanguage/ORES review tool|detaljnije]])",
 	"ores-pref-damaging": "Prag predviđanja",
@@ -30,6 +31,9 @@
 	"ores-rcfilters-goodfaith-bad-desc-low": "Sa srednjom tačnosti pronalazi srednji udio zlonamjernih izmjena.",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Vrlo vjerovatno zlonamjerno",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Iznimno tačan u pronalaženju najočitije zlonamjernih izmjena.",
+	"ores-pref-highlight": "Istakni vjerovatno problematične izmjene bojama i slovom \"{{int:ores-damaging-letter}}\" koje označava da je \"potrebna provjera\"",
 	"ores-pref-rc-hidenondamaging": "Prikaži samo vjerovatno problematične izmjene (i sakrij vjerovatno dobre)",
+	"ores-pref-watchlist-hidenondamaging": "Prikaži samo vjerovatno problematične izmjene (i sakrij vjerovatno dobre)",
+	"prefs-ores-wl": "Ocjena izmjena na spisku praćenja",
 	"prefs-ores-rc": "Ocjena izmjena na nedavnim i srodnim izmjenama te doprinosima"
 }
