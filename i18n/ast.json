@@ -25,7 +25,7 @@
 	"ores-rcfilters-damaging-conflicts-logactions": "Les predicciones de Calidá de la contribución nun tán disponibles pa dellos tipos de cambiu, polo qu'esti filtru entra en conflictu {{PLURAL:$2|col siguiente filtru|colos siguientes filtros}} de tipu de cambiu: $1",
 	"ores-rcfilters-damaging-likelygood-label": "Mui probablemente bona",
 	"ores-rcfilters-damaging-likelygood-desc": "Mui precisu p'alcontrar casi toles ediciones llibres de problemes.",
-	"ores-rcfilters-damaging-maybebad-label": "Pué tener problemes",
+	"ores-rcfilters-damaging-maybebad-label": "Puede tener problemes",
 	"ores-rcfilters-damaging-maybebad-desc": "Alcuentra la mayor parte de les ediciones enquivocaes o dañibles, pero con baxa precisión",
 	"ores-rcfilters-damaging-likelybad-label": "Probablemente tien problemes",
 	"ores-rcfilters-damaging-likelybad-desc-low": "Con precisión media, atopa un númberu intermediu d'ediciones problemátiques.",
