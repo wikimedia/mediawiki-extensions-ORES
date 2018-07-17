@@ -38,7 +38,7 @@
 	"ores-rcfilters-goodfaith-conflicts-logactions": "Les predicciones d'intención d'usuariu nun tán disponibles pa dellos tipos de cambiu, polo qu'esti filtru entra en conflictu {{PLURAL:$2|col siguiente filtru|colos siguientes filtros}} de tipu de cambiu: $1",
 	"ores-rcfilters-goodfaith-good-label": "Mui probablemente de bona fe",
 	"ores-rcfilters-goodfaith-good-desc": "Mui precisu p'alcontrar casi toles ediciones de bona fe.",
-	"ores-rcfilters-goodfaith-maybebad-label": "Pué ser a mala fe",
+	"ores-rcfilters-goodfaith-maybebad-label": "Puede ser a mala fe",
 	"ores-rcfilters-goodfaith-maybebad-desc": "Alcuentra la mayor parte de les ediciones a mala fe, pero con baxa precisión",
 	"ores-rcfilters-goodfaith-bad-label": "Probablemente a mala fe",
 	"ores-rcfilters-goodfaith-bad-desc-low": "Con precisión media, atopa un númberu intermediu d'ediciones problemátiques.",

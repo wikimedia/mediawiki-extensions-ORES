@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Akerbeltz"
+		]
+	},
+	"ores-damaging-legend": "Dh’fhaoidte gu bheil duilgheadasan sa mhùthadh seo ’s b’ fhiach e sùil eile ([[:mw:Special:MyLanguage/ORES review tool|barrachd fiosrachaidh]])",
+	"ores-rcfilters-damaging-title": "Ro-innse air càileachd nam mùthaidhean",
+	"ores-rcfilters-damaging-likelygood-label": "Coltas mòr gu bheil e math",
+	"ores-rcfilters-damaging-likelygood-desc": "Glè phongail ann a bhith a’ lorg cha mhòr gach deagh-dheasachadh.",
+	"ores-rcfilters-damaging-maybebad-label": "Dh’fhaoidte gu bheil duilgheadas ann",
+	"ores-rcfilters-damaging-maybebad-desc": "Lorgaidh seo na deasachaidhean as mearachdaiche no as milltiche ach chan eil e cho pongail.",
+	"ores-rcfilters-damaging-likelybad-label": "Teans mòr gu bheil duilgheadasan ann",
+	"ores-rcfilters-damaging-likelybad-desc-low": "Meadhanach pongail, lorgaidh seo cuid mhath de dheasachaidhean aig a bheil duilgheadas.",
+	"ores-rcfilters-damaging-verylikelybad-label": "Teans mòr gu bheil duilgheadasan ann"
+}
