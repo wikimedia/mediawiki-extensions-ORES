@@ -12,5 +12,9 @@
 	"ores-rcfilters-damaging-maybebad-desc": "Lorgaidh seo na deasachaidhean as mearachdaiche no as milltiche ach chan eil e cho pongail.",
 	"ores-rcfilters-damaging-likelybad-label": "Teans mòr gu bheil duilgheadasan ann",
 	"ores-rcfilters-damaging-likelybad-desc-low": "Meadhanach pongail, lorgaidh seo cuid mhath de dheasachaidhean aig a bheil duilgheadas.",
-	"ores-rcfilters-damaging-verylikelybad-label": "Teans mòr gu bheil duilgheadasan ann"
+	"ores-rcfilters-damaging-verylikelybad-label": "Teans mòr gu bheil duilgheadasan ann",
+	"ores-rcfilters-goodfaith-title": "Ro-innse air rùn a’ chleachdaiche",
+	"ores-rcfilters-goodfaith-maybebad-desc": "Gheibh seo lorg air a’ chuid as motha de dheasachaidhean a rinneadh ann an drobh-rùn ach gun a bhith cho pongail.",
+	"ores-rcfilters-goodfaith-bad-label": "Coltas gun deach a dhèanamh ann an droch-rùn",
+	"ores-rcfilters-goodfaith-bad-desc-low": "Meadhanach pongail, lorgaidh seo cuid mhath de dheasachaidhean a rinneadh ann an droch-rùn."
 }

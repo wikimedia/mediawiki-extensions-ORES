@@ -10,7 +10,8 @@
 			"Redredsonia",
 			"Facenapalm",
 			"Patrick Star",
-			"Movses"
+			"Movses",
+			"Putnik"
 		]
 	},
 	"ores-desc": "Показывать оценку правок системой ORES",
@@ -53,6 +54,7 @@
 	"ores-pref-highlight": "Выделять вероятно проблемные правки цветом и символом «{{int:ores-damaging-letter}}», означающим «требуется проверка»",
 	"ores-pref-rc-hidenondamaging": "Показывать только вероятно проблемные правки (и скрыть возможно хорошие)",
 	"ores-pref-watchlist-hidenondamaging": "Показывать только вероятно проблемные правки (и скрыть возможно хорошие)",
+	"prefs-ores-wl": "Revision scoring в списке наблюдения",
 	"apihelp-query+ores-description": "Возвращает конфигурацию ORES и данные модели для этой вики.",
 	"apihelp-query+ores-example-simple": "Запросить данные ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Оценки ORES версии.",
