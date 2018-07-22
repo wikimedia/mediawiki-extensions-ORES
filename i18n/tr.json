@@ -4,7 +4,8 @@
 			"JackUKElliott",
 			"Incelemeelemani",
 			"Vito Genovese",
-			"Bulgu"
+			"Bulgu",
+			"Hedda"
 		]
 	},
 	"ores-desc": "Arayüzde otomatik gözden geçirme puanlarını gösterir",
@@ -12,7 +13,7 @@
 	"ores-damaging-letter": "g",
 	"ores-damaging-title": "Bu düzenlemenin gözden geçirilmesi gerekiyor",
 	"ores-damaging-legend": "Bu düzenleme zarar verici olabilir ve gözden geçirilmelidir ([[:mw:Special:MyLanguage/ORES review tool|daha fazla bilgi]])",
-	"ores-hide-nondamaging-filter": "Sadece gözden geçirme gerektiren düzenlemeleri göster",
+	"ores-hide-nondamaging-filter": "Muhtemel iyi düzenlemeleri gizle",
 	"ores-pref-damaging": "Kestirim eşiği",
 	"ores-help-damaging-pref": "Bu eşik, gözden geçirilmesi gereken düzenlemelerin işaretlenmesinde ORES'in ne kadar hassas olduğunu belirler.",
 	"ores-rcfilters-whats-this-link-text": "Daha fazlasını öğrenin",
@@ -39,7 +40,7 @@
 	"ores-rcfilters-goodfaith-maybebad-desc": "Çoğu kötü niyetli düzenlemeyi bulur, ancak bunu daha düşük doğrulukla yapar.",
 	"ores-rcfilters-goodfaith-bad-label": "Yüksek olasılıkla kötü niyetli",
 	"ores-pref-highlight": "İzleme Listesi ve Katkılar sayfalarında yüksek olasıklıkla zarar verici düzenlemeleri (ORES kullanarak) vurgula",
-	"ores-pref-rc-hidenondamaging": "Yalnızca sorunlu olabilecek düzenlemeleri göster (ve yüksek olasılıkla sorunsuz düzenlemeleri gizle)",
+	"ores-pref-rc-hidenondamaging": "Yalnızca olası düzenlemeleri göster (muhtemel iyi düzenlemeleri sakla)",
 	"ores-pref-watchlist-hidenondamaging": "Yalnızca sorunlu olabilecek düzenlemeleri göster (ve yüksek olasılıkla sorunsuz düzenlemeleri gizle)",
 	"apihelp-query+ores-description": "Bu viki modelinin verilerine ve ORES yapılandırmasına geri dön.",
 	"apihelp-query+ores-example-simple": "Getirilecek ORES verisi:",
