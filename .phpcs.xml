@@ -5,7 +5,6 @@
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationProtected" />
 		<exclude name="MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName" />
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
-		<exclude name="MediaWiki.Commenting.FunctionComment.MissingParamComment" />
 	</rule>
 
 	<rule ref="Generic.ControlStructures" />
