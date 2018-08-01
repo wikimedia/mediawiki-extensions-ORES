@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6041907f_f5de80a6",
+        "filename": "maintenance/BackfillPageTriageQueue.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-08-01T09:13:44Z",
+      "side": 1,
+      "message": "(optional) It should check if page triage exists and error out if not.",
+      "range": {
+        "startLine": 42,
+        "startChar": 17,
+        "endLine": 42,
+        "endChar": 26
+      },
+      "revId": "a7950f3a6129916b6cc19dc47853954eb2d1d2a6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bd82b40_53920e2f",
+        "filename": "maintenance/BackfillPageTriageQueue.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-08-01T09:13:44Z",
+      "side": 1,
+      "message": "I like this",
+      "range": {
+        "startLine": 104,
+        "startChar": 5,
+        "endLine": 104,
+        "endChar": 15
+      },
+      "revId": "a7950f3a6129916b6cc19dc47853954eb2d1d2a6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
