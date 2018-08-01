@@ -25,7 +25,7 @@ class PurgeScoreCache extends Maintenance {
 		$this->addOption( 'all', 'Flag to indicate that we want to clear all data, ' .
 			'even those from the most recent model', false, false );
 		$this->addOption( 'old', 'Flag to indicate that we only want to clear old data ' .
-			'that is not in recent changes anymore. Implicitly assumes --all.', false, false );
+			'that is not in recent changes anymore.', false, false );
 		$this->setBatchSize( 1000 );
 	}
 
@@ -71,17 +71,23 @@ class PurgeScoreCache extends Maintenance {
 	 * @return int The number of deleted rows
 	 */
 	private function purge( $model, $isEverything, $batchSize = 1000 ) {
-		$tables = [ 'ores_classification', 'ores_model' ];
-		$join_conds = [
-			'ores_model' => [ 'LEFT JOIN', 'oresm_id = oresc_model' ],
-		];
 		$conditions = [
 			'oresm_name' => [ $model, null ],
 		];
 		if ( !$isEverything ) {
 			$conditions[] = '(oresm_is_current != 1 OR oresm_is_current IS NULL)';
 		}
-		return $this->deleteRows( $tables, $conditions, $join_conds, $batchSize );
+
+		$modelIds = wfGetDB( DB_REPLICA )->selectFieldValues( 'ores_model',
+			'oresm_id',
+			$conditions,
+			__METHOD__
+		);
+		if ( !$modelIds ) {
+			return 0;
+		}
+
+		return $this->deleteRows( [ 'oresc_model' => $modelIds ], $batchSize );
 	}
 
 	/**
@@ -93,47 +99,51 @@ class PurgeScoreCache extends Maintenance {
 	 * @return int The number of deleted rows
 	 */
 	public function purgeOld( $model, $batchSize = 1000 ) {
-		$tables = [ 'ores_classification', 'ores_model', 'recentchanges' ];
-		$join_conds = [
-			'ores_model' => [ 'LEFT JOIN', 'oresm_id = oresc_model' ],
-			'recentchanges' => [ 'LEFT JOIN', 'oresc_rev = rc_this_oldid' ],
-		];
+		$dbr = wfGetDB( DB_REPLICA );
+		$modelIds = $dbr->selectFieldValues( 'ores_model',
+			'oresm_id',
+			[ 'oresm_name' => [ $model, null ] ],
+			__METHOD__
+		);
+
+		$lowestRCRev = $dbr->selectFieldValues( 'recentchanges',
+			'rc_this_oldid',
+			[],
+			__METHOD__,
+			[ 'LIMIT' => 1, 'ORDER BY' => 'rc_id' ]
+		);
+
+		if ( !$lowestRCRev || !$modelIds ) {
+			return 0;
+		}
+
 		$conditions = [
-			'oresm_name' => [ $model, null ],
-			'rc_this_oldid' => null,
+			'oresc_rev < ' . $dbr->addQuotes( $lowestRCRev[0] ),
+			'oresc_model' => $modelIds
 		];
-		return $this->deleteRows( $tables, $conditions, $join_conds, $batchSize );
+		return $this->deleteRows( $conditions, $batchSize );
 	}
 
 	/**
 	 * Delete cached scores. Which rows to delete is given by Database::select parameters.
-	 *
-	 * @param array $tables
 	 * @param array $conditions
-	 * @param array $join_conds
 	 * @param int $batchSize Maximum number of records to delete per loop.
 	 *   Note that this function runs multiple batches, until all records are deleted.
 	 * @return int The number of deleted rows
 	 * @see Database::select
 	 */
-	private function deleteRows(
-		array $tables,
-		array $conditions,
-		array $join_conds,
-		$batchSize
-	) {
+	private function deleteRows( array $conditions, $batchSize ) {
 		$dbr = \wfGetDB( DB_REPLICA );
 		$dbw = \wfGetDB( DB_MASTER );
 
 		$deletedRows = 0;
 
 		do {
-			$ids = $dbr->selectFieldValues( $tables,
+			$ids = $dbr->selectFieldValues( 'ores_classification',
 				'oresc_id',
 				$conditions,
 				__METHOD__,
-				[ 'LIMIT' => $batchSize ],
-				$join_conds
+				[ 'LIMIT' => $batchSize ]
 			);
 			if ( $ids ) {
 				$dbw->delete( 'ores_classification',
