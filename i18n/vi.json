@@ -33,5 +33,8 @@
 	"ores-pref-rc-hidenondamaging": "Chỉ các sửa đổi có lẽ có vấn đề (và ẩn các sửa đổi có lẽ tốt)",
 	"ores-pref-watchlist-hidenondamaging": "Chỉ các sửa đổi có lẽ có vấn đề (và ẩn các sửa đổi có lẽ tốt)",
 	"prefs-ores-wl": "Đánh dấu phiên bản trong danh sách theo dõi",
+	"apihelp-query+ores-example-simple": "Lấy dữ liệu ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Điểm ORES của phiên bản.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Điểm ORES của phiên bản.",
 	"ores-api-show-note": "Khi sử dụng <kbd>oresreview</kbd> hoặc <kbd>!oresreview</kbd>, các phiên bản không có điểm (ví dụ các phiên bản rất cũ) được xem là không cần xem lại, mặc dù vẫn cần được xem lại nếu được đánh dấu."
 }
