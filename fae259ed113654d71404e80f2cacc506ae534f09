@@ -16,6 +16,24 @@
       "revId": "fae259ed113654d71404e80f2cacc506ae534f09",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c194fb8b_74b3f2e5",
+        "filename": "maintenance/PurgeScoreCache.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-08-02T17:16:01Z",
+      "side": 1,
+      "message": "It\u0027s to reduce time that we hold a connection to master, specially in older case. It would take up to 10 minutes just to find these ids and such an expensive query is better to be done on the replica and then results get fed to master to delete.",
+      "parentUuid": "21d2b7d1_c7069f5c",
+      "revId": "fae259ed113654d71404e80f2cacc506ae534f09",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
