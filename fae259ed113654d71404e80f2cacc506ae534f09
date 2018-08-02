@@ -34,6 +34,24 @@
       "revId": "fae259ed113654d71404e80f2cacc506ae534f09",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2857d3a_ff9c34c8",
+        "filename": "maintenance/PurgeScoreCache.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-08-02T17:17:49Z",
+      "side": 1,
+      "message": "Smart, thanks!",
+      "parentUuid": "c194fb8b_74b3f2e5",
+      "revId": "fae259ed113654d71404e80f2cacc506ae534f09",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
