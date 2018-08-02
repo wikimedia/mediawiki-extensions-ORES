@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21d2b7d1_c7069f5c",
+        "filename": "maintenance/PurgeScoreCache.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-08-02T17:11:32Z",
+      "side": 1,
+      "message": "Remind me why we select then delete in separate operations?\n\nWith a direct delete, we wouldn\u0027t need to wait for replicas, either.",
+      "revId": "fae259ed113654d71404e80f2cacc506ae534f09",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
