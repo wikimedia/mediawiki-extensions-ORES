@@ -2,6 +2,7 @@
 
 namespace ORES\Tests\Hooks;
 
+use Hooks;
 use JobQueueGroup;
 use ORES\Hooks\RecentChangeSaveHookHandler;
 use ORES\Tests\MockOresServiceBuilder;
@@ -14,6 +15,7 @@ use RecentChange;
 class RecentChangeSaveHookHandlerTest extends \MediaWikiTestCase {
 
 	public function setUp() {
+		global $wgHooks;
 		parent::setUp();
 		$mockOresService = MockOresServiceBuilder::getORESServiceMock( $this );
 		$this->setService( 'ORESService', $mockOresService );
@@ -26,9 +28,10 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiTestCase {
 			],
 			'wgOresExcludeBots' => false,
 		] );
+		unset( $wgHooks['ORESCheckModels'] );
 	}
 
-	public function provieOnRecentChange_save() {
+	public function provideOnRecentChange_save() {
 		return [
 			[ 0, 0, RC_EDIT, [ 'damaging', 'wp10' ] ],
 			[ 2, 0, RC_NEW, [ 'damaging', 'draftquality' ] ],
@@ -39,7 +42,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiTestCase {
 
 	/**
 	 * @covers ORES\Hooks\RecentChangeSaveHookHandler::onRecentChange_save
-	 * @dataProvider provieOnRecentChange_save
+	 * @dataProvider provideOnRecentChange_save
 	 */
 	public function testOnRecentChange_save( $ns, $isBot, $type, $expectedModels ) {
 		JobQueueGroup::singleton()->get( 'ORESFetchScoreJob' )->delete();
@@ -75,7 +78,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiTestCase {
 		$this->assertSame( $expected, $actual );
 	}
 
-	public function provieOnRecentChange_saveNotQueued() {
+	public function provideOnRecentChange_saveNotQueued() {
 		return [
 			[ 2, 1, RC_EDIT ],
 			[ 1, 0, RC_EDIT ],
@@ -87,7 +90,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiTestCase {
 
 	/**
 	 * @covers ORES\Hooks\RecentChangeSaveHookHandler::onRecentChange_save
-	 * @dataProvider provieOnRecentChange_saveNotQueued
+	 * @dataProvider provideOnRecentChange_saveNotQueued
 	 */
 	public function testOnRecentChange_saveNotQueued( $ns, $isBot, $type ) {
 		JobQueueGroup::singleton()->get( 'ORESFetchScoreJob' )->delete();
@@ -111,6 +114,43 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiTestCase {
 		RecentChangeSaveHookHandler::onRecentChange_save( $rc );
 
 		$this->assertFalse( JobQueueGroup::singleton()->get( 'ORESFetchScoreJob' )->pop() );
+	}
+
+	public function testOnRecentChange_saveHook() {
+		JobQueueGroup::singleton()->get( 'ORESFetchScoreJob' )->delete();
+		$revId = mt_rand( 1000, 9999 );
+
+		$rc = RecentChange::newFromRow( (object)[
+			'rc_namespace' => 0,
+			'rc_title' => 'Test123',
+			'rc_patrolled' => 0,
+			'rc_timestamp' => '20150921134808',
+			'rc_deleted' => 0,
+			'rc_comment' => '',
+			'rc_bot' => 0,
+			'rc_comment_text' => '',
+			'rc_comment_data' => null,
+			'rc_type' => RC_EDIT,
+			'rc_this_oldid' => $revId,
+			'rc_user' => 1,
+			'rc_user_text' => 'Test user',
+		] );
+		Hooks::register( 'ORESCheckModels', function ( $rc, &$models ) {
+			$models = [ 'model_1' ];
+		} );
+		RecentChangeSaveHookHandler::onRecentChange_save( $rc );
+
+		$actual = JobQueueGroup::singleton()->get( 'ORESFetchScoreJob' )->pop()->getParams();
+		$actual['requestId'] = 'foo';
+
+		$expected = [
+			'revid' => $revId,
+			'originalRequest' => [ 'ip' => '127.0.0.1', 'userAgent' => false ],
+			'models' => [ 'model_1' ],
+			'precache' => true,
+			'requestId' => 'foo'
+		];
+		$this->assertSame( $expected, $actual );
 	}
 
 }

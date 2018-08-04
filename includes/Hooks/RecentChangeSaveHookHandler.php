@@ -18,6 +18,7 @@
 
 namespace ORES\Hooks;
 
+use Hooks;
 use JobQueueGroup;
 use MediaWiki\Logger\LoggerFactory;
 use ORES\FetchScoreJob;
@@ -99,6 +100,8 @@ class RecentChangeSaveHookHandler {
 				$models[] = $model;
 			}
 		}
+
+		Hooks::run( 'ORESCheckModels', [ $rc, &$models ] );
 
 		$this->triggerJob( $rc, $models );
 	}

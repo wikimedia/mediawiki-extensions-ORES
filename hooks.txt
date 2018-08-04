@@ -1,0 +1,12 @@
+This document describes how event hooks work in the ORES extension.
+
+For a more comprehensive guide to hooks, navigate to your root MediaWiki
+directory and read docs/hooks.txt.
+
+== Events and parameters ==
+This is a list of known events and parameters; please add to it if you're going
+to add events to the ORES extension.
+
+'ORESCheckModels': Allows modifying which models should a revision be scored with
+$rc: RecentChange object
+&$models: List of model names to score
