@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad9de8df_0dc3f80a",
+        "filename": "maintenance/BackfillPageTriageQueue.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2018-08-04T05:14:16Z",
+      "side": 1,
+      "message": "How long would this list typically be? I\u0027m concerned about what happens if the list of already-scored revs is thousands of items long. A different way to accomplish this (that I would be more comfortable with) would be to do a LEFT JOIN on ores_classification (using $iterator-\u003eaddJoinConditions()), and finding missing rows using $conds[] \u003d \u0027oresc_probability IS NULL\u0027;",
+      "revId": "4b675965827e4ac51de36c7393d27e4e92fe2801",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
