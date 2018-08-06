@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae5dbc33_e3f46ff9",
+        "filename": "maintenance/BackfillPageTriageQueue.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2018-08-06T20:58:03Z",
+      "side": 1,
+      "message": "You don\u0027t need makeList() here. The join conditions can be an array, and the Database code will know to call makeList( ... , LIST_AND ) on it itself.",
+      "revId": "0269e9975a86ddd26706dacfc5ced2428b87e545",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
