@@ -48,7 +48,7 @@ class ScoreParser {
 	 *
 	 * @note No row is generated for class 0
 	 * @param int $revision Revision being processed
-	 * @param array $revisionData Data returned by ScoreFetcher::getScores() for the revision.
+	 * @param array[] $revisionData Data returned by ScoreFetcher::getScores() for the revision.
 	 *
 	 * @return array[]
 	 * @throws RuntimeException
@@ -74,7 +74,7 @@ class ScoreParser {
 	 * @param string $model
 	 * @param array[] $modelOutputs
 	 *
-	 * @return array
+	 * @return array[]
 	 */
 	private function processRevisionPerModel( $revision, $model, array $modelOutputs ) {
 		$processedData = [];

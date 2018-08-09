@@ -39,8 +39,8 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 	 * @param array $options Options from
 	 *  WatchedItemQueryService::getWatchedItemsWithRecentChangeInfo()
 	 * @param IDatabase $db Database connection being used for the query
-	 * @param array &$tables Tables for Database::select()
-	 * @param array &$fields Fields for Database::select()
+	 * @param string[] &$tables Tables for Database::select()
+	 * @param string[] &$fields Fields for Database::select()
 	 * @param array &$conds Conditions for Database::select()
 	 * @param array &$dbOptions Options for Database::select()
 	 * @param array &$joinConds Join conditions for Database::select()
@@ -104,7 +104,7 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 	 * @param array $options Options from
 	 *  WatchedItemQueryService::getWatchedItemsWithRecentChangeInfo()
 	 * @param IDatabase $db Database connection being used for the query
-	 * @param array &$items array of pairs ( WatchedItem $watchedItem, string[] $recentChangeInfo )
+	 * @param array[] &$items Array of pairs ( WatchedItem $watchedItem, string[] $recentChangeInfo )
 	 * @param ResultWrapper|bool $res Database query result
 	 * @param array|null &$startFrom Continuation value
 	 */

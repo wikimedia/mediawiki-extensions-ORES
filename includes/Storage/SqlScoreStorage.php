@@ -55,7 +55,7 @@ class SqlScoreStorage implements ScoreStorage {
 	 *
 	 * @param array[] $scores
 	 * @param callable|null $errorCallback
-	 * @param array $modelsToClean
+	 * @param string[] $modelsToClean
 	 */
 	public function storeScores(
 		$scores,
@@ -158,7 +158,11 @@ class SqlScoreStorage implements ScoreStorage {
 		return $modelId;
 	}
 
-	private function cleanUpOldScores( $scores, $modelsToClean ) {
+	/**
+	 * @param array[] $scores
+	 * @param string[] $modelsToClean
+	 */
+	private function cleanUpOldScores( array $scores, array $modelsToClean ) {
 		$modelIds = [];
 		foreach ( $modelsToClean as $model ) {
 			$modelIds[] = $this->modelLookup->getModelId( $model );

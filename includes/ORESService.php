@@ -104,7 +104,7 @@ class ORESService {
 	}
 
 	/**
-	 * @param WebRequest|string[] $originalRequest See MwHttpRequest::setOriginalRequest()
+	 * @param WebRequest|string[]|null $originalRequest {@see MWHttpRequest::setOriginalRequest}
 	 *
 	 * @return array
 	 */

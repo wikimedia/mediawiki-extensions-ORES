@@ -29,7 +29,7 @@ interface ScoreStorage {
 	 * @param array[] $scores in the same structure as is returned by ORES.
 	 * @param callable|null $errorCallback This callback is called when we cannot parse a revision
 	 *   score response. The signature is errorCallback( string $errorMessage, string $revisionID )
-	 * @param array $modelsToClean Models that need cleanup of old scores after inserting new ones
+	 * @param string[] $modelsToClean Models that need cleanup of old scores after inserting new ones
 	 */
 	public function storeScores( $scores, callable $errorCallback = null, array $modelsToClean = [] );
 

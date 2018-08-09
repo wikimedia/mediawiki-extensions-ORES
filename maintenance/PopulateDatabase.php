@@ -106,7 +106,7 @@ class PopulateDatabase extends Maintenance {
 	/**
 	 * Process several edits and store the scores in the database
 	 *
-	 * @param array $revs array of revision ids
+	 * @param int[] $revs Array of revision IDs
 	 * @param ScoreFetcher $scoreFetcher
 	 * @param ScoreStorage $scoreStorage service to store scores in persistence layer
 	 */
