@@ -49,12 +49,12 @@ class ScoreFetcherTest extends \MediaWikiTestCase {
 			]
 		];
 		return [
-			[ $firstCase, 123, 'damaging', true, null ],
-			[ $secondCase, 123, 'damaging|goodfaith', true, null ],
-			[ $firstCase, 123, 'damaging', false, null ],
-			[ $secondCase, 123, 'damaging|goodfaith', false, null ],
-			[ $firstCase, 123, null, true, null ],
-			[ $firstCase, 123, null, false, null ],
+			[ $firstCase, 123, 'damaging', true ],
+			[ $secondCase, 123, 'damaging|goodfaith', true ],
+			[ $firstCase, 123, 'damaging', false ],
+			[ $secondCase, 123, 'damaging|goodfaith', false ],
+			[ $firstCase, 123, null, true ],
+			[ $firstCase, 123, null, false ],
 		];
 	}
 
@@ -62,9 +62,9 @@ class ScoreFetcherTest extends \MediaWikiTestCase {
 	 * @dataProvider provideTestGetScores
 	 * @covers ORES\ScoreFetcher::getScores
 	 */
-	public function testGetScores( $expected, $revisions, $models, $precache, $originalRequest ) {
+	public function testGetScores( $expected, $revisions, $models, $precache ) {
 		$scoreFetcher = ScoreFetcher::instance();
-		$result = $scoreFetcher->getScores( $revisions, $models, $precache, $originalRequest );
+		$result = $scoreFetcher->getScores( $revisions, $models, $precache );
 		$this->assertEquals( $expected, $result );
 		$res = wfGetDB( DB_REPLICA )->select(
 			'ores_model',
