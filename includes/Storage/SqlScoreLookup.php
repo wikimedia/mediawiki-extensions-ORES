@@ -36,8 +36,8 @@ class SqlScoreLookup implements StorageScoreLookup {
 	/**
 	 * Method to retrieve scores of given revision and models
 	 *
-	 * @param int|array $revisions Single or multiple revisions
-	 * @param string|array $models Single or multiple model names.
+	 * @param int|int[] $revisions Single or multiple revision IDs
+	 * @param string|string[] $models Single or multiple model names.
 	 *
 	 * @return IResultWrapper
 	 */

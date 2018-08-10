@@ -56,7 +56,7 @@ class ApiHooksHandler {
 	 * various hook functions below and by \ORES\WatchedItemQueryServiceExtension.
 	 *
 	 * @param ApiBase $module Module
-	 * @param array &$params Parameter data
+	 * @param array[] &$params Parameter data
 	 * @param int $flags zero or OR-ed flags like ApiBase::GET_VALUES_FOR_HELP
 	 */
 	public static function onAPIGetAllowedParams( ApiBase $module, array &$params, $flags ) {
@@ -93,8 +93,8 @@ class ApiHooksHandler {
 	 * @warning Any joins added *must* join on a unique key of the target table
 	 *  unless you really know what you're doing.
 	 * @param ApiQueryBase $module
-	 * @param array &$tables tables to be queried
-	 * @param array &$fields columns to select
+	 * @param string[] &$tables Tables to be queried
+	 * @param string[] &$fields Columns to select
 	 * @param array &$conds WHERE conditionals for query
 	 * @param array &$options options for the database request
 	 * @param array &$joinConds join conditions for the tables
@@ -251,7 +251,7 @@ class ApiHooksHandler {
 	 * get a chance to run before the client continues the query.
 	 *
 	 * @param int[] $revids Revision IDs
-	 * @return array [ array $scores, bool $needsContinuation ]
+	 * @return array [ \stdClass[] $scores, bool $needsContinuation ]
 	 */
 	public static function loadScoresForRevisions( array $revids ) {
 		global $wgOresAPIMaxBatchJobs, $wgOresRevisionsPerBatch;
@@ -334,7 +334,7 @@ class ApiHooksHandler {
 	 * @param int $revid
 	 * @param array[] $data
 	 * @param string[] $models
-	 * @return array
+	 * @return \stdClass[]
 	 */
 	private static function processRevision( $revid, array $data, array $models ) {
 		global $wgOresModelClasses;
@@ -415,7 +415,7 @@ class ApiHooksHandler {
 	 * Helper to actuall add scores to an API result array
 	 *
 	 * @param array &$data Output array
-	 * @param array $scores Array of score data
+	 * @param \stdClass[] $scores Array of score data
 	 */
 	private static function addScoresForAPI( array &$data, array $scores, array $models ) {
 		global $wgOresModelClasses;

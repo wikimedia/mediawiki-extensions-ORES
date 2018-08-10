@@ -23,11 +23,11 @@ class ScoreFetcher implements ServiceScoreLookup {
 	/**
 	 * @see ServiceScoreLookup::getScores()
 	 *
-	 * @param int|array $revisions Single or multiple revisions
-	 * @param string|array|null $models Single or multiple model names. If
+	 * @param int|int[] $revisions Single or multiple revision IDs
+	 * @param string|string[]|null $models Single or multiple model names. If
 	 * left empty, all configured models are queried.
 	 * @param bool $precache either the request is made for precaching or not
-	 * @param null $originalRequest
+	 * @param \WebRequest|string[]|null $originalRequest
 	 *
 	 * @return array Results in the form returned by ORES API
 	 */
@@ -63,7 +63,7 @@ class ScoreFetcher implements ServiceScoreLookup {
 	}
 
 	/**
-	 * @param array $modelData Model information returned by the API
+	 * @param array[] $modelData Model information returned by the API
 	 */
 	private function checkAndUpdateModels( array $modelData ) {
 		foreach ( $modelData as $model => $modelOutputs ) {
@@ -80,7 +80,7 @@ class ScoreFetcher implements ServiceScoreLookup {
 	 * @return null|string return null if the versions match, otherwise return
 	 * the new model version to update to
 	 */
-	public function checkModelVersion( $model, $modelOutputs ) {
+	public function checkModelVersion( $model, array $modelOutputs ) {
 		if ( !array_key_exists( 'version', $modelOutputs ) ) {
 			return null;
 		}

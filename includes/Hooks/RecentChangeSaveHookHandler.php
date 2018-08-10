@@ -71,9 +71,9 @@ class RecentChangeSaveHookHandler {
 
 	/**
 	 * @param RecentChange $rc
-	 * @param array $modelsConfig
+	 * @param array[] $modelsConfig
 	 * @param bool $excludeBots
-	 * @param array $enabledNamespaces
+	 * @param bool[] $enabledNamespaces
 	 */
 	public function handle(
 		RecentChange $rc,
@@ -106,7 +106,7 @@ class RecentChangeSaveHookHandler {
 		$this->triggerJob( $rc, $models );
 	}
 
-	private function checkModel( RecentChange $rc, $config ) {
+	private function checkModel( RecentChange $rc, array $config ) {
 		if ( $config['enabled'] !== true ) {
 			return false;
 		}

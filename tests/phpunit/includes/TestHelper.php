@@ -65,9 +65,9 @@ class TestHelper {
 
 	/**
 	 * @param Revision|int $revision
-	 * @param array $scores
+	 * @param float[] $scores
 	 */
-	public static function insertOresData( $revision, $scores ) {
+	public static function insertOresData( $revision, array $scores ) {
 		if ( is_numeric( $revision ) ) {
 			$revisionId = $revision;
 		} else {
