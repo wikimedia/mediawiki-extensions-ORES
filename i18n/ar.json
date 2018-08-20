@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"محمد أحمد عبد الفتاح",
-			"ديفيد"
+			"ديفيد",
+			"علاء"
 		]
 	},
 	"ores-desc": "كشف نقاط المراجعة التلقائية في الواجهة",
-	"ores-damaging-filter": "$1 التعديلات الجيدةة المحتملة",
+	"ores-damaging-filter": "$1 التعديلات الجيدة المحتملة",
 	"ores-damaging-letter": "ر",
 	"ores-damaging-title": "هذا التعديل يحتاج إلى مراجعة",
 	"ores-damaging-legend": "قد يكون هذا التعديل ضارًا وتجب مراجعته ([[:mw:Special:MyLanguage/ORES review tool|مزيد من المعلومات]])",
