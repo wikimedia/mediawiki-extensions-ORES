@@ -27,17 +27,12 @@ use ApiQueryRevisions;
 use ApiQueryUserContribs;
 use ApiQueryWatchlist;
 use ApiResult;
-use DeferredUpdates;
-use JobQueueGroup;
 use InvalidArgumentException;
 use MediaWiki\Logger\LoggerFactory;
-use ORES\FetchScoreJob;
 use ORES\ORESServices;
 use ORES\Parser\ScoreParser;
 use ORES\ScoreFetcher;
 use ORES\WatchedItemQueryServiceExtension;
-use RequestContext;
-use Title;
 use WatchedItem;
 use WatchedItemQueryService;
 use Wikimedia\Rdbms\ResultWrapper;
@@ -56,7 +51,7 @@ class ApiHooksHandler {
 	 * various hook functions below and by \ORES\WatchedItemQueryServiceExtension.
 	 *
 	 * @param ApiBase $module Module
-	 * @param array[] &$params Parameter data
+	 * @param array &$params Parameter data
 	 * @param int $flags zero or OR-ed flags like ApiBase::GET_VALUES_FOR_HELP
 	 */
 	public static function onAPIGetAllowedParams( ApiBase $module, array &$params, $flags ) {
@@ -93,8 +88,8 @@ class ApiHooksHandler {
 	 * @warning Any joins added *must* join on a unique key of the target table
 	 *  unless you really know what you're doing.
 	 * @param ApiQueryBase $module
-	 * @param string[] &$tables Tables to be queried
-	 * @param string[] &$fields Columns to select
+	 * @param array &$tables tables to be queried
+	 * @param array &$fields columns to select
 	 * @param array &$conds WHERE conditionals for query
 	 * @param array &$options options for the database request
 	 * @param array &$joinConds join conditions for the tables
@@ -247,10 +242,10 @@ class ApiHooksHandler {
 	 * get a chance to run before the client continues the query.
 	 *
 	 * @param int[] $revids Revision IDs
-	 * @return array [ \stdClass[] $scores, bool $needsContinuation ]
+	 * @return array [ array $scores, bool $needsContinuation ]
 	 */
 	public static function loadScoresForRevisions( array $revids ) {
-		global $wgOresAPIMaxBatchJobs, $wgOresRevisionsPerBatch;
+		global $wgOresRevisionsPerBatch;
 
 		$needsContinuation = false;
 		$scores = [];
@@ -267,51 +262,15 @@ class ApiHooksHandler {
 		}
 
 		// If any queried revisions were not cached and fetching is enabled,
-		// fetch up to $wgOresRevisionsPerBatch from the service now,
-		// cache them, and add them to the result.
+		// fetch up to $wgOresRevisionsPerBatch from the service
 		$revids = array_diff( $revids, array_keys( $scores ) );
 		if ( $revids && $wgOresRevisionsPerBatch ) {
-			// To limit data size, only scores for revisions still in RC will be cached in DB.
-			$cacheableRevids = wfGetDB( DB_REPLICA )->selectFieldValues(
-				[ 'recentchanges' ],
-				'rc_this_oldid',
-				[
-					'rc_this_oldid' => $revids,
-				],
-				__METHOD__
-			);
-
 			if ( count( $revids ) > $wgOresRevisionsPerBatch ) {
-				// Split revids into three groups: next batch which we fetch immediately for
-				// display (whether cacheable or not), further cacheable revids some of which we
-				// fetch in a background job, uncacheable revids which will be fetched on demand
-				// (so nothing to do here).
 				$needsContinuation = true;
 				$allRevids = $revids;
 				$revids = array_slice( $allRevids, 0, $wgOresRevisionsPerBatch );
-				$chunks = array_chunk( array_diff( $cacheableRevids, $revids ), $wgOresRevisionsPerBatch );
-				$title = Title::makeTitle( NS_SPECIAL, 'Badtitle/API batch score fetch' );
-				$request = RequestContext::getMain()->getRequest();
-				foreach ( array_slice( $chunks, 0, $wgOresAPIMaxBatchJobs ) as $batch ) {
-					$job = new FetchScoreJob( $title, [
-						'revid' => $batch,
-						'originalRequest' => [
-							'ip' => $request->getIP(),
-							'userAgent' => $request->getHeader( 'User-Agent' ),
-						],
-						'extra_params' => [],
-					] );
-					JobQueueGroup::singleton()->push( $job );
-				}
 			}
-
 			$loadedScores = ScoreFetcher::instance()->getScores( $revids );
-
-			// Filter loaded scores to store cacheable ones
-			$cacheableScores = array_intersect_key( $loadedScores, array_flip( $cacheableRevids ) );
-			DeferredUpdates::addCallableUpdate( function () use ( $cacheableScores ) {
-				ORESServices::getScoreStorage()->storeScores( $cacheableScores );
-			} );
 
 			foreach ( $loadedScores as $revid => $data ) {
 				$scores[$revid] = self::processRevision( $revid, $data, $models );

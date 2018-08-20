@@ -221,10 +221,6 @@
 			"value": 30,
 			"description": "Number of revisions to fetch scores for from the ORES API per request when the MediaWiki API is asked to score revisions which are not cached. Set to 0 to disable fetching (scores will still be fetched for new edits)."
 		},
-		"OresAPIMaxBatchJobs": {
-			"value": 3,
-			"description": "Number of jobs to schedule to fetch scores in the background when more than OresRevisionsPerBatch missing scores have been requested. Each job will fetch scores for another OresRevisionsPerBatch revisions, as long as they are cacheable (within the recentchanges table)."
-		},
 		"OresCacheVersion": {
 			"value": 1,
 			"description": "Increment to invalidate the cached thresholds."
