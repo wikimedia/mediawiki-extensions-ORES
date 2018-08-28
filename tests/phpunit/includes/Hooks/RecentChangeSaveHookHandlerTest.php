@@ -2,7 +2,6 @@
 
 namespace ORES\Tests\Hooks;
 
-use Hooks;
 use JobQueueGroup;
 use ORES\Hooks\RecentChangeSaveHookHandler;
 use ORES\Tests\MockOresServiceBuilder;
@@ -15,7 +14,6 @@ use RecentChange;
 class RecentChangeSaveHookHandlerTest extends \MediaWikiTestCase {
 
 	public function setUp() {
-		global $wgHooks;
 		parent::setUp();
 		$mockOresService = MockOresServiceBuilder::getORESServiceMock( $this );
 		$this->setService( 'ORESService', $mockOresService );
@@ -28,7 +26,6 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiTestCase {
 			],
 			'wgOresExcludeBots' => false,
 		] );
-		unset( $wgHooks['ORESCheckModels'] );
 	}
 
 	public function provideOnRecentChange_save() {
@@ -135,7 +132,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiTestCase {
 			'rc_user' => 1,
 			'rc_user_text' => 'Test user',
 		] );
-		Hooks::register( 'ORESCheckModels', function ( $rc, &$models ) {
+		$this->setTemporaryHook( 'ORESCheckModels', function ( $rc, &$models ) {
 			$models = [ 'model_1' ];
 		} );
 		RecentChangeSaveHookHandler::onRecentChange_save( $rc );
