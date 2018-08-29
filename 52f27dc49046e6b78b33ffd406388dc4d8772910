@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "180f06b0_00fecea7",
+        "filename": "tests/phpunit/includes/Hooks/RecentChangeSaveHookHandlerTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2018-08-29T01:10:52Z",
+      "side": 1,
+      "message": "Previously the setUp ensured the hook was absent at all times, unless and until added.\n\nHowever, now:\n\n* All other tests may or may not have unrelated hooks set up here. Does setTemporaryHook() have a way to clear it, e.g. passing it null from setUp(), or some such?\n\n* This particular test will have the hook set during the RecentChange creation. From looking at this code, I can\u0027t be sure this hook can\u0027t indirectly fire from that, so would be clearer if this were the first statement in this test function.",
+      "range": {
+        "startLine": 135,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 6
+      },
+      "revId": "52f27dc49046e6b78b33ffd406388dc4d8772910",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
