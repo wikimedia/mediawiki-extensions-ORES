@@ -54,7 +54,7 @@ class PopulatedSqlModelLookupTest extends \MediaWikiTestCase {
 		$res = [
 			'testwiki' => [ 'models' => [
 				'damaging' => [ 'version' => '0.4.0' ],
-				'wp10' => [ 'version' => '0.6.1' ]
+				'articlequality' => [ 'version' => '0.6.1' ]
 			] ]
 		];
 		$this->oresServiceMock->expects( $this->any() )
@@ -122,12 +122,12 @@ class PopulatedSqlModelLookupTest extends \MediaWikiTestCase {
 		);
 		$expected = [
 			'damaging' => [ 'version' => '0.4.0', 'id' => 5 ],
-			'wp10' => [ 'version' => '0.6.1', 'id' => 6 ]
+			'articlequality' => [ 'version' => '0.6.1', 'id' => 6 ]
 		];
 		$actual = $populatedLookup->getModels();
 		// We have no control over id
 		$actual['damaging']['id'] = 5;
-		$actual['wp10']['id'] = 6;
+		$actual['articlequality']['id'] = 6;
 		$this->assertEquals( $expected, $actual );
 	}
 
@@ -138,7 +138,7 @@ class PopulatedSqlModelLookupTest extends \MediaWikiTestCase {
 			new NullLogger()
 		);
 		$this->assertEquals( '0.4.0', $populatedLookup->getModelVersion( 'damaging' ) );
-		$this->assertEquals( '0.6.1', $populatedLookup->getModelVersion( 'wp10' ) );
+		$this->assertEquals( '0.6.1', $populatedLookup->getModelVersion( 'articlequality' ) );
 	}
 
 	public function testGetInvalidModelVersionSql() {

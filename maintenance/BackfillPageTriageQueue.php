@@ -32,7 +32,7 @@ class BackfillPageTriageQueue extends Maintenance {
 		}
 
 		$this->backfillScores( 'draftquality' );
-		$this->backfillScores( 'wp10' );
+		$this->backfillScores( 'articlequality' );
 
 		$this->output( "\nAll done\n" );
 	}

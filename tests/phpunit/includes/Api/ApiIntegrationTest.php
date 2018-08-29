@@ -37,14 +37,14 @@ class ApiIntegrationTest extends \ApiTestCase {
 					'damaging' => [ 'enabled' => true ],
 					'goodfaith' => [ 'enabled' => true ],
 					'reverted' => [ 'enabled' => true ],
-					'wp10' => [ 'enabled' => true ],
+					'articlequality' => [ 'enabled' => true ],
 					'draftquality' => [ 'enabled' => false ]
 				],
 				'wgOresModelClasses' => [
 					'damaging' => [ 'false' => 0, 'true' => 1 ],
 					'goodfaith' => [ 'false' => 0, 'true' => 1 ],
 					'reverted' => [ 'false' => 0, 'true' => 1 ],
-					'wp10' => [ 'B' => 0, 'C' => 1, 'FA' => 2, 'GA' => 3, 'Start' => 4 ]
+					'articlequality' => [ 'B' => 0, 'C' => 1, 'FA' => 2, 'GA' => 3, 'Start' => 4 ]
 				],
 				'wgOresFiltersThresholds' => [
 					'damaging' => [
