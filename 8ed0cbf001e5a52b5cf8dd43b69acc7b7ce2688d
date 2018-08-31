@@ -60,6 +60,24 @@
     },
     {
       "key": {
+        "uuid": "47c250e2_641dfdcc",
+        "filename": "includes/SpecialORESModels.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2018-08-31T01:01:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44ce97c9_ce376bc7",
+      "revId": "8ed0cbf001e5a52b5cf8dd43b69acc7b7ce2688d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae92a14a_d4b4f48b",
         "filename": "includes/SpecialORESModels.php",
         "patchSetId": 5
@@ -77,6 +95,24 @@
     },
     {
       "key": {
+        "uuid": "cdb95246_a309ca5a",
+        "filename": "includes/SpecialORESModels.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2018-08-31T01:01:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae92a14a_d4b4f48b",
+      "revId": "8ed0cbf001e5a52b5cf8dd43b69acc7b7ce2688d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82d65d2b_0db20ed6",
         "filename": "includes/SpecialORESModels.php",
         "patchSetId": 5
@@ -88,6 +124,30 @@
       "writtenOn": "2018-06-01T13:37:23Z",
       "side": 1,
       "message": "Dependency Injection for better testing would be fantastic. For example see https://github.com/wikimedia/mediawiki-extensions-Wikibase/blob/master/repo/includes/Specials/SpecialAvailableBadges.php\nI\u0027m not sure how doable it is in this case.",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 9
+      },
+      "revId": "8ed0cbf001e5a52b5cf8dd43b69acc7b7ce2688d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3f358a7_0a7ec023",
+        "filename": "includes/SpecialORESModels.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2018-08-31T01:01:02Z",
+      "side": 1,
+      "message": "Done; the only annoying this is that I had to use a custom registration hook to be able to set $wgSpecialPages[\u0027ORESModels\u0027] to a callback, as opposed to just put a string in extension.json.",
+      "parentUuid": "82d65d2b_0db20ed6",
       "range": {
         "startLine": 19,
         "startChar": 2,
