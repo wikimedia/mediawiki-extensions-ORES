@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a1503542_e8070e51",
+        "filename": "includes/SpecialORESModels.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2018-08-31T03:05:04Z",
+      "side": 1,
+      "message": "I made it a little bit smaller by converting the HTML building to a template, and now all it does is build the parameters for the template and invoke the template. If you have suggestions for splitting it up further, let me know.",
+      "parentUuid": "277a3864_962a5acd",
+      "range": {
+        "startLine": 14,
+        "startChar": 17,
+        "endLine": 14,
+        "endChar": 43
+      },
+      "revId": "8ed0cbf001e5a52b5cf8dd43b69acc7b7ce2688d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3951474d_071a0b85",
         "filename": "includes/SpecialORESModels.php",
         "patchSetId": 5
@@ -213,6 +237,24 @@
     },
     {
       "key": {
+        "uuid": "27d87c01_2297fc8f",
+        "filename": "includes/SpecialORESModels.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2018-08-31T03:05:04Z",
+      "side": 1,
+      "message": "I converted this code to use a template and it became a lot cleaner",
+      "parentUuid": "2a5d0874_f828158c",
+      "revId": "8ed0cbf001e5a52b5cf8dd43b69acc7b7ce2688d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c7e4a4d_7d360cb8",
         "filename": "includes/SpecialORESModels.php",
         "patchSetId": 5
@@ -224,6 +266,24 @@
       "writtenOn": "2018-05-19T17:14:25Z",
       "side": 1,
       "message": "Should we be surfacing whether these are positives or negatives?  For example, the default damaging#likelygood threshold is a \"max\", so 99.5% precision means that we are only including 0.5% false positives, i.e. damaging edits.  For the default damaging#verylikelybad threshold of 90% precision, we\u0027re including 10% false positives, in this case non-damaging edits.\n\nIt\u0027s interesting that the filter labels already make an assumption about outcome polarity, which is a larger problem, not the fault of this patch.",
+      "revId": "8ed0cbf001e5a52b5cf8dd43b69acc7b7ce2688d",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0526af11_96704e94",
+        "filename": "includes/SpecialORESModels.php",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2018-08-31T03:05:04Z",
+      "side": 1,
+      "message": "Right now that\u0027s done through the names of the filters, and the color-coding (the positive filters are green, the negative ones are yellow/orange/red). If you have further ideas for how to express this, you could easily add them now that this has been converted to a template (by injecting $outcome as a parameter and putting conditional stuff in the template).",
+      "parentUuid": "9c7e4a4d_7d360cb8",
       "revId": "8ed0cbf001e5a52b5cf8dd43b69acc7b7ce2688d",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
