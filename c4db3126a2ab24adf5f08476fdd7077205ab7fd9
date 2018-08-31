@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b44e8d5_d6b7936d",
+        "filename": "extension.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2018-08-31T03:20:03Z",
+      "side": 1,
+      "message": "Should this be removed in favour of the onRegistration callback?",
+      "range": {
+        "startLine": 245,
+        "startChar": 2,
+        "endLine": 247,
+        "endChar": 3
+      },
+      "revId": "c4db3126a2ab24adf5f08476fdd7077205ab7fd9",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
