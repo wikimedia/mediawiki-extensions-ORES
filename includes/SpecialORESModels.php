@@ -23,14 +23,6 @@ class SpecialORESModels extends \SpecialPage {
 	public function execute( $subPage = null ) {
 		parent::execute( $subPage );
 
-		// TemplateParser does not currently support accessing variables from the parent scope,
-		// so these have to be passed to each model separately (see T203209)
-		$headerMessages = [
-			'header-filter' => $this->msg( 'ores-specialoresmodels-header-filter' )->text(),
-			'header-precision' => $this->msg( 'ores-specialoresmodels-header-precision' )->text(),
-			'header-recall' => $this->msg( 'ores-specialoresmodels-header-recall' )->text(),
-			'header-thresholdrange' => $this->msg( 'ores-specialoresmodels-header-thresholdrange' )->text(),
-		];
 		$models = [];
 		foreach ( $this->modelLookup->getModels() as $modelName => $modelData ) {
 			$filters = $this->getFilterData( $modelName );
@@ -42,13 +34,19 @@ class SpecialORESModels extends \SpecialPage {
 				'model' => $modelName,
 				'title' => $this->msg( "ores-rcfilters-$modelName-title" )->text(),
 				'filters' => $filters
-			] + $headerMessages;
+			];
 		}
 
 		$templateParser = new TemplateParser( __DIR__ . '/templates' );
 		$this->getOutput()->addHTML( $templateParser->processTemplate(
 			'SpecialORESModels',
-			[ 'models' => $models ]
+			[
+				'models' => $models,
+				'header-filter' => $this->msg( 'ores-specialoresmodels-header-filter' )->text(),
+				'header-precision' => $this->msg( 'ores-specialoresmodels-header-precision' )->text(),
+				'header-recall' => $this->msg( 'ores-specialoresmodels-header-recall' )->text(),
+				'header-thresholdrange' => $this->msg( 'ores-specialoresmodels-header-thresholdrange' )->text(),
+			 ]
 		) );
 		$this->getOutput()->addModuleStyles( 'ext.ores.specialoresmodels.styles' );
 	}
