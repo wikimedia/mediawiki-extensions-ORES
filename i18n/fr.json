@@ -9,7 +9,8 @@
 			"Od1n",
 			"Thibaut120094",
 			"Framawiki",
-			"Pols12"
+			"Pols12",
+			"Tititou36"
 		]
 	},
 	"ores-desc": "Exposer les notes de révision automatisées dans l’interface",
@@ -58,6 +59,11 @@
 	"ores-pref-watchlist-hidenondamaging": "Afficher uniquement les modifications paraissant problématiques (et masquer celles probablement bonnes)",
 	"prefs-ores-wl": "Note de révision dans la liste de suivi",
 	"prefs-ores-rc": "Note de la révision dans les Modifications récentes, les Modifications associées, et les Contributions",
+	"oresmodels": "Statistiques des modèles ORES",
+	"ores-specialoresmodels-header-filter": "Filtre",
+	"ores-specialoresmodels-header-precision": "Précision",
+	"ores-specialoresmodels-header-recall": "Rappeler",
+	"ores-specialoresmodels-header-thresholdrange": "Intervalle du seuil",
 	"apihelp-query+ores-description": "Renvoyer la configuration ORES et les données du modèle pour ce wiki.",
 	"apihelp-query+ores-summary": "Renvoyer la configuration ORES et les données du modèle pour ce wiki.",
 	"apihelp-query+ores-example-simple": "Récupérer les données ORES :",

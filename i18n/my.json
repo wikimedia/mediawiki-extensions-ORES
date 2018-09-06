@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ninjastrikers"
+			"Ninjastrikers",
+			"Dr Lotus Black"
 		]
 	},
-	"ores-rcfilters-whats-this-link-text": "ပိုမို လေ့လာရန်"
+	"ores-rcfilters-whats-this-link-text": "ပိုမို လေ့လာရန်",
+	"ores-specialoresmodels-header-filter": "စိစစ်မှု",
+	"ores-specialoresmodels-header-precision": "တိကျမှု"
 }

@@ -55,6 +55,8 @@
 	"ores-pref-watchlist-hidenondamaging": "Visa endast troligt problematiska redigeringar (och dölj redigeringar med troligtvis goda avsikter)",
 	"prefs-ores-wl": "Redigeringsbetyg i Bevakningslistan",
 	"prefs-ores-rc": "Redigeringsbetyg på Senaste ändringar, Relaterade ändringar och Bidrag",
+	"ores-specialoresmodels-header-precision": "Precision",
+	"ores-specialoresmodels-header-thresholdrange": "Tröskelsintervall",
 	"apihelp-query+ores-description": "Returnera ORES-konfiguration och modelldata för denna wiki.",
 	"apihelp-query+ores-summary": "Returnera ORES-konfiguration och modelldata för denna wiki.",
 	"apihelp-query+ores-example-simple": "Hämta ORES-data:",

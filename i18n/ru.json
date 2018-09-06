@@ -11,7 +11,8 @@
 			"Facenapalm",
 			"Patrick Star",
 			"Movses",
-			"Putnik"
+			"Putnik",
+			"Vlad5250"
 		]
 	},
 	"ores-desc": "Показывать оценку правок системой ORES",
@@ -55,6 +56,8 @@
 	"ores-pref-rc-hidenondamaging": "Показывать только вероятно проблемные правки (и скрыть возможно хорошие)",
 	"ores-pref-watchlist-hidenondamaging": "Показывать только вероятно проблемные правки (и скрыть возможно хорошие)",
 	"prefs-ores-wl": "Revision scoring в списке наблюдения",
+	"ores-specialoresmodels-header-filter": "Фильтр",
+	"ores-specialoresmodels-header-precision": "Точность",
 	"apihelp-query+ores-description": "Возвращает конфигурацию ORES и данные модели для этой вики.",
 	"apihelp-query+ores-example-simple": "Запросить данные ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Оценки ORES версии.",
