@@ -25,5 +25,7 @@
 	"ores-rcfilters-goodfaith-maybebad-label": "Potrebbe essere in malafede",
 	"ores-rcfilters-goodfaith-bad-label": "Probabile in malafede",
 	"ores-pref-rc-hidenondamaging": "Mostra solo le modifiche apparentemente problematiche (e nascondi le probabili buone modifiche)",
-	"ores-pref-watchlist-hidenondamaging": "Mostra solo le modifiche apparentemente problematiche (e nascondi le probabili buone modifiche)"
+	"ores-pref-watchlist-hidenondamaging": "Mostra solo le modifiche apparentemente problematiche (e nascondi le probabili buone modifiche)",
+	"ores-specialoresmodels-header-filter": "Filtro",
+	"ores-specialoresmodels-header-precision": "Precisione"
 }
