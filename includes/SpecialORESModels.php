@@ -81,6 +81,13 @@ class SpecialORESModels extends \SpecialPage {
 				'threshold-max' => $this->getLanguage()->formatNum( $thresholds[$filterName]['max'] )
 			];
 		}
+		// Sort the filters we know about in the proper order, put ones we don't know about at the end
+		uasort( $filters, function ( $a, $b ) {
+			$knownFilters = [ 'likelygood', 'maybebad', 'likelybad', 'verylikelybad' ];
+			$aIndex = array_search( $a['name'], $knownFilters );
+			$bIndex = array_search( $b['name'], $knownFilters );
+			return ( $aIndex !== false ? $aIndex : INF ) <=> ( $bIndex !== false ? $bIndex : INF );
+		} );
 		return $filters;
 	}
 
