@@ -25,7 +25,8 @@ module.exports = function ( grunt ) {
 		},
 		stylelint: {
 			dev: [
-				'modules/**/*.css'
+				'modules/**/*.css',
+				'modules/**/*.less'
 			]
 		}
 	} );
