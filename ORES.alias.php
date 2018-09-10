@@ -10,3 +10,13 @@ $specialPageAliases = [];
 $specialPageAliases['en'] = [
 	'ORESModels' => [ 'ORESModels' ],
 ];
+
+/** Serbian Cyrillic (српски (ћирилица)) */
+$specialPageAliases['sr-ec'] = [
+	'ORESModels' => [ 'ORESМодели' ],
+];
+
+/** Serbian Latin (srpski (latinica)) */
+$specialPageAliases['sr-el'] = [
+	'ORESModels' => [ 'ORESModeli' ],
+];
