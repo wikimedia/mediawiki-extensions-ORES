@@ -1,6 +1,7 @@
 {
 	"extends": "wikimedia",
 	"env": {
+		"commonjs": true,
 		"browser": true
 	},
 	"globals": {

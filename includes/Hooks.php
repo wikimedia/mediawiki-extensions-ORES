@@ -67,6 +67,14 @@ class Hooks {
 
 		$oresData = $out->getProperty( 'oresData' );
 
+		$out->addJsConfigVars(
+			[
+				'oresWikiId' => ORESService::getWikiID(),
+				'oresBaseUrl' => ORESService::getBaseUrl(),
+				'oresApiVersion' => ORESService::API_VERSION,
+			]
+		);
+
 		if ( $oresData !== null ) {
 			$out->addJsConfigVars( 'oresData', $oresData );
 			$out->addJsConfigVars(

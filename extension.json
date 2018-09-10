@@ -17,7 +17,8 @@
 	},
 	"AutoloadClasses": {
 		"ORES\\Tests\\MockOresServiceBuilder": "tests/phpunit/includes/MockOresServiceBuilder.php",
-		"ORES\\Tests\\TestHelper": "tests/phpunit/includes/TestHelper.php"
+		"ORES\\Tests\\TestHelper": "tests/phpunit/includes/TestHelper.php",
+		"ORES\\Tests\\HelpersTest": "tests/phpunit/includes/Hooks/HelpersTest.php"
 	},
 	"APIMetaModules": {
 		"ores": "ORES\\ApiQueryORES"
@@ -118,6 +119,12 @@
 				"desktop",
 				"mobile"
 			]
+		},
+		"ext.ores.api": {
+			"class": "ORES\\ResourceLoaderORESAPIModule",
+			"scripts": [
+				"ext.ores.api.js"
+            ]
 		}
 	},
 	"MessagesDirs": {

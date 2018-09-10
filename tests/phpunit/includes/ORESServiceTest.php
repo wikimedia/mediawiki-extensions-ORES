@@ -7,7 +7,7 @@ use ORES\ORESService;
 
 /**
  * @group ORES
- * @covers ORES\ORESService
+ * @covers \ORES\ORESService
  */
 class ORESServiceTest extends \MediaWikiTestCase {
 
@@ -27,7 +27,7 @@ class ORESServiceTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers ORES\ORESService::getUrl
+	 * @covers \ORES\ORESService::getUrl
 	 */
 	public function testServiceUrl() {
 		$url = $this->oresService->getUrl();
@@ -35,7 +35,7 @@ class ORESServiceTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers ORES\ORESService::getWikiID
+	 * @covers \ORES\ORESService::getWikiID
 	 */
 	public function testGetWikiID() {
 		$this->assertSame( 'testwiki', ORESService::getWikiID() );
@@ -45,6 +45,16 @@ class ORESServiceTest extends \MediaWikiTestCase {
 
 		$this->setMwGlobals( [ 'wgOresWikiId' => null ] );
 		$this->assertSame( wfWikiID(), ORESService::getWikiID() );
+	}
+
+	/**
+	 * @covers \ORES\ORESService::getBaseUrl
+	 */
+	public function testGetBaseUrl() {
+		$this->assertSame( 'https://ores-beta.wmflabs.org/', ORESService::getBaseUrl() );
+
+		$this->setMwGlobals( [ 'wgOresBaseUrl' => 'https://example.com' ] );
+		$this->assertSame( 'https://example.com', ORESService::getBaseUrl() );
 	}
 
 }
