@@ -16,6 +16,24 @@
       "revId": "7841c5b7f20737f1230ce0febfe70f23acbea31f",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67eb3791_7f0e1026",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2018-09-12T19:42:35Z",
+      "side": 1,
+      "message": "Which code needs these, and which pages does it load on? While somewhat fragile as long as they can be kept in sync with addModules(), that work work, although it would make it blocking HTML.\n\nWould prefer to turn the relevant module into a FileModule subclass that prepends this config to getScript(), see JQueryMsgModule and LanguageModule in core for examples. It\u0027s a tad ugly, but should get better \"soon\".",
+      "parentUuid": "1e8a2541_9632e738",
+      "revId": "7841c5b7f20737f1230ce0febfe70f23acbea31f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
     }
   ]
 }
