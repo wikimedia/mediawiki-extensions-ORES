@@ -5,6 +5,6 @@ $wgOresModels = [
 	'damaging' => [ 'enabled' => true ],
 	'goodfaith' => [ 'enabled' => true ],
 	'reverted' => [ 'enabled' => false ],
-	'wp10' => [ 'enabled' => false ],
+	'articlequality' => [ 'enabled' => false ],
 	'draftquality' => [ 'enabled' => false ]
 ];

@@ -16,7 +16,7 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 	const REVERTED = 2;
 	const DAMAGING = 3;
 	const GOODFAITH = 4;
-	const WP10 = 5;
+	const ARTICLEQUALITY = 5;
 
 	public function processRevisionProvider() {
 		return [
@@ -80,7 +80,7 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 			],
 			[
 				[
-					'wp10' => [
+					'articlequality' => [
 						'score' => [
 							'prediction' => 'B',
 							'probability' => [
@@ -97,42 +97,42 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 				[
 					[
 						'oresc_rev' => 12347,
-						'oresc_model' => self::WP10,
+						'oresc_model' => self::ARTICLEQUALITY,
 						'oresc_class' => 3,
 						'oresc_probability' => 0.4624338381531999,
 						'oresc_is_predicted' => true
 					],
 					[
 						'oresc_rev' => 12347,
-						'oresc_model' => self::WP10,
+						'oresc_model' => self::ARTICLEQUALITY,
 						'oresc_class' => 2,
 						'oresc_probability' => 0.050104495503425654,
 						'oresc_is_predicted' => false
 					],
 					[
 						'oresc_rev' => 12347,
-						'oresc_model' => self::WP10,
+						'oresc_model' => self::ARTICLEQUALITY,
 						'oresc_class' => 5,
 						'oresc_probability' => 0.04630378792818694,
 						'oresc_is_predicted' => false
 					],
 					[
 						'oresc_rev' => 12347,
-						'oresc_model' => self::WP10,
+						'oresc_model' => self::ARTICLEQUALITY,
 						'oresc_class' => 4,
 						'oresc_probability' => 0.4351923376756259,
 						'oresc_is_predicted' => false
 					],
 					[
 						'oresc_rev' => 12347,
-						'oresc_model' => self::WP10,
+						'oresc_model' => self::ARTICLEQUALITY,
 						'oresc_class' => 1,
 						'oresc_probability' => 0.004747126844044479,
 						'oresc_is_predicted' => false
 					],
 					[
 						'oresc_rev' => 12347,
-						'oresc_model' => self::WP10,
+						'oresc_model' => self::ARTICLEQUALITY,
 						'oresc_class' => 0,
 						'oresc_probability' => 0.0012184138955171303,
 						'oresc_is_predicted' => false
@@ -142,7 +142,7 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 			],
 			[
 				[
-					'wp10' => [
+					'articlequality' => [
 						'score' => [
 							'prediction' => 'B',
 							'probability' => [
@@ -159,14 +159,14 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 				[
 					[
 						'oresc_rev' => 12348,
-						'oresc_model' => self::WP10,
+						'oresc_model' => self::ARTICLEQUALITY,
 						'oresc_class' => 0,
 						'oresc_probability' => 0.57742432044232228,
 						'oresc_is_predicted' => false
 					],
 				],
 				12348,
-				[ 'wp10' ]
+				[ 'articlequality' ]
 			]
 		];
 	}
@@ -184,13 +184,13 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 			'reverted' => [ 'id' => self::REVERTED, 'version' => '0.0.1' ],
 			'damaging' => [ 'id' => self::DAMAGING, 'version' => '0.0.2' ],
 			'goodfaith' => [ 'id' => self::GOODFAITH, 'version' => '0.0.3' ],
-			'wp10' => [ 'id' => self::WP10, 'version' => '0.0.4' ]
+			'articlequality' => [ 'id' => self::ARTICLEQUALITY, 'version' => '0.0.4' ]
 		];
 		$modelClasses = [
 			'damaging' => [ 'false' => 0, 'true' => 1 ],
 			'reverted' => [ 'false' => 0, 'true' => 1 ],
 			'goodfaith' => [ 'false' => 0, 'true' => 1 ],
-			'wp10' => [ 'Stub' => 0, 'Start' => 1, 'C' => 2, 'B' => 3, 'GA' => 4, 'FA' => 5 ],
+			'articlequality' => [ 'Stub' => 0, 'Start' => 1, 'C' => 2, 'B' => 3, 'GA' => 4, 'FA' => 5 ],
 		];
 		$scoreParser = new ScoreParser(
 			new HashModelLookup( $modelData ),

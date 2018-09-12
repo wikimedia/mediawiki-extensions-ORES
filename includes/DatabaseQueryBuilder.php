@@ -58,7 +58,7 @@ class DatabaseQueryBuilder {
 	 * Build a WHERE clause for selecting only the ores_classification rows
 	 * that match the specified classes for a model with thresholds.
 	 *
-	 * NOTE: This is used by PageTriage to filter on 'wp10'
+	 * NOTE: This is used by PageTriage to filter on 'articlequality'
 	 *
 	 * @param string $modelName Model to filter
 	 * @param string|string[] $selected Array (or comma-separated string) of class names to select

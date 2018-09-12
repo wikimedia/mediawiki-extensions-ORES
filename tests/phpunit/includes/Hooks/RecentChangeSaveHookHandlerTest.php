@@ -23,7 +23,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiTestCase {
 			'wgOresModels' => [
 				'damaging' => [ 'enabled' => true, 'namespaces' => [ 0, 2 ], 'excludeBots' => true ],
 				'goodfaith' => [ 'enabled' => false ],
-				'wp10' => [ 'enabled' => true, 'namespaces' => [ 0 ], 'excludeBots' => false ],
+				'articlequality' => [ 'enabled' => true, 'namespaces' => [ 0 ], 'excludeBots' => false ],
 				'draftquality' => [ 'enabled' => true, 'types' => [ RC_NEW ] ],
 			],
 			'wgOresExcludeBots' => false,
@@ -33,9 +33,9 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiTestCase {
 
 	public function provideOnRecentChange_save() {
 		return [
-			[ 0, 0, RC_EDIT, [ 'damaging', 'wp10' ] ],
+			[ 0, 0, RC_EDIT, [ 'damaging', 'articlequality' ] ],
 			[ 2, 0, RC_NEW, [ 'damaging', 'draftquality' ] ],
-			[ 0, 1, RC_EDIT, [ 'wp10' ] ],
+			[ 0, 1, RC_EDIT, [ 'articlequality' ] ],
 			[ 2, 0, RC_EDIT, [ 'damaging' ] ],
 		];
 	}
