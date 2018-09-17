@@ -34,6 +34,24 @@
       "revId": "7841c5b7f20737f1230ce0febfe70f23acbea31f",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc8685d6_3fa41348",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-09-17T11:41:45Z",
+      "side": 1,
+      "message": "The plan is to inject these configs and a light-weight script on every page to let users build gadgets on top of that. Similar to what mw.Api offers. This is the code that depends on this: https://gerrit.wikimedia.org/r/c/mediawiki/extensions/ORES/+/459561/1/modules/ext.ores.api.js\nThe thing is gadgets calling the ores service already built for page views, history, categories, RC, WL, and basically every sort of page.\nThis reduces size of gadgets people write for ORES drastically but now I\u0027m thinking about this in more depth. I think we can made it a module and ask users to add it as a dependency. That would remove basically need of injecting the mw.Ores.Api module for logged-out users and users who don\u0027t need the code.",
+      "parentUuid": "67eb3791_7f0e1026",
+      "revId": "7841c5b7f20737f1230ce0febfe70f23acbea31f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
     }
   ]
 }
