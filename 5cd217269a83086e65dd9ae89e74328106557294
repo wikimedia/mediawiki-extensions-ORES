@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "858d3698_394d8533",
+        "filename": "includes/ResourceLoaderORESAPIModule.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-09-17T23:26:04Z",
+      "side": 1,
+      "message": "This must be the state of the art?",
+      "revId": "5cd217269a83086e65dd9ae89e74328106557294",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca04721c_a5f01287",
+        "filename": "modules/ext.ores.api.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-09-17T23:26:04Z",
+      "side": 1,
+      "message": "I missed how this gets set from options.ajax.url?",
+      "revId": "5cd217269a83086e65dd9ae89e74328106557294",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "674b3cb9_15286318",
+        "filename": "modules/ext.ores.api.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-09-17T23:26:04Z",
+      "side": 1,
+      "message": "That\u0027s so cool!  I\u0027m slightly amused that this can be used to battle PoolCounter, also.",
+      "revId": "5cd217269a83086e65dd9ae89e74328106557294",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
