@@ -52,6 +52,24 @@
       "revId": "7841c5b7f20737f1230ce0febfe70f23acbea31f",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1230a7b_02a8900f",
+        "filename": "includes/Hooks.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5
+      },
+      "writtenOn": "2018-09-18T22:58:27Z",
+      "side": 1,
+      "message": "If https://gerrit.wikimedia.org/r/c/mediawiki/core/+/460953 is merged, you could add \"configVars\": { ... } to the module definition for the ext.ores.api module. You then wouldn\u0027t have to load ext.ores.api on every page, because Gadgets that need it can declare it as a dependency.\n\nHowever, Krinkle and I are still going back and forth on what this configVars stuff should look like exactly, so it could be changed/renamed in the next week or two.",
+      "parentUuid": "cc8685d6_3fa41348",
+      "revId": "7841c5b7f20737f1230ce0febfe70f23acbea31f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
     }
   ]
 }
