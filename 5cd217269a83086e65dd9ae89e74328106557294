@@ -68,6 +68,29 @@
       "revId": "5cd217269a83086e65dd9ae89e74328106557294",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d10d145_cb163b29",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2018-09-19T06:14:49Z",
+      "side": 1,
+      "message": "Avoid real domains in tests unless they are connected to. That avoids false positives from a test passing when it wasn\u0027t intended to connect. And avoids false positives from searching for domains when changing things.\n\nI\u0027d recommend using the .test TLD, e.g. ores.example.test or some such.",
+      "range": {
+        "startLine": 91,
+        "startChar": 20,
+        "endLine": 91,
+        "endChar": 53
+      },
+      "revId": "5cd217269a83086e65dd9ae89e74328106557294",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
