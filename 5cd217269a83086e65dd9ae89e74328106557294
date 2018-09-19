@@ -65,6 +65,29 @@
     },
     {
       "key": {
+        "uuid": "1b29ce14_4164f4cc",
+        "filename": "modules/ext.ores.api.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2018-09-19T06:25:24Z",
+      "side": 1,
+      "message": "There is no state in this client, and based on what I know of the ORES API, there is unlikely to be a fuller version of this module in the future that would involve state. As such, this might make more sense as a singleton (or as a class only exposed for testing).\n\nThat would expose something like:\n\n // ext.ores.api.js\n module.exports \u003d new OresApi( mw.config.get( \u0027extOresApiConfig\u0027 ) );\n\n // users:\n var ores \u003d require(\u0027ext.ores.api\u0027);\n \n ores.get( { revids..., models... } ).then( .. );",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 29,
+        "endChar": 36
+      },
+      "revId": "5cd217269a83086e65dd9ae89e74328106557294",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca04721c_a5f01287",
         "filename": "modules/ext.ores.api.js",
         "patchSetId": 2
