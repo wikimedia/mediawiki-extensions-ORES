@@ -100,6 +100,52 @@
     },
     {
       "key": {
+        "uuid": "1fe9e0cb_f9e5fe94",
+        "filename": "modules/ext.ores.api.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2018-09-19T06:21:44Z",
+      "side": 1,
+      "message": "Exposing this in core was a mistake. I recommend not doing the same here. It makes for a public API that is very hard to support and maintain.\n\nInstead, provide named parameters for things you want to support. Anyone wanting to do custom things you don\u0027t support, should use $.ajax() directly, which will likely make the caller equally complicated. (Wouldn\u0027t make their code shorter).",
+      "range": {
+        "startLine": 95,
+        "startChar": 5,
+        "endLine": 95,
+        "endChar": 34
+      },
+      "revId": "5cd217269a83086e65dd9ae89e74328106557294",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79609a1d_064c9d74",
+        "filename": "modules/ext.ores.api.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2018-09-19T06:21:44Z",
+      "side": 1,
+      "message": "This is a legacy thing specific for mw-api.js. Shouldn\u0027t be needed for Ores. Most of this code actually.",
+      "range": {
+        "startLine": 115,
+        "startChar": 5,
+        "endLine": 119,
+        "endChar": 9
+      },
+      "revId": "5cd217269a83086e65dd9ae89e74328106557294",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "674b3cb9_15286318",
         "filename": "modules/ext.ores.api.js",
         "patchSetId": 2
