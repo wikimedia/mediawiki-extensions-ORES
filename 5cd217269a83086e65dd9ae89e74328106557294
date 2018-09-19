@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e0557131_c4cd81c2",
+        "filename": "includes/ResourceLoaderORESAPIModule.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2018-09-19T06:18:30Z",
+      "side": 1,
+      "message": "Prefix config with \u0027wg\u0027 to avoid leaking confusing global variables in prod.",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 23
+      },
+      "revId": "5cd217269a83086e65dd9ae89e74328106557294",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "858d3698_394d8533",
         "filename": "includes/ResourceLoaderORESAPIModule.php",
         "patchSetId": 2
@@ -13,6 +36,29 @@
       "writtenOn": "2018-09-17T23:26:04Z",
       "side": 1,
       "message": "This must be the state of the art?",
+      "revId": "5cd217269a83086e65dd9ae89e74328106557294",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f30a331_8691fac6",
+        "filename": "includes/ResourceLoaderORESAPIModule.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2018-09-19T06:18:30Z",
+      "side": 1,
+      "message": "This is missing a strategy for cache invalidation. When the configuration changes, or when keys are added or removed, the version hash of the module will remain identical. It would remain in user\u0027s localStorage under a key that cannot be purged.\n\nAll Module subclasses must also implement getDefinitionSummary. Add one here, call the parent, and append something like this:\n\n getDefinitionSummary() {\n  $summary \u003d parent::getDefinitionSummary();\n  $summary[] \u003d [\n    \u0027config\u0027 \u003d\u003e  $this-\u003egetFrontendConfiguraton(),\n  ];\n  return $summary;\n }",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 10
+      },
       "revId": "5cd217269a83086e65dd9ae89e74328106557294",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
