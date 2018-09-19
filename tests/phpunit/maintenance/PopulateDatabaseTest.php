@@ -160,12 +160,12 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 
 		$testUser = $this->getTestUser()->getUser();
 		$userData = [];
-		if ( $wgActorTableSchemaMigrationStage > MIGRATION_OLD ) {
+		if ( $wgActorTableSchemaMigrationStage & SCHEMA_COMPAT_WRITE_NEW ) {
 			$userData += [
 				'rc_actor' => $testUser->getActorId(),
 			];
 		}
-		if ( $wgActorTableSchemaMigrationStage < MIGRATION_NEW ) {
+		if ( $wgActorTableSchemaMigrationStage & SCHEMA_COMPAT_WRITE_OLD ) {
 			$userData += [
 				'rc_user' => $testUser->getId(),
 				'rc_user_text' => $testUser->getName(),
