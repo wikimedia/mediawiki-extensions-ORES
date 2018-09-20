@@ -18,6 +18,7 @@ namespace ORES;
 
 use Job;
 use MediaWiki\Logger\LoggerFactory;
+use RuntimeException;
 use Title;
 
 class FetchScoreJob extends Job {
@@ -81,12 +82,18 @@ class FetchScoreJob extends Job {
 			$originalRequest = null;
 		}
 
-		$scores = $this->scoreFetcher->getScores(
-			$this->params['revid'],
-			$models,
-			$this->params['precache'],
-			$originalRequest
-		);
+		try {
+			$scores = $this->scoreFetcher->getScores(
+				$this->params['revid'],
+				$models,
+				$this->params['precache'],
+				$originalRequest
+			);
+		} catch ( RuntimeException $exception ) {
+			$mssg = $exception->getMessage();
+			$logger->warning( "Service failed to respond properly: $mssg\n" );
+			return false;
+		}
 
 		$success = true;
 		ORESServices::getScoreStorage()->storeScores(
