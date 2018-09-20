@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5582fe78_a34a102d",
+        "filename": "includes/ResourceLoaderORESAPIModule.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-09-20T23:23:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0557131_c4cd81c2",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 23
+      },
+      "revId": "5cd217269a83086e65dd9ae89e74328106557294",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "858d3698_394d8533",
         "filename": "includes/ResourceLoaderORESAPIModule.php",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2018-09-17T23:26:04Z",
       "side": 1,
       "message": "This must be the state of the art?",
+      "revId": "5cd217269a83086e65dd9ae89e74328106557294",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76bc1ecf_c7013aab",
+        "filename": "includes/ResourceLoaderORESAPIModule.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-09-20T23:23:08Z",
+      "side": 1,
+      "message": "I hope this will improve in future :D",
+      "parentUuid": "858d3698_394d8533",
       "revId": "5cd217269a83086e65dd9ae89e74328106557294",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "c382bbf7_bc2c4ae5",
+        "filename": "includes/ResourceLoaderORESAPIModule.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-09-20T23:23:08Z",
+      "side": 1,
+      "message": "Thanks for telling me about this. The one I found didn\u0027t have it, I can check which one to add. Anyway, I added to this patch.",
+      "parentUuid": "1f30a331_8691fac6",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 10
+      },
+      "revId": "5cd217269a83086e65dd9ae89e74328106557294",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b29ce14_4164f4cc",
         "filename": "modules/ext.ores.api.js",
         "patchSetId": 2
@@ -76,6 +142,30 @@
       "writtenOn": "2018-09-19T06:25:24Z",
       "side": 1,
       "message": "There is no state in this client, and based on what I know of the ORES API, there is unlikely to be a fuller version of this module in the future that would involve state. As such, this might make more sense as a singleton (or as a class only exposed for testing).\n\nThat would expose something like:\n\n // ext.ores.api.js\n module.exports \u003d new OresApi( mw.config.get( \u0027extOresApiConfig\u0027 ) );\n\n // users:\n var ores \u003d require(\u0027ext.ores.api\u0027);\n \n ores.get( { revids..., models... } ).then( .. );",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 29,
+        "endChar": 36
+      },
+      "revId": "5cd217269a83086e65dd9ae89e74328106557294",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18313e19_c44313bb",
+        "filename": "modules/ext.ores.api.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-09-20T23:23:08Z",
+      "side": 1,
+      "message": "Yeah, it would be nice to add caching to it later. I do it.",
+      "parentUuid": "1b29ce14_4164f4cc",
       "range": {
         "startLine": 29,
         "startChar": 8,
@@ -146,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "59e48854_2acb594c",
+        "filename": "modules/ext.ores.api.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-09-20T23:23:08Z",
+      "side": 1,
+      "message": "Agreed, done.",
+      "parentUuid": "1fe9e0cb_f9e5fe94",
+      "range": {
+        "startLine": 95,
+        "startChar": 5,
+        "endLine": 95,
+        "endChar": 34
+      },
+      "revId": "5cd217269a83086e65dd9ae89e74328106557294",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79609a1d_064c9d74",
         "filename": "modules/ext.ores.api.js",
         "patchSetId": 2
@@ -157,6 +271,30 @@
       "writtenOn": "2018-09-19T06:21:44Z",
       "side": 1,
       "message": "This is a legacy thing specific for mw-api.js. Shouldn\u0027t be needed for Ores. Most of this code actually.",
+      "range": {
+        "startLine": 115,
+        "startChar": 5,
+        "endLine": 119,
+        "endChar": 9
+      },
+      "revId": "5cd217269a83086e65dd9ae89e74328106557294",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0c4a4530_93c443bf",
+        "filename": "modules/ext.ores.api.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-09-20T23:23:08Z",
+      "side": 1,
+      "message": "I cleaned up as much as possible.",
+      "parentUuid": "79609a1d_064c9d74",
       "range": {
         "startLine": 115,
         "startChar": 5,
@@ -186,6 +324,24 @@
     },
     {
       "key": {
+        "uuid": "81f62543_04ef94d8",
+        "filename": "modules/ext.ores.api.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-09-20T23:23:08Z",
+      "side": 1,
+      "message": "We should make it in a way that make sure it doesn\u0027t make more than four connections at the same time but that can wait for later patches :D",
+      "parentUuid": "674b3cb9_15286318",
+      "revId": "5cd217269a83086e65dd9ae89e74328106557294",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d10d145_cb163b29",
         "filename": "tests/phpunit/includes/HooksTest.php",
         "patchSetId": 2
@@ -197,6 +353,30 @@
       "writtenOn": "2018-09-19T06:14:49Z",
       "side": 1,
       "message": "Avoid real domains in tests unless they are connected to. That avoids false positives from a test passing when it wasn\u0027t intended to connect. And avoids false positives from searching for domains when changing things.\n\nI\u0027d recommend using the .test TLD, e.g. ores.example.test or some such.",
+      "range": {
+        "startLine": 91,
+        "startChar": 20,
+        "endLine": 91,
+        "endChar": 53
+      },
+      "revId": "5cd217269a83086e65dd9ae89e74328106557294",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24f72f4b_d3cedbe5",
+        "filename": "tests/phpunit/includes/HooksTest.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-09-20T23:23:08Z",
+      "side": 1,
+      "message": "Thanks for the info, done.",
+      "parentUuid": "4d10d145_cb163b29",
       "range": {
         "startLine": 91,
         "startChar": 20,
