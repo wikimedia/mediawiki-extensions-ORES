@@ -91,8 +91,23 @@ class ORESService {
 		);
 		$status = $req->execute();
 		if ( !$status->isOK() ) {
-			throw new RuntimeException( "Failed to make ORES request to [{$url}], "
-				. Status::wrap( $status )->getMessage()->text() );
+			$message = "Failed to make ORES request to [{$url}], " .
+				Status::wrap( $status )->getMessage()->text();
+
+			// Server time out, try again once
+			if ( $req->getStatus() === 504 ) {
+				$req = MWHttpRequest::factory(
+					$url,
+					$this->getMWHttpRequestOptions( $originalRequest ),
+					__METHOD__
+				);
+				$status = $req->execute();
+				if ( !$status->isOK() ) {
+					throw new RuntimeException( $message );
+				}
+			} else {
+				throw new RuntimeException( $message );
+			}
 		}
 		$json = $req->getContent();
 		$this->logger->debug( "Raw response: {$json}" );
