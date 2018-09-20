@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9715da46_6d813a23",
+        "filename": "includes/ORESService.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-09-20T19:25:38Z",
+      "side": 1,
+      "message": "Hardcoding the retry iteration is not ideal for DRY, for example we wouldn\u0027t want to do N\u003d3 retries like this, but we can clean it up later.",
+      "revId": "8889aea54cbdf7bdc69e7ac059062d9b8ca8cae5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5eaea66_44bc5409",
+        "filename": "includes/ORESService.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-09-20T19:25:38Z",
+      "side": 1,
+      "message": "For logging it would be nice to say \"tried two times\".  You could also include the second status message, although it\u0027s probably unenlightening.",
+      "revId": "8889aea54cbdf7bdc69e7ac059062d9b8ca8cae5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b86a946e_54d5e393",
+        "filename": "includes/ORESService.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-09-20T19:25:38Z",
+      "side": 1,
+      "message": "maybe add a comment saying \"we\u0027re successful now, we won\u0027t throw an exception\" since the \"else throw\" nested logic is a bit awkward to read.",
+      "revId": "8889aea54cbdf7bdc69e7ac059062d9b8ca8cae5",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
