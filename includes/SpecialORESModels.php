@@ -72,13 +72,19 @@ class SpecialORESModels extends \SpecialPage {
 			$relevantStat = is_string( $filterMinMax['min'] ) ? $filterMinMax['min'] : $filterMinMax['max'];
 			$outcome = is_string( $filterMinMax['min'] ) ? 'true' : 'false';
 			$statInfo = $thresholdData[$outcome][$relevantStat];
+			$min = isset( $thresholds[$filterName]['min'] ) ?
+				$this->getLanguage()->formatNum( $thresholds[$filterName]['min'] ) :
+				'???';
+			$max = isset( $thresholds[$filterName]['max'] ) ?
+				$this->getLanguage()->formatNum( $thresholds[$filterName]['max'] ) :
+				'???';
 			$filters[] = [
 				'name' => $filterName,
 				'label' => $this->getFilterLabel( $modelName, $filterName ),
 				'precision' => $this->msg( 'percent' )->numParams( $statInfo['precision'] * 100 ),
 				'recall' => $this->msg( 'percent' )->numParams( $statInfo['recall'] * 100 ),
-				'threshold-min' => $this->getLanguage()->formatNum( $thresholds[$filterName]['min'] ),
-				'threshold-max' => $this->getLanguage()->formatNum( $thresholds[$filterName]['max'] )
+				'threshold-min' => $min,
+				'threshold-max' => $max,
 			];
 		}
 		return $filters;
