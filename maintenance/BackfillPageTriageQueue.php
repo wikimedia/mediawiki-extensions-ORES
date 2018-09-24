@@ -3,6 +3,7 @@
 namespace ORES\Maintenance;
 
 use BatchRowIterator;
+use Exception;
 use ExtensionRegistry;
 use Maintenance;
 use ORES\ORESServices;
@@ -72,11 +73,13 @@ class BackfillPageTriageQueue extends Maintenance {
 				continue;
 			}
 
-			$scores = ScoreFetcher::instance()->getScores(
-				$revIds,
-				$modelName,
-				true
-			);
+			$scores = $this->retry( function () use ( $revIds, $modelName ) {
+				return ScoreFetcher::instance()->getScores(
+					$revIds,
+					$modelName,
+					true
+				);
+			}, 5, 3 );
 
 			$errors = 0;
 			ORESServices::getScoreStorage()->storeScores(
@@ -94,6 +97,23 @@ class BackfillPageTriageQueue extends Maintenance {
 		}
 
 		$this->output( "Finished model $modelName\n" );
+	}
+
+	private function retry( $fn, $tries, $wait ) {
+		$tried = 0;
+		while ( true ) {
+			try {
+				return $fn();
+			} catch ( Exception $ex ) {
+				$tried++;
+				if ( $tried > $tries ) {
+					throw $ex;
+				} else {
+					$this->error( $ex->getMessage() );
+					sleep( $wait );
+				}
+			}
+		}
 	}
 
 }
