@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1fda3a5_d2546915",
+        "filename": "includes/SpecialORESModels.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2018-09-24T18:41:39Z",
+      "side": 1,
+      "message": "This method wants int|float, and presumably (undocumented) would be fine with strings that cleanly cast to that. But might be better not to give it the string \"???\" through commafy(). Not sure whether it is safe to assume it won\u0027t ever produce something like ?,?? or 0.???, even if it doesn\u0027t today.",
+      "range": {
+        "startLine": 82,
+        "startChar": 45,
+        "endLine": 82,
+        "endChar": 62
+      },
+      "revId": "61f891ec447fd13f95c9ef11cf6bd26cb6287268",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
