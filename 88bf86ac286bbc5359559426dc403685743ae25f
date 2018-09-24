@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53738ccc_5d40818a",
+        "filename": "includes/SpecialORESModels.php",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2018-09-24T19:58:26Z",
+      "side": 1,
+      "message": "Pulling the default out makes sense, but I\u0027m not sure this works.\n\nAfaik it applies ??, aka isset(), to the result of calling formatNum() instead of the array access. Still warns on this isolated example https://3v4l.org/fqu2h.\n\nIt might behave differently here, but I would suspect that it still warns.",
+      "range": {
+        "startLine": 75,
+        "startChar": 3,
+        "endLine": 75,
+        "endChar": 7
+      },
+      "revId": "88bf86ac286bbc5359559426dc403685743ae25f",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
