@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce882995_84e7ff76",
+        "filename": "maintenance/BackfillPageTriageQueue.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 143
+      },
+      "writtenOn": "2018-09-25T19:14:29Z",
+      "side": 1,
+      "message": "Fine for now, but I\u0027d recommend passing the retry parameters through the command line and defaulting to no retries.  The current situation in T205475 is exceptional and we probably don\u0027t want to hardcode workarounds, cos future failures should cause loud logging.",
+      "revId": "a75d2be44a664d5df17aff218b4cc81615aaa5c6",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
