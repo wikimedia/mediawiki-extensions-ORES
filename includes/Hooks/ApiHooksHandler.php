@@ -33,6 +33,7 @@ use ORES\ORESServices;
 use ORES\Parser\ScoreParser;
 use ORES\ScoreFetcher;
 use ORES\WatchedItemQueryServiceExtension;
+use RuntimeException;
 use WatchedItem;
 use WatchedItemQueryService;
 use Wikimedia\Rdbms\ResultWrapper;
@@ -270,7 +271,12 @@ class ApiHooksHandler {
 				$allRevids = $revids;
 				$revids = array_slice( $allRevids, 0, $wgOresRevisionsPerBatch );
 			}
-			$loadedScores = ScoreFetcher::instance()->getScores( $revids );
+			try {
+				$loadedScores = ScoreFetcher::instance()->getScores( $revids );
+			} catch ( RuntimeException $exception ) {
+				ORESServices::getLogger()->error( $exception->getMessage() );
+				$loadedScores = [];
+			}
 
 			foreach ( $loadedScores as $revid => $data ) {
 				$scores[$revid] = self::processRevision( $revid, $data, $models );
