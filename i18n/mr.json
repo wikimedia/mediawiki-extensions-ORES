@@ -4,6 +4,8 @@
 			"V.narsikar"
 		]
 	},
-	"ores-damaging-filter": "$1 चांगली संपादने",
-	"ores-damaging-title": "या संपादनास पुनरावलोकन आवश्यक"
+	"ores-damaging-filter": "$1 बहुदा चांगली संपादने",
+	"ores-damaging-letter": "पुनरा.",
+	"ores-damaging-title": "या संपादनास पुनरावलोकन आवश्यक",
+	"ores-damaging-legend": "या संपादनात समस्या आहे व त्याचे समिक्षण आवश्यक आहे([[:mw:Special:MyLanguage/ORES review tool|अधिक माहिती]])"
 }
