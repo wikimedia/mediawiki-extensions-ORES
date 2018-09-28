@@ -92,7 +92,7 @@ class ORESService {
 		$status = $req->execute();
 		if ( !$status->isOK() ) {
 			$message = "Failed to make ORES request to [{$url}], " .
-				Status::wrap( $status )->getMessage()->text();
+				Status::wrap( $status )->getMessage()->inLanguage( 'en' )->text();
 
 			// Server time out, try again once
 			if ( $req->getStatus() === 504 ) {
