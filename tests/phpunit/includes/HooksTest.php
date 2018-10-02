@@ -34,6 +34,7 @@ class HooksTest extends \MediaWikiTestCase {
 		$user->setOption( 'oresDamagingPref', 'maybebad' );
 		$user->setOption( 'ores-damaging-flag-rc', 1 );
 		$user->setOption( 'oresHighlight', 1 );
+		$user->setOption( 'rcenhancedfilters-disable', 1 );
 		$user->saveSettings();
 		$this->context = HelpersTest::getContext( $user );
 	}
