@@ -49,5 +49,9 @@
 	"ores-pref-rc-hidenondamaging": "Näita ainult tõenäoliselt probleemseid muudatusi (tõenäoliselt head muudatused peidetud)",
 	"ores-pref-watchlist-hidenondamaging": "Näita ainult tõenäoliselt probleemseid muudatusi (tõenäoliselt head muudatused peidetud)",
 	"prefs-ores-wl": "Redaktsioonide hinded",
-	"prefs-ores-rc": "Redaktsioonide hinded viimaste ja seotud muudatuste loendis ning kaastööloendis"
+	"prefs-ores-rc": "Redaktsioonide hinded viimaste ja seotud muudatuste loendis ning kaastööloendis",
+	"oresmodels": "ORES-mudelite arvandmed",
+	"ores-specialoresmodels-header-precision": "Täpsus",
+	"ores-specialoresmodels-header-recall": "Saagis",
+	"ores-specialoresmodels-header-thresholdrange": "Lävevahemik"
 }

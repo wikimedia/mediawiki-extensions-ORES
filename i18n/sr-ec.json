@@ -55,7 +55,7 @@
 	"ores-pref-rc-hidenondamaging": "Прикажи само вероватно проблематичне измене (и сакриј вероватно добре измене)",
 	"ores-pref-watchlist-hidenondamaging": "Прикажи само вероватно проблематичне измене (и сакриј вероватно добре измене)",
 	"prefs-ores-wl": "Оцена измене на списку надгледања",
-	"prefs-ores-rc": "Оцена измене на скорашњим изменама, сродним изменама и доприносима",
+	"prefs-ores-rc": "Оцена измене на недавним и сродним променама и доприносима",
 	"oresmodels": "Статистике ORES модела",
 	"ores-specialoresmodels-header-filter": "Филтер",
 	"ores-specialoresmodels-header-precision": "Прецизност",

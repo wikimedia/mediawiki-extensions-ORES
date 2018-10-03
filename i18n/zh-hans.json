@@ -3,7 +3,8 @@
 		"authors": [
 			"Liuxinyu970226",
 			"Myy730",
-			"夢蝶葬花"
+			"夢蝶葬花",
+			"A Chinese Wikipedian"
 		]
 	},
 	"ores-desc": "在界面中显示自动生成的修订折线",
@@ -54,6 +55,7 @@
 	"prefs-ores-rc": "最近更改、相关更改和贡献上的修订评分",
 	"ores-specialoresmodels-header-filter": "过滤器",
 	"ores-specialoresmodels-header-precision": "精度",
+	"ores-specialoresmodels-header-recall": "召回",
 	"apihelp-query+ores-description": "返回该wiki的ORES配置和模型数据。",
 	"apihelp-query+ores-summary": "返回该wiki的ORES配置和模型数据。",
 	"apihelp-query+ores-example-simple": "取得ORES数据：",

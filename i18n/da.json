@@ -4,8 +4,10 @@
 			"Saederup92"
 		]
 	},
+	"ores-damaging-letter": "r",
 	"ores-rcfilters-whats-this-link-text": "Lær mere",
 	"ores-rcfilters-damaging-maybebad-label": "Kan have problemer",
 	"ores-rcfilters-damaging-likelybad-label": "Har sandsynligvis problemer",
-	"ores-rcfilters-damaging-verylikelybad-label": "Har højst sandsynligvis problemer"
+	"ores-rcfilters-damaging-verylikelybad-label": "Har højst sandsynligvis problemer",
+	"ores-rcfilters-goodfaith-bad-label": "Sandsynlig dårlig intention"
 }
