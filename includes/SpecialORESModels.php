@@ -81,8 +81,8 @@ class SpecialORESModels extends \SpecialPage {
 			$filters[] = [
 				'name' => $filterName,
 				'label' => $this->getFilterLabel( $modelName, $filterName ),
-				'precision' => $this->msg( 'percent' )->numParams( $statInfo['precision'] * 100 ),
-				'recall' => $this->msg( 'percent' )->numParams( $statInfo['recall'] * 100 ),
+				'precision' => $this->msg( 'percent' )->numParams( $statInfo['precision'] * 100 )->text(),
+				'recall' => $this->msg( 'percent' )->numParams( $statInfo['recall'] * 100 )->text(),
 				'threshold-min' => $min,
 				'threshold-max' => $max,
 			];
