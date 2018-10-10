@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "227101cd_ad8585f5",
+        "filename": "includes/ResourceLoaderORESAPIModule.php",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2018-10-10T03:44:09Z",
+      "side": 1,
+      "message": "Typo?",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 6
+      },
+      "revId": "7b3352f5b6732f896bf60f92c1d4ff26fa8ae239",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
