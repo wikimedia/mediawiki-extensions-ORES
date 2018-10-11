@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7db6b9c1_6586ddd9",
+        "filename": "modules/ext.ores.api.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2018-10-11T01:26:39Z",
+      "side": 1,
+      "message": "Seem like this parameter and all the code below is are not relevant to ORES. One wouldn\u0027t have invocations for multiple wikis, except as controlled through \u0027config.wikiId\u0027 already.\n\nThe whole concept of options and defaults can be removed in favour of setting a few properties explicitly based on config, possibly with inline defaults in the constructor, and the rest specified explicitly in get().",
+      "range": {
+        "startLine": 41,
+        "startChar": 22,
+        "endLine": 41,
+        "endChar": 30
+      },
+      "revId": "544f91da7768320b0e9c601a186502041c1afaab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c639c876_2ae8cf30",
+        "filename": "modules/ext.ores.api.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2018-10-11T01:26:39Z",
+      "side": 1,
+      "message": "Is there a use case for aborting all requests that have been done, regardless by which consumer? If not, then you might not need this, in favour of only exposing jqxhr.abort through get().\n\nWhile this exists in core, it\u0027s only very rarely used, and where it is used it is because the consumer would have their own instance, as a shortcut for not needing to track the returned jqxhr.abort callbacks from each get() call.",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 9
+      },
+      "revId": "544f91da7768320b0e9c601a186502041c1afaab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2c775ad_1f2d256b",
+        "filename": "modules/ext.ores.api.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2018-10-11T01:26:39Z",
+      "side": 1,
+      "message": "Needs to start with wg to work, I think.",
+      "range": {
+        "startLine": 135,
+        "startChar": 51,
+        "endLine": 135,
+        "endChar": 52
+      },
+      "revId": "544f91da7768320b0e9c601a186502041c1afaab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
