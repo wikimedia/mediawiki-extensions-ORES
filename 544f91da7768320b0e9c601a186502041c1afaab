@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8172a599_5c6e8b08",
+        "filename": "modules/ext.ores.api.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-10-12T14:47:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7db6b9c1_6586ddd9",
+      "range": {
+        "startLine": 41,
+        "startChar": 22,
+        "endLine": 41,
+        "endChar": 30
+      },
+      "revId": "544f91da7768320b0e9c601a186502041c1afaab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c639c876_2ae8cf30",
         "filename": "modules/ext.ores.api.js",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "0b01f618_0bcbf344",
+        "filename": "modules/ext.ores.api.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-10-12T14:47:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c639c876_2ae8cf30",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 9
+      },
+      "revId": "544f91da7768320b0e9c601a186502041c1afaab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2c775ad_1f2d256b",
         "filename": "modules/ext.ores.api.js",
         "patchSetId": 5
@@ -59,6 +107,30 @@
       "writtenOn": "2018-10-11T01:26:39Z",
       "side": 1,
       "message": "Needs to start with wg to work, I think.",
+      "range": {
+        "startLine": 135,
+        "startChar": 51,
+        "endLine": 135,
+        "endChar": 52
+      },
+      "revId": "544f91da7768320b0e9c601a186502041c1afaab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bf75cec_941dcbc1",
+        "filename": "modules/ext.ores.api.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2018-10-12T14:47:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2c775ad_1f2d256b",
       "range": {
         "startLine": 135,
         "startChar": 51,
