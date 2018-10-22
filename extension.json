@@ -221,12 +221,12 @@
 					"verylikelybad": false
 				},
 				"articlequality": {
-					"Stub": { "min": 0, "max": 0.1666 },
-					"Start": { "min": 0.1666, "max": 0.3333 },
-					"C": { "min": 0.3333, "max": 0.5 },
-					"B": { "min": 0.5, "max": 0.6666 },
-					"GA": { "min": 0.6666, "max": 0.8333 },
-					"FA": { "min": 0.8333, "max": 1 }
+					"Stub": { "min": 0, "max": 0.166 },
+					"Start": { "min": 0.167, "max": 0.333 },
+					"C": { "min": 0.334, "max": 0.499 },
+					"B": { "min": 0.5, "max": 0.666 },
+					"GA": { "min": 0.667, "max": 0.833 },
+					"FA": { "min": 0.834, "max": 1 }
 				},
 				"wp10": {
 					"Stub": { "min": 0, "max": 0.1666 },
