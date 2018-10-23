@@ -2,11 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Sator",
-			"Mikel Ibaiba"
+			"Mikel Ibaiba",
+			"Xabier Armendaritz"
 		]
 	},
 	"ores-damaging-letter": "r",
 	"ores-damaging-title": "Aldaketa honek berrikuspena behar du",
+	"ores-damaging-legend": "Aldaketa honek arazoak ditu beharbada, eta berrikusi beharko litzateke ([[:mw:Special:MyLanguage/ORES review tool|argibide gehiago]])",
 	"ores-rcfilters-damaging-likelybad-desc-low": "Zehaztasun erdiarekin, aldaketen arazoen bitarteko zatia aurkitzen du.",
 	"ores-rcfilters-damaging-likelybad-desc-high": "Zehaztasun handiarekin, aldaketen arazo gehienak topatzen ditu.",
 	"ores-rcfilters-damaging-verylikelybad-desc": "Oso zehatza akastun edo kaltegarriak diren aldaketak aurkitzen.",
