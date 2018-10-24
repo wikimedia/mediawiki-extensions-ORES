@@ -41,7 +41,7 @@ class CleanDuplicateScores extends Maintenance {
 		$ids = [];
 		foreach ( $res as $row ) {
 			$rowIds = explode( '|', $row->ids );
-			if ( $rowIds > 1 ) { // Sanity
+			if ( count( $rowIds ) > 1 ) {
 				$newIds = array_slice( $rowIds, 1 );
 				$ids = array_merge( $ids, $newIds );
 			}
