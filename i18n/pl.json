@@ -48,6 +48,8 @@
 	"ores-pref-highlight": "Podświetlaj edycje mogące być problematyczne kolorami i znacznik \"{{int:ores-damaging-letter}}\" przy edycjach wymagających sprawdzenia",
 	"ores-pref-rc-hidenondamaging": "Pokazuj tylko prawdopodobnie problematyczne edycje (i ukryj prawdopodobnie dobre edycje)",
 	"ores-pref-watchlist-hidenondamaging": "Pokazuj tylko prawdopodobnie problematyczne edycje (i ukryj prawdopodobnie dobre edycje)",
+	"ores-specialoresmodels-header-filter": "Filtr",
+	"ores-specialoresmodels-header-precision": "Precyzja",
 	"apihelp-query+ores-description": "Zwróć konfigurację ORES i model danych dla tej wiki.",
 	"apihelp-query+ores-summary": "Zwróć konfigurację ORES i model danych dla tej wiki.",
 	"apihelp-query+ores-example-simple": "Pobierz dane ORES:",
