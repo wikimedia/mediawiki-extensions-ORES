@@ -20,8 +20,9 @@ $( function () {
 		for ( i = 0; i < levels.length; i++ ) {
 			if ( score > thresholds[ levels[ i ] ] ) {
 				$( this ).addClass( 'mw-changeslist-damaging-' + levels[ i ] );
-				// $(this) might be collapsed and invisible, in that case highlight the group block as well
-				// we rely on the fact that more severe classes have higher-specificity selectors
+				// $(this) might be collapsed and invisible, in that case highlight
+				// the group block as well we rely on the fact that more severe
+				// classes have higher-specificity selectors
 				$( this ).parents( '.mw-enhanced-rc.mw-collapsible' )
 					.addClass( 'damaging mw-changeslist-damaging-' + levels[ i ] );
 				break;
