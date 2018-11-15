@@ -123,7 +123,7 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 		}
 
 		if ( $revids ) {
-			list( $scores, $needsContinuation ) = ApiHooksHandler::loadScoresForRevisions( $revids );
+			$scores = ApiHooksHandler::loadScoresForRevisions( $revids );
 			foreach ( $items as $i => $dummy ) {
 				$rcInfo = &$items[$i][1];
 				if ( (int)$rcInfo['rc_type'] !== RC_EDIT && (int)$rcInfo['rc_type'] !== RC_NEW ) {
@@ -133,10 +133,6 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 				$revid = $rcInfo['rc_this_oldid'];
 				if ( isset( $scores[$revid] ) ) {
 					$rcInfo['oresScores'] = $scores[$revid];
-				} elseif ( $needsContinuation ) {
-					$startFrom = [ $rcInfo['rc_timestamp'], $rcInfo['rc_id'] ];
-					$items = array_slice( $items, 0, $i );
-					break;
 				}
 			}
 		}

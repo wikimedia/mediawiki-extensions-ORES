@@ -27,13 +27,8 @@ use ApiQueryRevisions;
 use ApiQueryUserContribs;
 use ApiQueryWatchlist;
 use ApiResult;
-use InvalidArgumentException;
-use MediaWiki\Logger\LoggerFactory;
 use ORES\ORESServices;
-use ORES\Parser\ScoreParser;
-use ORES\ScoreFetcher;
 use ORES\WatchedItemQueryServiceExtension;
-use RuntimeException;
 use WatchedItem;
 use WatchedItemQueryService;
 use Wikimedia\Rdbms\ResultWrapper;
@@ -177,11 +172,6 @@ class ApiHooksHandler {
 	 *    RC_EDIT or RC_NEW.
 	 *  - oresScores: (array) Array of arrays of row objects holding the scores
 	 *    for each revision we were able to fetch.
-	 *  - oresNeedsContinuation: (bool) Whether there are any rows in the
-	 *    module's dataset that aren't in 'oresScores'. If this is true,
-	 *    self::onApiQueryBaseProcessRow() will signal for continuation,
-	 *    otherwise it will ignore any missing rows (this might happen when
-	 *    fetching uncached scores has been disabled for performance reasons).
 	 *
 	 * @param ApiQueryBase $module
 	 * @param ResultWrapper|bool $res
@@ -225,9 +215,8 @@ class ApiHooksHandler {
 			if ( $revids ) {
 				$hookData['oresField'] = $field;
 				$hookData['oresCheckRCType'] = $checkRCType;
-				list( $scores, $needsContinuation ) = self::loadScoresForRevisions( $revids );
+				$scores = self::loadScoresForRevisions( $revids );
 				$hookData['oresScores'] = $scores;
-				$hookData['oresNeedsContinuation'] = $needsContinuation;
 			}
 		}
 	}
@@ -235,22 +224,13 @@ class ApiHooksHandler {
 	/**
 	 * Load ORES score data for a list of revisions
 	 *
-	 * Scores already cached are fetched from the database, and up to
-	 * $wgOresRevisionsPerBatch uncached revisions are fetched from the score fetcher
-	 * service immediately. If there are still more uncached revisions, up to
-	 * $wgOresAPIMaxBatchJobs FetchScoreJobs are submitted to the job queue for
-	 * batches of $wgOresRevisionsPerBatch revisions in the hope that they will
-	 * get a chance to run before the client continues the query.
+	 * Scores already cached are fetched from the database.
 	 *
 	 * @param int[] $revids Revision IDs
-	 * @return array [ array $scores, bool $needsContinuation ]
+	 * @return array $scores
 	 */
 	public static function loadScoresForRevisions( array $revids ) {
-		global $wgOresRevisionsPerBatch;
-
-		$needsContinuation = false;
 		$scores = [];
-
 		$models = [];
 		foreach ( ORESServices::getModelLookup()->getModels() as $modelName => $modelDatum ) {
 			$models[$modelDatum['id']] = $modelName;
@@ -260,64 +240,6 @@ class ApiHooksHandler {
 		$dbResult = ORESServices::getScoreLookup()->getScores( $revids, array_values( $models ) );
 		foreach ( $dbResult as $row ) {
 			$scores[$row->oresc_rev][] = $row;
-		}
-
-		// If any queried revisions were not cached and fetching is enabled,
-		// fetch up to $wgOresRevisionsPerBatch from the service
-		$revids = array_diff( $revids, array_keys( $scores ) );
-		if ( $revids && $wgOresRevisionsPerBatch ) {
-			if ( count( $revids ) > $wgOresRevisionsPerBatch ) {
-				$needsContinuation = true;
-				$allRevids = $revids;
-				$revids = array_slice( $allRevids, 0, $wgOresRevisionsPerBatch );
-			}
-			try {
-				$loadedScores = ScoreFetcher::instance()->getScores( $revids );
-			} catch ( RuntimeException $exception ) {
-				ORESServices::getLogger()->error( $exception->getMessage() );
-				$loadedScores = [];
-			}
-
-			foreach ( $loadedScores as $revid => $data ) {
-				$scores[$revid] = self::processRevision( $revid, $data, $models );
-			}
-
-			if ( !$needsContinuation && array_diff( $revids, array_keys( $loadedScores ) ) ) {
-				// Some queried revisions were ignored, signal continuation.
-				$needsContinuation = true;
-			}
-		}
-
-		return [ $scores, $needsContinuation ];
-	}
-
-	/**
-	 * @param int $revid
-	 * @param array[] $data
-	 * @param string[] $models
-	 * @return \stdClass[]
-	 */
-	private static function processRevision( $revid, array $data, array $models ) {
-		global $wgOresModelClasses;
-		$parser = new ScoreParser(
-			ORESServices::getModelLookup(),
-			$wgOresModelClasses
-		);
-		try {
-			$dbData = $parser->processRevision( $revid, $data );
-		} catch ( InvalidArgumentException $exception ) {
-			$logger = LoggerFactory::getInstance( 'ORES' );
-			$mssg = $exception->getMessage();
-			$logger->info( "ScoreFetcher errored for $revid: $mssg\n" );
-			return [];
-		}
-		$scores = [];
-		foreach ( $dbData as $row ) {
-			$scores[] = (object)[
-				'oresc_class' => $row['oresc_class'],
-				'oresc_probability' => $row['oresc_probability'],
-				'oresm_name' => $models[$row['oresc_model']],
-			];
 		}
 
 		return $scores;
@@ -349,18 +271,9 @@ class ApiHooksHandler {
 			)
 		) {
 			$data['oresscores'] = [];
-
 			$revid = $row->{$hookData['oresField']};
-			if ( !isset( $hookData['oresScores'][$revid] ) ) {
-				// If the oresNeedsContinuation flag is set, there were too many uncached scores
-				// to fetch in one go, so force the client to make another request for the rest of
-				// the revisions. Otherwise, fetching uncached scores is disabled and we just
-				// the corresponding revisions without scores.
-				return !$hookData['oresNeedsContinuation'];
-			}
 
 			$modelData = ORESServices::getModelLookup()->getModels();
-
 			$models = [];
 			foreach ( $modelData as $modelName => $modelDatum ) {
 				$models[$modelDatum['id']] = $modelName;
