@@ -6,6 +6,7 @@
 		]
 	},
 	"ores-damaging-legend": "ဤတည်းဖြတ်မှုတွင် ပြဿနာများရှိနိုင်ပြီး ပြန်လည်ဆန်းစစ်သင့်သည် ([[:mw:Special:MyLanguage/ORES review tool|အချက်အလက် ပို၍]])",
+	"ores-hide-nondamaging-filter": "ဖြစ်နိုင်ခြေရှိသည့် ကောင်းမွန်သောတည်းဖြတ်မှုများကို ဝှက်ပါ",
 	"ores-rcfilters-whats-this-link-text": "ပိုမို လေ့လာရန်",
 	"ores-specialoresmodels-header-filter": "စိစစ်မှု",
 	"ores-specialoresmodels-header-precision": "တိကျမှု"
