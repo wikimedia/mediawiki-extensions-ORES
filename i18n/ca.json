@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gerardduenas"
+			"Gerardduenas",
+			"Vriullop"
 		]
 	},
 	"ores-desc": "Mostra puntuacions automàtiques de les revisions a la interfície",
@@ -12,6 +13,7 @@
 	"ores-hide-nondamaging-filter": "Mostra només edicions que s'han de revisar",
 	"ores-pref-damaging": "Sensibilitat d'ORES",
 	"ores-help-damaging-pref": "Aquest llindar determina la sensibilitat de ORES quan marqui edicions que necessiten revisió",
+	"ores-rcfilters-whats-this-link-text": "Més informació",
 	"ores-pref-rc-hidenondamaging": "Amaga edicions probablement benintencionades dels canvis recents",
 	"ores-pref-watchlist-hidenondamaging": "Amaga edicions probablement benintencionades de la llista de seguiment",
 	"apihelp-query+ores-description": "Retorna configuracio d'ORES i dades model per aquesta wiki",
