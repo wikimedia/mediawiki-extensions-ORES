@@ -279,6 +279,10 @@ class ApiHooksHandler {
 				$models[$modelDatum['id']] = $modelName;
 			}
 
+			if ( !isset( $hookData['oresScores'][$revid] ) ) {
+				return true;
+			}
+
 			self::addScoresForAPI( $data, $hookData['oresScores'][$revid], $models );
 		}
 
