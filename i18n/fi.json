@@ -8,7 +8,8 @@
 			"Nike",
 			"Zache",
 			"Pyscowicz",
-			"Pxos"
+			"Pxos",
+			"Valtlait"
 		]
 	},
 	"ores-desc": "Näytä automaattinen versioiden pisteytys",
@@ -49,7 +50,7 @@
 	"ores-rcfilters-goodfaith-bad-label": "Todennäköisesti pahantahtoinen",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Hyvin todennäköisesti pahantahtoinen",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Hyvin tarkka löytämään selkeimmin pahantahtoiset muokkaukset.",
-	"ores-pref-highlight": "Korosta \"huomiota kaipaavat\" muokkaukset, joissa todennäköisesti on ongelmia, värillä ja \"{{int:ores-damaging-letter}}\"-kirjaimella.",
+	"ores-pref-highlight": "Korosta ”huomiota kaipaavat” muokkaukset, joissa todennäköisesti on ongelmia, värillä ja ”{{int:ores-damaging-letter}}”-kirjaimella.",
 	"ores-pref-rc-hidenondamaging": "Näytä vain todennäköisesti ongelmalliset muokkaukset (piilottaa todennäköisesti hyvät muokkaukset)",
 	"ores-pref-watchlist-hidenondamaging": "Näytä vain todennäköisesti ongelmalliset muokkaukset (piilottaa todennäköisesti hyvät muokkaukset)",
 	"prefs-ores-wl": "Versioiden pistearviointi tarkkailulistalla",
