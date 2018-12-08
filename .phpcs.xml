@@ -7,20 +7,11 @@
 		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
 	</rule>
 
-	<rule ref="Generic.ControlStructures" />
-
 	<rule ref="Squiz.ControlStructures.ControlSignature" />
-	<rule ref="Squiz.Functions.FunctionDuplicateArgument" />
 	<rule ref="Squiz.Functions.GlobalFunction" />
-	<rule ref="Squiz.Scope" />
 	<rule ref="Squiz.WhiteSpace.FunctionSpacing">
 		<properties>
 			<property name="spacing" value="1" />
-		</properties>
-	</rule>
-	<rule ref="Squiz.WhiteSpace.OperatorSpacing">
-		<properties>
-			<property name="ignoreNewlines" value="true" />
 		</properties>
 	</rule>
 
