@@ -55,6 +55,7 @@
 	"ores-pref-watchlist-hidenondamaging": "Näytä vain todennäköisesti ongelmalliset muokkaukset (piilottaa todennäköisesti hyvät muokkaukset)",
 	"prefs-ores-wl": "Versioiden pistearviointi tarkkailulistalla",
 	"prefs-ores-rc": "Versioiden pistearviointi tuoreissa muutoksissa, liittyvissä muutoksissa ja muokkauksissa",
+	"oresmodels": "ORES-mallin tilastot",
 	"apihelp-query+ores-description": "Hae ORES-konfiguraatio- ja mallitiedot tälle sivustolle.",
 	"apihelp-query+ores-example-simple": "Haetaan ORES-arvot",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-pisteet tälle versiolle.",
