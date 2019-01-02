@@ -7,6 +7,12 @@ use ORES\Storage\ModelLookup;
 
 class SpecialORESModels extends \SpecialPage {
 
+	/** @var ModelLookup */
+	private $modelLookup;
+
+	/** @var ThresholdLookup */
+	private $thresholdLookup;
+
 	public function __construct( ModelLookup $modelLookup, ThresholdLookup $thresholdLookup ) {
 		parent::__construct( 'ORESModels' );
 		$this->modelLookup = $modelLookup;
