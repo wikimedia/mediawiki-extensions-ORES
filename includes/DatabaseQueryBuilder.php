@@ -16,7 +16,7 @@
 
 namespace ORES;
 
-use IDatabase;
+use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\Database;
 
 class DatabaseQueryBuilder {
