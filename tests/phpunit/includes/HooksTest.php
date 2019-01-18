@@ -10,7 +10,7 @@ use OutputPage;
 
 /**
  * @group ORES
- * @covers ORES\Hooks
+ * @covers \ORES\Hooks
  */
 class HooksTest extends \MediaWikiTestCase {
 
@@ -27,6 +27,7 @@ class HooksTest extends \MediaWikiTestCase {
 				]
 			],
 			'wgOresWikiId' => 'testwiki',
+			'wgOresBaseUrl' => 'https://ores.example.test/',
 		] );
 
 		$user = static::getTestUser()->getUser();
@@ -40,7 +41,7 @@ class HooksTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks::onRecentChangesPurgeRows
+	 * @covers \ORES\Hooks::onRecentChangesPurgeRows
 	 */
 	public function testOnRecentChangesPurgeRows() {
 		$revIds = [ 1, 5, 8, 13 ];
@@ -59,7 +60,7 @@ class HooksTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks::onBeforePageDisplay
+	 * @covers \ORES\Hooks::onBeforePageDisplay
 	 */
 	public function testOnBeforePageDisplay() {
 		$modelData = [ 'damaging' => [ 'id' => 5, 'version' => '0.0.2' ] ];
@@ -87,6 +88,9 @@ class HooksTest extends \MediaWikiTestCase {
 		$this->assertEquals( [
 			'oresData' => $oresData,
 			'oresThresholds' => $thresholds,
+			'oresWikiId' => 'testwiki',
+			'oresBaseUrl' => 'https://ores.example.test/',
+			'oresApiVersion' => 3
 		], $vars );
 		$styles = $outputPage->getModuleStyles();
 		$this->assertEquals( [

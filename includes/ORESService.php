@@ -53,18 +53,27 @@ class ORESService {
 		} else {
 			$wikiId = wfWikiID();
 		}
+
 		return $wikiId;
+	}
+
+	/**
+	 * @return string Base URL of ORES service
+	 */
+	public static function getBaseUrl() {
+		global $wgOresBaseUrl;
+
+		return $wgOresBaseUrl;
 	}
 
 	/**
 	 * @return string Base URL plus your wiki's `scores` API path.
 	 */
 	public function getUrl() {
-		global $wgOresBaseUrl;
-
 		$wikiId = self::getWikiID();
 		$prefix = 'v' . self::API_VERSION;
-		$url = "{$wgOresBaseUrl}{$prefix}/scores/{$wikiId}/";
+		$baseUrl = self::getBaseUrl();
+		$url = "{$baseUrl}{$prefix}/scores/{$wikiId}/";
 		return $url;
 	}
 
