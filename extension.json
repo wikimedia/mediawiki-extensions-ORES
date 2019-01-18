@@ -124,7 +124,7 @@
 			"class": "ORES\\ResourceLoaderORESAPIModule",
 			"scripts": [
 				"ext.ores.api.js"
-            ]
+			]
 		}
 	},
 	"MessagesDirs": {
