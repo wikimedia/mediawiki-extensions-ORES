@@ -6,6 +6,7 @@ $( function () {
 		// Levels must be descending from the worst to best.
 		levels = [ 'verylikelybad', 'likelybad', 'maybebad' ],
 		scores = mw.config.get( 'oresData' );
+
 	if ( !$changesList.length ) {
 		return;
 	}
