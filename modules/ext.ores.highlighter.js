@@ -1,13 +1,13 @@
 $( function () {
 	'use strict';
 
-	var $changesList = $( '.mw-changeslist, .mw-contributions-list' ),
-		thresholds = mw.config.get( 'oresThresholds' ).damaging,
+	var thresholds = mw.config.get( 'oresThresholds' ).damaging,
 		// Levels must be descending from the worst to best.
 		levels = [ 'verylikelybad', 'likelybad', 'maybebad' ],
 		scores = mw.config.get( 'oresData' );
 
-	if ( !$changesList.length ) {
+	if ( !document.querySelector( '.mw-changeslist, .mw-contributions-list' ) ) {
+		// No changes list on this page
 		return;
 	}
 
