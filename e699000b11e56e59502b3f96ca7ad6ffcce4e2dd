@@ -16,6 +16,24 @@
       "revId": "e699000b11e56e59502b3f96ca7ad6ffcce4e2dd",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f482ecf_0f9512bc",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2019-01-21T22:17:53Z",
+      "side": 1,
+      "message": "Not really, but thought it would make it easier to read than to do a query and evaluate it, within an if-statement.\n\nBut, if that\u0027s acceptable, could go further and e.g. use document.querySelector which will only yield 1 node or null, which would simplify the thing a whole lot but not invoking a whole lot of jQuery/Sizzle code and allocations within.",
+      "parentUuid": "427fe0f7_da0fb860",
+      "revId": "e699000b11e56e59502b3f96ca7ad6ffcce4e2dd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
