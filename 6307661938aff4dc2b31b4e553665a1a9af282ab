@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0cd5c4e_8441be03",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-01-24T09:02:10Z",
+      "side": 1,
+      "message": "To be honest I don\u0027t like to use querySelector() in code that otherwise uses jQuery, even if the compatibility matrix is fine nowadays: https://caniuse.com/#feat\u003dqueryselector.\n\nWhy not just inline the jQuery call here?\n\n if ( !$( \u0027.mw-changeslist, .mw-contributions-list\u0027 ).length ) {\n\nAs far as I can see this solves the issue. When there is no variable any more, there is no reference to the possibly expensive result any more, no matter what the following code does.\n\nOr do this after the if():\n\n $changesList \u003d undefined;",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 9,
+        "endChar": 78
+      },
+      "revId": "6307661938aff4dc2b31b4e553665a1a9af282ab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}

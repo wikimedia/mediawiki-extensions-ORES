@@ -34,6 +34,24 @@
       "revId": "e699000b11e56e59502b3f96ca7ad6ffcce4e2dd",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed97ff97_7c6b3269",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-01-24T09:02:10Z",
+      "side": 1,
+      "message": "Hm. I might miss something here, but aren\u0027t the classes \"mw-changeslist\" and \"mw-contributions-list\" only used once per page, on the top-level \u003cul\u003e element for these lists? If this is true the jQuery call you are trying to optimize here will typically only hold 1 element.\n\nFurthermore, it\u0027s not like it\u0027s holding a copy of the entire list. It\u0027s effectively just a reference to the DOM node that exists anyway. So the memory footprint should be, I don\u0027t know, just a few bytes?\n\nWhat am I missing?",
+      "parentUuid": "7f482ecf_0f9512bc",
+      "revId": "e699000b11e56e59502b3f96ca7ad6ffcce4e2dd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
