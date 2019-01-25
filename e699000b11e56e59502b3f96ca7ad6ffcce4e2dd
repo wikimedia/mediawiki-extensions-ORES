@@ -52,6 +52,24 @@
       "revId": "e699000b11e56e59502b3f96ca7ad6ffcce4e2dd",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3f64a9e_be8fdc9d",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2019-01-25T20:21:59Z",
+      "side": 1,
+      "message": "The memory of the DOM nodes themselves is indeed not hugely significant. Although one should beware that pages can change dynamically, and this kind of static allocation is an anti-pattern, as it may *outlive* the presence of the element in the DOM, and thus prevent it from being garbage collected.\n\nSuch handling should generally follow a scope such as mw.hook(\u0027wikipage.content\u0027) or some other natural lifecycle that isn\u0027t tied to window.onload or dom-ready.\n\n(Think live preview, revision slider, visualeditor post-edit, HotCat, etc.).\n\nThe actual source of my finding this relates to auditing the code that can execute on a page. And from that perspective, the overhead is run-time based not memory. I failed to reflect this in the commit message, I\u0027ll update it accordingly.\n\nBasically, $() involves Sizzle, and some of that is lazy-initialised and cached by document in a way that will need to re-initialise if the context is different from the last $() command. So generally the fewer there are of those early on, the better, to push it back further and reduce the number of alternations/re-initialisations.\n\nquerySelect by only picking one, and involving no user-land code, achieves that to perfection basically. There\u0027s no concerns after that, as well as no surface area for future concerns.",
+      "parentUuid": "ed97ff97_7c6b3269",
+      "revId": "e699000b11e56e59502b3f96ca7ad6ffcce4e2dd",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
