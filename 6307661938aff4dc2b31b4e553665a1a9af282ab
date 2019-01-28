@@ -46,6 +46,30 @@
       "revId": "6307661938aff4dc2b31b4e553665a1a9af282ab",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57008ecd_ba02c15a",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1453
+      },
+      "writtenOn": "2019-01-28T14:06:31Z",
+      "side": 1,
+      "message": "Oh, thanks for that certainly helpful clarification. But that\u0027s not what I meant. This short file is now mixing two very different APIs to select elements. I think this makes this code less readable and somewhat confusing.\n\nSimilar gadgets and user scripts typically check mw.config.get( \u0027wgCanonicalSpecialPageName\u0027 ) \u003d\u003d\u003d \u0027Contributions\u0027 || …. Wouldn\u0027t this solve the issue as well?",
+      "parentUuid": "22d7b9d3_4ceff530",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 9,
+        "endChar": 78
+      },
+      "revId": "6307661938aff4dc2b31b4e553665a1a9af282ab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
