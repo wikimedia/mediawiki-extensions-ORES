@@ -70,6 +70,30 @@
       "revId": "6307661938aff4dc2b31b4e553665a1a9af282ab",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "528820e4_df1884b7",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 34
+      },
+      "writtenOn": "2019-02-09T21:32:53Z",
+      "side": 1,
+      "message": "Thanks, that suggestion may be useful for ORES developers to considers at some point. Doing that would significantly alter the behaviour and contract provided by this module which is outside the scope of this patch and my work on generically improving performance for everyone by adopting generally better patterns for what the code currently does, today.",
+      "parentUuid": "57008ecd_ba02c15a",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 9,
+        "endChar": 78
+      },
+      "revId": "6307661938aff4dc2b31b4e553665a1a9af282ab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
