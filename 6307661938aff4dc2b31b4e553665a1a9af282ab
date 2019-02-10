@@ -94,6 +94,30 @@
       "revId": "6307661938aff4dc2b31b4e553665a1a9af282ab",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "624501ab_d43235a2",
+        "filename": "modules/ext.ores.highlighter.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2019-02-10T10:55:06Z",
+      "side": 1,
+      "message": "The injection of this RL doesn\u0027t happen if it\u0027s not any of SpecialContribution, etc. so the check you\u0027re suggesting is redundant.",
+      "parentUuid": "528820e4_df1884b7",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 9,
+        "endChar": 78
+      },
+      "revId": "6307661938aff4dc2b31b4e553665a1a9af282ab",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
     }
   ]
 }
