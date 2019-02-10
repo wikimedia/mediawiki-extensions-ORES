@@ -173,6 +173,7 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 		}
 		foreach ( $rcContents as &$row ) {
 			$row += $userData;
+			$row += [ 'rc_comment_id' => 1 ];
 		}
 
 		\wfGetDB( DB_MASTER )->insert( 'recentchanges', $rcContents, __METHOD__ );

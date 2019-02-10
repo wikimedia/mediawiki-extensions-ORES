@@ -153,7 +153,7 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 			'damaging' => 0.2,
 		] );
 		\wfGetDB( DB_MASTER )->insert( 'recentchanges', [
-			'rc_this_oldid' => $revId,
+			'rc_this_oldid' => $revId, 'rc_comment_id' => 1,
 		] + $userData, __METHOD__ );
 
 		$this->maintenance->loadWithArgv( [ '--old' ] );

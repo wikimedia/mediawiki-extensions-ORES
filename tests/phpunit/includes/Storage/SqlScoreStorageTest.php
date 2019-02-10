@@ -196,7 +196,8 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 			[
 				'rc_this_oldid' => '567',
 				'rc_cur_id' => 3,
-				'rc_last_oldid' => '425'
+				'rc_last_oldid' => '425',
+				'rc_comment_id' => 1
 			],
 			__METHOD__
 		);
@@ -205,7 +206,8 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 			[
 				'rc_this_oldid' => '12345',
 				'rc_cur_id' => 3,
-				'rc_last_oldid' => '567'
+				'rc_last_oldid' => '567',
+				'rc_comment_id' => 1
 			],
 			__METHOD__
 		);
