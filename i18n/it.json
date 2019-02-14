@@ -5,7 +5,9 @@
 			"JackLantern",
 			"Beta16",
 			"Martinligabue",
-			"Selven"
+			"Selven",
+			"ArTrix",
+			"Fringio"
 		]
 	},
 	"ores-desc": "Visualizzare le valutazioni automatiche di revisione nell'interfaccia",
@@ -15,6 +17,10 @@
 	"ores-damaging-legend": "Questa modifica potrebbe avere problemi e dovrebbe essere rivista ([[:mw:Special:MyLanguage/ORES review tool|ulteriori informazioni]])",
 	"ores-hide-nondamaging-filter": "Nascondi probabili buone modifiche",
 	"ores-pref-damaging": "Soglia di predizione",
+	"ores-pref-damaging-flag": "Evidenzia le modifiche possibilmente problematiche con colori e un \"{{int:ores-damaging-letter}}\" per quelle che \"richiedono una revisione\"",
+	"ores-damaging-maybebad": "Potrebbe avere problemi (indica la maggior parte delle modifiche problematiche, ma include anche molti falsi positivi)",
+	"ores-damaging-likelybad": "Probabilmente hanno dei problemi (probabilità media)",
+	"ores-damaging-verylikelybad": "Molto probabilmente hanno problemi (indica pochi falsi positivi, ma trova una minor percentuale di modifiche problematiche)",
 	"ores-help-damaging-pref": "Modifica l'impostazione della \"soglia\" per rendere le opzioni sotto più o meno selettive.",
 	"ores-rcfilters-whats-this-link-text": "Ulteriori informazioni",
 	"ores-rcfilters-damaging-likelygood-label": "Molto probabilmente buona",
@@ -24,8 +30,20 @@
 	"ores-rcfilters-goodfaith-good-label": "Molto probabilmente in buona fede",
 	"ores-rcfilters-goodfaith-maybebad-label": "Potrebbe essere in malafede",
 	"ores-rcfilters-goodfaith-bad-label": "Probabile in malafede",
+	"ores-rcfilters-goodfaith-verylikelybad-label": "Molto probabilmente in mala fede",
 	"ores-pref-rc-hidenondamaging": "Mostra solo le modifiche apparentemente problematiche (e nascondi le probabili buone modifiche)",
 	"ores-pref-watchlist-hidenondamaging": "Mostra solo le modifiche apparentemente problematiche (e nascondi le probabili buone modifiche)",
+	"prefs-ores-wl": "Punteggio delle versioni negli osservati speciali",
+	"prefs-ores-rc": "Punteggio delle versioni nelle ultime modifiche, modifiche correlate e contributi",
+	"oresmodels": "Statistiche del modello ORES",
 	"ores-specialoresmodels-header-filter": "Filtro",
-	"ores-specialoresmodels-header-precision": "Precisione"
+	"ores-specialoresmodels-header-precision": "Precisione",
+	"ores-specialoresmodels-header-recall": "Recupero",
+	"ores-specialoresmodels-header-thresholdrange": "Intervallo di soglia",
+	"apihelp-query+ores-description": "Restituisce la configurazione ORES e i dati del modello per questo wiki.",
+	"apihelp-query+ores-example-simple": "Recupera i dati ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Punteggio ORES per la revisione",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Punteggio ORES per la revisione",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Aggiunge punteggi ORES per la modifica.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Aggiunge punteggi ORES per la modifica."
 }

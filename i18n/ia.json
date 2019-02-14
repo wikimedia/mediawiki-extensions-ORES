@@ -4,6 +4,6 @@
 			"McDutchie"
 		]
 	},
-	"ores-pref-rc-hidenondamaging": "Celar le modificationes probabilemente bon in le modificationes recente",
-	"ores-pref-watchlist-hidenondamaging": "Celar le modificationes probabilemente bon in le observatorio"
+	"ores-pref-rc-hidenondamaging": "Monstrar solmente le modificationes probabilemente problematic (e celar illos probabilemente bon)",
+	"ores-pref-watchlist-hidenondamaging": "Monstrar solmente le modificationes probabilemente problematic (e celar illos probabilemente bon)"
 }
