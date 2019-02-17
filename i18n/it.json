@@ -17,9 +17,9 @@
 	"ores-damaging-legend": "Questa modifica potrebbe avere problemi e dovrebbe essere rivista ([[:mw:Special:MyLanguage/ORES review tool|ulteriori informazioni]])",
 	"ores-hide-nondamaging-filter": "Nascondi probabili buone modifiche",
 	"ores-pref-damaging": "Soglia di predizione",
-	"ores-pref-damaging-flag": "Evidenzia le modifiche possibilmente problematiche con colori e un \"{{int:ores-damaging-letter}}\" per quelle che \"richiedono una revisione\"",
+	"ores-pref-damaging-flag": "Evidenzia le modifiche probabilmente problematiche con colori e un \"{{int:ores-damaging-letter}}\" per quelle che \"richiedono una revisione\"",
 	"ores-damaging-maybebad": "Potrebbe avere problemi (indica la maggior parte delle modifiche problematiche, ma include anche molti falsi positivi)",
-	"ores-damaging-likelybad": "Probabilmente hanno dei problemi (probabilità media)",
+	"ores-damaging-likelybad": "Probabilmente hanno problemi (probabilità media)",
 	"ores-damaging-verylikelybad": "Molto probabilmente hanno problemi (indica pochi falsi positivi, ma trova una minor percentuale di modifiche problematiche)",
 	"ores-help-damaging-pref": "Modifica l'impostazione della \"soglia\" per rendere le opzioni sotto più o meno selettive.",
 	"ores-rcfilters-whats-this-link-text": "Ulteriori informazioni",
@@ -42,8 +42,8 @@
 	"ores-specialoresmodels-header-thresholdrange": "Intervallo di soglia",
 	"apihelp-query+ores-description": "Restituisce la configurazione ORES e i dati del modello per questo wiki.",
 	"apihelp-query+ores-example-simple": "Recupera i dati ORES:",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "Punteggio ORES per la revisione",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Punteggio ORES per la revisione",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Punteggio ORES per la versione.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Punteggio ORES per la versione.",
 	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Aggiunge punteggi ORES per la modifica.",
 	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Aggiunge punteggi ORES per la modifica."
 }
