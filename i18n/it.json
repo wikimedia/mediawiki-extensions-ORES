@@ -67,5 +67,6 @@
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Punteggio ORES per la versione.",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Punteggio ORES per la versione.",
 	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Aggiunge punteggi ORES per la modifica.",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Aggiunge punteggi ORES per la modifica."
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Aggiunge punteggi ORES per la modifica.",
+	"ores-api-show-note": "Quando usi <kbd>oresreview</kbd> o <kbd>!oresreview</kbd>, le versioni senza alcun punteggio (ad esempio versioni molto vecchie) sono considerate come non necessarie di revisione anche se avrebbero avuto bisogno di revisione se valutate con punteggio."
 }
