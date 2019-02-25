@@ -11,7 +11,7 @@
 	"ores-damaging-legend": "See muudatus võib olla probleemne ja tuleks üle vaadata ([[:mw:Special:MyLanguage/ORES review tool|lisateave]])",
 	"ores-hide-nondamaging-filter": "Peida tõenäoliselt head muudatused",
 	"ores-pref-damaging": "Prognoosilävi",
-	"ores-pref-damaging-flag": "Kasuta värvusi ja silti \"{{int:ores-damaging-letter}}\" (\"üle vaadata\"), et tõsta esile tõenäoliselt probleemsed muudatused.",
+	"ores-pref-damaging-flag": "Kasuta värvusi ja silti \"{{int:ores-damaging-letter}}\" (\"üle vaadata\"), et tõsta esile tõenäoliselt probleemsed muudatused",
 	"ores-damaging-maybebad": "Võib olla probleemne (sildistab enamiku probleemseid muudatusi, kuid ka palju valepositiivseid)",
 	"ores-damaging-likelybad": "Tõenäoliselt probleemne (keskmise tõenäosusega)",
 	"ores-damaging-verylikelybad": "Suure tõenäosusega probleemne (sildistab vähem valepositiivseid muudatusi ja ka väiksema osa probleemsetest)",
