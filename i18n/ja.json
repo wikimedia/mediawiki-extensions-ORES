@@ -9,7 +9,7 @@
 			"Afaz"
 		]
 	},
-	"ores-desc": "自動化された更新スコアをインタフェース内で表示する",
+	"ores-desc": "自動化された更新評価値をインタフェース内で表示",
 	"ores-damaging-filter": "良好だと推測される編集$1件",
 	"ores-damaging-letter": "疑",
 	"ores-damaging-title": "この編集は査読を必要としてます",
@@ -36,5 +36,17 @@
 	"ores-rcfilters-goodfaith-verylikelybad-label": "悪意である可能性が高い",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "高い確率で、悪意による編集と推測されたもの",
 	"ores-pref-rc-hidenondamaging": "最近の更新に問題がある編集のみ表示 (良好だと推測される編集を表示しない)",
-	"ores-pref-watchlist-hidenondamaging": "最近の更新に問題がある編集のみ表示 (良好だと推測される編集を表示しない)"
+	"ores-pref-watchlist-hidenondamaging": "最近の更新に問題がある編集のみ表示 (良好だと推測される編集を表示しない)",
+	"prefs-ores-wl": "ウォッチリストの更新評価",
+	"prefs-ores-rc": "最近の更新、関連ページの更新状況、投稿記録の更新評価",
+	"oresmodels": "ORES統計",
+	"ores-specialoresmodels-header-filter": "フィルター",
+	"ores-specialoresmodels-header-precision": "適合率",
+	"ores-specialoresmodels-header-recall": "再現率",
+	"ores-specialoresmodels-header-thresholdrange": "しきい値範囲",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "その版のORESスコア。",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "その版のORESスコア。",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "エントリのORESスコアを追加します。",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "編集のORESスコアを追加します。",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "編集のORESスコアを追加します。"
 }
