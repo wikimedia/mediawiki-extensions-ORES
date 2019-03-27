@@ -22,6 +22,7 @@ class ORESServiceTest extends \MediaWikiTestCase {
 		$this->setMwGlobals( [
 			'wgOresBaseUrl' => 'https://ores-beta.wmflabs.org/',
 			'wgOresWikiId' => 'testwiki',
+			'wgOresFrontendBaseUrl' => null,
 		] );
 		$this->oresService = new ORESService( LoggerFactory::getInstance( 'ORES' ) );
 	}
@@ -55,6 +56,16 @@ class ORESServiceTest extends \MediaWikiTestCase {
 
 		$this->setMwGlobals( [ 'wgOresBaseUrl' => 'https://example.com' ] );
 		$this->assertSame( 'https://example.com', ORESService::getBaseUrl() );
+	}
+
+	/**
+	 * @covers \ORES\ORESService::getFrontendBaseUrl()
+	 */
+	public function testGetFrontendBaseUrl() {
+		$this->assertSame( 'https://ores-beta.wmflabs.org/', ORESService::getFrontendBaseUrl() );
+
+		$this->setMwGlobals( [ 'wgOresFrontendBaseUrl' => 'https://example.com' ] );
+		$this->assertSame( 'https://example.com', ORESService::getFrontendBaseUrl() );
 	}
 
 }

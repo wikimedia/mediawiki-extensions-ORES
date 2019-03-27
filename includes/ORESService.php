@@ -67,6 +67,19 @@ class ORESService {
 	}
 
 	/**
+	 * @return string Base URL of ORES service being used externally
+	 */
+	public static function getFrontendBaseUrl() {
+		global $wgOresFrontendBaseUrl, $wgOresBaseUrl;
+
+		if ( $wgOresFrontendBaseUrl === null ) {
+			return $wgOresBaseUrl;
+		}
+
+		return $wgOresFrontendBaseUrl;
+	}
+
+	/**
 	 * @return string Base URL plus your wiki's `scores` API path.
 	 */
 	public function getUrl() {

@@ -90,7 +90,7 @@ class Hooks {
 	public static function getFrontendConfiguration() {
 		return [
 			'wikiId' => ORESService::getWikiID(),
-			'baseUrl' => ORESService::getBaseUrl(),
+			'baseUrl' => ORESService::getFrontendBaseUrl(),
 			'apiVersion' => ORESService::API_VERSION,
 		];
 	}
