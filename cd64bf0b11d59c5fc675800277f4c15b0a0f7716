@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef8bf9e3_d373995d",
+        "filename": "includes/Hooks/ContributionsHooksHandler.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2019-03-28T17:30:40Z",
+      "side": 1,
+      "message": "I don\u0027t think this key is necessary with the new patch.",
+      "range": {
+        "startLine": 118,
+        "startChar": 11,
+        "endLine": 118,
+        "endChar": 28
+      },
+      "revId": "cd64bf0b11d59c5fc675800277f4c15b0a0f7716",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51c93e32_43163414",
+        "filename": "includes/Hooks/ContributionsHooksHandler.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2019-03-28T17:30:40Z",
+      "side": 1,
+      "message": "I think this should be \"default\"",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 9
+      },
+      "revId": "cd64bf0b11d59c5fc675800277f4c15b0a0f7716",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    }
+  ]
+}
