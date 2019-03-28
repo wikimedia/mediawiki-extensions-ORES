@@ -18,11 +18,9 @@ namespace ORES\Hooks;
 
 use ChangesList;
 use ContribsPager;
-use Html;
 use RequestContext;
 use SpecialContributions;
 use IContextSource;
-use Xml;
 
 class ContributionsHooksHandler {
 
@@ -107,7 +105,7 @@ class ContributionsHooksHandler {
 	 * Hook into Special:Contributions filters
 	 *
 	 * @param SpecialContributions $page
-	 * @param string[] &$filters HTML
+	 * @param array[] &$filters HTML
 	 */
 	public static function onSpecialContributionsGetFormFilters(
 		SpecialContributions $page,
@@ -117,17 +115,13 @@ class ContributionsHooksHandler {
 			return;
 		}
 
-		$filters[] = Html::rawElement(
-			'span',
-			[ 'class' => 'mw-input-with-label' ],
-			Xml::checkLabel(
-				$page->msg( 'ores-hide-nondamaging-filter' )->text(),
-				'hidenondamaging',
-				'ores-hide-nondamaging',
-				self::hideNonDamagingPreference( $page->getContext() ),
-				[ 'class' => 'mw-input' ]
-			)
-		);
+		$filters[] = [
+			'type' => 'check',
+			'id' => 'ores-hide-nondamaging',
+			'label' => $page->msg( 'ores-hide-nondamaging-filter' )->text(),
+			'name' => 'hidenondamaging',
+			'default' => self::hideNonDamagingPreference( $page->getContext() ),
+		];
 	}
 
 	/**
