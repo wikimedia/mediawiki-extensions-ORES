@@ -73,7 +73,6 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
 			'rc_type',
 		], $fields );
 		$this->assertEquals( [
-			'ores_model',
 			'ores_classification',
 		], $tables );
 		$this->assertEquals( [
@@ -119,7 +118,6 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
 			'rc_type',
 		], $fields );
 		$this->assertEquals( [
-			'ores_model',
 			'ores_classification',
 		], $tables );
 		$this->assertEquals( [

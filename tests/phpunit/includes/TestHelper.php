@@ -29,6 +29,7 @@ class TestHelper {
 
 	public static function clearOresTables() {
 		\wfGetDB( DB_MASTER )->delete( 'recentchanges', '*', __METHOD__ );
+		\wfGetDB( DB_MASTER )->delete( 'watchlist', '*', __METHOD__ );
 		\wfGetDB( DB_MASTER )->delete( 'ores_model', '*', __METHOD__ );
 		\wfGetDB( DB_MASTER )->delete( 'ores_classification', '*', __METHOD__ );
 	}

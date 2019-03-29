@@ -2,10 +2,13 @@
 
 namespace ORES\Tests\Api;
 
+use MediaWiki\Linker\LinkTarget;
+use MediaWiki\MediaWikiServices;
 use ORES\Storage\HashModelLookup;
 use TitleValue;
 
 use ORES\Tests\TestHelper;
+use User;
 
 /**
  * @group API
@@ -203,6 +206,129 @@ class ApiIntegrationTest extends \ApiTestCase {
 		$this->assertCount( 1, $result[0]['query']['recentchanges'] );
 
 		$item = $result[0]['query']['recentchanges'][0];
+		$this->assertSame( 'new', $item['type'] );
+		$this->assertSame( 0, $item['ns'] );
+		$this->assertSame( 'ORESApiIntegrationTestPage', $item['title'] );
+		$this->assertSame( $status->getValue()['revision']->getId(), $item['revid'] );
+	}
+
+	private function getWatchedItemStore() {
+		return MediaWikiServices::getInstance()->getWatchedItemStore();
+	}
+
+	/**
+	 * @param User $user
+	 * @param LinkTarget[] $targets
+	 */
+	private function watchPages( User $user, array $targets ) {
+		$store = $this->getWatchedItemStore();
+		$store->addWatchBatchForUser( $user, $targets );
+	}
+
+	private function doListWatchlistRequest( array $params = [], $user = null ) {
+		if ( $user === null ) {
+			$user = $this->getLoggedInTestUser();
+		}
+		return $this->doApiRequest(
+			array_merge(
+				[ 'action' => 'query', 'list' => 'watchlist' ],
+				$params
+			), null, false, $user
+		);
+	}
+
+	public function testListWatchlist_getOresScores() {
+		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
+		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
+		TestHelper::insertOresData(
+			$status->getValue()['revision'],
+			[ 'damaging' => 0.4, 'goodfaith' => 0.7 ]
+		);
+		$this->watchPages( $this->getLoggedInTestUser(), [ $target ] );
+
+		$result = $this->doListWatchlistRequest( [ 'wlprop' => 'oresscores|ids' ] );
+
+		$this->assertArrayHasKey( 'query', $result[0] );
+		$this->assertArrayHasKey( 'watchlist', $result[0]['query'] );
+		$this->assertCount( 1, $result[0]['query']['watchlist'] );
+
+		$expected = [
+			'damaging' => [ 'true' => 0.4, 'false' => 0.6 ],
+			'goodfaith' => [ 'true' => 0.7, 'false' => 0.3 ],
+		];
+		$this->assertEquals( $result[0]['query']['watchlist'][0]['oresscores'], $expected );
+	}
+
+	public function testListWatchlist_showOresReview() {
+		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
+		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
+		TestHelper::insertOresData(
+			$status->getValue()['revision'],
+			[ 'damaging' => 0.6, 'goodfaith' => 0.3 ]
+		);
+		$this->watchPages( $this->getLoggedInTestUser(), [ $target ] );
+
+		$result = $this->doListWatchlistRequest( [ 'wlshow' => 'oresreview' ] );
+
+		$this->assertArrayHasKey( 'query', $result[0] );
+		$this->assertArrayHasKey( 'watchlist', $result[0]['query'] );
+		$this->assertCount( 1, $result[0]['query']['watchlist'] );
+
+		$item = $result[0]['query']['watchlist'][0];
+		$this->assertSame( 'new', $item['type'] );
+		$this->assertSame( 0, $item['ns'] );
+		$this->assertSame( 'ORESApiIntegrationTestPage', $item['title'] );
+		$this->assertSame( $status->getValue()['revision']->getId(), $item['revid'] );
+	}
+
+	public function testListWatchlist_showOresReviewNotNeedingReview() {
+		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
+		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
+		TestHelper::insertOresData(
+			$status->getValue()['revision'],
+			[ 'damaging' => 0.4, 'goodfaith' => 0.7 ]
+		);
+		$this->watchPages( $this->getLoggedInTestUser(), [ $target ] );
+
+		$result = $this->doListWatchlistRequest( [ 'wlshow' => 'oresreview' ] );
+
+		$this->assertArrayHasKey( 'query', $result[0] );
+		$this->assertArrayHasKey( 'watchlist', $result[0]['query'] );
+		$this->assertCount( 0, $result[0]['query']['watchlist'] );
+	}
+
+	public function testListWatchlist_showNotOresReview() {
+		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
+		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
+		TestHelper::insertOresData(
+			$status->getValue()['revision'],
+			[ 'damaging' => 0.6, 'goodfaith' => 0.3 ]
+		);
+		$this->watchPages( $this->getLoggedInTestUser(), [ $target ] );
+
+		$result = $this->doListWatchlistRequest( [ 'wlshow' => '!oresreview' ] );
+
+		$this->assertArrayHasKey( 'query', $result[0] );
+		$this->assertArrayHasKey( 'watchlist', $result[0]['query'] );
+		$this->assertCount( 0, $result[0]['query']['watchlist'] );
+	}
+
+	public function testListWatchlist_showNotOresReviewNotNeedingReview() {
+		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
+		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
+		TestHelper::insertOresData(
+			$status->getValue()['revision'],
+			[ 'damaging' => 0.4, 'goodfaith' => 0.7 ]
+		);
+		$this->watchPages( $this->getLoggedInTestUser(), [ $target ] );
+
+		$result = $this->doListWatchlistRequest( [ 'wlshow' => '!oresreview' ] );
+
+		$this->assertArrayHasKey( 'query', $result[0] );
+		$this->assertArrayHasKey( 'watchlist', $result[0]['query'] );
+		$this->assertCount( 1, $result[0]['query']['watchlist'] );
+
+		$item = $result[0]['query']['watchlist'][0];
 		$this->assertSame( 'new', $item['type'] );
 		$this->assertSame( 0, $item['ns'] );
 		$this->assertSame( 'ORESApiIntegrationTestPage', $item['title'] );
