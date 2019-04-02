@@ -88,9 +88,6 @@ class HooksTest extends \MediaWikiTestCase {
 		$this->assertEquals( [
 			'oresData' => $oresData,
 			'oresThresholds' => $thresholds,
-			'oresWikiId' => 'testwiki',
-			'oresBaseUrl' => 'https://ores.example.test/',
-			'oresApiVersion' => 3
 		], $vars );
 		$styles = $outputPage->getModuleStyles();
 		$this->assertEquals( [
