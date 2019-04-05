@@ -49,6 +49,7 @@
 	"ores-pref-highlight": "문제가 있을 가능성이 있는 편집을 색으로 강조하고 \"검토가 필요\"한 항목에 대해 \"{{int:ores-damaging-letter}}\"로 표시",
 	"ores-pref-rc-hidenondamaging": "문제가 있을 가능성이 있는 편집만 표시 (잠재적으로 정상적인 편집을 숨기기)",
 	"ores-pref-watchlist-hidenondamaging": "문제가 있을 가능성이 있는 편집만 표시 (잠재적으로 정상적인 편집을 숨기기)",
+	"prefs-ores-wl": "주시문서 목록에서 문제성 편집 표시",
 	"prefs-ores-rc": "최근 바뀜, 가리키는 글의 최근 바뀜, 기여 목록에서 문제성 편집 표시",
 	"oresmodels": "ORES 모델 통계",
 	"ores-specialoresmodels-header-filter": "필터",
