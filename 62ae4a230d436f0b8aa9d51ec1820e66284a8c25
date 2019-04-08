@@ -16,6 +16,24 @@
       "revId": "62ae4a230d436f0b8aa9d51ec1820e66284a8c25",
       "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42e3c0ac_1fb89dc7",
+        "filename": "tests/phpunit/includes/Services/ORESServiceTest.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2019-04-08T18:30:02Z",
+      "side": 1,
+      "message": "ORESService and ORESService*s* are different. This former is the gateway to the ores.wikimedia.org, the latter is a wrapper around service wiring. ORESService is untouched thus doesn\u0027t need any changes.",
+      "parentUuid": "84f779c3_a92ba124",
+      "revId": "62ae4a230d436f0b8aa9d51ec1820e66284a8c25",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
     }
   ]
 }
