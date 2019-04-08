@@ -2,13 +2,13 @@
 
 namespace ORES\Tests;
 
-use ORES\ScoreFetcher;
+use ORES\Services\ScoreFetcher;
 use ORES\Storage\HashModelLookup;
 
 /**
  * @group ORES
  * @group Database
- * @covers ORES\ScoreFetcher
+ * @covers ORES\Services\ScoreFetcher
  */
 class ScoreFetcherTest extends \MediaWikiTestCase {
 
@@ -60,7 +60,7 @@ class ScoreFetcherTest extends \MediaWikiTestCase {
 
 	/**
 	 * @dataProvider provideTestGetScores
-	 * @covers ORES\ScoreFetcher::getScores
+	 * @covers ORES\Services\ScoreFetcher::getScores
 	 */
 	public function testGetScores( $expected, $revisions, $models, $precache ) {
 		$scoreFetcher = ScoreFetcher::instance();
@@ -103,7 +103,7 @@ class ScoreFetcherTest extends \MediaWikiTestCase {
 
 	/**
 	 * @dataProvider provideTestCheckModelVersion
-	 * @covers ORES\ScoreFetcher::checkModelVersion
+	 * @covers ORES\Services\ScoreFetcher::checkModelVersion
 	 */
 	public function testCheckModelVersion( $expected, $model, array $response ) {
 		$scoreFetcher = ScoreFetcher::instance();
@@ -112,7 +112,7 @@ class ScoreFetcherTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers ORES\ScoreFetcher::updateModelVersion
+	 * @covers ORES\Services\ScoreFetcher::updateModelVersion
 	 */
 	public function testUpdateModelVersion() {
 		$dbw = \wfGetDB( DB_MASTER );

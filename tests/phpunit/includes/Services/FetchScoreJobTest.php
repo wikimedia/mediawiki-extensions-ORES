@@ -2,15 +2,15 @@
 
 namespace ORES\Tests;
 
-use ORES\FetchScoreJob;
-use ORES\ScoreFetcher;
+use ORES\Services\FetchScoreJob;
+use ORES\Services\ScoreFetcher;
 use ORES\Storage\HashModelLookup;
 use Title;
 
 /**
  * @group ORES
  * @group Database
- * @covers ORES\FetchScoreJob
+ * @covers ORES\Services\FetchScoreJob
  */
 class FetchScoreJobTest extends \MediaWikiTestCase {
 
@@ -61,7 +61,7 @@ class FetchScoreJobTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers ORES\FetchScoreJob::run
+	 * @covers ORES\Services\FetchScoreJob::run
 	 */
 	public function testRun() {
 		$dbw = \wfGetDB( DB_MASTER );

@@ -14,8 +14,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace ORES;
+namespace ORES\Storage;
 
+use ORES\Range;
 use Wikimedia\Rdbms\IDatabase;
 
 class DatabaseQueryBuilder {

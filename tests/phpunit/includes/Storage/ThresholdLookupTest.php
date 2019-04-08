@@ -7,14 +7,14 @@ use MediaWiki\Logger\LoggerFactory;
 use NullStatsdDataFactory;
 use ORES\ORESService;
 use ORES\Storage\HashModelLookup;
-use ORES\ThresholdLookup;
+use ORES\Storage\ThresholdLookup;
 use ORES\ThresholdParser;
 use Psr\Log\LoggerInterface;
 use WANObjectCache;
 
 /**
  * @group ORES
- * @covers ORES\ThresholdLookup
+ * @covers ORES\Storage\ThresholdLookup
  */
 class ThresholdLookupTest extends \MediaWikiTestCase {
 

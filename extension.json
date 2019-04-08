@@ -21,35 +21,35 @@
 		"ORES\\Tests\\HelpersTest": "tests/phpunit/includes/Hooks/HelpersTest.php"
 	},
 	"APIMetaModules": {
-		"ores": "ORES\\ApiQueryORES"
+		"ores": "ORES\\Hooks\\Api\\ApiQueryORES"
 	},
 	"ServiceWiringFiles": [
 		"includes/ServiceWiring.php"
 	],
 	"Hooks": {
 		"APIGetAllowedParams": [
-			"ORES\\Hooks\\ApiHooksHandler::onAPIGetAllowedParams"
+			"ORES\\Hooks\\Api\\ApiHooksHandler::onAPIGetAllowedParams"
 		],
 		"ApiQueryBaseBeforeQuery": [
-			"ORES\\Hooks\\ApiHooksHandler::onApiQueryBaseBeforeQuery"
+			"ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryBaseBeforeQuery"
 		],
 		"ApiQueryBaseAfterQuery": [
-			"ORES\\Hooks\\ApiHooksHandler::onApiQueryBaseAfterQuery"
+			"ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryBaseAfterQuery"
 		],
 		"ApiQueryBaseProcessRow": [
-			"ORES\\Hooks\\ApiHooksHandler::onApiQueryBaseProcessRow"
+			"ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryBaseProcessRow"
 		],
 		"ApiQueryWatchlistExtractOutputData": [
-			"ORES\\Hooks\\ApiHooksHandler::onApiQueryWatchlistExtractOutputData"
+			"ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryWatchlistExtractOutputData"
 		],
 		"ApiQueryWatchlistPrepareWatchedItemQueryServiceOptions": [
-			"ORES\\Hooks\\ApiHooksHandler::onApiQueryWatchlistPrepareWatchedItemQueryServiceOptions"
+			"ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryWatchlistPrepareWatchedItemQueryServiceOptions"
 		],
 		"WatchedItemQueryServiceExtensions": [
-			"ORES\\Hooks\\ApiHooksHandler::onWatchedItemQueryServiceExtensions"
+			"ORES\\Hooks\\Api\\ApiHooksHandler::onWatchedItemQueryServiceExtensions"
 		],
 		"BeforePageDisplay": [
-			"ORES\\Hooks::onBeforePageDisplay"
+			"ORES\\Hooks\\Hooks::onBeforePageDisplay"
 		],
 		"ChangesListSpecialPageStructuredFilters": [
 			"ORES\\Hooks\\ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters"
@@ -70,7 +70,7 @@
 			"ORES\\Hooks\\PreferencesHookHandler::onGetPreferences"
 		],
 		"LoadExtensionSchemaUpdates": [
-			"ORES\\Hooks::onLoadExtensionSchemaUpdates"
+			"ORES\\Hooks\\Hooks::onLoadExtensionSchemaUpdates"
 		],
 		"OldChangesListRecentChangesLine": [
 			"ORES\\Hooks\\ChangesListHooksHandler::onOldChangesListRecentChangesLine"
@@ -79,7 +79,7 @@
 			"ORES\\Hooks\\RecentChangeSaveHookHandler::onRecentChange_save"
 		],
 		"RecentChangesPurgeRows": [
-			"ORES\\Hooks::onRecentChangesPurgeRows"
+			"ORES\\Hooks\\Hooks::onRecentChangesPurgeRows"
 		],
 		"SpecialContributions::formatRow::flags": [
 			"ORES\\Hooks\\ContributionsHooksHandler::onSpecialContributionsFormatRowFlags"
@@ -133,7 +133,7 @@
 		]
 	},
 	"JobClasses": {
-		"ORESFetchScoreJob": "ORES\\FetchScoreJob"
+		"ORESFetchScoreJob": "ORES\\Services\\FetchScoreJob"
 	},
 	"config": {
 		"OresUiEnabled": {
@@ -283,7 +283,7 @@
 		"oresWatchlistHideNonDamaging": false
 	},
 	"SpecialPages": {
-		"ORESModels": "ORES\\SpecialORESModels::newFromGlobalState"
+		"ORESModels": "ORES\\Specials\\SpecialORESModels::newFromGlobalState"
 	},
 	"ExtensionMessagesFiles": {
 		"ORESAlias": "ORES.alias.php"

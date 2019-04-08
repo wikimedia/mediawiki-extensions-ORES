@@ -14,10 +14,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace ORES\Parser;
+namespace ORES\Storage;
 
 use InvalidArgumentException;
-use ORES\Storage\ModelLookup;
 use RuntimeException;
 
 /**

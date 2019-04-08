@@ -18,7 +18,7 @@ namespace ORES\Hooks;
 
 use Exception;
 use IContextSource;
-use ORES\ORESServices;
+use ORES\Services\ORESServices;
 use SpecialRecentChanges;
 use SpecialWatchlist;
 use Title;

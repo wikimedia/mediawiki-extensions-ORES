@@ -17,7 +17,6 @@
 namespace ORES\Storage;
 
 use InvalidArgumentException;
-use ORES\Parser\ScoreParser;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
 use Wikimedia\Rdbms\DBError;

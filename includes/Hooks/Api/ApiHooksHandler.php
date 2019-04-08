@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace ORES\Hooks;
+namespace ORES\Hooks\Api;
 
 use ApiBase;
 use ApiQueryAllRevisions;
@@ -27,8 +27,8 @@ use ApiQueryRevisions;
 use ApiQueryUserContribs;
 use ApiQueryWatchlist;
 use ApiResult;
-use ORES\ORESServices;
-use ORES\WatchedItemQueryServiceExtension;
+use ORES\Hooks\Helpers;
+use ORES\Services\ORESServices;
 use WatchedItem;
 use WatchedItemQueryService;
 use Wikimedia\Rdbms\ResultWrapper;

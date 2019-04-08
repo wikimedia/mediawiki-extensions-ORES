@@ -2,12 +2,12 @@
 
 namespace ORES\Tests;
 
-use ORES\ThresholdLookup;
-use ORES\DatabaseQueryBuilder;
+use ORES\Storage\ThresholdLookup;
+use ORES\Storage\DatabaseQueryBuilder;
 
 /**
  * @group ORES
- * @covers ORES\DatabaseQueryBuilder
+ * @covers ORES\Storage\DatabaseQueryBuilder
  */
 class DatabaseQueryBuilderTest extends \MediaWikiTestCase {
 

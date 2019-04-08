@@ -14,10 +14,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace ORES;
+namespace ORES\Storage;
 
 use IBufferingStatsdDataFactory;
-use ORES\Storage\ModelLookup;
+use ORES\ORESService;
+use ORES\ThresholdParser;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
 use WANObjectCache;

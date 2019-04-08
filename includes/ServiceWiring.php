@@ -18,10 +18,13 @@ namespace ORES;
 
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
-use ORES\Storage\PopulatedSqlModelLookup;
+use ORES\Services\ORESServices;
+use ORES\Storage\DatabaseQueryBuilder;
+use ORES\Services\PopulatedSqlModelLookup;
 use ORES\Storage\SqlModelLookup;
 use ORES\Storage\SqlScoreLookup;
 use ORES\Storage\SqlScoreStorage;
+use ORES\Storage\ThresholdLookup;
 
 return [
 	'ORESLogger' => function ( MediaWikiServices $services ) {

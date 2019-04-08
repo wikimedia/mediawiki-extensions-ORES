@@ -6,14 +6,14 @@ use InvalidArgumentException;
 use MediaWiki\MediaWikiServices;
 use ORES\ORESService;
 use ORES\Storage\HashModelLookup;
-use ORES\Storage\PopulatedSqlModelLookup;
+use ORES\Services\PopulatedSqlModelLookup;
 use ORES\Storage\SqlModelLookup;
 use Psr\Log\NullLogger;
 
 /**
  * @group ORES
  * @group Database
- * @covers ORES\Storage\PopulatedSqlModelLookup
+ * @covers ORES\Services\PopulatedSqlModelLookup
  */
 class PopulatedSqlModelLookupTest extends \MediaWikiTestCase {
 

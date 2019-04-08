@@ -21,7 +21,7 @@ namespace ORES\Hooks;
 use Hooks;
 use JobQueueGroup;
 use MediaWiki\Logger\LoggerFactory;
-use ORES\FetchScoreJob;
+use ORES\Services\FetchScoreJob;
 use Psr\Log\LoggerInterface;
 use RecentChange;
 use RequestContext;

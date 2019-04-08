@@ -3,14 +3,14 @@
 namespace ORES\Tests;
 
 use MediaWiki\MediaWikiServices;
-use ORES\Hooks;
+use ORES\Hooks\Hooks;
 use ORES\Storage\HashModelLookup;
 use ORES\Storage\ScoreStorage;
 use OutputPage;
 
 /**
  * @group ORES
- * @covers \ORES\Hooks
+ * @covers \ORES\Hooks\Hooks
  */
 class HooksTest extends \MediaWikiTestCase {
 
@@ -41,7 +41,7 @@ class HooksTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers \ORES\Hooks::onRecentChangesPurgeRows
+	 * @covers \ORES\Hooks\Hooks::onRecentChangesPurgeRows
 	 */
 	public function testOnRecentChangesPurgeRows() {
 		$revIds = [ 1, 5, 8, 13 ];
@@ -60,7 +60,7 @@ class HooksTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers \ORES\Hooks::onBeforePageDisplay
+	 * @covers \ORES\Hooks\Hooks::onBeforePageDisplay
 	 */
 	public function testOnBeforePageDisplay() {
 		$modelData = [ 'damaging' => [ 'id' => 5, 'version' => '0.0.2' ] ];

@@ -6,8 +6,8 @@ use BatchRowIterator;
 use Exception;
 use ExtensionRegistry;
 use Maintenance;
-use ORES\ORESServices;
-use ORES\ScoreFetcher;
+use ORES\Services\ORESServices;
+use ORES\Services\ScoreFetcher;
 
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {

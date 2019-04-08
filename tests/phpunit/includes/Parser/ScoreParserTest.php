@@ -4,12 +4,12 @@ namespace ORES\Tests\Parser;
 
 use InvalidArgumentException;
 use MediaWikiLangTestCase;
-use ORES\Parser\ScoreParser;
+use ORES\Storage\ScoreParser;
 use ORES\Storage\HashModelLookup;
 
 /**
  * @group ORES
- * @covers ORES\Parser\ScoreParser
+ * @covers ORES\Storage\ScoreParser
  */
 class ScoreParserTest extends MediaWikiLangTestCase {
 

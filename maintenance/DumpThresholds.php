@@ -3,7 +3,7 @@
 namespace ORES\Maintenance;
 
 use Maintenance;
-use ORES\ORESServices;
+use ORES\Services\ORESServices;
 
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'

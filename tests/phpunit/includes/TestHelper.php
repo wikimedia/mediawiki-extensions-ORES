@@ -4,7 +4,7 @@ namespace ORES\Tests;
 
 use ContentHandler;
 use MediaWiki\Linker\LinkTarget;
-use ORES\ORESServices;
+use ORES\Services\ORESServices;
 use Revision;
 use Title;
 use User;

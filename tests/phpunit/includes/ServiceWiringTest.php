@@ -7,7 +7,7 @@ use ORES\ORESService;
 use ORES\Storage\ModelLookup;
 use ORES\Storage\ScoreStorage;
 use ORES\Storage\SqlScoreLookup;
-use ORES\ThresholdLookup;
+use ORES\Storage\ThresholdLookup;
 
 /**
  * @license GPL-2.0-or-later

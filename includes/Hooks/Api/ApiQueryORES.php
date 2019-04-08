@@ -14,12 +14,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace ORES;
+namespace ORES\Hooks\Api;
 
 use ApiResult;
 use ApiQuery;
 use ApiQueryBase;
 use ORES\Hooks\Helpers;
+use ORES\Services\ORESServices;
 
 /**
  * A query action to return meta information about ORES models and

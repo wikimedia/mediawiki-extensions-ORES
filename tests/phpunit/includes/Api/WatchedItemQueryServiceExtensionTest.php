@@ -2,15 +2,15 @@
 
 namespace ORES\Tests;
 
+use ORES\Hooks\Api\WatchedItemQueryServiceExtension;
 use ORES\Storage\HashModelLookup;
-use ORES\WatchedItemQueryServiceExtension;
 use TitleValue;
 use WatchedItem;
 
 /**
  * @group ORES
  * @group Database
- * @covers ORES\WatchedItemQueryServiceExtension
+ * @covers ORES\Hooks\Api\WatchedItemQueryServiceExtension
  */
 class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
 
@@ -43,7 +43,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers ORES\WatchedItemQueryServiceExtension::modifyWatchedItemsWithRCInfoQuery
+	 * @covers ORES\Hooks\Api\WatchedItemQueryServiceExtension::modifyWatchedItemsWithRCInfoQuery
 	 */
 	public function testModifyWatchedItemsWithRCInfoQuery_review() {
 		$options = [
@@ -88,7 +88,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers ORES\WatchedItemQueryServiceExtension::modifyWatchedItemsWithRCInfoQuery
+	 * @covers ORES\Hooks\Api\WatchedItemQueryServiceExtension::modifyWatchedItemsWithRCInfoQuery
 	 */
 	public function testModifyWatchedItemsWithRCInfoQuery_not_review() {
 		$options = [
@@ -133,7 +133,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers ORES\WatchedItemQueryServiceExtension::modifyWatchedItemsWithRCInfo
+	 * @covers ORES\Hooks\Api\WatchedItemQueryServiceExtension::modifyWatchedItemsWithRCInfo
 	 */
 	public function testModifyWatchedItemsWithRCInfo() {
 		$options = [

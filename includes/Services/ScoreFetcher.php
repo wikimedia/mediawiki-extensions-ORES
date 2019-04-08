@@ -14,9 +14,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace ORES;
+namespace ORES\Services;
 
 use InvalidArgumentException;
+use ORES\ORESService;
+use ORES\ServiceScoreLookup;
 
 class ScoreFetcher implements ServiceScoreLookup {
 

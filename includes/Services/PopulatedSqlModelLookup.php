@@ -14,11 +14,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace ORES\Storage;
+namespace ORES\Services;
 
 use InvalidArgumentException;
 use ORES\ORESService;
-use ORES\ScoreFetcher;
+use ORES\Storage\ModelLookup;
 use Psr\Log\LoggerInterface;
 
 class PopulatedSqlModelLookup implements ModelLookup {

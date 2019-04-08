@@ -4,8 +4,8 @@ namespace ORES\Maintenance;
 
 use Maintenance;
 use MediaWiki\MediaWikiServices;
-use ORES\ORESServices;
-use ORES\ScoreFetcher;
+use ORES\Services\ORESServices;
+use ORES\Services\ScoreFetcher;
 use ORES\Storage\ScoreStorage;
 
 require_once getenv( 'MW_INSTALL_PATH' ) !== false

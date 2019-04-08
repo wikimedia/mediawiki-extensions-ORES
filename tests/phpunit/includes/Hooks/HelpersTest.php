@@ -5,7 +5,7 @@ namespace ORES\Tests;
 use IContextSource;
 use ORES\Hooks\Helpers;
 use ORES\Storage\HashModelLookup;
-use ORES\ThresholdLookup;
+use ORES\Storage\ThresholdLookup;
 use RequestContext;
 use SpecialPage;
 use User;
