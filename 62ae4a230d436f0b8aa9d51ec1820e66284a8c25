@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84f779c3_a92ba124",
+        "filename": "tests/phpunit/includes/Services/ORESServiceTest.php",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4699
+      },
+      "writtenOn": "2019-04-08T18:27:29Z",
+      "side": 1,
+      "message": "It looks like this class needs some more updates? The import on line 6 and the various @covers annotation all use \\ORES\\ORESService, which should now be \\ORES\\Services\\ORESServices, as far as I can tell.",
+      "revId": "62ae4a230d436f0b8aa9d51ec1820e66284a8c25",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": true
+    }
+  ]
+}
