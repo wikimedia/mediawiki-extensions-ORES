@@ -44,13 +44,13 @@ class FetchScoreJobTest extends \MediaWikiTestCase {
 
 		$expected = [
 			'type' => 'ORESFetchScoreJob',
-			'namespace' => NS_MAIN,
-			'title' => 'Bar',
 			'params' => [
 				'revid' => 12345,
 				'precache' => true,
 				'models' => 'damaging|badfaith',
-				'originalRequest' => 'Dummy data'
+				'originalRequest' => 'Dummy data',
+				'namespace' => NS_MAIN,
+				'title' => 'Bar',
 			],
 		];
 

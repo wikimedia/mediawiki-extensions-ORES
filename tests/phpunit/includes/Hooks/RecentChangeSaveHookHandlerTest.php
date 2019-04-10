@@ -70,9 +70,11 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiTestCase {
 			'originalRequest' => [ 'ip' => '127.0.0.1', 'userAgent' => false ],
 			'models' => $expectedModels,
 			'precache' => true,
-			'requestId' => 'foo'
+			'requestId' => 'foo',
+			'title' => 'Test123',
+			'namespace' => $ns,
 		];
-		$this->assertSame( $expected, $actual );
+		$this->assertEquals( $expected, $actual );
 	}
 
 	public function provideOnRecentChange_saveNotQueued() {
@@ -145,9 +147,11 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiTestCase {
 			'originalRequest' => [ 'ip' => '127.0.0.1', 'userAgent' => false ],
 			'models' => [ 'model_1' ],
 			'precache' => true,
-			'requestId' => 'foo'
+			'requestId' => 'foo',
+			'title' => 'Test123',
+			'namespace' => 0,
 		];
-		$this->assertSame( $expected, $actual );
+		$this->assertEquals( $expected, $actual );
 	}
 
 }
