@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "512af1ae_de2aa7c6",
+        "filename": "extension.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2019-04-18T14:19:41Z",
+      "side": 1,
+      "message": "Done. Thanks for catching it.",
+      "parentUuid": "ac32b304_d67a7f72",
+      "range": {
+        "startLine": 145,
+        "startChar": 1,
+        "endLine": 145,
+        "endChar": 3
+      },
+      "revId": "61ed4a29eca76cb5a54ee882c396a90da8922e7b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da9af522_c6934cf5",
         "filename": "tests/phpunit/includes/ORESServiceTest.php",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-04-17T22:20:14Z",
       "side": 1,
       "message": "To avoid tests passing/failing depending on what developers have in their LocalSettings, make sure to mock the new variable here as well (to null, I think).",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 24
+      },
+      "revId": "61ed4a29eca76cb5a54ee882c396a90da8922e7b",
+      "serverId": "e9e9afe9-4712-486d-8885-f54b72dd1951",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c8d29a9_a1828485",
+        "filename": "tests/phpunit/includes/ORESServiceTest.php",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 920
+      },
+      "writtenOn": "2019-04-18T14:19:41Z",
+      "side": 1,
+      "message": "Good idea. The part was that I wanted to make sure it falls back to $wgOresBaseUrl in case it\u0027s not set but I did it basically by setting $wgOresFrontendBaseUrl explicitly to null.",
+      "parentUuid": "da9af522_c6934cf5",
       "range": {
         "startLine": 22,
         "startChar": 2,
