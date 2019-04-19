@@ -121,9 +121,12 @@
 			]
 		},
 		"ext.ores.api": {
-			"class": "ORES\\ResourceLoaderORESAPIModule",
-			"scripts": [
-				"ext.ores.api.js"
+			"packageFiles": [
+				"ext.ores.api.js",
+				{
+					"name": "config.json",
+					"callback": "ORES\\Hooks\\Hooks::getFrontendConfiguration"
+				}
 			]
 		}
 	},
