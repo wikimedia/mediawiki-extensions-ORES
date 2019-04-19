@@ -46,7 +46,7 @@
 			"ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryWatchlistPrepareWatchedItemQueryServiceOptions"
 		],
 		"WatchedItemQueryServiceExtensions": [
-			"ORES\\Hooks\\Api\\ApiHooksHandler::onWatchedItemQueryServiceExtensions"
+			"ORES\\Hooks\\Api\\WatchedItemQueryServiceExtension::onWatchedItemQueryServiceExtensions"
 		],
 		"BeforePageDisplay": [
 			"ORES\\Hooks\\Hooks::onBeforePageDisplay"

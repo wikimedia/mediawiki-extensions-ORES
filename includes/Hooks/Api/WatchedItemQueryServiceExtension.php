@@ -21,6 +21,7 @@ namespace ORES\Hooks\Api;
 use ORES\Hooks\Helpers;
 use ORES\Services\ORESServices;
 use User;
+use WatchedItemQueryService;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ResultWrapper;
 
@@ -134,6 +135,19 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 				}
 			}
 		}
+	}
+
+	/**
+	 * Inject this class
+	 *
+	 * @param WatchedItemQueryServiceExtension[] &$extensions
+	 * @param WatchedItemQueryService $queryService
+	 */
+	public static function onWatchedItemQueryServiceExtensions(
+		array &$extensions,
+		WatchedItemQueryService $queryService
+	) {
+		$extensions[] = new self();
 	}
 
 }

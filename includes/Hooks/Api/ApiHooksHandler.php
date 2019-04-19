@@ -30,7 +30,6 @@ use ApiResult;
 use ORES\Hooks\Helpers;
 use ORES\Services\ORESServices;
 use WatchedItem;
-use WatchedItemQueryService;
 use Wikimedia\Rdbms\ResultWrapper;
 
 class ApiHooksHandler {
@@ -329,19 +328,6 @@ class ApiHooksHandler {
 
 		ApiResult::setArrayType( $data['oresscores'], 'kvp', 'name' );
 		ApiResult::setIndexedTagName( $data['oresscores'], 'model' );
-	}
-
-	/**
-	 * Inject \ORES\WatchedItemQueryServiceExtension
-	 *
-	 * @param \WatchedItemQueryServiceExtension[] &$extensions
-	 * @param WatchedItemQueryService $queryService
-	 */
-	public static function onWatchedItemQueryServiceExtensions(
-		array &$extensions,
-		WatchedItemQueryService $queryService
-	) {
-		$extensions[] = new WatchedItemQueryServiceExtension();
 	}
 
 	/**
