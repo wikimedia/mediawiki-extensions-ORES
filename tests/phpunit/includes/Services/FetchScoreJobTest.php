@@ -108,8 +108,7 @@ class FetchScoreJobTest extends \MediaWikiTestCase {
 
 		$job->run();
 
-		$dbr = \wfGetDB( DB_REPLICA );
-		$res = $dbr->select(
+		$this->assertSelect(
 			'ores_classification',
 			[
 				'oresc_rev',
@@ -119,27 +118,24 @@ class FetchScoreJobTest extends \MediaWikiTestCase {
 				'oresc_is_predicted'
 			],
 			[ 'oresc_rev' => 17 ],
-			__METHOD__,
-			'ORDER BY oresc_probability'
+			[
+				[
+					17,
+					5,
+					1,
+					0.241,
+					0,
+				],
+				[
+					17,
+					7,
+					1,
+					0.749,
+					1,
+				]
+			],
+			[ 'ORDER BY' => 'oresc_probability' ]
 		);
-
-		$expected = [
-			(object)[
-				'oresc_rev' => 17,
-				'oresc_model' => 5,
-				'oresc_class' => 1,
-				'oresc_probability' => 0.241,
-				'oresc_is_predicted' => 0
-			],
-			(object)[
-				'oresc_rev' => 17,
-				'oresc_model' => 7,
-				'oresc_class' => 1,
-				'oresc_probability' => 0.749,
-				'oresc_is_predicted' => 1
-			],
-		];
-		$this->assertEquals( $expected, iterator_to_array( $res, false ) );
 	}
 
 }
