@@ -17,6 +17,7 @@
 namespace ORES\Hooks;
 
 use DatabaseUpdater;
+use ORES\ORESService;
 use ORES\Services\ORESServices;
 use OutputPage;
 use Skin;
@@ -79,6 +80,19 @@ class Hooks {
 				$out->addModules( 'ext.ores.highlighter' );
 			}
 		}
+	}
+
+	/**
+	 * Returns an array of configuration for ORES API modules
+	 *
+	 * @return string[]
+	 */
+	public static function getFrontendConfiguration() {
+		return [
+			'wikiId' => ORESService::getWikiID(),
+			'baseUrl' => ORESService::getBaseUrl(),
+			'apiVersion' => ORESService::API_VERSION,
+		];
 	}
 
 }
