@@ -145,6 +145,9 @@
 		"OresBaseUrl": {
 			"value": "https://ores.wikimedia.org/"
 		},
+		"OresFrontendBaseUrl": {
+		  	"value": null
+		},
 		"OresExcludeBots": {
 			"value": true
 		},
