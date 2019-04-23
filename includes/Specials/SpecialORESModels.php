@@ -45,7 +45,7 @@ class SpecialORESModels extends \SpecialPage {
 			];
 		}
 
-		$templateParser = new TemplateParser( __DIR__ . '/templates' );
+		$templateParser = new TemplateParser( dirname( __DIR__ ) . '/templates' );
 		$this->getOutput()->addHTML( $templateParser->processTemplate(
 			'SpecialORESModels',
 			[
