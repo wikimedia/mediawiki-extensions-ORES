@@ -12,7 +12,7 @@
 	},
 	"ores-desc": "Изложите аутоматизоване резултате измена у интерфејсу",
 	"ores-damaging-filter": "$1 вероватно добре измене",
-	"ores-damaging-letter": "ш",
+	"ores-damaging-letter": "?",
 	"ores-damaging-title": "Ову измену треба прегледати",
 	"ores-damaging-legend": "Потенцијално проблематична измена ([[:mw:Special:MyLanguage/ORES review tool|више информација]])",
 	"ores-hide-nondamaging-filter": "Сакриј вероватно добре измене",
