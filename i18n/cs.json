@@ -3,7 +3,8 @@
 		"authors": [
 			"Mormegil",
 			"Matěj Suchánek",
-			"Dvorapa"
+			"Dvorapa",
+			"Patriccck"
 		]
 	},
 	"ores-desc": "Zpřístupňuje v rozhraní automatické skórování revizí",
@@ -51,5 +52,19 @@
 	"ores-pref-rc-hidenondamaging": "Zobrazovat pouze pravděpodobně problematické editace (a skrýt pravděpodobně dobré editace)",
 	"ores-pref-watchlist-hidenondamaging": "Zobrazovat pouze pravděpodobně problematické editace (a skrýt pravděpodobně dobré editace)",
 	"prefs-ores-wl": "Skórování revizí na seznamu sledovaných stránek",
-	"prefs-ores-rc": "Skórování revizí v posledních změnách, souvisejících změnách a příspěvcích uživatele"
+	"prefs-ores-rc": "Skórování revizí v posledních změnách, souvisejících změnách a příspěvcích uživatele",
+	"oresmodels": "Statistiky modelu ORES",
+	"ores-specialoresmodels-header-filter": "Filtr",
+	"ores-specialoresmodels-header-precision": "Přesnost",
+	"ores-specialoresmodels-header-recall": "Úspěšnost",
+	"ores-specialoresmodels-header-thresholdrange": "Mezní hodnota",
+	"apihelp-query+ores-description": "Vrátit konfigurační a modelová data ORES pro tuto wiki.",
+	"apihelp-query+ores-summary": "Vrátit konfigurační a modelová data ORES pro tuto wiki.",
+	"apihelp-query+ores-example-simple": "Načíst data ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Skóre ORES pro revizi.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Skóre ORES pro revizi.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Přidá skóre ORES pro záznam.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Přidá skóre ORES pro editaci.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Přidá skóre ORES pro editaci.",
+	"ores-api-show-note": "Při použití <kbd>oresreview</kbd> nebo <kbd>!oresreview</kbd> jsou revize bez skóre (např. velmi staré revize) považovány za revize, které nevyžadují přezkoumání, i když by potřebovaly recenzi, kdyby byly hodnoceny."
 }
