@@ -18,9 +18,9 @@
 
 namespace ORES\Hooks\Api;
 
+use MediaWiki\User\UserIdentity;
 use ORES\Hooks\Helpers;
 use ORES\Services\ORESServices;
-use User;
 use WatchedItemQueryService;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ResultWrapper;
@@ -36,7 +36,7 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 	 *
 	 * @warning Any joins added *must* join on a unique key of the target table
 	 *  unless you really know what you're doing.
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param array $options Options from
 	 *  WatchedItemQueryService::getWatchedItemsWithRecentChangeInfo()
 	 * @param IDatabase $db Database connection being used for the query
@@ -46,8 +46,9 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 	 * @param array &$dbOptions Options for Database::select()
 	 * @param array &$joinConds Join conditions for Database::select()
 	 */
-	public function modifyWatchedItemsWithRCInfoQuery( User $user, array $options, IDatabase $db,
-		array &$tables, array &$fields, array &$conds, array &$dbOptions, array &$joinConds
+	public function modifyWatchedItemsWithRCInfoQuery( UserIdentity $user, array $options,
+		IDatabase $db, array &$tables, array &$fields, array &$conds, array &$dbOptions,
+		array &$joinConds
 	) {
 		if ( !$options['usedInGenerator'] && in_array( 'oresscores', $options['includeFields'], true ) ) {
 			if ( !in_array( 'rc_this_oldid', $fields, true ) ) {
@@ -99,7 +100,7 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 	 * and the API is able to fetch them later, it truncates $items and adjusts
 	 * $startFrom accordingly.
 	 *
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param array $options Options from
 	 *  WatchedItemQueryService::getWatchedItemsWithRecentChangeInfo()
 	 * @param IDatabase $db Database connection being used for the query
@@ -107,8 +108,8 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 	 * @param ResultWrapper|bool $res Database query result
 	 * @param array|null &$startFrom Continuation value
 	 */
-	public function modifyWatchedItemsWithRCInfo( User $user, array $options, IDatabase $db,
-		array &$items, $res, &$startFrom
+	public function modifyWatchedItemsWithRCInfo( UserIdentity $user, array $options,
+		IDatabase $db, array &$items, $res, &$startFrom
 	) {
 		if ( $options['usedInGenerator'] || !in_array( 'oresscores', $options['includeFields'], true ) ) {
 			return;
