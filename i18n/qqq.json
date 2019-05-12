@@ -12,7 +12,7 @@
 	},
 	"ores-desc": "{{desc|name=ORES|url=https://www.mediawiki.org/wiki/Extension:ORES}}",
 	"ores-damaging-filter": "Label to toggle filtering on ORES data. Parameters:\n* $1 - Action to be performed by toggling. Can be either 'show' or 'hide'.",
-	"ores-damaging-letter": "Single letter for tagging possibly damaging recent changes.",
+	"ores-damaging-letter": "Single letter for tagging possibly damaging recent changes.\n\n{{Rc single letters}}",
 	"ores-damaging-title": "Tooltip for damaging risk icon.",
 	"ores-damaging-legend": "Legend for damaging risk icon.",
 	"ores-hide-nondamaging-filter": "Label for Contributions filter, 'only show'",
