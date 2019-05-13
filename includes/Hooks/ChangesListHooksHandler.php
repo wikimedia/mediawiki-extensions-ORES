@@ -489,7 +489,7 @@ class ChangesListHooksHandler {
 	protected static function processRecentChangesList(
 		RCCacheEntry $rcObj,
 		array &$data,
-		array &$classes = [],
+		array &$classes,
 		IContextSource $context
 	) {
 		$damaging = self::getScoreRecentChangesList( $rcObj, $context );
