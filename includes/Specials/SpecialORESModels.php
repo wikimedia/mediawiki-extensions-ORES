@@ -63,7 +63,7 @@ class SpecialORESModels extends \SpecialPage {
 		$thresholdConfig = $this->getConfig()->get( 'OresFiltersThresholds' );
 		$thresholdData = $this->thresholdLookup->getRawThresholdData( $modelName );
 		$thresholds = $this->thresholdLookup->getThresholds( $modelName );
-		if ( $thresholds === [] ) {
+		if ( $thresholds === [] || $thresholdData === false ) {
 			return false;
 		}
 		if ( !isset( $thresholdData['true'] ) || !isset( $thresholdData['false'] ) ) {
