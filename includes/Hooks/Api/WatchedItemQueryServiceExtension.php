@@ -24,7 +24,7 @@ use ORES\Services\ORESServices;
 use User;
 use WatchedItemQueryService;
 use Wikimedia\Rdbms\IDatabase;
-use Wikimedia\Rdbms\ResultWrapper;
+use Wikimedia\Rdbms\IResultWrapper;
 
 class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtension {
 
@@ -107,7 +107,7 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 	 *  WatchedItemQueryService::getWatchedItemsWithRecentChangeInfo()
 	 * @param IDatabase $db Database connection being used for the query
 	 * @param array[] &$items Array of pairs ( WatchedItem $watchedItem, string[] $recentChangeInfo )
-	 * @param ResultWrapper|bool $res Database query result
+	 * @param IResultWrapper|bool $res Database query result
 	 * @param array|null &$startFrom Continuation value
 	 */
 	public function modifyWatchedItemsWithRCInfo( UserIdentity $user, array $options,

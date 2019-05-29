@@ -30,7 +30,7 @@ use ApiResult;
 use ORES\Hooks\Helpers;
 use ORES\Services\ORESServices;
 use WatchedItem;
-use Wikimedia\Rdbms\ResultWrapper;
+use Wikimedia\Rdbms\IResultWrapper;
 
 class ApiHooksHandler {
 
@@ -123,7 +123,7 @@ class ApiHooksHandler {
 
 			$threshold =
 				Helpers::getThreshold( 'damaging', $module->getUser(), $module->getTitle() );
-			$dbr = \wfGetDB( DB_REPLICA );
+			$dbr = wfGetDB( DB_REPLICA );
 
 			$tables[] = 'ores_classification';
 
@@ -173,7 +173,7 @@ class ApiHooksHandler {
 	 *    for each revision we were able to fetch.
 	 *
 	 * @param ApiQueryBase $module
-	 * @param ResultWrapper|bool $res
+	 * @param IResultWrapper|bool $res
 	 * @param array &$hookData Inter-hook communication
 	 */
 	public static function onApiQueryBaseAfterQuery( ApiQueryBase $module, $res, array &$hookData ) {
@@ -293,6 +293,7 @@ class ApiHooksHandler {
 	 *
 	 * @param array &$data Output array
 	 * @param \stdClass[] $scores Array of score data
+	 * @param array $models
 	 */
 	private static function addScoresForAPI( array &$data, array $scores, array $models ) {
 		global $wgOresModelClasses;
