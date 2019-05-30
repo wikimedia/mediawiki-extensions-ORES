@@ -375,6 +375,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 
 	/**
 	 * @covers ORES\Hooks\ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters
+	 * @group Broken
 	 */
 	public function testOnChangesListSpecialPageStructuredFilters_Recentchangeslinked() {
 		$changesListSpecialPage = new \SpecialRecentChangesLinked();
