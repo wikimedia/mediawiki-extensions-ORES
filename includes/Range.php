@@ -34,7 +34,6 @@ class Range {
 	protected $max;
 
 	/**
-	 * Range constructor.
 	 * @param float $min
 	 * @param float $max
 	 */
