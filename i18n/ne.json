@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"जनक राज भट्ट"
+			"जनक राज भट्ट",
+			"पर्वत सुबेदी"
 		]
 	},
-	"ores-damaging-soft": "नरम (निम्न)"
+	"ores-rcfilters-whats-this-link-text": "अधिक जानकारी"
 }
