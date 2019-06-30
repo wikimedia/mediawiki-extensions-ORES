@@ -4,7 +4,8 @@
 			"Chrumps",
 			"Tar Lócesilion",
 			"Woytecr",
-			"WTM"
+			"WTM",
+			"Railfail536"
 		]
 	},
 	"ores-desc": "Pokaż automatycznie wygenerowaną ocenę wersji",
@@ -18,7 +19,7 @@
 	"ores-damaging-maybebad": "Mogą mieć problemy (oznacza większość edycji z problemami, ale też uwzględnia wiele fałszywych trafień)",
 	"ores-damaging-likelybad": "Prawdopodobnie mające problemy (średnie prawdopodobieństwo)",
 	"ores-damaging-verylikelybad": "Najprawdopodobniej mające problemy (mało fałszywych trafień, ale też mniejszy procent wszystkich problematycznych edycji)",
-	"ores-help-damaging-pref": "Określa czułość opcji \"Podświetlaj edycje mogące być problematyczne...\" oraz \"Pokazuj tylko prawdopodobnie problematyczne edycje...\" w Ostatnich zmianach i Obserwowanych.",
+	"ores-help-damaging-pref": "Określa czułość opcji „Podświetlaj edycje mogące być problematyczne…” oraz „Pokazuj tylko prawdopodobnie problematyczne edycje…” w Ostatnich zmianach i Obserwowanych.",
 	"ores-rcfilters-whats-this-link-text": "Dowiedz się więcej",
 	"ores-rcfilters-ores-conflicts-logactions-global": "Filtr „{{int:rcfilters-filter-logactions-label}}” koliduje z co najmniej z jednym z filtrów „Jakości edycji” lub „Zamiarów użytkownika”. Ocena jakości i intencji nie jest dostępna dla działań z rejestrów. Kolidujące filtry zostały odpowiednio oznaczone na pasku Aktywnych filtrów.",
 	"ores-rcfilters-logactions-conflicts-ores": "Ten filtr koliduje z jednym lub więcej filtrów Jakości edycji lub Zamiarów użytkownika. Ocena jakości i intencji nie jest dostępna dla działań z rejestrów.",
@@ -45,9 +46,10 @@
 	"ores-rcfilters-goodfaith-bad-label": "Najprawdopodobniej w złej wierze",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Najprawdopodobniej w złej wierze",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Bardzo wysoka trafność w wyszukiwaniu większości oczywistych edycji ze złymi zamiarami.",
-	"ores-pref-highlight": "Podświetlaj edycje mogące być problematyczne kolorami i znacznik \"{{int:ores-damaging-letter}}\" przy edycjach wymagających sprawdzenia",
+	"ores-pref-highlight": "Podświetlaj edycje mogące być problematyczne kolorami i znacznikiem „{{int:ores-damaging-letter}}” przy edycjach wymagających sprawdzenia",
 	"ores-pref-rc-hidenondamaging": "Pokazuj tylko prawdopodobnie problematyczne edycje (i ukryj prawdopodobnie dobre edycje)",
 	"ores-pref-watchlist-hidenondamaging": "Pokazuj tylko prawdopodobnie problematyczne edycje (i ukryj prawdopodobnie dobre edycje)",
+	"prefs-ores-wl": "Ocienianie wersji w liście obserwowanych",
 	"ores-specialoresmodels-header-filter": "Filtr",
 	"ores-specialoresmodels-header-precision": "Precyzja",
 	"apihelp-query+ores-description": "Zwróć konfigurację ORES i model danych dla tej wiki.",
