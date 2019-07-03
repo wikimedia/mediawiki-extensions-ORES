@@ -30,6 +30,7 @@ class SpecialORESModels extends \SpecialPage {
 
 	public function execute( $subPage = null ) {
 		parent::execute( $subPage );
+		$this->addHelpLink( 'ORES' );
 
 		$models = [];
 		foreach ( $this->modelLookup->getModels() as $modelName => $modelData ) {
