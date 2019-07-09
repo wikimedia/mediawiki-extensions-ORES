@@ -17,7 +17,7 @@
 namespace ORES\Storage;
 
 use InvalidArgumentException;
-use Wikimedia\Rdbms\LoadBalancer;
+use Wikimedia\Rdbms\ILoadBalancer;
 
 class SqlModelLookup implements ModelLookup {
 
@@ -25,7 +25,7 @@ class SqlModelLookup implements ModelLookup {
 
 	private $modelData = null;
 
-	public function __construct( LoadBalancer $loadBalancer ) {
+	public function __construct( ILoadBalancer $loadBalancer ) {
 		$this->loadBalancer = $loadBalancer;
 	}
 

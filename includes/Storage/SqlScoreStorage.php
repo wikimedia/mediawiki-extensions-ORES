@@ -20,12 +20,12 @@ use InvalidArgumentException;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
 use Wikimedia\Rdbms\DBError;
-use Wikimedia\Rdbms\LoadBalancer;
+use Wikimedia\Rdbms\ILoadBalancer;
 
 class SqlScoreStorage implements ScoreStorage {
 
 	/**
-	 * @var LoadBalancer
+	 * @var ILoadBalancer
 	 */
 	private $loadBalancer;
 
@@ -40,7 +40,7 @@ class SqlScoreStorage implements ScoreStorage {
 	private $logger;
 
 	public function __construct(
-		LoadBalancer $loadBalancer,
+		ILoadBalancer $loadBalancer,
 		ModelLookup $modelLookup,
 		LoggerInterface $logger
 	) {

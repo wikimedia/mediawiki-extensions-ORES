@@ -17,7 +17,7 @@
 namespace ORES\Storage;
 
 use Wikimedia\Rdbms\IResultWrapper;
-use Wikimedia\Rdbms\LoadBalancer;
+use Wikimedia\Rdbms\ILoadBalancer;
 
 class SqlScoreLookup implements StorageScoreLookup {
 
@@ -27,7 +27,7 @@ class SqlScoreLookup implements StorageScoreLookup {
 
 	public function __construct(
 		ModelLookup $modelLookup,
-		LoadBalancer $loadBalancer
+		ILoadBalancer $loadBalancer
 	) {
 		$this->modelLookup = $modelLookup;
 		$this->loadBalancer = $loadBalancer;
