@@ -143,11 +143,13 @@ class RecentChangeSaveHookHandler {
 		$this->logger->debug( 'Processing edit {revid}', [
 			'revid' => $revid,
 		] );
+		$ua = $this->request->getHeader( 'User-Agent' );
+		$ua = $ua !== false ? $this->request->normalizeUnicode( $ua ) : false;
 		$job = new FetchScoreJob( $rc->getTitle(), [
 			'revid' => $revid,
 			'originalRequest' => [
 				'ip' => $this->request->getIP(),
-				'userAgent' => $this->request->getHeader( 'User-Agent' ),
+				'userAgent' => $ua,
 			],
 			'models' => $models,
 			'precache' => true,
