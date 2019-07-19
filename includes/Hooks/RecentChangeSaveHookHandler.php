@@ -26,6 +26,7 @@ use Psr\Log\LoggerInterface;
 use RecentChange;
 use RequestContext;
 use WebRequest;
+use Exception;
 
 class RecentChangeSaveHookHandler {
 
@@ -154,10 +155,16 @@ class RecentChangeSaveHookHandler {
 			'models' => $models,
 			'precache' => true,
 		] );
-		JobQueueGroup::singleton()->push( $job );
-		$this->logger->debug( 'Job pushed for {revid}', [
-			'revid' => $revid,
-		] );
+		try {
+			JobQueueGroup::singleton()->push( $job );
+			$this->logger->debug( 'Job pushed for {revid}', [
+				'revid' => $revid,
+			] );
+		} catch ( Exception $e ) {
+			$this->logger->error( 'Job push failed for {revid}', [
+				'revid' => $revid,
+			] );
+		}
 	}
 
 }
