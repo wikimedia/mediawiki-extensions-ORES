@@ -158,14 +158,18 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 	public function testPopulateDatabase( $expected, $rcContents, $oresContents, $argv ) {
 		global $wgActorTableSchemaMigrationStage;
 
+		// $wgActorTableSchemaMigrationStage exists in 1.31 to 1.33; in later versions, it should
+		// be treated as SCHEMA_COMPAT_NEW.
+		$actorStage = $wgActorTableSchemaMigrationStage ?? SCHEMA_COMPAT_NEW;
+
 		$testUser = $this->getTestUser()->getUser();
 		$userData = [];
-		if ( $wgActorTableSchemaMigrationStage & SCHEMA_COMPAT_WRITE_NEW ) {
+		if ( $actorStage & SCHEMA_COMPAT_WRITE_NEW ) {
 			$userData += [
 				'rc_actor' => $testUser->getActorId(),
 			];
 		}
-		if ( $wgActorTableSchemaMigrationStage & SCHEMA_COMPAT_WRITE_OLD ) {
+		if ( $actorStage & SCHEMA_COMPAT_WRITE_OLD ) {
 			$userData += [
 				'rc_user' => $testUser->getId(),
 				'rc_user_text' => $testUser->getName(),
