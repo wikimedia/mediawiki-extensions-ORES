@@ -220,7 +220,7 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 		];
 		$this->assertEquals(
 			$expected,
-			$cache->get( 'local:ORES:threshold_statistics:damaging:0.0.2:1' )
+			$cache->get( 'local:ores_threshold_statistics:damaging:0.0.2:1' )
 		);
 	}
 

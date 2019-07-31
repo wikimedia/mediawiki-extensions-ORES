@@ -108,8 +108,7 @@ class ThresholdLookup {
 		global $wgOresCacheVersion;
 		$modelVersion = $this->modelLookup->getModelVersion( $model );
 		$key = $this->cache->makeKey(
-			'ORES',
-			'threshold_statistics',
+			'ores_threshold_statistics',
 			$model,
 			$modelVersion,
 			$wgOresCacheVersion
