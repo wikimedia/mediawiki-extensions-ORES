@@ -6,11 +6,11 @@
 			"Indus Asia"
 		]
 	},
-	"ores-damaging-filter": "$1 گھڻوڪري سٺيون ترميمون",
-	"ores-hide-nondamaging-filter": "گھڻوڪري سٺيون ترميمون لڪايو",
+	"ores-damaging-filter": "$1 گھڻوڪري سٺيون سنوارون",
+	"ores-hide-nondamaging-filter": "گھڻوڪري سٺيون سنوارون لڪايو",
 	"ores-rcfilters-whats-this-link-text": "وڌيڪ پرايو",
 	"ores-rcfilters-damaging-maybebad-label": "مسئلا ٿي سگهن ٿا",
 	"ores-rcfilters-damaging-likelybad-label": "امڪان آهي ته مسئلا ٿين",
 	"ores-rcfilters-damaging-verylikelybad-label": "گهڻو امڪان آهي ته مسئلا ٿين",
-	"ores-pref-rc-hidenondamaging": "صرف اھي ترميمون ڏيکاريو جن ۾ مسئلا آھن (۽ گھڻوڪري سٺيون ترميمون لڪايو)"
+	"ores-pref-rc-hidenondamaging": "صرف اھي سنوارون ڏيکاريو جن ۾ مسئلا آھن (۽ گھڻوڪري سٺيون سنوارون لڪايو)"
 }
