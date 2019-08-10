@@ -4,7 +4,6 @@ namespace ORES\Maintenance;
 
 use BatchRowIterator;
 use Exception;
-use ExtensionRegistry;
 use Maintenance;
 use ORES\Services\ORESServices;
 use ORES\Services\ScoreFetcher;
@@ -22,16 +21,14 @@ class BackfillPageTriageQueue extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = 'Backfills the missing scores for the articles in the PageTriage queue';
+		$this->addDescription( 'Backfills the missing scores for the articles in the PageTriage queue' );
 		$this->addOption( 'dry-run', 'Do not fetch scores, only print revisions.' );
 		$this->setBatchSize( self::ORES_RECOMMENDED_BATCH_SIZE );
+		$this->requireExtension( 'ORES' );
+		$this->requireExtension( 'PageTriage' );
 	}
 
 	public function execute() {
-		if ( !ExtensionRegistry::getInstance()->isLoaded( 'PageTriage' ) ) {
-			$this->fatalError( 'This wiki does not appear to have PageTriage' );
-		}
-
 		$this->backfillScores( 'draftquality' );
 		$this->backfillScores( 'articlequality' );
 
