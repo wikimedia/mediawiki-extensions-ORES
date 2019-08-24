@@ -132,7 +132,8 @@
 	},
 	"MessagesDirs": {
 		"ORES": [
-			"i18n"
+			"i18n",
+			"i18n/api"
 		]
 	},
 	"JobClasses": {
@@ -164,20 +165,28 @@
 				},
 				"articlequality": {
 					"enabled": false,
-					"namespaces": [0],
+					"namespaces": [
+						0
+					],
 					"cleanParent": true,
 					"keepForever": true
 				},
 				"wp10": {
 					"enabled": false,
-					"namespaces": [0],
+					"namespaces": [
+						0
+					],
 					"cleanParent": true,
 					"keepForever": true
 				},
 				"draftquality": {
 					"enabled": false,
-					"namespaces": [0],
-					"types": [1]
+					"namespaces": [
+						0
+					],
+					"types": [
+						1
+					]
 				}
 			}
 		},
@@ -222,32 +231,89 @@
 		"OresFiltersThresholds": {
 			"value": {
 				"damaging": {
-					"likelygood": { "min": 0, "max": "maximum recall @ precision >= 0.995" },
-					"maybebad": { "min": "maximum filter_rate @ recall >= 0.9", "max": 1 },
-					"likelybad": { "min": "maximum recall @ precision >= 0.6", "max": 1 },
-					"verylikelybad": { "min": "maximum recall @ precision >= 0.9", "max": 1 }
+					"likelygood": {
+						"min": 0,
+						"max": "maximum recall @ precision >= 0.995"
+					},
+					"maybebad": {
+						"min": "maximum filter_rate @ recall >= 0.9",
+						"max": 1
+					},
+					"likelybad": {
+						"min": "maximum recall @ precision >= 0.6",
+						"max": 1
+					},
+					"verylikelybad": {
+						"min": "maximum recall @ precision >= 0.9",
+						"max": 1
+					}
 				},
 				"goodfaith": {
-					"likelygood": { "min": "maximum recall @ precision >= 0.995", "max": 1 },
-					"maybebad": { "min": 0, "max": "maximum filter_rate @ recall >= 0.9" },
-					"likelybad": { "min": 0, "max": "maximum recall @ precision >= 0.6" },
+					"likelygood": {
+						"min": "maximum recall @ precision >= 0.995",
+						"max": 1
+					},
+					"maybebad": {
+						"min": 0,
+						"max": "maximum filter_rate @ recall >= 0.9"
+					},
+					"likelybad": {
+						"min": 0,
+						"max": "maximum recall @ precision >= 0.6"
+					},
 					"verylikelybad": false
 				},
 				"articlequality": {
-					"Stub": { "min": 0, "max": 0.166 },
-					"Start": { "min": 0.167, "max": 0.333 },
-					"C": { "min": 0.334, "max": 0.499 },
-					"B": { "min": 0.5, "max": 0.666 },
-					"GA": { "min": 0.667, "max": 0.833 },
-					"FA": { "min": 0.834, "max": 1 }
+					"Stub": {
+						"min": 0,
+						"max": 0.166
+					},
+					"Start": {
+						"min": 0.167,
+						"max": 0.333
+					},
+					"C": {
+						"min": 0.334,
+						"max": 0.499
+					},
+					"B": {
+						"min": 0.5,
+						"max": 0.666
+					},
+					"GA": {
+						"min": 0.667,
+						"max": 0.833
+					},
+					"FA": {
+						"min": 0.834,
+						"max": 1
+					}
 				},
 				"wp10": {
-					"Stub": { "min": 0, "max": 0.1666 },
-					"Start": { "min": 0.1666, "max": 0.3333 },
-					"C": { "min": 0.3333, "max": 0.5 },
-					"B": { "min": 0.5, "max": 0.6666 },
-					"GA": { "min": 0.6666, "max": 0.8333 },
-					"FA": { "min": 0.8333, "max": 1 }
+					"Stub": {
+						"min": 0,
+						"max": 0.1666
+					},
+					"Start": {
+						"min": 0.1666,
+						"max": 0.3333
+					},
+					"C": {
+						"min": 0.3333,
+						"max": 0.5
+					},
+					"B": {
+						"min": 0.5,
+						"max": 0.6666
+					},
+					"GA": {
+						"min": 0.6666,
+						"max": 0.8333
+					},
+					"FA": {
+						"min": 0.8333,
+						"max": 1
+					}
 				}
 			},
 			"description": "Interval endpoints are calculated using a formula.\n\nTODO: Simplify the grammar and support lists of conditions to build a threshold.",
@@ -268,7 +334,10 @@
 			"description": "Increment to invalidate the cached thresholds."
 		},
 		"OresAggregatedModels": {
-			"value": ["articlequality", "wp10"],
+			"value": [
+				"articlequality",
+				"wp10"
+			],
 			"description": "List of models which will have their predictions aggregated to one row."
 		}
 	},

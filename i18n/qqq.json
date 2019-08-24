@@ -61,13 +61,5 @@
 	"ores-specialoresmodels-header-precision": "Header in the model statistics table on Special:ORESModels for the column with the precision of each filter. This is a statistical term, see [[w:Precision and recall]].",
 	"ores-specialoresmodels-header-recall": "Header in the model statistics table on Special:ORESModels for the column with the recall of each filter. This is a statistical term, see [[w:Precision and recall]].",
 	"ores-specialoresmodels-header-thresholdrange": "Header in the model statistics table on Special:ORESModels for the two columns with the minimum and maximum ORES score value for each filter.",
-	"apihelp-query+ores-description": "{{doc-apihelp-description|query+ores}}",
-	"apihelp-query+ores-summary": "{{doc-apihelp-summary|query+ores}}",
-	"apihelp-query+ores-example-simple": "{{doc-apihelp-example|query+ores}}",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "{{doc-apihelp-paramvalue|query+revisions|prop|oresscores}}",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "{{doc-apihelp-paramvalue|query+allrevisions|prop|oresscores}}",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "{{doc-apihelp-paramvalue|query+recentchanges|prop|oresscores}}",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "{{doc-apihelp-paramvalue|query+watchlist|prop|oresscores}}",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "{{doc-apihelp-paramvalue|query+usercontribs|prop|oresscores}}",
 	"ores-api-show-note": "{{doc-apihelp-param|description=additional text for <var>xxshow</var> parameters.|noseealso=1}}"
 }

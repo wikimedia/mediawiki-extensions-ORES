@@ -53,13 +53,5 @@
 	"ores-specialoresmodels-header-precision": "Precision",
 	"ores-specialoresmodels-header-recall": "Recall",
 	"ores-specialoresmodels-header-thresholdrange": "Threshold range",
-	"apihelp-query+ores-description": "Return ORES configuration and model data for this wiki.",
-	"apihelp-query+ores-summary": "Return ORES configuration and model data for this wiki.",
-	"apihelp-query+ores-example-simple": "Fetch ORES data:",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES scores for the revision.",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES scores for the revision.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Adds ORES scores for the entry.",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Adds ORES scores for the edit.",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Adds ORES scores for the edit.",
 	"ores-api-show-note": "When using <kbd>oresreview</kbd> or <kbd>!oresreview</kbd>, revisions without a score (e.g. very old revisions) are considered as not needing review even if they would need review if scored."
 }
