@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Skalman",
+			"WikiPhoenix"
+		]
+	},
+	"apihelp-query+ores-description": "Returnera ORES-konfiguration och modelldata för denna wiki.",
+	"apihelp-query+ores-summary": "Returnera ORES-konfiguration och modelldata för denna wiki.",
+	"apihelp-query+ores-example-simple": "Hämta ORES-data:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-betyg för sidversionen.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES-betyg för sidversionen.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Lägg till ORES-betyg för posten.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Lägg till ORES-betyg för redigeringen.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Lägg till ORES-betyg för redigeringen."
+}

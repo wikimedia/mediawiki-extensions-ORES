@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Misibacsi",
+			"Tacsipacsi"
+		]
+	},
+	"apihelp-query+ores-description": "ORES-konfiguráció és modelladatok lekérése erre a wikire.",
+	"apihelp-query+ores-summary": "ORES-konfiguráció és modelladatok lekérése erre a wikire.",
+	"apihelp-query+ores-example-simple": "ORES adatok lekérése:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "A változat ORES-pontszámai.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "A változat ORES-pontszámai.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "A szerkesztés ORES-pontszámai.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "A szerkesztés ORES-pontszámai.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "A szerkesztés ORES-pontszámai."
+}

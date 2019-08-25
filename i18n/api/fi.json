@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Stryn",
+			"Zache"
+		]
+	},
+	"apihelp-query+ores-description": "Hae ORES-konfiguraatio- ja mallitiedot tälle sivustolle.",
+	"apihelp-query+ores-example-simple": "Haetaan ORES-arvot",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-pisteet tälle versiolle.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Tämän version ORES-pisteet.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Lisää ORES-pisteet tälle kohdalle.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Lisää ORES-pisteet tälle muutokselle.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Lisää ORES-pisteet tälle muutokselle."
+}

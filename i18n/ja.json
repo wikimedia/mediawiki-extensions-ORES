@@ -43,10 +43,5 @@
 	"ores-specialoresmodels-header-filter": "フィルター",
 	"ores-specialoresmodels-header-precision": "適合率",
 	"ores-specialoresmodels-header-recall": "再現率",
-	"ores-specialoresmodels-header-thresholdrange": "しきい値範囲",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "その版のORESスコア。",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "その版のORESスコア。",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "エントリのORESスコアを追加します。",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "編集のORESスコアを追加します。",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "編集のORESスコアを追加します。"
+	"ores-specialoresmodels-header-thresholdrange": "しきい値範囲"
 }

@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Felipe L. Ewald",
+			"Luk3"
+		]
+	},
+	"apihelp-query+ores-description": "Retornar a configuração do ORES e os dados do modelo para esta wiki.",
+	"apihelp-query+ores-summary": "Retornar a configuração do ORES e os dados do modelo para esta wiki.",
+	"apihelp-query+ores-example-simple": "Recuperar dados do ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Pontuação do ORES para a revisão.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Pontuação do ORES para a revisão.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Adiciona pontuações do ORES para a entrada.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Adiciona pontuações do ORES para a edição.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Adiciona pontuações do ORES para a edição."
+}

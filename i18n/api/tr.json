@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Incelemeelemani"
+		]
+	},
+	"apihelp-query+ores-description": "Bu viki modelinin verilerine ve ORES yapılandırmasına geri dön.",
+	"apihelp-query+ores-example-simple": "Getirilecek ORES verisi:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Gözden geçirme için ORES skorları.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Gözden geçirme için ORES skorları.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Girdilere ORES skorlarını ekleyin.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Düzenlemelere ORES skorlarını ekleyin.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Düzenlemelere ORES skorlarını ekleyin."
+}

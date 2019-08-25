@@ -13,8 +13,5 @@
 	"ores-rcfilters-whats-this-link-text": "Sužinoti daugiau",
 	"ores-rcfilters-damaging-title": "Indėlio kokybės spėjimai",
 	"ores-rcfilters-damaging-whats-this-header": "Apie indėlio kokybės spėjimus",
-	"ores-rcfilters-goodfaith-title": "Naudotojo intencijos spėjimai",
-	"apihelp-query+ores-description": "Pateikti šios viki ORES konfigūraciją ir modelio duomenis.",
-	"apihelp-query+ores-example-simple": "Gauti ORES duomenis:",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Prideda ORES balus prie įrašo."
+	"ores-rcfilters-goodfaith-title": "Naudotojo intencijos spėjimai"
 }

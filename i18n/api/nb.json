@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jeblad"
+		]
+	},
+	"apihelp-query+ores-description": "Returnerer ORES konfirgurasjon og modelldata for denne wikien.",
+	"apihelp-query+ores-summary": "Returnerer ORES konfirgurasjon og modelldata for denne wikien.",
+	"apihelp-query+ores-example-simple": "Hent ORES data:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES skår for revisjonen.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES skår for revisjonen.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Legger til ORES skår for oppføringen.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Legger til ORES skår for redigeringen.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Legger til ORES skår for redigeringen."
+}

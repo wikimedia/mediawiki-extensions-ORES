@@ -51,13 +51,5 @@
 	"ores-pref-watchlist-hidenondamaging": "Amosar só edicións probablemente problemáticas (e agochar as que probablemente son boas)",
 	"prefs-ores-wl": "Clasificación de edicións nas páxinas vixiadas",
 	"prefs-ores-rc": "Clasificación de edicións nos cambios recentes, cambios relacionados e contribucións",
-	"apihelp-query+ores-description": "Devolver a configuración ORES e os datos do modelo para esta wiki.",
-	"apihelp-query+ores-summary": "Devolver a configuración ORES e os datos do modelo para esta wiki.",
-	"apihelp-query+ores-example-simple": "Recuperar os datos ORESː",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "Puntuación ORES para a revisión.",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Puntuación ORES para a revisión.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Engade a puntuación ORES para esta entrada.",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Engade a puntuación ORES para esta modificación.",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Engade a puntuación ORES para a modificación.",
 	"ores-api-show-note": "Ó usar <kbd>oresreview</kbd> ou <kbd>!oresreview</kbd>, as edicións sen puntuación (por exemplo, edicións moi antigas) considérase que non precisan ser revisadas aínda que si o precisarían en caso de ser avaliadas."
 }

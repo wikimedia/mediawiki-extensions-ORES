@@ -42,12 +42,5 @@
 	"ores-pref-highlight": "İzleme Listesi ve Katkılar sayfalarında yüksek olasıklıkla zarar verici düzenlemeleri (ORES kullanarak) vurgula",
 	"ores-pref-rc-hidenondamaging": "Yalnızca olası düzenlemeleri göster (muhtemel iyi düzenlemeleri sakla)",
 	"ores-pref-watchlist-hidenondamaging": "Yalnızca sorunlu olabilecek düzenlemeleri göster (ve yüksek olasılıkla sorunsuz düzenlemeleri gizle)",
-	"apihelp-query+ores-description": "Bu viki modelinin verilerine ve ORES yapılandırmasına geri dön.",
-	"apihelp-query+ores-example-simple": "Getirilecek ORES verisi:",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "Gözden geçirme için ORES skorları.",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Gözden geçirme için ORES skorları.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Girdilere ORES skorlarını ekleyin.",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Düzenlemelere ORES skorlarını ekleyin.",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Düzenlemelere ORES skorlarını ekleyin.",
 	"ores-api-show-note": "<kbd>oresreview</kbd> veya <kbd>!oresreview</kbd> kullanılırken, puansız sürümlerin (örn: Çok eski sürümler), puanlansa gözden geçirme gerektirecek olsa bile gözden geçirme gerektirmediği düşünülür."
 }

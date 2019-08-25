@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hamilton Abreu"
+		]
+	},
+	"apihelp-query+ores-description": "Devolver a configuração ORES e os dados modelo para esta wiki.",
+	"apihelp-query+ores-summary": "Devolver a configuração ORES e os dados modelo para esta wiki.",
+	"apihelp-query+ores-example-simple": "Obter dados ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Pontuações ORES para a revisão.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Pontuações ORES para a revisão.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Adiciona pontuações ORES para a entrada.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Adiciona pontuações ORES para a edição.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Adiciona pontuações ORES para a edição."
+}

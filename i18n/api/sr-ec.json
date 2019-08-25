@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Acamicamacaraca",
+			"BadDog"
+		]
+	},
+	"apihelp-query+ores-description": "Врати ORES конфигурацију и податке о моделу за овај вики.",
+	"apihelp-query+ores-summary": "Врати ORES конфигурацију и податке о моделу за овај вики.",
+	"apihelp-query+ores-example-simple": "Апортирајте ORES податке:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES резултати за измену.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES резултати за измену.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Додаје ORES резултате за унос.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Додаје ORES резултате за измену.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Додаје ORES резултате за измену."
+}

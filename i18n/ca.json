@@ -57,13 +57,5 @@
 	"ores-specialoresmodels-header-precision": "Precisió",
 	"ores-specialoresmodels-header-recall": "Recorda",
 	"ores-specialoresmodels-header-thresholdrange": "Interval del llindar",
-	"apihelp-query+ores-description": "Retorna configuracio d'ORES i dades model per aquesta wiki",
-	"apihelp-query+ores-summary": "Torna a la configuració ORES i a les dades del model d'aquest wiki.",
-	"apihelp-query+ores-example-simple": "Obtén dades d'ORES",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "Puntuació ORES de l'edició",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Puntuació ORES de l'edició",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Afegeix puntuació ORES per l'entrada",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Afegeix puntuació ORES per l'entrada",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Afegeix puntuació ORES per l'edició",
 	"ores-api-show-note": "Quan utilitzeu <kbd>oresreview</kbd> o <kbd>!oresreview</kbd>, les revisions que no tinguin puntuació ORES (edicions antigues) es considerarà que no necessiten revisió, encara que necessitessin revisió si es puntuessin."
 }

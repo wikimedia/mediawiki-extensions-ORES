@@ -61,13 +61,5 @@
 	"ores-specialoresmodels-header-precision": "Прецизност",
 	"ores-specialoresmodels-header-recall": "Опозив",
 	"ores-specialoresmodels-header-thresholdrange": "Опсег граничне вредности",
-	"apihelp-query+ores-description": "Врати ORES конфигурацију и податке о моделу за овај вики.",
-	"apihelp-query+ores-summary": "Врати ORES конфигурацију и податке о моделу за овај вики.",
-	"apihelp-query+ores-example-simple": "Апортирајте ORES податке:",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES резултати за измену.",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES резултати за измену.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Додаје ORES резултате за унос.",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Додаје ORES резултате за измену.",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Додаје ORES резултате за измену.",
 	"ores-api-show-note": "Када користите <kbd>oresreview</kbd> или <kbd>!oresreview</kbd>, измене без оцене (нпр. врло старе измене) се сматрају непотребним за преглед, чак и ако им је потребан."
 }

@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Reza1615"
+		]
+	},
+	"apihelp-query+ores-description": "بازگردانی تنظیمات و داده‌های مدل ساعن برای این ویکی.",
+	"apihelp-query+ores-summary": "بازگردانی تنظیمات و داده‌های مدل ساعن برای این ویکی.",
+	"apihelp-query+ores-example-simple": "گرفتن اطلاعات ساعن:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "امتیاز ساعن برای نسخه.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "امتیاز ساعن برای نسخه.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "افزودن امتیاز ساعن برای این ورودی.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "افزودن امتیاز ساعن برای این ویرایش.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "افزودن امتیاز ساعن برای این ویرایش."
+}

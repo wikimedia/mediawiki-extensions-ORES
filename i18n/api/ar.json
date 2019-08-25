@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"ديفيد"
+		]
+	},
+	"apihelp-query+ores-description": "عودة تكوين ORES وبيانات نموذج هذا الويكي.",
+	"apihelp-query+ores-summary": "عودة تكوين ORES وبيانات نموذج هذا الويكي.",
+	"apihelp-query+ores-example-simple": "جلب بيانات ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "درجات ORES للمراجعة.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "درجات ORES للمراجعة.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "يضيف درجات ORES للإدخال.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "يضيف درجات ORES للتحرير.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "يضيف درجات ORES للتحرير."
+}

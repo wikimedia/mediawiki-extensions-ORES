@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Facenapalm",
+			"Putnik"
+		]
+	},
+	"apihelp-query+ores-description": "Возвращает конфигурацию ORES и данные модели для этой вики.",
+	"apihelp-query+ores-summary": "Возвращает конфигурацию и данные модели ORES для этой вики.",
+	"apihelp-query+ores-example-simple": "Запросить данные ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Оценки ORES версии.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Оценки ORES версии.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Добавляет оценки ORES записи.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Добавляет оценки ORES правки.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Добавляет оценки ORES правки."
+}

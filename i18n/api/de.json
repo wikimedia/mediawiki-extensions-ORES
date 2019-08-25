@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Metalhead64"
+		]
+	},
+	"apihelp-query+ores-description": "Gibt die ORES-Konfiguration und Modelldaten für dieses Wiki zurück.",
+	"apihelp-query+ores-summary": "Gibt die ORES-Konfiguration und Modelldaten für dieses Wiki zurück.",
+	"apihelp-query+ores-example-simple": "Ruft ORES-Daten ab:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-Scores für die Version.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES-Scores für die Version.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Ergänzt ORES-Scores für den Eintrag.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Ergänzt ORES-Scores für die Bearbeitung.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Ergänzt ORES-Scores für die Bearbeitung."
+}

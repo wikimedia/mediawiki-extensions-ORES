@@ -57,13 +57,5 @@
 	"ores-specialoresmodels-header-precision": "精確度",
 	"ores-specialoresmodels-header-recall": "召回率",
 	"ores-specialoresmodels-header-thresholdrange": "門檻範圍",
-	"apihelp-query+ores-description": "回傳此 wiki 的 ORES 設置以及模組資料。",
-	"apihelp-query+ores-summary": "回傳此 wiki 的 ORES 設置以及模組資料。",
-	"apihelp-query+ores-example-simple": "取得 ORES 資料：",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "修訂的 ORES 評分。",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "修訂的 ORES 評分。",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "為項目添加 ORES 評分。",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "為編輯添加 ORES 評分。",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "為編輯添加 ORES 評分。",
 	"ores-api-show-note": "當使用 <kbd>oresreview</kbd> 或 <kbd>!oresreview</kbd> 時，不帶有評分的修訂（例如：非常舊的修訂）會被視為不需複審，即使是在被評分後仍需要複審的情況下。"
 }

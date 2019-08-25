@@ -55,13 +55,5 @@
 	"ores-specialoresmodels-header-precision": "Precisión",
 	"ores-specialoresmodels-header-recall": "Sensibilidá",
 	"ores-specialoresmodels-header-thresholdrange": "Rangu de valores",
-	"apihelp-query+ores-description": "Devolver la configuración ORES y datos modelu d'esta wiki.",
-	"apihelp-query+ores-summary": "Devolver la configuración ORES y datos modelu d'esta wiki.",
-	"apihelp-query+ores-example-simple": "Recuperar los datos ORESː",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "Puntuación ORES de la revisión.",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Puntuación ORES de la revisión.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Añadir la puntuación ORES de la entrada.",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Añadir la puntuación ORES de la edición.",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Añadir la puntuación ORES de la edición.",
 	"ores-api-show-note": "Cuando utilices <kbd>oresreview</kbd> o <kbd>!oresreview</kbd>, les revisiones que nun tengan puntuación ORES (p.ex. ediciones mui antigües) consideraráse que nun necesiten revisión, anque necesitaríen revisión si se puntúen."
 }

@@ -21,8 +21,5 @@
 	"ores-rcfilters-goodfaith-good-label": "Særs sannsynleg med god intensjon",
 	"ores-rcfilters-goodfaith-maybebad-label": "Kan ha dårleg intensjon",
 	"ores-rcfilters-goodfaith-bad-label": "Sannsynlegvis dårleg intensjon",
-	"ores-rcfilters-goodfaith-verylikelybad-label": "Særs sannsynleg med dårleg intensjon",
-	"apihelp-query+ores-example-simple": "Hent ORES-data:",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-skår for versjonen.",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES-skår for versjonen."
+	"ores-rcfilters-goodfaith-verylikelybad-label": "Særs sannsynleg med dårleg intensjon"
 }

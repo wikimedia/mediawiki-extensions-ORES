@@ -57,13 +57,5 @@
 	"ores-specialoresmodels-header-precision": "الدقة",
 	"ores-specialoresmodels-header-recall": "إعادة استدعاء",
 	"ores-specialoresmodels-header-thresholdrange": "نطاق العتبة",
-	"apihelp-query+ores-description": "عودة تكوين ORES وبيانات نموذج هذا الويكي.",
-	"apihelp-query+ores-summary": "عودة تكوين ORES وبيانات نموذج هذا الويكي.",
-	"apihelp-query+ores-example-simple": "جلب بيانات ORES:",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "درجات ORES للمراجعة.",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "درجات ORES للمراجعة.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "يضيف درجات ORES للإدخال.",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "يضيف درجات ORES للتحرير.",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "يضيف درجات ORES للتحرير.",
 	"ores-api-show-note": "عند استخدام <kbd>oresreview</kbd> أو <kbd>!oresreview</kbd>، تُعتبَر المراجعات بدون درجة (مثل المراجعات القديمة جدا) على أنها لا تحتاج إلى مراجعة حتى إذا كانت بحاجة إلى مراجعة إذا تم تسجيلها."
 }

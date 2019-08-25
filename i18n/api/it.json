@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Beta16"
+		]
+	},
+	"apihelp-query+ores-description": "Restituisce la configurazione ORES e i dati del modello per questo wiki.",
+	"apihelp-query+ores-summary": "Restituisce la configurazione ORES e i dati del modello per questo wiki.",
+	"apihelp-query+ores-example-simple": "Recupera i dati ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Punteggio ORES per la versione.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Punteggio ORES per la versione.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Aggiunge punteggi ORES per la modifica.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Aggiunge punteggi ORES per la modifica."
+}

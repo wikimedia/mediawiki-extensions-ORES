@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eitvys200"
+		]
+	},
+	"apihelp-query+ores-description": "Pateikti šios viki ORES konfigūraciją ir modelio duomenis.",
+	"apihelp-query+ores-example-simple": "Gauti ORES duomenis:",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Prideda ORES balus prie įrašo."
+}

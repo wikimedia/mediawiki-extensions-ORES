@@ -52,13 +52,5 @@
 	"prefs-ores-wl": "Ocienianie wersji w liście obserwowanych",
 	"ores-specialoresmodels-header-filter": "Filtr",
 	"ores-specialoresmodels-header-precision": "Precyzja",
-	"apihelp-query+ores-description": "Zwróć konfigurację ORES i model danych dla tej wiki.",
-	"apihelp-query+ores-summary": "Zwróć konfigurację ORES i model danych dla tej wiki.",
-	"apihelp-query+ores-example-simple": "Pobierz dane ORES:",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "Ocena ORES dla tej wersji.",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Ocena ORES dla tej wersji.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Dodaje ocenę ORES wraz z wpisem.",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Dodaje ocenę ORES dla tej edycji.",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Dodaje ocenę ORES dla tej edycji.",
 	"ores-api-show-note": "Podczas używania <kbd>oresreview</kbd> lub <kbd>!oresreview</kbd>, wersje bez oceny (np. bardzo stare wersje) są uznawane jako niewymagające przejrzenia, nawet gdyby zostały oznaczone jako wymagające przejrzenia, jeśli dokonano by oceny."
 }

@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Minh Nguyen"
+		]
+	},
+	"apihelp-query+ores-example-simple": "Lấy dữ liệu ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Điểm ORES của phiên bản.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Điểm ORES của phiên bản."
+}

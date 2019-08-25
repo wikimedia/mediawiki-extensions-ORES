@@ -57,13 +57,5 @@
 	"prefs-ores-rc": "Redigeringsbetyg på Senaste ändringar, Relaterade ändringar och Bidrag",
 	"ores-specialoresmodels-header-precision": "Precision",
 	"ores-specialoresmodels-header-thresholdrange": "Tröskelsintervall",
-	"apihelp-query+ores-description": "Returnera ORES-konfiguration och modelldata för denna wiki.",
-	"apihelp-query+ores-summary": "Returnera ORES-konfiguration och modelldata för denna wiki.",
-	"apihelp-query+ores-example-simple": "Hämta ORES-data:",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-betyg för sidversionen.",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES-betyg för sidversionen.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Lägg till ORES-betyg för posten.",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Lägg till ORES-betyg för redigeringen.",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Lägg till ORES-betyg för redigeringen.",
 	"ores-api-show-note": "När du använder <kbd>oresreview</kbd> eller <kbd>!oresreview</kbd>, kommer redigeringar utan betyg (t.ex. väldigt gamla redigeringar) betraktas som att ytterligare granskning inte är nödvändig, även om de skulle ha behövt granskning ifall de hade betygsatts."
 }

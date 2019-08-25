@@ -49,13 +49,5 @@
 	"ores-pref-watchlist-hidenondamaging": "Vis bare sannsynlige problemredigeringer (og skjul sannsynlig gode redigeringer)",
 	"ores-specialoresmodels-header-filter": "Filter",
 	"ores-specialoresmodels-header-precision": "Presisjon",
-	"apihelp-query+ores-description": "Returnerer ORES konfirgurasjon og modelldata for denne wikien.",
-	"apihelp-query+ores-summary": "Returnerer ORES konfirgurasjon og modelldata for denne wikien.",
-	"apihelp-query+ores-example-simple": "Hent ORES data:",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES skår for revisjonen.",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES skår for revisjonen.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Legger til ORES skår for oppføringen.",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Legger til ORES skår for redigeringen.",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Legger til ORES skår for redigeringen.",
 	"ores-api-show-note": "Når du bruker <kbd>oresreview</kbd> eller <kbd>!oresreview</kbd>, så vil de uten skår (eg. veldig gamle revisjoner) bli vurdert som at videre gjennomgang er unødvendig, selv om de vil trenge gjennomgang hvis de ble gitt skår."
 }

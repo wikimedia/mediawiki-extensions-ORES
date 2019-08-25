@@ -64,13 +64,5 @@
 	"ores-specialoresmodels-header-precision": "Précision",
 	"ores-specialoresmodels-header-recall": "Rappeler",
 	"ores-specialoresmodels-header-thresholdrange": "Intervalle du seuil",
-	"apihelp-query+ores-description": "Renvoyer la configuration ORES et les données du modèle pour ce wiki.",
-	"apihelp-query+ores-summary": "Renvoyer la configuration ORES et les données du modèle pour ce wiki.",
-	"apihelp-query+ores-example-simple": "Récupérer les données ORES :",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "Scores ORES pour la révision.",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Scores ORES pour la révision.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Ajoute les scores ORES pour l’entrée.",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Ajouter les scores ORES pour la modification.",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Ajoute les scores ORES pour la modification.",
 	"ores-api-show-note": "En utilisant <kbd>oresreview</kbd> ou <kbd>!oresreview</kbd>, les révisions sans score (par ex. les très vieilles révisions) sont considérées comme ne nécessitant pas de relecture, même si elles en nécessiteraient si elles étaient notées."
 }

@@ -16,6 +16,5 @@
 	"ores-rcfilters-damaging-verylikelybad-label": "Visticamāk, ir problēmas",
 	"ores-pref-rc-hidenondamaging": "Rādīt tikai visticamāk problemātiskus labojumus (un paslēpt visticamāk derīgus labojumus)",
 	"ores-specialoresmodels-header-filter": "Filtrs",
-	"ores-specialoresmodels-header-precision": "Precizitāte",
-	"apihelp-query+ores-example-simple": "Iegūt ORES datus:"
+	"ores-specialoresmodels-header-precision": "Precizitāte"
 }

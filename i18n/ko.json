@@ -53,7 +53,5 @@
 	"prefs-ores-rc": "최근 바뀜, 가리키는 글의 최근 바뀜, 기여 목록에서 문제성 편집 표시",
 	"oresmodels": "ORES 모델 통계",
 	"ores-specialoresmodels-header-filter": "필터",
-	"ores-specialoresmodels-header-precision": "정밀도",
-	"apihelp-query+ores-summary": "이 위키에 대한 ORES 구성과 모델 데이터를 반환합니다.",
-	"apihelp-query+ores-example-simple": "ORES 데이터 받기:"
+	"ores-specialoresmodels-header-precision": "정밀도"
 }

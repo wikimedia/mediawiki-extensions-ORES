@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Njardarlogar"
+		]
+	},
+	"apihelp-query+ores-example-simple": "Hent ORES-data:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-skår for versjonen.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES-skår for versjonen."
+}

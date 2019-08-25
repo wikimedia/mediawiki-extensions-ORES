@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Afaz"
+		]
+	},
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "その版のORESスコア。",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "その版のORESスコア。",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "エントリのORESスコアを追加します。",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "編集のORESスコアを追加します。",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "編集のORESスコアを追加します。"
+}

@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Patriccck"
+		]
+	},
+	"apihelp-query+ores-description": "Vrátit konfigurační a modelová data ORES pro tuto wiki.",
+	"apihelp-query+ores-summary": "Vrátit konfigurační a modelová data ORES pro tuto wiki.",
+	"apihelp-query+ores-example-simple": "Načíst data ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Skóre ORES pro revizi.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Skóre ORES pro revizi.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Přidá skóre ORES pro záznam.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Přidá skóre ORES pro editaci.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Přidá skóre ORES pro editaci."
+}

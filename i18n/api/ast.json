@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Xuacu"
+		]
+	},
+	"apihelp-query+ores-description": "Devolver la configuración ORES y datos modelu d'esta wiki.",
+	"apihelp-query+ores-summary": "Devolver la configuración ORES y datos modelu d'esta wiki.",
+	"apihelp-query+ores-example-simple": "Recuperar los datos ORESː",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Puntuación ORES de la revisión.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Puntuación ORES de la revisión.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Añadir la puntuación ORES de la entrada.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Añadir la puntuación ORES de la edición.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Añadir la puntuación ORES de la edición."
+}

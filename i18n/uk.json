@@ -56,13 +56,5 @@
 	"ores-specialoresmodels-header-precision": "Точність",
 	"ores-specialoresmodels-header-recall": "Повнота",
 	"ores-specialoresmodels-header-thresholdrange": "Діапазон порога",
-	"apihelp-query+ores-description": "Повернути ORES-конфігурацію і модельні дані для цієї вікі.",
-	"apihelp-query+ores-summary": "Вивести ORES-конфігурацію і модельні дані для цієї вікі.",
-	"apihelp-query+ores-example-simple": "Отримати дані ORES:",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "Оцінка ORES для цієї версії.",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Оцінка ORES для цієї версії.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Додає оцінку ORES для цього запису.",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Додає оцінку ORES для цього редагування.",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Додає оцінку ORES для цього редагування.",
 	"ores-api-show-note": "При використанні <kbd>oresreview</kbd> або <kbd>!oresreview</kbd>, версії без оцінки (напр., дуже старі версії) вважаються як такі, що не потребують перевірки, навіть якщо б при оцінюванні вони виявилися б такими, що потребують."
 }

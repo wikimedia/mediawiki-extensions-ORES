@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Presidenvolksraad"
+		]
+	},
+	"apihelp-query+ores-description": "Kembalikan konfigurasi ORES dan model data pada wiki ini."
+}

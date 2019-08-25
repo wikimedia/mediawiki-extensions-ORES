@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Piramidion"
+		]
+	},
+	"apihelp-query+ores-description": "Повернути ORES-конфігурацію і модельні дані для цієї вікі.",
+	"apihelp-query+ores-summary": "Вивести ORES-конфігурацію і модельні дані для цієї вікі.",
+	"apihelp-query+ores-example-simple": "Отримати дані ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Оцінка ORES для цієї версії.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Оцінка ORES для цієї версії.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Додає оцінку ORES для цього запису.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Додає оцінку ORES для цього редагування.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Додає оцінку ORES для цього редагування."
+}

@@ -40,13 +40,5 @@
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Foarte probabil rea credință",
 	"ores-pref-rc-hidenondamaging": "Arată doar editările probabil problematice (și ascunde editările posibil bune)",
 	"ores-pref-watchlist-hidenondamaging": "Arată doar editările probabil problematice (și ascunde editările posibil bune)",
-	"apihelp-query+ores-description": "Întoarce configurația și modelele ORES pentru acest wiki.",
-	"apihelp-query+ores-summary": "Întoarce configurația și modelele ORES pentru acest wiki.",
-	"apihelp-query+ores-example-simple": "Obține datele ORES:",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "Scoruri ORES pentru versiune.",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Scoruri ORES pentru versiune.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Adaugă note ORES pentru element.",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Adaugă note ORES pentru editare.",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Adaugă note ORES pentru editare.",
 	"ores-api-show-note": "Când folosiți <kbd>oresreview</kbd> sau <kbd>!oresreview</kbd>, editările fără notă (e.g. cele foarte vechi) sunt considerate ca neavând nevoie de revizuire chiar dacă ar fi avut în cazul în care ar fi fost notate."
 }

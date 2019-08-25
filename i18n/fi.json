@@ -58,12 +58,5 @@
 	"prefs-ores-wl": "Versioiden pistearviointi tarkkailulistalla",
 	"prefs-ores-rc": "Versioiden pistearviointi tuoreissa muutoksissa, liittyvissä muutoksissa ja muokkauksissa",
 	"oresmodels": "ORES-mallin tilastot",
-	"apihelp-query+ores-description": "Hae ORES-konfiguraatio- ja mallitiedot tälle sivustolle.",
-	"apihelp-query+ores-example-simple": "Haetaan ORES-arvot",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-pisteet tälle versiolle.",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Tämän version ORES-pisteet.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Lisää ORES-pisteet tälle kohdalle.",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Lisää ORES-pisteet tälle muutokselle.",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Lisää ORES-pisteet tälle muutokselle.",
 	"ores-api-show-note": "Käytettäessä <kbd>oresreview</kbd> tai <kbd>!oresreview</kbd>-valintoja, niin versiot ilman pisteitä (esim. hyvin vanhat versiot) näytetään aina sellaisina etteivät ne vaadi tarkistusta, vaikka jos arviointi suoritettaisiin, niin tarkistus tarvittaisiin."
 }

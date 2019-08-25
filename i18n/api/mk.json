@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"apihelp-query+ores-description": "Дава ORES-поставеност и податоци за моделот за ова вики.",
+	"apihelp-query+ores-summary": "Дава ORES-поставеност и податоци за моделот за ова вики.",
+	"apihelp-query+ores-example-simple": "Преземи ORES-податоци:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-оценки на преработката.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES-оценки за преработката.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Додава ORES-оценки за ставката.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Додава ORES-оценки за уредувањето.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Додава ORES-оценки за уредувањето."
+}

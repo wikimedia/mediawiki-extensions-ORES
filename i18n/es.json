@@ -65,13 +65,5 @@
 	"ores-specialoresmodels-header-precision": "Precisión",
 	"ores-specialoresmodels-header-recall": "Sensibilidad",
 	"ores-specialoresmodels-header-thresholdrange": "Intervalo del umbral",
-	"apihelp-query+ores-description": "Devolver la configuración de ORES y los datos del modelo para este wiki.",
-	"apihelp-query+ores-summary": "Devolver la configuración de ORES y los datos del modelo para este wiki.",
-	"apihelp-query+ores-example-simple": "Obtener datos ORES:",
-	"apihelp-query+revisions-paramvalue-prop-oresscores": "Puntuaciones ORES para la revisión.",
-	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Puntuaciones ORES para la revisión.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Añade las puntuaciones ORES para la entrada.",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Añade las puntuaciones ORES para la edición.",
-	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Añade las puntuaciones ORES para la edición.",
 	"ores-api-show-note": "Al usar <kbd>oresreview</kbd> o <kbd>!oresreview</kbd>, las ediciones sin puntuación (por ejemplo, ediciones muy antiguas) se considera que no necesitan ser revisadas aun si lo necesitasen en caso de ser evaluadas."
 }
