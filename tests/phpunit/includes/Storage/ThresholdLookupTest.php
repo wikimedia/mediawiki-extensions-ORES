@@ -169,15 +169,16 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 	}
 
 	public function testCacheVersion() {
-		$this->setMwGlobals( [
-			'wgOresFiltersThresholds' => [
-				'damaging' => [
-					'verylikelygood' => [ 'min' => 0, 'max' => 'maximum recall @ precision >= 0.98' ],
-					'maybebad' => false,
-					'likelybad' => [ 'min' => 0.831, 'max' => 1 ],
-					'verylikelybad' => [ 'min' => 'maximum recall @ precision >= 0.9', 'max' => 1 ],
-				],
+		$filtersThresholds = [
+			'damaging' => [
+				'verylikelygood' => [ 'min' => 0, 'max' => 'maximum recall @ precision >= 0.98' ],
+				'maybebad' => false,
+				'likelybad' => [ 'min' => 0.831, 'max' => 1 ],
+				'verylikelybad' => [ 'min' => 'maximum recall @ precision >= 0.9', 'max' => 1 ],
 			],
+		];
+		$this->setMwGlobals( [
+			'wgOresFiltersThresholds' => $filtersThresholds,
 			'wgOresWikiId' => 'wiki',
 		] );
 
@@ -220,7 +221,10 @@ class ThresholdLookupTest extends \MediaWikiTestCase {
 		];
 		$this->assertEquals(
 			$expected,
-			$cache->get( 'local:ores_threshold_statistics:damaging:0.0.2:1' )
+			$cache->get(
+				'local:ores_threshold_statistics:damaging:0.0.2:1:' .
+				md5( json_encode( $filtersThresholds['damaging'] ) )
+			)
 		);
 	}
 

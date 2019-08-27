@@ -111,7 +111,8 @@ class ThresholdLookup {
 			'ores_threshold_statistics',
 			$model,
 			$modelVersion,
-			$wgOresCacheVersion
+			$wgOresCacheVersion,
+			md5( json_encode( $this->thresholdParser->getFiltersConfig( $model ) ) )
 		);
 		return $this->cache->getWithSetCallback(
 			$key,
