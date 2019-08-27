@@ -79,7 +79,7 @@ class ApiQueryORES extends ApiQueryBase {
 	}
 
 	public function getHelpUrls() {
-		return 'https://www.mediawiki.org/wiki/Extension:ORES';
+		return 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:ORES';
 	}
 
 }
