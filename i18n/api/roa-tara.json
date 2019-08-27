@@ -9,6 +9,7 @@
 	"apihelp-query+ores-example-simple": "Tuèrne le date ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Pundegge ORES pa versione.",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Pundegge ORES pa versione.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Aggiunge 'u pundegge de ORES pa vôsce.",
-	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Aggiunge 'u pundegge de ORES pu cangiamende."
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Aggiunge le pundegge de ORES pa vôsce.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Aggiunge le pundegge de ORES pu cangiamende.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Aggiunge le pundegge de ORES pu cangiamende."
 }
