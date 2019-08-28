@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Papuass"
+			"Papuass",
+			"Silraks"
 		]
 	},
 	"ores-damaging-title": "Šim labojumam nepieciešama pārskatīšana",
@@ -14,6 +15,7 @@
 	"ores-rcfilters-damaging-maybebad-label": "Var būt problēmas",
 	"ores-rcfilters-damaging-likelybad-label": "Iespējamas problēmas",
 	"ores-rcfilters-damaging-verylikelybad-label": "Visticamāk, ir problēmas",
+	"ores-rcfilters-goodfaith-title": "Lietotāju nodomu prognozes",
 	"ores-pref-rc-hidenondamaging": "Rādīt tikai visticamāk problemātiskus labojumus (un paslēpt visticamāk derīgus labojumus)",
 	"ores-specialoresmodels-header-filter": "Filtrs",
 	"ores-specialoresmodels-header-precision": "Precizitāte"
