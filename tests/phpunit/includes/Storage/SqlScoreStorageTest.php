@@ -191,13 +191,15 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 			],
 			__METHOD__
 		);
+		$user = self::getTestUser();
 		$dbw->insert(
 			'recentchanges',
 			[
 				'rc_this_oldid' => '567',
 				'rc_cur_id' => 3,
 				'rc_last_oldid' => '425',
-				'rc_comment_id' => 1
+				'rc_comment_id' => 1,
+				'rc_actor' => $user->getUser()->getActorId(),
 			],
 			__METHOD__
 		);
@@ -207,7 +209,8 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 				'rc_this_oldid' => '12345',
 				'rc_cur_id' => 3,
 				'rc_last_oldid' => '567',
-				'rc_comment_id' => 1
+				'rc_comment_id' => 1,
+				'rc_actor' => $user->getUser()->getActorId(),
 			],
 			__METHOD__
 		);
