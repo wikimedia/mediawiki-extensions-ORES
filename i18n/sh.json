@@ -4,6 +4,7 @@
 			"Vlad5250"
 		]
 	},
+	"ores-desc": "Izlaganje u sučelju automatiziranih ocijeni izmjena.",
 	"ores-damaging-filter": "$1 vjerovatno dobre izmjene",
 	"ores-damaging-letter": "p",
 	"ores-damaging-title": "Ovu izmjenu treba provijeriti",
@@ -28,5 +29,19 @@
 	"ores-rcfilters-damaging-verylikelybad-label": "Vrlo vjerovatno problematično",
 	"ores-rcfilters-damaging-verylikelybad-desc": "Iznimno tačno pronalazi najočitije nesavršenih ili štetnih izmjena.",
 	"ores-rcfilters-goodfaith-title": "Predviđanje suradničkih namjera",
-	"ores-rcfilters-goodfaith-whats-this-header": "O predviđanju suradničkih namjera"
+	"ores-rcfilters-goodfaith-whats-this-header": "O predviđanju suradničkih namjera",
+	"ores-rcfilters-goodfaith-good-label": "Vrlo vjerovatno dobronamjerno",
+	"ores-rcfilters-goodfaith-good-desc": "Veoma djelotvorno pri pronalaženju gotovo svih dobronamjernih izmjena, s velikom preciznošću.",
+	"ores-rcfilters-goodfaith-maybebad-label": "Može da je nedobronamjerna",
+	"ores-rcfilters-goodfaith-maybebad-desc": "Pronalazi većinu nedobronamjernih izmjena, ali s manjom tačnosti.",
+	"ores-rcfilters-goodfaith-bad-label": "Vjerovatno nedobronamjerno",
+	"ores-rcfilters-goodfaith-bad-desc-low": "Sa srednjom tačnosti, pronalazi srednji udio nedobronamjernih izmjena.",
+	"ores-rcfilters-goodfaith-bad-desc-high": "Sa srednjom preciznošću, pronalazi većinu nedobronamjernih izmjena.",
+	"ores-rcfilters-goodfaith-verylikelybad-label": "Vrlo vjerovatno nedobronamjerno",
+	"ores-rcfilters-goodfaith-verylikelybad-desc": "Iznimno tačno pronalazi najočitije nedobronamjerne izmjene.",
+	"ores-pref-highlight": "Istakni vjerojatno problematične izmjene bojama i slovom »{{int:ores-damaging-letter}}« što označava da je »potrebna ocjena«",
+	"ores-pref-rc-hidenondamaging": "Prikaži samo izmjene što vjerovatno imaju probleme (i sakrij vjerovatno dobre)",
+	"ores-pref-watchlist-hidenondamaging": "Prikaži samo izmjene što vjerovatno imaju probleme (i sakrij vjerovatno dobre)",
+	"prefs-ores-wl": "Ocjenivanje izmjena u Spisak praćenja",
+	"prefs-ores-rc": "Ocjenivanje na izmjenama u Nedavne i Srodne izmjene te Doprinosi"
 }
