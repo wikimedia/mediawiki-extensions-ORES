@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Srdjan m"
+			"Srdjan m",
+			"Obsuser"
 		]
 	},
 	"ores-damaging-filter": "$1 vjerovatno dobre izmjene",
 	"ores-damaging-letter": "p",
 	"ores-damaging-legend": "Izmjena je možda problematična i treba je pregledati ([[:mw:Special:MyLanguage/ORES review tool|detaljnije]])",
+	"ores-hide-nondamaging-filter": "Sakrij vjerovatno dobre izmjene",
 	"ores-pref-damaging": "Prag predviđanja",
 	"ores-pref-damaging-flag": "Istakni vjerovatno problematične izmjene bojama i slovom \"{{int:ores-damaging-letter}}\" koje označava da je \"potrebna provjera\"",
 	"ores-damaging-maybebad": "Možda problematično (označava većinu problematičnih izmjena, ali uključuje mnogo pogrešnih pogodaka)",
