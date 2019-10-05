@@ -249,7 +249,7 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 	 * @dataProvider processRevisionInvalidProvider
 	 */
 	public function testProcessRevisionInvalid( array $revisionData, $revId ) {
-		$this->setExpectedException( InvalidArgumentException::class );
+		$this->expectException( InvalidArgumentException::class );
 		$modelData = [
 			'reverted' => [ 'id' => self::REVERTED, 'version' => '0.0.1' ],
 			'damaging' => [ 'id' => self::DAMAGING, 'version' => '0.0.2' ],

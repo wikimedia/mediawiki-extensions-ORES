@@ -91,7 +91,7 @@ class PopulatedSqlModelLookupTest extends \MediaWikiTestCase {
 			$this->oresServiceMock,
 			new NullLogger()
 		);
-		$this->setExpectedException( InvalidArgumentException::class );
+		$this->expectException( InvalidArgumentException::class );
 		$populatedLookup->getModelId( 'foo' );
 	}
 
@@ -110,7 +110,7 @@ class PopulatedSqlModelLookupTest extends \MediaWikiTestCase {
 			$this->oresServiceMock,
 			new NullLogger()
 		);
-		$this->setExpectedException( InvalidArgumentException::class );
+		$this->expectException( InvalidArgumentException::class );
 		$populatedLookup->getModelVersion( 'foo' );
 	}
 
@@ -147,7 +147,7 @@ class PopulatedSqlModelLookupTest extends \MediaWikiTestCase {
 			$this->oresServiceMock,
 			new NullLogger()
 		);
-		$this->setExpectedException( InvalidArgumentException::class );
+		$this->expectException( InvalidArgumentException::class );
 		$populatedLookup->getModelVersion( 'foo' );
 	}
 
@@ -169,7 +169,7 @@ class PopulatedSqlModelLookupTest extends \MediaWikiTestCase {
 			$oresServiceMock,
 			new NullLogger()
 		);
-		$this->setExpectedException( InvalidArgumentException::class );
+		$this->expectException( InvalidArgumentException::class );
 		$populatedLookup->getModelVersion( 'damaging' );
 	}
 

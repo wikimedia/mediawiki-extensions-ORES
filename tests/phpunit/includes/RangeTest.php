@@ -17,10 +17,8 @@ class RangeTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals( 2, $r->getMax() );
 	}
 
-	/**
-	 * @expectedException \DomainException
-	 */
 	public function testConstructorEx() {
+		$this->expectException( \DomainException::class );
 		$r = new Range( 3, 2 );
 	}
 

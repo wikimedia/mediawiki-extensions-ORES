@@ -103,7 +103,7 @@ class FetchScoreJobTest extends \MediaWikiTestCase {
 			->with( 17, [ 'damaging', 'goodfaith' ], true )
 			->willReturn( $serviceResult );
 
-		$job = new FetchScoreJob( $this->getMock( Title::class ), $params );
+		$job = new FetchScoreJob( $this->createMock( Title::class ), $params );
 		$job->setScoreFetcher( $scoreFetcher );
 
 		$job->run();

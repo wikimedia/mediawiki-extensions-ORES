@@ -311,7 +311,8 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 	 * @dataProvider storeScoresInvalidProvider
 	 */
 	public function testProcessRevisionInvalid( array $data ) {
-		$this->setExpectedException( MWException::class, 'processRevisionInvalid failure' );
+		$this->expectException( MWException::class );
+		$this->expectExceptionMessage( 'processRevisionInvalid failure' );
 		$this->storage->storeScores(
 			$data,
 			function () {

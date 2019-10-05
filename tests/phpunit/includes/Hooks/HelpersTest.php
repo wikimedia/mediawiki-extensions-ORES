@@ -71,11 +71,10 @@ class HelpersTest extends \MediaWikiTestCase {
 
 	/**
 	 * @covers ORES\Hooks\Helpers::getThreshold
-	 *
-	 * @expectedException \Exception
-	 * @expectedExceptionMessageRegExp "Unknown ORES test: 'not_a_thing'"
 	 */
 	public function testGetThreshold_invalid() {
+		$this->expectException( \Exception::class );
+		$this->expectExceptionMessage( "Unknown ORES test: 'not_a_thing'" );
 		Helpers::getThreshold( 'not_a_thing', $this->user );
 	}
 

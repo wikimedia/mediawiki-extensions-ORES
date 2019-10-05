@@ -42,7 +42,7 @@ class SqlModelLookupTest extends MediaWikiLangTestCase {
 	}
 
 	public function testGetInvalidModelId() {
-		$this->setExpectedException( InvalidArgumentException::class );
+		$this->expectException( InvalidArgumentException::class );
 		$this->storage->getModelId( 'foo' );
 	}
 
@@ -52,7 +52,7 @@ class SqlModelLookupTest extends MediaWikiLangTestCase {
 	}
 
 	public function testGetInvalidModelVersion() {
-		$this->setExpectedException( InvalidArgumentException::class );
+		$this->expectException( InvalidArgumentException::class );
 		$this->storage->getModelVersion( 'foo' );
 	}
 

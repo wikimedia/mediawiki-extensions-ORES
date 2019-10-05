@@ -51,7 +51,7 @@ class HashModelLookupTest extends MediaWikiTestCase {
 	 * @covers ORES\Storage\HashModelLookup::getModelId
 	 */
 	public function testGetInvalidModelId() {
-		$this->setExpectedException( InvalidArgumentException::class );
+		$this->expectException( InvalidArgumentException::class );
 		$this->storage->getModelId( 'foo' );
 	}
 
@@ -67,7 +67,7 @@ class HashModelLookupTest extends MediaWikiTestCase {
 	 * @covers ORES\Storage\HashModelLookup::getModelVersion
 	 */
 	public function testGetInvalidModelVersion() {
-		$this->setExpectedException( InvalidArgumentException::class );
+		$this->expectException( InvalidArgumentException::class );
 		$this->storage->getModelVersion( 'foo' );
 	}
 
