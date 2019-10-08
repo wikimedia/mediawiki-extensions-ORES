@@ -43,5 +43,11 @@
 	"ores-pref-rc-hidenondamaging": "Prikaži samo izmjene što vjerovatno imaju probleme (i sakrij vjerovatno dobre)",
 	"ores-pref-watchlist-hidenondamaging": "Prikaži samo izmjene što vjerovatno imaju probleme (i sakrij vjerovatno dobre)",
 	"prefs-ores-wl": "Ocjenivanje izmjena u Spisak praćenja",
-	"prefs-ores-rc": "Ocjenivanje na izmjenama u Nedavne i Srodne izmjene te Doprinosi"
+	"prefs-ores-rc": "Ocjenivanje na izmjenama u Nedavne i Srodne izmjene te Doprinosi",
+	"oresmodels": "Statistika modela ORES",
+	"ores-specialoresmodels-header-filter": "Filter",
+	"ores-specialoresmodels-header-precision": "Preciznost",
+	"ores-specialoresmodels-header-recall": "Stop pogodaka",
+	"ores-specialoresmodels-header-thresholdrange": "Raspon praga",
+	"ores-api-show-note": "Kada koristite <kbd>oresreview</kbd> ili <kbd>!oresreview</kbd>, inačice bez ocjene (npr. vrlo stare inačice) se smatraju za nepotrebne za provjeru, čak i ako im treba provjera kada bi se ocjenjivali."
 }
