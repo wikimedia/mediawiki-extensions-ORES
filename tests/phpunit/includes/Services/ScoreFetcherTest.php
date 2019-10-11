@@ -16,7 +16,7 @@ class ScoreFetcherTest extends \MediaWikiTestCase {
 	const DAMAGING = 3;
 	const GOODFAITH = 4;
 
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$modelData = [
 			'reverted' => [ 'id' => self::REVERTED, 'version' => '0.0.1' ],

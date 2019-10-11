@@ -19,7 +19,7 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 		return PopulateDatabase::class;
 	}
 
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->tablesUsed = [
 			'ores_classification',

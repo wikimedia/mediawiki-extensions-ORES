@@ -19,7 +19,7 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 		return PurgeScoreCache::class;
 	}
 
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->tablesUsed = [
 			'ores_classification',

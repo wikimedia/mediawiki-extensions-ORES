@@ -25,7 +25,7 @@ class ApiIntegrationTest extends \ApiTestCase {
 		$this->tablesUsed = TestHelper::getTablesUsed();
 	}
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 
 		self::$users['ORESApiIntegrationTestUser'] = $this->getMutableTestUser();

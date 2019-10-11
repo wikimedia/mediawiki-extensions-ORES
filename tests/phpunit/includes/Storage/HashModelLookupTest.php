@@ -17,7 +17,7 @@ class HashModelLookupTest extends MediaWikiTestCase {
 	 */
 	protected $storage;
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 
 		$modelData = [

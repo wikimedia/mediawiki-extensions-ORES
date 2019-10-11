@@ -14,7 +14,7 @@ use Title;
  */
 class FetchScoreJobTest extends \MediaWikiTestCase {
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 
 		$this->tablesUsed[] = 'ores_classification';

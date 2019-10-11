@@ -27,7 +27,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 
 	protected $context;
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 
 		$this->setMwGlobals( [

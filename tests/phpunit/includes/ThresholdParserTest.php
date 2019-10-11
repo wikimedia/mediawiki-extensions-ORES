@@ -12,7 +12,7 @@ use Psr\Log\LoggerInterface;
  */
 class ThresholdParserTest extends \MediaWikiTestCase {
 
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 
 		$this->setMwGlobals( [
