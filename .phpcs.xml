@@ -10,11 +10,6 @@
 
 	<rule ref="Squiz.ControlStructures.ControlSignature" />
 	<rule ref="Squiz.Functions.GlobalFunction" />
-	<rule ref="Squiz.WhiteSpace.FunctionSpacing">
-		<properties>
-			<property name="spacing" value="1" />
-		</properties>
-	</rule>
 
 	<file>.</file>
 	<arg name="extensions" value="php" />
