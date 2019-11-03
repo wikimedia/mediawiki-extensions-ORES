@@ -67,7 +67,7 @@ class ThresholdParser {
 	/**
 	 * @param string $model
 	 *
-	 * @return array|bool
+	 * @return (array|bool)[]|false
 	 */
 	public function getFiltersConfig( $model ) {
 		global $wgOresFiltersThresholds;
