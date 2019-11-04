@@ -30,7 +30,7 @@
 	"ores-rcfilters-damaging-likelygood-label": "非常良好",
 	"ores-rcfilters-damaging-likelygood-desc": "高精準度來找出幾乎沒問題的編輯。",
 	"ores-rcfilters-damaging-maybebad-label": "也許有問題",
-	"ores-rcfilters-damaging-maybebad-desc": "低精準度來找出最多缺陷或誹謗內容的編輯。",
+	"ores-rcfilters-damaging-maybebad-desc": "低精準度來找出幾近缺陷或誹謗內容的編輯。",
 	"ores-rcfilters-damaging-likelybad-label": "可能有問題",
 	"ores-rcfilters-damaging-likelybad-desc-low": "中精準度來找出有中間程度問題的編輯。",
 	"ores-rcfilters-damaging-likelybad-desc-high": "高精準度來找出最有問題的編輯。",

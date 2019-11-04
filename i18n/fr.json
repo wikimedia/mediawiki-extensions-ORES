@@ -10,7 +10,8 @@
 			"Thibaut120094",
 			"Framawiki",
 			"Pols12",
-			"Tititou36"
+			"Tititou36",
+			"Verdy p"
 		]
 	},
 	"ores-desc": "Exposer les notes de révision automatisées dans l’interface",
@@ -24,7 +25,7 @@
 	"ores-damaging-maybebad": "Peut avoir des problèmes (marque la plupart des modifications à problème, mais peut inclure des faux positifs)",
 	"ores-damaging-likelybad": "Ont probablement des problèmes (probabilité moyenne)",
 	"ores-damaging-verylikelybad": "Ont certainement des problèmes (marque peu de faux positifs, mais trouve un pourcentage moindre de modifications à problème)",
-	"ores-help-damaging-pref": "Modifier le paramètre de « seuil » pour rendre les options ci-dessous plus ou moins sélectives.",
+	"ores-help-damaging-pref": "Modifier le paramètre de « seuil » pour rendre les options ci-dessous plus ou moins sélectives.",
 	"ores-rcfilters-whats-this-link-text": "En savoir plus",
 	"ores-rcfilters-ores-conflicts-logactions-global": "Le filtre « {{int:rcfilters-filter-logactions-label}} » est en conflit avec au moins un des filtres « Qualité de contribution » ou « Intention de l’utilisateur ». Les prédictions de qualité et d’intention ne sont pas disponibles pour les actions tracées. Les filtres en conflit sont marqués dans la zone des filtres actifs ci-dessus.",
 	"ores-rcfilters-logactions-conflicts-ores": "Ce filtre est en conflit avec au moins un filtre Qualité de la contribution ou Intention de l’utilisateur. Les prédictions de qualité et d’intention ne sont pas disponibles pour les actions tracées.",
@@ -57,8 +58,8 @@
 	"ores-pref-highlight": "Surligner les modifications probablement problématiques avec des couleurs et un « {{int:ores-damaging-letter}} » pour « nécessite une relecture »",
 	"ores-pref-rc-hidenondamaging": "Afficher uniquement les modifications probablement problématiques (et masquer celles probablement bonnes)",
 	"ores-pref-watchlist-hidenondamaging": "Afficher uniquement les modifications paraissant problématiques (et masquer celles probablement bonnes)",
-	"prefs-ores-wl": "Note de révision pour la liste de suivi",
-	"prefs-ores-rc": "Note de la révision pour les Modifications récentes, les Modifications associées, et les Contributions",
+	"prefs-ores-wl": "Note de révision pour la Liste de suivi",
+	"prefs-ores-rc": "Note de la révision pour les Modifications récentes, les Modifications associées et les Contributions",
 	"oresmodels": "Statistiques des modèles ORES",
 	"ores-specialoresmodels-header-filter": "Filtre",
 	"ores-specialoresmodels-header-precision": "Précision",
