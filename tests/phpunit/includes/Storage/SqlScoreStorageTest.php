@@ -323,7 +323,10 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 
 	public function testPurgeRows() {
 		global $wgOresModels;
-		$wgOresModels['articlequality']['enabled'] = true;
+		$oresModelsCopy = $wgOresModels;
+		$oresModelsCopy['articlequality']['enabled'] = true;
+		$this->setMwGlobals( [ 'wgOresModels' => $oresModelsCopy ] );
+
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->insert(
 			'ores_classification',
@@ -406,7 +409,6 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 		];
 
 		$this->assertEquals( $expected, iterator_to_array( $res, false ) );
-		$wgOresModels['articlequality']['enabled'] = false;
 	}
 
 }
