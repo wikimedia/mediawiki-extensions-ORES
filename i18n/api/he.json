@@ -10,7 +10,7 @@
 	"apihelp-query+ores-example-simple": "אחזור נתוני ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "דירוגי ORES עבור הגרסה הזאת.",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "דירוגי ORES עבור הגרסה.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "הוספת דירוגי ORES לעיול.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "הוספת דירוגי ORES לרשומה.",
 	"apihelp-query+watchlist-paramvalue-prop-oresscores": "הוספת דירוגי ORES לעריכה.",
 	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "הוספת דירוגי ORES לעריכה."
 }
