@@ -48,7 +48,7 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 					(object)[
 						'oresc_rev' => '123',
 						'oresc_class' => '1',
-						'oresc_probability' => '0.32',
+						'oresc_probability' => '0.320',
 						'oresc_model' => (string)TestHelper::DAMAGING,
 					]
 				],
@@ -65,12 +65,12 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 					(object)[
 						'oresc_rev' => '123',
 						'oresc_class' => '1',
-						'oresc_probability' => '0.32',
+						'oresc_probability' => '0.320',
 						'oresc_model' => (string)TestHelper::DAMAGING,
 					], (object)[
 						'oresc_rev' => '321',
 						'oresc_class' => '1',
-						'oresc_probability' => '0.12',
+						'oresc_probability' => '0.120',
 						'oresc_model' => (string)TestHelper::DAMAGING,
 					]
 				],
@@ -90,7 +90,7 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 					(object)[
 						'oresc_rev' => '321',
 						'oresc_class' => '1',
-						'oresc_probability' => '0.12',
+						'oresc_probability' => '0.120',
 						'oresc_model' => (string)TestHelper::DAMAGING,
 					]
 				],
@@ -111,7 +111,7 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 					(object)[
 						'oresc_rev' => '123',
 						'oresc_class' => '1',
-						'oresc_probability' => '0.32',
+						'oresc_probability' => '0.320',
 						'oresc_model' => (string)TestHelper::DAMAGING,
 					]
 				],
@@ -130,13 +130,13 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 					(object)[
 						'oresc_rev' => '123',
 						'oresc_class' => '1',
-						'oresc_probability' => '0.32',
+						'oresc_probability' => '0.320',
 						'oresc_model' => (string)TestHelper::DAMAGING,
 					],
 					(object)[
 						'oresc_rev' => '321',
 						'oresc_class' => '1',
-						'oresc_probability' => '0.12',
+						'oresc_probability' => '0.120',
 						'oresc_model' => (string)TestHelper::DAMAGING,
 					]
 				],

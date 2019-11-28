@@ -400,7 +400,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 				'oresc_rev' => '12344',
 				'oresc_model' => (string)self::ARTICLEQUALITY,
 				'oresc_class' => '1',
-				'oresc_probability' => '0.86',
+				'oresc_probability' => '0.860',
 				'oresc_is_predicted' => '1'
 			]
 		];
