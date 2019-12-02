@@ -5,7 +5,8 @@
 			"Incelemeelemani",
 			"Vito Genovese",
 			"Bulgu",
-			"Hedda"
+			"Hedda",
+			"BaRaN6161 TURK"
 		]
 	},
 	"ores-desc": "Arayüzde otomatik gözden geçirme puanlarını gösterir",
@@ -15,6 +16,10 @@
 	"ores-damaging-legend": "Bu düzenleme zarar verici olabilir ve gözden geçirilmelidir ([[:mw:Special:MyLanguage/ORES review tool|daha fazla bilgi]])",
 	"ores-hide-nondamaging-filter": "Muhtemel iyi düzenlemeleri gizle",
 	"ores-pref-damaging": "Kestirim eşiği",
+	"ores-pref-damaging-flag": "Muhtemel problemlerin renklerle ve \"gözden geçirilmesi gerekenler için \"{{int:ores-damaging-letter}}\" ile vurgulayın",
+	"ores-damaging-maybebad": "Sorunlar olabilir (sorunlu düzenlemelerin çoğunu işaretler ancak birçok yanlış pozitif içerir)",
+	"ores-damaging-likelybad": "Olası problemler var (orta olasılık)",
+	"ores-damaging-verylikelybad": "Büyük olasılıkla problemler vardır (birkaç yanlış pozitif işaretler ancak problem düzenlemelerinin daha küçük bir bölümünü bulur)",
 	"ores-help-damaging-pref": "Bu eşik, gözden geçirilmesi gereken düzenlemelerin işaretlenmesinde ORES'in ne kadar hassas olduğunu belirler.",
 	"ores-rcfilters-whats-this-link-text": "Daha fazlasını öğrenin",
 	"ores-rcfilters-ores-conflicts-logactions-global": "\"Günlüğü tutulan işlemler\" süzgeci bir veya daha fazla Katkı Kalitesi veya Kullanıcı Niyeti süzgeciyle çakışıyor. Kalite ve Niyet öngörüleri günlüğü tutulan işlemler için kullanılabilir değildir. Çakışan süzgeçler, üstteki Etkin Süzgeçler alanında belirtilmiştir.",
@@ -42,5 +47,6 @@
 	"ores-pref-highlight": "İzleme Listesi ve Katkılar sayfalarında yüksek olasıklıkla zarar verici düzenlemeleri (ORES kullanarak) vurgula",
 	"ores-pref-rc-hidenondamaging": "Yalnızca olası düzenlemeleri göster (muhtemel iyi düzenlemeleri sakla)",
 	"ores-pref-watchlist-hidenondamaging": "Yalnızca sorunlu olabilecek düzenlemeleri göster (ve yüksek olasılıkla sorunsuz düzenlemeleri gizle)",
+	"prefs-ores-rc": "Son değişiklikler, İlgili değişiklikler ve Katkılar üzerine revizyon puanlaması",
 	"ores-api-show-note": "<kbd>oresreview</kbd> veya <kbd>!oresreview</kbd> kullanılırken, puansız sürümlerin (örn: Çok eski sürümler), puanlansa gözden geçirme gerektirecek olsa bile gözden geçirme gerektirmediği düşünülür."
 }

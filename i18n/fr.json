@@ -58,12 +58,12 @@
 	"ores-pref-highlight": "Surligner les modifications probablement problématiques avec des couleurs et un « {{int:ores-damaging-letter}} » pour « nécessite une relecture »",
 	"ores-pref-rc-hidenondamaging": "Afficher uniquement les modifications probablement problématiques (et masquer celles probablement bonnes)",
 	"ores-pref-watchlist-hidenondamaging": "Afficher uniquement les modifications paraissant problématiques (et masquer celles probablement bonnes)",
-	"prefs-ores-wl": "Notation des révisions sur la Liste de suivi",
-	"prefs-ores-rc": "Notation des révisions sur les pages Modifications récentes, Suivi des pages liées et Contributions",
+	"prefs-ores-wl": "Notation des versions sur la liste de suivi",
+	"prefs-ores-rc": "Notation des versions listées dans les pages Modifications récentes, Suivi des pages liées et Contributions",
 	"oresmodels": "Statistiques des modèles ORES",
 	"ores-specialoresmodels-header-filter": "Filtre",
 	"ores-specialoresmodels-header-precision": "Précision",
 	"ores-specialoresmodels-header-recall": "Rappel",
 	"ores-specialoresmodels-header-thresholdrange": "Intervalle du seuil",
-	"ores-api-show-note": "En utilisant <kbd>oresreview</kbd> ou <kbd>!oresreview</kbd>, les révisions non notées (par ex. les très vieilles révisions) sont considérées comme ne nécessitant pas de relecture, même si elles en nécessiteraient si elles étaient notées."
+	"ores-api-show-note": "En utilisant <kbd>oresreview</kbd> ou <kbd>!oresreview</kbd>, les versions non notées (par ex. les versions très vieilles) sont considérées comme ne nécessitant pas de relecture, même si elles en nécessiteraient si elles étaient notées."
 }
