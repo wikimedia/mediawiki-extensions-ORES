@@ -28,7 +28,7 @@ class DumpThresholds extends Maintenance {
 
 		foreach ( $models as $name => $info ) {
 			$this->output( "\n$name\n" );
-			$this->output( "\n" . print_r( $stats->getThresholds( $name, false ) ) . "\n" );
+			$this->output( "\n" . print_r( $stats->getThresholds( $name, false ), true ) . "\n" );
 		}
 
 		$this->output( "done.\n" );
