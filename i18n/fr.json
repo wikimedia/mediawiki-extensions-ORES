@@ -25,7 +25,7 @@
 	"ores-damaging-maybebad": "Peuvent avoir des problèmes (marque la plupart des modifications à problème, mais inclut beaucoup de faux positifs)",
 	"ores-damaging-likelybad": "Ont probablement des problèmes (probabilité moyenne)",
 	"ores-damaging-verylikelybad": "Ont certainement des problèmes (marque peu de faux positifs, mais trouve un pourcentage moindre de modifications à problème)",
-	"ores-help-damaging-pref": "Modifier le paramètre de « seuil » pour rendre les options ci-dessous plus ou moins sélectives.",
+	"ores-help-damaging-pref": "Modifier le paramètre de « seuil » pour rendre les options ci-dessous plus ou moins sélectives.",
 	"ores-rcfilters-whats-this-link-text": "En savoir plus",
 	"ores-rcfilters-ores-conflicts-logactions-global": "Le filtre « {{int:rcfilters-filter-logactions-label}} » est en conflit avec au moins un des filtres « Qualité de contribution » ou « Intention de l’utilisateur ». Les prédictions de qualité et d’intention ne sont pas disponibles pour les actions tracées. Les filtres en conflit sont marqués dans la zone des filtres actifs ci-dessus.",
 	"ores-rcfilters-logactions-conflicts-ores": "Ce filtre est en conflit avec au moins un filtre Qualité de la contribution ou Intention de l’utilisateur. Les prédictions de qualité et d’intention ne sont pas disponibles pour les actions tracées.",
