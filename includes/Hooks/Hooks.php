@@ -91,7 +91,7 @@ class Hooks {
 		return [
 			'wikiId' => ORESService::getWikiID(),
 			'baseUrl' => ORESService::getFrontendBaseUrl(),
-			'apiVersion' => ORESService::API_VERSION,
+			'apiVersion' => (string)ORESService::API_VERSION,
 		];
 	}
 

@@ -26,7 +26,9 @@ use User;
 
 class Helpers {
 
-	// The oresDamagingPref preference uses these names for historical reasons
+	/**
+	 * @var string[] The oresDamagingPref preference uses these names for historical reasons
+	 */
 	public static $damagingPrefMap = [
 		'hard' => 'maybebad',
 		'soft' => 'likelybad',
