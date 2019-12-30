@@ -15,7 +15,7 @@
 		"ORES\\": "includes/",
 		"ORES\\Maintenance\\": "maintenance/"
 	},
-	"AutoloadClasses": {
+	"TestAutoloadClasses": {
 		"ORES\\Tests\\MockOresServiceBuilder": "tests/phpunit/includes/MockOresServiceBuilder.php",
 		"ORES\\Tests\\TestHelper": "tests/phpunit/includes/TestHelper.php",
 		"ORES\\Tests\\HelpersTest": "tests/phpunit/includes/Hooks/HelpersTest.php"
