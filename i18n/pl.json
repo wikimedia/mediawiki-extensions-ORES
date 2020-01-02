@@ -6,7 +6,8 @@
 			"Woytecr",
 			"WTM",
 			"Railfail536",
-			"Rail"
+			"Rail",
+			"Nux"
 		]
 	},
 	"ores-desc": "Pokaż automatycznie wygenerowaną ocenę wersji",
@@ -50,7 +51,7 @@
 	"ores-pref-highlight": "Podświetlaj edycje mogące być problematyczne kolorami i znacznikiem „{{int:ores-damaging-letter}}” przy edycjach wymagających sprawdzenia",
 	"ores-pref-rc-hidenondamaging": "Pokazuj tylko prawdopodobnie problematyczne edycje (i ukryj prawdopodobnie dobre edycje)",
 	"ores-pref-watchlist-hidenondamaging": "Pokazuj tylko prawdopodobnie problematyczne edycje (i ukryj prawdopodobnie dobre edycje)",
-	"prefs-ores-wl": "Ocienianie wersji w liście obserwowanych",
+	"prefs-ores-wl": "Punktacja zmian na liście obserwowanych",
 	"ores-specialoresmodels-header-filter": "Filtr",
 	"ores-specialoresmodels-header-precision": "Precyzja",
 	"ores-api-show-note": "Podczas używania <kbd>oresreview</kbd> lub <kbd>!oresreview</kbd>, wersje bez oceny (np. bardzo stare wersje) są uznawane jako niewymagające przejrzenia, nawet gdyby zostały oznaczone jako wymagające przejrzenia, jeśli dokonano by oceny."
