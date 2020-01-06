@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Luky001"
+		]
+	},
+	"ores-damaging-title": "Táto úprava potrebuje kontrolu",
+	"ores-damaging-legend": "Táto úprava môže byť problematická a mala by sa skontrolovať ([[:mw:Special:MyLanguage/ORES review tool|ďalšie informácie]])",
+	"ores-rcfilters-damaging-title": "Odhad kvality príspevkov",
+	"ores-rcfilters-damaging-likelygood-label": "Veľmi pravdepodobne dobrá",
+	"ores-rcfilters-damaging-likelygood-desc": "Spoľahlivo nájde väčšinu bezproblémových úprav.",
+	"ores-rcfilters-damaging-likelybad-label": "Pravdepodobne problematická",
+	"ores-rcfilters-damaging-likelybad-desc-high": "S vysokou presnosťou nájde väčšinu problematických úprav.",
+	"ores-rcfilters-damaging-verylikelybad-label": "Veľmi pravdepodobné problematická",
+	"ores-rcfilters-damaging-verylikelybad-desc": "S veľmi vysokou presnosťou odhalí väčšinu očividne chybných alebo škodlivých úprav.",
+	"ores-rcfilters-goodfaith-title": "Odhad úmyslu používateľa",
+	"ores-rcfilters-goodfaith-good-label": "Veľmi pravdepodobne dobrý úmysel",
+	"ores-rcfilters-goodfaith-good-desc": "Spoľahlivo odhalí takmer všetky úpravy s dobrým úmyslom.",
+	"ores-rcfilters-goodfaith-maybebad-label": "Možno zlý úmysel",
+	"ores-rcfilters-goodfaith-bad-label": "Pravdepodobne zlý úmysel",
+	"ores-rcfilters-goodfaith-bad-desc-high": "So strednou presnosťou nájde väčšinu úprav so zlým úmyslom.",
+	"ores-rcfilters-goodfaith-verylikelybad-label": "Veľmi pravdepodobne zlý úmysel"
+}

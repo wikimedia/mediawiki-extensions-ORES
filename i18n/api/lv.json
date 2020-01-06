@@ -4,5 +4,10 @@
 			"Papuass"
 		]
 	},
-	"apihelp-query+ores-example-simple": "Iegūt ORES datus:"
+	"apihelp-query+ores-example-simple": "Iegūt ORES datus:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Versijas ORES vērtējumi.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Versijas ORES vērtējumi.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Pievieno ierakstam ORES vērtējumus.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Pievieno labojumam ORES vērtējumus.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Pievieno labojumam ORES vērtējumus."
 }

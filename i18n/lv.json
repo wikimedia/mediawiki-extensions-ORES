@@ -5,6 +5,7 @@
 			"Silraks"
 		]
 	},
+	"ores-damaging-filter": "$1 visticamāk derīgi labojumi",
 	"ores-damaging-title": "Šim labojumam nepieciešama pārskatīšana",
 	"ores-damaging-legend": "Šajā labojumā var būt problēmas un tas būtu jāpārskata ([[:mw:Special:MyLanguage/ORES review tool|vairāk informācijas]])",
 	"ores-hide-nondamaging-filter": "Paslēpt visticamāk derīgus labojumus",
@@ -17,6 +18,9 @@
 	"ores-rcfilters-damaging-verylikelybad-label": "Visticamāk, ir problēmas",
 	"ores-rcfilters-goodfaith-title": "Lietotāju nodomu prognozes",
 	"ores-pref-rc-hidenondamaging": "Rādīt tikai visticamāk problemātiskus labojumus (un paslēpt visticamāk derīgus labojumus)",
+	"oresmodels": "ORES modeļa statistika",
 	"ores-specialoresmodels-header-filter": "Filtrs",
-	"ores-specialoresmodels-header-precision": "Precizitāte"
+	"ores-specialoresmodels-header-precision": "Precizitāte",
+	"ores-specialoresmodels-header-recall": "Atdeve",
+	"ores-specialoresmodels-header-thresholdrange": "Sliekšņa diapazons"
 }
