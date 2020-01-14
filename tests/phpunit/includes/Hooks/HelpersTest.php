@@ -8,8 +8,8 @@ use ORES\Storage\HashModelLookup;
 use ORES\Storage\ThresholdLookup;
 use RequestContext;
 use SpecialPage;
-use User;
 use Title;
+use User;
 
 /**
  * @group ORES

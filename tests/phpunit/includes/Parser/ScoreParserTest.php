@@ -4,8 +4,8 @@ namespace ORES\Tests\Parser;
 
 use InvalidArgumentException;
 use MediaWikiLangTestCase;
-use ORES\Storage\ScoreParser;
 use ORES\Storage\HashModelLookup;
+use ORES\Storage\ScoreParser;
 
 /**
  * @group ORES

@@ -18,9 +18,9 @@ namespace ORES\Hooks;
 
 use ChangesList;
 use ContribsPager;
+use IContextSource;
 use RequestContext;
 use SpecialContributions;
-use IContextSource;
 
 class ContributionsHooksHandler {
 
@@ -131,7 +131,7 @@ class ContributionsHooksHandler {
 	 * the preference is enabled, disabled otherwise.
 	 *
 	 * @param IContextSource $context
-	 * @return boolean True if non damaging preference should be enabled
+	 * @return bool True if non damaging preference should be enabled
 	 */
 	private static function hideNonDamagingPreference( IContextSource $context ) {
 		$checkbox = $context->getRequest()->getBool( 'hidenondamaging' );

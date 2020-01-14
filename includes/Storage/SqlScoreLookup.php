@@ -16,8 +16,8 @@
 
 namespace ORES\Storage;
 
-use Wikimedia\Rdbms\IResultWrapper;
 use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\IResultWrapper;
 
 class SqlScoreLookup implements StorageScoreLookup {
 

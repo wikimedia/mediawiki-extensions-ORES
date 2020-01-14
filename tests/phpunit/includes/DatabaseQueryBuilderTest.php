@@ -2,8 +2,8 @@
 
 namespace ORES\Tests;
 
-use ORES\Storage\ThresholdLookup;
 use ORES\Storage\DatabaseQueryBuilder;
+use ORES\Storage\ThresholdLookup;
 
 /**
  * @group ORES
