@@ -3,8 +3,8 @@
 namespace ORES\Services;
 
 use MediaWiki\MediaWikiServices;
-use ORES\Storage\DatabaseQueryBuilder;
 use ORES\ORESService;
+use ORES\Storage\DatabaseQueryBuilder;
 use ORES\Storage\ModelLookup;
 use ORES\Storage\ScoreStorage;
 use ORES\Storage\StorageScoreLookup;

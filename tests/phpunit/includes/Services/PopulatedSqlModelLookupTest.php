@@ -5,8 +5,8 @@ namespace ORES\Tests;
 use InvalidArgumentException;
 use MediaWiki\MediaWikiServices;
 use ORES\ORESService;
-use ORES\Storage\HashModelLookup;
 use ORES\Services\PopulatedSqlModelLookup;
+use ORES\Storage\HashModelLookup;
 use ORES\Storage\SqlModelLookup;
 use Psr\Log\NullLogger;
 
@@ -101,7 +101,7 @@ class PopulatedSqlModelLookupTest extends \MediaWikiTestCase {
 			$this->oresServiceMock,
 			new NullLogger()
 		);
-		$this->assertEquals( '0.0.2', $populatedLookup->getModelVersion( 'damaging' ) );
+		$this->assertSame( '0.0.2', $populatedLookup->getModelVersion( 'damaging' ) );
 	}
 
 	public function testGetInvalidModelVersionHash() {
@@ -137,8 +137,8 @@ class PopulatedSqlModelLookupTest extends \MediaWikiTestCase {
 			$this->oresServiceMock,
 			new NullLogger()
 		);
-		$this->assertEquals( '0.4.0', $populatedLookup->getModelVersion( 'damaging' ) );
-		$this->assertEquals( '0.6.1', $populatedLookup->getModelVersion( 'articlequality' ) );
+		$this->assertSame( '0.4.0', $populatedLookup->getModelVersion( 'damaging' ) );
+		$this->assertSame( '0.6.1', $populatedLookup->getModelVersion( 'articlequality' ) );
 	}
 
 	public function testGetInvalidModelVersionSql() {

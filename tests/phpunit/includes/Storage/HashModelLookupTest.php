@@ -59,8 +59,8 @@ class HashModelLookupTest extends MediaWikiTestCase {
 	 * @covers ORES\Storage\HashModelLookup::getModelVersion
 	 */
 	public function testGetModelVersion() {
-		$this->assertEquals( '0.0.1', $this->storage->getModelVersion( 'reverted' ) );
-		$this->assertEquals( '0.0.2', $this->storage->getModelVersion( 'damaging' ) );
+		$this->assertSame( '0.0.1', $this->storage->getModelVersion( 'reverted' ) );
+		$this->assertSame( '0.0.2', $this->storage->getModelVersion( 'damaging' ) );
 	}
 
 	/**

@@ -18,6 +18,7 @@
 
 namespace ORES\Hooks;
 
+use Exception;
 use Hooks;
 use JobQueueGroup;
 use MediaWiki\Logger\LoggerFactory;
@@ -26,7 +27,6 @@ use Psr\Log\LoggerInterface;
 use RecentChange;
 use RequestContext;
 use WebRequest;
-use Exception;
 
 class RecentChangeSaveHookHandler {
 

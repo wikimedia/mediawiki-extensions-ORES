@@ -16,9 +16,9 @@
 
 namespace ORES\Hooks\Api;
 
-use ApiResult;
 use ApiQuery;
 use ApiQueryBase;
+use ApiResult;
 use ORES\Hooks\Helpers;
 use ORES\Services\ORESServices;
 

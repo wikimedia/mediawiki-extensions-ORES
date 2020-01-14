@@ -3,9 +3,9 @@
 namespace ORES\Specials;
 
 use ORES\Services\ORESServices;
+use ORES\Storage\ModelLookup;
 use ORES\Storage\ThresholdLookup;
 use TemplateParser;
-use ORES\Storage\ModelLookup;
 
 class SpecialORESModels extends \SpecialPage {
 

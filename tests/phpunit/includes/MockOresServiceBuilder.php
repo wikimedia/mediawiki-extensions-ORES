@@ -2,9 +2,8 @@
 
 namespace ORES\Tests;
 
-use PHPUnit\Framework\TestCase;
-
 use ORES\ORESService;
+use PHPUnit\Framework\TestCase;
 
 class MockOresServiceBuilder {
 

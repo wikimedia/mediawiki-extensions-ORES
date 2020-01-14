@@ -433,7 +433,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 		$maybebadFilter = $damagingFilterGroup->getFilter( 'maybebad' );
 		$this->assertNotNull( $maybebadFilter );
 
-		$this->assertEquals( '', $damagingFilterGroup->getDefault() );
+		$this->assertSame( '', $damagingFilterGroup->getDefault() );
 
 		$filterJsData = $damagingFilterGroup->getFilter( 'likelybad' )->getJsData();
 		$this->assertEquals( 'c4', $filterJsData['defaultHighlightColor'] );
