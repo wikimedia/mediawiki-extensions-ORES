@@ -21,7 +21,7 @@
 	"ores-damaging-likelybad": "Olası problemler var (orta olasılık)",
 	"ores-damaging-verylikelybad": "Büyük olasılıkla problemler vardır (birkaç yanlış pozitif işaretler ancak problem düzenlemelerinin daha küçük bir bölümünü bulur)",
 	"ores-help-damaging-pref": "Aşağıdaki seçenekleri daha geniş veya daha seçici yapmak için \"eşik\" ayarını değiştirin.",
-	"ores-rcfilters-whats-this-link-text": "Daha fazlasını öğrenin",
+	"ores-rcfilters-whats-this-link-text": "Daha fazla bilgi",
 	"ores-rcfilters-ores-conflicts-logactions-global": "\"{{int:rcfilters-filtre-logactions-label}}\" filtresi, bir veya daha fazla Katkı Kalitesi veya Kullanıcı Amaçlı filtrelerle çakışıyor. Günlüğe kaydedilen eylemlerde Kalite ve Amaç tahminleri kullanılamaz. Çakışan filtreler yukarıdaki Aktif Filtreler alanında işaretlenmiştir.",
 	"ores-rcfilters-logactions-conflicts-ores": "Bu süzgeç bir veya daha fazla Katkı Kalitesi veya Kullanıcı Niyeti süzgeciyle çakışıyor. Kalite ve Niyet öngörüleri günlüğü tutulan işlemler için kullanılamaz.",
 	"ores-rcfilters-damaging-title": "Katkı kalitesi öngörüleri",
