@@ -570,10 +570,11 @@ class ChangesListHooksHandler {
 			return false;
 		}
 
-		Helpers::addRowData( $context, $rcObj->getAttribute( 'rc_this_oldid' ), (float)$score,
+		$score = (float)$score;
+		Helpers::addRowData( $context, $rcObj->getAttribute( 'rc_this_oldid' ), $score,
 			'damaging' );
 
-		return $score && $score >= $threshold && !$patrolled;
+		return $score >= $threshold && !$patrolled;
 	}
 
 	private static function makeApplicableCallback( $model, array $levelData ) {
