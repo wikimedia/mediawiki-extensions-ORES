@@ -18,6 +18,7 @@ use User;
  * @covers \ORES\Hooks\Api\ApiQueryORES
  */
 class ApiIntegrationTest extends \ApiTestCase {
+	private $ORESuser;
 
 	public function __construct( $name = null, array $data = [], $dataName = '' ) {
 		parent::__construct( $name, $data, $dataName );
@@ -28,8 +29,7 @@ class ApiIntegrationTest extends \ApiTestCase {
 	protected function setUp() : void {
 		parent::setUp();
 
-		self::$users['ORESApiIntegrationTestUser'] = $this->getMutableTestUser();
-		$this->doLogin( 'ORESApiIntegrationTestUser' );
+		$this->ORESuser = $this->getMutableTestUser()->getUser();
 
 		TestHelper::clearOresTables();
 
@@ -77,9 +77,10 @@ class ApiIntegrationTest extends \ApiTestCase {
 
 	public function testListRecentChanges_returnsMetaORES() {
 		$result = $this->doApiRequest(
-				[ 'action' => 'query', 'meta' => 'ores' ],
-				null,
-				false
+			[ 'action' => 'query', 'meta' => 'ores' ],
+			null,
+			false,
+			$this->ORESuser
 		);
 		$this->assertArrayHasKey( 'query', $result[0] );
 		$this->assertArrayHasKey( 'ores', $result[0]['query'] );
@@ -125,7 +126,7 @@ class ApiIntegrationTest extends \ApiTestCase {
 	}
 
 	private function getLoggedInTestUser() {
-		return self::$users['ORESApiIntegrationTestUser']->getUser();
+		return $this->ORESuser;
 	}
 
 	private function doListRecentChangesRequest( array $params = [] ) {
@@ -135,7 +136,8 @@ class ApiIntegrationTest extends \ApiTestCase {
 				$params
 			),
 			null,
-			false
+			false,
+			$this->ORESuser
 		);
 	}
 
