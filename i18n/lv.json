@@ -26,5 +26,6 @@
 	"ores-specialoresmodels-header-filter": "Filtrs",
 	"ores-specialoresmodels-header-precision": "Precizitāte",
 	"ores-specialoresmodels-header-recall": "Atdeve",
-	"ores-specialoresmodels-header-thresholdrange": "Sliekšņa diapazons"
+	"ores-specialoresmodels-header-thresholdrange": "Sliekšņa diapazons",
+	"ores-api-show-note": "Izmantojot <kbd>oresreview</kbd> vai <kbd>!oresreview</kbd>, versijas bez vērtējuma (piemēram, ļoti vecas versijas) tiek uzskatītas par tādām, kam nav nepieciešama pārbaude, pat ja vērtēšanas rezultātā tā būtu nepieciešama."
 }
