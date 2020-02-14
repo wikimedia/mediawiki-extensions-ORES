@@ -4,7 +4,8 @@
 			"GR",
 			"Thodoris",
 			"KATRINE1992",
-			"Nikosgranturismogt"
+			"Nikosgranturismogt",
+			"Geraki"
 		]
 	},
 	"ores-damaging-legend": "This edit may have problems and should be reviewed ([[:mw:Special:MyLanguage/ORES review tool|more info]])",
@@ -15,7 +16,7 @@
 	"ores-pref-rc-hidenondamaging": "Εμφάνιση μόνο το πιθανό πρόβλημα να επεξεργάζεται (και να κρύψει μάλλον καλές επεξεργασίες)",
 	"ores-pref-watchlist-hidenondamaging": "Εμφάνιση μόνο το πιθανό πρόβλημα να επεξεργάζεται (και να κρύψει μάλλον καλές επεξεργασίες)",
 	"prefs-ores-wl": "Σκορ επανάληψης στη λίστα Παρακολούθησης",
-	"prefs-ores-rc": "Σκορ (βαθμολογία)επανάληψης σε Πρόσφατες αλλαγές, Σχετικές αλλαγές, και Συνεισφορές",
+	"prefs-ores-rc": "Σκορ (βαθμολογία) αναθεώρησης σε Πρόσφατες αλλαγές και Σχετικές αλλαγές",
 	"ores-specialoresmodels-header-precision": "Ακρίβεια",
 	"ores-specialoresmodels-header-recall": "Ανάκληση"
 }
