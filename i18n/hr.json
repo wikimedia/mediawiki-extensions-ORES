@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"MaGa",
-			"Bugoslav"
+			"Bugoslav",
+			"Neptune, the Mystic"
 		]
 	},
 	"ores-desc": "Izlaganje automatiziranih ocjena izmjena u sučelju",
@@ -42,8 +43,8 @@
 	"ores-pref-highlight": "Označi potencijalno problematična uređivanja bojama i sa slovom »{{int:ores-damaging-letter}}« za „potrebna provjera”",
 	"ores-pref-rc-hidenondamaging": "Prikaži samo vjerojatno problematične izmjene (i sakrij vjerojatno dobre)",
 	"ores-pref-watchlist-hidenondamaging": "Prikaži samo vjerojatno problematične izmjene (i sakrij vjerojatno dobre)",
-	"prefs-ores-wl": "Ocjena izmjena na popisu praćenja",
-	"prefs-ores-rc": "Ocjena izmjena na nedavnim i srodnim promjenama te doprinosima",
+	"prefs-ores-wl": "Ocjena izmjena na popisu praćenja i u doprinosima",
+	"prefs-ores-rc": "Ocjena izmjena na nedavnim i srodnim promjenama",
 	"oresmodels": "Statistika ORES modela",
 	"ores-specialoresmodels-header-filter": "Filtar",
 	"ores-specialoresmodels-header-precision": "Preciznost",
