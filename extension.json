@@ -27,69 +27,27 @@
 		"includes/ServiceWiring.php"
 	],
 	"Hooks": {
-		"APIGetAllowedParams": [
-			"ORES\\Hooks\\Api\\ApiHooksHandler::onAPIGetAllowedParams"
-		],
-		"ApiQueryBaseBeforeQuery": [
-			"ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryBaseBeforeQuery"
-		],
-		"ApiQueryBaseAfterQuery": [
-			"ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryBaseAfterQuery"
-		],
-		"ApiQueryBaseProcessRow": [
-			"ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryBaseProcessRow"
-		],
-		"ApiQueryWatchlistExtractOutputData": [
-			"ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryWatchlistExtractOutputData"
-		],
-		"ApiQueryWatchlistPrepareWatchedItemQueryServiceOptions": [
-			"ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryWatchlistPrepareWatchedItemQueryServiceOptions"
-		],
-		"WatchedItemQueryServiceExtensions": [
-			"ORES\\Hooks\\Api\\WatchedItemQueryServiceExtension::onWatchedItemQueryServiceExtensions"
-		],
-		"BeforePageDisplay": [
-			"ORES\\Hooks\\Hooks::onBeforePageDisplay"
-		],
-		"ChangesListSpecialPageStructuredFilters": [
-			"ORES\\Hooks\\ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters"
-		],
-		"ChangesListSpecialPageQuery": [
-			"ORES\\Hooks\\ChangesListHooksHandler::onChangesListSpecialPageQuery"
-		],
-		"ContribsPager::getQueryInfo": [
-			"ORES\\Hooks\\ContributionsHooksHandler::onContribsGetQueryInfo"
-		],
-		"EnhancedChangesListModifyBlockLineData": [
-			"ORES\\Hooks\\ChangesListHooksHandler::onEnhancedChangesListModifyBlockLineData"
-		],
-		"EnhancedChangesListModifyLineData": [
-			"ORES\\Hooks\\ChangesListHooksHandler::onEnhancedChangesListModifyLineData"
-		],
-		"GetPreferences": [
-			"ORES\\Hooks\\PreferencesHookHandler::onGetPreferences"
-		],
-		"LoadExtensionSchemaUpdates": [
-			"ORES\\Hooks\\Hooks::onLoadExtensionSchemaUpdates"
-		],
-		"OldChangesListRecentChangesLine": [
-			"ORES\\Hooks\\ChangesListHooksHandler::onOldChangesListRecentChangesLine"
-		],
-		"RecentChange_save": [
-			"ORES\\Hooks\\RecentChangeSaveHookHandler::onRecentChange_save"
-		],
-		"RecentChangesPurgeRows": [
-			"ORES\\Hooks\\Hooks::onRecentChangesPurgeRows"
-		],
-		"SpecialContributions::formatRow::flags": [
-			"ORES\\Hooks\\ContributionsHooksHandler::onSpecialContributionsFormatRowFlags"
-		],
-		"ContributionsLineEnding": [
-			"ORES\\Hooks\\ContributionsHooksHandler::onContributionsLineEnding"
-		],
-		"SpecialContributions::getForm::filters": [
-			"ORES\\Hooks\\ContributionsHooksHandler::onSpecialContributionsGetFormFilters"
-		]
+		"APIGetAllowedParams": "ORES\\Hooks\\Api\\ApiHooksHandler::onAPIGetAllowedParams",
+		"ApiQueryBaseBeforeQuery": "ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryBaseBeforeQuery",
+		"ApiQueryBaseAfterQuery": "ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryBaseAfterQuery",
+		"ApiQueryBaseProcessRow": "ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryBaseProcessRow",
+		"ApiQueryWatchlistExtractOutputData": "ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryWatchlistExtractOutputData",
+		"ApiQueryWatchlistPrepareWatchedItemQueryServiceOptions": "ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryWatchlistPrepareWatchedItemQueryServiceOptions",
+		"WatchedItemQueryServiceExtensions": "ORES\\Hooks\\Api\\WatchedItemQueryServiceExtension::onWatchedItemQueryServiceExtensions",
+		"BeforePageDisplay": "ORES\\Hooks\\Hooks::onBeforePageDisplay",
+		"ChangesListSpecialPageStructuredFilters": "ORES\\Hooks\\ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters",
+		"ChangesListSpecialPageQuery": "ORES\\Hooks\\ChangesListHooksHandler::onChangesListSpecialPageQuery",
+		"ContribsPager::getQueryInfo": "ORES\\Hooks\\ContributionsHooksHandler::onContribsGetQueryInfo",
+		"EnhancedChangesListModifyBlockLineData": "ORES\\Hooks\\ChangesListHooksHandler::onEnhancedChangesListModifyBlockLineData",
+		"EnhancedChangesListModifyLineData": "ORES\\Hooks\\ChangesListHooksHandler::onEnhancedChangesListModifyLineData",
+		"GetPreferences": "ORES\\Hooks\\PreferencesHookHandler::onGetPreferences",
+		"LoadExtensionSchemaUpdates": "ORES\\Hooks\\Hooks::onLoadExtensionSchemaUpdates",
+		"OldChangesListRecentChangesLine": "ORES\\Hooks\\ChangesListHooksHandler::onOldChangesListRecentChangesLine",
+		"RecentChange_save": "ORES\\Hooks\\RecentChangeSaveHookHandler::onRecentChange_save",
+		"RecentChangesPurgeRows": "ORES\\Hooks\\Hooks::onRecentChangesPurgeRows",
+		"SpecialContributions::formatRow::flags": "ORES\\Hooks\\ContributionsHooksHandler::onSpecialContributionsFormatRowFlags",
+		"ContributionsLineEnding": "ORES\\Hooks\\ContributionsHooksHandler::onContributionsLineEnding",
+		"SpecialContributions::getForm::filters": "ORES\\Hooks\\ContributionsHooksHandler::onSpecialContributionsGetFormFilters"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "modules",
