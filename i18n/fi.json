@@ -25,7 +25,7 @@
 	"ores-damaging-verylikelybad": "Sisältää erittäin todennäköisesti ongelmia (vähemmän vääriä osumia, mutta löytää vähemmän ongelmallisia muokkauksia)",
 	"ores-help-damaging-pref": "Aseta taso, jolla järjestelmä merkkaa muokkauksia \"{{int:ores-damaging-letter}}\" \"huomiota kaipaavaksi\" tuoreet muutokset-, tarkkailulista- ja käyttäjän muokkaukset -sivuilla. Asetuksella asetetaan myös raja-arvo \"näytä ainoastaan ongelmalliset muokkaukset\" -valinnalle.",
 	"ores-rcfilters-whats-this-link-text": "Lisätietoja",
-	"ores-rcfilters-ores-conflicts-logactions-global": "Loki-suodatusvalinta on ristiriitainen yhden tai useamman muokkauksen laatua tai käyttäjän tarkoitusta ennustavan suodatinvalinnan kanssa. Nämä valinnat eivät ole käytössä lokimerkinnöille. Ristiriitaiset suodattimet on merkitty yläpuolella olevassa \"Aktiiviset suodattimet\" -kohdassa.",
+	"ores-rcfilters-ores-conflicts-logactions-global": "\"{{int:rcfilters-filter-logactions-label}}\"-suodatusvalinta on ristiriitainen yhden tai useamman muokkauksen laatua tai käyttäjän tarkoitusta ennustavan suodatinvalinnan kanssa. Nämä valinnat eivät ole käytössä lokimerkinnöille. Ristiriitaiset suodattimet on merkitty yläpuolella olevassa \"Aktiiviset suodattimet\" -kohdassa.",
 	"ores-rcfilters-logactions-conflicts-ores": "Tämä suodatin on ristiriidassa yhden tai useamman muokkauksen laatu tai -tarkoitus suodattimen kanssa. Muokkauksen laatu tai -tarkoitus suodattimet eivät ole käytettävissä lokimerkinnöissä.",
 	"ores-rcfilters-damaging-title": "Muokkauksen laadun ennustaminen",
 	"ores-rcfilters-damaging-whats-this-header": "Tietoja muokkauksen laatuennusteesta",
@@ -56,7 +56,7 @@
 	"ores-pref-rc-hidenondamaging": "Näytä vain todennäköisesti ongelmalliset muokkaukset (piilottaa todennäköisesti hyvät muokkaukset)",
 	"ores-pref-watchlist-hidenondamaging": "Näytä vain todennäköisesti ongelmalliset muokkaukset (piilottaa todennäköisesti hyvät muokkaukset)",
 	"prefs-ores-wl": "Versioiden pistearviointi tarkkailulistalla",
-	"prefs-ores-rc": "Versioiden pistearviointi tuoreissa muutoksissa, liittyvissä muutoksissa ja muokkauksissa",
+	"prefs-ores-rc": "Versioiden pistearviointi tuoreissa muutoksissa ja liittyvissä muutoksissa",
 	"oresmodels": "ORES-mallin tilastot",
 	"ores-api-show-note": "Käytettäessä <kbd>oresreview</kbd> tai <kbd>!oresreview</kbd>-valintoja, niin versiot ilman pisteitä (esim. hyvin vanhat versiot) näytetään aina sellaisina etteivät ne vaadi tarkistusta, vaikka jos arviointi suoritettaisiin, niin tarkistus tarvittaisiin."
 }
