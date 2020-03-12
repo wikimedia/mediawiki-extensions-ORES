@@ -17,7 +17,7 @@
 	"ores-damaging-verylikelybad": "Sisältää erittäin todennäköisesti ongelmia (vähemmän vääriä osumia, mutta löytää vähemmän ongelmallisia mookkauksia)",
 	"ores-rcfilters-whats-this-link-text": "Lue lissää",
 	"ores-rcfilters-ores-conflicts-logactions-global": "\"{{int:rcfilters-filter-logactions-label}}\"-suodatusvalinta oon ristiriitainen yhden tai useamman muokkauksen laatua tai käyttäjän tarkoitusta ennustavan filtterivalinnan kanssa. Nämä valinnat eivät ole käytössä lokimerkinnöille. Ristiriitaiset filtterit oon merkitty yläpuolella olevassa \"Aktiiviset suodattimet\" -kohdassa.",
-	"ores-rcfilters-logactions-conflicts-ores": "Tämä filtteri oon ristiriidassa yhden tai useamman muokkauksen laatu tai -tarkoitus suodattimen kanssa. Mookkauksen laatu tai -tarkoitus filtterit eivät ole käytettävissä lokimerkinnöissä.",
+	"ores-rcfilters-logactions-conflicts-ores": "Tämä filtteri oon ristiriidassa yhden tai useamman mookkauksen laatu tai -tarkoitus filtterin kanssa. Mookkauksen laatu tai -tarkoitus filtterit eivät ole käytettävissä lokimerkinnöissä.",
 	"ores-rcfilters-damaging-title": "Mookkauksen laadun ennustaminen",
 	"ores-rcfilters-damaging-whats-this-header": "Tietoja mookkauksen laatuennusteesta",
 	"ores-rcfilters-damaging-whats-this-body": "Nämä ennusteet oon tehty koneoppimiseen perustuvalla ohjelmistolla, jota oon opetettu suurella määrällä ihmisten pisteyttämiä mookkauksia. Tiukemmat filtterit löytävät vähemmän vääriä osumia, mutta useampi virheellinen mookkaus pääsee ohi suodattimesta. Vähemmän tarkat filtterit löytävät useammin kohteen, mutta niissä oon enemmän virheellisiä osumia.",
