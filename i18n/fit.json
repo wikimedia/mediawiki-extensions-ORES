@@ -7,7 +7,7 @@
 	"ores-desc": "Näytä automaattinen versuunien pisteytys",
 	"ores-damaging-filter": "$1 todennäköisesti hyvät muutokset",
 	"ores-damaging-letter": "r",
-	"ores-damaging-title": "Tämä mookkaus täytyy tarkastaa",
+	"ores-damaging-title": "Tämä mookkaus häätyy tarkastaa",
 	"ores-damaging-legend": "Tässä mookkauksessa voi olla prupleemia ja se tulisi tarkastaa ([[:mw:Special:MyLanguage/ORES review tool|lisätietoja]])",
 	"ores-hide-nondamaging-filter": "Piilota todennäkösesti hyvät mookkaukset",
 	"ores-pref-damaging": "Ennustekynnys",
