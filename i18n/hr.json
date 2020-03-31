@@ -38,6 +38,7 @@
 	"ores-rcfilters-goodfaith-maybebad-desc": "Pronalazi većinu zlonamjernih izmjena, ali s manjom točnošću.",
 	"ores-rcfilters-goodfaith-bad-label": "Vjerojatno zlonamjerno",
 	"ores-rcfilters-goodfaith-bad-desc-low": "Sa srednjom točnošću pronalazi srednji udjel zlonamjernih izmjena.",
+	"ores-rcfilters-goodfaith-bad-desc-high": "Sa srednjom preciznošću, pronalazi većinu zlonamjernih uređivanja.",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Vrlo vjerojatno zlonamjerno",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Vrlo i iznimno točan u pronalaženju najočitijih zlonamjernih izmjena.",
 	"ores-pref-highlight": "Označi potencijalno problematična uređivanja bojama i sa slovom »{{int:ores-damaging-letter}}« za „potrebna provjera”",
