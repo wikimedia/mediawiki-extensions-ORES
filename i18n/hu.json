@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tgr",
 			"Bencemac",
 			"Misibacsi",
-			"Tacsipacsi"
+			"Tacsipacsi",
+			"Tgr"
 		]
 	},
 	"ores-desc": "Gépi lapváltozat-pontszámok megjelenítése a felhasználói felületen",

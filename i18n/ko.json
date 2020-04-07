@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Revi",
-			"Priviet",
-			"Kwj2772",
-			"Ykhwong",
-			"Jerrykim306",
+			"Bluemersen",
 			"Jay94ks",
-			"Bluemersen"
+			"Jerrykim306",
+			"Kwj2772",
+			"Priviet",
+			"Revi",
+			"Ykhwong"
 		]
 	},
 	"ores-damaging-filter": "정상적인 편집 $1",

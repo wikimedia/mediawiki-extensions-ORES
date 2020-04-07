@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Siebrand",
-			"Sjoerddebruin",
 			"Dinosaur918",
 			"Mainframe98",
+			"Mar(c)",
 			"Romaine",
-			"Mar(c)"
+			"Siebrand",
+			"Sjoerddebruin"
 		]
 	},
 	"ores-desc": "Automatische terugdraaiscores weergeven in de interface",

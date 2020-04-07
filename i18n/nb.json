@@ -2,9 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Jeblad",
+			"Jon Harald Søby",
 			"Kjetil r",
-			"Orf3us",
-			"Jon Harald Søby"
+			"Orf3us"
 		]
 	},
 	"ores-desc": "Vis automatisk revisjonsskår i grensesnittet",

@@ -1,15 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"McSalama",
 			"4shadoww",
+			"McSalama",
+			"Nike",
+			"Pxos",
+			"Pyscowicz",
 			"SMAUG",
 			"Stryn",
-			"Nike",
-			"Zache",
-			"Pyscowicz",
-			"Pxos",
-			"Valtlait"
+			"Valtlait",
+			"Zache"
 		]
 	},
 	"ores-desc": "Näytä automaattinen versioiden pisteytys",

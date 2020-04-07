@@ -1,19 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
-			"Краснорядцева Елена",
-			"Iniquity",
-			"MaxBioHazard",
-			"Sealle",
 			"Cat1987",
-			"Okras",
-			"Redredsonia",
 			"Facenapalm",
-			"Patrick Star",
+			"Iniquity",
+			"Kaganer",
+			"MaxBioHazard",
 			"Movses",
+			"Okras",
+			"Patrick Star",
 			"Putnik",
+			"Redredsonia",
+			"Sealle",
 			"Vlad5250",
-			"Kaganer"
+			"Краснорядцева Елена"
 		]
 	},
 	"ores-desc": "Отображать в интерфейсе автоматическую оценку правок",

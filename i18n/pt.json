@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vitorvicentevalente",
-			"He7d3r",
 			"Fúlvio",
-			"Hamilton Abreu"
+			"Hamilton Abreu",
+			"He7d3r",
+			"Vitorvicentevalente"
 		]
 	},
 	"ores-desc": "Expõe na interface a pontuação automática das edições",

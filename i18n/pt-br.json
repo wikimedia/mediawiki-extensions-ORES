@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Eduardo Addad de Oliveira",
+			"Felipe L. Ewald",
+			"Hamilton Abreu",
 			"Luk3",
 			"Peter Fernando",
 			"TheEduGobi",
-			"Felipe L. Ewald",
-			"Walesson",
-			"Eduardo Addad de Oliveira",
-			"Hamilton Abreu"
+			"Walesson"
 		]
 	},
 	"ores-desc": "Expõe pontuações automatizadas de revisões na interface",

@@ -1,17 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
+			"Framawiki",
 			"Gomoko",
-			"Wladek92",
 			"Momo50WM",
+			"Od1n",
+			"Pols12",
+			"Thibaut120094",
+			"Tititou36",
 			"Trizek (WMF)",
 			"Urhixidur",
-			"Od1n",
-			"Thibaut120094",
-			"Framawiki",
-			"Pols12",
-			"Tititou36",
-			"Verdy p"
+			"Verdy p",
+			"Wladek92"
 		]
 	},
 	"ores-desc": "Affiche les notes automatisées des révisions dans l’interface.",

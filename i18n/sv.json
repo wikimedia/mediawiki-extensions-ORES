@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jopparn",
-			"WikiPhoenix",
 			"Hannibal-reserv",
+			"Jopparn",
 			"Larske",
 			"Lokal Profil",
-			"Skalman"
+			"Skalman",
+			"WikiPhoenix"
 		]
 	},
 	"ores-desc": "Visa automatiska redigeringsbetyg i gränssnittet",

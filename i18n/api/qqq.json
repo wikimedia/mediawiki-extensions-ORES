@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Raymond",
-			"Purodha",
-			"Umherirrender",
 			"Amire80",
 			"Liuxinyu970226",
-			"Wladek92",
-			"Mormegil"
+			"Mormegil",
+			"Purodha",
+			"Raymond",
+			"Umherirrender",
+			"Wladek92"
 		]
 	},
 	"apihelp-query+ores-description": "{{doc-apihelp-description|query+ores}}",

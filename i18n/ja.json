@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sujiniku",
-			"Otokoume",
-			"Omotecho",
-			"Fryed-peach",
+			"Afaz",
 			"Delim",
-			"Afaz"
+			"Fryed-peach",
+			"Omotecho",
+			"Otokoume",
+			"Sujiniku"
 		]
 	},
 	"ores-desc": "自動化された更新評価値をインタフェース内で表示",

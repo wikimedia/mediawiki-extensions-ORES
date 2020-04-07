@@ -1,17 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe",
-			"Yllelder",
-			"Julián L",
-			"Fitoschido",
-			"Luzcaru",
-			"Dgstranz",
-			"Pacoexe",
-			"KATRINE1992",
 			"Adamw",
+			"Dgstranz",
+			"Fitoschido",
+			"Julián L",
+			"KATRINE1992",
+			"Luzcaru",
+			"Macofe",
 			"MarcoAurelio",
-			"Tiberius1701"
+			"Pacoexe",
+			"Tiberius1701",
+			"Yllelder"
 		]
 	},
 	"ores-desc": "Expone puntuaciones automatizadas de revisiones en la interfaz",

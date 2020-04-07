@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Trizek (WMF)",
 			"4shadoww",
-			"Jdforrester"
+			"Jdforrester",
+			"Trizek (WMF)"
 		]
 	},
 	"ores-hide-nondamaging-filter": "Hide probably good edits",
