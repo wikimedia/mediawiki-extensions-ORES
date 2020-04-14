@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ainali",
 			"Hannibal-reserv",
 			"Jopparn",
 			"Larske",
@@ -53,8 +54,10 @@
 	"ores-pref-highlight": "Markera troligt problematiska redigeringar med färger och ett \"{{int:ores-damaging-letter}}\" för \"behöver granskning\"",
 	"ores-pref-rc-hidenondamaging": "Visa endast troligt problematiska redigeringar (och dölj redigeringar med troligtvis goda avsikter)",
 	"ores-pref-watchlist-hidenondamaging": "Visa endast troligt problematiska redigeringar (och dölj redigeringar med troligtvis goda avsikter)",
-	"prefs-ores-wl": "Redigeringsbetyg i Bevakningslistan",
-	"prefs-ores-rc": "Redigeringsbetyg på Senaste ändringar, Relaterade ändringar och Bidrag",
+	"prefs-ores-wl": "Redigeringsbetyg i bevakningslistan och bidrag",
+	"prefs-ores-rc": "Redigeringsbetyg på Senaste ändringar och Relaterade ändringar",
+	"oresmodels": "ORES-modellstatistik",
+	"ores-specialoresmodels-header-filter": "Filter",
 	"ores-specialoresmodels-header-precision": "Precision",
 	"ores-specialoresmodels-header-thresholdrange": "Tröskelsintervall",
 	"ores-api-show-note": "När du använder <kbd>oresreview</kbd> eller <kbd>!oresreview</kbd>, kommer redigeringar utan betyg (t.ex. väldigt gamla redigeringar) betraktas som att ytterligare granskning inte är nödvändig, även om de skulle ha behövt granskning ifall de hade betygsatts."
