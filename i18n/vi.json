@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Minh Nguyen"
+			"Minh Nguyen",
+			"Phjtieudoc"
 		]
 	},
 	"ores-desc": "Trình bày các điểm thay đổi tự động trong giao diện",
@@ -9,7 +10,7 @@
 	"ores-damaging-letter": "h",
 	"ores-damaging-title": "Sửa đổi này cần được xem lại",
 	"ores-damaging-legend": "Sửa đổi này có thể có vấn đề và cần được xem lại ([[:mw:Special:MyLanguage/ORES review tool|thêm thông tin]])",
-	"ores-hide-nondamaging-filter": "Ẩn các sửa đổi có lẽ tốt",
+	"ores-hide-nondamaging-filter": "Ẩn sửa đổi có lẽ tốt",
 	"ores-pref-damaging": "Ngưỡng dự đoán",
 	"ores-pref-damaging-flag": "Tô màu các sửa đổi có lẽ có vấn đề và đánh dấu “{{int:ores-damaging-letter}}” có nghĩa “cần được xem lại”",
 	"ores-damaging-maybebad": "Có thể có vấn đề (đánh dấu phần nhiều sửa đổi có vấn đề nhưng cũng bao gồm nhiều kết quả dương tính giả)",
