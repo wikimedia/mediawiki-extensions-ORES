@@ -13,8 +13,8 @@ class RangeTest extends \PHPUnit\Framework\TestCase {
 	public function testConstructor() {
 		$r = new Range( 1, 2 );
 
-		$this->assertEquals( 1, $r->getMin() );
-		$this->assertEquals( 2, $r->getMax() );
+		$this->assertSame( 1, $r->getMin() );
+		$this->assertSame( 2, $r->getMax() );
 	}
 
 	public function testConstructorEx() {
