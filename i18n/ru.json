@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Cat1987",
+			"Diman Russkov",
 			"Facenapalm",
 			"Iniquity",
 			"Kaganer",
@@ -61,7 +62,7 @@
 	"ores-pref-rc-hidenondamaging": "Показывать только вероятно проблемные правки (и скрыть возможно хорошие)",
 	"ores-pref-watchlist-hidenondamaging": "Показывать только вероятно проблемные правки (и скрыть возможно хорошие)",
 	"prefs-ores-wl": "Revision scoring в списке наблюдения",
-	"prefs-ores-rc": "Оценка изменений в Свежих правках, Связанных правках и Вкладе",
+	"prefs-ores-rc": "Оценка изменений в Свежих правках и Связанных правках",
 	"oresmodels": "Статистика модели ORES",
 	"ores-specialoresmodels-header-filter": "Фильтр",
 	"ores-specialoresmodels-header-precision": "Точность",
