@@ -142,9 +142,9 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
 		];
 		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
 		$status = TestHelper::doPageEdit( $this->user, $target, 'Create the page' );
-		$revision = $status->getValue()['revision'];
+		$revisionRecord = $status->getValue()['revision-record'];
 		TestHelper::insertOresData(
-			$revision,
+			$revisionRecord,
 			[ 'damaging' => 0.4 ]
 		);
 		$items = [
@@ -154,7 +154,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
 					'201801020304' ),
 				[
 					'rc_type' => RC_NEW,
-					'rc_this_oldid' => $revision->getId(),
+					'rc_this_oldid' => $revisionRecord->getId(),
 				],
 			],
 		];

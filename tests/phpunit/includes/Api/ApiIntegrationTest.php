@@ -108,7 +108,7 @@ class ApiIntegrationTest extends \ApiTestCase {
 		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
 		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
 		TestHelper::insertOresData(
-			$status->getValue()['revision'],
+			$status->getValue()['revision-record'],
 			[ 'damaging' => 0.4, 'goodfaith' => 0.7 ]
 		);
 
@@ -145,7 +145,7 @@ class ApiIntegrationTest extends \ApiTestCase {
 		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
 		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
 		TestHelper::insertOresData(
-			$status->getValue()['revision'],
+			$status->getValue()['revision-record'],
 			[ 'damaging' => 0.6, 'goodfaith' => 0.3 ]
 		);
 
@@ -159,14 +159,14 @@ class ApiIntegrationTest extends \ApiTestCase {
 		$this->assertSame( 'new', $item['type'] );
 		$this->assertSame( 0, $item['ns'] );
 		$this->assertSame( 'ORESApiIntegrationTestPage', $item['title'] );
-		$this->assertSame( $status->getValue()['revision']->getId(), $item['revid'] );
+		$this->assertSame( $status->getValue()['revision-record']->getId(), $item['revid'] );
 	}
 
 	public function testListRecentChanges_showOresReviewNotNeedingReview() {
 		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
 		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
 		TestHelper::insertOresData(
-			$status->getValue()['revision'],
+			$status->getValue()['revision-record'],
 			[ 'damaging' => 0.4, 'goodfaith' => 0.7 ]
 		);
 
@@ -181,7 +181,7 @@ class ApiIntegrationTest extends \ApiTestCase {
 		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
 		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
 		TestHelper::insertOresData(
-			$status->getValue()['revision'],
+			$status->getValue()['revision-record'],
 			[ 'damaging' => 0.6, 'goodfaith' => 0.3 ]
 		);
 
@@ -196,7 +196,7 @@ class ApiIntegrationTest extends \ApiTestCase {
 		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
 		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
 		TestHelper::insertOresData(
-			$status->getValue()['revision'],
+			$status->getValue()['revision-record'],
 			[ 'damaging' => 0.4, 'goodfaith' => 0.7 ]
 		);
 
@@ -210,7 +210,7 @@ class ApiIntegrationTest extends \ApiTestCase {
 		$this->assertSame( 'new', $item['type'] );
 		$this->assertSame( 0, $item['ns'] );
 		$this->assertSame( 'ORESApiIntegrationTestPage', $item['title'] );
-		$this->assertSame( $status->getValue()['revision']->getId(), $item['revid'] );
+		$this->assertSame( $status->getValue()['revision-record']->getId(), $item['revid'] );
 	}
 
 	private function getWatchedItemStore() {
@@ -242,7 +242,7 @@ class ApiIntegrationTest extends \ApiTestCase {
 		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
 		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
 		TestHelper::insertOresData(
-			$status->getValue()['revision'],
+			$status->getValue()['revision-record'],
 			[ 'damaging' => 0.4, 'goodfaith' => 0.7 ]
 		);
 		$this->watchPages( $this->getLoggedInTestUser(), [ $target ] );
@@ -264,7 +264,7 @@ class ApiIntegrationTest extends \ApiTestCase {
 		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
 		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
 		TestHelper::insertOresData(
-			$status->getValue()['revision'],
+			$status->getValue()['revision-record'],
 			[ 'damaging' => 0.6, 'goodfaith' => 0.3 ]
 		);
 		$this->watchPages( $this->getLoggedInTestUser(), [ $target ] );
@@ -279,14 +279,14 @@ class ApiIntegrationTest extends \ApiTestCase {
 		$this->assertSame( 'new', $item['type'] );
 		$this->assertSame( 0, $item['ns'] );
 		$this->assertSame( 'ORESApiIntegrationTestPage', $item['title'] );
-		$this->assertSame( $status->getValue()['revision']->getId(), $item['revid'] );
+		$this->assertSame( $status->getValue()['revision-record']->getId(), $item['revid'] );
 	}
 
 	public function testListWatchlist_showOresReviewNotNeedingReview() {
 		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
 		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
 		TestHelper::insertOresData(
-			$status->getValue()['revision'],
+			$status->getValue()['revision-record'],
 			[ 'damaging' => 0.4, 'goodfaith' => 0.7 ]
 		);
 		$this->watchPages( $this->getLoggedInTestUser(), [ $target ] );
@@ -302,7 +302,7 @@ class ApiIntegrationTest extends \ApiTestCase {
 		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
 		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
 		TestHelper::insertOresData(
-			$status->getValue()['revision'],
+			$status->getValue()['revision-record'],
 			[ 'damaging' => 0.6, 'goodfaith' => 0.3 ]
 		);
 		$this->watchPages( $this->getLoggedInTestUser(), [ $target ] );
@@ -318,7 +318,7 @@ class ApiIntegrationTest extends \ApiTestCase {
 		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
 		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
 		TestHelper::insertOresData(
-			$status->getValue()['revision'],
+			$status->getValue()['revision-record'],
 			[ 'damaging' => 0.4, 'goodfaith' => 0.7 ]
 		);
 		$this->watchPages( $this->getLoggedInTestUser(), [ $target ] );
@@ -333,7 +333,7 @@ class ApiIntegrationTest extends \ApiTestCase {
 		$this->assertSame( 'new', $item['type'] );
 		$this->assertSame( 0, $item['ns'] );
 		$this->assertSame( 'ORESApiIntegrationTestPage', $item['title'] );
-		$this->assertSame( $status->getValue()['revision']->getId(), $item['revid'] );
+		$this->assertSame( $status->getValue()['revision-record']->getId(), $item['revid'] );
 	}
 
 }

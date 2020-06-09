@@ -4,8 +4,8 @@ namespace ORES\Tests;
 
 use ContentHandler;
 use MediaWiki\Linker\LinkTarget;
+use MediaWiki\Revision\RevisionRecord;
 use ORES\Services\ORESServices;
-use Revision;
 use Title;
 use User;
 use WikiPage;
@@ -65,7 +65,7 @@ class TestHelper {
 	}
 
 	/**
-	 * @param Revision|int $revision
+	 * @param RevisionRecord|int $revision
 	 * @param float[] $scores
 	 */
 	public static function insertOresData( $revision, array $scores ) {
