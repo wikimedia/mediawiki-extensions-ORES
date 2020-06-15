@@ -23,6 +23,7 @@
 	"ores-rcfilters-goodfaith-title": "Lietotāju nodomu prognozes",
 	"ores-rcfilters-goodfaith-whats-this-header": "Par lietotāju nodomu prognozēm",
 	"ores-rcfilters-goodfaith-conflicts-logactions": "Lietotāja nodomu prognozes nav pieejamas dažu veidu izmaiņām, tāpēc šis filtrs konfliktē ar {{PLURAL:$2|šiem izmaiņu veidu filtriem|šo izmaiņu veidu filtru|šiem izmaiņu veidu filtriem}}: $1",
+	"ores-pref-highlight": "Izcelt iespējamos problemātiskos labojumus ar krāsām un atzīmēt ar \"{{int:ores-damaging-letter}}\" tos, kam nepieciešama pārskatīšana",
 	"ores-pref-rc-hidenondamaging": "Rādīt tikai visticamāk problemātiskus labojumus (un paslēpt visticamāk derīgus labojumus)",
 	"ores-pref-watchlist-hidenondamaging": "Rādīt tikai visticamāk problemātiskus labojumus (un paslēpt visticamāk derīgus labojumus)",
 	"oresmodels": "ORES modeļa statistika",
