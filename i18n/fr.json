@@ -18,7 +18,7 @@
 	"ores-damaging-filter": "$1 modifications probablement bonnes",
 	"ores-damaging-letter": "r",
 	"ores-damaging-title": "Cette modification doit être revue",
-	"ores-damaging-legend": "Cette modification pourrait avoir des problèmes et devrait être revue ([[:mw:Special:MyLanguage/ORES review tool|plus d'information]])",
+	"ores-damaging-legend": "Cette modification peut présenter des problèmes et doit être relue ([[:mw:Special:MyLanguage/ORES review tool|informations supplémentaires]])",
 	"ores-hide-nondamaging-filter": "Cacher les modifications probablement bonnes",
 	"ores-pref-damaging": "Seuil de prédiction",
 	"ores-pref-damaging-flag": "Met en surbrillance à l’aide de couleurs les modifications qui semblent problématiques et ajoute un « {{int:ores-damaging-letter}} » pour signifier « nécessite une relecture »",
