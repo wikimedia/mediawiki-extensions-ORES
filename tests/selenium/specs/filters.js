@@ -1,4 +1,6 @@
-var assert = require( 'assert' ),
+'use strict';
+
+const assert = require( 'assert' ),
 	RecentChangesPage = require( '../pageobjects/recentchanges.page' );
 
 describe( 'ORES', function () {

@@ -20,10 +20,15 @@ $( function () {
 		score = scores[ revid ].damaging;
 		for ( i = 0; i < levels.length; i++ ) {
 			if ( score > thresholds[ levels[ i ] ] ) {
+				// The following classes are used here:
+				// * mw-changeslist-damaging-maybebad
+				// * mw-changeslist-damaging-likelybad
+				// * mw-changeslist-damaging-verylikelybad
 				$( this ).addClass( 'mw-changeslist-damaging-' + levels[ i ] );
 				// $(this) might be collapsed and invisible, in that case highlight
 				// the group block as well we rely on the fact that more severe
 				// classes have higher-specificity selectors
+				// eslint-disable-next-line mediawiki/class-doc
 				$( this ).parents( '.mw-enhanced-rc.mw-collapsible' )
 					.addClass( 'damaging mw-changeslist-damaging-' + levels[ i ] );
 				break;
