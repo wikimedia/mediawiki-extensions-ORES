@@ -59,6 +59,7 @@ class BackfillPageTriageQueue extends Maintenance {
 			'page_is_redirect' => 0,
 			'oresc_probability' => null,
 		] );
+		$iterator->setCaller( __METHOD__ );
 
 		foreach ( $iterator as $rows ) {
 			$revIds = array_map( function ( $row ) {
