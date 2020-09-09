@@ -531,7 +531,7 @@ class ChangesListHooksHandler {
 			if ( Helpers::isDamagingFlagEnabled( $changesList ) ) {
 				$classes[] = 'damaging';
 
-				$separator = ' <span class="mw-changeslist-separator">. .</span> ';
+				$separator = ' <span class="mw-changeslist-separator"></span> ';
 				if ( strpos( $s, $separator ) === false ) {
 					return;
 				}
