@@ -96,7 +96,6 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 	 */
 	public function testOnChangesListSpecialPageQuery( array $modelConfig, array $expectedQuery ) {
 		$this->setMwGlobals( [
-			'wgUser' => $this->user,
 			'wgOresModels' => $modelConfig
 		] );
 
