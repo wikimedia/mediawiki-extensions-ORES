@@ -18,6 +18,7 @@ namespace ORES\Hooks;
 
 use Exception;
 use IContextSource;
+use MediaWiki\MediaWikiServices;
 use ORES\Services\ORESServices;
 use SpecialRecentChanges;
 use SpecialWatchlist;
@@ -215,14 +216,20 @@ class Helpers {
 	}
 
 	public static function isRCStructuredUiEnabled( IContextSource $context ) {
-		$page = new SpecialRecentChanges();
+		/** @var SpecialRecentChanges $page */
+		$page = MediaWikiServices::getInstance()->getSpecialPageFactory()
+			->getPage( 'Recentchanges' );
+		'@phan-var SpecialRecentChanges $page';
 		$page->setContext( $context );
 
 		return $page->isStructuredFilterUiEnabled();
 	}
 
 	public static function isWLStructuredUiEnabled( IContextSource $context ) {
-		$page = new SpecialWatchlist();
+		/** @var SpecialWatchlist $page */
+		$page = MediaWikiServices::getInstance()->getSpecialPageFactory()
+			->getPage( 'Watchlist' );
+		'@phan-var SpecialWatchlist $page';
 		$page->setContext( $context );
 
 		return $page->isStructuredFilterUiEnabled();
