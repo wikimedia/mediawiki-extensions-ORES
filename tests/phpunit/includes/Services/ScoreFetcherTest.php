@@ -12,9 +12,9 @@ use ORES\Storage\HashModelLookup;
  */
 class ScoreFetcherTest extends \MediaWikiTestCase {
 
-	const REVERTED = 2;
-	const DAMAGING = 3;
-	const GOODFAITH = 4;
+	private const REVERTED = 2;
+	private const DAMAGING = 3;
+	private const GOODFAITH = 4;
 
 	public function setUp() : void {
 		parent::setUp();

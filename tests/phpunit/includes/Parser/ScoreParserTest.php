@@ -13,10 +13,10 @@ use ORES\Storage\ScoreParser;
  */
 class ScoreParserTest extends MediaWikiLangTestCase {
 
-	const REVERTED = 2;
-	const DAMAGING = 3;
-	const GOODFAITH = 4;
-	const ARTICLEQUALITY = 5;
+	private const REVERTED = 2;
+	private const DAMAGING = 3;
+	private const GOODFAITH = 4;
+	private const ARTICLEQUALITY = 5;
 
 	public function processRevisionProvider() {
 		return [

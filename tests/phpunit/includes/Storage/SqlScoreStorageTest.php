@@ -16,10 +16,10 @@ use Psr\Log\NullLogger;
  */
 class SqlScoreStorageTest extends MediaWikiLangTestCase {
 
-	const GOODFAITH = 1;
-	const REVERTED = 2;
-	const DAMAGING = 3;
-	const ARTICLEQUALITY = 4;
+	private const GOODFAITH = 1;
+	private const REVERTED = 2;
+	private const DAMAGING = 3;
+	private const ARTICLEQUALITY = 4;
 
 	/**
 	 * @var SqlScoreStorage

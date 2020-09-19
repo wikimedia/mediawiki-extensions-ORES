@@ -12,9 +12,9 @@ use WikiPage;
 
 class TestHelper {
 
-	const DAMAGING_OLD = 1;
-	const REVERTED = 2;
-	const DAMAGING = 3;
+	public const DAMAGING_OLD = 1;
+	public const REVERTED = 2;
+	public const DAMAGING = 3;
 
 	public static function getTablesUsed() {
 		$tablesUsed = [

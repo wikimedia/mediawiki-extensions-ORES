@@ -29,7 +29,7 @@ use WebRequest;
  */
 class ORESService {
 
-	const API_VERSION = 3;
+	public const API_VERSION = 3;
 
 	/**
 	 * @var LoggerInterface

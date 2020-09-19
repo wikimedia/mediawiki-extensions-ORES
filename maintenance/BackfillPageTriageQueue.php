@@ -17,7 +17,7 @@ require_once "$IP/maintenance/Maintenance.php";
 
 class BackfillPageTriageQueue extends Maintenance {
 
-	const ORES_RECOMMENDED_BATCH_SIZE = 50;
+	private const ORES_RECOMMENDED_BATCH_SIZE = 50;
 
 	public function __construct() {
 		parent::__construct();
