@@ -1,7 +1,5 @@
 # Building & testing
 /node_modules
-/tests/selenium/log
-
 # Composer
 /vendor
 /composer.lock
