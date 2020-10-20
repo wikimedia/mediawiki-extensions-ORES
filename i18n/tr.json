@@ -11,7 +11,7 @@
 		]
 	},
 	"ores-desc": "Arayüzde otomatik gözden geçirme puanlarını gösterir",
-	"ores-damaging-filter": "yüksek olasılıkla sorunsuz düzenlemeleri $1",
+	"ores-damaging-filter": "Yüksek olasılıkla sorunsuz düzenlemeleri $1",
 	"ores-damaging-letter": "g",
 	"ores-damaging-title": "Bu düzenlemenin gözden geçirilmesi gerekiyor",
 	"ores-damaging-legend": "Bu düzenlemede sorunlar olabilir ve gözden geçirilmesi gerekir ([[:mw:Special:MyLanguage/ORES review tool|daha fazla bilgi]])",

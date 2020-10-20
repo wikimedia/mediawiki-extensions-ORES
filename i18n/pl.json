@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Chrumps",
+			"Matma Rex",
 			"Nux",
 			"Rail",
 			"Railfail536",
@@ -52,6 +53,7 @@
 	"ores-pref-rc-hidenondamaging": "Pokazuj tylko prawdopodobnie problematyczne edycje (i ukryj prawdopodobnie dobre edycje)",
 	"ores-pref-watchlist-hidenondamaging": "Pokazuj tylko prawdopodobnie problematyczne edycje (i ukryj prawdopodobnie dobre edycje)",
 	"prefs-ores-wl": "Punktacja zmian na liście obserwowanych i stronach wkładu",
+	"prefs-ores-rc": "Punktacja zmian na ostatnich zmianach i zmianach w linkowanych",
 	"ores-specialoresmodels-header-filter": "Filtr",
 	"ores-specialoresmodels-header-precision": "Precyzja",
 	"ores-api-show-note": "Podczas używania <kbd>oresreview</kbd> lub <kbd>!oresreview</kbd>, wersje bez oceny (np. bardzo stare wersje) są uznawane jako niewymagające przejrzenia, nawet gdyby zostały oznaczone jako wymagające przejrzenia, jeśli dokonano by oceny."
