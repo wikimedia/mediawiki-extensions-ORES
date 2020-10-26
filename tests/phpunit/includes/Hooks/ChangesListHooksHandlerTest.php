@@ -8,6 +8,7 @@ use EnhancedChangesList;
 use FauxRequest;
 use FormOptions;
 use IContextSource;
+use MediaWiki\MediaWikiServices;
 use ORES\Hooks\ChangesListHooksHandler;
 use ORES\Storage\HashModelLookup;
 use RCCacheEntry;
@@ -374,7 +375,8 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 	 * @group Broken
 	 */
 	public function testOnChangesListSpecialPageStructuredFilters_Recentchangeslinked() {
-		$changesListSpecialPage = new \SpecialRecentChangesLinked();
+		$changesListSpecialPage = MediaWikiServices::getInstance()->getSpecialPageFactory()
+			->getPage( 'Recentchangeslinked' );
 		$changesListSpecialPage->setContext( $this->context );
 		$wrappedClsp = TestingAccessWrapper::newFromObject( $changesListSpecialPage );
 		$wrappedClsp->registerFilters();
@@ -392,7 +394,8 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 	 * @covers ORES\Hooks\ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters
 	 */
 	public function testOnChangesListSpecialPageStructuredFilters_Recentchanges() {
-		$changesListSpecialPage = new \SpecialRecentChanges();
+		$changesListSpecialPage = MediaWikiServices::getInstance()->getSpecialPageFactory()
+			->getPage( 'Recentchanges' );
 		$changesListSpecialPage->setContext( $this->context );
 		$wrappedClsp = TestingAccessWrapper::newFromObject( $changesListSpecialPage );
 		$wrappedClsp->registerFilters();
@@ -417,7 +420,8 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 		$this->user->setOption( 'oresWatchlistHideNonDamaging', 0 );
 		$this->user->setOption( 'oresHighlight', 1 );
 
-		$changesListSpecialPage = new \SpecialWatchlist();
+		$changesListSpecialPage = MediaWikiServices::getInstance()->getSpecialPageFactory()
+			->getPage( 'Watchlist' );
 		$changesListSpecialPage->setContext( $this->context );
 		$wrappedClsp = TestingAccessWrapper::newFromObject( $changesListSpecialPage );
 		$wrappedClsp->registerFilters();
