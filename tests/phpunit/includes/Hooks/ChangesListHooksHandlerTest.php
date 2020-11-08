@@ -59,21 +59,18 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 	}
 
 	protected function makeRcEntry( $isDamaging = false ) {
-		$row = new \stdClass();
-		$row->ores_damaging_threshold = 0.2;
-		if ( $isDamaging ) {
-			$row->ores_damaging_score = 0.3;
-		} else {
-			$row->ores_damaging_score = 0.1;
-		}
-		$row->rc_patrolled = 0;
-		$row->rc_timestamp = '20150921134808';
-		$row->rc_deleted = 0;
-		$row->rc_comment = '';
-		$row->rc_comment_text = '';
-		$row->rc_comment_data = null;
-		$row->rc_user = 1;
-		$row->rc_user_text = 'Test user';
+		$row = (object)[
+			'ores_damaging_threshold' => 0.2,
+			'ores_damaging_score' => $isDamaging ? 0.3 : 0.1,
+			'rc_patrolled' => 0,
+			'rc_timestamp' => '20150921134808',
+			'rc_deleted' => 0,
+			'rc_comment' => '',
+			'rc_comment_text' => '',
+			'rc_comment_data' => null,
+			'rc_user' => 1,
+			'rc_user_text' => 'Test user',
+		];
 
 		$rc = RecentChange::newFromRow( $row );
 		return $rc;

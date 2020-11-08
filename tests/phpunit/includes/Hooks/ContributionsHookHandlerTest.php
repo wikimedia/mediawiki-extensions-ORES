@@ -140,10 +140,11 @@ class ContributionsHookHandlerTest extends \MediaWikiTestCase {
 	 * @covers ORES\Hooks\ContributionsHooksHandler::onSpecialContributionsFormatRowFlags
 	 */
 	public function testOnSpecialContributionsFormatRowFlagsDamaging() {
-		$row = new \stdClass();
-		$row->ores_damaging_threshold = 0.2;
-		$row->ores_damaging_score = 0.3;
-		$row->rev_id = 0;
+		$row = (object)[
+			'ores_damaging_threshold' => 0.2,
+			'ores_damaging_score' => 0.3,
+			'rev_id' => 0,
+		];
 
 		$flags = [];
 
@@ -157,10 +158,11 @@ class ContributionsHookHandlerTest extends \MediaWikiTestCase {
 	 * @covers ORES\Hooks\ContributionsHooksHandler::onSpecialContributionsFormatRowFlags
 	 */
 	public function testOnSpecialContributionsFormatRowFlagsNonDamaging() {
-		$row = new \stdClass();
-		$row->ores_damaging_threshold = 0.4;
-		$row->ores_damaging_score = 0.3;
-		$row->rev_id = 0;
+		$row = (object)[
+			'ores_damaging_threshold' => 0.4,
+			'ores_damaging_score' => 0.3,
+			'rev_id' => 0,
+		];
 
 		$flags = [];
 
@@ -188,10 +190,11 @@ class ContributionsHookHandlerTest extends \MediaWikiTestCase {
 			->method( 'getContext' )
 			->will( $this->returnValue( $this->context ) );
 
-		$row = new \stdClass();
-		$row->ores_damaging_threshold = 0.2;
-		$row->ores_damaging_score = 0.3;
-		$row->rev_id = 0;
+		$row = (object)[
+			'ores_damaging_threshold' => 0.2,
+			'ores_damaging_score' => 0.3,
+			'rev_id' => 0,
+		];
 
 		$ret = [];
 		$classes = [];
@@ -221,10 +224,11 @@ class ContributionsHookHandlerTest extends \MediaWikiTestCase {
 			->method( 'getContext' )
 			->will( $this->returnValue( $this->context ) );
 
-		$row = new \stdClass();
-		$row->ores_damaging_threshold = 0.4;
-		$row->ores_damaging_score = 0.3;
-		$row->rev_id = 0;
+		$row = (object)[
+			'ores_damaging_threshold' => 0.4,
+			'ores_damaging_score' => 0.3,
+			'rev_id' => 0,
+		];
 
 		$ret = [];
 		$classes = [];

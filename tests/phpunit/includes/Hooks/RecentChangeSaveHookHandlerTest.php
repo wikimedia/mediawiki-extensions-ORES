@@ -13,7 +13,7 @@ use RecentChange;
  */
 class RecentChangeSaveHookHandlerTest extends \MediaWikiTestCase {
 
-	public function setUp() : void {
+	protected function setUp() : void {
 		parent::setUp();
 		$mockOresService = MockOresServiceBuilder::getORESServiceMock( $this );
 		$this->setService( 'ORESService', $mockOresService );

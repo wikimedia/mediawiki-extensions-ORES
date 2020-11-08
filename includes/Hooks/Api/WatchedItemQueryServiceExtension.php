@@ -126,8 +126,8 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 
 		if ( $revids ) {
 			$scores = ApiHooksHandler::loadScoresForRevisions( $revids );
-			foreach ( $items as $i => $dummy ) {
-				$rcInfo = &$items[$i][1];
+			foreach ( $items as &$item ) {
+				$rcInfo = &$item[1];
 				if ( (int)$rcInfo['rc_type'] !== RC_EDIT && (int)$rcInfo['rc_type'] !== RC_NEW ) {
 					continue;
 				}

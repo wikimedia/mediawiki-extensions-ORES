@@ -184,13 +184,19 @@ class ThresholdLookup {
 	) {
 		foreach ( $config as $bound => $formula ) {
 			$outcome = ( $bound === 'min' ) ? 'true' : 'false';
-			if ( false !== strpos( $formula, '@' ) ) {
+			if ( strpos( $formula, '@' ) !== false ) {
 				$calculatedThresholds[] = "statistics.thresholds.{$outcome}.\"{$formula}\"";
 				$formulae[$outcome][] = $formula;
 			}
 		}
 	}
 
+	/**
+	 * @param array $data
+	 * @param string[] $keyPath
+	 *
+	 * @return array
+	 */
 	protected function extractKeyPath( $data, $keyPath ) {
 		$current = $data;
 		foreach ( $keyPath as $key ) {

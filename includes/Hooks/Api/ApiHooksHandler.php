@@ -45,8 +45,8 @@ class ApiHooksHandler {
 	 * The actual implementations of these new parameters are handled by the
 	 * various hook functions below and by \ORES\WatchedItemQueryServiceExtension.
 	 *
-	 * @param ApiBase $module Module
-	 * @param array &$params Parameter data
+	 * @param ApiBase $module
+	 * @param array &$params
 	 * @param int $flags zero or OR-ed flags like ApiBase::GET_VALUES_FOR_HELP
 	 */
 	public static function onAPIGetAllowedParams( ApiBase $module, array &$params, $flags ) {
@@ -253,7 +253,7 @@ class ApiHooksHandler {
 	 * details of that data.
 	 *
 	 * @param ApiQueryBase $module
-	 * @param object $row
+	 * @param \stdClass $row
 	 * @param array &$data
 	 * @param array &$hookData Inter-hook communication
 	 * @return bool False to stop processing the result set

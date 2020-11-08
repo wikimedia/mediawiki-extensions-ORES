@@ -35,18 +35,17 @@ class ApiQueryORES extends ApiQueryBase {
 	}
 
 	public function execute() {
-		global $wgOresBaseUrl, $wgOresExcludeBots,
-			$wgOresEnabledNamespaces, $wgOresWikiId;
+		$enabledNamespaces = $this->getConfig()->get( 'OresEnabledNamespaces' );
 
 		$result = $this->getResult();
 		$data = [
-			'baseurl' => $wgOresBaseUrl,
-			'wikiid' => $wgOresWikiId ?: wfWikiID(),
+			'baseurl' => $this->getConfig()->get( 'OresBaseUrl' ),
+			'wikiid' => $this->getConfig()->get( 'OresWikiId' ) ?: wfWikiID(),
 			'models' => [],
-			'excludebots' => (bool)$wgOresExcludeBots,
+			'excludebots' => (bool)$this->getConfig()->get( 'OresExcludeBots' ),
 			'damagingthresholds' => Helpers::getDamagingThresholds(),
-			'namespaces' => $wgOresEnabledNamespaces
-				? array_keys( array_filter( $wgOresEnabledNamespaces ) )
+			'namespaces' => $enabledNamespaces
+				? array_keys( array_filter( $enabledNamespaces ) )
 				: \MWNamespace::getValidNamespaces(),
 		];
 		ApiResult::setArrayType( $data['models'], 'assoc' );
@@ -71,6 +70,9 @@ class ApiQueryORES extends ApiQueryBase {
 		return [];
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getExamplesMessages() {
 		return [
 			'action=query&meta=ores'
