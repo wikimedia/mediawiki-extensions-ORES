@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"ArenaL5",
 			"Banjo",
 			"Elisardojm"
 		]
@@ -49,7 +50,7 @@
 	"ores-pref-highlight": "Resaltar as edicións que probablemente teñen problemas con cores e un «{{int:ores-damaging-letter}}» para «necesita revisión»",
 	"ores-pref-rc-hidenondamaging": "Amosar só edicións probablemente problemáticas (e agochar as que probablemente son boas)",
 	"ores-pref-watchlist-hidenondamaging": "Amosar só edicións probablemente problemáticas (e agochar as que probablemente son boas)",
-	"prefs-ores-wl": "Clasificación de edicións nas páxinas vixiadas",
-	"prefs-ores-rc": "Clasificación de edicións nos cambios recentes, cambios relacionados e contribucións",
+	"prefs-ores-wl": "Clasificación de edicións nas páxinas vixiadas e en contribucións",
+	"prefs-ores-rc": "Clasificación de edicións nos cambios recentes e cambios relacionados",
 	"ores-api-show-note": "Ó usar <kbd>oresreview</kbd> ou <kbd>!oresreview</kbd>, as edicións sen puntuación (por exemplo, edicións moi antigas) considérase que non precisan ser revisadas aínda que si o precisarían en caso de ser avaliadas."
 }

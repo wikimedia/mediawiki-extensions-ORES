@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Adamw",
+			"ArenaL5",
 			"Dgstranz",
 			"Fitoschido",
 			"Julián L",
@@ -58,8 +59,8 @@
 	"ores-pref-highlight": "Resaltar ediciones potencialmente problemáticas con colores y con una «{{int:ores-damaging-letter}}» para aquellas que «necesitan revisión»",
 	"ores-pref-rc-hidenondamaging": "Mostrar solo las modificaciones que probablemente tienen problemas (y ocultar las probablemente buenas)",
 	"ores-pref-watchlist-hidenondamaging": "Mostrar solo las modificaciones que probablemente tienen problemas (y ocultar las probablemente buenas)",
-	"prefs-ores-wl": "Puntuación de las revisiones en la lista de seguimiento",
-	"prefs-ores-rc": "Puntuación de las revisiones en cambios recientes, cambios relacionados y contribuciones",
+	"prefs-ores-wl": "Puntuación de las revisiones en la lista de seguimiento y contribuciones",
+	"prefs-ores-rc": "Puntuación de las revisiones en cambios recientes y cambios relacionados",
 	"oresmodels": "Estadísticas del modelo ORES",
 	"ores-specialoresmodels-header-filter": "Filtro",
 	"ores-specialoresmodels-header-precision": "Precisión",
