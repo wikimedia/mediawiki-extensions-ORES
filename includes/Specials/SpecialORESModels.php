@@ -57,7 +57,7 @@ class SpecialORESModels extends \SpecialPage {
 				'header-thresholdrange' => $this->msg( 'ores-specialoresmodels-header-thresholdrange' )->text(),
 			 ]
 		) );
-		$this->getOutput()->addModuleStyles( 'ext.ores.specialoresmodels.styles' );
+		$this->getOutput()->addModuleStyles( 'ext.ores.styles' );
 	}
 
 	private function getFilterData( $modelName ) {

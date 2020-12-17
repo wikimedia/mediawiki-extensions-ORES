@@ -65,14 +65,10 @@
 			]
 		},
 		"ext.ores.styles": {
-			"styles": "ext.ores.styles.css",
-			"targets": [
-				"desktop",
-				"mobile"
-			]
-		},
-		"ext.ores.specialoresmodels.styles": {
-			"styles": "ext.ores.specialoresmodels.less",
+			"styles": [
+				"ext.ores.styles.css",
+				"ext.ores.specialoresmodels.less"
+			],
 			"targets": [
 				"desktop",
 				"mobile"
