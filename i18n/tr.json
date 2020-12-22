@@ -6,6 +6,7 @@
 			"Hedda",
 			"Incelemeelemani",
 			"JackUKElliott",
+			"MuratTheTurkish",
 			"Sezgin İbiş",
 			"Vito Genovese"
 		]
@@ -20,7 +21,7 @@
 	"ores-pref-damaging-flag": "Muhtemel problemlerin renklerle ve \"gözden geçirilmesi gerekenler için \"{{int:ores-damaging-letter}}\" ile vurgulayın",
 	"ores-damaging-maybebad": "Sorunlar olabilir (sorunlu düzenlemelerin çoğunu işaretler ancak birçok yanlış pozitif içerir)",
 	"ores-damaging-likelybad": "Olası problemler var (orta olasılık)",
-	"ores-damaging-verylikelybad": "Büyük olasılıkla problemler vardır (birkaç yanlış pozitif işaretler ancak problem düzenlemelerinin daha küçük bir bölümünü bulur)",
+	"ores-damaging-verylikelybad": "Büyük olasılıkla sorunlar vardır (birkaç yanlış pozitifi işaretler ancak sorunlu düzenlemelerin daha küçük bir % bulur)",
 	"ores-help-damaging-pref": "Aşağıdaki seçenekleri daha geniş veya daha seçici yapmak için \"eşik\" ayarını değiştirin.",
 	"ores-rcfilters-whats-this-link-text": "Daha fazla bilgi",
 	"ores-rcfilters-ores-conflicts-logactions-global": "\"{{int:rcfilters-filtre-logactions-label}}\" filtresi, bir veya daha fazla Katkı Kalitesi veya Kullanıcı Amaçlı filtrelerle çakışıyor. Günlüğe kaydedilen eylemlerde Kalite ve Amaç tahminleri kullanılamaz. Çakışan filtreler yukarıdaki Aktif Filtreler alanında işaretlenmiştir.",
