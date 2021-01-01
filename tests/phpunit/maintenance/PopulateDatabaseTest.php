@@ -100,7 +100,7 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 				],
 				[],
 				[
-					'--batch', '1',
+					'--batch-size', '1',
 					'--number', '1',
 				],
 			],
@@ -146,7 +146,7 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 				],
 				[],
 				[
-					'--batch', '1',
+					'--batch-size', '1',
 				],
 			],
 		];

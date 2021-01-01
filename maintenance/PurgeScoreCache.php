@@ -36,16 +36,17 @@ class PurgeScoreCache extends Maintenance {
 			$models = array_keys( ORESServices::getModelLookup()->getModels() );
 		}
 
+		$batchSize = $this->getBatchSize();
 		$this->output( "Purging ORES scores:\n" );
 		foreach ( $models as $model ) {
 			if ( $this->hasOption( 'old' ) ) {
-				$deletedRows = $this->purgeOld( $model, $this->mBatchSize );
+				$deletedRows = $this->purgeOld( $model, $batchSize );
 				$description = 'old rows';
 			} elseif ( $this->hasOption( 'all' ) ) {
-				$deletedRows = $this->purge( $model, true, $this->mBatchSize );
+				$deletedRows = $this->purge( $model, true, $batchSize );
 				$description = 'scores from all model versions';
 			} else {
-				$deletedRows = $this->purge( $model, false, $this->mBatchSize );
+				$deletedRows = $this->purge( $model, false, $batchSize );
 				$description = 'scores from old model versions';
 			}
 			if ( $deletedRows ) {

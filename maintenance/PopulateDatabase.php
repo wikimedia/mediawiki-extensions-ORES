@@ -20,11 +20,6 @@ class PopulateDatabase extends Maintenance {
 	/**
 	 * @var int|null
 	 */
-	private $batchSize;
-
-	/**
-	 * @var int|null
-	 */
 	private $apiBatchSize;
 
 	/**
@@ -39,8 +34,8 @@ class PopulateDatabase extends Maintenance {
 		$this->addDescription( 'Populate ores_classification table by scoring ' .
 			'the latest edits in recentchanges table that are not scored' );
 		$this->addOption( 'number', 'Number of revisions to be scored', false, true, 'n' );
-		$this->addOption( 'batch', 'Batch size for the SELECT SQL query', false, true, 'b' );
 		$this->addOption( 'apibatch', 'Batch size for the API request', false, true );
+		$this->setBatchSize( 5000 );
 	}
 
 	public function execute() {
@@ -49,7 +44,7 @@ class PopulateDatabase extends Maintenance {
 		$scoreFetcher = ScoreFetcher::instance();
 		/** @var ScoreStorage $scoreStorage */
 		$scoreStorage = ORESServices::getScoreStorage();
-		$this->batchSize = $this->getOption( 'batch', 5000 );
+		$batchSize = $this->getBatchSize();
 		$this->revisionLimit = $this->getOption( 'number', 1000 );
 		$this->apiBatchSize = $this->getOption( 'apibatch', $wgOresRevisionsPerBatch ?: 30 );
 
@@ -75,7 +70,7 @@ class PopulateDatabase extends Maintenance {
 				$conditions,
 				__METHOD__,
 				[ 'ORDER BY' => 'rc_id DESC',
-					'LIMIT' => $this->batchSize ],
+					'LIMIT' => $batchSize ],
 				$join_conds
 			);
 
@@ -92,10 +87,10 @@ class PopulateDatabase extends Maintenance {
 				$this->processScores( $pack, $scoreFetcher, $scoreStorage );
 			}
 
-			$count += $this->batchSize;
+			$count += $batchSize;
 			MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->waitForReplication();
 
-			if ( $res->numRows() < $this->batchSize ) {
+			if ( $res->numRows() < $batchSize ) {
 				break;
 			}
 		}

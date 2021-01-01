@@ -44,7 +44,7 @@ class BackfillPageTriageQueue extends Maintenance {
 			$dbr,
 			[ 'revision', 'page', 'pagetriage_page', 'ores_classification' ],
 			'rev_id',
-			$this->mBatchSize
+			$this->getBatchSize()
 		);
 		$iterator->setFetchColumns( [ 'rev_id', 'oresc_probability' ] );
 		$iterator->addJoinConditions( [
