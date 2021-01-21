@@ -3,6 +3,7 @@
 		"authors": [
 			"Afaz",
 			"Delim",
+			"Foomin10",
 			"Fryed-peach",
 			"Kkairri",
 			"Omotecho",
@@ -45,8 +46,8 @@
 	"ores-pref-highlight": "問題がある可能性のある編集に背景色と\"{{int:ores-damaging-letter}}\"を付ける",
 	"ores-pref-rc-hidenondamaging": "最近の更新に問題がある編集のみ表示 (良好だと推測される編集を表示しない)",
 	"ores-pref-watchlist-hidenondamaging": "最近の更新に問題がある編集のみ表示 (良好だと推測される編集を表示しない)",
-	"prefs-ores-wl": "ウォッチリストの更新評価",
-	"prefs-ores-rc": "最近の更新、関連ページの更新状況、投稿記録の更新評価",
+	"prefs-ores-wl": "ウォッチリストおよび投稿記録の更新評価",
+	"prefs-ores-rc": "最近の更新および関連ページの更新状況の更新評価",
 	"oresmodels": "ORES統計",
 	"ores-specialoresmodels-header-filter": "フィルター",
 	"ores-specialoresmodels-header-precision": "適合率",
