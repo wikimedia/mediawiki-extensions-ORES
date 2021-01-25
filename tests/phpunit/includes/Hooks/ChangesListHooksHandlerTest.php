@@ -312,11 +312,11 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 
 		$classes = [];
 
-		$s = ' <span class="mw-changeslist-separator">. .</span> ';
+		$s = ' <span class="mw-changeslist-separator"></span> ';
 		ChangesListHooksHandler::onOldChangesListRecentChangesLine( $cl, $s, $rc, $classes );
 
 		$this->assertSame(
-			' <span class="mw-changeslist-separator">. .</span>' .
+			' <span class="mw-changeslist-separator"></span>' .
 			' <abbr class="ores-damaging" title="This edit needs review">r</abbr>',
 			$s
 		);
@@ -348,10 +348,10 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 
 		$classes = [];
 
-		$s = ' <span class="mw-changeslist-separator">. .</span> ';
+		$s = ' <span class="mw-changeslist-separator"></span> ';
 		ChangesListHooksHandler::onOldChangesListRecentChangesLine( $cl, $s, $rc, $classes );
 
-		$this->assertSame( ' <span class="mw-changeslist-separator">. .</span> ', $s );
+		$this->assertSame( ' <span class="mw-changeslist-separator"></span> ', $s );
 		$this->assertSame( [], $classes );
 	}
 
