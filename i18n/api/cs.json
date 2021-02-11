@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Patriccck"
+			"Patriccck",
+			"Patrik L."
 		]
 	},
 	"apihelp-query+ores-description": "Vrátit konfigurační a modelová data ORES pro tuto wiki.",
