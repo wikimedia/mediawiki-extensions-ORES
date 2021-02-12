@@ -42,7 +42,7 @@ class PreferencesHookHandlerTest extends \MediaWikiTestCase {
 		$prefs = [];
 		PreferencesHookHandler::onGetPreferences( $this->user, $prefs );
 
-		$this->assertSame( 6, count( $prefs ) );
+		$this->assertCount( 6, $prefs );
 	}
 
 }

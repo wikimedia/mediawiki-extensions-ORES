@@ -165,7 +165,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
 		$service->modifyWatchedItemsWithRCInfo(
 			$this->user, $options, $db, $items, $res, $startFrom );
 
-		$this->assertTrue( array_key_exists( 'oresScores', $items[0][1] ) );
+		$this->assertArrayHasKey( 'oresScores', $items[0][1] );
 		$this->assertEquals( [
 			'oresc_rev' => '2',
 			'oresc_class' => '1',
