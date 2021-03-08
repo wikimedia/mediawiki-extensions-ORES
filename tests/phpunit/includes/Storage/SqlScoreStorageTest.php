@@ -200,6 +200,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 				'rc_last_oldid' => '425',
 				'rc_comment_id' => 1,
 				'rc_actor' => $user->getUser()->getActorId(),
+				'rc_timestamp' => $dbw->timestamp(),
 			],
 			__METHOD__
 		);
@@ -211,6 +212,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 				'rc_last_oldid' => '567',
 				'rc_comment_id' => 1,
 				'rc_actor' => $user->getUser()->getActorId(),
+				'rc_timestamp' => $dbw->timestamp(),
 			],
 			__METHOD__
 		);

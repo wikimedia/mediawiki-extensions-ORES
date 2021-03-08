@@ -141,8 +141,13 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 		TestHelper::insertOresData( $revIdOld, [
 			'damaging' => 0.2,
 		] );
-		\wfGetDB( DB_MASTER )->insert( 'recentchanges', [
-			'rc_this_oldid' => $revId, 'rc_comment_id' => 1,
+
+		$dbw = \wfGetDB( DB_MASTER );
+
+		$dbw->insert( 'recentchanges', [
+			'rc_this_oldid' => $revId,
+			'rc_comment_id' => 1,
+			'rc_timestamp' => $dbw->timestamp(),
 		] + $userData, __METHOD__ );
 
 		$this->maintenance->loadWithArgv( [ '--old' ] );

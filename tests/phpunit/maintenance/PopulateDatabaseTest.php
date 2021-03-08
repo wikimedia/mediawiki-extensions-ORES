@@ -160,12 +160,14 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 		$userData = [
 			'rc_actor' => $testUser->getActorId(),
 		];
+		$dbw = \wfGetDB( DB_MASTER );
 		foreach ( $rcContents as &$row ) {
 			$row += $userData;
 			$row += [ 'rc_comment_id' => 1 ];
+			$row += [ 'rc_timestamp' => $dbw->timestamp() ];
 		}
 
-		\wfGetDB( DB_MASTER )->insert( 'recentchanges', $rcContents, __METHOD__ );
+		$dbw->insert( 'recentchanges', $rcContents, __METHOD__ );
 
 		foreach ( $oresContents as $revId => $scores ) {
 			TestHelper::insertOresData( $revId, $scores );
