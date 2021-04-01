@@ -2,7 +2,6 @@
 
 namespace ORES\Specials;
 
-use ORES\Services\ORESServices;
 use ORES\Storage\ModelLookup;
 use ORES\Storage\ThresholdLookup;
 use TemplateParser;
@@ -19,13 +18,6 @@ class SpecialORESModels extends \SpecialPage {
 		parent::__construct( 'ORESModels' );
 		$this->modelLookup = $modelLookup;
 		$this->thresholdLookup = $thresholdLookup;
-	}
-
-	public static function newFromGlobalState() {
-		return new SpecialORESModels(
-			ORESServices::getModelLookup(),
-			ORESServices::getThresholdLookup()
-		);
 	}
 
 	public function execute( $subPage = null ) {

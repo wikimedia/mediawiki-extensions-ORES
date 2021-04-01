@@ -317,7 +317,13 @@
 		"oresWatchlistHideNonDamaging": false
 	},
 	"SpecialPages": {
-		"ORESModels": "ORES\\Specials\\SpecialORESModels::newFromGlobalState"
+		"ORESModels": {
+			"class": "ORES\\Specials\\SpecialORESModels",
+			"services": [
+				"ORESModelLookup",
+				"ORESThresholdLookup"
+			]
+		}
 	},
 	"ExtensionMessagesFiles": {
 		"ORESAlias": "ORES.alias.php"
