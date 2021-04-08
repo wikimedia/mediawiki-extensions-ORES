@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"scripts": {
-		"test": "eslint --report-unused-disable-directives --cache . && grunt test"
+		"test": "eslint --cache . && grunt test"
 	},
 	"devDependencies": {
 		"eslint-config-wikimedia": "0.19.0",
