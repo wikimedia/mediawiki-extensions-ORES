@@ -31,12 +31,13 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
 			'wgOresWikiId' => 'testwiki',
 		] );
 
+		$userOptionsManager = $this->getServiceContainer()->getUserOptionsManager();
 		$this->user = static::getTestUser()->getUser();
-		$this->user->setOption( 'ores-enabled', 1 );
-		$this->user->setOption( 'oresDamagingPref', 'maybebad' );
-		$this->user->setOption( 'oresHighlight', 1 );
-		$this->user->setOption( 'ores-damaging-flag-rc', 1 );
-		$this->user->saveSettings();
+		$userOptionsManager->setOption( $this->user, 'ores-enabled', 1 );
+		$userOptionsManager->setOption( $this->user, 'oresDamagingPref', 'maybebad' );
+		$userOptionsManager->setOption( $this->user, 'oresHighlight', 1 );
+		$userOptionsManager->setOption( $this->user, 'ores-damaging-flag-rc', 1 );
+		$userOptionsManager->saveOptions( $this->user );
 
 		$modelData = [ 'damaging' => [ 'id' => 5, 'version' => '0.0.2' ] ];
 		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );

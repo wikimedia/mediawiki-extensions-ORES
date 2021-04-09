@@ -35,11 +35,12 @@ class HelpersTest extends \MediaWikiTestCase {
 		] );
 
 		$this->user = static::getTestUser()->getUser();
-		$this->user->setOption( 'ores-enabled', 1 );
-		$this->user->setOption( 'oresDamagingPref', 'maybebad' );
-		$this->user->setOption( 'oresHighlight', 1 );
-		$this->user->setOption( 'ores-damaging-flag-rc', 1 );
-		$this->user->saveSettings();
+		$userOptionsManager = $this->getServiceContainer()->getUserOptionsManager();
+		$userOptionsManager->setOption( $this->user, 'ores-enabled', 1 );
+		$userOptionsManager->setOption( $this->user, 'oresDamagingPref', 'maybebad' );
+		$userOptionsManager->setOption( $this->user, 'oresHighlight', 1 );
+		$userOptionsManager->setOption( $this->user, 'ores-damaging-flag-rc', 1 );
+		$userOptionsManager->saveOptions( $this->user );
 
 		$this->context = self::getContext( $this->user );
 	}
@@ -85,13 +86,15 @@ class HelpersTest extends \MediaWikiTestCase {
 		$modelData = [ 'damaging' => [ 'id' => 5, 'version' => '0.0.2' ] ];
 		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
 
-		$this->user->setOption( 'rcOresDamagingPref', 'maybebad' );
+		$userOptionsManager = $this->getServiceContainer()->getUserOptionsManager();
+
+		$userOptionsManager->setOption( $this->user, 'rcOresDamagingPref', 'maybebad' );
 		$this->assertEquals(
 			0.16, Helpers::getThreshold( 'damaging', $this->user, $this->context->getTitle() )
 		);
 
 		// b/c
-		$this->user->setOption( 'rcOresDamagingPref', 'soft' );
+		$userOptionsManager->setOption( $this->user, 'rcOresDamagingPref', 'soft' );
 		$this->assertEquals(
 			0.56, Helpers::getThreshold( 'damaging', $this->user, $this->context->getTitle() )
 		);

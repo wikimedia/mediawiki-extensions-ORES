@@ -48,13 +48,14 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 		];
 		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
 		$this->user = static::getTestUser()->getUser();
-		$this->user->setOption( 'ores-enabled', 1 );
-		$this->user->setOption( 'rcOresDamagingPref', 'maybebad' );
-		$this->user->setOption( 'oresHighlight', 1 );
-		$this->user->setOption( 'ores-damaging-flag-rc', 1 );
-		$this->user->setOption( 'oresRCHideNonDamaging', 1 );
-		$this->user->setOption( 'rcenhancedfilters-disable', true );
-		$this->user->saveSettings();
+		$userOptionsManager = $this->getServiceContainer()->getUserOptionsManager();
+		$userOptionsManager->setOption( $this->user, 'ores-enabled', 1 );
+		$userOptionsManager->setOption( $this->user, 'rcOresDamagingPref', 'maybebad' );
+		$userOptionsManager->setOption( $this->user, 'oresHighlight', 1 );
+		$userOptionsManager->setOption( $this->user, 'ores-damaging-flag-rc', 1 );
+		$userOptionsManager->setOption( $this->user, 'oresRCHideNonDamaging', 1 );
+		$userOptionsManager->setOption( $this->user, 'rcenhancedfilters-disable', true );
+		$userOptionsManager->saveOptions( $this->user );
 
 		$this->context = self::getContext( $this->user );
 	}
@@ -417,8 +418,9 @@ class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
 	 * @covers ORES\Hooks\ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters
 	 */
 	public function testOnChangesListSpecialPageStructuredFilters_Watchlist() {
-		$this->user->setOption( 'oresWatchlistHideNonDamaging', 0 );
-		$this->user->setOption( 'oresHighlight', 1 );
+		$userOptionsManager = $this->getServiceContainer()->getUserOptionsManager();
+		$userOptionsManager->setOption( $this->user, 'oresWatchlistHideNonDamaging', 0 );
+		$userOptionsManager->setOption( $this->user, 'oresHighlight', 1 );
 
 		$changesListSpecialPage = MediaWikiServices::getInstance()->getSpecialPageFactory()
 			->getPage( 'Watchlist' );

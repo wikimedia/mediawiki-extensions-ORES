@@ -31,12 +31,13 @@ class HooksTest extends \MediaWikiTestCase {
 		] );
 
 		$user = static::getTestUser()->getUser();
-		$user->setOption( 'ores-enabled', 1 );
-		$user->setOption( 'oresDamagingPref', 'maybebad' );
-		$user->setOption( 'ores-damaging-flag-rc', 1 );
-		$user->setOption( 'oresHighlight', 1 );
-		$user->setOption( 'rcenhancedfilters-disable', 1 );
-		$user->saveSettings();
+		$userOptionsManager = $this->getServiceContainer()->getUserOptionsManager();
+		$userOptionsManager->setOption( $user, 'ores-enabled', 1 );
+		$userOptionsManager->setOption( $user, 'oresDamagingPref', 'maybebad' );
+		$userOptionsManager->setOption( $user, 'ores-damaging-flag-rc', 1 );
+		$userOptionsManager->setOption( $user, 'oresHighlight', 1 );
+		$userOptionsManager->setOption( $user, 'rcenhancedfilters-disable', 1 );
+		$userOptionsManager->saveOptions( $user );
 		$this->context = HelpersTest::getContext( $user );
 	}
 
