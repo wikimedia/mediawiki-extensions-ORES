@@ -19,7 +19,7 @@ class DatabaseQueryBuilderTest extends \MediaWikiTestCase {
 		$thresholdLookup->method( 'getThresholds' )
 			->willReturn( $thresholdsConfig );
 
-		return new DatabaseQueryBuilder( $thresholdLookup, wfGetDB( DB_MASTER ) );
+		return new DatabaseQueryBuilder( $thresholdLookup, wfGetDB( DB_PRIMARY ) );
 	}
 
 	public function testBuildRangeQuery() {

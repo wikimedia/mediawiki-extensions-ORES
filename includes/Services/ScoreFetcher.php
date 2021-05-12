@@ -41,7 +41,7 @@ class ScoreFetcher implements ServiceScoreLookup {
 	) {
 		if ( !$models ) {
 			global $wgOresModels;
-			$models = array_keys( array_filter( $wgOresModels, function ( $model ) {
+			$models = array_keys( array_filter( $wgOresModels, static function ( $model ) {
 				return $model['enabled'];
 			} ) );
 		}
@@ -108,7 +108,7 @@ class ScoreFetcher implements ServiceScoreLookup {
 	 */
 	public function updateModelVersion( $model, $responseVersion ) {
 		// TODO: Move to ModelStorage service
-		$dbw = \wfGetDB( DB_MASTER );
+		$dbw = \wfGetDB( DB_PRIMARY );
 		$dbw->update(
 			'ores_model',
 			[

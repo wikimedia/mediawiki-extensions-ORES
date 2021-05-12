@@ -62,7 +62,7 @@ class BackfillPageTriageQueue extends Maintenance {
 		$iterator->setCaller( __METHOD__ );
 
 		foreach ( $iterator as $rows ) {
-			$revIds = array_map( function ( $row ) {
+			$revIds = array_map( static function ( $row ) {
 				return $row->rev_id;
 			}, $rows );
 
@@ -71,7 +71,7 @@ class BackfillPageTriageQueue extends Maintenance {
 				continue;
 			}
 
-			$scores = $this->retry( function () use ( $revIds, $modelName ) {
+			$scores = $this->retry( static function () use ( $revIds, $modelName ) {
 				return ScoreFetcher::instance()->getScores(
 					$revIds,
 					$modelName,

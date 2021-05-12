@@ -65,7 +65,7 @@ class SqlScoreStorage implements ScoreStorage {
 		global $wgOresModelClasses, $wgOresAggregatedModels;
 
 		if ( $errorCallback === null ) {
-			$errorCallback = function ( $mssg, $revision ) {
+			$errorCallback = static function ( $mssg, $revision ) {
 				throw new RuntimeException( "Model contains an error for $revision: $mssg" );
 			};
 		}
@@ -89,7 +89,7 @@ class SqlScoreStorage implements ScoreStorage {
 		}
 
 		try {
-			$this->loadBalancer->getConnection( DB_MASTER )->insert(
+			$this->loadBalancer->getConnection( DB_PRIMARY )->insert(
 				'ores_classification',
 				$dbData,
 				__METHOD__,
@@ -127,7 +127,7 @@ class SqlScoreStorage implements ScoreStorage {
 			$conditions[] = 'oresc_model NOT IN (' . implode( ', ', $modelsToKeep ) . ')';
 		}
 
-		$this->loadBalancer->getConnection( DB_MASTER )->delete(
+		$this->loadBalancer->getConnection( DB_PRIMARY )->delete(
 			'ores_classification',
 			$conditions,
 			__METHOD__
@@ -177,7 +177,7 @@ class SqlScoreStorage implements ScoreStorage {
 		);
 
 		if ( $parentIds ) {
-			$this->loadBalancer->getConnection( DB_MASTER )->delete(
+			$this->loadBalancer->getConnection( DB_PRIMARY )->delete(
 				'ores_classification',
 				[ 'oresc_rev' => $parentIds, 'oresc_model' => $modelIds ],
 				__METHOD__

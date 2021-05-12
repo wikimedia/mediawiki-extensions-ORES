@@ -28,14 +28,14 @@ class TestHelper {
 	}
 
 	public static function clearOresTables() {
-		\wfGetDB( DB_MASTER )->delete( 'recentchanges', '*', __METHOD__ );
-		\wfGetDB( DB_MASTER )->delete( 'watchlist', '*', __METHOD__ );
-		\wfGetDB( DB_MASTER )->delete( 'ores_model', '*', __METHOD__ );
-		\wfGetDB( DB_MASTER )->delete( 'ores_classification', '*', __METHOD__ );
+		\wfGetDB( DB_PRIMARY )->delete( 'recentchanges', '*', __METHOD__ );
+		\wfGetDB( DB_PRIMARY )->delete( 'watchlist', '*', __METHOD__ );
+		\wfGetDB( DB_PRIMARY )->delete( 'ores_model', '*', __METHOD__ );
+		\wfGetDB( DB_PRIMARY )->delete( 'ores_classification', '*', __METHOD__ );
 	}
 
 	public static function insertModelData() {
-		$db = \wfGetDB( DB_MASTER );
+		$db = \wfGetDB( DB_PRIMARY );
 		$dump = [
 			[
 				'oresm_id' => self::DAMAGING,
@@ -93,7 +93,7 @@ class TestHelper {
 				'oresc_is_predicted' => 0
 			];
 		}
-		wfGetDB( DB_MASTER )->insert( 'ores_classification', $dbData );
+		wfGetDB( DB_PRIMARY )->insert( 'ores_classification', $dbData );
 	}
 
 	public static function doPageEdit( User $user, LinkTarget $target, $summary ) {

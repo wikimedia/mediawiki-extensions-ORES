@@ -46,7 +46,7 @@ class HooksTest extends \MediaWikiTestCase {
 	 */
 	public function testOnRecentChangesPurgeRows() {
 		$revIds = [ 1, 5, 8, 13 ];
-		$rows = array_map( function ( $id ) {
+		$rows = array_map( static function ( $id ) {
 			return (object)[ 'rc_this_oldid' => $id ];
 		}, $revIds );
 

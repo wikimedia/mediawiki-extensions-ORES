@@ -135,7 +135,7 @@ class PurgeScoreCache extends Maintenance {
 	 */
 	private function deleteRows( array $conditions, $batchSize ) {
 		$dbr = \wfGetDB( DB_REPLICA );
-		$dbw = \wfGetDB( DB_MASTER );
+		$dbw = \wfGetDB( DB_PRIMARY );
 
 		$deletedRows = 0;
 

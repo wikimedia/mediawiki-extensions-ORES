@@ -142,7 +142,7 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 			'damaging' => 0.2,
 		] );
 
-		$dbw = \wfGetDB( DB_MASTER );
+		$dbw = \wfGetDB( DB_PRIMARY );
 
 		$dbw->insert( 'recentchanges', [
 			'rc_this_oldid' => $revId,
