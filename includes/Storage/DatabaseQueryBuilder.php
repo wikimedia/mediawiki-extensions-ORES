@@ -83,7 +83,7 @@ class DatabaseQueryBuilder {
 
 			$result = array_filter(
 				$ranges,
-				function ( Range $r ) use ( $range ) {
+				static function ( Range $r ) use ( $range ) {
 					return $r->overlaps( $range );
 				}
 			);
@@ -97,7 +97,7 @@ class DatabaseQueryBuilder {
 		}
 
 		$betweenConditions = array_map(
-			function ( Range $range ) use ( $tableAlias ) {
+			static function ( Range $range ) use ( $tableAlias ) {
 				$min = $range->getMin();
 				$max = $range->getMax();
 				return "$tableAlias.oresc_probability BETWEEN $min AND $max";
@@ -129,7 +129,7 @@ class DatabaseQueryBuilder {
 			return false;
 		}
 
-		$conditions = array_map( function ( $className ) use ( $tableAlias, $modelClasses ) {
+		$conditions = array_map( static function ( $className ) use ( $tableAlias, $modelClasses ) {
 			$classId = $modelClasses[ $className ];
 			return "$tableAlias.oresc_class = $classId";
 		}, $selected );

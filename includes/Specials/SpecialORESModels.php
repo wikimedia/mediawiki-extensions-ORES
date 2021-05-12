@@ -97,7 +97,7 @@ class SpecialORESModels extends \SpecialPage {
 			];
 		}
 		// Sort the filters we know about in the proper order, put ones we don't know about at the end
-		uasort( $filters, function ( $a, $b ) {
+		uasort( $filters, static function ( $a, $b ) {
 			$knownFilters = [ 'likelygood', 'maybebad', 'likelybad', 'verylikelybad' ];
 			$aIndex = array_search( $a['name'], $knownFilters );
 			$bIndex = array_search( $b['name'], $knownFilters );

@@ -170,7 +170,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 		];
 
 		// Put old score there
-		$dbw = \wfGetDB( DB_MASTER );
+		$dbw = \wfGetDB( DB_PRIMARY );
 		$dbw->insert(
 			'ores_classification',
 			[
@@ -317,7 +317,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 		$this->expectExceptionMessage( 'processRevisionInvalid failure' );
 		$this->storage->storeScores(
 			$data,
-			function () {
+			static function () {
 				throw new MWException( 'processRevisionInvalid failure' );
 			}
 		);
@@ -329,7 +329,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 		$oresModelsCopy['articlequality']['enabled'] = true;
 		$this->setMwGlobals( [ 'wgOresModels' => $oresModelsCopy ] );
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->insert(
 			'ores_classification',
 			[

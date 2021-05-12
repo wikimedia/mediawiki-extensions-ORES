@@ -29,7 +29,7 @@ class ThresholdParserTest extends \MediaWikiTestCase {
 
 	private function getLoggerMock() {
 		return $this->getMockBuilder( LoggerInterface::class )
-			->setMethods( [
+			->onlyMethods( [
 				'emergency',
 				'alert',
 				'critical',

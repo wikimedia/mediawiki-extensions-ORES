@@ -100,7 +100,7 @@ class FetchScoreJob extends Job {
 		$success = true;
 		ORESServices::getScoreStorage()->storeScores(
 			$scores,
-			function ( $mssg, $revision ) use ( &$success, $logger ) {
+			static function ( $mssg, $revision ) use ( &$success, $logger ) {
 				$logger->warning( "ScoreFetcher errored for $revision: $mssg\n" );
 				if ( $mssg !== 'RevisionNotFound' ) {
 					$success = false;

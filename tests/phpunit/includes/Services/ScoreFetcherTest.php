@@ -115,7 +115,7 @@ class ScoreFetcherTest extends \MediaWikiTestCase {
 	 * @covers ORES\Services\ScoreFetcher::updateModelVersion
 	 */
 	public function testUpdateModelVersion() {
-		$dbw = \wfGetDB( DB_MASTER );
+		$dbw = \wfGetDB( DB_PRIMARY );
 		$dbw->insert( 'ores_model',
 			[
 				'oresm_name' => 'damaging',

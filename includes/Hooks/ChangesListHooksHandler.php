@@ -578,7 +578,7 @@ class ChangesListHooksHandler {
 	}
 
 	private static function makeApplicableCallback( $model, array $levelData ) {
-		return function ( $ctx, RecentChange $rc ) use ( $model, $levelData ) {
+		return static function ( $ctx, RecentChange $rc ) use ( $model, $levelData ) {
 			$score = $rc->getAttribute( "ores_{$model}_score" );
 			$type = $rc->getAttribute( 'rc_type' );
 			// Log actions and external rows are not scorable; if such a row does have a score, ignore it

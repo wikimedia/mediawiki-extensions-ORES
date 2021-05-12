@@ -23,7 +23,7 @@ class CleanDuplicateScores extends Maintenance {
 
 	public function execute() {
 		$dbr = \wfGetDB( DB_REPLICA );
-		$dbw = \wfGetDB( DB_MASTER );
+		$dbw = \wfGetDB( DB_PRIMARY );
 		$groupConcat = $dbr->buildGroupConcatField(
 			'|',
 			'ores_classification AS OC',

@@ -134,7 +134,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiTestCase {
 			'rc_user' => 1,
 			'rc_user_text' => 'Test user',
 		] );
-		$this->setTemporaryHook( 'ORESCheckModels', function ( $rc, &$models ) {
+		$this->setTemporaryHook( 'ORESCheckModels', static function ( $rc, &$models ) {
 			$models = [ 'model_1' ];
 		} );
 		RecentChangeSaveHookHandler::onRecentChange_save( $rc );

@@ -161,7 +161,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
 		];
 		$res = [];
 		$startFrom = [];
-		$db = wfGetDB( DB_MASTER );
+		$db = wfGetDB( DB_PRIMARY );
 		$service = new WatchedItemQueryServiceExtension();
 		$service->modifyWatchedItemsWithRCInfo(
 			$this->user, $options, $db, $items, $res, $startFrom );
