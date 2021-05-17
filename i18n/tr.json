@@ -6,6 +6,7 @@
 			"Hedda",
 			"Incelemeelemani",
 			"JackUKElliott",
+			"Joseph",
 			"MuratTheTurkish",
 			"Sezgin İbiş",
 			"Vito Genovese"
@@ -52,7 +53,7 @@
 	"ores-rcfilters-goodfaith-bad-desc-high": "Orta doğrulukta, çoğu kötü niyetli düzenlemeyi bulur.",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Çok büyük olasılıkla kötü niyet",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "En bariz kötü niyetli düzenlemeleri bulma konusunda çok doğru.",
-	"ores-pref-highlight": "Büyük olasılıkla sorun düzenlemelerini vurgulayın ve \"incelemeye ihtiyacı var\" için \"{{int:ores-damaging-letter}}\"",
+	"ores-pref-highlight": "\"İncelemeye ihtiyacı var\" ise, büyük olasılıkla sorunlu düzenlemeleri renkle ve \"{{int:ores-damaging-letter}}\" ile vurgula",
 	"ores-pref-rc-hidenondamaging": "Yalnızca olası düzenlemeleri göster (muhtemel iyi düzenlemeleri sakla)",
 	"ores-pref-watchlist-hidenondamaging": "Yalnızca olası sorun düzenlemelerini göster (ve muhtemelen iyi düzenlemeleri gizle)",
 	"prefs-ores-wl": "İzleme listesinde revizyon puanlaması ve Katkılar",
