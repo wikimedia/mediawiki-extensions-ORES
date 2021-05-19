@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Omarov M.",
 			"Аль-Гимравий"
 		]
 	},
-	"ores-damaging-legend": "[[:mw:Special:MyLanguage/ORES review tool|щаклъи бугеб хиса-баси]]"
+	"ores-damaging-legend": "Гьаб хис-басалъул проблемаби ратизе бегьула, гьединлъидал гьелъул хал-шал гьабизе ккола ([[:mw:Special:MyLanguage/ORES review tool|подробнее]])"
 }
