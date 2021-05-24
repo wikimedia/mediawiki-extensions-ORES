@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Gerardduenas",
+			"Jmarchn",
 			"Toniher",
 			"Vriullop"
 		]
@@ -50,8 +51,8 @@
 	"ores-pref-highlight": "Ressalta les edicions que siguin possiblement problemàtiques amb colors i una «{{int:ores-damaging-letter}}» per «cal revisió»",
 	"ores-pref-rc-hidenondamaging": "Mostra només les edicions que possiblement són problemàtiques (i amaga les que probablement són bones edicions)",
 	"ores-pref-watchlist-hidenondamaging": "Mostra només les edicions que són possiblement problemàtiques (i amaga les que probablement són bones edicions)",
-	"prefs-ores-wl": "Puntuació de les revisions en la llista de seguiment",
-	"prefs-ores-rc": "Puntuació de les revisions en els canvis recents, en els canvis relacionats i en les contribucions",
+	"prefs-ores-wl": "Puntuació de la revisió a la Llista de seguiment i les Contribucions",
+	"prefs-ores-rc": "Puntuació de les revisions en els Canvis recents i en els Canvis relacionats",
 	"oresmodels": "Estadístiques del model ORES",
 	"ores-specialoresmodels-header-filter": "Filtre",
 	"ores-specialoresmodels-header-precision": "Precisió",
