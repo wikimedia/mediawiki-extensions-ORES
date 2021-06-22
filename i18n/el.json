@@ -3,6 +3,7 @@
 		"authors": [
 			"GR",
 			"Geraki",
+			"Giannaras99",
 			"KATRINE1992",
 			"NikosLikomitros",
 			"Nikosgranturismogt",
@@ -16,7 +17,7 @@
 	"ores-rcfilters-damaging-verylikelybad-label": "Πολύ πιθανό να έχει προβλήματα",
 	"ores-pref-rc-hidenondamaging": "Εμφάνιση μόνο το πιθανό πρόβλημα να επεξεργάζεται (και να κρύψει μάλλον καλές επεξεργασίες)",
 	"ores-pref-watchlist-hidenondamaging": "Εμφάνιση μόνο το πιθανό πρόβλημα να επεξεργάζεται (και να κρύψει μάλλον καλές επεξεργασίες)",
-	"prefs-ores-wl": "Σκορ επανάληψης στη λίστα Παρακολούθησης",
+	"prefs-ores-wl": "Σκορ επανάληψης στη λίστα Παρακολούθησης και στις Συνεισφορές",
 	"prefs-ores-rc": "Σκορ (βαθμολογία) αναθεώρησης σε Πρόσφατες αλλαγές και Σχετικές αλλαγές",
 	"ores-specialoresmodels-header-precision": "Ακρίβεια",
 	"ores-specialoresmodels-header-recall": "Ανάκληση"
