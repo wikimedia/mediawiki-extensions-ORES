@@ -101,12 +101,10 @@ class TestHelper {
 
 		$title = Title::newFromLinkTarget( $target );
 		$page = WikiPage::factory( $title );
-		$status = $page->doEditContent(
+		$status = $page->doUserEditContent(
 			ContentHandler::makeContent( __CLASS__ . $i++, $title ),
-			$summary,
-			0,
-			false,
-			$user
+			$user,
+			$summary
 		);
 		if ( !$status->isOK() ) {
 			throw new RuntimeException( 'Test failed, couldn\'t perform page edit.' );
