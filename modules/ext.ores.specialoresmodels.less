@@ -1,21 +1,30 @@
 // Loaded as part of ext.ores.styles but only needed for Special:ORESModels
 .mw-special-ORESModels {
-	th,
-	td {
-		// FIXME these colors come from RCFilters, reuse them via LESS vars somehow
-		.mw-specialoresmodels-row-likelygood & {
+	// FIXME these colors come from RCFilters, reuse them via LESS vars somehow
+	.mw-specialoresmodels-row-likelygood {
+		td,
+		th {
 			background-color: #b3e7dc !important;
 		}
+	}
 
-		.mw-specialoresmodels-row-maybebad & {
+	.mw-specialoresmodels-row-maybebad {
+		td,
+		th {
 			background-color: #fff0c2 !important;
 		}
+	}
 
-		.mw-specialoresmodels-row-likelybad & {
+	.mw-specialoresmodels-row-likelybad {
+		td,
+		th {
 			background-color: #ffd3bd !important;
 		}
+	}
 
-		.mw-specialoresmodels-row-verylikelybad & {
+	.mw-specialoresmodels-row-verylikelybad {
+		td,
+		th {
 			background-color: #f5c2c2 !important;
 		}
 	}
