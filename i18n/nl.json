@@ -4,6 +4,7 @@
 			"Dinosaur918",
 			"Mainframe98",
 			"Mar(c)",
+			"McDutchie",
 			"Romaine",
 			"Siebrand",
 			"Sjoerddebruin"
@@ -37,7 +38,7 @@
 	"ores-pref-highlight": "Markeer waarschijnlijk problematische bewerkingen met kleuren en een \"{{int:ores-damaging-letter}}\" voor \"review nodig\"",
 	"ores-pref-rc-hidenondamaging": "Alleen waarschijnlijke probleembewerkingen tonen (en mogelijk goede bewerkingen verbergen)",
 	"ores-pref-watchlist-hidenondamaging": "Mogelijke goede bewerkingen op mijn volglijst verbergen",
-	"prefs-ores-rc": "Revisiescoring op Recente wijzigingen, Verwante wijzigingen en Bijdragen",
+	"prefs-ores-rc": "Versiescores op recente en verwante wijzigingen",
 	"ores-specialoresmodels-header-filter": "Filteren",
 	"ores-specialoresmodels-header-precision": "Precisie"
 }
