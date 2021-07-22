@@ -18,7 +18,7 @@ use WANObjectCache;
  */
 class ThresholdLookupTest extends \MediaWikiTestCase {
 
-	protected function setUp() : void {
+	protected function setUp(): void {
 		parent::setUp();
 
 		$this->setMwGlobals( [

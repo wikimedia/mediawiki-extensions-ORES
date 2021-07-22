@@ -16,7 +16,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
 
 	protected $user;
 
-	protected function setUp() : void {
+	protected function setUp(): void {
 		parent::setUp();
 
 		$this->tablesUsed = TestHelper::getTablesUsed();
