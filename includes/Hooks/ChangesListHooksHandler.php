@@ -25,6 +25,7 @@ use EnhancedChangesList;
 use Exception;
 use FormOptions;
 use IContextSource;
+use MediaWiki\MediaWikiServices;
 use MWException;
 use ORES\Services\ORESServices;
 use ORES\Storage\ThresholdLookup;
@@ -73,12 +74,13 @@ class ChangesListHooksHandler {
 		ChangesListFilter $logFilter
 
 	) {
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 		if ( $clsp instanceof SpecialRecentChanges ) {
-			$damagingDefault = $clsp->getUser()->getOption( 'oresRCHideNonDamaging' );
-			$highlightDefault = $clsp->getUser()->getBoolOption( 'ores-damaging-flag-rc' );
+			$damagingDefault = $userOptionsLookup->getOption( $clsp->getUser(), 'oresRCHideNonDamaging' );
+			$highlightDefault = $userOptionsLookup->getBoolOption( $clsp->getUser(), 'ores-damaging-flag-rc' );
 		} elseif ( $clsp instanceof SpecialWatchlist ) {
-			$damagingDefault = $clsp->getUser()->getOption( 'oresWatchlistHideNonDamaging' );
-			$highlightDefault = $clsp->getUser()->getBoolOption( 'oresHighlight' );
+			$damagingDefault = $userOptionsLookup->getOption( $clsp->getUser(), 'oresWatchlistHideNonDamaging' );
+			$highlightDefault = $userOptionsLookup->getBoolOption( $clsp->getUser(), 'oresHighlight' );
 		} else {
 			$damagingDefault = false;
 			$highlightDefault = false;

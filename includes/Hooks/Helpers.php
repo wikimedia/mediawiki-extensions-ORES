@@ -115,17 +115,19 @@ class Helpers {
 			return false;
 		}
 
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+
 		if ( self::isRCPage( $context->getTitle() ) ) {
 			return !self::isRCStructuredUiEnabled( $context ) &&
-				$user->getBoolOption( 'ores-damaging-flag-rc' );
+				$userOptionsLookup->getBoolOption( $user, 'ores-damaging-flag-rc' );
 		}
 
 		if ( self::isWLPage( $context->getTitle() ) ) {
 			return !self::isWLStructuredUiEnabled( $context ) &&
-				$user->getBoolOption( 'oresHighlight' );
+				$userOptionsLookup->getBoolOption( $user, 'oresHighlight' );
 		}
 
-		return $user->getBoolOption( 'oresHighlight' );
+		return $userOptionsLookup->getBoolOption( $user, 'oresHighlight' );
 	}
 
 	/**
