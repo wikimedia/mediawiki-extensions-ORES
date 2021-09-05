@@ -21,7 +21,12 @@
 		"ORES\\Tests\\HelpersTest": "tests/phpunit/includes/Hooks/HelpersTest.php"
 	},
 	"APIMetaModules": {
-		"ores": "ORES\\Hooks\\Api\\ApiQueryORES"
+		"ores": {
+			"class": "ORES\\Hooks\\Api\\ApiQueryORES",
+			"services": [
+				"NamespaceInfo"
+			]
+		}
 	},
 	"ServiceWiringFiles": [
 		"includes/ServiceWiring.php"

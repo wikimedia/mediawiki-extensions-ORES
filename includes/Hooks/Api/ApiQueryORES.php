@@ -19,6 +19,7 @@ namespace ORES\Hooks\Api;
 use ApiQuery;
 use ApiQueryBase;
 use ApiResult;
+use NamespaceInfo;
 use ORES\Hooks\Helpers;
 use ORES\Services\ORESServices;
 
@@ -29,9 +30,21 @@ use ORES\Services\ORESServices;
  * @ingroup API
  */
 class ApiQueryORES extends ApiQueryBase {
+	/** @var NamespaceInfo */
+	private $namespaceInfo;
 
-	public function __construct( ApiQuery $query, $moduleName ) {
+	/**
+	 * @param ApiQuery $query
+	 * @param string $moduleName
+	 * @param NamespaceInfo $namespaceInfo
+	 */
+	public function __construct(
+		ApiQuery $query,
+		$moduleName,
+		NamespaceInfo $namespaceInfo
+	) {
 		parent::__construct( $query, $moduleName, 'ores' );
+		$this->namespaceInfo = $namespaceInfo;
 	}
 
 	public function execute() {
@@ -46,7 +59,7 @@ class ApiQueryORES extends ApiQueryBase {
 			'damagingthresholds' => Helpers::getDamagingThresholds(),
 			'namespaces' => $enabledNamespaces
 				? array_keys( array_filter( $enabledNamespaces ) )
-				: \MWNamespace::getValidNamespaces(),
+				: $this->namespaceInfo->getValidNamespaces(),
 		];
 		ApiResult::setArrayType( $data['models'], 'assoc' );
 		ApiResult::setIndexedTagName( $data['namespaces'], 'ns' );
