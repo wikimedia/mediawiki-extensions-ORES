@@ -137,6 +137,7 @@ class FetchScoreJob extends Job {
 	private function getCleanupModels() {
 		global $wgOresModels;
 		$models = [];
+		// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
 		foreach ( $wgOresModels as $modelName => $model ) {
 			if ( !isset( $model['enabled'] ) || !$model['enabled'] ) {
 				continue;

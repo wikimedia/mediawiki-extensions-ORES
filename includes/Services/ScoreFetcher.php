@@ -41,6 +41,7 @@ class ScoreFetcher implements ServiceScoreLookup {
 	) {
 		if ( !$models ) {
 			global $wgOresModels;
+			// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
 			$models = array_keys( array_filter( $wgOresModels, static function ( $model ) {
 				return $model['enabled'];
 			} ) );

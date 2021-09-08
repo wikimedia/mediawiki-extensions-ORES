@@ -65,6 +65,11 @@ class SqlScoreStorage implements ScoreStorage {
 		global $wgOresModelClasses, $wgOresAggregatedModels;
 
 		if ( $errorCallback === null ) {
+			/**
+			 * @param string $mssg
+			 * @param int $revision
+			 * @return never
+			 */
 			$errorCallback = static function ( $mssg, $revision ) {
 				throw new RuntimeException( "Model contains an error for $revision: $mssg" );
 			};
@@ -115,6 +120,7 @@ class SqlScoreStorage implements ScoreStorage {
 	public function purgeRows( array $revIds ) {
 		global $wgOresModels;
 		$modelsToKeep = [];
+		// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
 		foreach ( $wgOresModels as $model => $modelData ) {
 			$modelId = $this->checkModelToKeep( $model, $modelData );
 			if ( $modelId !== false ) {
