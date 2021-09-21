@@ -15,7 +15,7 @@
 	"ores-hide-nondamaging-filter": "Ascunde modificările probabil bune",
 	"ores-pref-damaging": "Pragul de predicție",
 	"ores-pref-damaging-flag": "Evidențiază editările probabil problematice în culori și cu un \"{{int:ores-damaging-letter}}\" pentru „necesită revizuire”",
-	"ores-damaging-maybebad": "Posibil cu probleme (marchează majoritatea problemelor, dar inclide și multe care sunt fals pozitive)",
+	"ores-damaging-maybebad": "Posibil cu probleme (marchează majoritatea problemelor, dar include și multe care sunt fals pozitive)",
 	"ores-damaging-likelybad": "Probabil cu probleme (probabilitate medie)",
 	"ores-damaging-verylikelybad": "Foarte probabil cu probleme (marchează puține care sunt fals pozitive, dar găsește un % mai mic din editările problematice)",
 	"ores-help-damaging-pref": "Modifică setarea „prag” pentru a face opțiunile de mai jos mai largi sau mai selective.",
