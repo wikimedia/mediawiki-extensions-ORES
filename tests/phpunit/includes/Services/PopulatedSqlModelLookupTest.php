@@ -15,7 +15,7 @@ use Psr\Log\NullLogger;
  * @group Database
  * @covers ORES\Services\PopulatedSqlModelLookup
  */
-class PopulatedSqlModelLookupTest extends \MediaWikiTestCase {
+class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 
 	/**
 	 * @var SqlModelLookup

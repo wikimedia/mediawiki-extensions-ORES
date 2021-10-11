@@ -8,7 +8,7 @@ use ORES\Hooks\PreferencesHookHandler;
  * @group ORES
  * @covers ORES\Hooks\PreferencesHookHandler
  */
-class PreferencesHookHandlerTest extends \MediaWikiTestCase {
+class PreferencesHookHandlerTest extends \MediaWikiIntegrationTestCase {
 
 	protected $user;
 

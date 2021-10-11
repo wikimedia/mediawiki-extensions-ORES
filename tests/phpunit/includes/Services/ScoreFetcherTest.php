@@ -10,7 +10,7 @@ use ORES\Storage\HashModelLookup;
  * @group Database
  * @covers ORES\Services\ScoreFetcher
  */
-class ScoreFetcherTest extends \MediaWikiTestCase {
+class ScoreFetcherTest extends \MediaWikiIntegrationTestCase {
 
 	private const REVERTED = 2;
 	private const DAMAGING = 3;

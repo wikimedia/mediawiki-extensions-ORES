@@ -12,7 +12,7 @@ use OutputPage;
  * @group ORES
  * @covers \ORES\Hooks\Hooks
  */
-class HooksTest extends \MediaWikiTestCase {
+class HooksTest extends \MediaWikiIntegrationTestCase {
 
 	protected $context;
 

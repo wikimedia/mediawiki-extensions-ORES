@@ -16,7 +16,7 @@ use WANObjectCache;
  * @group ORES
  * @covers ORES\Storage\ThresholdLookup
  */
-class ThresholdLookupTest extends \MediaWikiTestCase {
+class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();

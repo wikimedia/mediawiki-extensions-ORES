@@ -9,7 +9,7 @@ use ORES\Storage\ThresholdLookup;
  * @group ORES
  * @covers ORES\Storage\DatabaseQueryBuilder
  */
-class DatabaseQueryBuilderTest extends \MediaWikiTestCase {
+class DatabaseQueryBuilderTest extends \MediaWikiIntegrationTestCase {
 
 	private function getNewDatabaseQueryBuilder( $thresholdsConfig = [] ) {
 		$thresholdLookup = $this->getMockBuilder( ThresholdLookup::class )

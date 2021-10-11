@@ -9,7 +9,7 @@ use ORES\ORESService;
  * @group ORES
  * @covers \ORES\ORESService
  */
-class ORESServiceTest extends \MediaWikiTestCase {
+class ORESServiceTest extends \MediaWikiIntegrationTestCase {
 
 	/**
 	 * @var ORESService

@@ -11,7 +11,7 @@ use RecentChange;
  * @group ORES
  * @covers ORES\Hooks\RecentChangeSaveHookHandler
  */
-class RecentChangeSaveHookHandlerTest extends \MediaWikiTestCase {
+class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();

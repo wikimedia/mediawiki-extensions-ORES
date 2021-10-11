@@ -22,7 +22,7 @@ use Wikimedia\TestingAccessWrapper;
  * @group ORES
  * @covers ORES\Hooks\ChangesListHooksHandler
  */
-class ChangesListHooksHandlerTest extends \MediaWikiTestCase {
+class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 
 	protected $user;
 

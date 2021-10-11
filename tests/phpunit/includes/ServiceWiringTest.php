@@ -15,7 +15,7 @@ use ORES\Storage\ThresholdLookup;
  * @author Amir Sarabadani
  * @coversNothing
  */
-class ServiceWiringTest extends \MediaWikiTestCase {
+class ServiceWiringTest extends \MediaWikiIntegrationTestCase {
 
 	public function provideServices() {
 		return [

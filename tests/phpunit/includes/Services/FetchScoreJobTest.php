@@ -12,7 +12,7 @@ use Title;
  * @group Database
  * @covers ORES\Services\FetchScoreJob
  */
-class FetchScoreJobTest extends \MediaWikiTestCase {
+class FetchScoreJobTest extends \MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();

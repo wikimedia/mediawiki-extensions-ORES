@@ -12,7 +12,7 @@ use WatchedItem;
  * @group Database
  * @covers ORES\Hooks\Api\WatchedItemQueryServiceExtension
  */
-class WatchedItemQueryServiceExtensionTest extends \MediaWikiTestCase {
+class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase {
 
 	protected $user;
 

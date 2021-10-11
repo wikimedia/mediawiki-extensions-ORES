@@ -10,7 +10,7 @@ use Psr\Log\LoggerInterface;
  * @group ORES
  * @covers ORES\ThresholdParser
  */
-class ThresholdParserTest extends \MediaWikiTestCase {
+class ThresholdParserTest extends \MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();

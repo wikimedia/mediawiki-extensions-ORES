@@ -15,7 +15,7 @@ use User;
  * @group ORES
  * @covers ORES\Hooks\Helpers
  */
-class HelpersTest extends \MediaWikiTestCase {
+class HelpersTest extends \MediaWikiIntegrationTestCase {
 
 	protected $user;
 

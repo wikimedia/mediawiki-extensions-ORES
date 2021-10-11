@@ -3,14 +3,14 @@
 namespace ORES\Tests;
 
 use InvalidArgumentException;
-use MediaWikiTestCase;
+use MediaWikiIntegrationTestCase;
 use ORES\Storage\HashModelLookup;
 
 /**
  * @group ORES
  * @covers ORES\Storage\HashModelLookup
  */
-class HashModelLookupTest extends MediaWikiTestCase {
+class HashModelLookupTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @var HashModelLookup
