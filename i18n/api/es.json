@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Adamw",
-			"Dgstranz"
+			"Dgstranz",
+			"Jakeukalane"
 		]
 	},
-	"apihelp-query+ores-description": "Devolver la configuración de ORES y los datos del modelo para este wiki.",
-	"apihelp-query+ores-summary": "Devolver la configuración de ORES y los datos del modelo para este wiki.",
+	"apihelp-query+ores-description": "Devolver la configuración de ORES y los datos del modelo para esta wiki.",
+	"apihelp-query+ores-summary": "Devolver la configuración de ORES y los datos del modelo para esta wiki.",
 	"apihelp-query+ores-example-simple": "Obtener datos ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Puntuaciones ORES para la revisión.",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Puntuaciones ORES para la revisión.",
