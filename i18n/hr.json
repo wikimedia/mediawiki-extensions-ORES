@@ -3,7 +3,8 @@
 		"authors": [
 			"Bugoslav",
 			"MaGa",
-			"Neptune, the Mystic"
+			"Neptune, the Mystic",
+			"Ponor"
 		]
 	},
 	"ores-desc": "Izlaganje automatiziranih ocjena izmjena u sučelju",
@@ -14,9 +15,9 @@
 	"ores-hide-nondamaging-filter": "Skrij vjerojatno dobra uređivanja",
 	"ores-pref-damaging": "Prag predviđanja",
 	"ores-pref-damaging-flag": "Istakni vjerojatno problematične izmjene bojama i slovom »{{int:ores-damaging-letter}}« koje označava da je »potrebna ocjena«",
-	"ores-damaging-maybebad": "Možda problematična (označava većinu problematičnih izmjena, ali uključuje mnogo pogrješnih pogodaka)",
+	"ores-damaging-maybebad": "Možda problematična (označava većinu problematičnih izmjena, ali uključuje mnogo pogrešnih pogodaka)",
 	"ores-damaging-likelybad": "Vjerojatno problematično (djelomično vjerojatno)",
-	"ores-damaging-verylikelybad": "Vrlo vjerojatno problematično (označava malo pogrješnih pogodaka, ali pronalazi manji postotak problematičnih izmjena)",
+	"ores-damaging-verylikelybad": "Vrlo vjerojatno problematična (označava malo pogrešnih pogodaka, ali pronalazi manji postotak problematičnih izmjena)",
 	"ores-help-damaging-pref": "Promijenite »prag« da mogućnosti ispod budu šire ili selektivnije.",
 	"ores-rcfilters-whats-this-link-text": "Saznajte više",
 	"ores-rcfilters-damaging-title": "Predviđanje kakvoće doprinosa",
