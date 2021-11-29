@@ -19,6 +19,7 @@ namespace ORES\Hooks;
 use ChangesList;
 use ContribsPager;
 use IContextSource;
+use MediaWiki\MediaWikiServices;
 use RequestContext;
 use SpecialContributions;
 
@@ -135,7 +136,8 @@ class ContributionsHooksHandler {
 	 */
 	private static function hideNonDamagingPreference( IContextSource $context ) {
 		$checkbox = $context->getRequest()->getBool( 'hidenondamaging' );
-		$preference = $context->getUser()->getOption( 'oresRCHideNonDamaging' );
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		$preference = $userOptionsLookup->getOption( $context->getUser(), 'oresRCHideNonDamaging' );
 
 		// Unchecked options aren't submitted with HTML form, so we have hidenondamaging=1 or null.
 		// To distinguish when form on Special:Contributions is submitted, we check for

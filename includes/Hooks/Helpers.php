@@ -190,8 +190,8 @@ class Helpers {
 	 */
 	public static function getDamagingLevelPreference( User $user, Title $title = null ) {
 		$option = !$title || self::isWLPage( $title ) ? 'oresDamagingPref' : 'rcOresDamagingPref';
-
-		$pref = $user->getOption( $option );
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		$pref = $userOptionsLookup->getOption( $user, $option );
 		if ( isset( self::$damagingPrefMap[$pref] ) ) {
 			$pref = self::$damagingPrefMap[$pref];
 		}
