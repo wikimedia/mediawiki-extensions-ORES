@@ -18,6 +18,8 @@
 	"ores-damaging-verylikelybad": "Chắc chắn có vấn đề (đánh dấu ít kết quả dương tính giả nhưng kiếm % thấp hơn trong số sửa đổi có vấn đề)",
 	"ores-help-damaging-pref": "Thay đổi tùy chọn “độ nhạy” để mở rộng hoặc thu gọn các tùy chọn bên dưới.",
 	"ores-rcfilters-whats-this-link-text": "Tìm hiểu thêm",
+	"ores-rcfilters-ores-conflicts-logactions-global": "Bộ lọc “{{int:rcfilters-filter-logactions-label}}” xung đột với ít nhất một bộ lọc chất lượng đóng góp hoặc ý định người dùng. Các kết quả dự đoán chất lượng và ý định không có sẵn cho các tác vụ được ghi trong nhật trình. Các bộ lọc xung đột được đánh dấu trong hộp “Bộ lọc hiện hành” bên trên.",
+	"ores-rcfilters-logactions-conflicts-ores": "Bộ lọc này xung đột với ít nhất một bộ lọc chất lượng đóng góp hoặc ý định người dùng. Các kết quả dự đoán chất lượng và ý định không có sẵn cho các tác vụ được ghi trong nhật trình.",
 	"ores-rcfilters-damaging-title": "Dự đoán chất lượng đóng góp",
 	"ores-rcfilters-damaging-whats-this-header": "Giới thiệu về dự đoán chất lượng đóng góp",
 	"ores-rcfilters-damaging-likelygood-label": "Chắc chắn là tốt",
@@ -33,6 +35,12 @@
 	"ores-pref-highlight": "Tô màu các sửa đổi có lẽ có vấn đề và đánh dấu “{{int:ores-damaging-letter}}” có nghĩa “cần đuợc xem lại”",
 	"ores-pref-rc-hidenondamaging": "Chỉ các sửa đổi có lẽ có vấn đề (và ẩn các sửa đổi có lẽ tốt)",
 	"ores-pref-watchlist-hidenondamaging": "Chỉ các sửa đổi có lẽ có vấn đề (và ẩn các sửa đổi có lẽ tốt)",
-	"prefs-ores-wl": "Đánh dấu phiên bản trong danh sách theo dõi",
+	"prefs-ores-wl": "Đánh dấu phiên bản trong danh sách theo dõi và danh sách đóng góp",
+	"prefs-ores-rc": "Đánh giá các thay đổi gần đây và thay đổi liên quan",
+	"oresmodels": "Thống kê mô hình ORES",
+	"ores-specialoresmodels-header-filter": "Bộ lọc",
+	"ores-specialoresmodels-header-precision": "Độ chính xác",
+	"ores-specialoresmodels-header-recall": "Độ nhạy",
+	"ores-specialoresmodels-header-thresholdrange": "Phạm vi ngưỡng",
 	"ores-api-show-note": "Khi sử dụng <kbd>oresreview</kbd> hoặc <kbd>!oresreview</kbd>, các phiên bản không có điểm (ví dụ các phiên bản rất cũ) được xem là không cần xem lại, mặc dù vẫn cần được xem lại nếu được đánh dấu."
 }

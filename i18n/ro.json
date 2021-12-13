@@ -3,7 +3,8 @@
 		"authors": [
 			"Andrei Stroe",
 			"Strainu",
-			"XXN"
+			"XXN",
+			"NGC 54"
 		]
 	},
 	"ores-desc": "Expune în interfață scorurile automate ale modificărilor",
@@ -13,8 +14,8 @@
 	"ores-damaging-legend": "Această editare ar putea avea probleme și trebuie revizuită ([[:mw:Special:MyLanguage/ORES review tool|mai mult]])",
 	"ores-hide-nondamaging-filter": "Ascunde modificările probabil bune",
 	"ores-pref-damaging": "Pragul de predicție",
-	"ores-pref-damaging-flag": "Evidențiază editările probabil problematice în culori și cu un \"{{int:ores-damaging-letter}}\" pentru „necesită revizuire”",
-	"ores-damaging-maybebad": "Posibil cu probleme (marchează majoritatea problemelor, dar inclide și multe care sunt fals pozitive)",
+	"ores-pref-damaging-flag": "Evidențiază editările probabil problematice în culori și cu un „{{int:ores-damaging-letter}}” pentru „necesită revizuire”",
+	"ores-damaging-maybebad": "Posibil cu probleme (marchează majoritatea problemelor, dar include și multe care sunt fals pozitive)",
 	"ores-damaging-likelybad": "Probabil cu probleme (probabilitate medie)",
 	"ores-damaging-verylikelybad": "Foarte probabil cu probleme (marchează puține care sunt fals pozitive, dar găsește un % mai mic din editările problematice)",
 	"ores-help-damaging-pref": "Modifică setarea „prag” pentru a face opțiunile de mai jos mai largi sau mai selective.",
@@ -25,10 +26,10 @@
 	"ores-rcfilters-damaging-likelygood-label": "Foarte probabil bună",
 	"ores-rcfilters-damaging-likelygood-desc": "Foarte precis la găsirea majorității editărilor fără probleme.",
 	"ores-rcfilters-damaging-maybebad-label": "Poate avea probleme",
-	"ores-rcfilters-damaging-maybebad-desc": "Găsește majoritatea editărilor cu probleme sau distructive dar cu precizie mai slabă.",
+	"ores-rcfilters-damaging-maybebad-desc": "Găsește majoritatea editărilor cu probleme sau distructive dar cu acuratețe mai joasă.",
 	"ores-rcfilters-damaging-likelybad-label": "Probabil cu probleme",
-	"ores-rcfilters-damaging-likelybad-desc-low": "Găsește cu o precizie medie o fracțiune intermediară de modificări problematice.",
-	"ores-rcfilters-damaging-likelybad-desc-high": "Cu acuratețe mare, găsește cele mai multe editări cu probleme.",
+	"ores-rcfilters-damaging-likelybad-desc-low": "Cu o acuratețe medie, găsește o fracțiune intermediară de editări problematice.",
+	"ores-rcfilters-damaging-likelybad-desc-high": "Cu acuratețe mare, găsește cele mai multe editări problematice.",
 	"ores-rcfilters-damaging-verylikelybad-label": "Foarte probabil cu probleme",
 	"ores-rcfilters-damaging-verylikelybad-desc": "Foarte precis în a găsi cele mai evidente editări distructive sau greșite.",
 	"ores-rcfilters-goodfaith-title": "Predicții asupra intenției utilizatorului",
@@ -36,9 +37,18 @@
 	"ores-rcfilters-goodfaith-good-label": "Foarte probabil de bună credință",
 	"ores-rcfilters-goodfaith-good-desc": "Foarte precis la găsirea majorității editărilor de bună credință.",
 	"ores-rcfilters-goodfaith-maybebad-label": "Posibil rea credință",
+	"ores-rcfilters-goodfaith-maybebad-desc": "Găsește majoritatea editărilor de rea credință dar cu o acuratețe mai scăzută.",
 	"ores-rcfilters-goodfaith-bad-label": "Probabil rea credință",
+	"ores-rcfilters-goodfaith-bad-desc-low": "Cu o acuratețe medie, găsește o fracțiune intermediară de editări făcute cu rea credință.",
+	"ores-rcfilters-goodfaith-bad-desc-high": "Cu acuratețe medie, găsește majoritatea editărilor de rea credință.",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Foarte probabil rea credință",
+	"ores-rcfilters-goodfaith-verylikelybad-desc": "Foarte mult acurată la găsirea majorității modificărilor de rea credință evidentă.",
+	"ores-pref-highlight": "Evidențiază editările probabil problematice în culori și cu un „{{int:ores-damaging-letter}}” pentru „necesită revizuire”",
 	"ores-pref-rc-hidenondamaging": "Arată doar editările probabil problematice (și ascunde editările posibil bune)",
 	"ores-pref-watchlist-hidenondamaging": "Arată doar editările probabil problematice (și ascunde editările posibil bune)",
+	"prefs-ores-wl": "Evaluare de revizuire la Lista de urmărire și Contribuții",
+	"prefs-ores-rc": "Evaluare de revizuire la Schimbări recente și Schimbări corelate.",
+	"ores-specialoresmodels-header-filter": "Filtru",
+	"ores-specialoresmodels-header-precision": "Precizie",
 	"ores-api-show-note": "Când folosiți <kbd>oresreview</kbd> sau <kbd>!oresreview</kbd>, editările fără notă (e.g. cele foarte vechi) sunt considerate ca neavând nevoie de revizuire chiar dacă ar fi avut în cazul în care ar fi fost notate."
 }

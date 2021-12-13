@@ -30,5 +30,6 @@
 	"ores-rcfilters-damaging-maybebad-desc": "จะพบการแก้ไขที่มีข้อบกพร่องหรือมีปัญหา้ป็นส่วนใหญ่ แต่ความน่าจะเป็นต่ำกว่า",
 	"ores-rcfilters-damaging-likelybad-label": "ดูเหมือนจะเป็นปัญหา",
 	"ores-rcfilters-damaging-likelybad-desc-low": "ด้วยความน่าจะเป็นระดับปานกลาง และจะพบส่วนที่อาจเป็นปัญหาโดยส่วนใหญ่",
-	"ores-rcfilters-damaging-likelybad-desc-high": "ด้วยความน่าจะเป็นระดับสูง ค้นหาการแก้ไขส่วนใหญ่ที่เป็นปัญหา"
+	"ores-rcfilters-damaging-likelybad-desc-high": "ด้วยความน่าจะเป็นระดับสูง ค้นหาการแก้ไขส่วนใหญ่ที่เป็นปัญหา",
+	"ores-rcfilters-damaging-verylikelybad-label": "ดูเหมือนจะมีปัญหา"
 }

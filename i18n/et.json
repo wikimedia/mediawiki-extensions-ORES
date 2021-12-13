@@ -15,7 +15,7 @@
 	"ores-damaging-maybebad": "Võib olla probleemne (sildistab enamiku probleemseid muudatusi, kuid ka palju valepositiivseid)",
 	"ores-damaging-likelybad": "Tõenäoliselt probleemne (keskmise tõenäosusega)",
 	"ores-damaging-verylikelybad": "Suure tõenäosusega probleemne (sildistab vähem valepositiivseid muudatusi ja ka väiksema osa probleemsetest)",
-	"ores-help-damaging-pref": "Muuda lävesätet, et rakendada järgnevaid valikuid laiemas või kitsamas ulatuses.",
+	"ores-help-damaging-pref": "Muuda lävesätet, et rakendada järgmiseid valikuid laiemas või kitsamas ulatuses.",
 	"ores-rcfilters-whats-this-link-text": "Loe veel",
 	"ores-rcfilters-ores-conflicts-logactions-global": "Filter \"{{int:rcfilters-filter-logactions-label}}\" on konfliktis vähemalt ühe kaastöö kvaliteedi või kasutaja kavatsuse filtriga. Kvaliteedi ja kavatsuse prognoos pole logitoimingute jaoks saadaval. Konfliktsed filtrid on ära märgitud ülal aktiivsete filtrite loendis.",
 	"ores-rcfilters-logactions-conflicts-ores": "See filter on konfliktis vähemalt ühe kaastöö kvaliteedi või kasutaja kavatsuse filtriga. Kvaliteedi ja kavatsuse prognoos pole logitoimingute jaoks saadaval.",
