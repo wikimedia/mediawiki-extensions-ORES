@@ -4,11 +4,11 @@ namespace ORES\Tests;
 
 use ContentHandler;
 use MediaWiki\Linker\LinkTarget;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 use ORES\Services\ORESServices;
 use Title;
 use User;
-use WikiPage;
 
 class TestHelper {
 
@@ -100,7 +100,7 @@ class TestHelper {
 		static $i = 0;
 
 		$title = Title::newFromLinkTarget( $target );
-		$page = WikiPage::factory( $title );
+		$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 		$status = $page->doUserEditContent(
 			ContentHandler::makeContent( __CLASS__ . $i++, $title ),
 			$user,
