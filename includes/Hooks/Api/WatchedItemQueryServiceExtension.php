@@ -21,7 +21,6 @@ namespace ORES\Hooks\Api;
 use MediaWiki\User\UserIdentity;
 use ORES\Hooks\Helpers;
 use ORES\Services\ORESServices;
-use User;
 use WatchedItemQueryService;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
@@ -64,8 +63,7 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 			? array_flip( $options['filters'] )
 			: [];
 		if ( isset( $show['oresreview'] ) || isset( $show['!oresreview'] ) ) {
-			$userObj = User::newFromIdentity( $user );
-			$threshold = Helpers::getThreshold( 'damaging', $userObj );
+			$threshold = Helpers::getThreshold( 'damaging', $user );
 			$tables[] = 'ores_classification';
 
 			if ( isset( $show['oresreview'] ) ) {

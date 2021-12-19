@@ -19,11 +19,11 @@ namespace ORES\Hooks;
 use Exception;
 use IContextSource;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\User\UserIdentity;
 use ORES\Services\ORESServices;
 use SpecialRecentChanges;
 use SpecialWatchlist;
 use Title;
-use User;
 
 class Helpers {
 
@@ -37,7 +37,7 @@ class Helpers {
 	];
 
 	public static function hideNonDamagingFilter(
-		array &$fields, array &$conds, $hidenondamaging, User $user, Title $title = null
+		array &$fields, array &$conds, $hidenondamaging, UserIdentity $user, Title $title = null
 	) {
 		$dbr = \wfGetDB( DB_REPLICA );
 		// Add user-based threshold
@@ -163,12 +163,12 @@ class Helpers {
 	/**
 	 * Internal helper to get threshold
 	 * @param string $type
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param Title|null $title
 	 * @return float|null Threshold, or null if not set
 	 * @throws Exception When $type is not recognized
 	 */
-	public static function getThreshold( $type, User $user, Title $title = null ) {
+	public static function getThreshold( $type, UserIdentity $user, Title $title = null ) {
 		if ( $type === 'damaging' ) {
 			$pref = self::getDamagingLevelPreference( $user, $title );
 			$thresholds = self::getDamagingThresholds();
@@ -184,11 +184,11 @@ class Helpers {
 	/**
 	 * Internal helper to get damaging level preference
 	 * with backward compatibility for old level names
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param Title|null $title
 	 * @return string 'maybebad', 'likelybad', or 'verylikelybad'
 	 */
-	public static function getDamagingLevelPreference( User $user, Title $title = null ) {
+	public static function getDamagingLevelPreference( UserIdentity $user, Title $title = null ) {
 		$option = !$title || self::isWLPage( $title ) ? 'oresDamagingPref' : 'rcOresDamagingPref';
 		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 		$pref = $userOptionsLookup->getOption( $user, $option );
