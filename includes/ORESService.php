@@ -23,6 +23,7 @@ use RequestContext;
 use RuntimeException;
 use Status;
 use WebRequest;
+use WikiMap;
 
 /**
  * Common methods for accessing an ORES server.
@@ -51,7 +52,7 @@ class ORESService {
 		if ( $wgOresWikiId ) {
 			$wikiId = $wgOresWikiId;
 		} else {
-			$wikiId = wfWikiID();
+			$wikiId = WikiMap::getCurrentWikiId();
 		}
 
 		return $wikiId;
