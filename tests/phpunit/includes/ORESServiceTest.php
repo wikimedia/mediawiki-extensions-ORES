@@ -4,6 +4,7 @@ namespace ORES\Tests;
 
 use MediaWiki\Logger\LoggerFactory;
 use ORES\ORESService;
+use WikiMap;
 
 /**
  * @group ORES
@@ -45,7 +46,7 @@ class ORESServiceTest extends \MediaWikiIntegrationTestCase {
 		$this->assertSame( 'testwiki2', ORESService::getWikiID() );
 
 		$this->setMwGlobals( [ 'wgOresWikiId' => null ] );
-		$this->assertSame( wfWikiID(), ORESService::getWikiID() );
+		$this->assertSame( WikiMap::getCurrentWikiId(), ORESService::getWikiID() );
 	}
 
 	/**

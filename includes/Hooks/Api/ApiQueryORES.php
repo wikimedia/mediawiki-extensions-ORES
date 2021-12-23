@@ -22,6 +22,7 @@ use ApiResult;
 use NamespaceInfo;
 use ORES\Hooks\Helpers;
 use ORES\Services\ORESServices;
+use WikiMap;
 
 /**
  * A query action to return meta information about ORES models and
@@ -53,7 +54,7 @@ class ApiQueryORES extends ApiQueryBase {
 		$result = $this->getResult();
 		$data = [
 			'baseurl' => $this->getConfig()->get( 'OresBaseUrl' ),
-			'wikiid' => $this->getConfig()->get( 'OresWikiId' ) ?: wfWikiID(),
+			'wikiid' => $this->getConfig()->get( 'OresWikiId' ) ?: WikiMap::getCurrentWikiId(),
 			'models' => [],
 			'excludebots' => (bool)$this->getConfig()->get( 'OresExcludeBots' ),
 			'damagingthresholds' => Helpers::getDamagingThresholds(),
