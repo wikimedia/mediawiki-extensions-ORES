@@ -1,15 +1,33 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dipsacus fullonum",
 			"Saederup92"
 		]
 	},
+	"ores-desc": "Viser automatisk revisionsscore i grænsefladen",
+	"ores-damaging-filter": "$1 sandsynligvis gode redigeringer",
 	"ores-damaging-letter": "r",
+	"ores-damaging-title": "Denne redigering behøver eftersyn",
+	"ores-damaging-legend": "Redigeringen kan have problemer og bør efterses ([[:mw:Special:MyLanguage/ORES review tool|mere info]])",
+	"ores-hide-nondamaging-filter": "Skjul sandsynligvis gode redigeringer",
+	"ores-pref-damaging": "Tærskelværdi for vurdering",
+	"ores-pref-damaging-flag": "Fremhæv sandsynlige problemredigeringer med farver og et \"{{int:ores-damaging-letter}}\" for \"behøver eftersyn\".",
+	"ores-damaging-maybebad": "Kan have problemer (markerer de fleste problemredigeringer, men inkluderer mange falske positive)",
+	"ores-damaging-likelybad": "Har sandsynligvis problemer (medium sandsynlighed)",
+	"ores-damaging-verylikelybad": "Har meget sandsynligt problemer (markerer få falske positive, men finder en mindre andel af problemredigeringerne)",
+	"ores-help-damaging-pref": "Ændr \"tærskelværdi\"-indstillingen for at gøre valgmulighederne herunder bredere eller mere selektive.",
 	"ores-rcfilters-whats-this-link-text": "Lær mere",
+	"ores-rcfilters-damaging-likelygood-label": "Meget sandsynligt god",
 	"ores-rcfilters-damaging-maybebad-label": "Kan have problemer",
 	"ores-rcfilters-damaging-likelybad-label": "Har sandsynligvis problemer",
 	"ores-rcfilters-damaging-verylikelybad-label": "Har højst sandsynligvis problemer",
 	"ores-rcfilters-goodfaith-maybebad-label": "Kan være dårlig intention",
 	"ores-rcfilters-goodfaith-bad-label": "Sandsynlig dårlig intention",
-	"ores-rcfilters-goodfaith-verylikelybad-label": "Højst sandsynligvis dårlig intention"
+	"ores-rcfilters-goodfaith-verylikelybad-label": "Højst sandsynligvis dårlig intention",
+	"oresmodels": "ORES-modelstatistikker",
+	"ores-specialoresmodels-header-filter": "Filter",
+	"ores-specialoresmodels-header-precision": "Precision",
+	"ores-specialoresmodels-header-recall": "Recall",
+	"ores-specialoresmodels-header-thresholdrange": "Tærskelværdi-interval"
 }
