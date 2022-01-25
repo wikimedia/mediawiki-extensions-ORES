@@ -20,8 +20,8 @@ namespace ORES\Hooks;
 
 use Exception;
 use Hooks;
-use JobQueueGroup;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
 use ORES\Services\FetchScoreJob;
 use Psr\Log\LoggerInterface;
 use RecentChange;
@@ -156,7 +156,7 @@ class RecentChangeSaveHookHandler {
 			'precache' => true,
 		] );
 		try {
-			JobQueueGroup::singleton()->push( $job );
+			MediaWikiServices::getInstance()->getJobQueueGroup()->push( $job );
 			$this->logger->debug( 'Job pushed for {revid}', [
 				'revid' => $revid,
 			] );

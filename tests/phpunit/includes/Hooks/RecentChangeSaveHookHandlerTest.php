@@ -2,7 +2,6 @@
 
 namespace ORES\Tests\Hooks;
 
-use JobQueueGroup;
 use ORES\Hooks\RecentChangeSaveHookHandler;
 use ORES\Tests\MockOresServiceBuilder;
 use RecentChange;
@@ -42,7 +41,8 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	 * @dataProvider provideOnRecentChange_save
 	 */
 	public function testOnRecentChange_save( $ns, $isBot, $type, $expectedModels ) {
-		JobQueueGroup::singleton()->get( 'ORESFetchScoreJob' )->delete();
+		$jobQueueGroup = $this->getServiceContainer()->getJobQueueGroup();
+		$jobQueueGroup->get( 'ORESFetchScoreJob' )->delete();
 		$revId = mt_rand( 1000, 9999 );
 
 		$rc = RecentChange::newFromRow( (object)[
@@ -62,7 +62,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 		] );
 		RecentChangeSaveHookHandler::onRecentChange_save( $rc );
 
-		$actual = JobQueueGroup::singleton()->get( 'ORESFetchScoreJob' )->pop()->getParams();
+		$actual = $jobQueueGroup->get( 'ORESFetchScoreJob' )->pop()->getParams();
 		$actual['requestId'] = 'foo';
 
 		$expected = [
@@ -92,7 +92,8 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	 * @dataProvider provideOnRecentChange_saveNotQueued
 	 */
 	public function testOnRecentChange_saveNotQueued( $ns, $isBot, $type ) {
-		JobQueueGroup::singleton()->get( 'ORESFetchScoreJob' )->delete();
+		$jobQueueGroup = $this->getServiceContainer()->getJobQueueGroup();
+		$jobQueueGroup->get( 'ORESFetchScoreJob' )->delete();
 		$revId = mt_rand( 1000, 9999 );
 
 		$rc = RecentChange::newFromRow( (object)[
@@ -112,11 +113,12 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 		] );
 		RecentChangeSaveHookHandler::onRecentChange_save( $rc );
 
-		$this->assertFalse( JobQueueGroup::singleton()->get( 'ORESFetchScoreJob' )->pop() );
+		$this->assertFalse( $jobQueueGroup->get( 'ORESFetchScoreJob' )->pop() );
 	}
 
 	public function testOnRecentChange_saveHook() {
-		JobQueueGroup::singleton()->get( 'ORESFetchScoreJob' )->delete();
+		$jobQueueGroup = $this->getServiceContainer()->getJobQueueGroup();
+		$jobQueueGroup->get( 'ORESFetchScoreJob' )->delete();
 		$revId = mt_rand( 1000, 9999 );
 
 		$rc = RecentChange::newFromRow( (object)[
@@ -139,7 +141,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 		} );
 		RecentChangeSaveHookHandler::onRecentChange_save( $rc );
 
-		$actual = JobQueueGroup::singleton()->get( 'ORESFetchScoreJob' )->pop()->getParams();
+		$actual = $jobQueueGroup->get( 'ORESFetchScoreJob' )->pop()->getParams();
 		$actual['requestId'] = 'foo';
 
 		$expected = [
