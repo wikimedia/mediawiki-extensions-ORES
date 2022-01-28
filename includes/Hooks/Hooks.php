@@ -28,15 +28,17 @@ class Hooks {
 	 * @param DatabaseUpdater $updater
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
-		$sqlPath = __DIR__ . '/../../sql/';
-		$updater->addExtensionTable( 'ores_classification', $sqlPath . 'ores_classification.sql' );
-		$updater->addExtensionTable( 'ores_model', $sqlPath . 'ores_model.sql' );
+		$type = $updater->getDB()->getType();
+		$sqlPath = __DIR__ . '/../../sql/' . $type . '/';
+		$updater->addExtensionTable( 'ores_classification', $sqlPath . 'tables-generated.sql' );
 
-		// 1.31
-		$updater->addExtensionIndex( 'ores_classification', 'oresc_model_class_prob',
-			$sqlPath . 'patch-ores-classification-model-class-prob-index.sql' );
-		$updater->dropExtensionIndex( 'ores_classification', 'oresc_rev_predicted_model',
-			$sqlPath . 'patch-ores-classification-indexes-part-ii.sql' );
+		if ( $type === 'mysql' ) {
+			// 1.31
+			$updater->addExtensionIndex( 'ores_classification', 'oresc_model_class_prob',
+				$sqlPath . 'patch-ores-classification-model-class-prob-index.sql' );
+			$updater->dropExtensionIndex( 'ores_classification', 'oresc_rev_predicted_model',
+				$sqlPath . 'patch-ores-classification-indexes-part-ii.sql' );
+		}
 	}
 
 	/**
