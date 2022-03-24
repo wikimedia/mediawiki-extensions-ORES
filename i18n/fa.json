@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amirsara",
+			"Beginneruser",
 			"Ebraminio",
 			"Huji",
 			"Jeeputer",
@@ -53,7 +54,7 @@
 	"ores-pref-highlight": "متمایز کردن ویرایش‌های مشکل‌دار با رنگ‌ها و برچسب «{{int:ores-damaging-letter}}» به معنای «نیازمند بازبینی»",
 	"ores-pref-rc-hidenondamaging": "تنها ویرایش‌های احتمالاً مشکل‌دار را نشان بده (و ویرایش‌های احتمالاً خوب را پنهان کن)",
 	"ores-pref-watchlist-hidenondamaging": "تنها ویرایش‌های احتمالاً مشکل‌دار را نشان بده (و ویرایش‌های احتمالاً خوب را پنهان کن)",
-	"prefs-ores-wl": "رتبه‌بندی ویرایش در فهرست پی‌گیری و مشارکت‌ها",
+	"prefs-ores-wl": "رتبه‌بندی ویرایش در فهرست پیگیری و مشارکت‌ها",
 	"prefs-ores-rc": "رتبه‌بندی ویرایش در تغییرات اخیر، تغییرات مرتبط و مشارکت‌ها",
 	"oresmodels": "مدل آماری ساعن",
 	"ores-specialoresmodels-header-filter": "پالایه",
