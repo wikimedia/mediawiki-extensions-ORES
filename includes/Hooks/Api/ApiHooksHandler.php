@@ -30,6 +30,7 @@ use ApiResult;
 use ORES\Hooks\Helpers;
 use ORES\Services\ORESServices;
 use WatchedItem;
+use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\Rdbms\IResultWrapper;
 
 class ApiHooksHandler {
@@ -56,7 +57,7 @@ class ApiHooksHandler {
 			$module instanceof ApiQueryWatchlist ||
 			$module instanceof ApiQueryUserContribs
 		) {
-			$params['prop'][ApiBase::PARAM_TYPE][] = 'oresscores';
+			$params['prop'][ParamValidator::PARAM_TYPE][] = 'oresscores';
 		}
 
 		if ( Helpers::isModelEnabled( 'damaging' ) && (
@@ -64,8 +65,8 @@ class ApiHooksHandler {
 			$module instanceof ApiQueryWatchlist ||
 			$module instanceof ApiQueryUserContribs
 		) ) {
-			$params['show'][ApiBase::PARAM_TYPE][] = 'oresreview';
-			$params['show'][ApiBase::PARAM_TYPE][] = '!oresreview';
+			$params['show'][ParamValidator::PARAM_TYPE][] = 'oresreview';
+			$params['show'][ParamValidator::PARAM_TYPE][] = '!oresreview';
 			$params['show'][ApiBase::PARAM_HELP_MSG_APPEND][] = 'ores-api-show-note';
 		}
 	}
