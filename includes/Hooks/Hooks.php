@@ -31,12 +31,8 @@ class Hooks {
 		$sqlPath = __DIR__ . '/../../sql/';
 		$updater->addExtensionTable( 'ores_classification', $sqlPath . 'ores_classification.sql' );
 		$updater->addExtensionTable( 'ores_model', $sqlPath . 'ores_model.sql' );
-		$updater->dropExtensionIndex( 'ores_classification', 'oresc_rev',
-			$sqlPath . 'patch-ores-classification-indexes.sql' );
-		$updater->addExtensionIndex( 'ores_classification', 'oresc_rev_model_class',
-			$sqlPath . 'patch-ores-classification-unique-indexes.sql' );
-		$updater->addExtensionIndex( 'ores_model', 'oresm_model_status',
-			$sqlPath . 'patch-ores-model-indexes.sql' );
+
+		// 1.31
 		$updater->addExtensionIndex( 'ores_classification', 'oresc_model_class_prob',
 			$sqlPath . 'patch-ores-classification-model-class-prob-index.sql' );
 		$updater->dropExtensionIndex( 'ores_classification', 'oresc_rev_predicted_model',
