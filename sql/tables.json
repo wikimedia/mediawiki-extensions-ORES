@@ -1,0 +1,100 @@
+[
+	{
+		"name": "ores_classification",
+		"comment": "ORES automated classifier outputs for a given revision. Each revision will usually be assigned a probability for all classes in the model's output range.",
+		"columns": [
+			{
+				"name": "oresc_id",
+				"comment": "ORES ID",
+				"type": "bigint",
+				"options": { "autoincrement": true, "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "oresc_rev",
+				"comment": "Revision ID",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "oresc_model",
+				"comment": "Model name (foreign key to ores_model.oresm_id)",
+				"type": "smallint",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "oresc_class",
+				"comment": "Classification title (see $wgOresModelClasses)",
+				"type": "mwtinyint",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "oresc_probability",
+				"comment": "Estimated classification probability",
+				"type": "decimal",
+				"options": { "notnull": true, "precision": 3, "scale": 3 }
+			},
+			{
+				"name": "oresc_is_predicted",
+				"comment": "Whether this classification has been recommended as the most likely candidate.",
+				"type": "mwtinyint",
+				"options": { "notnull": true, "length": 1 }
+			}
+		],
+		"indexes": [
+			{
+				"name": "oresc_rev_model_class",
+				"columns": [ "oresc_rev", "oresc_model", "oresc_class" ],
+				"unique": true
+			},
+			{
+				"name": "oresc_model_class_prob",
+				"columns": [ "oresc_model", "oresc_class", "oresc_probability" ],
+				"unique": false
+			}
+		],
+		"pk": [ "oresc_id" ]
+	},
+	{
+		"name": "ores_model",
+		"comment": "Cached model information used to detect updated versions",
+		"columns": [
+			{
+				"name": "oresm_id",
+				"comment": "ORES ID",
+				"type": "smallint",
+				"options": { "autoincrement": true, "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "oresm_name",
+				"comment": "Model name",
+				"type": "string",
+				"options": { "notnull": true, "length": 32 }
+			},
+			{
+				"name": "oresm_version",
+				"comment": "Most recent model version seen",
+				"type": "string",
+				"options": { "notnull": true, "length": 32 }
+			},
+			{
+				"name": "oresm_is_current",
+				"comment": "Is it the current version of the model?",
+				"type": "mwtinyint",
+				"options": { "notnull": true, "length": 1 }
+			}
+		],
+		"indexes": [
+			{
+				"name": "oresm_model_status",
+				"columns": [ "oresm_name", "oresm_is_current" ],
+				"unique": false
+			},
+			{
+				"name": "oresm_version",
+				"columns": [ "oresm_name", "oresm_version" ],
+				"unique": true
+			}
+		],
+		"pk": [ "oresm_id" ]
+	}
+]
