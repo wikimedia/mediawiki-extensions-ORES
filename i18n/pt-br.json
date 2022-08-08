@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Duke of Wikipädia",
 			"Eduardo Addad de Oliveira",
 			"Eduardoaddad",
 			"Felipe L. Ewald",
@@ -48,10 +49,10 @@
 	"ores-rcfilters-goodfaith-good-desc": "Altamente precisa em encontrar quase todas as edições de boa fé.",
 	"ores-rcfilters-goodfaith-maybebad-label": "Podem ser de má fé",
 	"ores-rcfilters-goodfaith-maybebad-desc": "Encontra a maioria das edições de má fé, mas com uma menor precisão.",
-	"ores-rcfilters-goodfaith-bad-label": "Provavelmente de má-fé",
+	"ores-rcfilters-goodfaith-bad-label": "Provavelmente de má fé",
 	"ores-rcfilters-goodfaith-bad-desc-low": "Com precisão média, encontra uma fração intermediária de edições de má fé.",
 	"ores-rcfilters-goodfaith-bad-desc-high": "Com precisão média, encontra a maioria das edições de má fé.",
-	"ores-rcfilters-goodfaith-verylikelybad-label": "Provavelmente de má fé",
+	"ores-rcfilters-goodfaith-verylikelybad-label": "Muito provavelmente de má fé",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Muito exato em encontrar as edições mais óbvias de má fé.",
 	"ores-pref-highlight": "Destaque edições provavelmente prejudiciais com cores e um \"{{int:ores-damaging-letter}}\" para \"necessita revisão\"",
 	"ores-pref-rc-hidenondamaging": "Mostrar somente edições que podem ter problemas (e ocultar edições provavelmente boas)",
