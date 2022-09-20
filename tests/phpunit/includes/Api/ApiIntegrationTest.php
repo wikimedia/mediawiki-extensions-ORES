@@ -122,7 +122,7 @@ class ApiIntegrationTest extends \ApiTestCase {
 			'damaging' => [ 'true' => 0.4, 'false' => 0.6 ],
 			'goodfaith' => [ 'true' => 0.7, 'false' => 0.3 ],
 		];
-		$this->assertEquals( $expected, $result[0]['query']['recentchanges'][0]['oresscores'] );
+		$this->assertEqualsWithDelta( $expected, $result[0]['query']['recentchanges'][0]['oresscores'], 1e-9 );
 	}
 
 	private function getLoggedInTestUser() {
@@ -257,7 +257,7 @@ class ApiIntegrationTest extends \ApiTestCase {
 			'damaging' => [ 'true' => 0.4, 'false' => 0.6 ],
 			'goodfaith' => [ 'true' => 0.7, 'false' => 0.3 ],
 		];
-		$this->assertEquals( $expected, $result[0]['query']['watchlist'][0]['oresscores'] );
+		$this->assertEqualsWithDelta( $expected, $result[0]['query']['watchlist'][0]['oresscores'], 1e-9 );
 	}
 
 	public function testListWatchlist_showOresReview() {

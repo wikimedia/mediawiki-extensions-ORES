@@ -65,7 +65,7 @@ class ScoreFetcherTest extends \MediaWikiIntegrationTestCase {
 	public function testGetScores( $expected, $revisions, $models, $precache ) {
 		$scoreFetcher = ScoreFetcher::instance();
 		$result = $scoreFetcher->getScores( $revisions, $models, $precache );
-		$this->assertEquals( $expected, $result );
+		$this->assertEqualsWithDelta( $expected, $result, 1e-9 );
 		$res = wfGetDB( DB_REPLICA )->select(
 			'ores_model',
 			[ 'oresm_name', 'oresm_version', 'oresm_is_current' ],
