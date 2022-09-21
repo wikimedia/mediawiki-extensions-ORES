@@ -4,5 +4,16 @@
 			"Eleassar"
 		]
 	},
-	"ores-rcfilters-whats-this-link-text": "Več o tem"
+	"ores-pref-damaging": "Napovedni prag",
+	"ores-pref-damaging-flag": "Označi verjetna problematična urejanja z barvami in »{{int:ores-damaging-letter}}« za »potrebuje pregled«",
+	"ores-damaging-likelybad": "Verjetno s težavami (srednja verjetnost)",
+	"ores-damaging-verylikelybad": "Zelo verjetno s težavami (označi malo lažno pozitivnih, vendar najde manjši % problematičnih urejanj)",
+	"ores-help-damaging-pref": "Spremenite nastavitev »prag«, da bodo spodnje možnosti širše ali bolj selektivne.",
+	"ores-rcfilters-whats-this-link-text": "Več o tem",
+	"ores-rcfilters-damaging-likelybad-label": "Verjetno s težavami",
+	"ores-rcfilters-damaging-verylikelybad-label": "Zelo verjetno s težavami",
+	"ores-pref-highlight": "Označi verjetna problematična urejanja z barvami in »{{int:ores-damaging-letter}}« za »potrebuje pregled«",
+	"ores-pref-rc-hidenondamaging": "Prikaži samo verjetna problematična urejanja (in skrij verjetno dobra urejanja)",
+	"ores-pref-watchlist-hidenondamaging": "Prikaži samo verjetna problematična urejanja (in skrij verjetno dobra urejanja)",
+	"prefs-ores-rc": "Ocenjevanje redakcij v Zadnjih spremembah in Sorodnih spremembah"
 }
