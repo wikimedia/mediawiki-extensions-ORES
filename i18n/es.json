@@ -10,6 +10,7 @@
 			"Luzcaru",
 			"Macofe",
 			"MarcoAurelio",
+			"McDutchie",
 			"Pacoexe",
 			"Tiberius1701",
 			"Yllelder"
@@ -28,8 +29,8 @@
 	"ores-damaging-verylikelybad": "Muy probablemente tienen problemas (encuentra pocas ediciones problemáticas, pero marca pocos falsos positivos)",
 	"ores-help-damaging-pref": "Cambia el «umbral de predicción» para que sea más o menos selectivo.",
 	"ores-rcfilters-whats-this-link-text": "Más información",
-	"ores-rcfilters-ores-conflicts-logactions-global": "El filtro de {{int:rcfilters-filter-logactions-label}} está en conflicto con uno o más filtros de calidad de las contribuciones o de intenciones del usuario. Los filtros en conflicto están marcados en el área de filtros activos, arriba.",
-	"ores-rcfilters-logactions-conflicts-ores": "Este filtro está en conflicto con uno o más filtros de calidad de las contribuciones o de intención del usuario. Las predicciones de calidad e intención no están disponibles para acciones de usuarios conectados.",
+	"ores-rcfilters-ores-conflicts-logactions-global": "El filtro de {{int:rcfilters-filter-logactions-label}} está en conflicto con uno o más filtros de calidad de las contribuciones o de intenciones del usuario. Las predicciones de calidad e intención no están disponibles para las acciones que se registren. Los filtros en conflicto están marcados en el área de filtros activos, arriba.",
+	"ores-rcfilters-logactions-conflicts-ores": "Este filtro está en conflicto con uno o más filtros de calidad de las contribuciones o de intención del usuario. Las predicciones de calidad e intención no están disponibles para las acciones que se registren.",
 	"ores-rcfilters-damaging-title": "Predicciones de calidad de las contribuciones",
 	"ores-rcfilters-damaging-whats-this-header": "Acerca de las predicciones de calidad de las contribuciones",
 	"ores-rcfilters-damaging-whats-this-body": "Estas predicciones son efectuadas por un servicio de aprendizaje automático entrenado en un gran conjunto de ediciones evaluadas por editores humanos. Los filtros más estrictos y precisos encuentran menos falsos positivos, pero dejan de encontrar más objetivos válidos. Los filtros menos precisos encuentran más objetivos válidos, pero también más falsos positivos.",
