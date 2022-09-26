@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"apihelp-query+ores-description": "Reinstitue le configuration ORES e le datos de modello pro iste wiki.",
+	"apihelp-query+ores-summary": "Reinstitue le configuration ORES e le datos de modello pro iste wiki.",
+	"apihelp-query+ores-example-simple": "Obtener datos ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Scores ORES pro le version.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Scores ORES pro le version.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Adde scores ORES pro le entrata.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Adde scores ORES pro le modification.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Adde scores ORES pro le modification."
+}
