@@ -4,10 +4,10 @@ namespace ORES\Tests\Api;
 
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\User\UserIdentity;
 use ORES\Storage\HashModelLookup;
 use ORES\Tests\TestHelper;
 use TitleValue;
-use User;
 
 /**
  * @group API
@@ -218,10 +218,10 @@ class ApiIntegrationTest extends \ApiTestCase {
 	}
 
 	/**
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param LinkTarget[] $targets
 	 */
-	private function watchPages( User $user, array $targets ) {
+	private function watchPages( UserIdentity $user, array $targets ) {
 		$store = $this->getWatchedItemStore();
 		$store->addWatchBatchForUser( $user, $targets );
 	}

@@ -89,13 +89,13 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 		$userOptionsManager = $this->getServiceContainer()->getUserOptionsManager();
 
 		$userOptionsManager->setOption( $this->user, 'rcOresDamagingPref', 'maybebad' );
-		$this->assertEquals(
+		$this->assertSame(
 			0.16, Helpers::getThreshold( 'damaging', $this->user, $this->context->getTitle() )
 		);
 
 		// b/c
 		$userOptionsManager->setOption( $this->user, 'rcOresDamagingPref', 'soft' );
-		$this->assertEquals(
+		$this->assertSame(
 			0.56, Helpers::getThreshold( 'damaging', $this->user, $this->context->getTitle() )
 		);
 	}

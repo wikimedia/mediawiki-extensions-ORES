@@ -20,7 +20,8 @@ use InvalidArgumentException;
 
 class HashModelLookup implements ModelLookup {
 
-	private $modelData = null;
+	/** @var array[] */
+	private $modelData;
 
 	public function __construct( array $modelData ) {
 		$this->modelData = $modelData;

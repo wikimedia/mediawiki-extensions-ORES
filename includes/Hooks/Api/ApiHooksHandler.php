@@ -227,7 +227,7 @@ class ApiHooksHandler {
 	 * Scores already cached are fetched from the database.
 	 *
 	 * @param int[] $revids Revision IDs
-	 * @return array $scores
+	 * @return array
 	 */
 	public static function loadScoresForRevisions( array $revids ) {
 		$scores = [];
