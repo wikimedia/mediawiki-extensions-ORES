@@ -53,7 +53,7 @@ class HooksTest extends \MediaWikiIntegrationTestCase {
 		$mock = $this->createMock( ScoreStorage::class );
 		$mock->expects( $this->once() )
 			->method( 'purgeRows' )
-			->with( $this->equalTo( $revIds ) );
+			->with( $revIds );
 
 		$this->setService( 'ORESScoreStorage', $mock );
 

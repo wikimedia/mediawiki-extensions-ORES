@@ -44,9 +44,7 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 
 	private function getNewThresholdLookup( $oresService = null, $logger = null ) {
 		if ( $oresService === null ) {
-			$oresService = $this->getMockBuilder( ORESService::class )
-				->disableOriginalConstructor()
-				->getMock();
+			$oresService = $this->createMock( ORESService::class );
 		}
 
 		if ( $logger === null ) {
@@ -81,10 +79,8 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testGetThresholds_everythingGoesWrong() {
-		$oresService = $this->getMockBuilder( ORESService::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$oresService->expects( $this->exactly( 1 ) )
+		$oresService = $this->createMock( ORESService::class );
+		$oresService->expects( $this->once() )
 			->method( 'request' )
 			->with( [
 				'models' => 'goodfaith',
@@ -123,10 +119,8 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 			'wgOresWikiId' => 'wiki',
 		] );
 
-		$oresService = $this->getMockBuilder( ORESService::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$oresService->expects( $this->exactly( 1 ) )
+		$oresService = $this->createMock( ORESService::class );
+		$oresService->expects( $this->once() )
 			->method( 'request' )
 			->with( [
 				'models' => 'damaging',
@@ -182,10 +176,8 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 			'wgOresWikiId' => 'wiki',
 		] );
 
-		$oresService = $this->getMockBuilder( ORESService::class )
-			->disableOriginalConstructor()
-			->getMock();
-		$oresService->expects( $this->exactly( 1 ) )
+		$oresService = $this->createMock( ORESService::class );
+		$oresService->expects( $this->once() )
 			->method( 'request' )
 			->with( [
 				'models' => 'damaging',

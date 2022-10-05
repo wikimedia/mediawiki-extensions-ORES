@@ -48,17 +48,14 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 		$this->hashLookup = new HashModelLookup( $modelData );
 
 		$this->setMwGlobals( [ 'wgOresWikiId' => 'testwiki' ] );
-		$this->oresServiceMock = $this->getMockBuilder( ORESService::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$this->oresServiceMock = $this->createMock( ORESService::class );
 		$res = [
 			'testwiki' => [ 'models' => [
 				'damaging' => [ 'version' => '0.4.0' ],
 				'articlequality' => [ 'version' => '0.6.1' ]
 			] ]
 		];
-		$this->oresServiceMock->expects( $this->any() )
-			->method( 'request' )
+		$this->oresServiceMock->method( 'request' )
 			->willReturn( $res );
 	}
 
@@ -152,16 +149,13 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testGetInvalidResponseModelVersionSql() {
-		$oresServiceMock = $this->getMockBuilder( ORESService::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$oresServiceMock = $this->createMock( ORESService::class );
 
 		// "model" instead of "models"
 		$res = [
 			'testwiki' => [ 'model' => [ 'damaging' => [ 'version' => '0.4.0' ] ] ]
 		];
-		$oresServiceMock->expects( $this->any() )
-			->method( 'request' )
+		$oresServiceMock->method( 'request' )
 			->willReturn( $res );
 
 		$populatedLookup = new PopulatedSqlModelLookup(
