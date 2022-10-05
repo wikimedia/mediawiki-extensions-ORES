@@ -72,24 +72,13 @@ class FetchScoreJob extends Job {
 		}
 
 		$logger->info( 'Fetching scores for revision ' . json_encode( $this->params ) );
-		if ( isset( $this->params['models'] ) ) {
-			$models = $this->params['models'];
-		} else {
-			$models = null;
-		}
-
-		if ( isset( $this->params['originalRequest'] ) ) {
-			$originalRequest = $this->params['originalRequest'];
-		} else {
-			$originalRequest = null;
-		}
 
 		try {
 			$scores = $this->scoreFetcher->getScores(
 				$this->params['revid'],
-				$models,
+				$this->params['models'] ?? null,
 				$this->params['precache'],
-				$originalRequest
+				$this->params['originalRequest'] ?? null
 			);
 		} catch ( RuntimeException $exception ) {
 			$mssg = $exception->getMessage();

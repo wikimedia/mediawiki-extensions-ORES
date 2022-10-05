@@ -112,11 +112,7 @@ class RecentChangeSaveHookHandler {
 			return false;
 		}
 
-		if ( isset( $config['types'] ) ) {
-			$acceptedTypes = $config['types'];
-		} else {
-			$acceptedTypes = [ RC_EDIT, RC_NEW ];
-		}
+		$acceptedTypes = $config['types'] ?? [ RC_EDIT, RC_NEW ];
 		if ( !in_array( $rc->getAttribute( 'rc_type' ), $acceptedTypes ) ) {
 			return false;
 		}

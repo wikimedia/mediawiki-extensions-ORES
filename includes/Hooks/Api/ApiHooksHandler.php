@@ -114,8 +114,8 @@ class ApiHooksHandler {
 			return;
 		}
 
-		$show = Helpers::isModelEnabled( 'damaging' ) && isset( $params['show'] )
-			? array_flip( $params['show'] )
+		$show = Helpers::isModelEnabled( 'damaging' )
+			? array_flip( $params['show'] ?? [] )
 			: [];
 		if ( isset( $show['oresreview'] ) || isset( $show['!oresreview'] ) ) {
 			if ( isset( $show['oresreview'] ) && isset( $show['!oresreview'] ) ) {
@@ -346,7 +346,7 @@ class ApiHooksHandler {
 			$options['includeFields'][] = 'oresscores';
 		}
 
-		$show = isset( $params['show'] ) ? array_flip( $params['show'] ) : [];
+		$show = array_flip( $params['show'] ?? [] );
 		if ( isset( $show['oresreview'] ) || isset( $show['!oresreview'] ) ) {
 			if ( isset( $show['oresreview'] ) && isset( $show['!oresreview'] ) ) {
 				$module->dieWithError( 'apierror-show' );

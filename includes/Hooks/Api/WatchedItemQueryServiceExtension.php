@@ -59,8 +59,8 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 			}
 		}
 
-		$show = Helpers::isModelEnabled( 'damaging' ) && isset( $options['filters'] )
-			? array_flip( $options['filters'] )
+		$show = Helpers::isModelEnabled( 'damaging' )
+			? array_flip( $options['filters'] ?? [] )
 			: [];
 		if ( isset( $show['oresreview'] ) || isset( $show['!oresreview'] ) ) {
 			$threshold = Helpers::getThreshold( 'damaging', $user );
