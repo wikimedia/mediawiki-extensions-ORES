@@ -12,7 +12,7 @@
 		]
 	},
 	"ores-desc": "自動化された更新評価値をインタフェース内で表示",
-	"ores-damaging-filter": "良好だと推測される編集$1件",
+	"ores-damaging-filter": "$1 良好だと推測される編集",
 	"ores-damaging-letter": "疑",
 	"ores-damaging-title": "この編集は査読を必要としてます",
 	"ores-damaging-legend": "この編集には問題があるかもしれず、確認が必要です ([[:mw:Special:MyLanguage/ORES review tool|詳細]])",
