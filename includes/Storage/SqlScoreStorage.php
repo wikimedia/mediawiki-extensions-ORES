@@ -120,7 +120,6 @@ class SqlScoreStorage implements ScoreStorage {
 	public function purgeRows( array $revIds ) {
 		global $wgOresModels;
 		$modelsToKeep = [];
-		// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
 		foreach ( $wgOresModels as $model => $modelData ) {
 			$modelId = $this->checkModelToKeep( $model, $modelData );
 			if ( $modelId !== false ) {
