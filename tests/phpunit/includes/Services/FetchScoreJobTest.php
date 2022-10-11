@@ -73,8 +73,7 @@ class FetchScoreJobTest extends \MediaWikiIntegrationTestCase {
 			'precache' => true
 		];
 
-		$scoreFetcher = $this->getMockBuilder( ScoreFetcher::class )
-			->getMock();
+		$scoreFetcher = $this->createMock( ScoreFetcher::class );
 
 		$serviceResult = [
 			'17' => [

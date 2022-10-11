@@ -104,19 +104,16 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	 */
 	public function testOnContribsGetQueryInfo( array $expected, $nonDamaging ) {
 		$cp =
-			$this->getMockBuilder( ContribsPager::class )->disableOriginalConstructor()->getMock();
+			$this->createMock( ContribsPager::class );
 
-		$cp->expects( $this->any() )
-			->method( 'getUser' )
-			->will( $this->returnValue( $this->user ) );
+		$cp->method( 'getUser' )
+			->willReturn( $this->user );
 
-		$cp->expects( $this->any() )
-			->method( 'getTitle' )
-			->will( $this->returnValue( SpecialPage::getTitleFor( 'Contributions' ) ) );
+		$cp->method( 'getTitle' )
+			->willReturn( SpecialPage::getTitleFor( 'Contributions' ) );
 
-		$cp->expects( $this->any() )
-			->method( 'getContext' )
-			->will( $this->returnValue( $this->context ) );
+		$cp->method( 'getContext' )
+			->willReturn( $this->context );
 
 		if ( $nonDamaging === true ) {
 			$this->context->getRequest()->setVal( 'hidenondamaging', true );
@@ -177,19 +174,16 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	 */
 	public function testOnContributionsLineEndingDamaging() {
 		$cp =
-			$this->getMockBuilder( ContribsPager::class )->disableOriginalConstructor()->getMock();
+			$this->createMock( ContribsPager::class );
 
-		$cp->expects( $this->any() )
-			->method( 'getUser' )
-			->will( $this->returnValue( $this->user ) );
+		$cp->method( 'getUser' )
+			->willReturn( $this->user );
 
-		$cp->expects( $this->any() )
-			->method( 'getTitle' )
-			->will( $this->returnValue( SpecialPage::getTitleFor( 'Contributions' ) ) );
+		$cp->method( 'getTitle' )
+			->willReturn( SpecialPage::getTitleFor( 'Contributions' ) );
 
-		$cp->expects( $this->any() )
-			->method( 'getContext' )
-			->will( $this->returnValue( $this->context ) );
+		$cp->method( 'getContext' )
+			->willReturn( $this->context );
 
 		$row = (object)[
 			'ores_damaging_threshold' => 0.2,
@@ -211,19 +205,16 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	 */
 	public function testOnContributionsLineEndingNonDamaging() {
 		$cp =
-			$this->getMockBuilder( ContribsPager::class )->disableOriginalConstructor()->getMock();
+			$this->createMock( ContribsPager::class );
 
-		$cp->expects( $this->any() )
-			->method( 'getUser' )
-			->will( $this->returnValue( $this->user ) );
+		$cp->method( 'getUser' )
+			->willReturn( $this->user );
 
-		$cp->expects( $this->any() )
-			->method( 'getTitle' )
-			->will( $this->returnValue( SpecialPage::getTitleFor( 'Contributions' ) ) );
+		$cp->method( 'getTitle' )
+			->willReturn( SpecialPage::getTitleFor( 'Contributions' ) );
 
-		$cp->expects( $this->any() )
-			->method( 'getContext' )
-			->will( $this->returnValue( $this->context ) );
+		$cp->method( 'getContext' )
+			->willReturn( $this->context );
 
 		$row = (object)[
 			'ores_damaging_threshold' => 0.4,

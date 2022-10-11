@@ -206,17 +206,13 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 		$rc = $this->makeRcEntry( true );
 		$rc = RCCacheEntry::newFromParent( $rc );
 
-		$ecl = $this->getMockBuilder( EnhancedChangesList::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$ecl = $this->createMock( EnhancedChangesList::class );
 
-		$ecl->expects( $this->any() )
-			->method( 'getUser' )
-			->will( $this->returnValue( $this->user ) );
+		$ecl->method( 'getUser' )
+			->willReturn( $this->user );
 
-		$ecl->expects( $this->any() )
-			->method( 'getContext' )
-			->will( $this->returnValue( $this->context ) );
+		$ecl->method( 'getContext' )
+			->willReturn( $this->context );
 
 		$data = [];
 		$block = [];
@@ -242,21 +238,16 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 		$rc = $this->makeRcEntry( false );
 		$rc = RCCacheEntry::newFromParent( $rc );
 
-		$ecl = $this->getMockBuilder( EnhancedChangesList::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$ecl = $this->createMock( EnhancedChangesList::class );
 
-		$ecl->expects( $this->any() )
-			->method( 'getUser' )
-			->will( $this->returnValue( $this->user ) );
+		$ecl->method( 'getUser' )
+			->willReturn( $this->user );
 
-		$ecl->expects( $this->any() )
-			->method( 'getTitle' )
-			->will( $this->returnValue( SpecialPage::getTitleFor( 'Recentchanges' ) ) );
+		$ecl->method( 'getTitle' )
+			->willReturn( SpecialPage::getTitleFor( 'Recentchanges' ) );
 
-		$ecl->expects( $this->any() )
-			->method( 'getContext' )
-			->will( $this->returnValue( $this->context ) );
+		$ecl->method( 'getContext' )
+			->willReturn( $this->context );
 
 		$data = [];
 		$block = [];
@@ -282,34 +273,26 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 		$rc = $this->makeRcEntry( true );
 		$rc = RCCacheEntry::newFromParent( $rc );
 
-		$config = $this->getMockBuilder( Config::class )->getMock();
-		$config->expects( $this->any() )
-			->method( 'get' )
-			->will( $this->returnValue( true ) );
+		$config = $this->createMock( Config::class );
+		$config->method( 'get' )
+			->willReturn( true );
 
-		$cl = $this->getMockBuilder( ChangesList::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$cl = $this->createMock( ChangesList::class );
 
-		$cl->expects( $this->any() )
-			->method( 'getUser' )
-			->will( $this->returnValue( $this->user ) );
+		$cl->method( 'getUser' )
+			->willReturn( $this->user );
 
-		$cl->expects( $this->any() )
-			->method( 'getRequest' )
-			->will( $this->returnValue( new FauxRequest() ) );
+		$cl->method( 'getRequest' )
+			->willReturn( new FauxRequest() );
 
-		$cl->expects( $this->any() )
-			->method( 'getConfig' )
-			->will( $this->returnValue( $config ) );
+		$cl->method( 'getConfig' )
+			->willReturn( $config );
 
-		$cl->expects( $this->any() )
-			->method( 'getTitle' )
-			->will( $this->returnValue( SpecialPage::getTitleFor( 'Recentchanges' ) ) );
+		$cl->method( 'getTitle' )
+			->willReturn( SpecialPage::getTitleFor( 'Recentchanges' ) );
 
-		$cl->expects( $this->any() )
-			->method( 'getContext' )
-			->will( $this->returnValue( $this->context ) );
+		$cl->method( 'getContext' )
+			->willReturn( $this->context );
 
 		$classes = [];
 
@@ -331,21 +314,16 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 		$rc = $this->makeRcEntry( false );
 		$rc = RCCacheEntry::newFromParent( $rc );
 
-		$cl = $this->getMockBuilder( ChangesList::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$cl = $this->createMock( ChangesList::class );
 
-		$cl->expects( $this->any() )
-			->method( 'getUser' )
-			->will( $this->returnValue( $this->user ) );
+		$cl->method( 'getUser' )
+			->willReturn( $this->user );
 
-		$cl->expects( $this->any() )
-			->method( 'getTitle' )
-			->will( $this->returnValue( SpecialPage::getTitleFor( 'Recentchanges' ) ) );
+		$cl->method( 'getTitle' )
+			->willReturn( SpecialPage::getTitleFor( 'Recentchanges' ) );
 
-		$cl->expects( $this->any() )
-			->method( 'getContext' )
-			->will( $this->returnValue( $this->context ) );
+		$cl->method( 'getContext' )
+			->willReturn( $this->context );
 
 		$classes = [];
 
