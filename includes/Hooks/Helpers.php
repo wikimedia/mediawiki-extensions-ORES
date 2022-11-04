@@ -63,16 +63,16 @@ class Helpers {
 		}
 
 		$modelId = ORESServices::getModelLookup()->getModelId( $type );
-		$tables["ores_${type}_cls"] = 'ores_classification';
+		$tables["ores_{$type}_cls"] = 'ores_classification';
 
-		$fields["ores_${type}_score"] = "ores_${type}_cls.oresc_probability";
+		$fields["ores_{$type}_score"] = "ores_{$type}_cls.oresc_probability";
 
-		$join_conds["ores_${type}_cls"] = [
+		$join_conds["ores_{$type}_cls"] = [
 			'LEFT JOIN',
 			[
-				"ores_${type}_cls.oresc_model" => $modelId,
-				"ores_${type}_cls.oresc_rev=$revIdField",
-				"ores_${type}_cls.oresc_class" => 1
+				"ores_{$type}_cls.oresc_model" => $modelId,
+				"ores_{$type}_cls.oresc_rev=$revIdField",
+				"ores_{$type}_cls.oresc_class" => 1
 			]
 		];
 	}
