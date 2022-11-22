@@ -7,6 +7,7 @@
 			"Purodha",
 			"Raymond",
 			"Umherirrender",
+			"Verdy p",
 			"Wladek92"
 		]
 	},
@@ -29,7 +30,7 @@
 	"ores-rcfilters-damaging-whats-this-header": "Header of \"What's This\" popup for Contribution Quality group",
 	"ores-rcfilters-damaging-whats-this-body": "Body of \"What's This\" popup for Contribution Quality group",
 	"ores-rcfilters-damaging-conflicts-logactions": "Tooltip shown when hovering over a 'Contribution quality predictions' filter tag, when a filter from the 'Type of change' group is selected and there is a conflict. 'Type of change' results are not scored by ORES. Parameters:\n* $1 - Comma-separated string of selected Type of Change filters, e.g. \"Logged actions\"\n* $2 - Count of selected Type of Change filters, for PLURAL",
-	"ores-rcfilters-damaging-likelygood-label": "Label for the filter for showing edits that are very likely to be non-damaging.",
+	"ores-rcfilters-damaging-likelygood-label": "Label for the filter for showing edits that are very likely to be non-damaging.\n{{Identical|Good}}",
 	"ores-rcfilters-damaging-likelygood-desc": "Description for the filter for showing edits that are very likely to be non-damaging.",
 	"ores-rcfilters-damaging-maybebad-label": "Label for the filter for showing edits that are somewhat likely to be damaging.",
 	"ores-rcfilters-damaging-maybebad-desc": "Description for the filter for showing edits that are somewhat likely to be damaging.",
