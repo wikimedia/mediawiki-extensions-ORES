@@ -9,6 +9,7 @@
 	"ores-desc": "Izložite automatizovane rezultate izmena u interfejsu",
 	"ores-damaging-filter": "$1 verovatno dobre izmene",
 	"ores-damaging-letter": "p",
+	"ores-damaging-legend": "Sumnjiva izmena ([[:mw:Special:MyLanguage/ORES review tool|ORES]])",
 	"ores-hide-nondamaging-filter": "Sakrij verovatno dobre izmene",
 	"ores-pref-damaging": "Prag predviđanja",
 	"ores-damaging-likelybad": "Verovatno ima probleme (srednja verovatnoća)",
