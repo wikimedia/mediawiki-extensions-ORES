@@ -4,6 +4,7 @@
 			"Eleassar"
 		]
 	},
+	"ores-hide-nondamaging-filter": "Skrij verjetno dobra urejanja",
 	"ores-pref-damaging": "Napovedni prag",
 	"ores-pref-damaging-flag": "Označi verjetna problematična urejanja z barvami in »{{int:ores-damaging-letter}}« za »potrebuje pregled«",
 	"ores-damaging-likelybad": "Verjetno s težavami (srednja verjetnost)",
@@ -19,8 +20,8 @@
 	"ores-rcfilters-goodfaith-bad-label": "Verjetno slabonameren",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Zelo verjetno slabonameren",
 	"ores-pref-highlight": "Označi verjetna problematična urejanja z barvami in »{{int:ores-damaging-letter}}« za »potrebuje pregled«",
-	"ores-pref-rc-hidenondamaging": "Prikaži samo verjetna problematična urejanja (in skrij verjetno dobra urejanja)",
-	"ores-pref-watchlist-hidenondamaging": "Prikaži samo verjetna problematična urejanja (in skrij verjetno dobra urejanja)",
+	"ores-pref-rc-hidenondamaging": "Prikaži samo verjetno problematična urejanja (in skrij verjetno dobra urejanja)",
+	"ores-pref-watchlist-hidenondamaging": "Prikaži samo verjetno problematična urejanja (in skrij verjetno dobra urejanja)",
 	"prefs-ores-rc": "Ocenjevanje redakcij v Zadnjih spremembah in Sorodnih spremembah",
 	"oresmodels": "Statistika modela ORES",
 	"ores-specialoresmodels-header-precision": "Natančnost",
