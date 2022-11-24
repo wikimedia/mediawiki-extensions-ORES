@@ -173,8 +173,8 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 			'oresc_probability' => '0.400',
 			'oresc_model' => '5',
 		], get_object_vars( $items[0][1]['oresScores'][0] ) );
-		$this->assertEmpty( $res );
-		$this->assertEmpty( $startFrom );
+		$this->assertSame( [], $res );
+		$this->assertSame( [], $startFrom );
 	}
 
 }
