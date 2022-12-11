@@ -17,7 +17,7 @@
 namespace ORES;
 
 use FormatJson;
-use MWHttpRequest;
+use MediaWiki\Http\HttpRequestFactory;
 use Psr\Log\LoggerInterface;
 use RequestContext;
 use RuntimeException;
@@ -38,10 +38,20 @@ class ORESService {
 	private $logger;
 
 	/**
-	 * @param LoggerInterface $logger
+	 * @var HttpRequestFactory
 	 */
-	public function __construct( LoggerInterface $logger ) {
+	private $httpRequestFactory;
+
+	/**
+	 * @param LoggerInterface $logger
+	 * @param HttpRequestFactory $httpRequestFactory
+	 */
+	public function __construct(
+		LoggerInterface $logger,
+		HttpRequestFactory $httpRequestFactory
+	) {
 		$this->logger = $logger;
+		$this->httpRequestFactory = $httpRequestFactory;
 	}
 
 	/**
@@ -107,7 +117,7 @@ class ORESService {
 		$params['format'] = 'json';
 		$url = wfAppendQuery( $url, $params );
 		$this->logger->debug( "Requesting: {$url}" );
-		$req = MWHttpRequest::factory(
+		$req = $this->httpRequestFactory->create(
 			$url,
 			$this->getMWHttpRequestOptions( $originalRequest ),
 			__METHOD__
@@ -119,7 +129,7 @@ class ORESService {
 
 			// Server time out, try again once
 			if ( $req->getStatus() === 504 ) {
-				$req = MWHttpRequest::factory(
+				$req = $this->httpRequestFactory->create(
 					$url,
 					$this->getMWHttpRequestOptions( $originalRequest ),
 					__METHOD__

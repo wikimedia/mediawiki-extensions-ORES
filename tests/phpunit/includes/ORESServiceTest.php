@@ -25,7 +25,10 @@ class ORESServiceTest extends \MediaWikiIntegrationTestCase {
 			'wgOresWikiId' => 'testwiki',
 			'wgOresFrontendBaseUrl' => null,
 		] );
-		$this->oresService = new ORESService( LoggerFactory::getInstance( 'ORES' ) );
+		$this->oresService = new ORESService(
+			LoggerFactory::getInstance( 'ORES' ),
+			$this->getServiceContainer()->getHttpRequestFactory()
+		);
 	}
 
 	/**

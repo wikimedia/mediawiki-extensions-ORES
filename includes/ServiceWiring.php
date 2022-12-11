@@ -60,7 +60,8 @@ return [
 
 	'ORESService' => static function ( MediaWikiServices $services ) {
 		return new ORESService(
-			ORESServices::getLogger()
+			ORESServices::getLogger(),
+			$services->getHttpRequestFactory()
 		);
 	},
 
