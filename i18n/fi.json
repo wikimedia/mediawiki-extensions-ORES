@@ -9,7 +9,9 @@
 			"SMAUG",
 			"Stryn",
 			"Valtlait",
-			"Zache"
+			"Zache",
+			"Jack Phoenix",
+			"Valtlai"
 		]
 	},
 	"ores-desc": "Näytä automaattinen versioiden pisteytys",
@@ -49,6 +51,7 @@
 	"ores-rcfilters-goodfaith-maybebad-label": "Saattaa olla pahantahtoinen",
 	"ores-rcfilters-goodfaith-maybebad-desc": "Löytää pääosin pahantahtoisia muokkauksia, mutta tarkkuus on alempi.",
 	"ores-rcfilters-goodfaith-bad-label": "Todennäköisesti pahantahtoinen",
+	"ores-rcfilters-goodfaith-bad-desc-low": "Keskipitkällä tarkkuudella, löytää kohtuullisen murto-osan pahantahtoisia muokkauksia.",
 	"ores-rcfilters-goodfaith-bad-desc-high": "Keskipitkällä tarkkuudella, löytää useimmat pahantahtoiset muokkaukset.",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Hyvin todennäköisesti pahantahtoinen",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Erittäin hyvin tarkka löytämään selkeimmin pahantahtoiset muokkaukset.",
