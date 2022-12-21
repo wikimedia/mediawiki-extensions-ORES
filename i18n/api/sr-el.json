@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"apihelp-query+ores-description": "Vrati ORES konfiguraciju i podatke o modelu za ovaj viki.",
+	"apihelp-query+ores-summary": "Vrati ORES konfiguraciju i podatke o modelu za ovaj viki.",
+	"apihelp-query+ores-example-simple": "Aportirajte ORES podatke:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES rezultati za izmenu.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES rezultati za izmenu.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Dodaje ORES rezultate za unos.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Dodaje ORES rezultate za izmenu.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Dodaje ORES rezultate za izmenu."
+}
