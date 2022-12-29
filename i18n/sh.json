@@ -20,6 +20,7 @@
 	"ores-rcfilters-logactions-conflicts-ores": "Ovaj filter je u sukobu sa jednim ili više filtera za Kvalitet doprinosa ili Nameru korisnika. Predviđanja kvaliteta i namere nisu dostupna za radnje evidentirane u dnevnicima.",
 	"ores-rcfilters-damaging-title": "Predviđanje kvaliteta doprinosa",
 	"ores-rcfilters-damaging-whats-this-header": "O predviđanju kvaliteta doprinosa",
+	"ores-rcfilters-damaging-whats-this-body": "Ova predviđanja generiše usluga strojnog učenja obučena na velikom setu izmjena koje su ljudi ocenili. Stroži i tačniji filtri pronalaze manje lažno pozitivnih rezultata, ali propuštaju više svojih meta. Manje tačni filtri pronalaze više svojih meta, ali također imaju i više lažnih detekcija.",
 	"ores-rcfilters-damaging-likelygood-label": "Vrlo vjerovatno dobro",
 	"ores-rcfilters-damaging-likelygood-desc": "Veoma djelotvorno pri pronalaženju gotovo svih neproblematičnih izmjena, s velikom preciznošću.",
 	"ores-rcfilters-damaging-maybebad-label": "Možda problematično",
