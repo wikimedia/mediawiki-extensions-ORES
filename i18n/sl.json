@@ -26,5 +26,6 @@
 	"oresmodels": "Statistika modela ORES",
 	"ores-specialoresmodels-header-precision": "Natančnost",
 	"ores-specialoresmodels-header-recall": "Priklic",
-	"ores-specialoresmodels-header-thresholdrange": "Razpon praga"
+	"ores-specialoresmodels-header-thresholdrange": "Razpon praga",
+	"ores-api-show-note": "Pri uporabi <kbd>oresreview</kbd> ali <kbd>!oresreview</kbd> velja, da redakcije brez ocene (npr. zelo stare redakcije) ne potrebujejo pregleda, tudi če bi potrebovale pregled, če bi bile ocenjene."
 }
