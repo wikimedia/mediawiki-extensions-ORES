@@ -11,7 +11,8 @@
 			"Trizek (WMF)",
 			"Urhixidur",
 			"Verdy p",
-			"Wladek92"
+			"Wladek92",
+			"Zetud"
 		]
 	},
 	"ores-desc": "Affiche les notes automatisées des révisions dans l’interface.",
@@ -48,7 +49,7 @@
 	"ores-rcfilters-goodfaith-conflicts-logactions": "Les prédictions d’intention de l’utilisateur ne sont pas disponibles pour certains types de modification, donc ce filtre est en conflit avec {{PLURAL:$2|le filtre de Type de modification suivant|les filtres de Type de modification suivants}} : $1",
 	"ores-rcfilters-goodfaith-good-label": "Très vraisemblablement de bonne foi",
 	"ores-rcfilters-goodfaith-good-desc": "Très précis pour trouver presque toutes les modifications de bonne foi.",
-	"ores-rcfilters-goodfaith-maybebad-label": "Peut être de mauvaise foi",
+	"ores-rcfilters-goodfaith-maybebad-label": "Peut-être de mauvaise foi",
 	"ores-rcfilters-goodfaith-maybebad-desc": "Trouve la plupart des modifications de mauvaise foi, mais avec une plus faible précision.",
 	"ores-rcfilters-goodfaith-bad-label": "Sans doute de mauvaise foi",
 	"ores-rcfilters-goodfaith-bad-desc-low": "Avec une précision moyenne, trouve une portion intermédiaire d'éditions problématiques volontaires.",

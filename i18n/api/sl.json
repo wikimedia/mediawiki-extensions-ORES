@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"apihelp-query+ores-description": "Vrni konfiguracijo ORES in podatke o modelu za ta viki.",
+	"apihelp-query+ores-summary": "Vrni konfiguracijo ORES in podatke o modelu za ta viki.",
+	"apihelp-query+ores-example-simple": "Pridobi podatke ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Ocene ORES za redakcijo.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Ocene ORES za redakcijo.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Doda ocene ORES za vnos.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Doda ocene ORES za urejanje.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Doda ocene ORES za urejanje."
+}
