@@ -3,7 +3,8 @@
 		"authors": [
 			"AKlapper",
 			"Metalhead64",
-			"Wnme"
+			"Wnme",
+			"Brettchenweber"
 		]
 	},
 	"ores-desc": "Zeigt automatisierte Versionsbewertungen in der Oberfläche an",
@@ -19,11 +20,11 @@
 	"ores-damaging-verylikelybad": "Hat sehr wahrscheinlich Probleme (markiert wenige falsche Positive, findet aber einen kleineren Prozentsatz an problematischen Bearbeitungen)",
 	"ores-help-damaging-pref": "Ändere die Einstellung „Schwelle“, um die unten stehenden Optionen zu erweitern oder selektiver zu machen.",
 	"ores-rcfilters-whats-this-link-text": "Mehr erfahren",
-	"ores-rcfilters-ores-conflicts-logactions-global": "Der Filter „{{int:rcfilters-filter-logactions-label}}“ befindet sich in Konflikt mit einem oder mehreren Beitragqualitäts- oder Benutzerabsichtfiltern. Qualitäts- und Absichtprognosen sind für Logbucheinträge nicht verfügbar. Die kollidierenden Filter sind oben im Bereich der aktiven Filter markiert.",
-	"ores-rcfilters-logactions-conflicts-ores": "Dieser Filter befindet sich in Konflikt mit einem oder mehreren Beitragqualitäts- oder Benutzerabsichtfiltern. Qualitäts- und Absichtprognosen sind für Logbucheinträge nicht verfügbar.",
+	"ores-rcfilters-ores-conflicts-logactions-global": "Der Filter „{{int:rcfilters-filter-logactions-label}}“ befindet sich in Konflikt mit einem oder mehreren Beitragsqualitäts- oder Benutzerabsichtsfiltern. Qualitäts- und Absichtsprognosen sind für Logbucheinträge nicht verfügbar. Die kollidierenden Filter sind oben im Bereich der aktiven Filter markiert.",
+	"ores-rcfilters-logactions-conflicts-ores": "Dieser Filter befindet sich in Konflikt mit einem oder mehreren Beitragsqualitäts- oder Benutzerabsichtsfiltern. Qualitäts- und Absichtsprognosen sind für Logbucheinträge nicht verfügbar.",
 	"ores-rcfilters-damaging-title": "Beitragqualitätsprognosen",
 	"ores-rcfilters-damaging-whats-this-header": "Über Beitragsqualitätsprognosen",
-	"ores-rcfilters-damaging-whats-this-body": "Diese Prognosen wurden durch einen maschinenlernenden Dienst erstellt, der durch einen großen Satz an Bearbeitungen trainiert wurde, die durch menschliche Autoren bewertet wurden. Strengere genauere Filter finden weniger falsche Positive, verfehlen jedoch mehr ihrer Ziele. Weniger genaue Filter finden mehr ihrer Ziele, jedoch auch mehr falsche Positive.",
+	"ores-rcfilters-damaging-whats-this-body": "Diese Prognosen wurden durch einen maschinenlernenden Dienst erstellt, der durch einen großen Satz an Bearbeitungen trainiert wurde, die von menschlichen Autoren bewertet wurden. Strengere genauere Filter finden weniger falsche Positive, verfehlen jedoch mehr ihrer Ziele. Weniger genaue Filter finden mehr ihrer Ziele, jedoch auch mehr falsche Positive.",
 	"ores-rcfilters-damaging-conflicts-logactions": "Beitragqualitätsprognosen sind für bestimmte Änderungstypen nicht verfügbar, so dass sich dieser Filter in Konflikt mit {{PLURAL:$2|dem folgenden Änderungstypfilter|den folgenden Änderungstypfiltern}} befindet: $1",
 	"ores-rcfilters-damaging-likelygood-label": "Sehr wahrscheinlich gut",
 	"ores-rcfilters-damaging-likelygood-desc": "Sehr genau beim Auffinden fast aller problemfreien Bearbeitungen.",
@@ -34,10 +35,10 @@
 	"ores-rcfilters-damaging-likelybad-desc-high": "Mit hoher Genauigkeit, findet die meisten problematischen Bearbeitungen.",
 	"ores-rcfilters-damaging-verylikelybad-label": "Hat sehr wahrscheinlich Probleme",
 	"ores-rcfilters-damaging-verylikelybad-desc": "Sehr genau beim Auffinden der meisten offensichtlichen fehlerhaften oder schädlichen Bearbeitungen.",
-	"ores-rcfilters-goodfaith-title": "Benutzerabsichtprognosen",
-	"ores-rcfilters-goodfaith-whats-this-header": "Über Benutzerabsichtprognosen",
-	"ores-rcfilters-goodfaith-whats-this-body": "Diese Prognosen über die guten Absichten von Benutzern wurden durch einen maschinenlernenden Dienst erstellt, der durch einen großen Satz an Bearbeitungen trainiert wurde, die durch menschliche Autoren bewertet wurden. Strengere genauere Filter finden weniger falsche Positive, verfehlen jedoch mehr ihrer Ziele. Weniger genaue Filter finden mehr ihrer Ziele, jedoch auch mehr falsche Positive.",
-	"ores-rcfilters-goodfaith-conflicts-logactions": "Benutzerabsichtprognosen sind für bestimmte Änderungstypen nicht verfügbar, so dass sich dieser Filter in Konflikt mit {{PLURAL:$2|dem folgenden Änderungstypfilter|den folgenden Änderungstypfiltern}} befindet: $1",
+	"ores-rcfilters-goodfaith-title": "Benutzerabsichtsprognosen",
+	"ores-rcfilters-goodfaith-whats-this-header": "Über Benutzerabsichtsprognosen",
+	"ores-rcfilters-goodfaith-whats-this-body": "Diese Prognosen über die guten Absichten von Benutzern wurden durch einen maschinenlernenden Dienst erstellt, der durch einen großen Satz an Bearbeitungen trainiert wurde, die von menschlichen Autoren bewertet wurden. Strengere genauere Filter finden weniger falsche Positive, verfehlen jedoch mehr ihrer Ziele. Weniger genaue Filter finden mehr ihrer Ziele, jedoch auch mehr falsche Positive.",
+	"ores-rcfilters-goodfaith-conflicts-logactions": "Benutzerabsichtsprognosen sind für bestimmte Änderungstypen nicht verfügbar, so dass sich dieser Filter in Konflikt mit {{PLURAL:$2|dem folgenden Änderungstypfilter|den folgenden Änderungstypfiltern}} befindet: $1",
 	"ores-rcfilters-goodfaith-good-label": "Sehr wahrscheinlich gute Absicht",
 	"ores-rcfilters-goodfaith-good-desc": "Sehr genau beim Auffinden fast aller guten Bearbeitungen.",
 	"ores-rcfilters-goodfaith-maybebad-label": "Könnte schlechte Absicht sein",
@@ -57,5 +58,5 @@
 	"ores-specialoresmodels-header-precision": "Genauigkeit",
 	"ores-specialoresmodels-header-recall": "Trefferquote",
 	"ores-specialoresmodels-header-thresholdrange": "Schwellenbereich",
-	"ores-api-show-note": "Bei der Verwendung von <kbd>oresreview</kbd> oder <kbd>!oresreview</kbd> werden Versionen ohne einem Score (z.&nbsp;B. sehr alte Versionen) so behandelt, als ob sie keiner Überprüfung bedürfen, auch wenn sie eine Überprüfung benötigen würden."
+	"ores-api-show-note": "Bei der Verwendung von <kbd>oresreview</kbd> oder <kbd>!oresreview</kbd> werden Versionen ohne einen Score (z.&nbsp;B. sehr alte Versionen) so behandelt, als ob sie keiner Überprüfung bedürfen, auch wenn sie eine Überprüfung benötigen würden."
 }
