@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"ores-desc": "Weist déi automatesch Bewäertung vun der Versioun am Interface",
@@ -19,18 +20,18 @@
 	"ores-rcfilters-whats-this-link-text": "Fir méi ze wëssen",
 	"ores-rcfilters-damaging-title": "Prognose vun der Qualitéit vun Ännerungen",
 	"ores-rcfilters-damaging-whats-this-header": "Iwwer Prognose vun der Qualitéit vun Ännerungen",
-	"ores-rcfilters-damaging-likelygood-label": "Héchstwahrscheinlech gutt",
+	"ores-rcfilters-damaging-likelygood-label": "Héchstwarscheinlech gutt",
 	"ores-rcfilters-damaging-maybebad-label": "Ka Problemer hunn",
 	"ores-rcfilters-damaging-likelybad-label": "Huet warscheinlech Problemer",
 	"ores-rcfilters-damaging-likelybad-desc-high": "Mat héijer Prezisioun, fënnt déi meescht problematesch Ännerungen.",
-	"ores-rcfilters-damaging-verylikelybad-label": "Huet héchstwahrscheinlech Problemer",
+	"ores-rcfilters-damaging-verylikelybad-label": "Huet héchstwarscheinlech Problemer",
 	"ores-rcfilters-goodfaith-title": "Prognos iwwer d'Absicht vum Benotzer",
 	"ores-rcfilters-goodfaith-whats-this-header": "Iwwer d'Prognose vun den Absichte vun de Benotzer",
-	"ores-rcfilters-goodfaith-good-label": "Héchstwahrscheinlech gutt Absicht",
+	"ores-rcfilters-goodfaith-good-label": "Héchstwarscheinlech gutt Absicht",
 	"ores-rcfilters-goodfaith-good-desc": "Ganz genee fir bal all Ännerungen ze fannen déi a gudder Absicht gemaach goufen.",
 	"ores-rcfilters-goodfaith-maybebad-label": "Vläicht schlecht Absicht",
 	"ores-rcfilters-goodfaith-bad-label": "Warscheinlech schlecht Absicht",
-	"ores-rcfilters-goodfaith-verylikelybad-label": "Héchstwahrscheinlech schlecht Absicht",
+	"ores-rcfilters-goodfaith-verylikelybad-label": "Héchstwarscheinlech schlecht Absicht",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Ganz genee beim Fanne vun den evidentsten Ännerung mat schlechter Absicht.",
 	"ores-pref-highlight": "Markéiert warscheinlech problematesch Ännerunge mat Faarwen a mat \"{{int:ores-damaging-letter}}\" fir \"muss nogekuckt ginn\"",
 	"ores-pref-rc-hidenondamaging": "Nëmme warscheinlech problematesch Ännerunge weisen (a warscheinlech gutt Ännerunge verstoppen)",
