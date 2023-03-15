@@ -4,7 +4,6 @@ namespace ORES\Tests\Maintenance;
 
 use MediaWiki\Tests\Maintenance\MaintenanceBaseTestCase;
 use ORES\Maintenance\PopulateDatabase;
-
 use ORES\Tests\MockOresServiceBuilder;
 use ORES\Tests\TestHelper;
 
