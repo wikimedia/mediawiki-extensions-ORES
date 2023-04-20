@@ -63,7 +63,8 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 		$populatedLookup = new PopulatedSqlModelLookup(
 			$this->hashLookup,
 			$this->oresServiceMock,
-			new NullLogger()
+			new NullLogger(),
+			false
 		);
 		$expected = [
 			'damaging' => [ 'id' => 5, 'version' => '0.0.2' ],
@@ -76,7 +77,8 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 		$populatedLookup = new PopulatedSqlModelLookup(
 			$this->hashLookup,
 			$this->oresServiceMock,
-			new NullLogger()
+			new NullLogger(),
+			false
 		);
 		$this->assertEquals( 5, $populatedLookup->getModelId( 'damaging' ) );
 		$this->assertEquals( 6, $populatedLookup->getModelId( 'goodfaith' ) );
@@ -86,7 +88,8 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 		$populatedLookup = new PopulatedSqlModelLookup(
 			$this->hashLookup,
 			$this->oresServiceMock,
-			new NullLogger()
+			new NullLogger(),
+			false
 		);
 		$this->expectException( InvalidArgumentException::class );
 		$populatedLookup->getModelId( 'foo' );
@@ -96,7 +99,8 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 		$populatedLookup = new PopulatedSqlModelLookup(
 			$this->hashLookup,
 			$this->oresServiceMock,
-			new NullLogger()
+			new NullLogger(),
+			false
 		);
 		$this->assertSame( '0.0.2', $populatedLookup->getModelVersion( 'damaging' ) );
 	}
@@ -105,7 +109,8 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 		$populatedLookup = new PopulatedSqlModelLookup(
 			$this->hashLookup,
 			$this->oresServiceMock,
-			new NullLogger()
+			new NullLogger(),
+			false
 		);
 		$this->expectException( InvalidArgumentException::class );
 		$populatedLookup->getModelVersion( 'foo' );
@@ -115,7 +120,8 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 		$populatedLookup = new PopulatedSqlModelLookup(
 			$this->storageLookup,
 			$this->oresServiceMock,
-			new NullLogger()
+			new NullLogger(),
+			false
 		);
 		$expected = [
 			'damaging' => [ 'version' => '0.4.0', 'id' => 5 ],
@@ -132,7 +138,8 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 		$populatedLookup = new PopulatedSqlModelLookup(
 			$this->storageLookup,
 			$this->oresServiceMock,
-			new NullLogger()
+			new NullLogger(),
+			false
 		);
 		$this->assertSame( '0.4.0', $populatedLookup->getModelVersion( 'damaging' ) );
 		$this->assertSame( '0.6.1', $populatedLookup->getModelVersion( 'articlequality' ) );
@@ -142,7 +149,8 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 		$populatedLookup = new PopulatedSqlModelLookup(
 			$this->storageLookup,
 			$this->oresServiceMock,
-			new NullLogger()
+			new NullLogger(),
+			false
 		);
 		$this->expectException( InvalidArgumentException::class );
 		$populatedLookup->getModelVersion( 'foo' );
@@ -161,7 +169,8 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 		$populatedLookup = new PopulatedSqlModelLookup(
 			$this->storageLookup,
 			$oresServiceMock,
-			new NullLogger()
+			new NullLogger(),
+			false
 		);
 		$this->expectException( InvalidArgumentException::class );
 		$populatedLookup->getModelVersion( 'damaging' );

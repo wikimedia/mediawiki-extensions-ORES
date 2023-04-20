@@ -108,6 +108,9 @@
 		"OresUseLiftwing": {
 			"value": false
 		},
+		"OresLiftWingBaseUrl": {
+			"value": "https://inference.discovery.wmnet:30443"
+		},
 		"OresFrontendBaseUrl": {
 			"value": null
 		},

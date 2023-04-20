@@ -28,15 +28,18 @@ class PopulatedSqlModelLookup implements ModelLookup {
 	private $ORESService;
 
 	private $logger;
+	private bool $useLiftWing;
 
 	public function __construct(
 		ModelLookup $modelLookup,
 		ORESService $ORESService,
-		LoggerInterface $logger
+		LoggerInterface $logger,
+		bool $useLiftWing
 	) {
 		$this->modelLookup = $modelLookup;
 		$this->ORESService = $ORESService;
 		$this->logger = $logger;
+		$this->useLiftWing = $useLiftWing;
 	}
 
 	/**
@@ -53,7 +56,11 @@ class PopulatedSqlModelLookup implements ModelLookup {
 				return $modelData;
 			}
 
-			$this->initializeModels( $models );
+			if ( $this->useLiftWing ) {
+				$this->initializeModelsLiftWing( $models );
+			} else {
+				$this->initializeModels( $models );
+			}
 			$modelData = $this->modelLookup->getModels();
 		}
 
@@ -71,6 +78,20 @@ class PopulatedSqlModelLookup implements ModelLookup {
 
 		foreach ( $models as $model ) {
 			$this->initializeModel( $model, $response[$wikiId]['models'] );
+		}
+	}
+
+	private function initializeModelsLiftWing( $models ) {
+		global $wgOresModelVersions;
+		$wikiId = ORESService::getWikiID();
+		if ( !isset( $wgOresModelVersions[$wikiId] ) || empty( $wgOresModelVersions[$wikiId]['models'] ) ) {
+			$this->logger->error( 'Bad response from ORES when requesting models: '
+				. json_encode( $wgOresModelVersions ) );
+			return;
+		}
+
+		foreach ( $models as $model ) {
+			$this->initializeModel( $model, $wgOresModelVersions[$wikiId]['models'] );
 		}
 	}
 
@@ -105,5 +126,4 @@ class PopulatedSqlModelLookup implements ModelLookup {
 		$this->getModels();
 		return $this->modelLookup->getModelVersion( $model );
 	}
-
 }

@@ -35,12 +35,12 @@ class ORESService {
 	/**
 	 * @var LoggerInterface
 	 */
-	private $logger;
+	protected $logger;
 
 	/**
 	 * @var HttpRequestFactory
 	 */
-	private $httpRequestFactory;
+	protected $httpRequestFactory;
 
 	/**
 	 * @param LoggerInterface $logger
@@ -91,9 +91,10 @@ class ORESService {
 	}
 
 	/**
+	 * @param string|null $model
 	 * @return string Base URL plus your wiki's `scores` API path.
 	 */
-	public function getUrl() {
+	public function getUrl( $model = null ) {
 		$wikiId = self::getWikiID();
 		$prefix = 'v' . self::API_VERSION;
 		$baseUrl = self::getBaseUrl();
@@ -156,7 +157,7 @@ class ORESService {
 	 *
 	 * @return array
 	 */
-	private function getMWHttpRequestOptions( $originalRequest ) {
+	protected function getMWHttpRequestOptions( $originalRequest ) {
 		if ( $originalRequest === null && empty( $GLOBALS['wgCommandLineMode'] ) ) {
 			$originalRequest = RequestContext::getMain()->getRequest();
 		}
