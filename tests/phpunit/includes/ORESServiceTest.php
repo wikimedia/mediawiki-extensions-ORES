@@ -3,8 +3,8 @@
 namespace ORES\Tests;
 
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\WikiMap\WikiMap;
 use ORES\ORESService;
-use WikiMap;
 
 /**
  * @group ORES

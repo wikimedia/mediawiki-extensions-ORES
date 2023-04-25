@@ -19,10 +19,10 @@ namespace ORES\Hooks\Api;
 use ApiQuery;
 use ApiQueryBase;
 use ApiResult;
+use MediaWiki\WikiMap\WikiMap;
 use NamespaceInfo;
 use ORES\Hooks\Helpers;
 use ORES\Services\ORESServices;
-use WikiMap;
 
 /**
  * A query action to return meta information about ORES models and
