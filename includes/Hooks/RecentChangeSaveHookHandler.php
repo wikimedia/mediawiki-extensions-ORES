@@ -19,7 +19,6 @@
 namespace ORES\Hooks;
 
 use Exception;
-use Hooks;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use ORES\Services\FetchScoreJob;
@@ -102,7 +101,7 @@ class RecentChangeSaveHookHandler {
 			}
 		}
 
-		Hooks::run( 'ORESCheckModels', [ $rc, &$models ] );
+		MediaWikiServices::getInstance()->getHookContainer()->run( 'ORESCheckModels', [ $rc, &$models ] );
 
 		$this->triggerJob( $rc, $models );
 	}
