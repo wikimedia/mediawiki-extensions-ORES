@@ -2,6 +2,7 @@
 
 namespace ORES\Tests;
 
+use Config;
 use HashBagOStuff;
 use MediaWiki\Logger\LoggerFactory;
 use NullStatsdDataFactory;
@@ -63,7 +64,8 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 			$oresService,
 			WANObjectCache::newEmpty(),
 			$logger,
-			new NullStatsdDataFactory()
+			new NullStatsdDataFactory(),
+			$this->createMock( Config::class )
 		);
 	}
 
@@ -202,7 +204,8 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 			$oresService,
 			$cache,
 			$this->getLoggerMock(),
-			new NullStatsdDataFactory()
+			new NullStatsdDataFactory(),
+			$this->createMock( Config::class )
 		);
 
 		$thresholdLookup->getThresholds( 'damaging' );

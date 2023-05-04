@@ -105,6 +105,9 @@
 		"OresBaseUrl": {
 			"value": "https://ores.wikimedia.org/"
 		},
+		"OresUseLiftwing": {
+			"value": false
+		},
 		"OresFrontendBaseUrl": {
 			"value": null
 		},

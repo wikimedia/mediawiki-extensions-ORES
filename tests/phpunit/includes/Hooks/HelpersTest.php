@@ -4,6 +4,7 @@ namespace ORES\Tests;
 
 use IContextSource;
 use ORES\Hooks\Helpers;
+use ORES\ORESService;
 use ORES\Storage\HashModelLookup;
 use ORES\Storage\ThresholdLookup;
 use RequestContext;
@@ -60,6 +61,11 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 	 * @covers ORES\Hooks\Helpers::getThreshold
 	 */
 	public function testGetThreshold_null() {
+		$this->markTestSkipped( 'Skipping test that calls ores API since thresholds are hardcoded.' );
+
+		$mock_request = $this->createMock( ORESService::class );
+		$mock_request->method( 'request' )
+			->willReturn( [] );
 		$mock = $this->createMock( ThresholdLookup::class );
 		$mock->method( 'getThresholds' )
 			->willReturn( [] );

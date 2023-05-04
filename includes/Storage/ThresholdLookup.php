@@ -16,6 +16,7 @@
 
 namespace ORES\Storage;
 
+use Config;
 use IBufferingStatsdDataFactory;
 use ORES\ORESService;
 use ORES\ThresholdParser;
@@ -28,7 +29,7 @@ class ThresholdLookup {
 	/**
 	 * @var ThresholdParser
 	 */
-	private $thresholdParser;
+	protected $thresholdParser;
 
 	/**
 	 * @var ModelLookup
@@ -56,12 +57,18 @@ class ThresholdLookup {
 	private $statsdDataFactory;
 
 	/**
+	 * @var Config
+	 */
+	protected $mainConfig;
+
+	/**
 	 * @param ThresholdParser $thresholdParser
 	 * @param ModelLookup $modelLookup
 	 * @param ORESService $oresService
 	 * @param WANObjectCache $cache
 	 * @param LoggerInterface $logger
 	 * @param IBufferingStatsdDataFactory $statsdDataFactory
+	 * @param Config $mainConfig
 	 */
 	public function __construct(
 		ThresholdParser $thresholdParser,
@@ -69,7 +76,8 @@ class ThresholdLookup {
 		ORESService $oresService,
 		WANObjectCache $cache,
 		LoggerInterface $logger,
-		IBufferingStatsdDataFactory $statsdDataFactory
+		IBufferingStatsdDataFactory $statsdDataFactory,
+		Config $mainConfig
 	) {
 		$this->thresholdParser = $thresholdParser;
 		$this->modelLookup = $modelLookup;
@@ -77,8 +85,14 @@ class ThresholdLookup {
 		$this->cache = $cache;
 		$this->logger = $logger;
 		$this->statsdDataFactory = $statsdDataFactory;
+		$this->mainConfig = $mainConfig;
 	}
 
+	/**
+	 * @param string $model
+	 * @param bool $fromCache
+	 * @return array|false|mixed
+	 */
 	public function getRawThresholdData( $model, $fromCache = true ) {
 		$config = $this->thresholdParser->getFiltersConfig( $model );
 		if ( $config ) {
@@ -87,6 +101,11 @@ class ThresholdLookup {
 		return false;
 	}
 
+	/**
+	 * @param string $model
+	 * @param bool $fromCache
+	 * @return array
+	 */
 	public function getThresholds( $model, $fromCache = true ) {
 		$stats = $this->getRawThresholdData( $model, $fromCache );
 		if ( $stats !== false ) {
@@ -95,6 +114,11 @@ class ThresholdLookup {
 		return [];
 	}
 
+	/**
+	 * @param string $model
+	 * @param bool $fromCache
+	 * @return array|false|mixed
+	 */
 	private function fetchThresholds( $model, $fromCache ) {
 		if ( $fromCache ) {
 			return $this->fetchThresholdsFromCache( $model );
@@ -104,6 +128,10 @@ class ThresholdLookup {
 		}
 	}
 
+	/**
+	 * @param string $model
+	 * @return false|mixed
+	 */
 	private function fetchThresholdsFromCache( $model ) {
 		global $wgOresCacheVersion;
 		$modelVersion = $this->modelLookup->getModelVersion( $model );
@@ -135,7 +163,11 @@ class ThresholdLookup {
 		);
 	}
 
-	private function fetchThresholdsFromApi( $model ) {
+	/**
+	 * @param string $model
+	 * @return array
+	 */
+	protected function fetchThresholdsFromApi( $model ) {
 		$formulae = [ 'true' => [], 'false' => [] ];
 		$calculatedThresholds = [];
 		foreach ( $this->thresholdParser->getFiltersConfig( $model ) as $levelName => $config ) {
@@ -177,7 +209,7 @@ class ThresholdLookup {
 	 * @param array[] &$formulae associative array mapping boundaries to new formulas
 	 * @param string[] &$calculatedThresholds array that has threshold request param
 	 */
-	private function prepareThresholdRequestParam(
+	protected function prepareThresholdRequestParam(
 		array $config,
 		array &$formulae,
 		array &$calculatedThresholds
