@@ -32,7 +32,7 @@ class ScoreFetcherTest extends \MediaWikiIntegrationTestCase {
 		$this->tablesUsed[] = 'ores_model';
 	}
 
-	public function provideTestGetScores() {
+	public static function provideTestGetScores() {
 		$firstCase = [
 			'123' => [
 				'damaging' => [ 'score' => [
@@ -91,7 +91,7 @@ class ScoreFetcherTest extends \MediaWikiIntegrationTestCase {
 		$this->assertEquals( $expected, $result );
 	}
 
-	public function provideTestCheckModelVersion() {
+	public static function provideTestCheckModelVersion() {
 		return [
 			[ null, 'damaging', [] ],
 			[ null, 'damaging',  [ 'info' => 'foo' ] ],

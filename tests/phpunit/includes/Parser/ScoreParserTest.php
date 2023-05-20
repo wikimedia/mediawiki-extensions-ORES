@@ -18,7 +18,7 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 	private const GOODFAITH = 4;
 	private const ARTICLEQUALITY = 5;
 
-	public function processRevisionProvider() {
+	public static function processRevisionProvider() {
 		return [
 			[
 				[],
@@ -201,7 +201,7 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 		$this->assertEquals( $expected, $data );
 	}
 
-	public function processRevisionInvalidProvider() {
+	public static function processRevisionInvalidProvider() {
 		return [
 			[
 				[

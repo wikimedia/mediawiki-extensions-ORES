@@ -44,7 +44,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 		);
 	}
 
-	public function storeScoresProvider() {
+	public static function storeScoresProvider() {
 		return [
 			[
 				[
@@ -268,7 +268,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 		$this->assertEquals( $expected, iterator_to_array( $res, false ) );
 	}
 
-	public function storeScoresInvalidProvider() {
+	public static function storeScoresInvalidProvider() {
 		return [
 			[
 				[ 1111 => [

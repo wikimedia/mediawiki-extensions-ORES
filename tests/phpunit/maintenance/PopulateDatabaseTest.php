@@ -39,7 +39,7 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 		$this->setService( 'ORESService', $mockOresService );
 	}
 
-	public function provideTestData() {
+	public static function provideTestData() {
 		return [
 			// Populate a single score.
 			[

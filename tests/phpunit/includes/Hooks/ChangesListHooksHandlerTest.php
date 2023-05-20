@@ -90,7 +90,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @dataProvider onChangesListSpecialPageQuery_provider
+	 * @dataProvider onChangesListSpecialPageQueryProvider
 	 * @covers ORES\Hooks\ChangesListHooksHandler::onChangesListSpecialPageQuery
 	 */
 	public function testOnChangesListSpecialPageQuery( array $modelConfig, array $expectedQuery ) {
@@ -117,7 +117,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 		$this->assertSame( $expectedQuery['join_conds'], $join_conds );
 	}
 
-	public function onChangesListSpecialPageQuery_provider() {
+	public static function onChangesListSpecialPageQueryProvider() {
 		return [
 			[
 				[ 'damaging' => [ 'enabled' => false ], 'goodfaith' => [ 'enabled' => false ] ],

@@ -52,7 +52,7 @@ class ThresholdParserTest extends \MediaWikiIntegrationTestCase {
 		$this->assertSame( $expected, $thresholds );
 	}
 
-	public function provideTestParseThresholds() {
+	public static function provideTestParseThresholds() {
 		$thresholdData1 = [
 			'false' => [ 'maximum recall @ precision >= 0.98' => [ 'threshold' => 0.259 ] ],
 			'true' => [ 'maximum recall @ precision >= 0.9' => [ 'threshold' => 0.945 ] ]

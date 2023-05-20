@@ -22,7 +22,7 @@ class RangeTest extends \PHPUnit\Framework\TestCase {
 		$r = new Range( 3, 2 );
 	}
 
-	public function overlapsProvider() {
+	public static function overlapsProvider() {
 		return [
 			[ [ 1, 3 ], [ 2, 4 ], true ],
 			[ [ 1, 2 ], [ 2, 4 ], true ],
@@ -44,7 +44,7 @@ class RangeTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals( $expectedOverlap, $r2->overlaps( $r1 ) );
 	}
 
-	public function combineWithProvider() {
+	public static function combineWithProvider() {
 		return [
 			[ [ 1, 2 ], [ 3, 4 ], [ 1, 4 ] ],
 			[ [ 4, 44 ], [ 11, 88 ], [ 4, 88 ] ],

@@ -27,7 +27,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 		] );
 	}
 
-	public function provideOnRecentChange_save() {
+	public static function provideOnRecentChange_save() {
 		return [
 			[ 0, 0, RC_EDIT, [ 'damaging', 'articlequality' ] ],
 			[ 2, 0, RC_NEW, [ 'damaging', 'draftquality' ] ],
@@ -77,7 +77,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 		$this->assertEquals( $expected, $actual );
 	}
 
-	public function provideOnRecentChange_saveNotQueued() {
+	public static function provideOnRecentChange_saveNotQueued() {
 		return [
 			[ 2, 1, RC_EDIT ],
 			[ 1, 0, RC_EDIT ],

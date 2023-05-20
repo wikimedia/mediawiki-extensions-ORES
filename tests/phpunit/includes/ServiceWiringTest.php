@@ -17,7 +17,7 @@ use ORES\Storage\ThresholdLookup;
  */
 class ServiceWiringTest extends \MediaWikiIntegrationTestCase {
 
-	public function provideServices() {
+	public static function provideServices() {
 		return [
 			[ 'ORESModelLookup', ModelLookup::class ],
 			[ 'ORESThresholdLookup', ThresholdLookup::class ],

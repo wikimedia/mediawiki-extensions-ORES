@@ -67,7 +67,7 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 		return $context;
 	}
 
-	public function provideOnContribsGetQueryInfo() {
+	public static function provideOnContribsGetQueryInfo() {
 		$expected = [
 			'tables' => [
 				'ores_damaging_cls' => 'ores_classification'
