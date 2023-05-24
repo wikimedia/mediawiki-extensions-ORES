@@ -79,11 +79,17 @@ class SpecialORESModels extends \SpecialPage {
 			$max = isset( $thresholds[$filterName]['max'] ) ?
 				$this->getLanguage()->formatNum( $thresholds[$filterName]['max'] ) :
 				'???';
+			$precision = isset( $statInfo['precision'] ) ?
+				$this->msg( 'percent' )->numParams( $statInfo['precision'] * 100 )->text() :
+				'???';
+			$recall = isset( $statInfo['recall'] ) ?
+				$this->msg( 'percent' )->numParams( $statInfo['recall'] * 100 )->text() :
+				'???';
 			$filters[] = [
 				'name' => $filterName,
 				'label' => $this->getFilterLabel( $modelName, $filterName ),
-				'precision' => $this->msg( 'percent' )->numParams( $statInfo['precision'] * 100 )->text(),
-				'recall' => $this->msg( 'percent' )->numParams( $statInfo['recall'] * 100 )->text(),
+				'precision' => $precision,
+				'recall' => $recall,
 				'threshold-min' => $min,
 				'threshold-max' => $max,
 			];
