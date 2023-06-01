@@ -60,7 +60,7 @@
 	"ores-pref-rc-hidenondamaging": "Afficher uniquement les modifications qui semblent problématiques (et masquer celles probablement bonnes)",
 	"ores-pref-watchlist-hidenondamaging": "Afficher uniquement les modifications qui semblent problématiques (et masquer celles probablement bonnes)",
 	"prefs-ores-wl": "Évaluation des versions sur la liste de suivi et les contributions",
-	"prefs-ores-rc": "Évaluation des versions listées dans les Modifications récentes et les Pages liées",
+	"prefs-ores-rc": "Évaluation des versions listées dans les Modifications récentes et le Suivi des pages liées",
 	"oresmodels": "Statistiques des modèles ORES",
 	"ores-specialoresmodels-header-filter": "Filtre",
 	"ores-specialoresmodels-header-precision": "Précision",
