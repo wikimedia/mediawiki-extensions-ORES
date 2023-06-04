@@ -19,6 +19,7 @@ namespace ORES\Services;
 use Job;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use ORES\Hooks\HookRunner;
 use RuntimeException;
 use Title;
 
@@ -143,7 +144,7 @@ class FetchScoreJob extends Job {
 	private function fireORESRecentChangeScoreSavedHook( array $revids, array $scores ) {
 		$services = MediaWikiServices::getInstance();
 		$revisionStore = $services->getRevisionStore();
-		$hookContainer = $services->getHookContainer();
+		$hookRunner = new HookRunner( $services->getHookContainer() );
 		foreach ( $revids as $revid ) {
 			if ( !isset( $scores[$revid] ) ) {
 				continue;
@@ -154,7 +155,7 @@ class FetchScoreJob extends Job {
 				continue;
 			}
 
-			$hookContainer->run( 'ORESRecentChangeScoreSavedHook', [ $revision, $scores ] );
+			$hookRunner->onORESRecentChangeScoreSavedHook( $revision, $scores );
 		}
 	}
 

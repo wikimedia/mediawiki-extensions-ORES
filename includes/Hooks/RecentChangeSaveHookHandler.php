@@ -101,7 +101,7 @@ class RecentChangeSaveHookHandler {
 			}
 		}
 
-		MediaWikiServices::getInstance()->getHookContainer()->run( 'ORESCheckModels', [ $rc, &$models ] );
+		( new HookRunner( MediaWikiServices::getInstance()->getHookContainer() ) )->onORESCheckModels( $rc, $models );
 
 		$this->triggerJob( $rc, $models );
 	}
