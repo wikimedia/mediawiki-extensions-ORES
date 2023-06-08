@@ -26,7 +26,6 @@ use Exception;
 use IContextSource;
 use MediaWiki\Html\FormOptions;
 use MediaWiki\MediaWikiServices;
-use MWException;
 use ORES\Services\ORESServices;
 use ORES\Storage\ThresholdLookup;
 use RCCacheEntry;
@@ -66,7 +65,6 @@ class ChangesListHooksHandler {
 	 * @param ChangesListSpecialPage $clsp
 	 * @param ThresholdLookup $thresholdLookup
 	 * @param ChangesListFilter $logFilter
-	 * @throws MWException
 	 */
 	private static function handleDamaging(
 		ChangesListSpecialPage $clsp,
@@ -219,7 +217,6 @@ class ChangesListHooksHandler {
 	 * @param ChangesListSpecialPage $clsp
 	 * @param ThresholdLookup $thresholdLookup
 	 * @param ChangesListFilter $logFilter
-	 * @throws MWException
 	 */
 	private static function handleGoodFaith(
 		ChangesListSpecialPage $clsp,

@@ -4,10 +4,10 @@ namespace ORES\Tests;
 
 use MediaWiki\MediaWikiServices;
 use MediaWikiLangTestCase;
-use MWException;
 use ORES\Storage\HashModelLookup;
 use ORES\Storage\SqlScoreStorage;
 use Psr\Log\NullLogger;
+use RuntimeException;
 
 /**
  * @group ORES
@@ -114,8 +114,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 
 		$this->storage->storeScores( $scores );
 
-		$dbr = \wfGetDB( DB_REPLICA );
-		$res = $dbr->select(
+		$res = $this->getDb()->select(
 			'ores_classification',
 			[
 				'oresc_rev',
@@ -170,7 +169,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 		];
 
 		// Put old score there
-		$dbw = \wfGetDB( DB_PRIMARY );
+		$dbw = $this->getDb();
 		$dbw->insert(
 			'ores_classification',
 			[
@@ -250,8 +249,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 			],
 		];
 
-		$dbr = \wfGetDB( DB_REPLICA );
-		$res = $dbr->select(
+		$res = $this->getDb()->select(
 			'ores_classification',
 			[
 				'oresc_rev',
@@ -313,12 +311,12 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 	 * @dataProvider storeScoresInvalidProvider
 	 */
 	public function testProcessRevisionInvalid( array $data ) {
-		$this->expectException( MWException::class );
-		$this->expectExceptionMessage( 'processRevisionInvalid failure' );
+		$excep = new RuntimeException( __METHOD__ );
+		$this->expectExceptionObject( $excep );
 		$this->storage->storeScores(
 			$data,
-			static function () {
-				throw new MWException( 'processRevisionInvalid failure' );
+			static function () use ( $excep ) {
+				throw $excep;
 			}
 		);
 	}
@@ -329,8 +327,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 		$oresModelsCopy['articlequality']['enabled'] = true;
 		$this->setMwGlobals( [ 'wgOresModels' => $oresModelsCopy ] );
 
-		$dbw = wfGetDB( DB_PRIMARY );
-		$dbw->insert(
+		$this->getDb()->insert(
 			'ores_classification',
 			[
 				[
@@ -380,7 +377,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 
 		$this->storage->purgeRows( [ 12344, 12346 ] );
 
-		$res = wfGetDB( DB_REPLICA )->select(
+		$res = $this->getDb()->select(
 			'ores_classification',
 			[
 				'oresc_rev',
