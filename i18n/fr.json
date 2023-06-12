@@ -54,7 +54,7 @@
 	"ores-rcfilters-goodfaith-bad-label": "Probablement de mauvaise foi",
 	"ores-rcfilters-goodfaith-bad-desc-low": "Avec une précision moyenne, trouve une portion intermédiaire de modifications effectuées de mauvaise foi.",
 	"ores-rcfilters-goodfaith-bad-desc-high": "Avec une précision moyenne, trouve la plupart des modifications effectuées de mauvaise foi.",
-	"ores-rcfilters-goodfaith-verylikelybad-label": "Très vraisemblablement de mauvaise foi",
+	"ores-rcfilters-goodfaith-verylikelybad-label": "Très probablement de mauvaise foi",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Très précis pour trouver les modifications effectuées de mauvaise foi les plus évidentes.",
 	"ores-pref-highlight": "Surligner les modifications qui semblent problématiques à l’aide de couleurs et un « {{int:ores-damaging-letter}} » pour signifier « nécessite une relecture »",
 	"ores-pref-rc-hidenondamaging": "Afficher uniquement les modifications qui semblent problématiques (et masquer celles probablement bonnes)",
