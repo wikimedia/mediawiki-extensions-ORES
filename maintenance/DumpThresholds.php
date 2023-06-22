@@ -40,15 +40,13 @@ class DumpThresholds extends Maintenance {
 	 * @throws \RuntimeException
 	 */
 	protected function getModels() {
-		$timestamp = \wfTimestampNow();
-		// Bypass the varnish cache
-		$modelData = ORESServices::getORESService()->request( [ $timestamp => true ] );
-		$wikiId = ORESServices::getORESService()->getWikiId();
-		if ( empty( $modelData[$wikiId]['models'] ) ) {
+		global $wgOresModelVersions;
+		$modelData = $wgOresModelVersions;
+		if ( empty( $modelData['models'] ) ) {
 			throw new \RuntimeException( 'Bad response from ORES when requesting models: '
 				. json_encode( $modelData ) );
 		}
-		return $modelData[$wikiId]['models'];
+		return $modelData['models'];
 	}
 
 }
