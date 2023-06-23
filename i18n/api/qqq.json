@@ -10,7 +10,6 @@
 			"Wladek92"
 		]
 	},
-	"apihelp-query+ores-description": "{{doc-apihelp-description|query+ores}}",
 	"apihelp-query+ores-summary": "{{doc-apihelp-summary|query+ores}}",
 	"apihelp-query+ores-example-simple": "{{doc-apihelp-example|query+ores}}",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "{{doc-apihelp-paramvalue|query+revisions|prop|oresscores}}",
