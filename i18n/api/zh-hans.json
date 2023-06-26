@@ -5,7 +5,6 @@
 			"Yfdyh000"
 		]
 	},
-	"apihelp-query+ores-description": "返回该wiki的ORES配置和模型数据。",
 	"apihelp-query+ores-summary": "返回该wiki的ORES配置和模型数据。",
 	"apihelp-query+ores-example-simple": "获取ORES数据：",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "修订版本的ORES得分。",

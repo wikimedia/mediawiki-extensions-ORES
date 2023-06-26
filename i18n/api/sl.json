@@ -4,7 +4,6 @@
 			"Eleassar"
 		]
 	},
-	"apihelp-query+ores-description": "Vrni konfiguracijo ORES in podatke o modelu za ta viki.",
 	"apihelp-query+ores-summary": "Vrni konfiguracijo ORES in podatke o modelu za ta viki.",
 	"apihelp-query+ores-example-simple": "Pridobi podatke ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Ocene ORES za redakcijo.",

@@ -5,7 +5,6 @@
 			"Woytecr"
 		]
 	},
-	"apihelp-query+ores-description": "Zwróć konfigurację ORES i model danych dla tej wiki.",
 	"apihelp-query+ores-summary": "Zwróć konfigurację ORES i model danych dla tej wiki.",
 	"apihelp-query+ores-example-simple": "Pobierz dane ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Ocena ORES dla tej wersji.",

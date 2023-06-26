@@ -4,7 +4,6 @@
 			"Kly"
 		]
 	},
-	"apihelp-query+ores-description": "回傳此 wiki 的 ORES 設置以及模組資料。",
 	"apihelp-query+ores-summary": "回傳此 wiki 的 ORES 設置以及模組資料。",
 	"apihelp-query+ores-example-simple": "取得 ORES 資料：",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "修訂的 ORES 評分。",

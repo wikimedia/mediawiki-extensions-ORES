@@ -5,7 +5,6 @@
 			"Guycn2"
 		]
 	},
-	"apihelp-query+ores-description": "החזרת הגדרות ORES ונתוני דגם עבור הוויקי הזה.",
 	"apihelp-query+ores-summary": "החזרת הגדרות ORES ונתוני דגם עבור אתר הוויקי הזה.",
 	"apihelp-query+ores-example-simple": "אחזור נתוני ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "דירוגי ORES עבור הגרסה הזאת.",

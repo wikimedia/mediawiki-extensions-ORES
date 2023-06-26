@@ -5,7 +5,6 @@
 			"Luk3"
 		]
 	},
-	"apihelp-query+ores-description": "Retornar a configuração do ORES e os dados do modelo para esta wiki.",
 	"apihelp-query+ores-summary": "Retornar a configuração do ORES e os dados do modelo para esta wiki.",
 	"apihelp-query+ores-example-simple": "Recuperar dados do ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Pontuação do ORES para a revisão.",

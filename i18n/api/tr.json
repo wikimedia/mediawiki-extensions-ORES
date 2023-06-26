@@ -6,7 +6,6 @@
 			"Sezgin İbiş"
 		]
 	},
-	"apihelp-query+ores-description": "Bu viki modelinin verilerine ve ORES yapılandırmasına geri dön.",
 	"apihelp-query+ores-summary": "Bu viki için ORES yapılandırmasını ve model verilerini döndür.",
 	"apihelp-query+ores-example-simple": "Getirilecek ORES verisi:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Gözden geçirme için ORES skorları.",

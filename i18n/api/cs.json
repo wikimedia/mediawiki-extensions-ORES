@@ -5,7 +5,6 @@
 			"Patrik L."
 		]
 	},
-	"apihelp-query+ores-description": "Vrátit konfigurační a modelová data ORES pro tuto wiki.",
 	"apihelp-query+ores-summary": "Vrátit konfigurační a modelová data ORES pro tuto wiki.",
 	"apihelp-query+ores-example-simple": "Načíst data ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Skóre ORES pro revizi.",

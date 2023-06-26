@@ -4,7 +4,6 @@
 			"Vlad5250"
 		]
 	},
-	"apihelp-query+ores-description": "Daje ORES-postavljenost i podatke o modelu za ovaj wiki.",
 	"apihelp-query+ores-summary": "Daje ORES-postavljenost i podatke o modelu za ovaj wiki.",
 	"apihelp-query+ores-example-simple": "Dhvati ORES-podatke:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-ocjene izmjene.",

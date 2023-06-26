@@ -4,7 +4,6 @@
 			"Xuacu"
 		]
 	},
-	"apihelp-query+ores-description": "Devolver la configuración ORES y datos modelu d'esta wiki.",
 	"apihelp-query+ores-summary": "Devolver la configuración ORES y datos modelu d'esta wiki.",
 	"apihelp-query+ores-example-simple": "Recuperar los datos ORESː",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Puntuación ORES de la revisión.",

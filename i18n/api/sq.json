@@ -4,7 +4,6 @@
 			"Arianit"
 		]
 	},
-	"apihelp-query+ores-description": "Jep konfigurimin ORES dhe modelin e të dhënave për këtë wiki.",
 	"apihelp-query+ores-example-simple": "Merr të dhënat nga ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Rezultati ORES për këtë ndryshim.",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Rezultatet ORES për këtë ndryshim.",

@@ -4,7 +4,6 @@
 			"Strainu"
 		]
 	},
-	"apihelp-query+ores-description": "Întoarce configurația și modelele ORES pentru acest wiki.",
 	"apihelp-query+ores-summary": "Întoarce configurația și modelele ORES pentru acest wiki.",
 	"apihelp-query+ores-example-simple": "Obține datele ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Scoruri ORES pentru versiune.",

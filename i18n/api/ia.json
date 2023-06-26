@@ -4,7 +4,6 @@
 			"McDutchie"
 		]
 	},
-	"apihelp-query+ores-description": "Reinstitue le configuration ORES e le datos de modello pro iste wiki.",
 	"apihelp-query+ores-summary": "Reinstitue le configuration ORES e le datos de modello pro iste wiki.",
 	"apihelp-query+ores-example-simple": "Obtener datos ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Scores ORES pro le version.",

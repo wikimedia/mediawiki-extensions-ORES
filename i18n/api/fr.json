@@ -6,7 +6,6 @@
 			"Verdy p"
 		]
 	},
-	"apihelp-query+ores-description": "Renvoyer la configuration ORES et les données de modèle pour ce wiki.",
 	"apihelp-query+ores-summary": "Renvoyer la configuration ORES et les données de modèle pour ce wiki.",
 	"apihelp-query+ores-example-simple": "Récupérer les données ORES :",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Scores ORES pour la version.",

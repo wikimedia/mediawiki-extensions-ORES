@@ -4,7 +4,6 @@
 			"Bjankuloski06"
 		]
 	},
-	"apihelp-query+ores-description": "Дава ORES-поставеност и податоци за моделот за ова вики.",
 	"apihelp-query+ores-summary": "Дава ORES-поставеност и податоци за моделот за ова вики.",
 	"apihelp-query+ores-example-simple": "Преземи ORES-податоци:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-оценки на преработката.",

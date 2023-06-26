@@ -4,7 +4,6 @@
 			"Reza1615"
 		]
 	},
-	"apihelp-query+ores-description": "بازگردانی تنظیمات و داده‌های مدل ساعن برای این ویکی.",
 	"apihelp-query+ores-summary": "بازگردانی تنظیمات و داده‌های مدل ساعن برای این ویکی.",
 	"apihelp-query+ores-example-simple": "گرفتن اطلاعات ساعن:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "امتیاز ساعن برای نسخه.",

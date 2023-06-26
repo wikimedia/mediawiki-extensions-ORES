@@ -4,7 +4,6 @@
 			"ديفيد"
 		]
 	},
-	"apihelp-query+ores-description": "عودة تكوين ORES وبيانات نموذج هذا الويكي.",
 	"apihelp-query+ores-summary": "عودة تكوين ORES وبيانات نموذج هذا الويكي.",
 	"apihelp-query+ores-example-simple": "جلب بيانات ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "درجات ORES للمراجعة.",

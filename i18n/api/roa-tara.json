@@ -4,7 +4,6 @@
 			"Joetaras"
 		]
 	},
-	"apihelp-query+ores-description": "Tuèrne 'a configurazione de ORES e le date d'u modelle pe sta uicchi.",
 	"apihelp-query+ores-summary": "Tuèrne 'a configurazione de ORES e le date d'u modelle pe sta uicchi.",
 	"apihelp-query+ores-example-simple": "Tuèrne le date ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Pundegge ORES pa versione.",

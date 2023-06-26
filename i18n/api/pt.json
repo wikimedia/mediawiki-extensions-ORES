@@ -4,7 +4,6 @@
 			"Hamilton Abreu"
 		]
 	},
-	"apihelp-query+ores-description": "Devolver a configuração ORES e os dados modelo para esta wiki.",
 	"apihelp-query+ores-summary": "Devolver a configuração ORES e os dados modelo para esta wiki.",
 	"apihelp-query+ores-example-simple": "Obter dados ORES:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "Pontuações ORES para a revisão.",
