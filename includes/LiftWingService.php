@@ -77,8 +77,8 @@ class LiftWingService extends ORESService {
 			throw new RuntimeException( 'Missing required parameter: revids' );
 		}
 
-		$models = (array)$params['models'];
-		$revids = (array)$params['revids'];
+		$models = explode( '|', $params['models'] );
+		$revids = explode( '|', $params['revids'] );
 
 		$responses = [];
 
@@ -120,11 +120,19 @@ class LiftWingService extends ORESService {
 				$req = $this->httpRequestFactory->create( $url, [
 					'method' => 'POST',
 					'headers' => $headers,
-					'postData' => json_encode( [ 'rev_id' => $revid ] )
+					'postData' => json_encode( [ 'rev_id' => (int)$revid ] )
 				],
 				);
 				$status = $req->execute();
 				if ( !$status->isOK() ) {
+					throw new RuntimeException( $message );
+				}
+			} elseif ( $req->getStatus() === 400 ) {
+				$this->logger->debug( "400 Bad Request: {$message}" );
+				$data = FormatJson::decode( $req->getContent(), true );
+				if ( strpos( $data["error"], "The MW API does not have any info related to the rev-id" ) === 0 ) {
+					return $this->createRevisionNotFoundResponse( $model, $revid );
+				} else {
 					throw new RuntimeException( $message );
 				}
 			} else {
@@ -135,7 +143,7 @@ class LiftWingService extends ORESService {
 		$this->logger->debug( "Raw response: {$json}" );
 		$data = FormatJson::decode( $json, true );
 		if ( !$data || !empty( $data['error'] ) ) {
-			throw new RuntimeException( "Bad response from ORES endpoint [{$url}]: {$json}" );
+			throw new RuntimeException( "Bad response from Lift Wing endpoint [{$url}]: {$json}" );
 		}
 		return $data;
 	}
@@ -187,6 +195,39 @@ class LiftWingService extends ORESService {
 			}
 		}
 		return $result;
+	}
+
+	/**
+	 * @param string $model_name
+	 * @param string $rev_id
+	 * @return array
+	 */
+	private function createRevisionNotFoundResponse(
+		string $model_name,
+		string $rev_id
+	) {
+		global $wgOresModelVersions;
+		$error_message = "RevisionNotFound: Could not find revision ({revision}:{$rev_id})";
+		$error_type = "RevisionNotFound";
+		return [
+			self::getWikiID() => [
+				"models" => [
+					$model_name => [
+						"version" => $wgOresModelVersions['models'][$model_name]['version'],
+					],
+				],
+				"scores" => [
+					$rev_id => [
+						$model_name => [
+							"error" => [
+								"message" => $error_message,
+								"type" => $error_type,
+							],
+						],
+					],
+				],
+			],
+		];
 	}
 
 }

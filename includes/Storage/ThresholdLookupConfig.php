@@ -16,8 +16,6 @@
 
 namespace ORES\Storage;
 
-use ORES\ORESService;
-
 class ThresholdLookupConfig extends ThresholdLookup {
 
 	/**
@@ -39,10 +37,8 @@ class ThresholdLookupConfig extends ThresholdLookup {
 			return [];
 		}
 		$thresholds = $this->mainConfig->get( 'OresModelThresholds' );
-		$wikiId = ORESService::getWikiID();
-		$data = $thresholds[$wikiId]['models'][$model]['statistics']['thresholds'];
 
-		$prefix = [ $wikiId, 'models', $model, 'statistics', 'thresholds' ];
+		$prefix = [ 'models', $model, 'statistics', 'thresholds' ];
 		$resultMap = [];
 
 		foreach ( $formulae as $outcome => $outcomeFormulae ) {
@@ -51,7 +47,7 @@ class ThresholdLookupConfig extends ThresholdLookup {
 			}
 
 			$pathParts = array_merge( $prefix, [ $outcome ] );
-			$result = $this->extractKeyPath( $data, $pathParts );
+			$result = $this->extractKeyPath( $thresholds, $pathParts );
 
 			foreach ( $outcomeFormulae as $index => $formula ) {
 				$resultMap[$outcome][$formula] = $result[$index];
