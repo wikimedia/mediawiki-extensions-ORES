@@ -103,13 +103,14 @@ class LiftWingService extends ORESService {
 	public function singleLiftWingRequest( $model, $revid ) {
 		$url = $this->getUrl( $model );
 		$this->logger->debug( "Requesting: {$url}" );
-		$headers = [ 'Content-Type' => 'application/json', 'Host' => self::createHostHeader( $model ) ];
+
 		$req = $this->httpRequestFactory->create( $url, [
 			'method' => 'POST',
-			'headers' => $headers,
 			'postData' => json_encode( [ 'rev_id' => (int)$revid ] )
 			],
 		);
+		$req->setHeader( 'Content-Type', 'application/json' );
+		$req->setHeader( 'Host', self::createHostHeader( $model ) );
 		$status = $req->execute();
 		if ( !$status->isOK() ) {
 			$message = "Failed to make LiftWing request to [{$url}], " .
@@ -119,10 +120,11 @@ class LiftWingService extends ORESService {
 			if ( $req->getStatus() === 504 ) {
 				$req = $this->httpRequestFactory->create( $url, [
 					'method' => 'POST',
-					'headers' => $headers,
 					'postData' => json_encode( [ 'rev_id' => (int)$revid ] )
 				],
 				);
+				$req->setHeader( 'Content-Type', 'application/json' );
+				$req->setHeader( 'Host', self::createHostHeader( $model ) );
 				$status = $req->execute();
 				if ( !$status->isOK() ) {
 					throw new RuntimeException( $message );
