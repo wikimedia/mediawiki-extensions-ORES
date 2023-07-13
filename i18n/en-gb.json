@@ -3,8 +3,10 @@
 		"authors": [
 			"4shadoww",
 			"Jdforrester",
+			"Reedy",
 			"Trizek (WMF)"
 		]
 	},
+	"ores-pref-damaging-flag": "Highlight likely problem edits with colours and an \"{{int:ores-damaging-letter}}\" for \"needs review\"",
 	"ores-pref-highlight": "Highlight likely problem edits with colours and an \"{{int:ores-damaging-letter}}\" for \"needs review\""
 }
