@@ -111,6 +111,9 @@
 		"OresLiftWingBaseUrl": {
 			"value": "https://inference.discovery.wmnet:30443"
 		},
+		"OresLiftWingAddHostHeader": {
+			"value": true
+		},
 		"OresFrontendBaseUrl": {
 			"value": null
 		},

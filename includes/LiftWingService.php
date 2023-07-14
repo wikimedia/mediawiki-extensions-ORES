@@ -126,8 +126,12 @@ class LiftWingService extends ORESService {
 					'userAgent' => $originalRequest['userAgent'] ?? 'MediaWiki',
 				],
 				);
-				$req->setHeader( 'Content-Type', 'application/json' );
-				$req->setHeader( 'Host', self::createHostHeader( $model ) );
+				global $wgOresLiftWingAddHostHeader;
+				if ( $wgOresLiftWingAddHostHeader ) {
+					$req->setHeader( 'Content-Type', 'application/json' );
+					$req->setHeader( 'Host', self::createHostHeader( $model ) );
+				}
+
 				$status = $req->execute();
 				if ( !$status->isOK() ) {
 					throw new RuntimeException( $message );
