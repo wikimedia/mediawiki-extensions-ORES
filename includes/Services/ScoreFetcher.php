@@ -130,8 +130,6 @@ class ScoreFetcher implements ServiceScoreLookup {
 			],
 			[ [ 'oresm_name', 'oresm_version' ] ],
 			[
-				'oresm_name' => $model,
-				'oresm_version' => $responseVersion,
 				'oresm_is_current' => 1,
 			],
 			__METHOD__
