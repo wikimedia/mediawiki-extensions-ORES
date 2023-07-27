@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"apihelp-query+ores-summary": "Daje ORES-postavljenost i podatke o modelu za ovaj wiki.",
+	"apihelp-query+ores-example-simple": "Dhvati ORES-podatke:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-ocjene izmjene.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES-ocjene izmjene.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Dodaje ORES-ocjene za unos.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Dodaje ORES-ocjene za izmjenu.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Dodaje ORES-ocjene za izmjenu."
+}
