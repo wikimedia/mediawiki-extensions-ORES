@@ -19,7 +19,6 @@ namespace ORES;
 use FormatJson;
 use RuntimeException;
 use Status;
-use WebRequest;
 
 /**
  * Common methods for accessing a Lift Wing server.
@@ -65,7 +64,7 @@ class LiftWingService extends ORESService {
 	 * Make an ORES API request and return the decoded result.
 	 *
 	 * @param array $params
-	 * @param WebRequest|string[]|null $originalRequest See MwHttpRequest::setOriginalRequest()
+	 * @param array|null $originalRequest
 	 *
 	 * @return array Decoded response
 	 */
@@ -84,7 +83,7 @@ class LiftWingService extends ORESService {
 
 		foreach ( $models as $model ) {
 			foreach ( $revids as $revid ) {
-				$response = $this->singleLiftWingRequest( $model, $revid );
+				$response = $this->singleLiftWingRequest( $model, $revid, $originalRequest );
 				$responses[] = $response;
 			}
 		}
@@ -97,20 +96,23 @@ class LiftWingService extends ORESService {
 	 *
 	 * @param string $model
 	 * @param string $revid
+	 * @param array|null $originalRequest
 	 *
 	 * @return array Decoded response
 	 */
-	public function singleLiftWingRequest( $model, $revid ) {
+	public function singleLiftWingRequest( $model, $revid, $originalRequest = null ) {
 		$url = $this->getUrl( $model );
 		$this->logger->debug( "Requesting: {$url}" );
 
 		$req = $this->httpRequestFactory->create( $url, [
 			'method' => 'POST',
-			'postData' => json_encode( [ 'rev_id' => (int)$revid ] )
+			'postData' => json_encode( [ 'rev_id' => (int)$revid ] ),
+			'userAgent' => $originalRequest['userAgent'] ?? 'MediaWiki',
 			],
 		);
 		$req->setHeader( 'Content-Type', 'application/json' );
 		$req->setHeader( 'Host', self::createHostHeader( $model ) );
+
 		$status = $req->execute();
 		if ( !$status->isOK() ) {
 			$message = "Failed to make LiftWing request to [{$url}], " .
@@ -120,7 +122,8 @@ class LiftWingService extends ORESService {
 			if ( $req->getStatus() === 504 ) {
 				$req = $this->httpRequestFactory->create( $url, [
 					'method' => 'POST',
-					'postData' => json_encode( [ 'rev_id' => (int)$revid ] )
+					'postData' => json_encode( [ 'rev_id' => (int)$revid ] ),
+					'userAgent' => $originalRequest['userAgent'] ?? 'MediaWiki',
 				],
 				);
 				$req->setHeader( 'Content-Type', 'application/json' );
