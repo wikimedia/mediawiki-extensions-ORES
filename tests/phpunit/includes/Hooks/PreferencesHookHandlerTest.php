@@ -6,7 +6,8 @@ use ORES\Hooks\PreferencesHookHandler;
 
 /**
  * @group ORES
- * @covers ORES\Hooks\PreferencesHookHandler
+ * @group Database
+ * @coversDefaultClass \ORES\Hooks\PreferencesHookHandler
  */
 class PreferencesHookHandlerTest extends \MediaWikiIntegrationTestCase {
 
@@ -15,7 +16,7 @@ class PreferencesHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->user = static::getTestUser()->getUser();
+		$this->user = $this->getTestUser()->getUser();
 		$userOptionsManager = $this->getServiceContainer()->getUserOptionsManager();
 		$userOptionsManager->setOption( $this->user, 'ores-enabled', 1 );
 		$userOptionsManager->setOption( $this->user, 'oresDamagingPref', 'maybebad' );
@@ -25,7 +26,7 @@ class PreferencesHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\PreferencesHookHandler::onGetPreferences
+	 * @covers ::onGetPreferences
 	 */
 	public function testOresPrefs() {
 		$preferences = [];
@@ -37,7 +38,7 @@ class PreferencesHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\PreferencesHookHandler::onGetPreferences
+	 * @covers ::onGetPreferences
 	 */
 	public function testOnGetPreferencesEnabled() {
 		$prefs = [];

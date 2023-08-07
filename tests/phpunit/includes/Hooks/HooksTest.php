@@ -10,6 +10,7 @@ use OutputPage;
 
 /**
  * @group ORES
+ * @group Database
  * @covers \ORES\Hooks\Hooks
  */
 class HooksTest extends \MediaWikiIntegrationTestCase {
@@ -30,7 +31,7 @@ class HooksTest extends \MediaWikiIntegrationTestCase {
 			'wgOresBaseUrl' => 'https://ores.example.test/',
 		] );
 
-		$user = static::getTestUser()->getUser();
+		$user = $this->getTestUser()->getUser();
 		$userOptionsManager = $this->getServiceContainer()->getUserOptionsManager();
 		$userOptionsManager->setOption( $user, 'ores-enabled', 1 );
 		$userOptionsManager->setOption( $user, 'oresDamagingPref', 'maybebad' );

@@ -14,7 +14,8 @@ use User;
 
 /**
  * @group ORES
- * @covers ORES\Hooks\Helpers
+ * @group Database
+ * @coversDefaultClass \ORES\Hooks\Helpers
  */
 class HelpersTest extends \MediaWikiIntegrationTestCase {
 
@@ -35,7 +36,7 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 			'wgOresWikiId' => 'testwiki',
 		] );
 
-		$this->user = static::getTestUser()->getUser();
+		$this->user = $this->getTestUser()->getUser();
 		$userOptionsManager = $this->getServiceContainer()->getUserOptionsManager();
 		$userOptionsManager->setOption( $this->user, 'ores-enabled', 1 );
 		$userOptionsManager->setOption( $this->user, 'oresDamagingPref', 'maybebad' );
@@ -47,7 +48,7 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\Helpers::getDamagingLevelPreference
+	 * @covers ::getDamagingLevelPreference
 	 */
 	public function testGetDamagingLevelPreference_Watchlist() {
 		$level =
@@ -58,7 +59,7 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\Helpers::getThreshold
+	 * @covers ::getThreshold
 	 */
 	public function testGetThreshold_null() {
 		$this->markTestSkipped( 'Skipping test that calls ores API since thresholds are hardcoded.' );
@@ -77,7 +78,7 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\Helpers::getThreshold
+	 * @covers ::getThreshold
 	 */
 	public function testGetThreshold_invalid() {
 		$this->expectException( \Exception::class );
@@ -86,7 +87,7 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\Helpers::getThreshold
+	 * @covers ::getThreshold
 	 */
 	public function testGetThreshold() {
 		$modelData = [ 'damaging' => [ 'id' => 5, 'version' => '0.0.2' ] ];
@@ -122,7 +123,7 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\Helpers::joinWithOresTables
+	 * @covers ::joinWithOresTables
 	 */
 	public function testJoinWithOresTables() {
 		$modelData = [ 'damaging' => [ 'id' => 5, 'version' => '0.0.2' ] ];
@@ -149,7 +150,7 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\Helpers::hideNonDamagingFilter
+	 * @covers ::hideNonDamagingFilter
 	 */
 	public function testHideNonDamagingFilter() {
 		$modelData = [ 'damaging' => [ 'id' => 5, 'version' => '0.0.2' ] ];

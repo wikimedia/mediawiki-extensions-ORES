@@ -20,7 +20,8 @@ use Wikimedia\TestingAccessWrapper;
 
 /**
  * @group ORES
- * @covers ORES\Hooks\ChangesListHooksHandler
+ * @group Database
+ * @coversDefaultClass \ORES\Hooks\ChangesListHooksHandler
  */
 class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 
@@ -47,7 +48,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 			'goodfaith' => [ 'id' => 7, 'version' => '0.0.3' ],
 		];
 		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
-		$this->user = static::getTestUser()->getUser();
+		$this->user = $this->getTestUser()->getUser();
 		$userOptionsManager = $this->getServiceContainer()->getUserOptionsManager();
 		$userOptionsManager->setOption( $this->user, 'ores-enabled', 1 );
 		$userOptionsManager->setOption( $this->user, 'rcOresDamagingPref', 'maybebad' );
@@ -79,7 +80,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\ChangesListHooksHandler::getScoreRecentChangesList
+	 * @covers ::getScoreRecentChangesList
 	 */
 	public function testGetScoreRecentChangesList() {
 		$this->assertTrue( ChangesListHooksHandler::getScoreRecentChangesList(
@@ -91,7 +92,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 
 	/**
 	 * @dataProvider onChangesListSpecialPageQueryProvider
-	 * @covers ORES\Hooks\ChangesListHooksHandler::onChangesListSpecialPageQuery
+	 * @covers ::onChangesListSpecialPageQuery
 	 */
 	public function testOnChangesListSpecialPageQuery( array $modelConfig, array $expectedQuery ) {
 		$this->setMwGlobals( [
@@ -200,7 +201,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\ChangesListHooksHandler::onEnhancedChangesListModifyLineData
+	 * @covers ::onEnhancedChangesListModifyLineData
 	 */
 	public function testOnEnhancedChangesListModifyLineDataDamaging() {
 		$rc = $this->makeRcEntry( true );
@@ -232,7 +233,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\ChangesListHooksHandler::onEnhancedChangesListModifyLineData
+	 * @covers ::onEnhancedChangesListModifyLineData
 	 */
 	public function testOnEnhancedChangesListModifyLineDataNonDamaging() {
 		$rc = $this->makeRcEntry( false );
@@ -267,7 +268,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\ChangesListHooksHandler::onOldChangesListRecentChangesLine
+	 * @covers ::onOldChangesListRecentChangesLine
 	 */
 	public function testOnOldChangesListModifyLineDataDamaging() {
 		$rc = $this->makeRcEntry( true );
@@ -308,7 +309,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\ChangesListHooksHandler::onOldChangesListRecentChangesLine
+	 * @covers ::onOldChangesListRecentChangesLine
 	 */
 	public function testOnOldChangesListModifyLineDataNonDamaging() {
 		$rc = $this->makeRcEntry( false );
@@ -350,7 +351,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters
+	 * @covers ::onChangesListSpecialPageStructuredFilters
 	 * @group Broken
 	 */
 	public function testOnChangesListSpecialPageStructuredFilters_Recentchangeslinked() {
@@ -370,7 +371,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters
+	 * @covers ::onChangesListSpecialPageStructuredFilters
 	 */
 	public function testOnChangesListSpecialPageStructuredFilters_Recentchanges() {
 		$changesListSpecialPage = MediaWikiServices::getInstance()->getSpecialPageFactory()
@@ -393,7 +394,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters
+	 * @covers ::onChangesListSpecialPageStructuredFilters
 	 */
 	public function testOnChangesListSpecialPageStructuredFilters_Watchlist() {
 		$userOptionsManager = $this->getServiceContainer()->getUserOptionsManager();
@@ -423,7 +424,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\ChangesListHooksHandler::onEnhancedChangesListModifyBlockLineData
+	 * @covers ::onEnhancedChangesListModifyBlockLineData
 	 */
 	public function testOnEnhancedChangesListModifyBlockLineData() {
 		$ecl = new EnhancedChangesList( $this->context );

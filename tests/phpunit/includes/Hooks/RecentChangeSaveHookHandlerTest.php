@@ -8,7 +8,8 @@ use RecentChange;
 
 /**
  * @group ORES
- * @covers ORES\Hooks\RecentChangeSaveHookHandler
+ * @group Database
+ * @coversDefaultClass \ORES\Hooks\RecentChangeSaveHookHandler
  */
 class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 
@@ -37,7 +38,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\RecentChangeSaveHookHandler::onRecentChange_save
+	 * @covers ::onRecentChange_save
 	 * @dataProvider provideOnRecentChange_save
 	 */
 	public function testOnRecentChange_save( $ns, $isBot, $type, $expectedModels ) {
@@ -88,7 +89,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\RecentChangeSaveHookHandler::onRecentChange_save
+	 * @covers ::onRecentChange_save
 	 * @dataProvider provideOnRecentChange_saveNotQueued
 	 */
 	public function testOnRecentChange_saveNotQueued( $ns, $isBot, $type ) {
@@ -116,6 +117,9 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 		$this->assertFalse( $jobQueueGroup->get( 'ORESFetchScoreJob' )->pop() );
 	}
 
+	/**
+	 * @covers ::onRecentChange_save
+	 */
 	public function testOnRecentChange_saveHook() {
 		$jobQueueGroup = $this->getServiceContainer()->getJobQueueGroup();
 		$jobQueueGroup->get( 'ORESFetchScoreJob' )->delete();

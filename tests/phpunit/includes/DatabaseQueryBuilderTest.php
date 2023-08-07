@@ -7,7 +7,8 @@ use ORES\Storage\ThresholdLookup;
 
 /**
  * @group ORES
- * @covers ORES\Storage\DatabaseQueryBuilder
+ * @group Database
+ * @covers \ORES\Storage\DatabaseQueryBuilder
  */
 class DatabaseQueryBuilderTest extends \MediaWikiIntegrationTestCase {
 
@@ -17,7 +18,7 @@ class DatabaseQueryBuilderTest extends \MediaWikiIntegrationTestCase {
 		$thresholdLookup->method( 'getThresholds' )
 			->willReturn( $thresholdsConfig );
 
-		return new DatabaseQueryBuilder( $thresholdLookup, wfGetDB( DB_PRIMARY ) );
+		return new DatabaseQueryBuilder( $thresholdLookup, $this->getDb() );
 	}
 
 	public function testBuildRangeQuery() {

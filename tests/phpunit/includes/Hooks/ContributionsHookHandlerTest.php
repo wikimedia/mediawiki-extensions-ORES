@@ -12,7 +12,8 @@ use User;
 
 /**
  * @group ORES
- * @covers ORES\Hooks\ContributionsHooksHandler
+ * @group Database
+ * @coversDefaultClass \ORES\Hooks\ContributionsHooksHandler
  */
 class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 
@@ -40,7 +41,7 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 		];
 		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
 
-		$this->user = static::getTestUser()->getUser();
+		$this->user = $this->getTestUser()->getUser();
 		$userOptionsManager = $this->getServiceContainer()->getUserOptionsManager();
 		$userOptionsManager->setOption( $this->user, 'ores-enabled', 1 );
 		$userOptionsManager->setOption( $this->user, 'rcOresDamagingPref', 'maybebad' );
@@ -100,7 +101,7 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 
 	/**
 	 * @dataProvider provideOnContribsGetQueryInfo
-	 * @covers ORES\Hooks\ContributionsHooksHandler::onContribsGetQueryInfo
+	 * @covers ::onContribsGetQueryInfo
 	 */
 	public function testOnContribsGetQueryInfo( array $expected, $nonDamaging ) {
 		$cp =
@@ -135,7 +136,7 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\ContributionsHooksHandler::onSpecialContributionsFormatRowFlags
+	 * @covers ::onSpecialContributionsFormatRowFlags
 	 */
 	public function testOnSpecialContributionsFormatRowFlagsDamaging() {
 		$row = (object)[
@@ -153,7 +154,7 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\ContributionsHooksHandler::onSpecialContributionsFormatRowFlags
+	 * @covers ::onSpecialContributionsFormatRowFlags
 	 */
 	public function testOnSpecialContributionsFormatRowFlagsNonDamaging() {
 		$row = (object)[
@@ -170,7 +171,7 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\ContributionsHooksHandler::onContributionsLineEnding
+	 * @covers ::onContributionsLineEnding
 	 */
 	public function testOnContributionsLineEndingDamaging() {
 		$cp =
@@ -201,7 +202,7 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Hooks\ContributionsHooksHandler::onContributionsLineEnding
+	 * @covers ::onContributionsLineEnding
 	 */
 	public function testOnContributionsLineEndingNonDamaging() {
 		$cp =
