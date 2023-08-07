@@ -5,6 +5,11 @@
 			"Nokeoo"
 		]
 	},
+	"apihelp-query+ores-summary": "Pateikti šios viki ORES konfigūraciją ir modelio duomenis.",
 	"apihelp-query+ores-example-simple": "Gauti ORES duomenis:",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Prideda ORES balus prie įrašo."
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Versijos ORES balai.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Versijos ORES balai.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Prideda ORES balus prie įrašo.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Prideda ORES balus keitimui.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Prideda ORES balus keitimui."
 }

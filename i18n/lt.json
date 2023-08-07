@@ -12,7 +12,7 @@
 	"ores-damaging-title": "Šį keitimą reikia peržiūrėti",
 	"ores-damaging-legend": "Šis keitimas gali turėtų problemų ir turėtų būti peržiūrėtas ([[:mw:Special:MyLanguage/ORES review tool|daugiau informacijos]])",
 	"ores-hide-nondamaging-filter": "Slėpti tikriausiai gerus keitimus",
-	"ores-pref-damaging": "ORES jautrumas",
+	"ores-pref-damaging": "ORES numatymo jautrumas",
 	"ores-damaging-likelybad": "Tikėtina, kad turi problemų (vidutinė tikimybė)",
 	"ores-rcfilters-whats-this-link-text": "Sužinoti daugiau",
 	"ores-rcfilters-damaging-title": "Indėlio kokybės spėjimai",
@@ -24,12 +24,16 @@
 	"ores-rcfilters-damaging-likelybad-label": "Tikėtina, kad turi problemų",
 	"ores-rcfilters-damaging-verylikelybad-label": "Labai tikėtina, kad turi problemų",
 	"ores-rcfilters-goodfaith-title": "Naudotojo intencijos spėjimai",
+	"ores-rcfilters-goodfaith-whats-this-header": "Apie naudotojo intencijos spėjimus",
 	"ores-rcfilters-goodfaith-good-label": "Labai tikėtina, kad gerų intencijų",
 	"ores-rcfilters-goodfaith-good-desc": "Labai tiksliai suranda beveik visus gerų intecijų pakeitimus.",
 	"ores-rcfilters-goodfaith-maybebad-label": "Gali būti blogų intencijų",
 	"ores-rcfilters-goodfaith-maybebad-desc": "Suranda daugumą blogų intencijų pakeitimų, bet mažesniu tikslumu.",
 	"ores-rcfilters-goodfaith-bad-label": "Tikėtina, kad blogų intencijų",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Labai tikėtina, kad blogų intencijų",
+	"oresmodels": "ORES modelio statistika",
 	"ores-specialoresmodels-header-filter": "Filtras",
-	"ores-specialoresmodels-header-precision": "Tikslumas"
+	"ores-specialoresmodels-header-precision": "Tikslumas",
+	"ores-specialoresmodels-header-thresholdrange": "Jautrumo diapazonas",
+	"ores-api-show-note": "Kai naudojate <kbd>oresreview</kbd> arba <kbd>!oresreview</kbd>, keitimai be balo (pvz., labai senos versijos) laikomi kaip nereikalaujantys peržiūros, net jei juos reikėtų peržiūrėti realiai įvertinus."
 }
