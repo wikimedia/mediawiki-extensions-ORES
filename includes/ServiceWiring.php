@@ -25,7 +25,6 @@ use ORES\Storage\SqlModelLookup;
 use ORES\Storage\SqlScoreLookup;
 use ORES\Storage\SqlScoreStorage;
 use ORES\Storage\ThresholdLookup;
-use ORES\Storage\ThresholdLookupConfig;
 
 return [
 	'ORESLogger' => static function ( MediaWikiServices $services ) {
@@ -42,27 +41,15 @@ return [
 	},
 
 	'ORESThresholdLookup' => static function ( MediaWikiServices $services ) {
-		if ( $services->getMainConfig()->get( 'OresUseLiftwing' ) ) {
-			return new ThresholdLookupConfig(
-				new ThresholdParser( LoggerFactory::getInstance( 'ORES' ) ),
-				ORESServices::getModelLookup(),
-				ORESServices::getORESService(),
-				$services->getMainWANObjectCache(),
-				ORESServices::getLogger(),
-				$services->getStatsdDataFactory(),
-				$services->getMainConfig()
-			);
-		} else {
-			return new ThresholdLookup(
-				new ThresholdParser( LoggerFactory::getInstance( 'ORES' ) ),
-				ORESServices::getModelLookup(),
-				ORESServices::getORESService(),
-				$services->getMainWANObjectCache(),
-				ORESServices::getLogger(),
-				$services->getStatsdDataFactory(),
-				$services->getMainConfig()
-			);
-		}
+		return new ThresholdLookup(
+			new ThresholdParser( LoggerFactory::getInstance( 'ORES' ) ),
+			ORESServices::getModelLookup(),
+			ORESServices::getORESService(),
+			$services->getMainWANObjectCache(),
+			ORESServices::getLogger(),
+			$services->getStatsdDataFactory(),
+			$services->getMainConfig()
+		);
 	},
 
 	'ORESScoreStorage' => static function ( MediaWikiServices $services ) {

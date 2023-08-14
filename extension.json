@@ -201,33 +201,33 @@
 				"damaging": {
 					"likelygood": {
 						"min": 0,
-						"max": "maximum recall @ precision >= 0.995"
+						"max": 0.699
 					},
 					"maybebad": {
-						"min": "maximum filter_rate @ recall >= 0.9",
+						"min": 0.149,
 						"max": 1
 					},
 					"likelybad": {
-						"min": "maximum recall @ precision >= 0.6",
+						"min": 0.629,
 						"max": 1
 					},
 					"verylikelybad": {
-						"min": "maximum recall @ precision >= 0.9",
+						"min": 0.944,
 						"max": 1
 					}
 				},
 				"goodfaith": {
 					"likelygood": {
-						"min": "maximum recall @ precision >= 0.995",
+						"min": 0.777,
 						"max": 1
 					},
 					"maybebad": {
 						"min": 0,
-						"max": "maximum filter_rate @ recall >= 0.9"
+						"max": 0.075
 					},
 					"likelybad": {
 						"min": 0,
-						"max": "maximum recall @ precision >= 0.6"
+						"max": 0.647
 					},
 					"verylikelybad": false
 				},
@@ -307,136 +307,6 @@
 					},
 					"draftquality": {
 						"version": "0.2.1"
-					}
-				}
-			}
-		},
-		"OresModelThresholds": {
-			"value": {
-				"models": {
-					"damaging": {
-						"statistics": {
-							"thresholds": {
-								"false": [
-									{
-										"!f1": 0.337,
-										"!precision": 0.218,
-										"!recall": 0.742,
-										"accuracy": 0.9,
-										"f1": 0.946,
-										"filter_rate": 0.116,
-										"fpr": 0.258,
-										"match_rate": 0.884,
-										"precision": 0.99,
-										"recall": 0.906,
-										"threshold": 0.699
-									}
-								],
-								"true": [
-									{
-										"!f1": 0.904,
-										"!precision": 0.994,
-										"!recall": 0.829,
-										"accuracy": 0.83,
-										"f1": 0.256,
-										"filter_rate": 0.805,
-										"fpr": 0.171,
-										"match_rate": 0.195,
-										"precision": 0.151,
-										"recall": 0.859,
-										"threshold": 0.149
-									},
-									{
-										"!f1": 0.981,
-										"!precision": 0.981,
-										"!recall": 0.98,
-										"accuracy": 0.962,
-										"f1": 0.455,
-										"filter_rate": 0.965,
-										"fpr": 0.02,
-										"match_rate": 0.035,
-										"precision": 0.451,
-										"recall": 0.459,
-										"threshold": 0.629
-									},
-									{
-										"!f1": 0.983,
-										"!precision": 0.968,
-										"!recall": 1,
-										"accuracy": 0.968,
-										"f1": 0.099,
-										"filter_rate": 0.998,
-										"fpr": 0,
-										"match_rate": 0.002,
-										"precision": 0.945,
-										"recall": 0.052,
-										"threshold": 0.944
-									}
-								]
-							}
-						}
-					},
-					"goodfaith": {
-						"statistics": {
-							"thresholds": {
-								"false": [
-									{
-										"!f1": 0.91,
-										"!precision": 0.995,
-										"!recall": 0.838,
-										"accuracy": 0.839,
-										"f1": 0.265,
-										"filter_rate": 0.814,
-										"fpr": 0.162,
-										"match_rate": 0.186,
-										"precision": 0.156,
-										"recall": 0.882,
-										"threshold": 0.075
-									},
-									{
-										"!f1": 0.985,
-										"!precision": 0.979,
-										"!recall": 0.992,
-										"accuracy": 0.971,
-										"f1": 0.46,
-										"filter_rate": 0.98,
-										"fpr": 0.008,
-										"match_rate": 0.02,
-										"precision": 0.604,
-										"recall": 0.372,
-										"threshold": 0.647
-									},
-									{
-										"!f1": 0.984,
-										"!precision": 0.968,
-										"!recall": 1,
-										"accuracy": 0.968,
-										"f1": 0.072,
-										"filter_rate": 0.999,
-										"fpr": 0,
-										"match_rate": 0.001,
-										"precision": 0.923,
-										"recall": 0.037,
-										"threshold": 0.935
-									}
-								],
-								"true": [
-									{
-										"!f1": 0.4,
-										"!precision": 0.276,
-										"!recall": 0.722,
-										"accuracy": 0.929,
-										"f1": 0.962,
-										"filter_rate": 0.086,
-										"fpr": 0.278,
-										"match_rate": 0.914,
-										"precision": 0.99,
-										"recall": 0.936,
-										"threshold": 0.777
-									}
-								]
-							}
-						}
 					}
 				}
 			}
