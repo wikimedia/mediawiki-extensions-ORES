@@ -6,8 +6,8 @@ use ContentHandler;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Title\Title;
 use ORES\Services\ORESServices;
-use Title;
 use User;
 
 class TestHelper {

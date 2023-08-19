@@ -2,10 +2,10 @@
 
 namespace ORES\Tests;
 
+use MediaWiki\Title\Title;
 use ORES\Services\FetchScoreJob;
 use ORES\Services\ScoreFetcher;
 use ORES\Storage\HashModelLookup;
-use Title;
 
 /**
  * @group ORES
