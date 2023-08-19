@@ -19,9 +19,9 @@ namespace ORES\Services;
 use Job;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use ORES\Hooks\HookRunner;
 use RuntimeException;
-use Title;
 
 class FetchScoreJob extends Job {
 

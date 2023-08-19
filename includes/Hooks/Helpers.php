@@ -19,11 +19,11 @@ namespace ORES\Hooks;
 use Exception;
 use IContextSource;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use ORES\Services\ORESServices;
 use SpecialRecentChanges;
 use SpecialWatchlist;
-use Title;
 
 class Helpers {
 
