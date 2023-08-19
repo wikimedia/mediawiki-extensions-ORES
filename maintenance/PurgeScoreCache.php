@@ -5,6 +5,7 @@ namespace ORES\Maintenance;
 use Maintenance;
 use MediaWiki\MediaWikiServices;
 use ORES\Services\ORESServices;
+use Wikimedia\Rdbms\Database;
 
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
