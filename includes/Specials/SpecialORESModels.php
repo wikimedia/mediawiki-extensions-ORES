@@ -2,9 +2,9 @@
 
 namespace ORES\Specials;
 
+use MediaWiki\Html\TemplateParser;
 use ORES\Storage\ModelLookup;
 use ORES\Storage\ThresholdLookup;
-use TemplateParser;
 
 class SpecialORESModels extends \SpecialPage {
 
