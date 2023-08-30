@@ -27,7 +27,7 @@
 	"ores-rcfilters-whats-this-link-text": "Daha fazla bilgi",
 	"ores-rcfilters-ores-conflicts-logactions-global": "\"{{int:rcfilters-filtre-logactions-label}}\" filtresi, bir veya daha fazla Katkı Kalitesi veya Kullanıcı Amaçlı filtrelerle çakışıyor. Günlüğe kaydedilen eylemlerde Kalite ve Amaç tahminleri kullanılamaz. Çakışan filtreler yukarıdaki Aktif Filtreler alanında işaretlenmiştir.",
 	"ores-rcfilters-logactions-conflicts-ores": "Bu süzgeç bir veya daha fazla Katkı Kalitesi veya Kullanıcı Niyeti süzgeciyle çakışıyor. Kalite ve Niyet öngörüleri günlüğü tutulan işlemler için kullanılamaz.",
-	"ores-rcfilters-damaging-title": "Katkı kalitesi öngörüleri",
+	"ores-rcfilters-damaging-title": "Katkı niteliği öngörüleri",
 	"ores-rcfilters-damaging-whats-this-header": "Katkı kalitesi öngörüleri hakkında",
 	"ores-rcfilters-damaging-whats-this-body": "Bu öngörüler, insan editörler tarafından puanlanan büyük bir düzenleme kümesi konusunda eğitilen bir makine öğrenme hizmeti tarafından gerçekleştirilmektedir. Daha katı ve daha doğru süzgeçler daha az hatalı pozitif bulmakta, ancak hedeflerini daha yüksek ölçüde kaçırmaktadır. Daha az doğru süzgeçler hedeflerini daha yüksek ölçüde bulmakta, ancak aynı zamanda daha fazla hatalı pozitif bulmaktadır.",
 	"ores-rcfilters-damaging-conflicts-logactions": "Katkı Kalitesi öngörüleri, belirli türdeki değişiklikler için kullanılamaz, bu nedenle bu süzgeç aşağıdaki Değişiklik Türü {{PLURAL:$2|süzgeci|süzgeçleri}} ile çakışmaktadır: $1",
