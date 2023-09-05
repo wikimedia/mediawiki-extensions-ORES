@@ -83,7 +83,7 @@ class LiftWingService extends ORESService {
 
 		foreach ( $models as $model ) {
 			foreach ( $revids as $revid ) {
-				$response = $this->singleLiftWingRequest( $model, $revid, $originalRequest );
+				$response = $this->singleLiftWingRequest( $model, $revid );
 				$responses[] = $response;
 			}
 		}
@@ -96,18 +96,16 @@ class LiftWingService extends ORESService {
 	 *
 	 * @param string $model
 	 * @param string $revid
-	 * @param array|null $originalRequest
 	 *
 	 * @return array Decoded response
 	 */
-	public function singleLiftWingRequest( $model, $revid, $originalRequest = null ) {
+	public function singleLiftWingRequest( $model, $revid ) {
 		$url = $this->getUrl( $model );
 		$this->logger->debug( "Requesting: {$url}" );
 
 		$req = $this->httpRequestFactory->create( $url, [
 			'method' => 'POST',
 			'postData' => json_encode( [ 'rev_id' => (int)$revid ] ),
-			'userAgent' => $originalRequest['userAgent'] ?? 'MediaWiki',
 			],
 		);
 		global $wgOresLiftWingAddHostHeader;
@@ -125,7 +123,6 @@ class LiftWingService extends ORESService {
 				$req = $this->httpRequestFactory->create( $url, [
 					'method' => 'POST',
 					'postData' => json_encode( [ 'rev_id' => (int)$revid ] ),
-					'userAgent' => $originalRequest['userAgent'] ?? 'MediaWiki',
 				],
 				);
 				if ( $wgOresLiftWingAddHostHeader ) {
