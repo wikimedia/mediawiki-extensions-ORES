@@ -44,8 +44,6 @@ class SpecialORESModels extends \SpecialPage {
 			[
 				'models' => $models,
 				'header-filter' => $this->msg( 'ores-specialoresmodels-header-filter' )->text(),
-				'header-precision' => $this->msg( 'ores-specialoresmodels-header-precision' )->text(),
-				'header-recall' => $this->msg( 'ores-specialoresmodels-header-recall' )->text(),
 				'header-thresholdrange' => $this->msg( 'ores-specialoresmodels-header-thresholdrange' )->text(),
 			 ]
 		) );
@@ -59,8 +57,7 @@ class SpecialORESModels extends \SpecialPage {
 		if ( $thresholds === [] || $thresholdData === false ) {
 			return false;
 		}
-		if ( !isset( $thresholdData['true'] ) || !isset( $thresholdData['false'] ) ) {
-			// wp10 has threshold settings that aren't true/false-based; skip it
+		if ( !in_array( $modelName, [ 'damaging', 'goodfaith' ] ) ) {
 			return false;
 		}
 
@@ -70,26 +67,16 @@ class SpecialORESModels extends \SpecialPage {
 				continue;
 			}
 
-			$relevantStat = is_string( $filterMinMax['min'] ) ? $filterMinMax['min'] : $filterMinMax['max'];
-			$outcome = is_string( $filterMinMax['min'] ) ? 'true' : 'false';
-			$statInfo = $thresholdData[$outcome][$relevantStat];
 			$min = isset( $thresholds[$filterName]['min'] ) ?
 				$this->getLanguage()->formatNum( $thresholds[$filterName]['min'] ) :
 				'???';
 			$max = isset( $thresholds[$filterName]['max'] ) ?
 				$this->getLanguage()->formatNum( $thresholds[$filterName]['max'] ) :
 				'???';
-			$precision = isset( $statInfo['precision'] ) ?
-				$this->msg( 'percent' )->numParams( $statInfo['precision'] * 100 )->text() :
-				'???';
-			$recall = isset( $statInfo['recall'] ) ?
-				$this->msg( 'percent' )->numParams( $statInfo['recall'] * 100 )->text() :
-				'???';
+
 			$filters[] = [
 				'name' => $filterName,
 				'label' => $this->getFilterLabel( $modelName, $filterName ),
-				'precision' => $precision,
-				'recall' => $recall,
 				'threshold-min' => $min,
 				'threshold-max' => $max,
 			];
