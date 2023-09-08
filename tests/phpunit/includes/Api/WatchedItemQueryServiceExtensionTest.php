@@ -168,7 +168,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 
 		$this->assertArrayHasKey( 'oresScores', $items[0][1] );
 		$this->assertEquals( [
-			'oresc_rev' => '2',
+			'oresc_rev' => (string)$revisionRecord->getId(),
 			'oresc_class' => '1',
 			'oresc_probability' => '0.400',
 			'oresc_model' => '5',
