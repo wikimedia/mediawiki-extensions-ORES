@@ -29,6 +29,31 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
+		$this->setMwGlobals( [
+			'wgOresModels' => [
+				'damaging' => [ 'enabled' => true ],
+				'goodfaith' => [ 'enabled' => true ],
+				'reverted' => [ 'enabled' => true ],
+				'articlequality' => [
+					'enabled' => true,
+					'namespaces' => [ 0 ],
+					'cleanParent' => true,
+					'keepForever' => true,
+				],
+				'wp10' => [
+					'enabled' => false,
+					'namespaces' => [ 0 ],
+					'cleanParent' => true,
+					'keepForever' => true,
+				],
+				'draftquality' => [
+					'enabled' => false,
+					'namespaces' => [ 0 ],
+					'types' => [ 1 ],
+				],
+			]
+		] );
+
 		$modelData = [
 			'reverted' => [ 'id' => self::REVERTED, 'version' => '0.0.1' ],
 			'damaging' => [ 'id' => self::DAMAGING, 'version' => '0.0.2' ],
@@ -320,11 +345,6 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 	}
 
 	public function testPurgeRows() {
-		global $wgOresModels;
-		$oresModelsCopy = $wgOresModels;
-		$oresModelsCopy['articlequality']['enabled'] = true;
-		$this->setMwGlobals( [ 'wgOresModels' => $oresModelsCopy ] );
-
 		$this->getDb()->insert(
 			'ores_classification',
 			[

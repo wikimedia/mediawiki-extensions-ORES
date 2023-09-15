@@ -35,6 +35,38 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
+		$this->setMwGlobals( [
+			'wgOresFiltersThresholds' => [
+				'damaging' => [
+					'maybebad' => [ 'min' => 0.16, 'max' => 1 ],
+					'likelybad' => [ 'min' => 0.56, 'max' => 1 ],
+				]
+			],
+			'wgOresWikiId' => 'testwiki',
+			'wgOresModels' => [
+				'damaging' => [ 'enabled' => true ],
+				'goodfaith' => [ 'enabled' => true ],
+				'reverted' => [ 'enabled' => true ],
+				'articlequality' => [
+					'enabled' => true,
+					'namespaces' => [ 0 ],
+					'cleanParent' => true,
+					'keepForever' => true,
+				],
+				'wp10' => [
+					'enabled' => false,
+					'namespaces' => [ 0 ],
+					'cleanParent' => true,
+					'keepForever' => true,
+				],
+				'draftquality' => [
+					'enabled' => false,
+					'namespaces' => [ 0 ],
+					'types' => [ 1 ],
+				],
+			],
+		] );
+
 		$this->getDb()->delete( 'ores_model', '*' );
 		$this->storageLookup = new SqlModelLookup(
 			MediaWikiServices::getInstance()->getDBLoadBalancerFactory()
