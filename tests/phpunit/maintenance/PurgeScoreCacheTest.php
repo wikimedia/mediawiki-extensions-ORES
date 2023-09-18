@@ -11,7 +11,7 @@ use ORES\Tests\TestHelper;
 /**
  * @group ORES
  * @group Database
- * @covers ORES\Maintenance\PurgeScoreCache
+ * @covers \ORES\Maintenance\PurgeScoreCache
  */
 class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 
@@ -56,12 +56,11 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 
 		$this->maintenance->execute();
 
-		$remainingScores = \wfGetDB( DB_REPLICA )->select(
-			[ 'ores_classification' ],
-			[ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ],
-			[ 'oresc_rev' => $revId ],
-			__METHOD__
-		);
+		$remainingScores = $this->getDb()->newSelectQueryBuilder()
+			->select( [ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ] )
+			->from( 'ores_classification' )
+			->where( [ 'oresc_rev' => $revId ] )
+			->caller( __METHOD__ )->fetchResultSet();
 
 		$this->assertEquals( [ (object)[
 			'oresc_rev' => (string)$revId,
@@ -84,12 +83,11 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 
 		$this->maintenance->execute();
 
-		$remainingScores = \wfGetDB( DB_REPLICA )->select(
-			[ 'ores_classification' ],
-			[ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ],
-			[ 'oresc_rev' => $revId ],
-			__METHOD__
-		);
+		$remainingScores = $this->getDb()->newSelectQueryBuilder()
+			->select( [ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ] )
+			->from( 'ores_classification' )
+			->where( [ 'oresc_rev' => $revId ] )
+			->caller( __METHOD__ )->fetchResultSet();
 
 		$this->assertEquals( [], iterator_to_array( $remainingScores, false ) );
 
@@ -107,12 +105,11 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 
 		$this->maintenance->execute();
 
-		$remainingScores = \wfGetDB( DB_REPLICA )->select(
-			[ 'ores_classification' ],
-			[ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ],
-			[ 'oresc_rev' => $revId ],
-			__METHOD__
-		);
+		$remainingScores = $this->getDb()->newSelectQueryBuilder()
+			->select( [ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ] )
+			->from( 'ores_classification' )
+			->where( [ 'oresc_rev' => $revId ] )
+			->caller( __METHOD__ )->fetchResultSet();
 
 		$this->assertEquals( [ (object)[
 			'oresc_rev' => (string)$revId,
@@ -154,12 +151,11 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 
 		$this->maintenance->execute();
 
-		$remainingScores = \wfGetDB( DB_REPLICA )->select(
-			[ 'ores_classification' ],
-			[ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ],
-			[ 'oresc_rev' => $revId ],
-			__METHOD__
-		);
+		$remainingScores = $this->getDb()->newSelectQueryBuilder()
+			->select( [ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ] )
+			->from( 'ores_classification' )
+			->where( [ 'oresc_rev' => $revId ] )
+			->caller( __METHOD__ )->fetchResultSet();
 
 		$this->assertEquals( [ (object)[
 			'oresc_rev' => (string)$revId,
@@ -180,12 +176,11 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 
 		$this->maintenance->execute();
 
-		$remainingScores = \wfGetDB( DB_REPLICA )->select(
-			[ 'ores_classification' ],
-			[ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ],
-			[ 'oresc_rev' => $revId ],
-			__METHOD__
-		);
+		$remainingScores = $this->getDb()->newSelectQueryBuilder()
+			->select( [ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ] )
+			->from( 'ores_classification' )
+			->where( [ 'oresc_rev' => $revId ] )
+			->caller( __METHOD__ )->fetchResultSet();
 
 		$this->assertEquals( [ (object)[
 			'oresc_rev' => (string)$revId,

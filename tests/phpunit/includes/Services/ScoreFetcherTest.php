@@ -8,7 +8,7 @@ use ORES\Storage\HashModelLookup;
 /**
  * @group ORES
  * @group Database
- * @covers ORES\Services\ScoreFetcher
+ * @covers \ORES\Services\ScoreFetcher
  */
 class ScoreFetcherTest extends \MediaWikiIntegrationTestCase {
 
@@ -60,18 +60,16 @@ class ScoreFetcherTest extends \MediaWikiIntegrationTestCase {
 
 	/**
 	 * @dataProvider provideTestGetScores
-	 * @covers ORES\Services\ScoreFetcher::getScores
+	 * @covers \ORES\Services\ScoreFetcher::getScores
 	 */
 	public function testGetScores( $expected, $revisions, $models, $precache ) {
 		$scoreFetcher = ScoreFetcher::instance();
 		$result = $scoreFetcher->getScores( $revisions, $models, $precache );
 		$this->assertEqualsWithDelta( $expected, $result, 1e-9 );
-		$res = wfGetDB( DB_REPLICA )->select(
-			'ores_model',
-			[ 'oresm_name', 'oresm_version', 'oresm_is_current' ],
-			'',
-			__METHOD__
-		);
+		$res = $this->getDb()->newSelectQueryBuilder()
+			->select( [ 'oresm_name', 'oresm_version', 'oresm_is_current' ] )
+			->from( 'ores_model' )
+			->caller( __METHOD__ )->fetchResultSet();
 
 		$result = iterator_to_array( $res, false );
 
@@ -103,7 +101,7 @@ class ScoreFetcherTest extends \MediaWikiIntegrationTestCase {
 
 	/**
 	 * @dataProvider provideTestCheckModelVersion
-	 * @covers ORES\Services\ScoreFetcher::checkModelVersion
+	 * @covers \ORES\Services\ScoreFetcher::checkModelVersion
 	 */
 	public function testCheckModelVersion( $expected, $model, array $response ) {
 		$scoreFetcher = ScoreFetcher::instance();
@@ -112,7 +110,7 @@ class ScoreFetcherTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Services\ScoreFetcher::updateModelVersion
+	 * @covers \ORES\Services\ScoreFetcher::updateModelVersion
 	 */
 	public function testUpdateModelVersion() {
 		$dbw = \wfGetDB( DB_PRIMARY );
@@ -127,12 +125,10 @@ class ScoreFetcherTest extends \MediaWikiIntegrationTestCase {
 		$scoreFetcher = ScoreFetcher::instance();
 		$scoreFetcher->updateModelVersion( 'damaging', '0.0.4' );
 
-		$res = wfGetDB( DB_REPLICA )->select(
-			'ores_model',
-			[ 'oresm_name', 'oresm_version', 'oresm_is_current' ],
-			'',
-			__METHOD__
-		);
+		$res = $this->getDB()->newSelectQueryBuilder()
+			->select( [ 'oresm_name', 'oresm_version', 'oresm_is_current' ] )
+			->from( 'ores_model' )
+			->caller( __METHOD__ )->fetchResultSet();
 
 		$result = iterator_to_array( $res, false );
 

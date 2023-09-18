@@ -10,7 +10,7 @@ use ORES\Tests\TestHelper;
 /**
  * @group ORES
  * @group Database
- * @covers ORES\Maintenance\PopulateDatabase
+ * @covers \ORES\Maintenance\PopulateDatabase
  */
 class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 
@@ -175,13 +175,11 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 		$this->maintenance->loadWithArgv( $argv );
 		$this->maintenance->execute();
 
-		$scores = \wfGetDB( DB_REPLICA )->select(
-			[ 'ores_classification' ],
-			[ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ],
-			null,
-			__METHOD__,
-			[ 'ORDER BY' => 'oresc_rev' ]
-		);
+		$scores = $this->getDb()->newSelectQueryBuilder()
+			->select( [ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ] )
+			->from( 'ores_classification' )
+			->orderBy( 'oresc_rev' )
+			->caller( __METHOD__ )->fetchResultSet();
 
 		$this->assertEquals( $expected, iterator_to_array( $scores, false ) );
 	}
