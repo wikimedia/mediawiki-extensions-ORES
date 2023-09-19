@@ -1,10 +1,12 @@
 {
 	"name": "ORES",
 	"descriptionmsg": "ores-desc",
+	"namemsg": "ores-name",
 	"license-name": "GPL-3.0-or-later",
 	"author": [
 		"Kunal Mehta",
 		"Amir Sarabadani",
+		"Ilias Sarantopoulos",
 		"Adam Roses Wight"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:ORES",
