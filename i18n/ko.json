@@ -13,6 +13,7 @@
 		]
 	},
 	"ores-desc": "인터페이스에서 자동화된 판 점수를 표시합니다.",
+	"ores-name": "기계 학습 플랫폼",
 	"ores-damaging-filter": "정상적으로 보이는 편집 $1",
 	"ores-damaging-letter": "검",
 	"ores-damaging-title": "이 편집은 검토가 필요합니다",
