@@ -11,7 +11,7 @@
 	"ores-desc": "חשיפת דירוגי גרסאות אוטומטיים בממשק",
 	"ores-damaging-filter": "$1 עריכות שכנראה טובות",
 	"ores-damaging-letter": "ד",
-	"ores-damaging-title": "עריכה זו דורשת סקירה",
+	"ores-damaging-title": "העריכה הזאת דורשת סקירה",
 	"ores-damaging-legend": "ייתכן שבעריכה הזאת יש בעיות וכדאי לסקור אותה ([[:mw:Special:MyLanguage/ORES review tool|מידע נוסף]])",
 	"ores-hide-nondamaging-filter": "הסתרת עריכות שכנראה טובות",
 	"ores-pref-damaging": "רגישות חיזוי",
