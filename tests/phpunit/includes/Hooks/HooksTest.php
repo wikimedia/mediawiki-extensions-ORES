@@ -58,7 +58,7 @@ class HooksTest extends \MediaWikiIntegrationTestCase {
 
 		$this->setService( 'ORESScoreStorage', $mock );
 
-		Hooks::onRecentChangesPurgeRows( $rows );
+		( new Hooks )->onRecentChangesPurgeRows( $rows );
 	}
 
 	/**
@@ -84,7 +84,7 @@ class HooksTest extends \MediaWikiIntegrationTestCase {
 		$outputPage = new OutputPage( $this->context );
 		$outputPage->setProperty( 'oresData', $oresData );
 
-		Hooks::onBeforePageDisplay( $outputPage, $skin );
+		( new Hooks )->onBeforePageDisplay( $outputPage, $skin );
 
 		$vars = $outputPage->getJsConfigVars();
 		$this->assertEquals( [

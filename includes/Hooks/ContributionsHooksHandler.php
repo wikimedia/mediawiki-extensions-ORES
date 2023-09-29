@@ -19,11 +19,19 @@ namespace ORES\Hooks;
 use ChangesList;
 use ContribsPager;
 use IContextSource;
+use MediaWiki\Hook\ContribsPager__getQueryInfoHook;
+use MediaWiki\Hook\ContributionsLineEndingHook;
+use MediaWiki\Hook\SpecialContributions__formatRow__flagsHook;
+use MediaWiki\Hook\SpecialContributions__getForm__filtersHook;
 use MediaWiki\MediaWikiServices;
-use RequestContext;
 use SpecialContributions;
 
-class ContributionsHooksHandler {
+class ContributionsHooksHandler implements
+	ContribsPager__getQueryInfoHook,
+	SpecialContributions__formatRow__flagsHook,
+	ContributionsLineEndingHook,
+	SpecialContributions__getForm__filtersHook
+{
 
 	/**
 	 * Filter out non-damaging changes from Special:Contributions
@@ -31,8 +39,8 @@ class ContributionsHooksHandler {
 	 * @param ContribsPager $pager
 	 * @param array &$query
 	 */
-	public static function onContribsGetQueryInfo(
-		ContribsPager $pager,
+	public function onContribsPager__getQueryInfo(
+		$pager,
 		&$query
 	) {
 		if ( !Helpers::oresUiEnabled() ) {
@@ -49,10 +57,10 @@ class ContributionsHooksHandler {
 		}
 	}
 
-	public static function onSpecialContributionsFormatRowFlags(
-		RequestContext $context,
+	public function onSpecialContributions__formatRow__flags(
+		$context,
 		$row,
-		array &$flags
+		&$flags
 	) {
 		if ( !Helpers::oresUiEnabled() ) {
 			return;
@@ -77,11 +85,12 @@ class ContributionsHooksHandler {
 		}
 	}
 
-	public static function onContributionsLineEnding(
-		ContribsPager $pager,
+	public function onContributionsLineEnding(
+		$pager,
 		&$ret,
 		$row,
-		array &$classes
+		&$classes,
+		&$attribs
 	) {
 		if ( !Helpers::oresUiEnabled() ) {
 			return;
@@ -108,9 +117,9 @@ class ContributionsHooksHandler {
 	 * @param SpecialContributions $page
 	 * @param array[] &$filters HTML
 	 */
-	public static function onSpecialContributionsGetFormFilters(
-		SpecialContributions $page,
-		array &$filters
+	public function onSpecialContributions__getForm__filters(
+		$page,
+		&$filters
 	) {
 		if ( !Helpers::oresUiEnabled() || !Helpers::isModelEnabled( 'damaging' ) ) {
 			return;

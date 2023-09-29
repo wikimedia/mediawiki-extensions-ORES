@@ -19,12 +19,10 @@
 namespace ORES\Hooks;
 
 use Exception;
-use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use ORES\Services\FetchScoreJob;
 use Psr\Log\LoggerInterface;
 use RecentChange;
-use RequestContext;
 use WebRequest;
 
 class RecentChangeSaveHookHandler {
@@ -46,27 +44,6 @@ class RecentChangeSaveHookHandler {
 	public function __construct( LoggerInterface $logger, WebRequest $request ) {
 		$this->logger = $logger;
 		$this->request = $request;
-	}
-
-	/**
-	 * Ask the ORES server for scores on this recent change
-	 *
-	 * @param RecentChange $rc
-	 */
-	public static function onRecentChange_save( RecentChange $rc ) {
-		global $wgOresExcludeBots, $wgOresEnabledNamespaces, $wgOresModels;
-
-		$self = new self(
-			LoggerFactory::getInstance( 'ORES' ),
-			RequestContext::getMain()->getRequest()
-		);
-
-		$self->handle(
-			$rc,
-			$wgOresModels,
-			$wgOresExcludeBots,
-			$wgOresEnabledNamespaces
-		);
 	}
 
 	/**

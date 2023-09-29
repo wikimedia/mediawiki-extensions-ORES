@@ -24,20 +24,29 @@ use ChangesListStringOptionsFilterGroup;
 use EnhancedChangesList;
 use Exception;
 use IContextSource;
-use MediaWiki\Html\FormOptions;
+use MediaWiki\Hook\EnhancedChangesListModifyBlockLineDataHook;
+use MediaWiki\Hook\EnhancedChangesListModifyLineDataHook;
+use MediaWiki\Hook\OldChangesListRecentChangesLineHook;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\SpecialPage\Hook\ChangesListSpecialPageQueryHook;
+use MediaWiki\SpecialPage\Hook\ChangesListSpecialPageStructuredFiltersHook;
 use ORES\Services\ORESServices;
 use ORES\Storage\ThresholdLookup;
-use RCCacheEntry;
 use RecentChange;
 use SpecialRecentChanges;
 use SpecialWatchlist;
 use Wikimedia\Rdbms\IDatabase;
 
-class ChangesListHooksHandler {
+class ChangesListHooksHandler implements
+	ChangesListSpecialPageStructuredFiltersHook,
+	ChangesListSpecialPageQueryHook,
+	EnhancedChangesListModifyBlockLineDataHook,
+	EnhancedChangesListModifyLineDataHook,
+	OldChangesListRecentChangesLineHook
+{
 
-	public static function onChangesListSpecialPageStructuredFilters(
-		ChangesListSpecialPage $clsp
+	public function onChangesListSpecialPageStructuredFilters(
+		$clsp
 	) {
 		if ( !Helpers::oresUiEnabled() ) {
 			return;
@@ -412,9 +421,9 @@ class ChangesListHooksHandler {
 		return $filters;
 	}
 
-	public static function onChangesListSpecialPageQuery(
-		$name, array &$tables, array &$fields, array &$conds,
-		array &$query_options, array &$join_conds, FormOptions $opts
+	public function onChangesListSpecialPageQuery(
+		$name, &$tables, &$fields,
+		&$conds, &$query_options, &$join_conds, $opts
 	) {
 		if ( !Helpers::oresUiEnabled() ) {
 			return;
@@ -438,16 +447,18 @@ class ChangesListHooksHandler {
 	 *
 	 * @param EnhancedChangesList $ecl
 	 * @param array &$data
-	 * @param RCCacheEntry[] $block
-	 * @param RCCacheEntry $rcObj
+	 * @param RecentChange[] $block
+	 * @param RecentChange $rcObj
 	 * @param string[] &$classes
+	 * @param string[] &$attribs
 	 */
-	public static function onEnhancedChangesListModifyLineData(
-		EnhancedChangesList $ecl,
-		array &$data,
-		array $block,
-		RCCacheEntry $rcObj,
-		array &$classes
+	public function onEnhancedChangesListModifyLineData(
+		$ecl,
+		&$data,
+		$block,
+		$rcObj,
+		&$classes,
+		&$attribs
 	) {
 		if ( !Helpers::oresUiEnabled() ) {
 			return;
@@ -461,12 +472,12 @@ class ChangesListHooksHandler {
 	 *
 	 * @param EnhancedChangesList $ecl
 	 * @param array &$data
-	 * @param RCCacheEntry $rcObj
+	 * @param RecentChange $rcObj
 	 */
-	public static function onEnhancedChangesListModifyBlockLineData(
-		EnhancedChangesList $ecl,
-		array &$data,
-		RCCacheEntry $rcObj
+	public function onEnhancedChangesListModifyBlockLineData(
+		$ecl,
+		&$data,
+		$rcObj
 	) {
 		if ( !Helpers::oresUiEnabled() ) {
 			return;
@@ -480,13 +491,13 @@ class ChangesListHooksHandler {
 	/**
 	 * Internal helper to label matching rows
 	 *
-	 * @param RCCacheEntry $rcObj
+	 * @param RecentChange $rcObj
 	 * @param string[] &$data
 	 * @param string[] &$classes
 	 * @param IContextSource $context
 	 */
 	protected static function processRecentChangesList(
-		RCCacheEntry $rcObj,
+		RecentChange $rcObj,
 		array &$data,
 		array &$classes,
 		IContextSource $context
@@ -507,13 +518,15 @@ class ChangesListHooksHandler {
 	 * @param string &$s
 	 * @param RecentChange $rc
 	 * @param string[] &$classes
+	 * @param string[] &$attribs
 	 * @return bool|void
 	 */
-	public static function onOldChangesListRecentChangesLine(
-		ChangesList $changesList,
+	public function onOldChangesListRecentChangesLine(
+		$changesList,
 		&$s,
-		RecentChange $rc,
-		array &$classes = []
+		$rc,
+		&$classes,
+		&$attribs
 	) {
 		if ( !Helpers::oresUiEnabled() ) {
 			return;

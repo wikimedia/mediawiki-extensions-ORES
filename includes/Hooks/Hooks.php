@@ -16,37 +16,29 @@
 
 namespace ORES\Hooks;
 
-use DatabaseUpdater;
+use MediaWiki\Hook\BeforePageDisplayHook;
+use MediaWiki\Hook\RecentChange_saveHook;
+use MediaWiki\Hook\RecentChangesPurgeRowsHook;
+use MediaWiki\Logger\LoggerFactory;
 use ORES\ORESService;
 use ORES\Services\ORESServices;
 use OutputPage;
+use RecentChange;
+use RequestContext;
 use Skin;
 
-class Hooks {
-
-	/**
-	 * @param DatabaseUpdater $updater
-	 */
-	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
-		$type = $updater->getDB()->getType();
-		$sqlPath = __DIR__ . '/../../sql/' . $type . '/';
-		$updater->addExtensionTable( 'ores_classification', $sqlPath . 'tables-generated.sql' );
-
-		if ( $type === 'mysql' ) {
-			// 1.31
-			$updater->addExtensionIndex( 'ores_classification', 'oresc_model_class_prob',
-				$sqlPath . 'patch-ores-classification-model-class-prob-index.sql' );
-			$updater->dropExtensionIndex( 'ores_classification', 'oresc_rev_predicted_model',
-				$sqlPath . 'patch-ores-classification-indexes-part-ii.sql' );
-		}
-	}
+class Hooks implements
+	BeforePageDisplayHook,
+	RecentChangesPurgeRowsHook,
+	RecentChange_saveHook
+{
 
 	/**
 	 * Remove cached scores for revisions which were purged from recentchanges
 	 *
 	 * @param \stdClass[] $rows
 	 */
-	public static function onRecentChangesPurgeRows( array $rows ) {
+	public function onRecentChangesPurgeRows( $rows ): void {
 		$revIds = [];
 		foreach ( $rows as $row ) {
 			$revIds[] = $row->rc_this_oldid;
@@ -60,7 +52,7 @@ class Hooks {
 	 * @param OutputPage $out
 	 * @param Skin $skin
 	 */
-	public static function onBeforePageDisplay( OutputPage $out, Skin $skin ) {
+	public function onBeforePageDisplay( $out, $skin ): void {
 		if ( !Helpers::oresUiEnabled() ) {
 			return;
 		}
@@ -91,6 +83,25 @@ class Hooks {
 			'baseUrl' => ORESService::getFrontendBaseUrl(),
 			'apiVersion' => (string)ORESService::API_VERSION,
 		];
+	}
+
+	/**
+	 * @param RecentChange $rc
+	 */
+	public function onRecentChange_save( $rc ) {
+		global $wgOresExcludeBots, $wgOresEnabledNamespaces, $wgOresModels;
+
+		$handler = new RecentChangeSaveHookHandler(
+			LoggerFactory::getInstance( 'ORES' ),
+			RequestContext::getMain()->getRequest()
+		);
+
+		$handler->handle(
+			$rc,
+			$wgOresModels,
+			$wgOresExcludeBots,
+			$wgOresEnabledNamespaces
+		);
 	}
 
 }

@@ -104,7 +104,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 		$conds = [];
 		$query_options = [];
 		$join_conds = [];
-		ChangesListHooksHandler::onChangesListSpecialPageQuery(
+		( new ChangesListHooksHandler )->onChangesListSpecialPageQuery(
 			'',
 			$tables,
 			$fields,
@@ -218,18 +218,21 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 		$data = [];
 		$block = [];
 		$classes = [];
+		$attribs = [];
 
-		ChangesListHooksHandler::onEnhancedChangesListModifyLineData(
+		( new ChangesListHooksHandler )->onEnhancedChangesListModifyLineData(
 			$ecl,
 			$data,
 			$block,
 			$rc,
-			$classes
+			$classes,
+			$attribs
 		);
 
 		$this->assertSame( [ 'recentChangesFlags' => [ 'damaging' => true ] ], $data );
 		$this->assertSame( [], $block );
 		$this->assertSame( [ 'damaging' ], $classes );
+		$this->assertSame( [], $attribs );
 	}
 
 	/**
@@ -253,18 +256,21 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 		$data = [];
 		$block = [];
 		$classes = [];
+		$attribs = [];
 
-		ChangesListHooksHandler::onEnhancedChangesListModifyLineData(
+		( new ChangesListHooksHandler )->onEnhancedChangesListModifyLineData(
 			$ecl,
 			$data,
 			$block,
 			$rc,
-			$classes
+			$classes,
+			$attribs
 		);
 
 		$this->assertSame( [], $data );
 		$this->assertSame( [], $block );
 		$this->assertSame( [], $classes );
+		$this->assertSame( [], $attribs );
 	}
 
 	/**
@@ -296,9 +302,10 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 			->willReturn( $this->context );
 
 		$classes = [];
+		$attribs = [];
 
 		$s = ' <span class="mw-changeslist-separator"></span> ';
-		ChangesListHooksHandler::onOldChangesListRecentChangesLine( $cl, $s, $rc, $classes );
+		( new ChangesListHooksHandler )->onOldChangesListRecentChangesLine( $cl, $s, $rc, $classes, $attribs );
 
 		$this->assertSame(
 			' <span class="mw-changeslist-separator"></span>' .
@@ -306,6 +313,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 			$s
 		);
 		$this->assertSame( [ 'ores-highlight', 'damaging' ], $classes );
+		$this->assertSame( [], $attribs );
 	}
 
 	/**
@@ -327,12 +335,14 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 			->willReturn( $this->context );
 
 		$classes = [];
+		$attribs = [];
 
 		$s = ' <span class="mw-changeslist-separator"></span> ';
-		ChangesListHooksHandler::onOldChangesListRecentChangesLine( $cl, $s, $rc, $classes );
+		( new ChangesListHooksHandler )->onOldChangesListRecentChangesLine( $cl, $s, $rc, $classes, $attribs );
 
 		$this->assertSame( ' <span class="mw-changeslist-separator"></span> ', $s );
 		$this->assertSame( [], $classes );
+		$this->assertSame( [], $attribs );
 	}
 
 	/**
@@ -363,7 +373,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 
 		$originalFilters = $wrappedClsp->getFilterGroups();
 
-		ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters( $changesListSpecialPage );
+		( new ChangesListHooksHandler )->onChangesListSpecialPageStructuredFilters( $changesListSpecialPage );
 
 		$updatedFilters = $wrappedClsp->getFilterGroups();
 
@@ -380,7 +390,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 		$wrappedClsp = TestingAccessWrapper::newFromObject( $changesListSpecialPage );
 		$wrappedClsp->registerFilters();
 
-		ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters( $changesListSpecialPage );
+		( new ChangesListHooksHandler )->onChangesListSpecialPageStructuredFilters( $changesListSpecialPage );
 
 		$damagingFilterGroup = $changesListSpecialPage->getFilterGroup( 'damaging' );
 		$this->assertNotNull( $damagingFilterGroup );
@@ -407,7 +417,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 		$wrappedClsp = TestingAccessWrapper::newFromObject( $changesListSpecialPage );
 		$wrappedClsp->registerFilters();
 
-		ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters( $changesListSpecialPage );
+		( new ChangesListHooksHandler )->onChangesListSpecialPageStructuredFilters( $changesListSpecialPage );
 
 		$damagingFilterGroup = $changesListSpecialPage->getFilterGroup( 'damaging' );
 		$this->assertNotNull( $damagingFilterGroup );
@@ -444,7 +454,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 			],
 		];
 
-		ChangesListHooksHandler::onEnhancedChangesListModifyBlockLineData( $ecl, $data, $rc );
+		( new ChangesListHooksHandler )->onEnhancedChangesListModifyBlockLineData( $ecl, $data, $rc );
 
 		$this->assertEquals( $expected, $data );
 	}

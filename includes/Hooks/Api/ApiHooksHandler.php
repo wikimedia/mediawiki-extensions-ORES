@@ -27,13 +27,29 @@ use ApiQueryRevisions;
 use ApiQueryUserContribs;
 use ApiQueryWatchlist;
 use ApiResult;
+use MediaWiki\Api\Hook\APIGetAllowedParamsHook;
+use MediaWiki\Api\Hook\ApiQueryBaseAfterQueryHook;
+use MediaWiki\Api\Hook\ApiQueryBaseBeforeQueryHook;
+use MediaWiki\Api\Hook\ApiQueryBaseProcessRowHook;
+use MediaWiki\Api\Hook\ApiQueryWatchlistExtractOutputDataHook;
+use MediaWiki\Api\Hook\ApiQueryWatchlistPrepareWatchedItemQueryServiceOptionsHook;
+use MediaWiki\Hook\WatchedItemQueryServiceExtensionsHook;
 use ORES\Hooks\Helpers;
 use ORES\Services\ORESServices;
 use WatchedItem;
+use WatchedItemQueryService;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\Rdbms\IResultWrapper;
 
-class ApiHooksHandler {
+class ApiHooksHandler implements
+	APIGetAllowedParamsHook,
+	ApiQueryBaseBeforeQueryHook,
+	ApiQueryBaseAfterQueryHook,
+	ApiQueryBaseProcessRowHook,
+	ApiQueryWatchlistExtractOutputDataHook,
+	ApiQueryWatchlistPrepareWatchedItemQueryServiceOptionsHook,
+	WatchedItemQueryServiceExtensionsHook
+{
 
 	/**
 	 * Inject parameters into certain API modules
@@ -50,7 +66,7 @@ class ApiHooksHandler {
 	 * @param array &$params
 	 * @param int $flags zero or OR-ed flags like ApiBase::GET_VALUES_FOR_HELP
 	 */
-	public static function onAPIGetAllowedParams( ApiBase $module, array &$params, $flags ) {
+	public function onAPIGetAllowedParams( $module, &$params, $flags ) {
 		if ( $module instanceof ApiQueryRevisions ||
 			$module instanceof ApiQueryAllRevisions ||
 			$module instanceof ApiQueryRecentChanges ||
@@ -91,8 +107,8 @@ class ApiHooksHandler {
 	 * @param array &$joinConds join conditions for the tables
 	 * @param array &$hookData Inter-hook communication
 	 */
-	public static function onApiQueryBaseBeforeQuery(
-		ApiQueryBase $module, &$tables, &$fields, &$conds, &$options, &$joinConds, &$hookData
+	public function onApiQueryBaseBeforeQuery(
+		$module, &$tables, &$fields, &$conds, &$options, &$joinConds, &$hookData
 	) {
 		$params = $module->extractRequestParams();
 
@@ -177,7 +193,7 @@ class ApiHooksHandler {
 	 * @param IResultWrapper|bool $res
 	 * @param array &$hookData Inter-hook communication
 	 */
-	public static function onApiQueryBaseAfterQuery( ApiQueryBase $module, $res, array &$hookData ) {
+	public function onApiQueryBaseAfterQuery( $module, $res, &$hookData ) {
 		if ( !$res ) {
 			return;
 		}
@@ -257,13 +273,12 @@ class ApiHooksHandler {
 	 * @param \stdClass $row
 	 * @param array &$data
 	 * @param array &$hookData Inter-hook communication
-	 * @return bool False to stop processing the result set
 	 */
-	public static function onApiQueryBaseProcessRow(
-		ApiQueryBase $module,
+	public function onApiQueryBaseProcessRow(
+		$module,
 		$row,
-		array &$data,
-		array &$hookData
+		&$data,
+		&$hookData
 	) {
 		if ( isset( $hookData['oresField'] ) &&
 			( !$hookData['oresCheckRCType'] ||
@@ -280,13 +295,11 @@ class ApiHooksHandler {
 			}
 
 			if ( !isset( $hookData['oresScores'][$revid] ) ) {
-				return true;
+				return;
 			}
 
 			self::addScoresForAPI( $data, $hookData['oresScores'][$revid], $models );
 		}
-
-		return true;
 	}
 
 	/**
@@ -339,8 +352,8 @@ class ApiHooksHandler {
 	 * @param array $params
 	 * @param array &$options
 	 */
-	public static function onApiQueryWatchlistPrepareWatchedItemQueryServiceOptions(
-		ApiQueryBase $module, array $params, array &$options
+	public function onApiQueryWatchlistPrepareWatchedItemQueryServiceOptions(
+		$module, $params, &$options
 	) {
 		if ( in_array( 'oresscores', $params['prop'], true ) ) {
 			$options['includeFields'][] = 'oresscores';
@@ -364,8 +377,8 @@ class ApiHooksHandler {
 	 * @param array $recentChangeInfo
 	 * @param array &$output
 	 */
-	public static function onApiQueryWatchlistExtractOutputData(
-		ApiQueryBase $module, WatchedItem $watchedItem, array $recentChangeInfo, array &$output
+	public function onApiQueryWatchlistExtractOutputData(
+		$module, $watchedItem, $recentChangeInfo, &$output
 	) {
 		if ( isset( $recentChangeInfo['oresScores'] ) ) {
 			$modelData = ORESServices::getModelLookup()->getModels();
@@ -378,4 +391,11 @@ class ApiHooksHandler {
 		}
 	}
 
+	/**
+	 * @param array &$extensions
+	 * @param WatchedItemQueryService $watchedItemQueryService
+	 */
+	public function onWatchedItemQueryServiceExtensions( &$extensions, $watchedItemQueryService ) {
+		$extensions[] = new WatchedItemQueryServiceExtension();
+	}
 }

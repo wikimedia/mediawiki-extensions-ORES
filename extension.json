@@ -34,27 +34,50 @@
 		"includes/ServiceWiring.php"
 	],
 	"Hooks": {
-		"APIGetAllowedParams": "ORES\\Hooks\\Api\\ApiHooksHandler::onAPIGetAllowedParams",
-		"ApiQueryBaseBeforeQuery": "ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryBaseBeforeQuery",
-		"ApiQueryBaseAfterQuery": "ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryBaseAfterQuery",
-		"ApiQueryBaseProcessRow": "ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryBaseProcessRow",
-		"ApiQueryWatchlistExtractOutputData": "ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryWatchlistExtractOutputData",
-		"ApiQueryWatchlistPrepareWatchedItemQueryServiceOptions": "ORES\\Hooks\\Api\\ApiHooksHandler::onApiQueryWatchlistPrepareWatchedItemQueryServiceOptions",
-		"WatchedItemQueryServiceExtensions": "ORES\\Hooks\\Api\\WatchedItemQueryServiceExtension::onWatchedItemQueryServiceExtensions",
-		"BeforePageDisplay": "ORES\\Hooks\\Hooks::onBeforePageDisplay",
-		"ChangesListSpecialPageStructuredFilters": "ORES\\Hooks\\ChangesListHooksHandler::onChangesListSpecialPageStructuredFilters",
-		"ChangesListSpecialPageQuery": "ORES\\Hooks\\ChangesListHooksHandler::onChangesListSpecialPageQuery",
-		"ContribsPager::getQueryInfo": "ORES\\Hooks\\ContributionsHooksHandler::onContribsGetQueryInfo",
-		"EnhancedChangesListModifyBlockLineData": "ORES\\Hooks\\ChangesListHooksHandler::onEnhancedChangesListModifyBlockLineData",
-		"EnhancedChangesListModifyLineData": "ORES\\Hooks\\ChangesListHooksHandler::onEnhancedChangesListModifyLineData",
-		"GetPreferences": "ORES\\Hooks\\PreferencesHookHandler::onGetPreferences",
-		"LoadExtensionSchemaUpdates": "ORES\\Hooks\\Hooks::onLoadExtensionSchemaUpdates",
-		"OldChangesListRecentChangesLine": "ORES\\Hooks\\ChangesListHooksHandler::onOldChangesListRecentChangesLine",
-		"RecentChange_save": "ORES\\Hooks\\RecentChangeSaveHookHandler::onRecentChange_save",
-		"RecentChangesPurgeRows": "ORES\\Hooks\\Hooks::onRecentChangesPurgeRows",
-		"SpecialContributions::formatRow::flags": "ORES\\Hooks\\ContributionsHooksHandler::onSpecialContributionsFormatRowFlags",
-		"ContributionsLineEnding": "ORES\\Hooks\\ContributionsHooksHandler::onContributionsLineEnding",
-		"SpecialContributions::getForm::filters": "ORES\\Hooks\\ContributionsHooksHandler::onSpecialContributionsGetFormFilters"
+		"APIGetAllowedParams": "api",
+		"ApiQueryBaseBeforeQuery": "api",
+		"ApiQueryBaseAfterQuery": "api",
+		"ApiQueryBaseProcessRow": "api",
+		"ApiQueryWatchlistExtractOutputData": "api",
+		"ApiQueryWatchlistPrepareWatchedItemQueryServiceOptions": "api",
+		"WatchedItemQueryServiceExtensions": "api",
+		"BeforePageDisplay": "main",
+		"ChangesListSpecialPageStructuredFilters": "changeslist",
+		"ChangesListSpecialPageQuery": "changeslist",
+		"ContribsPager::getQueryInfo": "contributions",
+		"EnhancedChangesListModifyBlockLineData": "changeslist",
+		"EnhancedChangesListModifyLineData": "changeslist",
+		"GetPreferences": "preferences",
+		"LoadExtensionSchemaUpdates": "schema",
+		"OldChangesListRecentChangesLine": "changeslist",
+		"RecentChange_save": "main",
+		"RecentChangesPurgeRows": "main",
+		"SpecialContributions::formatRow::flags": "contributions",
+		"ContributionsLineEnding": "contributions",
+		"SpecialContributions::getForm::filters": "contributions"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "ORES\\Hooks\\Hooks"
+		},
+		"schema": {
+			"class": "ORES\\Hooks\\SchemaHooks"
+		},
+		"api": {
+			"class": "ORES\\Hooks\\Api\\ApiHooksHandler"
+		},
+		"changeslist": {
+			"class": "ORES\\Hooks\\ChangesListHooksHandler"
+		},
+		"contributions": {
+			"class": "ORES\\Hooks\\ContributionsHooksHandler"
+		},
+		"preferences": {
+			"class": "ORES\\Hooks\\PreferencesHookHandler"
+		},
+		"recentchanges": {
+			"class": "ORES\\Hooks\\RecentChangeSaveHookHandler"
+		}
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "modules",

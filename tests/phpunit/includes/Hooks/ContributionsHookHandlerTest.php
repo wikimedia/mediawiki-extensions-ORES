@@ -68,7 +68,7 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 		return $context;
 	}
 
-	public static function provideOnContribsGetQueryInfo() {
+	public static function provideOnContribsPager__getQueryInfo() {
 		$expected = [
 			'tables' => [
 				'ores_damaging_cls' => 'ores_classification'
@@ -100,10 +100,10 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @dataProvider provideOnContribsGetQueryInfo
-	 * @covers ::onContribsGetQueryInfo
+	 * @dataProvider provideOnContribsPager__getQueryInfo
+	 * @covers ::onContribsPager__getQueryInfo
 	 */
-	public function testOnContribsGetQueryInfo( array $expected, $nonDamaging ) {
+	public function testOnContribsPager__getQueryInfo( array $expected, $nonDamaging ) {
 		$cp =
 			$this->createMock( ContribsPager::class );
 
@@ -127,7 +127,7 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 			'options' => [],
 			'join_conds' => [],
 		];
-		ContributionsHooksHandler::onContribsGetQueryInfo( $cp, $query );
+		( new ContributionsHooksHandler )->onContribsPager__getQueryInfo( $cp, $query );
 
 		$this->assertSame( $expected['tables'], $query['tables'] );
 		$this->assertSame( $expected['fields'], $query['fields'] );
@@ -136,9 +136,9 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::onSpecialContributionsFormatRowFlags
+	 * @covers ::onSpecialContributions__formatRow__flags
 	 */
-	public function testOnSpecialContributionsFormatRowFlagsDamaging() {
+	public function testOnSpecialContributions__formatRow__flagsDamaging() {
 		$row = (object)[
 			'ores_damaging_threshold' => 0.2,
 			'ores_damaging_score' => 0.3,
@@ -147,16 +147,16 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 
 		$flags = [];
 
-		ContributionsHooksHandler::onSpecialContributionsFormatRowFlags( $this->context, $row, $flags );
+		( new ContributionsHooksHandler )->onSpecialContributions__formatRow__flags( $this->context, $row, $flags );
 
 		$this->assertSame( [ '<abbr class="ores-damaging" title="This edit needs review">r</abbr>' ],
 			$flags );
 	}
 
 	/**
-	 * @covers ::onSpecialContributionsFormatRowFlags
+	 * @covers ::onSpecialContributions__formatRow__flags
 	 */
-	public function testOnSpecialContributionsFormatRowFlagsNonDamaging() {
+	public function testOnSpecialContributions__formatRow__flagsNonDamaging() {
 		$row = (object)[
 			'ores_damaging_threshold' => 0.4,
 			'ores_damaging_score' => 0.3,
@@ -165,7 +165,7 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 
 		$flags = [];
 
-		ContributionsHooksHandler::onSpecialContributionsFormatRowFlags( $this->context, $row, $flags );
+		( new ContributionsHooksHandler )->onSpecialContributions__formatRow__flags( $this->context, $row, $flags );
 
 		$this->assertSame( [], $flags );
 	}
@@ -194,11 +194,13 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 
 		$ret = [];
 		$classes = [];
+		$attribs = [];
 
-		ContributionsHooksHandler::onContributionsLineEnding( $cp, $ret, $row, $classes );
+		( new ContributionsHooksHandler )->onContributionsLineEnding( $cp, $ret, $row, $classes, $attribs );
 
 		$this->assertSame( [ 'ores-highlight', 'damaging' ], $classes );
 		$this->assertSame( [], $ret );
+		$this->assertSame( [], $attribs );
 	}
 
 	/**
@@ -225,11 +227,13 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 
 		$ret = [];
 		$classes = [];
+		$attribs = [];
 
-		ContributionsHooksHandler::onContributionsLineEnding( $cp, $ret, $row, $classes );
+		( new ContributionsHooksHandler )->onContributionsLineEnding( $cp, $ret, $row, $classes, $attribs );
 
 		$this->assertSame( [], $classes );
 		$this->assertSame( [], $ret );
+		$this->assertSame( [], $attribs );
 	}
 
 }

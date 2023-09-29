@@ -30,7 +30,7 @@ class PreferencesHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	 */
 	public function testOresPrefs() {
 		$preferences = [];
-		PreferencesHookHandler::onGetPreferences( $this->user, $preferences );
+		( new PreferencesHookHandler )->onGetPreferences( $this->user, $preferences );
 		$this->assertArrayHasKey( 'oresDamagingPref', $preferences );
 		$this->assertArrayHasKey( 'rcOresDamagingPref', $preferences );
 		$this->assertArrayHasKey( 'oresWatchlistHideNonDamaging', $preferences );
@@ -42,7 +42,7 @@ class PreferencesHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	 */
 	public function testOnGetPreferencesEnabled() {
 		$prefs = [];
-		PreferencesHookHandler::onGetPreferences( $this->user, $prefs );
+		( new PreferencesHookHandler )->onGetPreferences( $this->user, $prefs );
 
 		$this->assertCount( 6, $prefs );
 	}

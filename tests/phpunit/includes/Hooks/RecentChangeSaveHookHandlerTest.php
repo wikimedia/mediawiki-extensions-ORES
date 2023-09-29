@@ -2,14 +2,14 @@
 
 namespace ORES\Tests\Hooks;
 
-use ORES\Hooks\RecentChangeSaveHookHandler;
+use ORES\Hooks\Hooks;
 use ORES\Tests\MockOresServiceBuilder;
 use RecentChange;
 
 /**
  * @group ORES
  * @group Database
- * @coversDefaultClass \ORES\Hooks\RecentChangeSaveHookHandler
+ * @covers \ORES\Hooks\RecentChangeSaveHookHandler
  */
 class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 
@@ -38,7 +38,6 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::onRecentChange_save
 	 * @dataProvider provideOnRecentChange_save
 	 */
 	public function testOnRecentChange_save( $ns, $isBot, $type, $expectedModels ) {
@@ -61,7 +60,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 			'rc_user' => 1,
 			'rc_user_text' => 'Test user',
 		] );
-		RecentChangeSaveHookHandler::onRecentChange_save( $rc );
+		( new Hooks )->onRecentChange_save( $rc );
 
 		$actual = $jobQueueGroup->get( 'ORESFetchScoreJob' )->pop()->getParams();
 		$actual['requestId'] = 'foo';
@@ -89,7 +88,6 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::onRecentChange_save
 	 * @dataProvider provideOnRecentChange_saveNotQueued
 	 */
 	public function testOnRecentChange_saveNotQueued( $ns, $isBot, $type ) {
@@ -112,14 +110,11 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 			'rc_user' => 1,
 			'rc_user_text' => 'Test user',
 		] );
-		RecentChangeSaveHookHandler::onRecentChange_save( $rc );
+		( new Hooks )->onRecentChange_save( $rc );
 
 		$this->assertFalse( $jobQueueGroup->get( 'ORESFetchScoreJob' )->pop() );
 	}
 
-	/**
-	 * @covers ::onRecentChange_save
-	 */
 	public function testOnRecentChange_saveHook() {
 		$jobQueueGroup = $this->getServiceContainer()->getJobQueueGroup();
 		$jobQueueGroup->get( 'ORESFetchScoreJob' )->delete();
@@ -143,7 +138,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 		$this->setTemporaryHook( 'ORESCheckModels', static function ( $rc, &$models ) {
 			$models = [ 'model_1' ];
 		} );
-		RecentChangeSaveHookHandler::onRecentChange_save( $rc );
+		( new Hooks )->onRecentChange_save( $rc );
 
 		$actual = $jobQueueGroup->get( 'ORESFetchScoreJob' )->pop()->getParams();
 		$actual['requestId'] = 'foo';

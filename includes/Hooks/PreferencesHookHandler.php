@@ -16,9 +16,10 @@
 
 namespace ORES\Hooks;
 
+use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use User;
 
-class PreferencesHookHandler {
+class PreferencesHookHandler implements GetPreferencesHook {
 
 	/**
 	 * GetPreferences hook, adding ORES section, letting people choose a threshold
@@ -27,7 +28,7 @@ class PreferencesHookHandler {
 	 * @param User $user
 	 * @param array[] &$preferences
 	 */
-	public static function onGetPreferences( User $user, array &$preferences ) {
+	public function onGetPreferences( $user, &$preferences ) {
 		global $wgOresFiltersThresholds;
 
 		if ( !Helpers::oresUiEnabled() || !Helpers::isModelEnabled( 'damaging' ) ) {
