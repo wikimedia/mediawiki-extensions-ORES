@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hakimi97"
+		]
+	},
+	"apihelp-query+ores-summary": "Kembalikan data konfigurasi dan model ORES untuk wiki ini.",
+	"apihelp-query+ores-example-simple": "Ambil data ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Markah ORES untuk semakan tersebut.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Markah ORES untuk semakan tersebut.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Menambah markah ORES untuk entri tersebut.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Menambah markah ORES untuk suntingan tersebut.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Tambahkan markah ORES untuk suntingan tersebut."
+}
