@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hakimi97"
+		]
+	},
+	"ores-desc": "Dedahkan markah semakan automatik pada antara muka",
+	"ores-damaging-filter": "$1 mungkin merupakan suntingan yang bagus",
+	"ores-damaging-letter": "r",
+	"ores-damaging-title": "Suntingan ini memerlukan semakan",
+	"ores-damaging-legend": "Suntingan ini mungkin mempunyai masalah dan perlu disemak ([[:mw:Special:MyLanguage/ORES review tool|maklumat lanjut]])",
+	"ores-hide-nondamaging-filter": "Sembunyikan suntingan yang mungkin bagus",
+	"ores-pref-damaging": "Ambang ramalan",
+	"ores-pref-damaging-flag": "Serlahkan suntingan yang mungkin bermasalah dengan warna dan \"{{int:ores-damaging-letter}}\" untuk \"perlu semakan\"",
+	"ores-damaging-maybebad": "Mungkin mempunyai masalah (menandakan kebanyakan suntingan bermasalah tetapi termasuk banyak keputusan positif palsu)",
+	"ores-damaging-likelybad": "Kemungkinan bermasalah (kebarangkalian pertengahan)",
+	"ores-damaging-verylikelybad": "Kemungkinan besar bermasalah (menandakan sedikit keputusan positif palsu, tetapi menemukan % suntingan bermasalah yang kecil)",
+	"ores-help-damaging-pref": "Ubah tetapan \"ambang\" untuk menjadikan pilihan berikut lebih luas atau lebih memilih.",
+	"ores-rcfilters-whats-this-link-text": "Ketahui lebih lanjut",
+	"ores-rcfilters-ores-conflicts-logactions-global": "Penapis \"{{int:rcfilters-filter-logactions-label}}\" berkonflik dengan satu atau lebih penapis Kualiti Sumbangan atau penapis Niat Pengguna. Ramalan Kualiti dan Ramalan Niat tidak tersedia untuk tindakan pengguna berdaftar. Penapis yang berkonflik ditandai di kawasan Penapis Aktif di atas.",
+	"ores-rcfilters-logactions-conflicts-ores": "Penapis ini berkonflik dengan satu atau lebih penapis Kualiti Sumbangan atau penapis Niat Pengguna. Ramalan Kualiti dan Ramalan Niat tidak tersedia untuk tindakan tercatat.",
+	"ores-rcfilters-damaging-title": "Ramalan kualiti sumbangan"
+}
