@@ -16,21 +16,21 @@
 
 namespace ORES\Storage;
 
-use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IResultWrapper;
 
 class SqlScoreLookup implements StorageScoreLookup {
 
 	private $modelLookup;
 
-	private $loadBalancer;
+	private $dbProvider;
 
 	public function __construct(
 		ModelLookup $modelLookup,
-		ILoadBalancer $loadBalancer
+		IConnectionProvider $dbProvider
 	) {
 		$this->modelLookup = $modelLookup;
-		$this->loadBalancer = $loadBalancer;
+		$this->dbProvider = $dbProvider;
 	}
 
 	/**
@@ -44,7 +44,7 @@ class SqlScoreLookup implements StorageScoreLookup {
 	public function getScores( $revisions, $models ) {
 		$modelIds = array_map( [ $this->modelLookup, 'getModelId' ], $models );
 
-		return $this->loadBalancer->getConnection( DB_REPLICA )->select(
+		return $this->dbProvider->getReplicaDatabase()->select(
 			[ 'ores_classification' ],
 			[ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ],
 			[

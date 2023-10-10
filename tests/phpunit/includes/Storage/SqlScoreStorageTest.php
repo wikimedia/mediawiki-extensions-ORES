@@ -38,7 +38,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 			'articlequality' => [ 'id' => self::ARTICLEQUALITY, 'version' => '0.0.4' ],
 		];
 		$this->storage = new SqlScoreStorage(
-			MediaWikiServices::getInstance()->getDBLoadBalancer(),
+			MediaWikiServices::getInstance()->getDBLoadBalancerFactory(),
 			new HashModelLookup( $modelData ),
 			new NullLogger()
 		);

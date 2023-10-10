@@ -57,7 +57,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 		$conds = [];
 		$dbOptions = [];
 		$joinConds = [];
-		$db = wfGetDB( DB_REPLICA );
+		$db = $this->getDb();
 		$service = new WatchedItemQueryServiceExtension();
 		$service->modifyWatchedItemsWithRCInfoQuery(
 			$this->user,
@@ -161,7 +161,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 		];
 		$res = [];
 		$startFrom = [];
-		$db = wfGetDB( DB_PRIMARY );
+		$db = $this->getDb();
 		$service = new WatchedItemQueryServiceExtension();
 		$service->modifyWatchedItemsWithRCInfo(
 			$this->user, $options, $db, $items, $res, $startFrom );

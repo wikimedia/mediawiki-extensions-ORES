@@ -33,7 +33,7 @@ return [
 
 	'ORESModelLookup' => static function ( MediaWikiServices $services ) {
 		return new PopulatedSqlModelLookup(
-			new SqlModelLookup( $services->getDBLoadBalancer() ),
+			new SqlModelLookup( $services->getDBLoadBalancerFactory() ),
 			ORESServices::getORESService(),
 			ORESServices::getLogger(),
 			$services->getMainConfig()->get( 'OresUseLiftwing' )
@@ -54,7 +54,7 @@ return [
 
 	'ORESScoreStorage' => static function ( MediaWikiServices $services ) {
 		return new SqlScoreStorage(
-			$services->getDBLoadBalancer(),
+			$services->getDBLoadBalancerFactory(),
 			ORESServices::getModelLookup(),
 			ORESServices::getLogger()
 		);
@@ -77,14 +77,14 @@ return [
 	'ORESScoreLookup' => static function ( MediaWikiServices $services ) {
 		return new SqlScoreLookup(
 			ORESServices::getModelLookup(),
-			$services->getDBLoadBalancer()
+			$services->getDBLoadBalancerFactory()
 		);
 	},
 
 	'ORESDatabaseQueryBuilder' => static function ( MediaWikiServices $services ) {
 		return new DatabaseQueryBuilder(
 			ORESServices::getThresholdLookup(),
-			$services->getDBLoadBalancer()->getConnection( DB_REPLICA )
+			$services->getDBLoadBalancerFactory()->getReplicaDatabase()
 		);
 	}
 

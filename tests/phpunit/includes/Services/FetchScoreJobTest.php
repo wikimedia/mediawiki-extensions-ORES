@@ -64,7 +64,7 @@ class FetchScoreJobTest extends \MediaWikiIntegrationTestCase {
 	 * @covers ORES\Services\FetchScoreJob::run
 	 */
 	public function testRun() {
-		$dbw = \wfGetDB( DB_PRIMARY );
+		$dbw = $this->getDb();
 		$dbw->delete( 'ores_classification', '*' );
 
 		$params = [

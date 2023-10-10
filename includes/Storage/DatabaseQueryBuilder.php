@@ -18,6 +18,7 @@ namespace ORES\Storage;
 
 use ORES\Range;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 class DatabaseQueryBuilder {
 
@@ -27,11 +28,11 @@ class DatabaseQueryBuilder {
 	private $thresholdLookup;
 
 	/**
-	 * @var IDatabase
+	 * @var IReadableDatabase
 	 */
 	private $db;
 
-	public function __construct( ThresholdLookup $thresholdLookup, IDatabase $db ) {
+	public function __construct( ThresholdLookup $thresholdLookup, IReadableDatabase $db ) {
 		$this->thresholdLookup = $thresholdLookup;
 		$this->db = $db;
 	}

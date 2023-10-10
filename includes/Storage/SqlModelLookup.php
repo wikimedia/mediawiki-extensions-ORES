@@ -17,16 +17,16 @@
 namespace ORES\Storage;
 
 use InvalidArgumentException;
-use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class SqlModelLookup implements ModelLookup {
 
-	private $loadBalancer;
+	private $dbProvider;
 
 	private $modelData = null;
 
-	public function __construct( ILoadBalancer $loadBalancer ) {
-		$this->loadBalancer = $loadBalancer;
+	public function __construct( IConnectionProvider $dbProvider ) {
+		$this->dbProvider = $dbProvider;
 	}
 
 	/**
@@ -73,7 +73,7 @@ class SqlModelLookup implements ModelLookup {
 	private function getModelData() {
 		if ( $this->modelData === null || $this->modelData === [] ) {
 			$this->modelData = [];
-			$result = $this->loadBalancer->getConnection( DB_REPLICA )->select(
+			$result = $this->dbProvider->getReplicaDatabase()->select(
 				'ores_model',
 				[ 'oresm_id', 'oresm_name', 'oresm_version' ],
 				[ 'oresm_is_current' => 1 ],

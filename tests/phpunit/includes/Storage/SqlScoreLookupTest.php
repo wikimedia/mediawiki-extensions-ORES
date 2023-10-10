@@ -33,7 +33,7 @@ class SqlScoreLookupTest extends MediaWikiLangTestCase {
 		TestHelper::insertOresData( 223, [ 'damaging' => 0.666, 'goodfaith' => 0.7 ] );
 		$storage = new SqlScoreLookup(
 			new HashModelLookup( $modelData ),
-			MediaWikiServices::getInstance()->getDBLoadBalancer()
+			MediaWikiServices::getInstance()->getDBLoadBalancerFactory()
 		);
 
 		$expected = [

@@ -28,7 +28,7 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 
 		TestHelper::clearOresTables();
 		TestHelper::insertModelData();
-		\wfGetDB( DB_PRIMARY )->delete( 'recentchanges', '*', __METHOD__ );
+		$this->getDb()->delete( 'recentchanges', '*', __METHOD__ );
 
 		$this->setMwGlobals( [
 			'wgOresModels' => [ 'damaging' => [ 'enabled' => true ] ],
@@ -159,7 +159,7 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 		$userData = [
 			'rc_actor' => $testUser->getActorId(),
 		];
-		$dbw = \wfGetDB( DB_PRIMARY );
+		$dbw = $this->getDb();
 		foreach ( $rcContents as &$row ) {
 			$row += $userData;
 			$row += [ 'rc_comment_id' => 1 ];

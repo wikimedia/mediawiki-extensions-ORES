@@ -24,7 +24,7 @@ class SqlModelLookupTest extends MediaWikiLangTestCase {
 
 		$this->tablesUsed[] = 'ores_model';
 		TestHelper::insertModelData();
-		$this->storage = new SqlModelLookup( MediaWikiServices::getInstance()->getDBLoadBalancer() );
+		$this->storage = new SqlModelLookup( MediaWikiServices::getInstance()->getDBLoadBalancerFactory() );
 	}
 
 	public function testGetModels() {

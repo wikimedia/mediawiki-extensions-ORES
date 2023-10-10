@@ -32,7 +32,7 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 		// Reset service to purge cached models.
 		$this->setService(
 			'ORESModelLookup',
-			new SqlModelLookup( MediaWikiServices::getInstance()->getDBLoadBalancer() )
+			new SqlModelLookup( MediaWikiServices::getInstance()->getDBLoadBalancerFactory() )
 		);
 	}
 
@@ -139,7 +139,7 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 			'damaging' => 0.2,
 		] );
 
-		$dbw = \wfGetDB( DB_PRIMARY );
+		$dbw = $this->getDb();
 
 		$dbw->insert( 'recentchanges', [
 			'rc_this_oldid' => $revId,

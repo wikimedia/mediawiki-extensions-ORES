@@ -20,14 +20,14 @@ use InvalidArgumentException;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
 use Wikimedia\Rdbms\DBError;
-use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class SqlScoreStorage implements ScoreStorage {
 
 	/**
-	 * @var ILoadBalancer
+	 * @var IConnectionProvider
 	 */
-	private $loadBalancer;
+	private $dbProvider;
 
 	/**
 	 * @var ModelLookup
@@ -40,11 +40,11 @@ class SqlScoreStorage implements ScoreStorage {
 	private $logger;
 
 	public function __construct(
-		ILoadBalancer $loadBalancer,
+		IConnectionProvider $dbProvider,
 		ModelLookup $modelLookup,
 		LoggerInterface $logger
 	) {
-		$this->loadBalancer = $loadBalancer;
+		$this->dbProvider = $dbProvider;
 		$this->modelLookup = $modelLookup;
 		$this->logger = $logger;
 	}
@@ -94,7 +94,7 @@ class SqlScoreStorage implements ScoreStorage {
 		}
 
 		try {
-			$this->loadBalancer->getConnection( DB_PRIMARY )->insert(
+			$this->dbProvider->getPrimaryDatabase()->insert(
 				'ores_classification',
 				$dbData,
 				__METHOD__,
@@ -132,7 +132,7 @@ class SqlScoreStorage implements ScoreStorage {
 			$conditions[] = 'oresc_model NOT IN (' . implode( ', ', $modelsToKeep ) . ')';
 		}
 
-		$this->loadBalancer->getConnection( DB_PRIMARY )->delete(
+		$this->dbProvider->getPrimaryDatabase()->delete(
 			'ores_classification',
 			$conditions,
 			__METHOD__
@@ -174,7 +174,7 @@ class SqlScoreStorage implements ScoreStorage {
 
 		$newRevisions = array_keys( $scores );
 
-		$parentIds = $this->loadBalancer->getConnection( DB_REPLICA )->selectFieldValues(
+		$parentIds = $this->dbProvider->getReplicaDatabase()->selectFieldValues(
 			'recentchanges',
 			'rc_last_oldid',
 			[ 'rc_this_oldid' => $newRevisions ],
@@ -182,7 +182,7 @@ class SqlScoreStorage implements ScoreStorage {
 		);
 
 		if ( $parentIds ) {
-			$this->loadBalancer->getConnection( DB_PRIMARY )->delete(
+			$this->dbProvider->getPrimaryDatabase()->delete(
 				'ores_classification',
 				[ 'oresc_rev' => $parentIds, 'oresc_model' => $modelIds ],
 				__METHOD__
