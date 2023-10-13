@@ -46,8 +46,7 @@ class PreferencesHookHandler implements GetPreferencesHook {
 				isset( $wgOresFiltersThresholds[ 'damaging' ][ $level ] ) &&
 				$wgOresFiltersThresholds[ 'damaging' ][ $level ] !== false
 			) {
-				$text = \wfMessage( 'ores-damaging-' . $level )->text();
-				$options[ $text ] = $prefName;
+				$options[ 'ores-damaging-' . $level ] = $prefName;
 			}
 		}
 
@@ -55,7 +54,7 @@ class PreferencesHookHandler implements GetPreferencesHook {
 			'type' => 'select',
 			'label-message' => 'ores-pref-damaging',
 			'section' => 'watchlist/ores-wl',
-			'options' => $options,
+			'options-messages' => $options,
 			'help-message' => 'ores-help-damaging-pref',
 		];
 
@@ -63,7 +62,7 @@ class PreferencesHookHandler implements GetPreferencesHook {
 			'type' => 'select',
 			'label-message' => 'ores-pref-damaging',
 			'section' => 'rc/ores-rc',
-			'options' => $options,
+			'options-messages' => $options,
 			'help-message' => 'ores-help-damaging-pref',
 		];
 
