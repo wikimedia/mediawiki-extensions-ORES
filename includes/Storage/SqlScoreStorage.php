@@ -128,7 +128,7 @@ class SqlScoreStorage implements ScoreStorage {
 		}
 
 		$conditions = [ 'oresc_rev' => $revIds ];
-		if ( !empty( $modelsToKeep ) ) {
+		if ( $modelsToKeep ) {
 			$conditions[] = 'oresc_model NOT IN (' . implode( ', ', $modelsToKeep ) . ')';
 		}
 
