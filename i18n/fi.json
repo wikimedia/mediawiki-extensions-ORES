@@ -61,5 +61,7 @@
 	"prefs-ores-wl": "Versioiden pistearviointi tarkkailulistalla",
 	"prefs-ores-rc": "Versioiden pistearviointi tuoreissa muutoksissa ja liittyvissä muutoksissa",
 	"oresmodels": "ORES-mallin tilastot",
+	"ores-specialoresmodels-header-filter": "Suodatin",
+	"ores-specialoresmodels-header-thresholdrange": "Kynnysarvorajat",
 	"ores-api-show-note": "Käytettäessä <kbd>oresreview</kbd> tai <kbd>!oresreview</kbd>-valintoja, niin versiot ilman pisteitä (esim. hyvin vanhat versiot) näytetään aina sellaisina etteivät ne vaadi tarkistusta, vaikka jos arviointi suoritettaisiin, niin tarkistus tarvittaisiin."
 }
