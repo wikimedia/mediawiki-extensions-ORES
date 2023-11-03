@@ -83,7 +83,16 @@ class LiftWingService extends ORESService {
 
 		foreach ( $models as $model ) {
 			foreach ( $revids as $revid ) {
-				$response = $this->singleLiftWingRequest( $model, $revid );
+				if ( $model == 'revertrisk-language-agnostic' ) {
+					# This is a hack to convert the revert-risk response to an ORES response in order to be compatible
+					# with the rest of the model responses in order for them to be easily merged together in one
+					# response.
+					$response = $this->revertRiskLiftWingRequest( $model, $revid );
+					$response = $this->modifyRevertRiskResponse( $response );
+				} else {
+					$response = $this->singleLiftWingRequest( $model, $revid );
+				}
+
 				$responses[] = $response;
 			}
 		}
@@ -156,6 +165,73 @@ class LiftWingService extends ORESService {
 	}
 
 	/**
+	 * @param string $model
+	 * @param string|int $revid
+	 * @return array|array[]|mixed
+	 */
+	public function revertRiskLiftWingRequest( string $model, $revid ) {
+		$wikiId = self::getWikiID();
+		$language = substr( $wikiId, 0, strpos( $wikiId, "wiki" ) );
+		$prefix = 'v' . self::API_VERSION;
+		$baseUrl = self::getBaseUrl();
+		$url = "{$baseUrl}{$prefix}/models/{$model}:predict";
+
+		$this->logger->debug( "Requesting: {$url}" );
+
+		$req = $this->prepareRevertriskRequest( $url, $revid, $language );
+		$status = $req->execute();
+		if ( !$status->isOK() ) {
+			$message = "Failed to make LiftWing request to [{$url}], " .
+				Status::wrap( $status )->getMessage()->inLanguage( 'en' )->text();
+
+			// Server time out, try again once
+			if ( $req->getStatus() === 504 ) {
+				$req = $this->prepareRevertriskRequest( $url, $revid, $language );
+				$status = $req->execute();
+				if ( !$status->isOK() ) {
+					throw new RuntimeException( $message );
+				}
+			} elseif ( $req->getStatus() === 400 ) {
+				$this->logger->debug( "400 Bad Request: {$message}" );
+				$data = FormatJson::decode( $req->getContent(), true );
+				// This is a way to detect whether an error occurred because the revision was not found.
+				// Checking for "detail" key in the response is a hack to detect the error message from Lift Wing as
+				// there is no universal error handling/messaging at the moment.
+				if ( strpos( $data["error"],
+						"The MW API does not have any info related to the rev-id" ) === 0 ||
+					array_key_exists( "detail", $data ) ) {
+					return $this->createRevisionNotFoundResponse( $model, $revid );
+				} else {
+					throw new RuntimeException( $message );
+				}
+			} else {
+				throw new RuntimeException( $message );
+			}
+		}
+		$json = $req->getContent();
+		$this->logger->debug( "Raw response: {$json}" );
+		$data = FormatJson::decode( $json, true );
+		if ( !$data || !empty( $data['error'] ) ) {
+			throw new RuntimeException( "Bad response from Lift Wing endpoint [{$url}]: {$json}" );
+		}
+		return $data;
+	}
+
+	private function prepareRevertriskRequest( string $url, string $revid, string $language ): \MWHttpRequest {
+		$req = $this->httpRequestFactory->create( $url, [
+			'method' => 'POST',
+			'postData' => json_encode( [ 'rev_id' => (int)$revid, 'lang' => $language ] ),
+		],
+		);
+		global $wgOresLiftWingAddHostHeader;
+		if ( $wgOresLiftWingAddHostHeader ) {
+			$req->setHeader( 'Content-Type', 'application/json' );
+			$req->setHeader( 'Host', "revertrisk-language-agnostic.revertrisk.wikimedia.org" );
+		}
+		return $req;
+	}
+
+	/**
 	 * @param string $modelname the model name as requested from ORES
 	 * @return string The hostname required in the header for the Lift Wing call
 	 */
@@ -169,7 +245,7 @@ class LiftWingService extends ORESService {
 			'drafttopic' => 'revscoring-drafttopic',
 			'damaging' => 'revscoring-editquality-damaging',
 			'goodfaith' => 'revscoring-editquality-goodfaith',
-			'reverted' => 'revscoring-editquality-reverted'
+			'reverted' => 'revscoring-editquality-reverted',
 		];
 		$wikiID = self::getWikiID();
 		return "{$wikiID}-{$modelname}.{$hostnames[$modelname]}.wikimedia.org";
@@ -235,6 +311,37 @@ class LiftWingService extends ORESService {
 				],
 			],
 		];
+	}
+
+	/**
+	 * @param array $response
+	 * @return array[]
+	 */
+	private function modifyRevertRiskResponse( array $response ): array {
+		$output = [
+			$response["wiki_db"] => [
+				"models" => [
+					"revertrisk-language-agnostic" => [
+						"version" => $response["model_version"]
+					]
+				],
+				"scores" => [
+					(string)$response["revision_id"] => [
+						"revertrisk-language-agnostic" => [
+							"score" => [
+								"prediction" => $response["output"]["prediction"] ? "true" : "false",
+								"probability" => [
+									"true" => $response["output"]["probabilities"]["true"],
+									"false" => $response["output"]["probabilities"]["false"]
+								]
+							]
+						]
+					]
+				]
+			]
+		];
+
+		return $output;
 	}
 
 }

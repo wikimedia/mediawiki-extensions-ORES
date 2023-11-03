@@ -56,10 +56,12 @@ class ChangesListHooksHandler implements
 		$changeTypeGroup = $clsp->getFilterGroup( 'changeType' );
 		$logFilter = $changeTypeGroup->getFilter( 'hidelog' );
 		try {
+			if ( Helpers::isModelEnabled( 'revertrisk-language-agnostic' ) ) {
+				self::handleRevertrisk( $clsp, $thresholdLookup, $logFilter );
+			}
 			if ( Helpers::isModelEnabled( 'damaging' ) ) {
 				self::handleDamaging( $clsp, $thresholdLookup, $logFilter );
 			}
-
 			if ( Helpers::isModelEnabled( 'goodfaith' ) ) {
 				self::handleGoodFaith( $clsp, $thresholdLookup, $logFilter );
 			}
@@ -301,6 +303,70 @@ class ChangesListHooksHandler implements
 		$clsp->registerFilterGroup( $goodfaithGroup );
 	}
 
+	private static function handleRevertrisk(
+		ChangesListSpecialPage $clsp,
+		$thresholdLookup,
+		ChangesListFilter $logFilter
+	) {
+		$filters = self::getRevertriskStructuredFiltersOnChangesList(
+			$thresholdLookup->getThresholds( 'revertrisk-language-agnostic' )
+		);
+
+		if ( !$filters ) {
+			return;
+		}
+		$revertriskGroup = new ChangesListStringOptionsFilterGroup( [
+			'name' => 'revertrisk-language-agnostic',
+			'title' => 'ores-rcfilters-revertrisk-language-agnostic-title',
+			'whatsThisHeader' => 'ores-rcfilters-revertrisk-language-agnostic-whats-this-header',
+			'whatsThisBody' => 'ores-rcfilters-revertrisk-language-agnostic-whats-this-body',
+			'whatsThisUrl' => 'https://www.mediawiki.org/wiki/' .
+				'Special:MyLanguage/Help:New_filters_for_edit_review/Quality_and_Intent_Filters',
+			'whatsThisLinkText' => 'ores-rcfilters-whats-this-link-text',
+			'priority' => 1,
+			'filters' => array_values( $filters ),
+			'default' => ChangesListStringOptionsFilterGroup::NONE,
+			'isFullCoverage' => false,
+			'queryCallable' => function (
+				$specialClassName,
+				$ctx,
+				IDatabase $dbr,
+				&$tables,
+				&$fields,
+				&$conds,
+				&$query_options,
+				&$join_conds,
+				$selectedValues ) {
+				$databaseQueryBuilder = ORESServices::getDatabaseQueryBuilder();
+				$condition = $databaseQueryBuilder->buildQuery(
+					'revertrisk-language-agnostic',
+					$selectedValues
+				);
+				if ( $condition ) {
+					$conds[] = $condition;
+
+					// Filter out incompatible types; log actions and external rows are not scorable
+					$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
+					// Make the joins INNER JOINs instead of LEFT JOINs
+					$join_conds['ores_revertrisk-language-agnostic_mdl'][0] = 'INNER JOIN';
+					$join_conds['ores_revertrisk-language-agnostic_cls'][0] = 'INNER JOIN';
+					if ( self::shouldStraightJoin( $specialClassName ) ) {
+						$query_options[] = 'STRAIGHT_JOIN';
+					}
+				}
+			},
+		] );
+
+		$revertriskGroup->conflictsWith(
+			$logFilter,
+			'ores-rcfilters-ores-conflicts-logactions-global',
+			'ores-rcfilters-revertrisk-language-agnostic-conflicts-logactions',
+			'ores-rcfilters-logactions-conflicts-ores'
+		);
+
+		$clsp->registerFilterGroup( $revertriskGroup );
+	}
+
 	private static function shouldStraightJoin( $specialClassName ) {
 		// Performance hack: add STRAIGHT_JOIN (T146111) but not for Watchlist (T176456 / T164796)
 		// New theory is that STRAIGHT JOIN should be used for unfiltered queries (RecentChanges)
@@ -414,6 +480,24 @@ class ChangesListHooksHandler implements
 				'isRowApplicableCallable' => self::makeApplicableCallback(
 					'goodfaith',
 					$goodfaithLevels['verylikelybad']
+				),
+			];
+		}
+
+		return $filters;
+	}
+
+	private static function getRevertriskStructuredFiltersOnChangesList( array $revertriskLevels ) {
+		$filters = [];
+		if ( isset( $revertriskLevels['revertrisk'] ) ) {
+			$filters[ 'revertrisk' ] = [
+				'name' => 'revertrisk',
+				'label' => 'ores-rcfilters-revertrisk-language-agnostic-revertrisk-label',
+				'description' => 'ores-rcfilters-revertrisk-language-agnostic-revertrisk-desc',
+				'cssClassSuffix' => 'revertrisk-language-agnostic-revertrisk',
+				'isRowApplicableCallable' => self::makeApplicableCallback(
+					'revertrisk',
+					$revertriskLevels['revertrisk']
 				),
 			];
 		}

@@ -183,6 +183,9 @@
 					"types": [
 						1
 					]
+				},
+				"revertrisk-language-agnostic": {
+					"enabled": false
 				}
 			}
 		},
@@ -221,6 +224,10 @@
 					"OK": 1,
 					"spam": 2,
 					"vandalism": 3
+				},
+				"revertrisk-language-agnostic": {
+					"false": 0,
+					"true": 1
 				}
 			}
 		},
@@ -310,6 +317,12 @@
 						"min": 0.8333,
 						"max": 1
 					}
+				},
+				"revertrisk-language-agnostic": {
+					"revertrisk": {
+						"min": 0.50,
+						"max": 1
+					}
 				}
 			},
 			"description": "Interval endpoints are calculated using a formula.\n\nTODO: Simplify the grammar and support lists of conditions to build a threshold.",
@@ -335,6 +348,9 @@
 					},
 					"draftquality": {
 						"version": "0.2.1"
+					},
+					"revertrisk-language-agnostic": {
+						"version": "2"
 					}
 				}
 			}
