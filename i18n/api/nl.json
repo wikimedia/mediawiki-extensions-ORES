@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"apihelp-query+ores-summary": "Retourneer ORES-configuratie- en modelgegevens voor deze wiki.",
+	"apihelp-query+ores-example-simple": "ORES-gegevens ophalen:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES-scores voor de versie.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES-scores voor de versie.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Voegt ORES-scores toe voor de vermelding.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Voegt ORES-scores toe voor de bewerking.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Voegt ORES-scores toe voor de bewerking."
+}
