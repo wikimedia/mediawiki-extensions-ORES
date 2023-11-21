@@ -131,13 +131,16 @@
 			"value": "https://ores.wikimedia.org/"
 		},
 		"OresUseLiftwing": {
-			"value": false
+			"description": "Whether to use LiftWing instead of ORES for fetching model predictions. With ORES deprecation this has been turned to true by default.",
+			"value": true
 		},
 		"OresLiftWingBaseUrl": {
-			"value": "https://inference.discovery.wmnet:30443"
+			"description": "The base URL of the LiftWing service. This is only used if OresUseLiftwing. We set it by default to use the API Gateway endpoint which is publicly accessible and is modified by mediawiki deployments that run within the production WMF cluster and have access to the internal endpoint.",
+			"value": "https://api.wikimedia.org/service/lw/inference/"
 		},
 		"OresLiftWingAddHostHeader": {
-			"value": true
+			"description": "Whether to add the Host header to the LiftWing request. This is required for Lift Wing requests made using the internal endpoint within the WMF infrastructure.",
+			"value": false
 		},
 		"OresFrontendBaseUrl": {
 			"value": null
