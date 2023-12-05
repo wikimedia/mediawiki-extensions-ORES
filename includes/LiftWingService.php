@@ -84,11 +84,10 @@ class LiftWingService extends ORESService {
 		foreach ( $models as $model ) {
 			foreach ( $revids as $revid ) {
 				if ( $model == 'revertrisk-language-agnostic' ) {
-					# This is a hack to convert the revert-risk response to an ORES response in order to be compatible
-					# with the rest of the model responses in order for them to be easily merged together in one
-					# response.
+					// This is a hack to convert the revert-risk response to an ORES response in order to be compatible
+					// with the rest of the model responses in order for them to be easily merged together in one
+					// response.
 					$response = $this->revertRiskLiftWingRequest( $model, $revid );
-					$response = $this->modifyRevertRiskResponse( $response );
 				} else {
 					$response = $this->singleLiftWingRequest( $model, $revid );
 				}
@@ -214,7 +213,7 @@ class LiftWingService extends ORESService {
 		if ( !$data || !empty( $data['error'] ) ) {
 			throw new RuntimeException( "Bad response from Lift Wing endpoint [{$url}]: {$json}" );
 		}
-		return $data;
+		return $this->modifyRevertRiskResponse( $data );
 	}
 
 	private function prepareRevertriskRequest( string $url, string $revid, string $language ): \MWHttpRequest {
@@ -318,7 +317,7 @@ class LiftWingService extends ORESService {
 	 * @return array[]
 	 */
 	private function modifyRevertRiskResponse( array $response ): array {
-		$output = [
+		return [
 			$response["wiki_db"] => [
 				"models" => [
 					"revertrisk-language-agnostic" => [
@@ -340,8 +339,6 @@ class LiftWingService extends ORESService {
 				]
 			]
 		];
-
-		return $output;
 	}
 
 }
