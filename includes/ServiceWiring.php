@@ -64,7 +64,8 @@ return [
 		if ( $services->getMainConfig()->get( 'OresUseLiftwing' ) ) {
 			return new LiftWingService(
 				ORESServices::getLogger(),
-				$services->getHttpRequestFactory()
+				$services->getHttpRequestFactory(),
+				$services->getMainConfig()
 			);
 		} else {
 			return new ORESService(

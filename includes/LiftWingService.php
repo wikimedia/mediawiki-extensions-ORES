@@ -17,6 +17,9 @@
 namespace ORES;
 
 use FormatJson;
+use MediaWiki\Config\Config;
+use MediaWiki\Http\HttpRequestFactory;
+use Psr\Log\LoggerInterface;
 use RuntimeException;
 use Status;
 
@@ -26,6 +29,14 @@ use Status;
 class LiftWingService extends ORESService {
 
 	public const API_VERSION = 1;
+	private Config $config;
+
+	public function __construct(
+		LoggerInterface $logger, HttpRequestFactory $httpRequestFactory, Config $config
+	) {
+		parent::__construct( $logger, $httpRequestFactory );
+		$this->config = $config;
+	}
 
 	/**
 	 * @return string Base URL of ORES service
@@ -225,7 +236,7 @@ class LiftWingService extends ORESService {
 		$req->setHeader( 'Content-Type', 'application/json' );
 		global $wgOresLiftWingAddHostHeader;
 		if ( $wgOresLiftWingAddHostHeader ) {
-			$req->setHeader( 'Host', "revertrisk-language-agnostic.revertrisk.wikimedia.org" );
+			$req->setHeader( 'Host', $this->config->get( 'OresLiftWingRevertRiskHostHeader' ) );
 		}
 		return $req;
 	}
