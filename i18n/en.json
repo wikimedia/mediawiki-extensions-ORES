@@ -49,7 +49,7 @@
 	"ores-rcfilters-revertrisk-language-agnostic-whats-this-body": "This output is based on a [https://meta.wikimedia.org/wiki/Machine_learning_models/Proposed/Language-agnostic_revert_risk machine learning model] that uses revision content and metadata to predict the risk of being reverted",
 	"ores-rcfilters-revertrisk-language-agnostic-conflicts-logactions": "RevertRisk predictions are not available for certain types of change, so this filter conflicts with the following Type of Change {{PLURAL:$2|filter|filters}}: $1",
 	"ores-rcfilters-revertrisk-language-agnostic-revertrisk-label": "Likely to be reverted",
-	"ores-rcfilters-revertrisk-language-agnostic-revertrisk-desc": " Detect revisions that might be reverted, independently if they were made on good faith or with the intention of creating damage.",
+	"ores-rcfilters-revertrisk-language-agnostic-revertrisk-desc": "Detect revisions that might be reverted, independently if they were made on good faith or with the intention of creating damage.",
 	"ores-pref-highlight": "Highlight likely problem edits with colors and an \"{{int:ores-damaging-letter}}\" for \"needs review\"",
 	"ores-pref-rc-hidenondamaging": "Show only likely problem edits (and hide probably good edits)",
 	"ores-pref-watchlist-hidenondamaging": "Show only likely problem edits (and hide probably good edits)",
