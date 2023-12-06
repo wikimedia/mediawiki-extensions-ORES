@@ -223,9 +223,9 @@ class LiftWingService extends ORESService {
 			'postData' => json_encode( [ 'rev_id' => (int)$revid, 'lang' => $language ] ),
 		],
 		);
+		$req->setHeader( 'Content-Type', 'application/json' );
 		global $wgOresLiftWingAddHostHeader;
 		if ( $wgOresLiftWingAddHostHeader ) {
-			$req->setHeader( 'Content-Type', 'application/json' );
 			$req->setHeader( 'Host', "revertrisk-language-agnostic.revertrisk.wikimedia.org" );
 		}
 		return $req;
