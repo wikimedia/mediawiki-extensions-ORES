@@ -14,9 +14,9 @@ use ORES\LiftWingService;
 class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 
 	/**
-	 * @var LiftWingService
+	 * @var LiftWingService|null
 	 */
-	protected $liftWingService;
+	protected ?LiftWingService $lwService;
 
 	protected function setUp(): void {
 		parent::setUp();
