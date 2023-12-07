@@ -12,6 +12,7 @@
 		]
 	},
 	"ores-desc": "Wyświetla automatycznie wygenerowane oceny wersji",
+	"ores-name": "Platforma uczenia maszynowego",
 	"ores-damaging-filter": "$1 prawdopodobnie dobre edycje",
 	"ores-damaging-letter": "p",
 	"ores-damaging-title": "Tę edycję należy przejrzeć",

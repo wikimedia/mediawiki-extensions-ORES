@@ -51,6 +51,8 @@
 	"ores-rcfilters-goodfaith-bad-desc-high": "Са средњом прецизношћу проналази већину злонамерних измена.",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Врло вероватно злонамерно",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Високопрецизно проналази већину очигледно злонамерних измена",
+	"ores-rcfilters-revertrisk-language-agnostic-title": "Ризик од враћања",
+	"ores-rcfilters-revertrisk-language-agnostic-revertrisk-label": "Вероватно ће бити враћено",
 	"ores-pref-highlight": "Истичи вероватно проблематичне измене бојама и знаком „{{int:ores-damaging-letter}}” за „потребан преглед”",
 	"ores-pref-rc-hidenondamaging": "Приказуј само вероватно проблематичне измене (и сакривај вероватно добре измене)",
 	"ores-pref-watchlist-hidenondamaging": "Приказуј само вероватно проблематичне измене (и сакривај вероватно добре измене)",
