@@ -54,6 +54,7 @@
 	"ores-rcfilters-revertrisk-language-agnostic-whats-this-body": "הפלט הזה מבוסס על [https://meta.wikimedia.org/wiki/Machine_learning_models/Proposed/Language-agnostic_revert_risk דגם למידת מכונה] שמשתמש בתוכן גרסאות ובמטא־נתונים כדי לחזות את הסיכון לשחזור",
 	"ores-rcfilters-revertrisk-language-agnostic-conflicts-logactions": "חיזויי סיכון שחזור (RevertRisk) אינם זמינים לסוגים מסוימים של שינויים, אז המסנן הזה אינו פעיל כי הוא מתנגש עם {{PLURAL:$2|מסנן סוג השינוי הבא|מסנני סוג השינוי הבאים}}: $1",
 	"ores-rcfilters-revertrisk-language-agnostic-revertrisk-label": "סביר שישוחזרו",
+	"ores-rcfilters-revertrisk-language-agnostic-revertrisk-desc": "לזהות עריכות שעלולות להיות משוחזרות, בלי קשר לשאלה אם הם נעשו בכוונה טובה או מתוך כוונה להזיק.",
 	"ores-pref-highlight": "להדגיש עריכות שסביר שיש בהן בעיות בצבעים וב\"{{int:ores-damaging-letter}}\" עבור \"נדרשת סקירה\"",
 	"ores-pref-rc-hidenondamaging": "להציג רק עריכות שסביר שיש בהן בעיות (והסתרה של עריכות שכנראה טובות)",
 	"ores-pref-watchlist-hidenondamaging": "להציג רק עריכות שסביר שיש בהן בעיות (והסתרה של עריכות שכנראה טובות)",
