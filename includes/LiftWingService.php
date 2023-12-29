@@ -19,9 +19,9 @@ namespace ORES;
 use FormatJson;
 use MediaWiki\Config\Config;
 use MediaWiki\Http\HttpRequestFactory;
+use MediaWiki\Status\Status;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
-use Status;
 
 /**
  * Common methods for accessing a Lift Wing server.

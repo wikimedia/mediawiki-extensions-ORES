@@ -16,8 +16,8 @@
 
 namespace ORES\Storage;
 
-use Config;
 use IBufferingStatsdDataFactory;
+use MediaWiki\Config\Config;
 use ORES\ORESService;
 use ORES\ThresholdParser;
 use Psr\Log\LoggerInterface;

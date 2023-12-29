@@ -3,10 +3,11 @@
 namespace ORES\Specials;
 
 use MediaWiki\Html\TemplateParser;
+use MediaWiki\SpecialPage\SpecialPage;
 use ORES\Storage\ModelLookup;
 use ORES\Storage\ThresholdLookup;
 
-class SpecialORESModels extends \SpecialPage {
+class SpecialORESModels extends SpecialPage {
 
 	/** @var ModelLookup */
 	private $modelLookup;

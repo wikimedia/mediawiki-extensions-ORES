@@ -17,6 +17,7 @@
 namespace ORES\Services;
 
 use InvalidArgumentException;
+use MediaWiki\Request\WebRequest;
 use ORES\ORESService;
 use ORES\ServiceScoreLookup;
 
@@ -29,7 +30,7 @@ class ScoreFetcher implements ServiceScoreLookup {
 	 * @param string|string[]|null $models Single or multiple model names. If
 	 * left empty, all configured models are queried.
 	 * @param bool $precache either the request is made for precaching or not
-	 * @param \WebRequest|string[]|null $originalRequest
+	 * @param WebRequest|string[]|null $originalRequest
 	 *
 	 * @return array Results in the form returned by ORES API
 	 */

@@ -2,9 +2,9 @@
 
 namespace ORES\Tests;
 
+use MediaWiki\Title\TitleValue;
 use ORES\Hooks\Api\WatchedItemQueryServiceExtension;
 use ORES\Storage\HashModelLookup;
-use TitleValue;
 use WatchedItem;
 
 /**

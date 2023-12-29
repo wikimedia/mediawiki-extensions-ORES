@@ -17,7 +17,7 @@
 namespace ORES\Hooks;
 
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
-use User;
+use MediaWiki\User\User;
 
 class PreferencesHookHandler implements GetPreferencesHook {
 

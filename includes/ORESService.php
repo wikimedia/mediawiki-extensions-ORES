@@ -18,12 +18,12 @@ namespace ORES;
 
 use FormatJson;
 use MediaWiki\Http\HttpRequestFactory;
+use MediaWiki\Request\WebRequest;
+use MediaWiki\Status\Status;
 use MediaWiki\WikiMap\WikiMap;
 use Psr\Log\LoggerInterface;
 use RequestContext;
 use RuntimeException;
-use Status;
-use WebRequest;
 
 /**
  * Common methods for accessing an ORES server.

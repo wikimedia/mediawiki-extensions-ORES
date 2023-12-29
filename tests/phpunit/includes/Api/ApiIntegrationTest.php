@@ -4,10 +4,10 @@ namespace ORES\Tests\Api;
 
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\TitleValue;
 use MediaWiki\User\UserIdentity;
 use ORES\Storage\HashModelLookup;
 use ORES\Tests\TestHelper;
-use TitleValue;
 
 /**
  * @group API

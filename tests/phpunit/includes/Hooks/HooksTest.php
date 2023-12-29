@@ -3,10 +3,10 @@
 namespace ORES\Tests;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\OutputPage;
 use ORES\Hooks\Hooks;
 use ORES\Storage\HashModelLookup;
 use ORES\Storage\ScoreStorage;
-use OutputPage;
 
 /**
  * @group ORES

@@ -2,13 +2,13 @@
 
 namespace ORES\Tests;
 
-use ContribsPager;
 use IContextSource;
+use MediaWiki\Pager\ContribsPager;
+use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\User\User;
 use ORES\Hooks\ContributionsHooksHandler;
 use ORES\Storage\HashModelLookup;
 use RequestContext;
-use SpecialPage;
-use User;
 
 /**
  * @group ORES

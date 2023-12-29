@@ -2,8 +2,8 @@
 
 namespace ORES\Tests;
 
-use Config;
 use HashBagOStuff;
+use MediaWiki\Config\Config;
 use MediaWiki\Logger\LoggerFactory;
 use NullStatsdDataFactory;
 use ORES\ORESService;

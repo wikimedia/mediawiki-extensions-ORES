@@ -20,10 +20,10 @@ namespace ORES\Hooks;
 
 use Exception;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Request\WebRequest;
 use ORES\Services\FetchScoreJob;
 use Psr\Log\LoggerInterface;
 use RecentChange;
-use WebRequest;
 
 class RecentChangeSaveHookHandler {
 

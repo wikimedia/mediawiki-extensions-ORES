@@ -3,14 +3,14 @@
 namespace ORES\Tests;
 
 use IContextSource;
+use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use ORES\Hooks\Helpers;
 use ORES\ORESService;
 use ORES\Storage\HashModelLookup;
 use ORES\Storage\ThresholdLookup;
 use RequestContext;
-use SpecialPage;
-use User;
 
 /**
  * @group ORES
