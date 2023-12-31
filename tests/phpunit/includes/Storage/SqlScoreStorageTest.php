@@ -84,17 +84,17 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 				[
 					(object)[
 						'oresc_rev' => '12345',
-						'oresc_model' => (string)self::REVERTED,
-						'oresc_class' => '1',
-						'oresc_probability' => '0.876',
-						'oresc_is_predicted' => '1'
-					],
-					(object)[
-						'oresc_rev' => '12345',
 						'oresc_model' => (string)self::DAMAGING,
 						'oresc_class' => '1',
 						'oresc_probability' => '0.067',
 						'oresc_is_predicted' => '0'
+					],
+					(object)[
+						'oresc_rev' => '12345',
+						'oresc_model' => (string)self::REVERTED,
+						'oresc_class' => '1',
+						'oresc_probability' => '0.876',
+						'oresc_is_predicted' => '1'
 					],
 				],
 				[ 12345 ],
@@ -125,7 +125,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 			],
 			[ 'oresc_rev' => $revIds ],
 			__METHOD__,
-			'ORDER BY oresc_probability'
+			[ 'ORDER BY' => 'oresc_probability' ]
 		);
 
 		$this->assertEquals( $expected, iterator_to_array( $res, false ) );
@@ -220,18 +220,18 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 
 		$expected = [
 			(object)[
-				'oresc_rev' => '567',
-				'oresc_model' => (string)self::DAMAGING,
-				'oresc_class' => '1',
-				'oresc_probability' => '0.600',
-				'oresc_is_predicted' => '1'
-			],
-			(object)[
 				'oresc_rev' => '12345',
 				'oresc_model' => (string)self::DAMAGING,
 				'oresc_class' => '1',
 				'oresc_probability' => '0.067',
 				'oresc_is_predicted' => '0'
+			],
+			(object)[
+				'oresc_rev' => '567',
+				'oresc_model' => (string)self::DAMAGING,
+				'oresc_class' => '1',
+				'oresc_probability' => '0.600',
+				'oresc_is_predicted' => '1'
 			],
 			(object)[
 				'oresc_rev' => '12345',
@@ -260,7 +260,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 			],
 			[],
 			__METHOD__,
-			'ORDER BY oresc_probability'
+			[ 'ORDER BY' => 'oresc_probability' ]
 		);
 
 		$this->assertEquals( $expected, iterator_to_array( $res, false ) );
