@@ -158,7 +158,7 @@ class ORESService {
 	 * @return array
 	 */
 	protected function getMWHttpRequestOptions( $originalRequest ) {
-		if ( $originalRequest === null && empty( $GLOBALS['wgCommandLineMode'] ) ) {
+		if ( $originalRequest === null && MW_ENTRY_POINT !== 'cli' ) {
 			$originalRequest = RequestContext::getMain()->getRequest();
 		}
 
