@@ -94,7 +94,7 @@ class LiftWingService extends ORESService {
 
 		foreach ( $models as $model ) {
 			foreach ( $revids as $revid ) {
-				if ( $model == 'revertrisk-language-agnostic' ) {
+				if ( $model == 'revertrisklanguageagnostic' ) {
 					// This is a hack to convert the revert-risk response to an ORES response in order to be compatible
 					// with the rest of the model responses in order for them to be easily merged together in one
 					// response.
@@ -179,12 +179,12 @@ class LiftWingService extends ORESService {
 	 * @param string|int $revid
 	 * @return array|array[]|mixed
 	 */
-	public function revertRiskLiftWingRequest( string $model, $revid ) {
+	public function revertRiskLiftWingRequest( $model, $revid ) {
 		$wikiId = self::getWikiID();
 		$language = substr( $wikiId, 0, strpos( $wikiId, "wiki" ) );
 		$prefix = 'v' . self::API_VERSION;
 		$baseUrl = self::getBaseUrl();
-		$url = "{$baseUrl}{$prefix}/models/{$model}:predict";
+		$url = "{$baseUrl}{$prefix}/models/revertrisk-language-agnostic:predict";
 
 		$this->logger->debug( "Requesting: {$url}" );
 
@@ -210,7 +210,10 @@ class LiftWingService extends ORESService {
 				if ( $data && isset( $data['error'] ) && strpos( $data["error"],
 						"The MW API does not have any info related to the rev-id" ) === 0 ||
 					array_key_exists( "detail", $data ) ) {
-					return $this->createRevisionNotFoundResponse( $model, $revid );
+					return $this->createRevisionNotFoundResponse(
+						$model,
+						$revid
+					);
 				} else {
 					throw new RuntimeException( $message );
 				}
@@ -331,13 +334,13 @@ class LiftWingService extends ORESService {
 		return [
 			$response["wiki_db"] => [
 				"models" => [
-					"revertrisk-language-agnostic" => [
+					"revertrisklanguageagnostic" => [
 						"version" => $response["model_version"]
 					]
 				],
 				"scores" => [
 					(string)$response["revision_id"] => [
-						"revertrisk-language-agnostic" => [
+						"revertrisklanguageagnostic" => [
 							"score" => [
 								"prediction" => $response["output"]["prediction"] ? "true" : "false",
 								"probability" => [

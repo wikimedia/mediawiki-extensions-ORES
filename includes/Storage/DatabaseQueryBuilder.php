@@ -162,8 +162,10 @@ class DatabaseQueryBuilder {
 			return false;
 		}
 
-		if ( count( $selectedValidUnique ) === count( $possible ) ) {
-			// all selected
+		// all filters selected, and more than one possible filter exists.
+		// For filters like e.g. revertrisklanguageagnostic, where only one threshold exists,
+		// allow for selecting a single filter.
+		if ( count( $selectedValidUnique ) === count( $possible ) && count( $possible ) > 1 ) {
 			return false;
 		}
 

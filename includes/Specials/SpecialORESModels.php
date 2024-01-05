@@ -58,7 +58,7 @@ class SpecialORESModels extends SpecialPage {
 		if ( $thresholds === [] || $thresholdData === false ) {
 			return false;
 		}
-		if ( !in_array( $modelName, [ 'damaging', 'goodfaith' ] ) ) {
+		if ( !in_array( $modelName, [ 'damaging', 'goodfaith', 'revertrisklanguageagnostic' ] ) ) {
 			return false;
 		}
 

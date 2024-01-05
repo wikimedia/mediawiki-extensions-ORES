@@ -56,7 +56,7 @@ class ChangesListHooksHandler implements
 		$changeTypeGroup = $clsp->getFilterGroup( 'changeType' );
 		$logFilter = $changeTypeGroup->getFilter( 'hidelog' );
 		try {
-			if ( Helpers::isModelEnabled( 'revertrisk-language-agnostic' ) ) {
+			if ( Helpers::isModelEnabled( 'revertrisklanguageagnostic' ) ) {
 				self::handleRevertrisk( $clsp, $thresholdLookup, $logFilter );
 			}
 			if ( Helpers::isModelEnabled( 'damaging' ) ) {
@@ -309,17 +309,17 @@ class ChangesListHooksHandler implements
 		ChangesListFilter $logFilter
 	) {
 		$filters = self::getRevertriskStructuredFiltersOnChangesList(
-			$thresholdLookup->getThresholds( 'revertrisk-language-agnostic' )
+			$thresholdLookup->getThresholds( 'revertrisklanguageagnostic' )
 		);
 
 		if ( !$filters ) {
 			return;
 		}
 		$revertriskGroup = new ChangesListStringOptionsFilterGroup( [
-			'name' => 'revertrisk-language-agnostic',
-			'title' => 'ores-rcfilters-revertrisk-language-agnostic-title',
-			'whatsThisHeader' => 'ores-rcfilters-revertrisk-language-agnostic-whats-this-header',
-			'whatsThisBody' => 'ores-rcfilters-revertrisk-language-agnostic-whats-this-body',
+			'name' => 'revertrisklanguageagnostic',
+			'title' => 'ores-rcfilters-revertrisklanguageagnostic-title',
+			'whatsThisHeader' => 'ores-rcfilters-revertrisklanguageagnosticwhats-this-header',
+			'whatsThisBody' => 'ores-rcfilters-revertrisklanguageagnosticwhats-this-body',
 			'whatsThisUrl' => 'https://www.mediawiki.org/wiki/' .
 				'Special:MyLanguage/Help:New_filters_for_edit_review/Quality_and_Intent_Filters',
 			'whatsThisLinkText' => 'ores-rcfilters-whats-this-link-text',
@@ -339,7 +339,7 @@ class ChangesListHooksHandler implements
 				$selectedValues ) {
 				$databaseQueryBuilder = ORESServices::getDatabaseQueryBuilder();
 				$condition = $databaseQueryBuilder->buildQuery(
-					'revertrisk-language-agnostic',
+					'revertrisklanguageagnostic',
 					$selectedValues
 				);
 				if ( $condition ) {
@@ -348,8 +348,8 @@ class ChangesListHooksHandler implements
 					// Filter out incompatible types; log actions and external rows are not scorable
 					$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
 					// Make the joins INNER JOINs instead of LEFT JOINs
-					$join_conds['ores_revertrisk-language-agnostic_mdl'][0] = 'INNER JOIN';
-					$join_conds['ores_revertrisk-language-agnostic_cls'][0] = 'INNER JOIN';
+					$join_conds['ores_revertrisklanguageagnostic_mdl'][0] = 'INNER JOIN';
+					$join_conds['ores_revertrisklanguageagnostic_cls'][0] = 'INNER JOIN';
 					if ( self::shouldStraightJoin( $specialClassName ) ) {
 						$query_options[] = 'STRAIGHT_JOIN';
 					}
@@ -360,7 +360,7 @@ class ChangesListHooksHandler implements
 		$revertriskGroup->conflictsWith(
 			$logFilter,
 			'ores-rcfilters-ores-conflicts-logactions-global',
-			'ores-rcfilters-revertrisk-language-agnostic-conflicts-logactions',
+			'ores-rcfilters-revertrisklanguageagnosticconflicts-logactions',
 			'ores-rcfilters-logactions-conflicts-ores'
 		);
 
@@ -492,9 +492,9 @@ class ChangesListHooksHandler implements
 		if ( isset( $revertriskLevels['revertrisk'] ) ) {
 			$filters[ 'revertrisk' ] = [
 				'name' => 'revertrisk',
-				'label' => 'ores-rcfilters-revertrisk-language-agnostic-revertrisk-label',
-				'description' => 'ores-rcfilters-revertrisk-language-agnostic-revertrisk-desc',
-				'cssClassSuffix' => 'revertrisk-language-agnostic-revertrisk',
+				'label' => 'ores-rcfilters-revertrisklanguageagnostic-revertrisk-label',
+				'description' => 'ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc',
+				'cssClassSuffix' => 'revertrisklanguageagnostic-revertrisk',
 				'isRowApplicableCallable' => self::makeApplicableCallback(
 					'revertrisk',
 					$revertriskLevels['revertrisk']
@@ -519,6 +519,10 @@ class ChangesListHooksHandler implements
 			}
 			if ( Helpers::isModelEnabled( 'goodfaith' ) ) {
 				Helpers::joinWithOresTables( 'goodfaith', 'rc_this_oldid', $tables, $fields,
+					$join_conds );
+			}
+			if ( Helpers::isModelEnabled( 'revertrisklanguageagnostic' ) ) {
+				Helpers::joinWithOresTables( 'revertrisklanguageagnostic', 'rc_this_oldid', $tables, $fields,
 					$join_conds );
 			}
 		} catch ( Exception $exception ) {
