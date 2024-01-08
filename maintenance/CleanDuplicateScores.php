@@ -26,7 +26,7 @@ class CleanDuplicateScores extends Maintenance {
 		$dbw = \wfGetDB( DB_PRIMARY );
 		$groupConcat = $dbr->buildGroupConcatField(
 			'|',
-			'ores_classification AS OC',
+			[ 'OC' => 'ores_classification' ],
 			'ores_classification.oresc_id',
 			'OC.oresc_id = ores_classification.oresc_id'
 		);
