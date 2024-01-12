@@ -88,20 +88,12 @@
 			"scripts": [
 				"ext.ores.highlighter.js"
 			],
-			"styles": "ext.ores.highlighter.css",
-			"targets": [
-				"desktop",
-				"mobile"
-			]
+			"styles": "ext.ores.highlighter.css"
 		},
 		"ext.ores.styles": {
 			"styles": [
 				"ext.ores.styles.css",
 				"ext.ores.specialoresmodels.less"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.ores.api": {
