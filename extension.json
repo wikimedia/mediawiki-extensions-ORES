@@ -11,7 +11,7 @@
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:ORES",
 	"requires": {
-		"MediaWiki": ">= 1.41"
+		"MediaWiki": ">= 1.42"
 	},
 	"AutoloadNamespaces": {
 		"ORES\\": "includes/",
@@ -324,7 +324,7 @@
 				},
 				"revertrisk-language-agnostic": {
 					"revertrisk": {
-						"min": 0.50,
+						"min": 0.5,
 						"max": 1
 					}
 				}
