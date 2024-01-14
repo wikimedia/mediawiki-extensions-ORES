@@ -29,7 +29,6 @@ class ScoreFetcherTest extends \MediaWikiIntegrationTestCase {
 		$this->setMwGlobals( [
 			'wgOresModels' => [ 'damaging' => [ 'enabled' => true ] ],
 		] );
-		$this->tablesUsed[] = 'ores_model';
 	}
 
 	public static function provideTestGetScores() {

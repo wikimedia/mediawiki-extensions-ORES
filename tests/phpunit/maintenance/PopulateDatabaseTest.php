@@ -20,11 +20,6 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
-		$this->tablesUsed = [
-			'ores_classification',
-			'ores_model',
-			'recentchanges',
-		];
 
 		TestHelper::clearOresTables();
 		TestHelper::insertModelData();

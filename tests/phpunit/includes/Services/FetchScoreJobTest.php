@@ -17,7 +17,6 @@ class FetchScoreJobTest extends \MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->tablesUsed[] = 'ores_classification';
 		$this->setMwGlobals( [
 			'wgOresWikiId' => 'testwiki',
 		] );

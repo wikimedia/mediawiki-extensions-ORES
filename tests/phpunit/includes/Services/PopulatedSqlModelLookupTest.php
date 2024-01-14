@@ -35,7 +35,6 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->tablesUsed[] = 'ores_model';
 		$this->getDb()->delete( 'ores_model', '*' );
 		$this->storageLookup = new SqlModelLookup(
 			MediaWikiServices::getInstance()->getDBLoadBalancerFactory()

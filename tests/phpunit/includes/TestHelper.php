@@ -16,17 +16,6 @@ class TestHelper {
 	public const REVERTED = 2;
 	public const DAMAGING = 3;
 
-	public static function getTablesUsed() {
-		$tablesUsed = [
-			'recentchanges',
-			'page',
-			'revision',
-			'ores_model',
-			'ores_classification',
-		];
-		return $tablesUsed;
-	}
-
 	public static function clearOresTables() {
 		\wfGetDB( DB_PRIMARY )->delete( 'recentchanges', '*', __METHOD__ );
 		\wfGetDB( DB_PRIMARY )->delete( 'watchlist', '*', __METHOD__ );

@@ -21,10 +21,6 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
-		$this->tablesUsed = [
-			'ores_classification',
-			'ores_model',
-		];
 
 		TestHelper::clearOresTables();
 		TestHelper::insertModelData();
@@ -126,8 +122,6 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 		$userData = [
 			'rc_actor' => $testUser->getActorId(),
 		];
-
-		$this->tablesUsed[] = 'recentchanges';
 
 		$revId = mt_rand( 1000, 9999 );
 		$revIdOld = $revId - 1;

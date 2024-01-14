@@ -29,8 +29,6 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->tablesUsed[] = 'ores_classification';
-		$this->tablesUsed[] = 'recentchanges';
 		$modelData = [
 			'reverted' => [ 'id' => self::REVERTED, 'version' => '0.0.1' ],
 			'damaging' => [ 'id' => self::DAMAGING, 'version' => '0.0.2' ],

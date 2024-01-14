@@ -20,12 +20,6 @@ use ORES\Tests\TestHelper;
 class ApiIntegrationTest extends \ApiTestCase {
 	private $ORESuser;
 
-	public function __construct( $name = null, array $data = [], $dataName = '' ) {
-		parent::__construct( $name, $data, $dataName );
-
-		$this->tablesUsed = TestHelper::getTablesUsed();
-	}
-
 	protected function setUp(): void {
 		parent::setUp();
 

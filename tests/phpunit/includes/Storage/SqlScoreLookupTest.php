@@ -15,11 +15,6 @@ use ORES\Tests\TestHelper;
  */
 class SqlScoreLookupTest extends MediaWikiLangTestCase {
 
-	protected function setUp(): void {
-		parent::setUp();
-		$this->tablesUsed[] = 'ores_classification';
-	}
-
 	/**
 	 * @covers ORES\Storage\SqlScoreLookup::getScores
 	 */

@@ -19,8 +19,6 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->tablesUsed = TestHelper::getTablesUsed();
-
 		$this->setMwGlobals( [
 			'wgOresFiltersThresholds' => [
 				'damaging' => [
