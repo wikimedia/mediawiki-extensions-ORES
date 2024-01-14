@@ -9,6 +9,7 @@ use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use ORES\Services\ORESServices;
+use RuntimeException;
 
 class TestHelper {
 
