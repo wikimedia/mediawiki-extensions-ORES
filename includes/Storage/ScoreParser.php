@@ -103,6 +103,10 @@ class ScoreParser {
 				// Example: WHERE class = 0 AND probability > 0.8 -> WHERE class = 1 AND probability <= 0.2
 				continue;
 			}
+			// Never write a probability with more than 3 significant decimal digits,
+			// since the SQL field is a NUMERIC(3,3). So for example, convert 3.141592
+			// to 3.142. T355089
+			$probability = sprintf( "%.3f", $probability );
 			$processedData[] = [
 				'oresc_rev' => $revision,
 				'oresc_model' => $modelId,
@@ -110,16 +114,21 @@ class ScoreParser {
 				'oresc_probability' => $probability,
 				'oresc_is_predicted' => ( $ores_is_predicted ),
 			];
-			$weightedSum += ( $probability * $class );
+			$weightedSum += ( (float)$probability * $class );
 		}
 
 		if ( in_array( $model, $this->aggregatedModels ) ) {
+			$probability = $weightedSum / count( $this->modelClasses[$model] );
+			// Never write a probability with more than 3 significant decimal digits,
+			// since the SQL field is a NUMERIC(3,3). So for example, convert 3.141592
+			// to 3.142. T355089
+			$probability = sprintf( "%.3f", $probability );
 			return [
 				[
 					'oresc_rev' => $revision,
 					'oresc_model' => $modelId,
 					'oresc_class' => 0,
-					'oresc_probability' => $weightedSum / count( $this->modelClasses[$model] ),
+					'oresc_probability' => $probability,
 					'oresc_is_predicted' => false,
 				]
 			];

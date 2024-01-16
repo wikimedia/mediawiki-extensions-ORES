@@ -99,42 +99,42 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 						'oresc_rev' => 12347,
 						'oresc_model' => self::ARTICLEQUALITY,
 						'oresc_class' => 3,
-						'oresc_probability' => 0.4624338381531999,
+						'oresc_probability' => 0.462,
 						'oresc_is_predicted' => true
 					],
 					[
 						'oresc_rev' => 12347,
 						'oresc_model' => self::ARTICLEQUALITY,
 						'oresc_class' => 2,
-						'oresc_probability' => 0.050104495503425654,
+						'oresc_probability' => 0.050,
 						'oresc_is_predicted' => false
 					],
 					[
 						'oresc_rev' => 12347,
 						'oresc_model' => self::ARTICLEQUALITY,
 						'oresc_class' => 5,
-						'oresc_probability' => 0.04630378792818694,
+						'oresc_probability' => 0.046,
 						'oresc_is_predicted' => false
 					],
 					[
 						'oresc_rev' => 12347,
 						'oresc_model' => self::ARTICLEQUALITY,
 						'oresc_class' => 4,
-						'oresc_probability' => 0.4351923376756259,
+						'oresc_probability' => 0.435,
 						'oresc_is_predicted' => false
 					],
 					[
 						'oresc_rev' => 12347,
 						'oresc_model' => self::ARTICLEQUALITY,
 						'oresc_class' => 1,
-						'oresc_probability' => 0.004747126844044479,
+						'oresc_probability' => 0.005,
 						'oresc_is_predicted' => false
 					],
 					[
 						'oresc_rev' => 12347,
 						'oresc_model' => self::ARTICLEQUALITY,
 						'oresc_class' => 0,
-						'oresc_probability' => 0.0012184138955171303,
+						'oresc_probability' => 0.001,
 						'oresc_is_predicted' => false
 					],
 				],
@@ -161,7 +161,7 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 						'oresc_rev' => 12348,
 						'oresc_model' => self::ARTICLEQUALITY,
 						'oresc_class' => 0,
-						'oresc_probability' => 0.57742432044232228,
+						'oresc_probability' => 0.577,
 						'oresc_is_predicted' => false
 					],
 				],
