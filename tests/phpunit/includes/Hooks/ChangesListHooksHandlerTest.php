@@ -40,6 +40,11 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 				]
 			],
 			'wgOresWikiId' => 'testwiki',
+			'wgOresModels' => [
+				'damaging' => [ 'enabled' => true ],
+				'goodfaith' => [ 'enabled' => true ],
+				'reverted' => [ 'enabled' => true ],
+			],
 		] );
 
 		$modelData = [

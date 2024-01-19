@@ -20,6 +20,30 @@ class FetchScoreJobTest extends \MediaWikiIntegrationTestCase {
 		$this->setMwGlobals( [
 			'wgOresWikiId' => 'testwiki',
 		] );
+		$this->setMwGlobals( [
+			'wgOresModels' => [
+				'damaging' => [ 'enabled' => true ],
+				'goodfaith' => [ 'enabled' => true ],
+				'reverted' => [ 'enabled' => true ],
+				'articlequality' => [
+					'enabled' => false,
+					'namespaces' => [ 0 ],
+					'cleanParent' => true,
+					'keepForever' => true,
+				],
+				'wp10' => [
+					'enabled' => false,
+					'namespaces' => [ 0 ],
+					'cleanParent' => true,
+					'keepForever' => true,
+				],
+				'draftquality' => [
+					'enabled' => false,
+					'namespaces' => [ 0 ],
+					'types' => [ 1 ],
+				],
+			]
+		] );
 
 		$modelData = [
 			'damaging' => [ 'id' => 5, 'version' => '0.0.2' ],

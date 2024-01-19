@@ -32,6 +32,28 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 				]
 			],
 			'wgOresWikiId' => 'testwiki',
+			'wgOresModels' => [
+				'damaging' => [ 'enabled' => true ],
+				'goodfaith' => [ 'enabled' => true ],
+				'reverted' => [ 'enabled' => true ],
+				'articlequality' => [
+					'enabled' => true,
+					'namespaces' => [ 0 ],
+					'cleanParent' => true,
+					'keepForever' => true,
+				],
+				'wp10' => [
+					'enabled' => false,
+					'namespaces' => [ 0 ],
+					'cleanParent' => true,
+					'keepForever' => true,
+				],
+				'draftquality' => [
+					'enabled' => false,
+					'namespaces' => [ 0 ],
+					'types' => [ 1 ],
+				],
+			],
 		] );
 
 		$modelData = [
