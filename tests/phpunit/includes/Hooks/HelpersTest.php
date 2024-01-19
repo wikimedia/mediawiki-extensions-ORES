@@ -15,7 +15,7 @@ use RequestContext;
 /**
  * @group ORES
  * @group Database
- * @coversDefaultClass \ORES\Hooks\Helpers
+ * @covers \ORES\Hooks\Helpers
  */
 class HelpersTest extends \MediaWikiIntegrationTestCase {
 
@@ -47,9 +47,6 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 		$this->context = self::getContext( $this->user );
 	}
 
-	/**
-	 * @covers ::getDamagingLevelPreference
-	 */
 	public function testGetDamagingLevelPreference_Watchlist() {
 		$level =
 			Helpers::getDamagingLevelPreference( $this->user,
@@ -58,9 +55,6 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 		$this->assertEquals( 'maybebad', $level );
 	}
 
-	/**
-	 * @covers ::getThreshold
-	 */
 	public function testGetThreshold_null() {
 		$this->markTestSkipped( 'Skipping test that calls ores API since thresholds are hardcoded.' );
 
@@ -77,18 +71,12 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 		$this->assertNull( $threshold );
 	}
 
-	/**
-	 * @covers ::getThreshold
-	 */
 	public function testGetThreshold_invalid() {
 		$this->expectException( \Exception::class );
 		$this->expectExceptionMessage( "Unknown ORES test: 'not_a_thing'" );
 		Helpers::getThreshold( 'not_a_thing', $this->user );
 	}
 
-	/**
-	 * @covers ::getThreshold
-	 */
 	public function testGetThreshold() {
 		$modelData = [ 'damaging' => [ 'id' => 5, 'version' => '0.0.2' ] ];
 		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
@@ -122,9 +110,6 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 		return $context;
 	}
 
-	/**
-	 * @covers ::joinWithOresTables
-	 */
 	public function testJoinWithOresTables() {
 		$modelData = [ 'damaging' => [ 'id' => 5, 'version' => '0.0.2' ] ];
 		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
@@ -149,9 +134,6 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 		], $join_conds );
 	}
 
-	/**
-	 * @covers ::hideNonDamagingFilter
-	 */
 	public function testHideNonDamagingFilter() {
 		$modelData = [ 'damaging' => [ 'id' => 5, 'version' => '0.0.2' ] ];
 		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
