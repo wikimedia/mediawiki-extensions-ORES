@@ -57,7 +57,7 @@ class Helpers {
 	public static function joinWithOresTables(
 		$type, $revIdField, array &$tables, array &$fields, array &$join_conds
 	) {
-		if ( !ctype_lower( $type ) ) {
+		if ( !ctype_lower( $type ) || strpos( $type, '_' ) || strpos( $type, '-' ) ) {
 			throw new Exception( "Invalid value for parameter 'type': '$type'. " .
 				'Restricted to one lower case word to prevent accidental injection.' );
 		}

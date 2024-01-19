@@ -150,4 +150,34 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 		], $conds );
 	}
 
+	/**
+	 * @dataProvider provideTestJoinWithOresTablesPreventInvalidTypes
+	 */
+	public function testJoinWithOresTablesPreventInvalidType( $type ) {
+		$tables = [];
+		$fields = [];
+		$join_conds = [];
+		$expectedMessage = "Invalid value for parameter 'type': '$type'. " .
+			'Restricted to one lower case word to prevent accidental injection.';
+		$this->expectExceptionMessage( $expectedMessage );
+		Helpers::joinWithOresTables(
+			$type,
+			'test',
+			$tables,
+			$fields,
+			$join_conds
+		);
+	}
+
+	public function provideTestJoinWithOresTablesPreventInvalidTypes() {
+		return [
+			[
+				'revertrisk_language_agnostic',
+			],
+			[
+				'revertrisk-language-agnostic'
+			]
+		];
+	}
+
 }
