@@ -77,6 +77,7 @@ class SqlModelLookup implements ModelLookup {
 				->select( [ 'oresm_id', 'oresm_name', 'oresm_version' ] )
 				->from( 'ores_model' )
 				->where( [ 'oresm_is_current' => 1 ] )
+				->orderBy( 'oresm_name' )
 				->caller( __METHOD__ )
 				->fetchResultSet();
 			foreach ( $result as $row ) {
