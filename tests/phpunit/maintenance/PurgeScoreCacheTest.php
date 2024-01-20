@@ -22,7 +22,6 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		TestHelper::clearOresTables();
 		TestHelper::insertModelData();
 
 		// Reset service to purge cached models.
@@ -33,8 +32,6 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 	}
 
 	public function testPurgeScoreCache_emptyDb() {
-		TestHelper::clearOresTables();
-
 		$this->maintenance->execute();
 
 		// Well, this is dirty but the point I want to demonstrate is that

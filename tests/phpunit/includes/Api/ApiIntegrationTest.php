@@ -25,8 +25,6 @@ class ApiIntegrationTest extends \ApiTestCase {
 
 		$this->ORESuser = $this->getMutableTestUser()->getUser();
 
-		TestHelper::clearOresTables();
-
 		$this->setMwGlobals(
 			[
 				'wgOresModels' => [

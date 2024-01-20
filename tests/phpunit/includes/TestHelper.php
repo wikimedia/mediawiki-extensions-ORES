@@ -17,13 +17,6 @@ class TestHelper {
 	public const REVERTED = 2;
 	public const DAMAGING = 3;
 
-	public static function clearOresTables() {
-		\wfGetDB( DB_PRIMARY )->delete( 'recentchanges', '*', __METHOD__ );
-		\wfGetDB( DB_PRIMARY )->delete( 'watchlist', '*', __METHOD__ );
-		\wfGetDB( DB_PRIMARY )->delete( 'ores_model', '*', __METHOD__ );
-		\wfGetDB( DB_PRIMARY )->delete( 'ores_classification', '*', __METHOD__ );
-	}
-
 	public static function insertModelData() {
 		$db = \wfGetDB( DB_PRIMARY );
 		$dump = [
@@ -46,8 +39,6 @@ class TestHelper {
 				'oresm_is_current' => false
 			],
 		];
-
-		$db->delete( 'ores_model', '*' );
 
 		foreach ( $dump as $row ) {
 			$db->insert( 'ores_model', $row );

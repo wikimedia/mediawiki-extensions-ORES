@@ -21,9 +21,7 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		TestHelper::clearOresTables();
 		TestHelper::insertModelData();
-		$this->getDb()->delete( 'recentchanges', '*', __METHOD__ );
 
 		$this->setMwGlobals( [
 			'wgOresModels' => [ 'damaging' => [ 'enabled' => true ] ],
