@@ -318,10 +318,10 @@ class ChangesListHooksHandler implements
 		$revertriskGroup = new ChangesListStringOptionsFilterGroup( [
 			'name' => 'revertrisklanguageagnostic',
 			'title' => 'ores-rcfilters-revertrisklanguageagnostic-title',
-			'whatsThisHeader' => 'ores-rcfilters-revertrisklanguageagnosticwhats-this-header',
-			'whatsThisBody' => 'ores-rcfilters-revertrisklanguageagnosticwhats-this-body',
+			'whatsThisHeader' => 'ores-rcfilters-revertrisklanguageagnostic-whats-this-header',
+			'whatsThisBody' => 'ores-rcfilters-revertrisklanguageagnostic-whats-this-body',
 			'whatsThisUrl' => 'https://www.mediawiki.org/wiki/' .
-				'Special:MyLanguage/Help:New_filters_for_edit_review/Quality_and_Intent_Filters',
+				'Special:MyLanguage/Help:New_filters_for_edit_review/Quality_and_Intent_Filters#Revert_risk',
 			'whatsThisLinkText' => 'ores-rcfilters-whats-this-link-text',
 			'priority' => 1,
 			'filters' => array_values( $filters ),
