@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Daniel236",
 			"Framawiki",
 			"Gomoko",
 			"Momo50WM",
@@ -56,6 +57,7 @@
 	"ores-rcfilters-goodfaith-bad-desc-high": "Avec une précision moyenne, trouve la plupart des modifications effectuées de mauvaise foi.",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Très probablement de mauvaise foi",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Très précis pour trouver les modifications effectuées de mauvaise foi les plus évidentes.",
+	"ores-rcfilters-revertrisklanguageagnostic-whats-this-body": "Ces prédictions sur le risque de réversion sont basées sur un service d'apprentissage automatique qui utilise le contenu de révision et les métadonnées pour prédire le risque de reversation d'une révision",
 	"ores-pref-highlight": "Surligner les modifications qui semblent problématiques à l’aide de couleurs et un « {{int:ores-damaging-letter}} » pour signifier « nécessite une relecture »",
 	"ores-pref-rc-hidenondamaging": "Afficher uniquement les modifications qui semblent problématiques (et masquer celles probablement bonnes)",
 	"ores-pref-watchlist-hidenondamaging": "Afficher uniquement les modifications qui semblent problématiques (et masquer celles probablement bonnes)",
