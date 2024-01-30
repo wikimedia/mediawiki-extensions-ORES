@@ -49,6 +49,8 @@
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Svært sannsynlig dårlig intensjon",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Svært høy nøyaktighet, finner de mest åpenbare redigeringene med dårlig hensikt.",
 	"ores-rcfilters-revertrisklanguageagnostic-title": "Risiko for tilbakestilling",
+	"ores-rcfilters-revertrisklanguageagnostic-whats-this-header": "Om RevertRisk-prognoser",
+	"ores-rcfilters-revertrisklanguageagnostic-whats-this-body": "Disse spådommene om tilbakestillingsrisiko er basert på en maskinlæringstjeneste som brukes sideversjonsinnhold og metadata for å forutse risikoen for at en sideversjon kommer til å bli tilbakestilt",
 	"ores-rcfilters-revertrisklanguageagnostic-conflicts-logactions": "RevertRisk-prognosene er ikke tilgjengelige for visse typer endringer, så dette filteret er i konflikt med følgende {{PLURAL:$2|endringstypefilter|endringstypefiltre}}: $1",
 	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-label": "Blir sannsynligvis tilbakestilt",
 	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc": "Oppdag sideversjoner som kan bli tilbakestilt, uavhengig av om de ble gjort i god eller dårlig tro.",
