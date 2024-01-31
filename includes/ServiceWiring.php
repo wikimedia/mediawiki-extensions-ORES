@@ -34,8 +34,8 @@ return [
 	'ORESModelLookup' => static function ( MediaWikiServices $services ) {
 		return new PopulatedSqlModelLookup(
 			new SqlModelLookup( $services->getDBLoadBalancerFactory() ),
-			ORESServices::getORESService(),
-			ORESServices::getLogger(),
+			ORESServices::getORESService( $services ),
+			ORESServices::getLogger( $services ),
 			$services->getMainConfig()->get( 'OresUseLiftwing' )
 		);
 	},
@@ -43,10 +43,10 @@ return [
 	'ORESThresholdLookup' => static function ( MediaWikiServices $services ) {
 		return new ThresholdLookup(
 			new ThresholdParser( LoggerFactory::getInstance( 'ORES' ) ),
-			ORESServices::getModelLookup(),
-			ORESServices::getORESService(),
+			ORESServices::getModelLookup( $services ),
+			ORESServices::getORESService( $services ),
 			$services->getMainWANObjectCache(),
-			ORESServices::getLogger(),
+			ORESServices::getLogger( $services ),
 			$services->getStatsdDataFactory(),
 			$services->getMainConfig()
 		);
@@ -55,21 +55,21 @@ return [
 	'ORESScoreStorage' => static function ( MediaWikiServices $services ) {
 		return new SqlScoreStorage(
 			$services->getDBLoadBalancerFactory(),
-			ORESServices::getModelLookup(),
-			ORESServices::getLogger()
+			ORESServices::getModelLookup( $services ),
+			ORESServices::getLogger( $services )
 		);
 	},
 
 	'ORESService' => static function ( MediaWikiServices $services ) {
 		if ( $services->getMainConfig()->get( 'OresUseLiftwing' ) ) {
 			return new LiftWingService(
-				ORESServices::getLogger(),
+				ORESServices::getLogger( $services ),
 				$services->getHttpRequestFactory(),
 				$services->getMainConfig()
 			);
 		} else {
 			return new ORESService(
-				ORESServices::getLogger(),
+				ORESServices::getLogger( $services ),
 				$services->getHttpRequestFactory()
 			);
 		}
@@ -77,14 +77,14 @@ return [
 
 	'ORESScoreLookup' => static function ( MediaWikiServices $services ) {
 		return new SqlScoreLookup(
-			ORESServices::getModelLookup(),
+			ORESServices::getModelLookup( $services ),
 			$services->getDBLoadBalancerFactory()
 		);
 	},
 
 	'ORESDatabaseQueryBuilder' => static function ( MediaWikiServices $services ) {
 		return new DatabaseQueryBuilder(
-			ORESServices::getThresholdLookup(),
+			ORESServices::getThresholdLookup( $services ),
 			$services->getDBLoadBalancerFactory()->getReplicaDatabase()
 		);
 	}

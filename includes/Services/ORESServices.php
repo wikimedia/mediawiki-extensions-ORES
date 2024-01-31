@@ -17,39 +17,60 @@ use Psr\Log\LoggerInterface;
  */
 class ORESServices {
 
-	/** @return LoggerInterface */
-	public static function getLogger() {
-		return MediaWikiServices::getInstance()->getService( 'ORESLogger' );
+	/**
+	 * @param MediaWikiServices|null $services
+	 * @return LoggerInterface
+	 */
+	public static function getLogger( MediaWikiServices $services = null ) {
+		return ( $services ?? MediaWikiServices::getInstance() )->getService( 'ORESLogger' );
 	}
 
-	/** @return ModelLookup */
-	public static function getModelLookup() {
-		return MediaWikiServices::getInstance()->getService( 'ORESModelLookup' );
+	/**
+	 * @param MediaWikiServices|null $services
+	 * @return ModelLookup
+	 */
+	public static function getModelLookup( MediaWikiServices $services = null ) {
+		return ( $services ?? MediaWikiServices::getInstance() )->getService( 'ORESModelLookup' );
 	}
 
-	/** @return ThresholdLookup */
-	public static function getThresholdLookup() {
-		return MediaWikiServices::getInstance()->getService( 'ORESThresholdLookup' );
+	/**
+	 * @param MediaWikiServices|null $services
+	 * @return ThresholdLookup
+	 */
+	public static function getThresholdLookup( MediaWikiServices $services = null ) {
+		return ( $services ?? MediaWikiServices::getInstance() )->getService( 'ORESThresholdLookup' );
 	}
 
-	/** @return ScoreStorage */
-	public static function getScoreStorage() {
-		return MediaWikiServices::getInstance()->getService( 'ORESScoreStorage' );
+	/**
+	 * @param MediaWikiServices|null $services
+	 * @return ScoreStorage
+	 */
+	public static function getScoreStorage( MediaWikiServices $services = null ) {
+		return ( $services ?? MediaWikiServices::getInstance() )->getService( 'ORESScoreStorage' );
 	}
 
-	/** @return ORESService */
-	public static function getORESService() {
-		return MediaWikiServices::getInstance()->getService( 'ORESService' );
+	/**
+	 * @param MediaWikiServices|null $services
+	 * @return ORESService
+	 */
+	public static function getORESService( MediaWikiServices $services = null ) {
+		return ( $services ?? MediaWikiServices::getInstance() )->getService( 'ORESService' );
 	}
 
-	/** @return StorageScoreLookup */
-	public static function getScoreLookup() {
-		return MediaWikiServices::getInstance()->getService( 'ORESScoreLookup' );
+	/**
+	 * @param MediaWikiServices|null $services
+	 * @return StorageScoreLookup
+	 */
+	public static function getScoreLookup( MediaWikiServices $services = null ) {
+		return ( $services ?? MediaWikiServices::getInstance() )->getService( 'ORESScoreLookup' );
 	}
 
-	/** @return DatabaseQueryBuilder */
-	public static function getDatabaseQueryBuilder() {
-		return MediaWikiServices::getInstance()->getService( 'ORESDatabaseQueryBuilder' );
+	/**
+	 * @param MediaWikiServices|null $services
+	 * @return DatabaseQueryBuilder
+	 */
+	public static function getDatabaseQueryBuilder( MediaWikiServices $services = null ) {
+		return ( $services ?? MediaWikiServices::getInstance() )->getService( 'ORESDatabaseQueryBuilder' );
 	}
 
 }
