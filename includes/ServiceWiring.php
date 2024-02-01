@@ -21,17 +21,21 @@ use MediaWiki\MediaWikiServices;
 use ORES\Services\ORESServices;
 use ORES\Services\PopulatedSqlModelLookup;
 use ORES\Storage\DatabaseQueryBuilder;
+use ORES\Storage\ModelLookup;
+use ORES\Storage\ScoreStorage;
 use ORES\Storage\SqlModelLookup;
 use ORES\Storage\SqlScoreLookup;
 use ORES\Storage\SqlScoreStorage;
+use ORES\Storage\StorageScoreLookup;
 use ORES\Storage\ThresholdLookup;
+use Psr\Log\LoggerInterface;
 
 return [
-	'ORESLogger' => static function ( MediaWikiServices $services ) {
+	'ORESLogger' => static function ( MediaWikiServices $services ): LoggerInterface {
 		return LoggerFactory::getInstance( 'ORES' );
 	},
 
-	'ORESModelLookup' => static function ( MediaWikiServices $services ) {
+	'ORESModelLookup' => static function ( MediaWikiServices $services ): ModelLookup {
 		return new PopulatedSqlModelLookup(
 			new SqlModelLookup( $services->getDBLoadBalancerFactory() ),
 			ORESServices::getORESService( $services ),
@@ -40,7 +44,7 @@ return [
 		);
 	},
 
-	'ORESThresholdLookup' => static function ( MediaWikiServices $services ) {
+	'ORESThresholdLookup' => static function ( MediaWikiServices $services ): ThresholdLookup {
 		return new ThresholdLookup(
 			new ThresholdParser( LoggerFactory::getInstance( 'ORES' ) ),
 			ORESServices::getModelLookup( $services ),
@@ -52,7 +56,7 @@ return [
 		);
 	},
 
-	'ORESScoreStorage' => static function ( MediaWikiServices $services ) {
+	'ORESScoreStorage' => static function ( MediaWikiServices $services ): ScoreStorage {
 		return new SqlScoreStorage(
 			$services->getDBLoadBalancerFactory(),
 			ORESServices::getModelLookup( $services ),
@@ -60,7 +64,7 @@ return [
 		);
 	},
 
-	'ORESService' => static function ( MediaWikiServices $services ) {
+	'ORESService' => static function ( MediaWikiServices $services ): ORESService {
 		if ( $services->getMainConfig()->get( 'OresUseLiftwing' ) ) {
 			return new LiftWingService(
 				ORESServices::getLogger( $services ),
@@ -75,14 +79,14 @@ return [
 		}
 	},
 
-	'ORESScoreLookup' => static function ( MediaWikiServices $services ) {
+	'ORESScoreLookup' => static function ( MediaWikiServices $services ): StorageScoreLookup {
 		return new SqlScoreLookup(
 			ORESServices::getModelLookup( $services ),
 			$services->getDBLoadBalancerFactory()
 		);
 	},
 
-	'ORESDatabaseQueryBuilder' => static function ( MediaWikiServices $services ) {
+	'ORESDatabaseQueryBuilder' => static function ( MediaWikiServices $services ): DatabaseQueryBuilder {
 		return new DatabaseQueryBuilder(
 			ORESServices::getThresholdLookup( $services ),
 			$services->getDBLoadBalancerFactory()->getReplicaDatabase()
