@@ -3,7 +3,6 @@
 namespace ORES\Maintenance;
 
 use Maintenance;
-use MediaWiki\MediaWikiServices;
 use ORES\Services\ORESServices;
 use Wikimedia\Rdbms\Database;
 
@@ -153,7 +152,7 @@ class PurgeScoreCache extends Maintenance {
 					__METHOD__
 				);
 				$deletedRows += $dbw->affectedRows();
-				MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->waitForReplication();
+				$this->waitForReplication();
 			}
 		} while ( $ids );
 

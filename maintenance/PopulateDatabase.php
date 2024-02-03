@@ -3,7 +3,6 @@
 namespace ORES\Maintenance;
 
 use Maintenance;
-use MediaWiki\MediaWikiServices;
 use ORES\Services\ORESServices;
 use ORES\Services\ScoreFetcher;
 use ORES\Storage\ScoreStorage;
@@ -88,7 +87,7 @@ class PopulateDatabase extends Maintenance {
 			}
 
 			$count += $batchSize;
-			MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->waitForReplication();
+			$this->waitForReplication();
 
 			if ( $res->numRows() < $batchSize ) {
 				break;

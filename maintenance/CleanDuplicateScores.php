@@ -3,7 +3,6 @@
 namespace ORES\Maintenance;
 
 use Maintenance;
-use MediaWiki\MediaWikiServices;
 
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
@@ -55,7 +54,7 @@ class CleanDuplicateScores extends Maintenance {
 				[ 'oresc_id' => $chunk ],
 				__METHOD__
 			);
-			MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->waitForReplication();
+			$this->waitForReplication();
 		}
 
 		$this->output( 'Done' );
