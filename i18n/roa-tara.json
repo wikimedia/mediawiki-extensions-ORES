@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"ores-damaging-letter": "r",
+	"ores-rcfilters-whats-this-link-text": "'Mbare de cchiù",
+	"ores-specialoresmodels-header-filter": "Filtre",
+	"ores-specialoresmodels-header-precision": "Precisione",
+	"ores-specialoresmodels-header-recall": "Recupere",
+	"ores-specialoresmodels-header-thresholdrange": "'Ndervalle de soglie"
+}
