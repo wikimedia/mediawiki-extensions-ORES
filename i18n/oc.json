@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cedric31"
+			"Cedric31",
+			"Lhanars"
 		]
 	},
 	"ores-damaging-filter": "$1 modificacions probablament bonas",
-	"ores-pref-damaging": "Sulhet ORES"
+	"ores-pref-damaging": "Sulhet ORES",
+	"ores-specialoresmodels-header-precision": "Precision",
+	"ores-specialoresmodels-header-recall": "Remembra",
+	"ores-specialoresmodels-header-thresholdrange": "Interval del lindal"
 }
