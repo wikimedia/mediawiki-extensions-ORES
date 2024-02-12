@@ -18,6 +18,7 @@ namespace ORES\Hooks;
 
 use Exception;
 use IContextSource;
+use InvalidArgumentException;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Specials\SpecialRecentChanges;
 use MediaWiki\Specials\SpecialWatchlist;
@@ -58,7 +59,7 @@ class Helpers {
 		$type, $revIdField, array &$tables, array &$fields, array &$join_conds
 	) {
 		if ( !ctype_lower( $type ) || strpos( $type, '_' ) || strpos( $type, '-' ) ) {
-			throw new Exception( "Invalid value for parameter 'type': '$type'. " .
+			throw new InvalidArgumentException( "Invalid value for parameter 'type': '$type'. " .
 				'Restricted to one lower case word to prevent accidental injection.' );
 		}
 
@@ -178,7 +179,7 @@ class Helpers {
 
 			return null;
 		}
-		throw new Exception( "Unknown ORES test: '$type'" );
+		throw new InvalidArgumentException( "Unknown ORES test: '$type'" );
 	}
 
 	/**
