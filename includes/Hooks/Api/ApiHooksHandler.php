@@ -39,6 +39,7 @@ use ORES\Services\ORESServices;
 use WatchedItem;
 use WatchedItemQueryService;
 use Wikimedia\ParamValidator\ParamValidator;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IResultWrapper;
 
 class ApiHooksHandler implements
@@ -50,6 +51,12 @@ class ApiHooksHandler implements
 	ApiQueryWatchlistPrepareWatchedItemQueryServiceOptionsHook,
 	WatchedItemQueryServiceExtensionsHook
 {
+
+	private IConnectionProvider $dbProvider;
+
+	public function __construct( IConnectionProvider $dbProvider ) {
+		$this->dbProvider = $dbProvider;
+	}
 
 	/**
 	 * Inject parameters into certain API modules
@@ -140,7 +147,7 @@ class ApiHooksHandler implements
 
 			$threshold =
 				Helpers::getThreshold( 'damaging', $module->getUser(), $module->getTitle() );
-			$dbr = wfGetDB( DB_REPLICA );
+			$dbr = $this->dbProvider->getReplicaDatabase();
 
 			$tables[] = 'ores_classification';
 

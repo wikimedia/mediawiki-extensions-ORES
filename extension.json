@@ -64,7 +64,10 @@
 			"class": "ORES\\Hooks\\SchemaHooks"
 		},
 		"api": {
-			"class": "ORES\\Hooks\\Api\\ApiHooksHandler"
+			"class": "ORES\\Hooks\\Api\\ApiHooksHandler",
+			"services": [
+				"ConnectionProvider"
+			]
 		},
 		"changeslist": {
 			"class": "ORES\\Hooks\\ChangesListHooksHandler"

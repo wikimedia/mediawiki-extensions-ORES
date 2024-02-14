@@ -79,7 +79,7 @@ class PurgeScoreCache extends Maintenance {
 			$conditions[] = '(oresm_is_current != 1 OR oresm_is_current IS NULL)';
 		}
 
-		$modelIds = wfGetDB( DB_REPLICA )->selectFieldValues( 'ores_model',
+		$modelIds = $this->getReplicaDB()->selectFieldValues( 'ores_model',
 			'oresm_id',
 			$conditions,
 			__METHOD__
@@ -100,7 +100,7 @@ class PurgeScoreCache extends Maintenance {
 	 * @return int The number of deleted rows
 	 */
 	public function purgeOld( $model, $batchSize = 1000 ) {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = $this->getReplicaDB();
 		$modelIds = $dbr->selectFieldValues( 'ores_model',
 			'oresm_id',
 			[ 'oresm_name' => [ $model, null ] ],
@@ -134,8 +134,8 @@ class PurgeScoreCache extends Maintenance {
 	 * @see Database::select
 	 */
 	private function deleteRows( array $conditions, $batchSize ) {
-		$dbr = \wfGetDB( DB_REPLICA );
-		$dbw = \wfGetDB( DB_PRIMARY );
+		$dbr = $this->getReplicaDB();
+		$dbw = $this->getPrimaryDB();
 
 		$deletedRows = 0;
 

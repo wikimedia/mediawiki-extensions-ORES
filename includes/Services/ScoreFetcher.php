@@ -17,11 +17,19 @@
 namespace ORES\Services;
 
 use InvalidArgumentException;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\WebRequest;
 use ORES\ORESService;
 use ORES\ServiceScoreLookup;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class ScoreFetcher implements ServiceScoreLookup {
+
+	private IConnectionProvider $dbProvider;
+
+	public function __construct( IConnectionProvider $dbProvider ) {
+		$this->dbProvider = $dbProvider;
+	}
 
 	/**
 	 * @see ServiceScoreLookup::getScores()
@@ -109,7 +117,7 @@ class ScoreFetcher implements ServiceScoreLookup {
 	 */
 	public function updateModelVersion( $model, $responseVersion ) {
 		// TODO: Move to ModelStorage service
-		$dbw = \wfGetDB( DB_PRIMARY );
+		$dbw = $this->dbProvider->getPrimaryDatabase();
 		$dbw->update(
 			'ores_model',
 			[
@@ -138,7 +146,7 @@ class ScoreFetcher implements ServiceScoreLookup {
 	}
 
 	public static function instance() {
-		return new self();
+		return new self( MediaWikiServices::getInstance()->getConnectionProvider() );
 	}
 
 }
