@@ -119,7 +119,7 @@ class PurgeScoreCache extends Maintenance {
 		}
 
 		$conditions = [
-			'oresc_rev < ' . $dbr->addQuotes( $lowestRCRev[0] ),
+			$dbr->expr( 'oresc_rev', '<', $lowestRCRev[0] ),
 			'oresc_model' => $modelIds
 		];
 		return $this->deleteRows( $conditions, $batchSize );

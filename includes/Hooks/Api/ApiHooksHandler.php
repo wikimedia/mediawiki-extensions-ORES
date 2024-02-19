@@ -155,7 +155,7 @@ class ApiHooksHandler implements
 				$join = 'INNER JOIN';
 
 				// Filter out non-damaging and unscored edits.
-				$conds[] = 'oresc_probability > ' . $dbr->addQuotes( $threshold );
+				$conds[] = $dbr->expr( 'oresc_probability', '>', $threshold );
 
 				// Performance hack: add STRAIGHT_JOIN (T146111)
 				$options[] = 'STRAIGHT_JOIN';
@@ -163,10 +163,8 @@ class ApiHooksHandler implements
 				$join = 'LEFT JOIN';
 
 				// Filter out damaging edits.
-				$conds[] = $dbr->makeList( [
-					'oresc_probability <= ' . $dbr->addQuotes( $threshold ),
-					'oresc_probability IS NULL'
-				], $dbr::LIST_OR );
+				$conds[] = $dbr->expr( 'oresc_probability', '<=', $threshold )
+							->or( 'oresc_probability', '=', null );
 			}
 
 			$modelId = ORESServices::getModelLookup()->getModelId( 'damaging' );

@@ -11,6 +11,7 @@ use ORES\ORESService;
 use ORES\Storage\HashModelLookup;
 use ORES\Storage\ThresholdLookup;
 use RequestContext;
+use Wikimedia\Rdbms\Expression;
 
 /**
  * @group ORES
@@ -146,7 +147,7 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 			'ores_damaging_threshold' => 0.16,
 		], $fields );
 		$this->assertEquals( [
-			'ores_damaging_cls.oresc_probability > \'0.16\'',
+			new Expression( 'ores_damaging_cls.oresc_probability', '>', '0.16' ),
 		], $conds );
 	}
 

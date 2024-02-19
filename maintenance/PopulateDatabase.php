@@ -61,7 +61,7 @@ class PopulateDatabase extends Maintenance {
 				$conditions['rc_bot'] = 0;
 			}
 			if ( $latestRcId ) {
-				$conditions[] = 'rc_id < ' . $dbr->addQuotes( $latestRcId );
+				$conditions[] = $dbr->expr( 'rc_id', '<', $latestRcId );
 			}
 
 			$res = $dbr->select( [ 'recentchanges', 'ores_classification' ],

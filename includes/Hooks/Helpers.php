@@ -51,7 +51,7 @@ class Helpers {
 
 		if ( $hidenondamaging ) {
 			// Filter out non-damaging edits.
-			$conds[] = 'ores_damaging_cls.oresc_probability > ' . $dbr->addQuotes( $threshold );
+			$conds[] = $dbr->expr( 'ores_damaging_cls.oresc_probability', '>', $threshold );
 		}
 	}
 

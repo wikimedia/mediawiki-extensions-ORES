@@ -6,6 +6,7 @@ use MediaWiki\Title\TitleValue;
 use ORES\Hooks\Api\WatchedItemQueryServiceExtension;
 use ORES\Storage\HashModelLookup;
 use WatchedItem;
+use Wikimedia\Rdbms\Expression;
 
 /**
  * @group ORES
@@ -97,7 +98,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 			'ores_classification',
 		], $tables );
 		$this->assertEquals( [
-			'oresc_probability > \'0.16\'',
+			new Expression( 'oresc_probability', '>', '0.16' ),
 		], $conds );
 		$this->assertEquals( [
 			'ores_classification' => [ 'INNER JOIN', [
@@ -142,7 +143,8 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 			'ores_classification',
 		], $tables );
 		$this->assertEquals( [
-			'(oresc_probability <= \'0.16\') OR (oresc_probability IS NULL)',
+			( new Expression( 'oresc_probability', '<=', '0.16' ) )
+				->or( 'oresc_probability', '=', null )
 		], $conds );
 		$this->assertEquals( [
 			'ores_classification' => [ 'LEFT JOIN', [

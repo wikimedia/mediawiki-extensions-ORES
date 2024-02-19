@@ -69,15 +69,13 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 				$join = 'INNER JOIN';
 
 				// Filter out non-damaging and unscored edits.
-				$conds[] = 'oresc_probability > ' . $db->addQuotes( $threshold );
+				$conds[] = $db->expr( 'oresc_probability', '>', $threshold );
 			} else {
 				$join = 'LEFT JOIN';
 
 				// Filter out damaging edits.
-				$conds[] = $db->makeList( [
-					'oresc_probability <= ' . $db->addQuotes( $threshold ),
-					'oresc_probability IS NULL'
-				], $db::LIST_OR );
+				$conds[] = $db->expr( 'oresc_probability', '<=', $threshold )
+							->or( 'oresc_probability', '=', null );
 			}
 
 			$modelId = ORESServices::getModelLookup()->getModelId( 'damaging' );

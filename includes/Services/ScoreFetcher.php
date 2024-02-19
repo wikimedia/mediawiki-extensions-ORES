@@ -125,7 +125,7 @@ class ScoreFetcher implements ServiceScoreLookup {
 			],
 			[
 				'oresm_name' => $model,
-				'oresm_version != ' . $dbw->addQuotes( $responseVersion ),
+				$dbw->expr( 'oresm_version', '!=', $responseVersion ),
 			],
 			__METHOD__
 		);

@@ -9,6 +9,7 @@ use MediaWiki\User\User;
 use ORES\Hooks\ContributionsHooksHandler;
 use ORES\Storage\HashModelLookup;
 use RequestContext;
+use Wikimedia\Rdbms\Expression;
 
 /**
  * @group ORES
@@ -113,7 +114,7 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 		];
 
 		$expectedDamaging = $expected;
-		$expectedDamaging['conds'] = [ 'ores_damaging_cls.oresc_probability > \'0.16\'' ];
+		$expectedDamaging['conds'] = [ new Expression( 'ores_damaging_cls.oresc_probability', '>', 0.16 ) ];
 
 		return [
 			'all' => [ $expected, false ],
@@ -153,7 +154,7 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 
 		$this->assertSame( $expected['tables'], $query['tables'] );
 		$this->assertSame( $expected['fields'], $query['fields'] );
-		$this->assertSame( $expected['conds'], $query['conds'] );
+		$this->assertEquals( $expected['conds'], $query['conds'] );
 		$this->assertSame( $expected['join_conds'], $query['join_conds'] );
 	}
 
