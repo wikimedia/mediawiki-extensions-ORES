@@ -108,7 +108,7 @@ class FetchScoreJob extends Job {
 
 	private function findDuplicates() {
 		$revids = (array)$this->params['revid'];
-		$dbr = \wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$revids = array_diff(
 			$revids,
 			$dbr->selectFieldValues(

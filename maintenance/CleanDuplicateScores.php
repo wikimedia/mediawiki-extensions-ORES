@@ -21,8 +21,8 @@ class CleanDuplicateScores extends Maintenance {
 	}
 
 	public function execute() {
-		$dbr = \wfGetDB( DB_REPLICA );
-		$dbw = \wfGetDB( DB_PRIMARY );
+		$dbr = $this->getReplicaDB();
+		$dbw = $this->getPrimaryDB();
 		$groupConcat = $dbr->buildGroupConcatField(
 			'|',
 			[ 'OC' => 'ores_classification' ],

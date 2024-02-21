@@ -122,7 +122,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 		$conds = [];
 		$dbOptions = [];
 		$joinConds = [];
-		$db = wfGetDB( DB_REPLICA );
+		$db = $this->getDb();
 		$service = new WatchedItemQueryServiceExtension();
 		$service->modifyWatchedItemsWithRCInfoQuery(
 			$this->user,

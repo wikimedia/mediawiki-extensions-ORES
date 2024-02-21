@@ -48,7 +48,7 @@ class PopulateDatabase extends Maintenance {
 		$this->apiBatchSize = $this->getOption( 'apibatch', $wgOresRevisionsPerBatch ?: 30 );
 
 		$latestRcId = 0;
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = $this->getReplicaDB();
 		$join_conds = [ 'ores_classification' =>
 			[ 'LEFT JOIN', [ 'oresc_rev = rc_this_oldid' ] ]
 		];

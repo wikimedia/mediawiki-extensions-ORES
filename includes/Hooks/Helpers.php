@@ -40,7 +40,7 @@ class Helpers {
 	public static function hideNonDamagingFilter(
 		array &$fields, array &$conds, $hidenondamaging, UserIdentity $user, Title $title = null
 	) {
-		$dbr = \wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		// Add user-based threshold
 		$threshold = self::getThreshold( 'damaging', $user, $title );
 		if ( $threshold === null ) {

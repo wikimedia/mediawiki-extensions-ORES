@@ -18,7 +18,7 @@ class TestHelper {
 	public const DAMAGING = 3;
 
 	public static function insertModelData() {
-		$db = \wfGetDB( DB_PRIMARY );
+		$db = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 		$dump = [
 			[
 				'oresm_id' => self::DAMAGING,
@@ -74,7 +74,8 @@ class TestHelper {
 				'oresc_is_predicted' => 0
 			];
 		}
-		wfGetDB( DB_PRIMARY )->insert( 'ores_classification', $dbData );
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+		$dbw->insert( 'ores_classification', $dbData );
 	}
 
 	public static function doPageEdit( User $user, LinkTarget $target, $summary ) {
