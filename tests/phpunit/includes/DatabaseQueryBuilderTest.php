@@ -4,6 +4,8 @@ namespace ORES\Tests;
 
 use ORES\Storage\DatabaseQueryBuilder;
 use ORES\Storage\ThresholdLookup;
+use Wikimedia\Rdbms\Expression;
+use Wikimedia\Rdbms\OrExpressionGroup;
 
 /**
  * @group ORES
@@ -33,9 +35,13 @@ class DatabaseQueryBuilderTest extends \MediaWikiIntegrationTestCase {
 			[ 'level1', 'level3' ]
 		);
 
+		$clauses[] = ( new Expression( 'ores_model_cls.oresc_probability', '>=', 0 ) )
+				->and( 'ores_model_cls.oresc_probability', '<=', 0.3333 );
+		$clauses[] = ( new Expression( 'ores_model_cls.oresc_probability', '>=', 0.6667 ) )
+				->and( 'ores_model_cls.oresc_probability', '<=', 1 );
+
 		$this->assertEquals(
-			'(ores_model_cls.oresc_probability BETWEEN 0 AND 0.3333)' .
-			' OR (ores_model_cls.oresc_probability BETWEEN 0.6667 AND 1)',
+			new OrExpressionGroup( ...$clauses ),
 			$whereClause
 		);
 	}
@@ -57,9 +63,10 @@ class DatabaseQueryBuilderTest extends \MediaWikiIntegrationTestCase {
 		);
 
 		$this->assertEquals(
-			'((ores_model_cls.oresc_class = 0)' .
-			' OR (ores_model_cls.oresc_class = 2))' .
-			' AND (ores_model_cls.oresc_is_predicted = 1)',
+			( new Expression( 'ores_model_cls.oresc_is_predicted', '=', 1 ) )
+				->andExpr( ( new Expression( 'ores_model_cls.oresc_class', '=', 0 ) )
+					->or( 'ores_model_cls.oresc_class', '=', 2 )
+			),
 			$whereClause
 		);
 	}

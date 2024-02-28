@@ -17,8 +17,9 @@
 namespace ORES\Storage;
 
 use ORES\Range;
-use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\IReadableDatabase;
+use Wikimedia\Rdbms\OrExpressionGroup;
 
 class DatabaseQueryBuilder {
 
@@ -46,7 +47,7 @@ class DatabaseQueryBuilder {
 	 * @param bool $isDiscrete
 	 * 	True for a model with distinct rows for each class
 	 * 	False for a model with thresholds within the score of a single row
-	 * @return false|string SQL Condition that can be used in WHERE directly, of false when there
+	 * @return IExpression|OrExpressionGroup|false SQL Condition that can be used in WHERE directly, or false when there
 	 * is nothing to filter on
 	 */
 	public function buildQuery( $modelName, $selected, $isDiscrete = false ) {
@@ -63,7 +64,7 @@ class DatabaseQueryBuilder {
 	 *
 	 * @param string $modelName Model to filter
 	 * @param string|string[] $selected Array (or comma-separated string) of class names to select
-	 * @return string|false SQL Condition that can be used in WHERE directly, of false when there
+	 * @return OrExpressionGroup|false SQL Condition that can be used in WHERE directly, or false when there
 	 * is nothing to filter on
 	 */
 	private function buildRangeQuery( $modelName, $selected ) {
@@ -98,15 +99,16 @@ class DatabaseQueryBuilder {
 		}
 
 		$betweenConditions = array_map(
-			static function ( Range $range ) use ( $tableAlias ) {
+			function ( Range $range ) use ( $tableAlias ) {
 				$min = $range->getMin();
 				$max = $range->getMax();
-				return "$tableAlias.oresc_probability BETWEEN $min AND $max";
+				return $this->db->expr( "$tableAlias.oresc_probability", '>=', $min )
+						->and( "$tableAlias.oresc_probability", '<=', $max );
 			},
 			$ranges
 		);
 
-		return $this->db->makeList( $betweenConditions, IDatabase::LIST_OR );
+		return new OrExpressionGroup( ...$betweenConditions );
 	}
 
 	/**
@@ -117,7 +119,7 @@ class DatabaseQueryBuilder {
 	 *
 	 * @param string $modelName Model to filter
 	 * @param string|string[] $selected Array (or comma-separated string) of class names to select
-	 * @return string|false SQL Condition that can be used in WHERE directly, of false when there
+	 * @return IExpression|false SQL Condition that can be used in WHERE directly, or false when there
 	 * is nothing to filter on
 	 */
 	private function buildDiscreteQuery( $modelName, $selected ) {
@@ -130,15 +132,13 @@ class DatabaseQueryBuilder {
 			return false;
 		}
 
-		$conditions = array_map( static function ( $className ) use ( $tableAlias, $modelClasses ) {
+		$conditions = array_map( function ( $className ) use ( $tableAlias, $modelClasses ) {
 			$classId = $modelClasses[ $className ];
-			return "$tableAlias.oresc_class = $classId";
+			return $this->db->expr( "$tableAlias.oresc_class", '=', $classId );
 		}, $selected );
 
-		return $this->db->makeList( [
-			$this->db->makeList( $conditions, IDatabase::LIST_OR ),
-			"$tableAlias.oresc_is_predicted = 1",
-		], IDatabase::LIST_AND );
+		return $this->db->expr( "$tableAlias.oresc_is_predicted", '=', 1 )
+			->andExpr( new OrExpressionGroup( ...$conditions ) );
 	}
 
 	private function makeOresClassificationTableAlias( $modelName ) {

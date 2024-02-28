@@ -123,7 +123,7 @@ class ChangesListHooksHandler implements
 						$conds[] = $condition;
 
 						// Filter out incompatible types; log actions and external rows are not scorable
-						$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
+						$conds[] = $dbr->expr( 'rc_type', '!=', [ RC_LOG, RC_EXTERNAL ] );
 						// Make the joins INNER JOINs instead of LEFT JOINs
 						$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
 						$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
@@ -206,7 +206,7 @@ class ChangesListHooksHandler implements
 						Helpers::hideNonDamagingFilter( $fields, $conds, true, $ctx->getUser(),
 							$ctx->getTitle() );
 						// Filter out incompatible types; log actions and external rows are not scorable
-						$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
+						$conds[] = $dbr->expr( 'rc_type', '!=', [ RC_LOG, RC_EXTERNAL ] );
 						// Filter out patrolled edits: the 'r' doesn't appear for them
 						$conds['rc_patrolled'] = RecentChange::PRC_UNPATROLLED;
 						// Make the joins INNER JOINs instead of LEFT JOINs
@@ -264,7 +264,7 @@ class ChangesListHooksHandler implements
 					$conds[] = $condition;
 
 					// Filter out incompatible types; log actions and external rows are not scorable
-					$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
+					$conds[] = $dbr->expr( 'rc_type', '!=', [ RC_LOG, RC_EXTERNAL ] );
 					// Make the joins INNER JOINs instead of LEFT JOINs
 					$join_conds['ores_goodfaith_mdl'][0] = 'INNER JOIN';
 					$join_conds['ores_goodfaith_cls'][0] = 'INNER JOIN';
@@ -346,7 +346,7 @@ class ChangesListHooksHandler implements
 					$conds[] = $condition;
 
 					// Filter out incompatible types; log actions and external rows are not scorable
-					$conds[] = 'rc_type NOT IN (' . $dbr->makeList( [ RC_LOG, RC_EXTERNAL ] ) . ')';
+					$conds[] = $dbr->expr( 'rc_type', '!=', [ RC_LOG, RC_EXTERNAL ] );
 					// Make the joins INNER JOINs instead of LEFT JOINs
 					$join_conds['ores_revertrisklanguageagnostic_mdl'][0] = 'INNER JOIN';
 					$join_conds['ores_revertrisklanguageagnostic_cls'][0] = 'INNER JOIN';
