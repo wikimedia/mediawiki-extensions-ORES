@@ -44,15 +44,15 @@ class SqlScoreLookup implements StorageScoreLookup {
 	public function getScores( $revisions, $models ) {
 		$modelIds = array_map( [ $this->modelLookup, 'getModelId' ], $models );
 
-		return $this->dbProvider->getReplicaDatabase()->select(
-			[ 'ores_classification' ],
-			[ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ],
-			[
+		return $this->dbProvider->getReplicaDatabase()->newSelectQueryBuilder()
+			->select( [ 'oresc_rev', 'oresc_class', 'oresc_probability', 'oresc_model' ] )
+			->from( 'ores_classification' )
+			->where( [
 				'oresc_rev' => $revisions,
 				'oresc_model' => $modelIds,
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 	}
 
 }

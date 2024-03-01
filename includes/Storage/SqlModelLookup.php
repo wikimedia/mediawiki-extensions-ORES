@@ -73,12 +73,12 @@ class SqlModelLookup implements ModelLookup {
 	private function getModelData() {
 		if ( $this->modelData === null || $this->modelData === [] ) {
 			$this->modelData = [];
-			$result = $this->dbProvider->getReplicaDatabase()->select(
-				'ores_model',
-				[ 'oresm_id', 'oresm_name', 'oresm_version' ],
-				[ 'oresm_is_current' => 1 ],
-				__METHOD__
-			);
+			$result = $this->dbProvider->getReplicaDatabase()->newSelectQueryBuilder()
+				->select( [ 'oresm_id', 'oresm_name', 'oresm_version' ] )
+				->from( 'ores_model' )
+				->where( [ 'oresm_is_current' => 1 ] )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 			foreach ( $result as $row ) {
 				$this->modelData[$row->oresm_name] = [
 					'id' => (int)$row->oresm_id,

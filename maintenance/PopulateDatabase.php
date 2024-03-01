@@ -49,9 +49,6 @@ class PopulateDatabase extends Maintenance {
 
 		$latestRcId = 0;
 		$dbr = $this->getReplicaDB();
-		$join_conds = [ 'ores_classification' =>
-			[ 'LEFT JOIN', [ 'oresc_rev = rc_this_oldid' ] ]
-		];
 
 		$count = 0;
 		while ( $count < $this->revisionLimit ) {
@@ -64,14 +61,15 @@ class PopulateDatabase extends Maintenance {
 				$conditions[] = $dbr->expr( 'rc_id', '<', $latestRcId );
 			}
 
-			$res = $dbr->select( [ 'recentchanges', 'ores_classification' ],
-				[ 'rc_id', 'rc_this_oldid' ],
-				$conditions,
-				__METHOD__,
-				[ 'ORDER BY' => 'rc_id DESC',
-					'LIMIT' => $batchSize ],
-				$join_conds
-			);
+			$res = $dbr->newSelectQueryBuilder()
+				->select( [ 'rc_id', 'rc_this_oldid' ] )
+				->from( 'recentchanges' )
+				->leftJoin( 'ores_classification', null, 'oresc_rev = rc_this_oldid' )
+				->where( $conditions )
+				->orderBy( 'rc_id DESC' )
+				->limit( $batchSize )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 
 			$pack = [];
 			foreach ( $res as $row ) {

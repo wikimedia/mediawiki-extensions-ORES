@@ -137,19 +137,19 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 
 		$this->storage->storeScores( $scores );
 
-		$res = $this->getDb()->select(
-			'ores_classification',
-			[
+		$res = $this->getDb()->newSelectQueryBuilder()
+			->select( [
 				'oresc_rev',
 				'oresc_model',
 				'oresc_class',
 				'oresc_probability',
 				'oresc_is_predicted'
-			],
-			[ 'oresc_rev' => $revIds ],
-			__METHOD__,
-			[ 'ORDER BY' => 'oresc_probability' ]
-		);
+			] )
+			->from( 'ores_classification' )
+			->where( [ 'oresc_rev' => $revIds ] )
+			->orderBy( 'oresc_probability' )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		$this->assertEquals( $expected, iterator_to_array( $res, false ) );
 	}
@@ -272,19 +272,18 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 			],
 		];
 
-		$res = $this->getDb()->select(
-			'ores_classification',
-			[
+		$res = $this->getDb()->newSelectQueryBuilder()
+			->select( [
 				'oresc_rev',
 				'oresc_model',
 				'oresc_class',
 				'oresc_probability',
 				'oresc_is_predicted'
-			],
-			[],
-			__METHOD__,
-			[ 'ORDER BY' => 'oresc_probability' ]
-		);
+				] )
+			->from( 'ores_classification' )
+			->orderBy( 'oresc_probability' )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		$this->assertEquals( $expected, iterator_to_array( $res, false ) );
 	}
@@ -395,18 +394,17 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 
 		$this->storage->purgeRows( [ 12344, 12346 ] );
 
-		$res = $this->getDb()->select(
-			'ores_classification',
-			[
+		$res = $this->getDb()->newSelectQueryBuilder()
+			->select( [
 				'oresc_rev',
 				'oresc_model',
 				'oresc_class',
 				'oresc_probability',
 				'oresc_is_predicted'
-			],
-			'',
-			__METHOD__
-		);
+			] )
+			->from( 'ores_classification' )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		$expected = [
 			(object)[
