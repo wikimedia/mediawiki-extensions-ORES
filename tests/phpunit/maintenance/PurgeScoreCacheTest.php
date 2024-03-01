@@ -132,11 +132,16 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 
 		$dbw = $this->getDb();
 
-		$dbw->insert( 'recentchanges', [
-			'rc_this_oldid' => $revId,
-			'rc_comment_id' => 1,
-			'rc_timestamp' => $dbw->timestamp(),
-		] + $userData, __METHOD__ );
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'recentchanges' )
+			->row(
+				[
+					'rc_this_oldid' => $revId,
+					'rc_comment_id' => 1,
+					'rc_timestamp' => $dbw->timestamp(),
+				] + $userData )
+			->caller( __METHOD__ )
+			->execute();
 
 		$this->maintenance->loadWithArgv( [ '--old' ] );
 

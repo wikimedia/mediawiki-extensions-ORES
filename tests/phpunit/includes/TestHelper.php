@@ -41,7 +41,11 @@ class TestHelper {
 		];
 
 		foreach ( $dump as $row ) {
-			$db->insert( 'ores_model', $row );
+			$db->newInsertQueryBuilder()
+				->insertInto( 'ores_model' )
+				->row( $row )
+				->caller( __METHOD__ )
+				->execute();
 		}
 	}
 
@@ -75,7 +79,11 @@ class TestHelper {
 			];
 		}
 		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
-		$dbw->insert( 'ores_classification', $dbData );
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'ores_classification' )
+			->rows( $dbData )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	public static function doPageEdit( User $user, LinkTarget $target, $summary ) {

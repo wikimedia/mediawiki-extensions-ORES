@@ -193,9 +193,9 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 
 		// Put old score there
 		$dbw = $this->getDb();
-		$dbw->insert(
-			'ores_classification',
-			[
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'ores_classification' )
+			->rows( [
 				[
 					'oresc_rev' => '567',
 					'oresc_model' => (string)self::GOODFAITH,
@@ -210,34 +210,36 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 					'oresc_probability' => '0.6',
 					'oresc_is_predicted' => '1'
 				],
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
+
 		$user = self::getTestUser();
-		$dbw->insert(
-			'recentchanges',
-			[
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'recentchanges' )
+			->row( [
 				'rc_this_oldid' => '567',
 				'rc_cur_id' => 3,
 				'rc_last_oldid' => '425',
 				'rc_comment_id' => 1,
 				'rc_actor' => $user->getUser()->getActorId(),
 				'rc_timestamp' => $dbw->timestamp(),
-			],
-			__METHOD__
-		);
-		$dbw->insert(
-			'recentchanges',
-			[
+			] )
+			->caller( __METHOD__ )
+			->execute();
+
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'recentchanges' )
+			->row( [
 				'rc_this_oldid' => '12345',
 				'rc_cur_id' => 3,
 				'rc_last_oldid' => '567',
 				'rc_comment_id' => 1,
 				'rc_actor' => $user->getUser()->getActorId(),
 				'rc_timestamp' => $dbw->timestamp(),
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 
 		$this->storage->storeScores( $scores, null, [ 'goodfaith' ] );
 
@@ -344,9 +346,9 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 	}
 
 	public function testPurgeRows() {
-		$this->getDb()->insert(
-			'ores_classification',
-			[
+		$this->getDb()->newInsertQueryBuilder()
+			->insertInto( 'ores_classification' )
+			->rows( [
 				[
 					'oresc_rev' => '12346',
 					'oresc_model' => (string)self::REVERTED,
@@ -389,8 +391,9 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 					'oresc_probability' => '0.86',
 					'oresc_is_predicted' => '1'
 				],
-			]
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 
 		$this->storage->purgeRows( [ 12344, 12346 ] );
 

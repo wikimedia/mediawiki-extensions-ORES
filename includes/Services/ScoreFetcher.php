@@ -118,31 +118,30 @@ class ScoreFetcher implements ServiceScoreLookup {
 	public function updateModelVersion( $model, $responseVersion ) {
 		// TODO: Move to ModelStorage service
 		$dbw = $this->dbProvider->getPrimaryDatabase();
-		$dbw->update(
-			'ores_model',
-			[
-				'oresm_is_current' => 0,
-			],
-			[
+		$dbw->newUpdateQueryBuilder()
+			->update( 'ores_model' )
+			->set( [ 'oresm_is_current' => 0 ] )
+			->where( [
 				'oresm_name' => $model,
 				$dbw->expr( 'oresm_version', '!=', $responseVersion ),
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 
-		$dbw->upsert(
-			'ores_model',
-			[
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'ores_model' )
+			->row( [
 				'oresm_name' => $model,
 				'oresm_version' => $responseVersion,
 				'oresm_is_current' => 1,
-			],
-			[ [ 'oresm_name', 'oresm_version' ] ],
-			[
+			] )
+			->onDuplicateKeyUpdate()
+			->uniqueIndexFields( [ 'oresm_name', 'oresm_version' ] )
+			->set( [
 				'oresm_is_current' => 1,
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	public static function instance() {
