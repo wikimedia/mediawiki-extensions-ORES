@@ -63,11 +63,8 @@ class DatabaseQueryBuilderTest extends \MediaWikiIntegrationTestCase {
 		);
 
 		$this->assertEquals(
-			( new Expression( 'ores_model_cls.oresc_is_predicted', '=', 1 ) )
-				->andExpr( ( new Expression( 'ores_model_cls.oresc_class', '=', 0 ) )
-					->or( 'ores_model_cls.oresc_class', '=', 2 )
-			),
-			$whereClause
+			'(ores_model_cls.oresc_is_predicted = 1 AND ores_model_cls.oresc_class IN (0,2))',
+			$whereClause->toSql( $this->getDb() )
 		);
 	}
 

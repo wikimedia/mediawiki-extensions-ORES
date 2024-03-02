@@ -132,13 +132,13 @@ class DatabaseQueryBuilder {
 			return false;
 		}
 
-		$conditions = array_map( function ( $className ) use ( $tableAlias, $modelClasses ) {
-			$classId = $modelClasses[ $className ];
-			return $this->db->expr( "$tableAlias.oresc_class", '=', $classId );
-		}, $selected );
+		$classIds = [];
+		foreach ( $selected as $className ) {
+			$classIds[] = $modelClasses[ $className ];
+		}
 
 		return $this->db->expr( "$tableAlias.oresc_is_predicted", '=', 1 )
-			->andExpr( new OrExpressionGroup( ...$conditions ) );
+			->and( "$tableAlias.oresc_class", '=', $classIds );
 	}
 
 	private function makeOresClassificationTableAlias( $modelName ) {
