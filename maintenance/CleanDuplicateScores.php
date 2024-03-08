@@ -29,14 +29,13 @@ class CleanDuplicateScores extends Maintenance {
 			'ores_classification.oresc_id',
 			'OC.oresc_id = ores_classification.oresc_id'
 		);
-		$res = $dbr->select(
-			'ores_classification',
-			[ 'oresc_rev', 'oresc_model', 'oresc_class' , 'ids' => $groupConcat ],
-			'',
-			__METHOD__,
-			[ 'GROUP BY' => 'oresc_rev, oresc_model, oresc_class',
-			'HAVING' => 'COUNT(*) > 1' ]
-		);
+		$res = $dbr->newSelectQueryBuilder()
+			->select( [ 'oresc_rev', 'oresc_model', 'oresc_class', 'ids' => $groupConcat ] )
+			->from( 'ores_classification' )
+			->groupBy( [ 'oresc_rev', 'oresc_model', 'oresc_class' ] )
+			->having( 'COUNT(*) > 1' )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		$ids = [];
 		foreach ( $res as $row ) {
 			$rowIds = explode( '|', $row->ids );
