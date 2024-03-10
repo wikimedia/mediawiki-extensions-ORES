@@ -113,7 +113,7 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 		}
 
 		$revids = [];
-		foreach ( $items as list( $watchedItem, $rcInfo ) ) {
+		foreach ( $items as [ $watchedItem, $rcInfo ] ) {
 			if ( (int)$rcInfo['rc_type'] === RC_EDIT || (int)$rcInfo['rc_type'] === RC_NEW ) {
 				$revids[] = $rcInfo['rc_this_oldid'];
 			}

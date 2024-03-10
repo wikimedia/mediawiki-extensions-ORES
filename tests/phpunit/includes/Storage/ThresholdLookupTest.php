@@ -140,7 +140,8 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 							'threshold' => 0.259, // verylikelygood max
 						],
 					],
-			] ] ] ] ] ] );
+				] ] ]
+			] ] ] );
 
 		$stats = $this->getNewThresholdLookup( $oresService, LoggerFactory::getInstance( 'test' ) );
 		$thresholds = $stats->getThresholds( 'damaging' );

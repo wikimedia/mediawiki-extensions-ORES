@@ -91,7 +91,7 @@ class ScoreFetcherTest extends \MediaWikiIntegrationTestCase {
 	public static function provideTestCheckModelVersion() {
 		return [
 			[ null, 'damaging', [] ],
-			[ null, 'damaging',  [ 'info' => 'foo' ] ],
+			[ null, 'damaging', [ 'info' => 'foo' ] ],
 			[ '0.0.4', 'damaging', [ 'version' => '0.0.4' ] ],
 			[ null, 'goodfaith', [ 'version' => '0.0.3' ] ],
 			[ '0.0.4', 'goodfaith', [ 'version' => '0.0.4' ] ],

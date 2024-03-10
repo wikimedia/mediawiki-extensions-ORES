@@ -73,7 +73,7 @@ class ThresholdParserTest extends \MediaWikiIntegrationTestCase {
 		];
 
 		return [
-			[ [ 'likelybad' => [ 'min' => 0.81,  'max' => 1 ] ], [], 'damaging' ],
+			[ [ 'likelybad' => [ 'min' => 0.81, 'max' => 1 ] ], [], 'damaging' ],
 			[ $expected1, $thresholdData1, 'damaging' ],
 			[ $expected2, $thresholdData2, 'damaging' ],
 		];
