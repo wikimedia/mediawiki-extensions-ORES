@@ -84,8 +84,8 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 
 		$this->assertEquals( [], iterator_to_array( $remainingScores, false ) );
 
-		$pattern = '/skipping \'reverted\'.+'
-			. 'purging scores from all model versions from \'damaging\'/s';
+		$pattern = '/purging scores from all model versions from \'damaging\'.+'
+			. 'skipping \'reverted\'/s';
 		$this->expectOutputRegex( $pattern );
 	}
 
