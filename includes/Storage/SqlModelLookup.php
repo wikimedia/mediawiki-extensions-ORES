@@ -71,6 +71,7 @@ class SqlModelLookup implements ModelLookup {
 	}
 
 	private function getModelData() {
+		// Don't cache when result is empty (T184938)
 		if ( $this->modelData === null || $this->modelData === [] ) {
 			$this->modelData = [];
 			$result = $this->dbProvider->getReplicaDatabase()->newSelectQueryBuilder()
