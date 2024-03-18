@@ -21,7 +21,7 @@ namespace ORES\Hooks\Api;
 use MediaWiki\User\UserIdentity;
 use ORES\Hooks\Helpers;
 use ORES\Services\ORESServices;
-use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 
 class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtension {
@@ -38,7 +38,7 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 	 * @param UserIdentity $user
 	 * @param array $options Options from
 	 *  WatchedItemQueryService::getWatchedItemsWithRecentChangeInfo()
-	 * @param IDatabase $db Database connection being used for the query
+	 * @param IReadableDatabase $db Database connection being used for the query
 	 * @param string[] &$tables Tables for Database::select()
 	 * @param string[] &$fields Fields for Database::select()
 	 * @param array &$conds Conditions for Database::select()
@@ -46,7 +46,7 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 	 * @param array &$joinConds Join conditions for Database::select()
 	 */
 	public function modifyWatchedItemsWithRCInfoQuery( UserIdentity $user, array $options,
-		IDatabase $db, array &$tables, array &$fields, array &$conds, array &$dbOptions,
+		IReadableDatabase $db, array &$tables, array &$fields, array &$conds, array &$dbOptions,
 		array &$joinConds
 	) {
 		if ( !$options['usedInGenerator'] && in_array( 'oresscores', $options['includeFields'], true ) ) {
@@ -100,13 +100,13 @@ class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtens
 	 * @param UserIdentity $user
 	 * @param array $options Options from
 	 *  WatchedItemQueryService::getWatchedItemsWithRecentChangeInfo()
-	 * @param IDatabase $db Database connection being used for the query
+	 * @param IReadableDatabase $db Database connection being used for the query
 	 * @param array[] &$items Array of pairs ( WatchedItem $watchedItem, string[] $recentChangeInfo )
 	 * @param IResultWrapper|bool $res Database query result
 	 * @param array|null &$startFrom Continuation value
 	 */
 	public function modifyWatchedItemsWithRCInfo( UserIdentity $user, array $options,
-		IDatabase $db, array &$items, $res, &$startFrom
+		IReadableDatabase $db, array &$items, $res, &$startFrom
 	) {
 		if ( $options['usedInGenerator'] || !in_array( 'oresscores', $options['includeFields'], true ) ) {
 			return;
