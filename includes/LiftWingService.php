@@ -207,8 +207,8 @@ class LiftWingService extends ORESService {
 				// This is a way to detect whether an error occurred because the revision was not found.
 				// Checking for "detail" key in the response is a hack to detect the error message from Lift Wing as
 				// there is no universal error handling/messaging at the moment.
-				if ( $data && isset( $data['error'] ) && strpos( $data["error"],
-						"The MW API does not have any info related to the rev-id" ) === 0 ||
+				if ( ( $data && isset( $data['error'] ) && strpos( $data["error"],
+						"The MW API does not have any info related to the rev-id" ) === 0 ) ||
 					array_key_exists( "detail", $data ) ) {
 					return $this->createRevisionNotFoundResponse(
 						$model,
