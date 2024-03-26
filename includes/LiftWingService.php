@@ -19,6 +19,7 @@ namespace ORES;
 use FormatJson;
 use MediaWiki\Config\Config;
 use MediaWiki\Http\HttpRequestFactory;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Status\Status;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
@@ -180,6 +181,31 @@ class LiftWingService extends ORESService {
 	 * @return array|array[]|mixed
 	 */
 	public function revertRiskLiftWingRequest( $model, $revid ) {
+		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
+		$revidInt = (int)$revid;
+		$revidStr = (string)$revid;
+		// The Language-agnostic revert risk model card states that
+		// the first or only revision on a page must be excluded.
+		if ( $revidInt === 0 ) {
+			return $this->createRevisionNotScorableResponse(
+				$model,
+				$revidStr
+			);
+		}
+		$rev = $revLookup->getRevisionById( $revidInt );
+		if ( $rev === null ) {
+			return $this->createRevisionNotFoundResponse(
+				$model,
+				$revidStr
+			);
+		}
+		$parentId = $rev->getParentId();
+		if ( $parentId === null || $parentId === 0 ) {
+			return $this->createRevisionNotScorableResponse(
+				$model,
+				$revidStr
+			);
+		}
 		$wikiId = self::getWikiID();
 		$language = substr( $wikiId, 0, strpos( $wikiId, "wiki" ) );
 		$prefix = 'v' . self::API_VERSION;
@@ -212,7 +238,7 @@ class LiftWingService extends ORESService {
 					array_key_exists( "detail", $data ) ) {
 					return $this->createRevisionNotFoundResponse(
 						$model,
-						$revid
+						$revidStr
 					);
 				} else {
 					throw new RuntimeException( $message );
@@ -303,8 +329,42 @@ class LiftWingService extends ORESService {
 		string $rev_id
 	) {
 		global $wgOresModelVersions;
-		$error_message = "RevisionNotFound: Could not find revision ({revision}:{$rev_id})";
 		$error_type = "RevisionNotFound";
+		$error_message = "{$error_type}: Could not find revision ({revision}:{$rev_id})";
+		return [
+			self::getWikiID() => [
+				"models" => [
+					$model_name => [
+						"version" => $wgOresModelVersions['models'][$model_name]['version'],
+					],
+				],
+				"scores" => [
+					$rev_id => [
+						$model_name => [
+							"error" => [
+								"message" => $error_message,
+								"type" => $error_type,
+							],
+						],
+					],
+				],
+			],
+		];
+	}
+
+	/**
+	 * @param string $model_name
+	 * @param string $rev_id
+	 * @return array
+	 */
+	private function createRevisionNotScorableResponse(
+		string $model_name,
+		string $rev_id
+	) {
+		global $wgOresModelVersions;
+		$error_type = "RevisionNotScorable";
+		$error_message = "{$error_type}: This model may not be used to score ({revision}:{$rev_id}).";
+		$error_message .= " See Users and uses section of model card.";
 		return [
 			self::getWikiID() => [
 				"models" => [
