@@ -319,7 +319,7 @@
 				},
 				"revertrisklanguageagnostic": {
 					"revertrisk": {
-						"min": 0.50,
+						"min": 0.95,
 						"max": 1
 					}
 				}
