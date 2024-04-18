@@ -51,7 +51,7 @@
 	"ores-rcfilters-revertrisklanguageagnostic-whats-this-body": "Iste predictiones sur le risco de reversion se basa sur un servicio de apprendimento machinal que usa le contento e metadatos de versiones pro previder le risco que un version essera revertite",
 	"ores-rcfilters-revertrisklanguageagnostic-conflicts-logactions": "Le predictiones RevertRisk non es disponibile pro certe typos de modification, dunque iste filtro es in conflicto con le sequente filtro{{PLURAL:$2||s}} “Typo de modification”: $1",
 	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-label": "Probabilemente essera revertite",
-	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc": "Deteger versiones que poterea esser revertite, independentemente de si illos ha essite facite in bon fide o con le intention de damnificar.",
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc": "Detege versiones que poterea esser revertite, ma non evaluta le intention del usator.",
 	"ores-pref-highlight": "Mitter in evidentia le modificationes probabilemente problematic con colores e con un \"{{int:ores-damaging-letter}}\" pro \"require revision\"",
 	"ores-pref-rc-hidenondamaging": "Monstrar solmente le modificationes probabilemente problematic (e celar illos probabilemente bon)",
 	"ores-pref-watchlist-hidenondamaging": "Monstrar solmente le modificationes probabilemente problematic (e celar illos probabilemente bon)",

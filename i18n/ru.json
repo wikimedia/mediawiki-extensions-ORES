@@ -3,6 +3,7 @@
 		"authors": [
 			"Cat1987",
 			"Diman Russkov",
+			"Dirruw'o",
 			"Facenapalm",
 			"Iniquity",
 			"Kaganer",
@@ -60,6 +61,7 @@
 	"ores-rcfilters-goodfaith-bad-desc-high": "Со средней точностью находит самые недобросовестные изменения.",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Скорее всего недобросовестные",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Максимально точен в поиске очевидно недобросовестных правок.",
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc": "Обнаруживает версии, которые могут быть отменены, но не оценивает намерения пользователя.",
 	"ores-pref-highlight": "Выделять вероятно проблемные правки цветом и символом «{{int:ores-damaging-letter}}», означающим «требуется проверка»",
 	"ores-pref-rc-hidenondamaging": "Показывать только вероятно проблемные правки (и скрыть возможно хорошие)",
 	"ores-pref-watchlist-hidenondamaging": "Показывать только вероятно проблемные правки (и скрыть возможно хорошие)",
