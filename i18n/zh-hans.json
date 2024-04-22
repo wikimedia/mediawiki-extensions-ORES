@@ -6,7 +6,8 @@
 			"Myy730",
 			"WhitePhosphorus",
 			"Yfdyh000",
-			"夢蝶葬花"
+			"夢蝶葬花",
+			"沈澄心"
 		]
 	},
 	"ores-desc": "提供自动化的修订评分接口",
@@ -50,6 +51,9 @@
 	"ores-rcfilters-goodfaith-bad-desc-high": "以中等精度查找出大多数存在恶意的编辑。",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "高概率恶意",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "以极高精度查找出大多数明显存在恶意的编辑。",
+	"ores-rcfilters-revertrisklanguageagnostic-title": "被回退的风险",
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-label": "可能会被回退",
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc": "检测可能会被回退的修订，但不评估用户的意图。",
 	"ores-pref-highlight": "将很可能有问题的编辑用颜色标出并标记“{{int:ores-damaging-letter}}”来表示“需要复核”",
 	"ores-pref-rc-hidenondamaging": "只显示很可能有问题的编辑（并隐藏可能良好的编辑）",
 	"ores-pref-watchlist-hidenondamaging": "只显示很可能有问题的编辑（并隐藏可能良好的编辑）",

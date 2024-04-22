@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"NMW03"
+			"NMW03",
+			"Nemoralis"
 		]
 	},
 	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc": "Geri qaytarıla bilən düzəlişləri aşkar edir, lakin istifadəçinin niyyətini qiymətləndirmir."
