@@ -147,10 +147,11 @@ class PurgeScoreCache extends Maintenance {
 				[ 'LIMIT' => $batchSize ]
 			);
 			if ( $ids ) {
-				$dbw->delete( 'ores_classification',
-					[ 'oresc_id' => $ids ],
-					__METHOD__
-				);
+				$dbw->newDeleteQueryBuilder()
+					->deleteFrom( 'ores_classification' )
+					->where( [ 'oresc_id' => $ids ] )
+					->caller( __METHOD__ )
+					->execute();
 				$deletedRows += $dbw->affectedRows();
 				$this->waitForReplication();
 			}

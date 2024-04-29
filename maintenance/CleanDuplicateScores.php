@@ -48,11 +48,11 @@ class CleanDuplicateScores extends Maintenance {
 		$this->output( "Got $c duplicates, cleaning them." );
 		$chunks = array_chunk( $ids, 1000 );
 		foreach ( $chunks as $chunk ) {
-			$dbw->delete(
-				'ores_classification',
-				[ 'oresc_id' => $chunk ],
-				__METHOD__
-			);
+			$dbw->newDeleteQueryBuilder()
+				->deleteFrom( 'ores_classification' )
+				->where( [ 'oresc_id' => $chunk ] )
+				->caller( __METHOD__ )
+				->execute();
 			$this->waitForReplication();
 		}
 

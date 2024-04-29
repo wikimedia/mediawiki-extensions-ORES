@@ -94,12 +94,12 @@ class SqlScoreStorage implements ScoreStorage {
 		}
 
 		try {
-			$this->dbProvider->getPrimaryDatabase()->insert(
-				'ores_classification',
-				$dbData,
-				__METHOD__,
-				[ 'IGNORE' ]
-			);
+			$this->dbProvider->getPrimaryDatabase()->newInsertQueryBuilder()
+				->insertInto( 'ores_classification' )
+				->rows( $dbData )
+				->ignore()
+				->caller( __METHOD__ )
+				->execute();
 		} catch ( DBError $exception ) {
 			$this->logger->error(
 				'Inserting new data into the datbase has failed:' . $exception->getMessage()
@@ -132,11 +132,11 @@ class SqlScoreStorage implements ScoreStorage {
 			$conditions[] = 'oresc_model NOT IN (' . implode( ', ', $modelsToKeep ) . ')';
 		}
 
-		$this->dbProvider->getPrimaryDatabase()->delete(
-			'ores_classification',
-			$conditions,
-			__METHOD__
-		);
+		$this->dbProvider->getPrimaryDatabase()->newDeleteQueryBuilder()
+			->deleteFrom( 'ores_classification' )
+			->where( $conditions )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**
@@ -182,11 +182,11 @@ class SqlScoreStorage implements ScoreStorage {
 		);
 
 		if ( $parentIds ) {
-			$this->dbProvider->getPrimaryDatabase()->delete(
-				'ores_classification',
-				[ 'oresc_rev' => $parentIds, 'oresc_model' => $modelIds ],
-				__METHOD__
-			);
+			$this->dbProvider->getPrimaryDatabase()->newDeleteQueryBuilder()
+				->deleteFrom( 'ores_classification' )
+				->where( [ 'oresc_rev' => $parentIds, 'oresc_model' => $modelIds ] )
+				->caller( __METHOD__ )
+				->execute();
 		}
 	}
 

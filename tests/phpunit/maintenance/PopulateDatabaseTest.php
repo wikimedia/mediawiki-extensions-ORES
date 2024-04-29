@@ -159,7 +159,11 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 			$row += [ 'rc_timestamp' => $dbw->timestamp() ];
 		}
 
-		$dbw->insert( 'recentchanges', $rcContents, __METHOD__ );
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'recentchanges' )
+			->rows( $rcContents )
+			->caller( __METHOD__ )
+			->execute();
 
 		foreach ( $oresContents as $revId => $scores ) {
 			TestHelper::insertOresData( $revId, $scores );
