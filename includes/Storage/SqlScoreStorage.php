@@ -174,12 +174,12 @@ class SqlScoreStorage implements ScoreStorage {
 
 		$newRevisions = array_keys( $scores );
 
-		$parentIds = $this->dbProvider->getReplicaDatabase()->selectFieldValues(
-			'recentchanges',
-			'rc_last_oldid',
-			[ 'rc_this_oldid' => $newRevisions ],
-			__METHOD__
-		);
+		$parentIds = $this->dbProvider->getReplicaDatabase()->newSelectQueryBuilder()
+			->select( 'rc_last_oldid' )
+			->from( 'recentchanges' )
+			->where( [ 'rc_this_oldid' => $newRevisions ] )
+			->caller( __METHOD__ )
+			->fetchFieldValues();
 
 		if ( $parentIds ) {
 			$this->dbProvider->getPrimaryDatabase()->newDeleteQueryBuilder()

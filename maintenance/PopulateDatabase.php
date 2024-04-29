@@ -52,7 +52,7 @@ class PopulateDatabase extends Maintenance {
 
 		$count = 0;
 		while ( $count < $this->revisionLimit ) {
-			$conditions = [ 'oresc_id IS NULL', 'rc_type' => [ RC_EDIT, RC_NEW ] ];
+			$conditions = [ 'oresc_id' => null, 'rc_type' => [ RC_EDIT, RC_NEW ] ];
 
 			if ( $wgOresExcludeBots === true ) {
 				$conditions['rc_bot'] = 0;

@@ -75,15 +75,17 @@ class PurgeScoreCache extends Maintenance {
 		$conditions = [
 			'oresm_name' => [ $model, null ],
 		];
+		$dbr = $this->getReplicaDB();
 		if ( !$isEverything ) {
-			$conditions[] = '(oresm_is_current != 1 OR oresm_is_current IS NULL)';
+			$conditions[] = $dbr->expr( 'oresm_is_current', '!=', 1 )->or( 'oresm_is_current', '=', null );
 		}
 
-		$modelIds = $this->getReplicaDB()->selectFieldValues( 'ores_model',
-			'oresm_id',
-			$conditions,
-			__METHOD__
-		);
+		$modelIds = $dbr->newSelectQueryBuilder()
+			->select( 'oresm_id' )
+			->from( 'ores_model' )
+			->where( $conditions )
+			->caller( __METHOD__ )
+			->fetchFieldValues();
 		if ( !$modelIds ) {
 			return 0;
 		}
@@ -101,25 +103,26 @@ class PurgeScoreCache extends Maintenance {
 	 */
 	public function purgeOld( $model, $batchSize = 1000 ) {
 		$dbr = $this->getReplicaDB();
-		$modelIds = $dbr->selectFieldValues( 'ores_model',
-			'oresm_id',
-			[ 'oresm_name' => [ $model, null ] ],
-			__METHOD__
-		);
+		$modelIds = $dbr->newSelectQueryBuilder()
+			->select( 'oresm_id' )
+			->from( 'ores_model' )
+			->where( [ 'oresm_name' => [ $model, null ] ] )
+			->caller( __METHOD__ )
+			->fetchFieldValues();
 
-		$lowestRCRev = $dbr->selectFieldValues( 'recentchanges',
-			'rc_this_oldid',
-			[],
-			__METHOD__,
-			[ 'LIMIT' => 1, 'ORDER BY' => 'rc_id' ]
-		);
+		$lowestRCRev = $dbr->newSelectQueryBuilder()
+			->select( 'rc_this_oldid' )
+			->from( 'recentchanges' )
+			->caller( __METHOD__ )
+			->orderBy( 'rc_id' )
+			->fetchField();
 
 		if ( !$lowestRCRev || !$modelIds ) {
 			return 0;
 		}
 
 		$conditions = [
-			$dbr->expr( 'oresc_rev', '<', $lowestRCRev[0] ),
+			$dbr->expr( 'oresc_rev', '<', $lowestRCRev ),
 			'oresc_model' => $modelIds
 		];
 		return $this->deleteRows( $conditions, $batchSize );
@@ -140,12 +143,13 @@ class PurgeScoreCache extends Maintenance {
 		$deletedRows = 0;
 
 		do {
-			$ids = $dbr->selectFieldValues( 'ores_classification',
-				'oresc_id',
-				$conditions,
-				__METHOD__,
-				[ 'LIMIT' => $batchSize ]
-			);
+			$ids = $dbr->newSelectQueryBuilder()
+				->select( 'oresc_id' )
+				->from( 'ores_classification' )
+				->where( $conditions )
+				->limit( $batchSize )
+				->caller( __METHOD__ )
+				->fetchFieldValues();
 			if ( $ids ) {
 				$dbw->newDeleteQueryBuilder()
 					->deleteFrom( 'ores_classification' )

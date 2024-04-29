@@ -111,13 +111,13 @@ class FetchScoreJob extends Job {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$revids = array_diff(
 			$revids,
-			$dbr->selectFieldValues(
-				'ores_classification',
-				'oresc_rev',
-				[ 'oresc_rev' => $revids ],
-				__METHOD__,
-				[ 'DISTINCT' ]
-			)
+			$dbr->newSelectQueryBuilder()
+				->select( 'oresc_rev' )
+				->distinct()
+				->from( 'ores_classification' )
+				->where( [ 'oresc_rev' => $revids ] )
+				->caller( __METHOD__ )
+				->fetchFieldValues()
 		);
 
 		return $revids;
