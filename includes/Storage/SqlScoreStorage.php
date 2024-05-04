@@ -93,18 +93,20 @@ class SqlScoreStorage implements ScoreStorage {
 			$dbData = array_merge( $dbData, $dbDataPerRevision );
 		}
 
-		try {
-			$this->dbProvider->getPrimaryDatabase()->newInsertQueryBuilder()
-				->insertInto( 'ores_classification' )
-				->rows( $dbData )
-				->ignore()
-				->caller( __METHOD__ )
-				->execute();
-		} catch ( DBError $exception ) {
-			$this->logger->error(
-				'Inserting new data into the datbase has failed:' . $exception->getMessage()
-			);
-			return;
+		if ( $dbData ) {
+			try {
+				$this->dbProvider->getPrimaryDatabase()->newInsertQueryBuilder()
+					->insertInto( 'ores_classification' )
+					->rows( $dbData )
+					->ignore()
+					->caller( __METHOD__ )
+					->execute();
+			} catch ( DBError $exception ) {
+				$this->logger->error(
+					'Inserting new data into the datbase has failed:' . $exception->getMessage()
+				);
+				return;
+			}
 		}
 
 		if ( $modelsToClean !== [] ) {
