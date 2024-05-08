@@ -51,7 +51,7 @@
 	"ores-rcfilters-revertrisklanguageagnostic-whats-this-body": "Овие предвидувања за ризик од враќање се засноваат на услугата за машинско учење која користи содржини од преработки и метаподатоци за да го предвиди ризикот една преработка да биде вратена",
 	"ores-rcfilters-revertrisklanguageagnostic-conflicts-logactions": "Предвидувањата за ризик од враќање не се достапни за извесни видови измени. Затоа филтерот се коси со {{PLURAL:$2|филтер|филтри}} за вид на промена: $1",
 	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-label": "Веројатно ќе биде вратено",
-	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc": "Утврдете преработки кои може да бидат вратени, без оглед дали се направени добронамерно или со штетна умисла.",
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc": "Ги пронаоѓа преработките што може да да бидат отповикани, но не ја оценува намерата на корисникот.",
 	"ores-pref-highlight": "Истакнувај ги веројатно проблематичните уредувања со бои и со „{{int:ores-damaging-letter}}“, што значи „треба проверка“",
 	"ores-pref-rc-hidenondamaging": "Прикажи само уредувања што веројатно имаат проблеми (и скриј ги веројатно добрите)",
 	"ores-pref-watchlist-hidenondamaging": "Прикажи само уредувања што веројатно имаат проблеми (и скриј ги веројатно добрите)",
