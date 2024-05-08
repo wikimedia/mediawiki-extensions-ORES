@@ -127,17 +127,17 @@ class FetchScoreJobTest extends \MediaWikiIntegrationTestCase {
 
 		$job->run();
 
-		$this->assertSelect(
-			'ores_classification',
-			[
+		$this->newSelectQueryBuilder()
+			->select( [
 				'oresc_rev',
 				'oresc_model',
 				'oresc_class',
 				'oresc_probability',
 				'oresc_is_predicted'
-			],
-			[ 'oresc_rev' => 17 ],
-			[
+			] )
+			->from( 'ores_classification' )
+			->where( [ 'oresc_rev' => 17 ] )
+			->assertResultSet( [
 				[
 					17,
 					5,
@@ -152,9 +152,7 @@ class FetchScoreJobTest extends \MediaWikiIntegrationTestCase {
 					0.749,
 					1,
 				]
-			],
-			[ 'ORDER BY' => 'oresc_probability' ]
-		);
+			] );
 	}
 
 }
