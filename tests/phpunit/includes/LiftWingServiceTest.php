@@ -2,7 +2,7 @@
 
 namespace ORES\Tests;
 
-use MediaWiki\Config\Config;
+use MediaWiki\Config\HashConfig;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\WikiMap\WikiMap;
 use ORES\LiftWingService;
@@ -29,7 +29,7 @@ class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 		$this->lwService = new LiftWingService(
 			LoggerFactory::getInstance( 'ORES' ),
 			$this->getServiceContainer()->getHttpRequestFactory(),
-			$this->createMock( Config::class )
+			new HashConfig()
 		);
 	}
 

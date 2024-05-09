@@ -4,7 +4,7 @@ namespace ORES\Tests;
 
 use MediaWiki\Logger\LoggerFactory;
 use ORES\ThresholdParser;
-use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 
 /**
  * @group ORES
@@ -27,27 +27,11 @@ class ThresholdParserTest extends \MediaWikiIntegrationTestCase {
 		] );
 	}
 
-	private function getLoggerMock() {
-		return $this->getMockBuilder( LoggerInterface::class )
-			->onlyMethods( [
-				'emergency',
-				'alert',
-				'critical',
-				'error',
-				'warning',
-				'notice',
-				'info',
-				'debug',
-				'log'
-			] )
-			->getMock();
-	}
-
 	/**
 	 * @dataProvider provideTestParseThresholds
 	 */
 	public function testParseThresholds( $expected, $data, $model ) {
-		$thresholdParser = new ThresholdParser( $this->getLoggerMock() );
+		$thresholdParser = new ThresholdParser( new NullLogger() );
 		$thresholds = $thresholdParser->parseThresholds( $data, $model );
 		$this->assertSame( $expected, $thresholds );
 	}

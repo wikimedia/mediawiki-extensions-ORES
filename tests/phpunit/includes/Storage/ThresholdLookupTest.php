@@ -3,14 +3,14 @@
 namespace ORES\Tests;
 
 use HashBagOStuff;
-use MediaWiki\Config\Config;
+use HashConfig;
 use MediaWiki\Logger\LoggerFactory;
 use NullStatsdDataFactory;
 use ORES\ORESService;
 use ORES\Storage\HashModelLookup;
 use ORES\Storage\ThresholdLookup;
 use ORES\ThresholdParser;
-use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 use WANObjectCache;
 
 /**
@@ -27,31 +27,7 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 		] );
 	}
 
-	private function getLoggerMock() {
-		return $this->getMockBuilder( LoggerInterface::class )
-			->onlyMethods( [
-				'emergency',
-				'alert',
-				'critical',
-				'error',
-				'warning',
-				'notice',
-				'info',
-				'debug',
-				'log'
-			] )
-			->getMock();
-	}
-
 	private function getNewThresholdLookup( $oresService = null, $logger = null ) {
-		if ( $oresService === null ) {
-			$oresService = $this->createMock( ORESService::class );
-		}
-
-		if ( $logger === null ) {
-			$logger = $this->getLoggerMock();
-		}
-
 		$modelData = [
 			'reverted' => [ 'id' => 2, 'version' => '0.0.1' ],
 			'damaging' => [ 'id' => 3, 'version' => '0.0.2' ],
@@ -59,13 +35,13 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 		];
 
 		return new ThresholdLookup(
-			new ThresholdParser( $this->getLoggerMock() ),
+			new ThresholdParser( new NullLogger() ),
 			new HashModelLookup( $modelData ),
-			$oresService,
+			$oresService ?? $this->createNoOpMock( ORESService::class ),
 			WANObjectCache::newEmpty(),
-			$logger,
+			$logger ?? new NullLogger(),
 			new NullStatsdDataFactory(),
-			$this->createMock( Config::class )
+			new HashConfig()
 		);
 	}
 
@@ -200,13 +176,13 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 
 		$cache = new WANObjectCache( [ 'cache' => new HashBagOStuff() ] );
 		$thresholdLookup = new ThresholdLookup(
-			new ThresholdParser( $this->getLoggerMock() ),
+			new ThresholdParser( new NullLogger() ),
 			new HashModelLookup( $modelData ),
 			$oresService,
 			$cache,
-			$this->getLoggerMock(),
+			new NullLogger(),
 			new NullStatsdDataFactory(),
-			$this->createMock( Config::class )
+			new HashConfig()
 		);
 
 		$thresholdLookup->getThresholds( 'damaging' );

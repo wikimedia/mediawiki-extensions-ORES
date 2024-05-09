@@ -18,8 +18,6 @@ namespace ORES;
 
 /**
  * Represents a range defined by two values: min and max
- *
- * @package ORES
  */
 class Range {
 

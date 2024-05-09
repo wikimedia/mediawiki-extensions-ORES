@@ -5,7 +5,6 @@ namespace ORES\Tests\Hooks;
 use ChangesList;
 use EnhancedChangesList;
 use IContextSource;
-use MediaWiki\Config\Config;
 use MediaWiki\Html\FormOptions;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\FauxRequest;
@@ -285,20 +284,14 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 		$rc = $this->makeRcEntry( true );
 		$rc = RCCacheEntry::newFromParent( $rc );
 
-		$config = $this->createMock( Config::class );
-		$config->method( 'get' )
-			->willReturn( true );
-
-		$cl = $this->createMock( ChangesList::class );
+		$cl = $this->createNoOpMock( ChangesList::class,
+			[ 'getUser', 'getRequest', 'getTitle', 'getContext' ] );
 
 		$cl->method( 'getUser' )
 			->willReturn( $this->user );
 
 		$cl->method( 'getRequest' )
 			->willReturn( new FauxRequest() );
-
-		$cl->method( 'getConfig' )
-			->willReturn( $config );
 
 		$cl->method( 'getTitle' )
 			->willReturn( SpecialPage::getTitleFor( 'Recentchanges' ) );
