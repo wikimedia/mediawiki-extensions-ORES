@@ -632,13 +632,11 @@ class ChangesListHooksHandler implements
 				$classes[] = 'damaging';
 
 				$separator = ' <span class="mw-changeslist-separator"></span> ';
-				if ( strpos( $s, $separator ) === false ) {
-					return;
+				$pos = strpos( $s, $separator );
+				if ( $pos !== false ) {
+					$pos += strlen( $separator );
+					$s = substr_replace( $s, ChangesList::flag( 'damaging' ), $pos, 0 );
 				}
-
-				$parts = explode( $separator, $s );
-				$parts[1] = ChangesList::flag( 'damaging' ) . $parts[1];
-				$s = implode( $separator, $parts );
 			}
 		}
 	}
