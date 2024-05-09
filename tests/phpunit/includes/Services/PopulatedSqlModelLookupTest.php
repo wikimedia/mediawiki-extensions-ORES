@@ -68,7 +68,7 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 		] );
 
 		$this->storageLookup = new SqlModelLookup(
-			MediaWikiServices::getInstance()->getDBLoadBalancerFactory()
+			MediaWikiServices::getInstance()->getConnectionProvider()
 		);
 
 		$modelData = [

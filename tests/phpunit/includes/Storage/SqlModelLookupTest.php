@@ -23,7 +23,7 @@ class SqlModelLookupTest extends MediaWikiLangTestCase {
 		parent::setUp();
 
 		TestHelper::insertModelData();
-		$this->storage = new SqlModelLookup( MediaWikiServices::getInstance()->getDBLoadBalancerFactory() );
+		$this->storage = new SqlModelLookup( MediaWikiServices::getInstance()->getConnectionProvider() );
 	}
 
 	public function testGetModels() {
