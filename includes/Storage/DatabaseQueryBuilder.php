@@ -23,15 +23,8 @@ use Wikimedia\Rdbms\OrExpressionGroup;
 
 class DatabaseQueryBuilder {
 
-	/**
-	 * @var ThresholdLookup
-	 */
-	private $thresholdLookup;
-
-	/**
-	 * @var IReadableDatabase
-	 */
-	private $db;
+	private ThresholdLookup $thresholdLookup;
+	private IReadableDatabase $db;
 
 	public function __construct( ThresholdLookup $thresholdLookup, IReadableDatabase $db ) {
 		$this->thresholdLookup = $thresholdLookup;
