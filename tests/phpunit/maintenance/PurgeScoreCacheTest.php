@@ -27,7 +27,7 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 		// Reset service to purge cached models.
 		$this->setService(
 			'ORESModelLookup',
-			new SqlModelLookup( MediaWikiServices::getInstance()->getDBLoadBalancerFactory() )
+			new SqlModelLookup( MediaWikiServices::getInstance()->getConnectionProvider() )
 		);
 	}
 
