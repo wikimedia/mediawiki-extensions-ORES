@@ -35,7 +35,7 @@ use MediaWiki\Specials\SpecialWatchlist;
 use ORES\Services\ORESServices;
 use ORES\Storage\ThresholdLookup;
 use RecentChange;
-use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 class ChangesListHooksHandler implements
 	ChangesListSpecialPageStructuredFiltersHook,
@@ -112,8 +112,10 @@ class ChangesListHooksHandler implements
 				'filters' => array_values( $filters ),
 				'default' => ChangesListStringOptionsFilterGroup::NONE,
 				'isFullCoverage' => false,
-				'queryCallable' => function ( $specialClassName, $ctx, IDatabase $dbr, &$tables,
-						&$fields, &$conds, &$query_options, &$join_conds, $selectedValues ) {
+				'queryCallable' => function ( $specialClassName, $ctx,
+					IReadableDatabase $dbr,
+					&$tables, &$fields, &$conds, &$query_options, &$join_conds, $selectedValues
+				) {
 					$databaseQueryBuilder = ORESServices::getDatabaseQueryBuilder();
 					$condition = $databaseQueryBuilder->buildQuery(
 						'damaging',
@@ -201,8 +203,10 @@ class ChangesListHooksHandler implements
 					'showHide' => 'ores-damaging-filter',
 					'isReplacedInStructuredUi' => true,
 					'default' => $damagingDefault,
-					'queryCallable' => function ( $specialClassName, IContextSource $ctx, IDatabase $dbr, &$tables,
-												  &$fields, &$conds, &$query_options, &$join_conds ) {
+					'queryCallable' => function ( $specialClassName, IContextSource $ctx,
+						IReadableDatabase $dbr,
+						&$tables, &$fields, &$conds, &$query_options, &$join_conds
+					) {
 						Helpers::hideNonDamagingFilter( $fields, $conds, true, $ctx->getUser(),
 							$ctx->getTitle() );
 						// Filter out incompatible types; log actions and external rows are not scorable
@@ -253,8 +257,10 @@ class ChangesListHooksHandler implements
 			'filters' => array_values( $filters ),
 			'default' => ChangesListStringOptionsFilterGroup::NONE,
 			'isFullCoverage' => false,
-			'queryCallable' => function ( $specialClassName, $ctx, IDatabase $dbr, &$tables, &$fields,
-										 &$conds, &$query_options, &$join_conds, $selectedValues ) {
+			'queryCallable' => function ( $specialClassName, $ctx,
+				IReadableDatabase $dbr,
+				&$tables, &$fields, &$conds, &$query_options, &$join_conds, $selectedValues
+			) {
 				$databaseQueryBuilder = ORESServices::getDatabaseQueryBuilder();
 				$condition = $databaseQueryBuilder->buildQuery(
 					'goodfaith',
@@ -327,16 +333,10 @@ class ChangesListHooksHandler implements
 			'filters' => array_values( $filters ),
 			'default' => ChangesListStringOptionsFilterGroup::NONE,
 			'isFullCoverage' => false,
-			'queryCallable' => function (
-				$specialClassName,
-				$ctx,
-				IDatabase $dbr,
-				&$tables,
-				&$fields,
-				&$conds,
-				&$query_options,
-				&$join_conds,
-				$selectedValues ) {
+			'queryCallable' => function ( $specialClassName, $ctx,
+				IReadableDatabase $dbr,
+				&$tables, &$fields, &$conds, &$query_options, &$join_conds, $selectedValues
+			) {
 				$databaseQueryBuilder = ORESServices::getDatabaseQueryBuilder();
 				$condition = $databaseQueryBuilder->buildQuery(
 					'revertrisklanguageagnostic',
