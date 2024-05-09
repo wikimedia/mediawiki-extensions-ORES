@@ -10,7 +10,7 @@ use ORES\Storage\SqlModelLookup;
 /**
  * @group ORES
  * @group Database
- * @covers ORES\Storage\SqlModelLookup
+ * @covers \ORES\Storage\SqlModelLookup
  */
 class SqlModelLookupTest extends MediaWikiLangTestCase {
 

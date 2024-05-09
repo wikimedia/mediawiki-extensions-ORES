@@ -8,7 +8,7 @@ use ORES\Storage\HashModelLookup;
 
 /**
  * @group ORES
- * @covers ORES\Storage\HashModelLookup
+ * @covers \ORES\Storage\HashModelLookup
  */
 class HashModelLookupTest extends MediaWikiIntegrationTestCase {
 
@@ -28,7 +28,7 @@ class HashModelLookupTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Storage\HashModelLookup::getModels
+	 * @covers \ORES\Storage\HashModelLookup::getModels
 	 */
 	public function testGetModels() {
 		$models = $this->storage->getModels();
@@ -40,7 +40,7 @@ class HashModelLookupTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Storage\HashModelLookup::getModelId
+	 * @covers \ORES\Storage\HashModelLookup::getModelId
 	 */
 	public function testGetModelId() {
 		$this->assertEquals( 2, $this->storage->getModelId( 'reverted' ) );
@@ -48,7 +48,7 @@ class HashModelLookupTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Storage\HashModelLookup::getModelId
+	 * @covers \ORES\Storage\HashModelLookup::getModelId
 	 */
 	public function testGetInvalidModelId() {
 		$this->expectException( InvalidArgumentException::class );
@@ -56,7 +56,7 @@ class HashModelLookupTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Storage\HashModelLookup::getModelVersion
+	 * @covers \ORES\Storage\HashModelLookup::getModelVersion
 	 */
 	public function testGetModelVersion() {
 		$this->assertSame( '0.0.1', $this->storage->getModelVersion( 'reverted' ) );
@@ -64,7 +64,7 @@ class HashModelLookupTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Storage\HashModelLookup::getModelVersion
+	 * @covers \ORES\Storage\HashModelLookup::getModelVersion
 	 */
 	public function testGetInvalidModelVersion() {
 		$this->expectException( InvalidArgumentException::class );

@@ -6,7 +6,7 @@ use ORES\Range;
 
 /**
  * @group ORES
- * @covers ORES\Range
+ * @covers \ORES\Range
  */
 class RangeTest extends \PHPUnit\Framework\TestCase {
 

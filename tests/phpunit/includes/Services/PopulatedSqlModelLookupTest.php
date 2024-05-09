@@ -13,7 +13,7 @@ use Psr\Log\NullLogger;
 /**
  * @group ORES
  * @group Database
- * @covers ORES\Services\PopulatedSqlModelLookup
+ * @covers \ORES\Services\PopulatedSqlModelLookup
  */
 class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 
