@@ -10,7 +10,7 @@ use ORES\Storage\HashModelLookup;
 /**
  * @group ORES
  * @group Database
- * @covers ORES\Services\FetchScoreJob
+ * @covers \ORES\Services\FetchScoreJob
  */
 class FetchScoreJobTest extends \MediaWikiIntegrationTestCase {
 
@@ -84,7 +84,7 @@ class FetchScoreJobTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ORES\Services\FetchScoreJob::run
+	 * @covers \ORES\Services\FetchScoreJob::run
 	 */
 	public function testRun() {
 		$params = [

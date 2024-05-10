@@ -11,7 +11,7 @@ use Wikimedia\Rdbms\Expression;
 /**
  * @group ORES
  * @group Database
- * @covers ORES\Hooks\Api\WatchedItemQueryServiceExtension
+ * @covers \ORES\Hooks\Api\WatchedItemQueryServiceExtension
  */
 class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase {
 
@@ -65,7 +65,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 	}
 
 	/**
-	 * @covers ORES\Hooks\Api\WatchedItemQueryServiceExtension::modifyWatchedItemsWithRCInfoQuery
+	 * @covers \ORES\Hooks\Api\WatchedItemQueryServiceExtension::modifyWatchedItemsWithRCInfoQuery
 	 */
 	public function testModifyWatchedItemsWithRCInfoQuery_review() {
 		$options = [
@@ -110,7 +110,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 	}
 
 	/**
-	 * @covers ORES\Hooks\Api\WatchedItemQueryServiceExtension::modifyWatchedItemsWithRCInfoQuery
+	 * @covers \ORES\Hooks\Api\WatchedItemQueryServiceExtension::modifyWatchedItemsWithRCInfoQuery
 	 */
 	public function testModifyWatchedItemsWithRCInfoQuery_not_review() {
 		$options = [
@@ -156,7 +156,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 	}
 
 	/**
-	 * @covers ORES\Hooks\Api\WatchedItemQueryServiceExtension::modifyWatchedItemsWithRCInfo
+	 * @covers \ORES\Hooks\Api\WatchedItemQueryServiceExtension::modifyWatchedItemsWithRCInfo
 	 */
 	public function testModifyWatchedItemsWithRCInfo() {
 		$options = [

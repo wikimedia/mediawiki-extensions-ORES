@@ -12,7 +12,7 @@ use RuntimeException;
 /**
  * @group ORES
  * @group Database
- * @covers ORES\Storage\SqlScoreStorage
+ * @covers \ORES\Storage\SqlScoreStorage
  */
 class SqlScoreStorageTest extends MediaWikiLangTestCase {
 

@@ -9,7 +9,7 @@ use ORES\Storage\ScoreParser;
 
 /**
  * @group ORES
- * @covers ORES\Storage\ScoreParser
+ * @covers \ORES\Storage\ScoreParser
  */
 class ScoreParserTest extends MediaWikiLangTestCase {
 

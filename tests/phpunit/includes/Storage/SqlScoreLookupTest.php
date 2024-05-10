@@ -11,12 +11,12 @@ use ORES\Tests\TestHelper;
 /**
  * @group ORES
  * @group Database
- * @covers ORES\Storage\SqlScoreLookup
+ * @covers \ORES\Storage\SqlScoreLookup
  */
 class SqlScoreLookupTest extends MediaWikiLangTestCase {
 
 	/**
-	 * @covers ORES\Storage\SqlScoreLookup::getScores
+	 * @covers \ORES\Storage\SqlScoreLookup::getScores
 	 */
 	public function testGetScores() {
 		$modelData = [

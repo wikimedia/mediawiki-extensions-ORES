@@ -8,7 +8,7 @@ use Psr\Log\NullLogger;
 
 /**
  * @group ORES
- * @covers ORES\ThresholdParser
+ * @covers \ORES\ThresholdParser
  */
 class ThresholdParserTest extends \MediaWikiIntegrationTestCase {
 
