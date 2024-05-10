@@ -24,20 +24,9 @@ use Wikimedia\Rdbms\IConnectionProvider;
 
 class SqlScoreStorage implements ScoreStorage {
 
-	/**
-	 * @var IConnectionProvider
-	 */
-	private $dbProvider;
-
-	/**
-	 * @var ModelLookup
-	 */
-	private $modelLookup;
-
-	/**
-	 * @var LoggerInterface
-	 */
-	private $logger;
+	private IConnectionProvider $dbProvider;
+	private ModelLookup $modelLookup;
+	private LoggerInterface $logger;
 
 	public function __construct(
 		IConnectionProvider $dbProvider,

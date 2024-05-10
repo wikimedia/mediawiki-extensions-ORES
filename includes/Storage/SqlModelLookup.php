@@ -21,7 +21,7 @@ use Wikimedia\Rdbms\IConnectionProvider;
 
 class SqlModelLookup implements ModelLookup {
 
-	private $dbProvider;
+	private IConnectionProvider $dbProvider;
 
 	private $modelData = null;
 
