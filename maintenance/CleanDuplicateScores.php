@@ -23,12 +23,11 @@ class CleanDuplicateScores extends Maintenance {
 	public function execute() {
 		$dbr = $this->getReplicaDB();
 		$dbw = $this->getPrimaryDB();
-		$groupConcat = $dbr->buildGroupConcatField(
-			'|',
-			[ 'OC' => 'ores_classification' ],
-			'ores_classification.oresc_id',
-			'OC.oresc_id = ores_classification.oresc_id'
-		);
+		$groupConcat = $dbr->newSelectQueryBuilder()
+			->table( 'ores_classification', 'OC' )
+			->field( 'ores_classification.oresc_id' )
+			->where( 'OC.oresc_id = ores_classification.oresc_id' )
+			->buildGroupConcatField( '|' );
 		$res = $dbr->newSelectQueryBuilder()
 			->select( [ 'oresc_rev', 'oresc_model', 'oresc_class', 'ids' => $groupConcat ] )
 			->from( 'ores_classification' )
