@@ -23,8 +23,6 @@ use MediaWiki\Hook\ContributionsLineEndingHook;
 use MediaWiki\Hook\SpecialContributions__formatRow__flagsHook;
 use MediaWiki\Hook\SpecialContributions__getForm__filtersHook;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Pager\ContribsPager;
-use MediaWiki\Specials\SpecialContributions;
 
 class ContributionsHooksHandler implements
 	ContribsPager__getQueryInfoHook,
@@ -36,8 +34,7 @@ class ContributionsHooksHandler implements
 	/**
 	 * Filter out non-damaging changes from Special:Contributions
 	 *
-	 * @param ContribsPager $pager
-	 * @param array &$query
+	 * @inheritDoc
 	 */
 	public function onContribsPager__getQueryInfo(
 		$pager,
@@ -57,6 +54,9 @@ class ContributionsHooksHandler implements
 		}
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function onSpecialContributions__formatRow__flags(
 		$context,
 		$row,
@@ -85,6 +85,9 @@ class ContributionsHooksHandler implements
 		}
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function onContributionsLineEnding(
 		$pager,
 		&$ret,
@@ -114,8 +117,7 @@ class ContributionsHooksHandler implements
 	/**
 	 * Hook into Special:Contributions filters
 	 *
-	 * @param SpecialContributions $page
-	 * @param array[] &$filters HTML
+	 * @inheritDoc
 	 */
 	public function onSpecialContributions__getForm__filters(
 		$page,
