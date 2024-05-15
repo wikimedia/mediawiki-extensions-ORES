@@ -53,6 +53,8 @@
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Zeer waarschijnlijk kwade trouw",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Zeer nauwkeurig bij het vinden van de duidelijkste te kwader trouw gemaakte bewerkingen.",
 	"ores-rcfilters-revertrisklanguageagnostic-title": "Risico om teruggedraaid te worden",
+	"ores-rcfilters-revertrisklanguageagnostic-whats-this-header": "Over de RevertRisk-voorspellingen",
+	"ores-rcfilters-revertrisklanguageagnostic-whats-this-body": "Deze voorspellingen over het terugdraairisico zijn gebaseerd op een dienst voor machinaal leren die versieinhoud en metagegevens gebruikt om het risico te voorspellen dat een versie wordt teruggedraaid",
 	"ores-rcfilters-revertrisklanguageagnostic-conflicts-logactions": "RevertRisk-voorspellingen zijn niet beschikbaar voor bepaalde soorten wijzigingen, waardoor dit filter conflicteert met {{PLURAL:$2|het volgende filter|de volgende filters}} op type wijziging: $1",
 	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-label": "Wordt waarschijnlijk teruggedraaid",
 	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc": "Detecteert bewerkingen die mogelijk moeten worden teruggedraaid, maar beoordeelt de bedoeling van de gebruiker niet.",
