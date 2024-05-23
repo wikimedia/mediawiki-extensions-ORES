@@ -7,7 +7,7 @@
 	"ores-damaging-filter": "$1 probably good edits",
 	"ores-damaging-letter": "r",
 	"ores-damaging-title": "This edit needs review",
-	"ores-damaging-legend": "This edit may have problems and should be reviewed ([[:mw:Special:MyLanguage/ORES review tool|more info]])",
+	"ores-damaging-legend": "This edit may have problems and should be reviewed ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool more info])",
 	"ores-hide-nondamaging-filter": "Hide probably good edits",
 	"ores-pref-damaging": "Prediction threshold",
 	"ores-pref-damaging-flag": "Highlight likely problem edits with colors and an \"{{int:ores-damaging-letter}}\" for \"needs review\"",
