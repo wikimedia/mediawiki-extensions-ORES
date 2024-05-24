@@ -15,7 +15,7 @@
 	"ores-damaging-filter": "$1 probabili buone modifiche",
 	"ores-damaging-letter": "r",
 	"ores-damaging-title": "Questa modifica deve essere revisionata",
-	"ores-damaging-legend": "Questa modifica potrebbe avere problemi e dovrebbe essere rivista ([[:mw:Special:MyLanguage/ORES review tool|ulteriori informazioni]])",
+	"ores-damaging-legend": "Questa modifica potrebbe avere problemi e dovrebbe essere rivista ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool ulteriori informazioni])",
 	"ores-hide-nondamaging-filter": "Nascondi probabili buone modifiche",
 	"ores-pref-damaging": "Soglia di predizione",
 	"ores-pref-damaging-flag": "Evidenzia le modifiche probabilmente problematiche con colori e un \"{{int:ores-damaging-letter}}\" per quelle che \"richiedono una revisione\"",

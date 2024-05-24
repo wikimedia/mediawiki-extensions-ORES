@@ -12,7 +12,7 @@
 	"ores-damaging-filter": "Vermutlich gute Bearbeitungen $1",
 	"ores-damaging-letter": "ü",
 	"ores-damaging-title": "Diese Bearbeitung benötigt eine Überprüfung",
-	"ores-damaging-legend": "Diese Bearbeitung könnte Probleme haben und sollte überprüft werden ([[:mw:Special:MyLanguage/ORES review tool|weitere Informationen]]).",
+	"ores-damaging-legend": "Diese Bearbeitung könnte Probleme haben und sollte überprüft werden ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool weitere Informationen]).",
 	"ores-hide-nondamaging-filter": "Vermutlich gute Bearbeitungen ausblenden",
 	"ores-pref-damaging": "Prognosenschwelle",
 	"ores-pref-damaging-flag": "Vermutlich problematische Bearbeitungen mit Farben und einem „{{int:ores-damaging-letter}}“ für „benötigt Überprüfung“ hervorheben",
