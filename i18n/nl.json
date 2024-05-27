@@ -15,7 +15,7 @@
 	"ores-damaging-filter": "mogelijk goede bewerkingen $1",
 	"ores-damaging-letter": "r",
 	"ores-damaging-title": "Deze bewerking moet worden beoordeeld",
-	"ores-damaging-legend": "Deze bewerking kan problemen bevatten en dient beoordeeld te worden ([[:mw:Special:MyLanguage/ORES review tool|meer info]])",
+	"ores-damaging-legend": "Deze bewerking kan problemen bevatten en dient beoordeeld te worden ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool meer info])",
 	"ores-hide-nondamaging-filter": "Mogelijk goede bewerkingen verbergen",
 	"ores-pref-damaging": "Voorspellingsdrempel",
 	"ores-pref-damaging-flag": "Waarschijnlijke probleembewerkingen met kleuren markeren, en een “{{int:ores-damaging-letter}}” voor “beoordeling nodig”",

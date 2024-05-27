@@ -10,7 +10,7 @@
 	"ores-damaging-filter": "সম্ভাব্য ভাল সম্পাদনা $1",
 	"ores-damaging-letter": "প",
 	"ores-damaging-title": "এই সম্পাদনাটি পর্যালোচনা করা প্রয়োজন",
-	"ores-damaging-legend": "এই সম্পাদনাটিতে সমস্যা আছে ও এটি পর্যালোচনা করা উচিত ([[:mw:Special:MyLanguage/ORES review tool|আরও তথ্য]])",
+	"ores-damaging-legend": "এই সম্পাদনাটিতে সমস্যা আছে ও এটি পর্যালোচনা করা উচিত ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool আরও তথ্য])",
 	"ores-hide-nondamaging-filter": "সম্ভবত ভাল পরিবর্তনগুলো লুকান",
 	"ores-pref-damaging": "ORES সংবেদনশীলতা",
 	"ores-help-damaging-pref": "নিচের বিকল্প সুযোগসমূহ অারো বড় ও অধিক সুস্পষ্ট করতে 'চূড়ান্ত পদক্ষেপ'-এর সেটিং পরিবর্তন করুন।",

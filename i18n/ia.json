@@ -9,7 +9,7 @@
 	"ores-damaging-filter": "$1 modificationes probabilemente bon",
 	"ores-damaging-letter": "r",
 	"ores-damaging-title": "Iste modification require revision",
-	"ores-damaging-legend": "Iste modification pote haber problemas e deberea esser revidite ([[:mw:Special:MyLanguage/ORES review tool|plus info]])",
+	"ores-damaging-legend": "Iste modification pote haber problemas e deberea esser revidite ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool plus info])",
 	"ores-hide-nondamaging-filter": "Celar le modificationes probabilemente bon",
 	"ores-pref-damaging": "Limine de prediction",
 	"ores-pref-damaging-flag": "Mitter in evidentia le modificationes probabilemente problematic con colores e con un \"{{int:ores-damaging-letter}}\" pro \"require revision\"",
