@@ -3,7 +3,8 @@
 		"authors": [
 			"ArenaL5",
 			"Banjo",
-			"Elisardojm"
+			"Elisardojm",
+			"Toliño"
 		]
 	},
 	"ores-desc": "Expón as puntuacións de revisións automatizadas na interface",
@@ -37,7 +38,7 @@
 	"ores-rcfilters-goodfaith-title": "Predicións das intencións do usuario",
 	"ores-rcfilters-goodfaith-whats-this-header": "Acerca das predicións de intención dos usuarios",
 	"ores-rcfilters-goodfaith-whats-this-body": "Estas predicións sobre a boa fe dos usuarios son efectuadas por un servizo de aprendizaxe automático adestrado nun gran conxunto de edicións avaliadas por editores humanos. Os filtros máis estritos e precisos atopan menos falsos positivos, pero deixan de atopar máis obxectivos válidos. Os filtros menos precisos atopan máis obxectivos válidos, pero tamén máis falsos positivos.",
-	"ores-rcfilters-goodfaith-conflicts-logactions": "As predicións de intención de usuario non están dispoñibles para certos tipos de cambio, polo que este filtro entra en conflito {{PLURAL:$2|co filtro de tipo de modificación seguinte|cos filtros de tipo de modificación seguintes}}: $1",
+	"ores-rcfilters-goodfaith-conflicts-logactions": "As predicións de intención de usuario non están dispoñibles para certos tipos de modificación, polo que este filtro entra en conflito {{PLURAL:$2|co seguinte filtro de tipo de modificación|cos seguintes filtros de tipo de modificación}}: $1",
 	"ores-rcfilters-goodfaith-good-label": "Moi probablemente de boa fe",
 	"ores-rcfilters-goodfaith-good-desc": "Moi preciso para atopar case tódalas edicións realizadas de boa fe.",
 	"ores-rcfilters-goodfaith-maybebad-label": "Pode ser mala fe",
@@ -52,5 +53,10 @@
 	"ores-pref-watchlist-hidenondamaging": "Amosar só edicións probablemente problemáticas (e agochar as que probablemente son boas)",
 	"prefs-ores-wl": "Clasificación de edicións nas páxinas vixiadas e en contribucións",
 	"prefs-ores-rc": "Clasificación de edicións nos cambios recentes e cambios relacionados",
+	"oresmodels": "Estatísticas do modelo ORES",
+	"ores-specialoresmodels-header-filter": "Filtro",
+	"ores-specialoresmodels-header-precision": "Precisión",
+	"ores-specialoresmodels-header-recall": "Sensibilidade",
+	"ores-specialoresmodels-header-thresholdrange": "Intervalo de limiar",
 	"ores-api-show-note": "Ó usar <kbd>oresreview</kbd> ou <kbd>!oresreview</kbd>, as edicións sen puntuación (por exemplo, edicións moi antigas) considérase que non precisan ser revisadas aínda que si o precisarían en caso de ser avaliadas."
 }

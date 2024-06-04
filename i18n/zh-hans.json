@@ -6,7 +6,10 @@
 			"Myy730",
 			"WhitePhosphorus",
 			"Yfdyh000",
-			"夢蝶葬花"
+			"夢蝶葬花",
+			"GuoPC",
+			"LittlePaw365",
+			"沈澄心"
 		]
 	},
 	"ores-desc": "提供自动化的修订评分接口",
@@ -22,8 +25,8 @@
 	"ores-damaging-verylikelybad": "大概率有问题（误报较少，但发现问题编辑的概率也因此减少）",
 	"ores-help-damaging-pref": "更改“阈值”设置来使下列选项放宽或收紧。",
 	"ores-rcfilters-whats-this-link-text": "了解更多",
-	"ores-rcfilters-ores-conflicts-logactions-global": "“{{int:rcfilters-filter-logactions-label}}”过滤器与一或多个贡献质量或用户目的过滤器冲突。质量和目的预测不可用于记录的操作。冲突过滤器已在上方的活跃过滤器中标出。",
-	"ores-rcfilters-logactions-conflicts-ores": "该过滤器与一或多个贡献质量或用户目的过滤器冲突。质量和目的预测不可用于记录的操作。",
+	"ores-rcfilters-ores-conflicts-logactions-global": "“{{int:rcfilters-filter-logactions-label}}”筛选条件与一或多个贡献质量或用户意图筛选条件冲突。质量和意图预测不可用于日志操作。冲突的筛选条件在上面的活跃的筛选条件区域标出。",
+	"ores-rcfilters-logactions-conflicts-ores": "该筛选条件与一或多个贡献质量或用户意图筛选条件冲突。质量和意图预测不可用于日志操作。",
 	"ores-rcfilters-damaging-title": "贡献质量预测",
 	"ores-rcfilters-damaging-whats-this-header": "关于贡献质量预测",
 	"ores-rcfilters-damaging-whats-this-body": "这些预测由机器学习服务在大量人类编辑者评分的编辑基础上培训而成。严格地说，过滤器越精确，找到的误报数量就越少，但其错过的目标也越多。而过滤器越不精确，就越能找到更多误报的目标。",
@@ -37,7 +40,7 @@
 	"ores-rcfilters-damaging-likelybad-desc-high": "以高精度查找出大多数有问题的编辑。",
 	"ores-rcfilters-damaging-verylikelybad-label": "很可能有问题",
 	"ores-rcfilters-damaging-verylikelybad-desc": "以极高精度找出最显著的存在缺陷或做破坏的编辑。",
-	"ores-rcfilters-goodfaith-title": "用户目的预测",
+	"ores-rcfilters-goodfaith-title": "用户意图预测",
 	"ores-rcfilters-goodfaith-whats-this-header": "关于用户目的预测",
 	"ores-rcfilters-goodfaith-whats-this-body": "这些有关用户善意的预测是由机器学习服务在大量人类编辑者评分的编辑基础上培训而成。严格地说，过滤器越精确，找到的误报数量就越少，但其错过的目标也越多。而过滤器越不精确，就越能找到更多误报的目标。",
 	"ores-rcfilters-goodfaith-conflicts-logactions": "用户目的预测对于某些更改类型不可用，因此该过滤器与以下更改{{PLURAL:$2|过滤器}}类型相冲突：$1",
