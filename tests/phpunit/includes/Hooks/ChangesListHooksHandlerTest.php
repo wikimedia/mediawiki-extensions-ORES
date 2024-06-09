@@ -4,7 +4,8 @@ namespace ORES\Tests\Hooks;
 
 use ChangesList;
 use EnhancedChangesList;
-use IContextSource;
+use MediaWiki\Context\IContextSource;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Html\FormOptions;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\FauxRequest;
@@ -14,7 +15,6 @@ use ORES\Hooks\ChangesListHooksHandler;
 use ORES\Storage\HashModelLookup;
 use RCCacheEntry;
 use RecentChange;
-use RequestContext;
 use Wikimedia\TestingAccessWrapper;
 
 /**

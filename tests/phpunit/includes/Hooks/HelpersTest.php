@@ -2,7 +2,8 @@
 
 namespace ORES\Tests;
 
-use IContextSource;
+use MediaWiki\Context\IContextSource;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
@@ -10,7 +11,6 @@ use ORES\Hooks\Helpers;
 use ORES\ORESService;
 use ORES\Storage\HashModelLookup;
 use ORES\Storage\ThresholdLookup;
-use RequestContext;
 use Wikimedia\Rdbms\Expression;
 
 /**

@@ -4,6 +4,7 @@ namespace ORES\Tests\Api;
 
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Tests\Api\ApiTestCase;
 use MediaWiki\Title\TitleValue;
 use MediaWiki\User\UserIdentity;
 use ORES\Storage\HashModelLookup;
@@ -17,7 +18,7 @@ use ORES\Tests\TestHelper;
  * @covers \ORES\Hooks\Api\ApiHooksHandler
  * @covers \ORES\Hooks\Api\ApiQueryORES
  */
-class ApiIntegrationTest extends \ApiTestCase {
+class ApiIntegrationTest extends ApiTestCase {
 	private $ORESuser;
 
 	protected function setUp(): void {

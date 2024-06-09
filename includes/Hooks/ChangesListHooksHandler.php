@@ -22,7 +22,7 @@ use ChangesListFilter;
 use ChangesListStringOptionsFilterGroup;
 use EnhancedChangesList;
 use Exception;
-use IContextSource;
+use MediaWiki\Context\IContextSource;
 use MediaWiki\Hook\EnhancedChangesListModifyBlockLineDataHook;
 use MediaWiki\Hook\EnhancedChangesListModifyLineDataHook;
 use MediaWiki\Hook\OldChangesListRecentChangesLineHook;

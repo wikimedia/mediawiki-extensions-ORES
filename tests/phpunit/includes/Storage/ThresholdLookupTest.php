@@ -3,7 +3,7 @@
 namespace ORES\Tests;
 
 use HashBagOStuff;
-use HashConfig;
+use MediaWiki\Config\HashConfig;
 use MediaWiki\Logger\LoggerFactory;
 use NullStatsdDataFactory;
 use ORES\ORESService;

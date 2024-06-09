@@ -16,15 +16,15 @@
 
 namespace ORES\Hooks;
 
-use MediaWiki\Hook\BeforePageDisplayHook;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Hook\RecentChange_saveHook;
 use MediaWiki\Hook\RecentChangesPurgeRowsHook;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\OutputPage;
 use ORES\ORESService;
 use ORES\Services\ORESServices;
 use RecentChange;
-use RequestContext;
 use Skin;
 
 class Hooks implements

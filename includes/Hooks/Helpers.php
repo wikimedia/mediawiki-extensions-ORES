@@ -17,8 +17,8 @@
 namespace ORES\Hooks;
 
 use Exception;
-use IContextSource;
 use InvalidArgumentException;
+use MediaWiki\Context\IContextSource;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Specials\SpecialRecentChanges;
 use MediaWiki\Specials\SpecialWatchlist;
