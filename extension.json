@@ -91,7 +91,7 @@
 			"scripts": [
 				"ext.ores.highlighter.js"
 			],
-			"styles": "ext.ores.highlighter.css"
+			"styles": "ext.ores.highlighter.less"
 		},
 		"ext.ores.styles": {
 			"styles": [
