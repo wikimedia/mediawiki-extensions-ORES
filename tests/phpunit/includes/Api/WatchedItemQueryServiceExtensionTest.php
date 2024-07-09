@@ -20,15 +20,15 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->setMwGlobals( [
-			'wgOresFiltersThresholds' => [
+		$this->overrideConfigValues( [
+			'OresFiltersThresholds' => [
 				'damaging' => [
 					'maybebad' => [ 'min' => 0.16, 'max' => 1 ],
 					'likelybad' => [ 'min' => 0.56, 'max' => 1 ],
 				]
 			],
-			'wgOresWikiId' => 'testwiki',
-			'wgOresModels' => [
+			'OresWikiId' => 'testwiki',
+			'OresModels' => [
 				'damaging' => [ 'enabled' => true ],
 				'goodfaith' => [ 'enabled' => true ],
 				'reverted' => [ 'enabled' => true ],

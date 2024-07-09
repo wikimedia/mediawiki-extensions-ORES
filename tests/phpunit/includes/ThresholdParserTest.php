@@ -15,14 +15,12 @@ class ThresholdParserTest extends \MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->setMwGlobals( [
-			'wgOresFiltersThresholds' => [
-				'damaging' => [
-					'verylikelygood' => [ 'min' => 0, 'max' => 'maximum recall @ precision >= 0.98' ],
-					'maybebad' => false,
-					'likelybad' => [ 'min' => 0.81, 'max' => 1 ],
-					'verylikelybad' => [ 'min' => 'maximum recall @ precision >= 0.9', 'max' => 1 ],
-				],
+		$this->overrideConfigValue( 'OresFiltersThresholds', [
+			'damaging' => [
+				'verylikelygood' => [ 'min' => 0, 'max' => 'maximum recall @ precision >= 0.98' ],
+				'maybebad' => false,
+				'likelybad' => [ 'min' => 0.81, 'max' => 1 ],
+				'verylikelybad' => [ 'min' => 'maximum recall @ precision >= 0.9', 'max' => 1 ],
 			],
 		] );
 	}

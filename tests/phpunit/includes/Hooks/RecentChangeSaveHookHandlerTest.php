@@ -17,14 +17,14 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 		parent::setUp();
 		$mockOresService = MockOresServiceBuilder::getORESServiceMock( $this );
 		$this->setService( 'ORESService', $mockOresService );
-		$this->setMwGlobals( [
-			'wgOresModels' => [
+		$this->overrideConfigValues( [
+			'OresModels' => [
 				'damaging' => [ 'enabled' => true, 'namespaces' => [ 0, 2 ], 'excludeBots' => true ],
 				'goodfaith' => [ 'enabled' => false ],
 				'articlequality' => [ 'enabled' => true, 'namespaces' => [ 0 ], 'excludeBots' => false ],
 				'draftquality' => [ 'enabled' => true, 'types' => [ RC_NEW ] ],
 			],
-			'wgOresExcludeBots' => false,
+			'OresExcludeBots' => false,
 		] );
 	}
 

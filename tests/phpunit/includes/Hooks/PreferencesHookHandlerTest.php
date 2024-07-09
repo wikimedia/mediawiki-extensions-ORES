@@ -16,28 +16,26 @@ class PreferencesHookHandlerTest extends \MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->setMwGlobals( [
-			'wgOresModels' => [
-				'damaging' => [ 'enabled' => true ],
-				'goodfaith' => [ 'enabled' => true ],
-				'reverted' => [ 'enabled' => true ],
-				'articlequality' => [
-					'enabled' => true,
-					'namespaces' => [ 0 ],
-					'cleanParent' => true,
-					'keepForever' => true,
-				],
-				'wp10' => [
-					'enabled' => false,
-					'namespaces' => [ 0 ],
-					'cleanParent' => true,
-					'keepForever' => true,
-				],
-				'draftquality' => [
-					'enabled' => false,
-					'namespaces' => [ 0 ],
-					'types' => [ 1 ],
-				],
+		$this->overrideConfigValue( 'OresModels', [
+			'damaging' => [ 'enabled' => true ],
+			'goodfaith' => [ 'enabled' => true ],
+			'reverted' => [ 'enabled' => true ],
+			'articlequality' => [
+				'enabled' => true,
+				'namespaces' => [ 0 ],
+				'cleanParent' => true,
+				'keepForever' => true,
+			],
+			'wp10' => [
+				'enabled' => false,
+				'namespaces' => [ 0 ],
+				'cleanParent' => true,
+				'keepForever' => true,
+			],
+			'draftquality' => [
+				'enabled' => false,
+				'namespaces' => [ 0 ],
+				'types' => [ 1 ],
 			],
 		] );
 

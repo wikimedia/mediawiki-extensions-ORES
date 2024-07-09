@@ -20,10 +20,10 @@ class ORESServiceTest extends \MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->setMwGlobals( [
-			'wgOresBaseUrl' => 'https://ores-beta.wmflabs.org/',
-			'wgOresWikiId' => 'testwiki',
-			'wgOresFrontendBaseUrl' => null,
+		$this->overrideConfigValues( [
+			'OresBaseUrl' => 'https://ores-beta.wmflabs.org/',
+			'OresWikiId' => 'testwiki',
+			'OresFrontendBaseUrl' => null,
 		] );
 		$this->oresService = new ORESService(
 			LoggerFactory::getInstance( 'ORES' ),
@@ -45,10 +45,10 @@ class ORESServiceTest extends \MediaWikiIntegrationTestCase {
 	public function testGetWikiID() {
 		$this->assertSame( 'testwiki', ORESService::getWikiID() );
 
-		$this->setMwGlobals( [ 'wgOresWikiId' => 'testwiki2' ] );
+		$this->overrideConfigValue( 'OresWikiId', 'testwiki2' );
 		$this->assertSame( 'testwiki2', ORESService::getWikiID() );
 
-		$this->setMwGlobals( [ 'wgOresWikiId' => null ] );
+		$this->overrideConfigValue( 'OresWikiId', null );
 		$this->assertSame( WikiMap::getCurrentWikiId(), ORESService::getWikiID() );
 	}
 
@@ -58,7 +58,7 @@ class ORESServiceTest extends \MediaWikiIntegrationTestCase {
 	public function testGetBaseUrl() {
 		$this->assertSame( 'https://ores-beta.wmflabs.org/', ORESService::getBaseUrl() );
 
-		$this->setMwGlobals( [ 'wgOresBaseUrl' => 'https://example.com' ] );
+		$this->overrideConfigValue( 'OresBaseUrl', 'https://example.com' );
 		$this->assertSame( 'https://example.com', ORESService::getBaseUrl() );
 	}
 
@@ -68,7 +68,7 @@ class ORESServiceTest extends \MediaWikiIntegrationTestCase {
 	public function testGetFrontendBaseUrl() {
 		$this->assertSame( 'https://ores-beta.wmflabs.org/', ORESService::getFrontendBaseUrl() );
 
-		$this->setMwGlobals( [ 'wgOresFrontendBaseUrl' => 'https://example.com' ] );
+		$this->overrideConfigValue( 'OresFrontendBaseUrl', 'https://example.com' );
 		$this->assertSame( 'https://example.com', ORESService::getFrontendBaseUrl() );
 	}
 

@@ -21,10 +21,10 @@ class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->setMwGlobals( [
-			'wgOresLiftWingBaseUrl' => 'https://liftwing.wikimedia.org/',
-			'wgOresWikiId' => 'testwiki',
-			'wgOresFrontendBaseUrl' => null,
+		$this->overrideConfigValues( [
+			'OresLiftWingBaseUrl' => 'https://liftwing.wikimedia.org/',
+			'OresWikiId' => 'testwiki',
+			'OresFrontendBaseUrl' => null,
 		] );
 		$this->lwService = new LiftWingService(
 			LoggerFactory::getInstance( 'ORES' ),
@@ -47,10 +47,10 @@ class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 	public function testGetWikiID() {
 		$this->assertSame( 'testwiki', LiftWingService::getWikiID() );
 
-		$this->setMwGlobals( [ 'wgOresWikiId' => 'testwiki2' ] );
+		$this->overrideConfigValue( 'OresWikiId', 'testwiki2' );
 		$this->assertSame( 'testwiki2', LiftWingService::getWikiID() );
 
-		$this->setMwGlobals( [ 'wgOresWikiId' => null ] );
+		$this->overrideConfigValue( 'OresWikiId', null );
 		$this->assertSame( WikiMap::getCurrentWikiId(), LiftWingService::getWikiID() );
 	}
 
@@ -60,7 +60,7 @@ class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 	public function testGetBaseUrl() {
 		$this->assertSame( 'https://liftwing.wikimedia.org/', LiftWingService::getBaseUrl() );
 
-		$this->setMwGlobals( [ 'wgOresLiftWingBaseUrl' => 'https://example.com' ] );
+		$this->overrideConfigValue( 'OresLiftWingBaseUrl', 'https://example.com' );
 		$this->assertSame( 'https://example.com', LiftWingService::getBaseUrl() );
 	}
 
@@ -70,7 +70,7 @@ class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 	public function testGetFrontendBaseUrl() {
 		$this->assertSame( 'https://liftwing.wikimedia.org/', LiftWingService::getFrontendBaseUrl() );
 
-		$this->setMwGlobals( [ 'wgOresFrontendBaseUrl' => 'https://example.com' ] );
+		$this->overrideConfigValue( 'OresFrontendBaseUrl', 'https://example.com' );
 		$this->assertSame( 'https://example.com', LiftWingService::getFrontendBaseUrl() );
 	}
 

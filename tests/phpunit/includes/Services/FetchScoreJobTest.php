@@ -17,11 +17,9 @@ class FetchScoreJobTest extends \MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->setMwGlobals( [
-			'wgOresWikiId' => 'testwiki',
-		] );
-		$this->setMwGlobals( [
-			'wgOresModels' => [
+		$this->overrideConfigValues( [
+			'OresWikiId' => 'testwiki',
+			'OresModels' => [
 				'damaging' => [ 'enabled' => true ],
 				'goodfaith' => [ 'enabled' => true ],
 				'reverted' => [ 'enabled' => true ],

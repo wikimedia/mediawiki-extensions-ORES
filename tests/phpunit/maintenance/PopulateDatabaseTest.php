@@ -23,10 +23,10 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 
 		TestHelper::insertModelData();
 
-		$this->setMwGlobals( [
-			'wgOresModels' => [ 'damaging' => [ 'enabled' => true ] ],
-			'wgOresWikiId' => 'wiki',
-			'wgOresExcludeBots' => true,
+		$this->overrideConfigValues( [
+			'OresModels' => [ 'damaging' => [ 'enabled' => true ] ],
+			'OresWikiId' => 'wiki',
+			'OresExcludeBots' => true,
 		] );
 		$mockOresService = MockOresServiceBuilder::getORESServiceMock( $this );
 		$this->setService( 'ORESService', $mockOresService );

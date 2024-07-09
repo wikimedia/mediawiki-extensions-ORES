@@ -26,40 +26,38 @@ class ApiIntegrationTest extends ApiTestCase {
 
 		$this->ORESuser = $this->getMutableTestUser()->getUser();
 
-		$this->setMwGlobals(
-			[
-				'wgOresModels' => [
-					'damaging' => [ 'enabled' => true ],
-					'goodfaith' => [ 'enabled' => true ],
-					'reverted' => [ 'enabled' => true ],
-					'articlequality' => [ 'enabled' => true ],
-					'draftquality' => [ 'enabled' => false ]
+		$this->overrideConfigValues( [
+			'OresModels' => [
+				'damaging' => [ 'enabled' => true ],
+				'goodfaith' => [ 'enabled' => true ],
+				'reverted' => [ 'enabled' => true ],
+				'articlequality' => [ 'enabled' => true ],
+				'draftquality' => [ 'enabled' => false ]
+			],
+			'OresModelClasses' => [
+				'damaging' => [ 'false' => 0, 'true' => 1 ],
+				'goodfaith' => [ 'false' => 0, 'true' => 1 ],
+				'reverted' => [ 'false' => 0, 'true' => 1 ],
+				'articlequality' => [ 'B' => 0, 'C' => 1, 'FA' => 2, 'GA' => 3, 'Start' => 4 ]
+			],
+			'OresFiltersThresholds' => [
+				'damaging' => [
+					'likelygood' => [ "min" => 0, "max" => 0.3 ],
+					'maybebad' => [ "min" => 0.4, "max" => 1 ],
+					'likelybad' => [ "min" => 0.5, "max" => 1 ],
+					'verylikelybad' => [ "min" => 0.6, "max" => 1 ]
 				],
-				'wgOresModelClasses' => [
-					'damaging' => [ 'false' => 0, 'true' => 1 ],
-					'goodfaith' => [ 'false' => 0, 'true' => 1 ],
-					'reverted' => [ 'false' => 0, 'true' => 1 ],
-					'articlequality' => [ 'B' => 0, 'C' => 1, 'FA' => 2, 'GA' => 3, 'Start' => 4 ]
+				'goodfaith' => [
+					'likelygood' => [ "min" => 0, "max" => 0.3 ],
+					'maybebad' => [ "min" => 0.5, "max" => 1 ],
+					'likelybad' => [ "min" => 0.6, "max" => 1 ],
+					'verylikelybad' => [ "min" => 0.7, "max" => 1 ]
 				],
-				'wgOresFiltersThresholds' => [
-					'damaging' => [
-						'likelygood' => [ "min" => 0, "max" => 0.3 ],
-						'maybebad' => [ "min" => 0.4, "max" => 1 ],
-						'likelybad' => [ "min" => 0.5, "max" => 1 ],
-						'verylikelybad' => [ "min" => 0.6, "max" => 1 ]
-					],
-					'goodfaith' => [
-						'likelygood' => [ "min" => 0, "max" => 0.3 ],
-						'maybebad' => [ "min" => 0.5, "max" => 1 ],
-						'likelybad' => [ "min" => 0.6, "max" => 1 ],
-						'verylikelybad' => [ "min" => 0.7, "max" => 1 ]
-					],
-				],
-				'wgOresWikiId' => 'testwiki',
-				'wgOresBaseUrl' => 'https://make.ores.great.again/',
-				'wgOresExcludeBots' => true,
-			]
-		);
+			],
+			'OresWikiId' => 'testwiki',
+			'OresBaseUrl' => 'https://make.ores.great.again/',
+			'OresExcludeBots' => true,
+		] );
 		$modelData = [
 			'reverted' => [ 'id' => 2, 'version' => '0.0.1' ],
 			'damaging' => [ 'id' => 5, 'version' => '0.0.2' ],

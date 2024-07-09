@@ -47,7 +47,7 @@ class DatabaseQueryBuilderTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testBuildDiscreteQuery() {
-		$this->setMwGlobals( 'wgOresModelClasses', [
+		$this->overrideConfigValue( 'OresModelClasses', [
 			'model' => [
 				'class0' => 0,
 				'class1' => 1,

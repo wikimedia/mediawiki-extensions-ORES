@@ -29,29 +29,27 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->setMwGlobals( [
-			'wgOresModels' => [
-				'damaging' => [ 'enabled' => true ],
-				'goodfaith' => [ 'enabled' => true ],
-				'reverted' => [ 'enabled' => true ],
-				'articlequality' => [
-					'enabled' => true,
-					'namespaces' => [ 0 ],
-					'cleanParent' => true,
-					'keepForever' => true,
-				],
-				'wp10' => [
-					'enabled' => false,
-					'namespaces' => [ 0 ],
-					'cleanParent' => true,
-					'keepForever' => true,
-				],
-				'draftquality' => [
-					'enabled' => false,
-					'namespaces' => [ 0 ],
-					'types' => [ 1 ],
-				],
-			]
+		$this->overrideConfigValue( 'OresModels', [
+			'damaging' => [ 'enabled' => true ],
+			'goodfaith' => [ 'enabled' => true ],
+			'reverted' => [ 'enabled' => true ],
+			'articlequality' => [
+				'enabled' => true,
+				'namespaces' => [ 0 ],
+				'cleanParent' => true,
+				'keepForever' => true,
+			],
+			'wp10' => [
+				'enabled' => false,
+				'namespaces' => [ 0 ],
+				'cleanParent' => true,
+				'keepForever' => true,
+			],
+			'draftquality' => [
+				'enabled' => false,
+				'namespaces' => [ 0 ],
+				'types' => [ 1 ],
+			],
 		] );
 
 		$modelData = [
@@ -129,9 +127,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 	 * @dataProvider storeScoresProvider
 	 */
 	public function testStoreScores( $scores, $expected, $revIds ) {
-		$this->setMwGlobals( [
-			'wgOresWikiId' => 'wiki',
-		] );
+		$this->overrideConfigValue( 'OresWikiId', 'wiki' );
 
 		$scores = $scores['wiki']['scores'];
 
@@ -155,9 +151,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 	}
 
 	public function testStoreScoresCleanupOldScores() {
-		$this->setMwGlobals( [
-			'wgOresWikiId' => 'wiki',
-		] );
+		$this->overrideConfigValue( 'OresWikiId', 'wiki' );
 
 		$scores = [
 			'12345' => [

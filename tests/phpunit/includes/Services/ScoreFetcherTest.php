@@ -26,9 +26,7 @@ class ScoreFetcherTest extends \MediaWikiIntegrationTestCase {
 		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
 		$mockOresService = MockOresServiceBuilder::getORESServiceMock( $this );
 		$this->setService( 'ORESService', $mockOresService );
-		$this->setMwGlobals( [
-			'wgOresModels' => [ 'damaging' => [ 'enabled' => true ] ],
-		] );
+		$this->overrideConfigValue( 'OresModels', [ 'damaging' => [ 'enabled' => true ] ] );
 	}
 
 	public static function provideTestGetScores() {

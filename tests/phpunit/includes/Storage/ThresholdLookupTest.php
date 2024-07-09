@@ -22,9 +22,7 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->setMwGlobals( [
-			'wgOresFiltersThresholds' => [],
-		] );
+		$this->overrideConfigValue( 'OresFiltersThresholds', [] );
 	}
 
 	private function getNewThresholdLookup( $oresService = null, $logger = null ) {
@@ -66,15 +64,13 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 					. '|statistics.thresholds.false."some_other_stat @ bar"' ] )
 			->willReturn( 'this is not the stat object you were expecting...' );
 
-		$this->setMwGlobals( [
-			'wgOresFiltersThresholds' => [
-				'goodfaith' => [
-					'level1' => [
-						'min' => 'some_stat @ foo',
-						'max' => 'some_other_stat @ bar'
-					],
-				]
-			],
+		$this->overrideConfigValue( 'OresFiltersThresholds', [
+			'goodfaith' => [
+				'level1' => [
+					'min' => 'some_stat @ foo',
+					'max' => 'some_other_stat @ bar'
+				],
+			]
 		] );
 
 		$stats = $this->getNewThresholdLookup( $oresService );
@@ -85,8 +81,8 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testGetThresholds_newFiltersConfig() {
-		$this->setMwGlobals( [
-			'wgOresFiltersThresholds' => [
+		$this->overrideConfigValues( [
+			'OresFiltersThresholds' => [
 				'damaging' => [
 					'verylikelygood' => [ 'min' => 0, 'max' => 'maximum recall @ precision >= 0.98' ],
 					'maybebad' => false,
@@ -94,7 +90,7 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 					'verylikelybad' => [ 'min' => 'maximum recall @ precision >= 0.9', 'max' => 1 ],
 				],
 			],
-			'wgOresWikiId' => 'wiki',
+			'OresWikiId' => 'wiki',
 		] );
 
 		$oresService = $this->createMock( ORESService::class );
@@ -150,9 +146,9 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 				'verylikelybad' => [ 'min' => 'maximum recall @ precision >= 0.9', 'max' => 1 ],
 			],
 		];
-		$this->setMwGlobals( [
-			'wgOresFiltersThresholds' => $filtersThresholds,
-			'wgOresWikiId' => 'wiki',
+		$this->overrideConfigValues( [
+			'OresFiltersThresholds' => $filtersThresholds,
+			'OresWikiId' => 'wiki',
 		] );
 
 		$oresService = $this->createMock( ORESService::class );

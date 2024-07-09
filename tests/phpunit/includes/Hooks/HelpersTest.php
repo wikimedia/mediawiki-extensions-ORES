@@ -27,14 +27,14 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->setMwGlobals( [
-			'wgOresFiltersThresholds' => [
+		$this->overrideConfigValues( [
+			'OresFiltersThresholds' => [
 				'damaging' => [
 					'maybebad' => [ 'min' => 0.16, 'max' => 1 ],
 					'likelybad' => [ 'min' => 0.56, 'max' => 1 ],
 				]
 			],
-			'wgOresWikiId' => 'testwiki',
+			'OresWikiId' => 'testwiki',
 		] );
 
 		$this->user = $this->getTestUser()->getUser();
