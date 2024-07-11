@@ -19,7 +19,6 @@ namespace ORES\Storage;
 use ORES\Range;
 use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\IReadableDatabase;
-use Wikimedia\Rdbms\OrExpressionGroup;
 
 class DatabaseQueryBuilder {
 
@@ -40,7 +39,7 @@ class DatabaseQueryBuilder {
 	 * @param bool $isDiscrete
 	 * 	True for a model with distinct rows for each class
 	 * 	False for a model with thresholds within the score of a single row
-	 * @return IExpression|OrExpressionGroup|false SQL Condition that can be used in WHERE directly, or false when there
+	 * @return IExpression|false SQL Condition that can be used in WHERE directly, or false when there
 	 * is nothing to filter on
 	 */
 	public function buildQuery( $modelName, $selected, $isDiscrete = false ) {
@@ -57,7 +56,7 @@ class DatabaseQueryBuilder {
 	 *
 	 * @param string $modelName Model to filter
 	 * @param string|string[] $selected Array (or comma-separated string) of class names to select
-	 * @return OrExpressionGroup|false SQL Condition that can be used in WHERE directly, or false when there
+	 * @return IExpression|false SQL Condition that can be used in WHERE directly, or false when there
 	 * is nothing to filter on
 	 */
 	private function buildRangeQuery( $modelName, $selected ) {
@@ -101,7 +100,7 @@ class DatabaseQueryBuilder {
 			$ranges
 		);
 
-		return new OrExpressionGroup( ...$betweenConditions );
+		return $this->db->orExpr( $betweenConditions );
 	}
 
 	/**

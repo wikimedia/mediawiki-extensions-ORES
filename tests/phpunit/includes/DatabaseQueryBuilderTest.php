@@ -5,7 +5,6 @@ namespace ORES\Tests;
 use ORES\Storage\DatabaseQueryBuilder;
 use ORES\Storage\ThresholdLookup;
 use Wikimedia\Rdbms\Expression;
-use Wikimedia\Rdbms\OrExpressionGroup;
 
 /**
  * @group ORES
@@ -41,7 +40,7 @@ class DatabaseQueryBuilderTest extends \MediaWikiIntegrationTestCase {
 				->and( 'ores_model_cls.oresc_probability', '<=', 1 );
 
 		$this->assertEquals(
-			new OrExpressionGroup( ...$clauses ),
+			$this->getDb()->orExpr( $clauses ),
 			$whereClause
 		);
 	}
