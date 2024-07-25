@@ -23,7 +23,7 @@
 	"ores-rcfilters-goodfaith-bad-label": "Даггара йоцуш хила тарло",
 	"ores-rcfilters-goodfaith-bad-desc-high": "Йуккъерачу барамехь карабо уггаре вон хийцамаш.",
 	"oresmodels": "ORES моделан статистика",
-	"ores-specialoresmodels-header-filter": "Луьттург",
+	"ores-specialoresmodels-header-filter": "Фильтр",
 	"ores-specialoresmodels-header-precision": "Нийсалла",
 	"ores-specialoresmodels-header-recall": "Кхачам болуш",
 	"ores-specialoresmodels-header-thresholdrange": "Чаккхенгара диапазон"
