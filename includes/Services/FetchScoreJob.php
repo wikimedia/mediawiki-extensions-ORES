@@ -82,17 +82,21 @@ class FetchScoreJob extends Job {
 			);
 		} catch ( RuntimeException $exception ) {
 			$mssg = $exception->getMessage();
-			$logger->warning( "Service failed to respond properly: $mssg\n" );
+			$message = "Service failed to respond properly: $mssg";
+			$this->setLastError( $message );
+			$logger->warning( "$message\n" );
 			return false;
 		}
 
 		$success = true;
 		ORESServices::getScoreStorage()->storeScores(
 			$scores,
-			static function ( $mssg, $revision ) use ( &$success, $logger ) {
-				$logger->warning( "ScoreFetcher errored for $revision: $mssg\n" );
+			function ( $mssg, $revision ) use ( &$success, $logger ) {
+				$message = "ScoreFetcher errored for $revision: $mssg";
+				$logger->warning( "$message\n" );
 				if ( $mssg !== 'RevisionNotFound' ) {
 					$success = false;
+					$this->setLastError( $message );
 				}
 			},
 			$this->getCleanupModels()
