@@ -9,7 +9,7 @@
 	"ores-damaging-filter": "$1 веројатно добри уредувања",
 	"ores-damaging-letter": "с",
 	"ores-damaging-title": "На уредувањево му треба проверка",
-	"ores-damaging-legend": "Уредувањево може да има проблеми и затоа треба да се провери ([[:mw:Special:MyLanguage/ORES review tool|повеќе информации]])",
+	"ores-damaging-legend": "Уредувањево може да има проблеми и затоа треба да се провери ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool повеќе информации])",
 	"ores-hide-nondamaging-filter": "Скриј веројатно добри уредувања",
 	"ores-pref-damaging": "Праг на предвидување",
 	"ores-pref-damaging-flag": "Истакнувај ги веројатно проблематичните уредувања со бои и „{{int:ores-damaging-letter}}“ што значи „треба проверка“",
