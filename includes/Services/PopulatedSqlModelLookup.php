@@ -23,11 +23,9 @@ use Psr\Log\LoggerInterface;
 
 class PopulatedSqlModelLookup implements ModelLookup {
 
-	private $modelLookup;
-
-	private $ORESService;
-
-	private $logger;
+	private ModelLookup $modelLookup;
+	private ORESService $ORESService;
+	private LoggerInterface $logger;
 	private bool $useLiftWing;
 
 	public function __construct(

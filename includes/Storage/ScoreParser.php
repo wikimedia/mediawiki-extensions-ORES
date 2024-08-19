@@ -26,11 +26,9 @@ use RuntimeException;
  */
 class ScoreParser {
 
-	private $modelLookup;
-
-	private $modelClasses;
-
-	private $aggregatedModels;
+	private ModelLookup $modelLookup;
+	private array $modelClasses;
+	private array $aggregatedModels;
 
 	public function __construct(
 		ModelLookup $modelLookup,
