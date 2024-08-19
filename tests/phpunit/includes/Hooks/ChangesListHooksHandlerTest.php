@@ -24,8 +24,10 @@ use Wikimedia\TestingAccessWrapper;
  */
 class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 
+	/** @var User */
 	protected $user;
 
+	/** @var IContextSource */
 	protected $context;
 
 	protected function setUp(): void {

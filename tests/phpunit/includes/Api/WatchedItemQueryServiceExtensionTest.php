@@ -3,6 +3,7 @@
 namespace ORES\Tests;
 
 use MediaWiki\Title\TitleValue;
+use MediaWiki\User\User;
 use ORES\Hooks\Api\WatchedItemQueryServiceExtension;
 use ORES\Storage\HashModelLookup;
 use WatchedItem;
@@ -15,6 +16,7 @@ use Wikimedia\Rdbms\Expression;
  */
 class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase {
 
+	/** @var User */
 	protected $user;
 
 	protected function setUp(): void {

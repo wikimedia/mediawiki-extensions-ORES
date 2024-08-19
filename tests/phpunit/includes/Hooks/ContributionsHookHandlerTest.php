@@ -18,8 +18,10 @@ use Wikimedia\Rdbms\Expression;
  */
 class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 
+	/** @var User */
 	protected $user;
 
+	/** @var IContextSource */
 	protected $context;
 
 	protected function setUp(): void {

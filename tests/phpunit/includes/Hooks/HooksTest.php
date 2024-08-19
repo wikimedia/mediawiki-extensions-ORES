@@ -2,6 +2,7 @@
 
 namespace ORES\Tests;
 
+use MediaWiki\Context\IContextSource;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
 use ORES\Hooks\Hooks;
@@ -15,6 +16,7 @@ use ORES\Storage\ScoreStorage;
  */
 class HooksTest extends \MediaWikiIntegrationTestCase {
 
+	/** @var IContextSource */
 	protected $context;
 
 	protected function setUp(): void {

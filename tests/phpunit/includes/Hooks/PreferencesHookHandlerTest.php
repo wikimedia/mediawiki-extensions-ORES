@@ -2,6 +2,7 @@
 
 namespace ORES\Tests\Hooks;
 
+use MediaWiki\User\User;
 use ORES\Hooks\PreferencesHookHandler;
 
 /**
@@ -11,6 +12,7 @@ use ORES\Hooks\PreferencesHookHandler;
  */
 class PreferencesHookHandlerTest extends \MediaWikiIntegrationTestCase {
 
+	/** @var User */
 	protected $user;
 
 	protected function setUp(): void {
