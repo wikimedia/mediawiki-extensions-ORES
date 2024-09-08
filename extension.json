@@ -95,7 +95,7 @@
 		},
 		"ext.ores.styles": {
 			"styles": [
-				"ext.ores.styles.css",
+				"ext.ores.styles.less",
 				"ext.ores.specialoresmodels.less"
 			]
 		},
