@@ -219,11 +219,6 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 				'rc_actor' => $user->getUser()->getActorId(),
 				'rc_timestamp' => $dbw->timestamp(),
 			] )
-			->caller( __METHOD__ )
-			->execute();
-
-		$dbw->newInsertQueryBuilder()
-			->insertInto( 'recentchanges' )
 			->row( [
 				'rc_this_oldid' => '12345',
 				'rc_cur_id' => 3,

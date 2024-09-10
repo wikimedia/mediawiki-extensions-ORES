@@ -40,13 +40,11 @@ class TestHelper {
 			],
 		];
 
-		foreach ( $dump as $row ) {
-			$db->newInsertQueryBuilder()
-				->insertInto( 'ores_model' )
-				->row( $row )
-				->caller( __METHOD__ )
-				->execute();
-		}
+		$db->newInsertQueryBuilder()
+			->insertInto( 'ores_model' )
+			->rows( $dump )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**
