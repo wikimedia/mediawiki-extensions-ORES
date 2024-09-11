@@ -2,9 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Jerrykim306",
-			"Ykhwong"
+			"Ykhwong",
+			"Suleiman the Magnificent Television"
 		]
 	},
 	"apihelp-query+ores-summary": "이 위키에 대한 ORES 구성과 모델 데이터를 반환합니다.",
-	"apihelp-query+ores-example-simple": "ORES 데이터 받기:"
+	"apihelp-query+ores-example-simple": "ORES 데이터 받기:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "그 버전의 ORES 점수.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "그 버전의 ORES 점수.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "항목에 대한 ORES 점수를 추가합니다."
 }
