@@ -126,8 +126,7 @@ class LiftWingService extends ORESService {
 		$req = $this->httpRequestFactory->create( $url, [
 			'method' => 'POST',
 			'postData' => json_encode( [ 'rev_id' => (int)$revid ] ),
-			],
-		);
+		], __METHOD__ );
 		global $wgOresLiftWingAddHostHeader;
 		if ( $wgOresLiftWingAddHostHeader ) {
 			$req->setHeader( 'Content-Type', 'application/json' );
@@ -143,8 +142,7 @@ class LiftWingService extends ORESService {
 				$req = $this->httpRequestFactory->create( $url, [
 					'method' => 'POST',
 					'postData' => json_encode( [ 'rev_id' => (int)$revid ] ),
-				],
-				);
+				], __METHOD__ );
 				if ( $wgOresLiftWingAddHostHeader ) {
 					$req->setHeader( 'Content-Type', 'application/json' );
 					$req->setHeader( 'Host', self::createHostHeader( $model ) );
@@ -260,8 +258,7 @@ class LiftWingService extends ORESService {
 		$req = $this->httpRequestFactory->create( $url, [
 			'method' => 'POST',
 			'postData' => json_encode( [ 'rev_id' => (int)$revid, 'lang' => $language ] ),
-		],
-		);
+		], __METHOD__ );
 		$req->setHeader( 'Content-Type', 'application/json' );
 		global $wgOresLiftWingAddHostHeader;
 		if ( $wgOresLiftWingAddHostHeader ) {
