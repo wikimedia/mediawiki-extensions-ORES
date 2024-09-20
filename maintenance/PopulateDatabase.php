@@ -109,8 +109,15 @@ class PopulateDatabase extends Maintenance {
 	) {
 		$size = count( $revs );
 		$this->output( "Processing $size revisions\n" );
-
-		$scores = $scoreFetcher->getScores( $revs );
+		$scores = [];
+		foreach ( $revs as $revId ) {
+			try {
+				$scores[ $revId ] = $scoreFetcher->getScores( $revId )[ $revId ];
+			} catch ( \RuntimeException $e ) {
+				$message = $e->getMessage();
+				$this->output( "ScoreFetcher errored for $revId: $message\n" );
+			}
+		}
 		$scoreStorage->storeScores(
 			$scores,
 			function ( $mssg, $revision ) {
