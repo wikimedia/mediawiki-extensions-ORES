@@ -16,9 +16,9 @@
 
 namespace ORES;
 
-use FormatJson;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Http\HttpRequestFactory;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Status\Status;
 use MediaWiki\WikiMap\WikiMap;

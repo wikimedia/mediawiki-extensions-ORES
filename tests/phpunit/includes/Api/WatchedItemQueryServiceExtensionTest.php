@@ -4,9 +4,9 @@ namespace ORES\Tests;
 
 use MediaWiki\Title\TitleValue;
 use MediaWiki\User\User;
+use MediaWiki\Watchlist\WatchedItem;
 use ORES\Hooks\Api\WatchedItemQueryServiceExtension;
 use ORES\Storage\HashModelLookup;
-use WatchedItem;
 use Wikimedia\Rdbms\Expression;
 
 /**

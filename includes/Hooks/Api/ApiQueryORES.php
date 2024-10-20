@@ -16,9 +16,9 @@
 
 namespace ORES\Hooks\Api;
 
-use ApiQuery;
-use ApiQueryBase;
-use ApiResult;
+use MediaWiki\Api\ApiQuery;
+use MediaWiki\Api\ApiQueryBase;
+use MediaWiki\Api\ApiResult;
 use MediaWiki\Title\NamespaceInfo;
 use MediaWiki\WikiMap\WikiMap;
 use ORES\Hooks\Helpers;

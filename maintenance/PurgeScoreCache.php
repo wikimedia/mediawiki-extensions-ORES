@@ -2,7 +2,7 @@
 
 namespace ORES\Maintenance;
 
-use Maintenance;
+use MediaWiki\Maintenance\Maintenance;
 use ORES\Services\ORESServices;
 use Wikimedia\Rdbms\Database;
 

@@ -4,7 +4,7 @@ namespace ORES\Maintenance;
 
 use BatchRowIterator;
 use Exception;
-use Maintenance;
+use MediaWiki\Maintenance\Maintenance;
 use ORES\Services\ORESServices;
 use ORES\Services\ScoreFetcher;
 

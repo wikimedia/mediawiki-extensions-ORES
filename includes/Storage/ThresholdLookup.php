@@ -16,13 +16,13 @@
 
 namespace ORES\Storage;
 
-use IBufferingStatsdDataFactory;
 use MediaWiki\Config\Config;
 use ORES\ORESService;
 use ORES\ThresholdParser;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
-use WANObjectCache;
+use Wikimedia\ObjectCache\WANObjectCache;
+use Wikimedia\Stats\IBufferingStatsdDataFactory;
 
 class ThresholdLookup {
 

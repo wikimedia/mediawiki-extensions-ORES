@@ -2,7 +2,7 @@
 
 namespace ORES\Maintenance;
 
-use Maintenance;
+use MediaWiki\Maintenance\Maintenance;
 use ORES\Services\ORESServices;
 
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
