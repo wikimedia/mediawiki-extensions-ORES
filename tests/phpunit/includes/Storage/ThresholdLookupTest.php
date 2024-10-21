@@ -2,16 +2,16 @@
 
 namespace ORES\Tests;
 
-use HashBagOStuff;
 use MediaWiki\Config\HashConfig;
 use MediaWiki\Logger\LoggerFactory;
-use NullStatsdDataFactory;
 use ORES\ORESService;
 use ORES\Storage\HashModelLookup;
 use ORES\Storage\ThresholdLookup;
 use ORES\ThresholdParser;
 use Psr\Log\NullLogger;
-use WANObjectCache;
+use Wikimedia\ObjectCache\HashBagOStuff;
+use Wikimedia\ObjectCache\WANObjectCache;
+use Wikimedia\Stats\NullStatsdDataFactory;
 
 /**
  * @group ORES

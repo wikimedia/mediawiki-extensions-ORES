@@ -2,7 +2,7 @@
 
 namespace ORES\Tests;
 
-use ContentHandler;
+use MediaWiki\Content\ContentHandler;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;

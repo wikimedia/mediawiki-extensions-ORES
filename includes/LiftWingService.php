@@ -16,9 +16,9 @@
 
 namespace ORES;
 
-use FormatJson;
 use MediaWiki\Config\Config;
 use MediaWiki\Http\HttpRequestFactory;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Status\Status;
 use Psr\Log\LoggerInterface;

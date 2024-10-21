@@ -18,15 +18,15 @@
 
 namespace ORES\Hooks\Api;
 
-use ApiBase;
-use ApiQueryAllRevisions;
-use ApiQueryBase;
-use ApiQueryGeneratorBase;
-use ApiQueryRecentChanges;
-use ApiQueryRevisions;
-use ApiQueryUserContribs;
-use ApiQueryWatchlist;
-use ApiResult;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiQueryAllRevisions;
+use MediaWiki\Api\ApiQueryBase;
+use MediaWiki\Api\ApiQueryGeneratorBase;
+use MediaWiki\Api\ApiQueryRecentChanges;
+use MediaWiki\Api\ApiQueryRevisions;
+use MediaWiki\Api\ApiQueryUserContribs;
+use MediaWiki\Api\ApiQueryWatchlist;
+use MediaWiki\Api\ApiResult;
 use MediaWiki\Api\Hook\APIGetAllowedParamsHook;
 use MediaWiki\Api\Hook\ApiQueryBaseAfterQueryHook;
 use MediaWiki\Api\Hook\ApiQueryBaseBeforeQueryHook;
@@ -34,10 +34,10 @@ use MediaWiki\Api\Hook\ApiQueryBaseProcessRowHook;
 use MediaWiki\Api\Hook\ApiQueryWatchlistExtractOutputDataHook;
 use MediaWiki\Api\Hook\ApiQueryWatchlistPrepareWatchedItemQueryServiceOptionsHook;
 use MediaWiki\Hook\WatchedItemQueryServiceExtensionsHook;
+use MediaWiki\Watchlist\WatchedItem;
+use MediaWiki\Watchlist\WatchedItemQueryService;
 use ORES\Hooks\Helpers;
 use ORES\Services\ORESServices;
-use WatchedItem;
-use WatchedItemQueryService;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IResultWrapper;

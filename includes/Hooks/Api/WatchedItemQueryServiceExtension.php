@@ -19,12 +19,13 @@
 namespace ORES\Hooks\Api;
 
 use MediaWiki\User\UserIdentity;
+use MediaWiki\Watchlist\WatchedItemQueryServiceExtension as MWWatchedItemQueryServiceExtension;
 use ORES\Hooks\Helpers;
 use ORES\Services\ORESServices;
 use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 
-class WatchedItemQueryServiceExtension implements \WatchedItemQueryServiceExtension {
+class WatchedItemQueryServiceExtension implements MWWatchedItemQueryServiceExtension {
 
 	/**
 	 * Modify the query
