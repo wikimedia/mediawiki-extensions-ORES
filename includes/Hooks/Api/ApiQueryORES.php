@@ -31,17 +31,11 @@ use ORES\Services\ORESServices;
  * @ingroup API
  */
 class ApiQueryORES extends ApiQueryBase {
-	/** @var NamespaceInfo */
-	private $namespaceInfo;
+	private NamespaceInfo $namespaceInfo;
 
-	/**
-	 * @param ApiQuery $query
-	 * @param string $moduleName
-	 * @param NamespaceInfo $namespaceInfo
-	 */
 	public function __construct(
 		ApiQuery $query,
-		$moduleName,
+		string $moduleName,
 		NamespaceInfo $namespaceInfo
 	) {
 		parent::__construct( $query, $moduleName, 'ores' );
