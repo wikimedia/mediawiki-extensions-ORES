@@ -38,7 +38,7 @@ class Helpers {
 	];
 
 	public static function hideNonDamagingFilter(
-		array &$fields, array &$conds, $hidenondamaging, UserIdentity $user, Title $title = null
+		array &$fields, array &$conds, $hidenondamaging, UserIdentity $user, ?Title $title = null
 	) {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		// Add user-based threshold
@@ -169,7 +169,7 @@ class Helpers {
 	 * @return float|null Threshold, or null if not set
 	 * @throws Exception When $type is not recognized
 	 */
-	public static function getThreshold( $type, UserIdentity $user, Title $title = null ) {
+	public static function getThreshold( $type, UserIdentity $user, ?Title $title = null ) {
 		if ( $type === 'damaging' ) {
 			$pref = self::getDamagingLevelPreference( $user, $title );
 			$thresholds = self::getDamagingThresholds();
@@ -189,7 +189,7 @@ class Helpers {
 	 * @param Title|null $title
 	 * @return string 'maybebad', 'likelybad', or 'verylikelybad'
 	 */
-	public static function getDamagingLevelPreference( UserIdentity $user, Title $title = null ) {
+	public static function getDamagingLevelPreference( UserIdentity $user, ?Title $title = null ) {
 		$option = !$title || self::isWLPage( $title ) ? 'oresDamagingPref' : 'rcOresDamagingPref';
 		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 		$pref = $userOptionsLookup->getOption( $user, $option );

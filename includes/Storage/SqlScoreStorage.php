@@ -47,7 +47,7 @@ class SqlScoreStorage implements ScoreStorage {
 	 */
 	public function storeScores(
 		$scores,
-		callable $errorCallback = null,
+		?callable $errorCallback = null,
 		array $modelsToClean = []
 	) {
 		// TODO: Make $wgOresModelClasses an argument and deprecate the whole config variable

@@ -21,7 +21,7 @@ class ORESServices {
 	 * @param MediaWikiServices|null $services
 	 * @return LoggerInterface
 	 */
-	public static function getLogger( MediaWikiServices $services = null ) {
+	public static function getLogger( ?MediaWikiServices $services = null ) {
 		return ( $services ?? MediaWikiServices::getInstance() )->getService( 'ORESLogger' );
 	}
 
@@ -29,7 +29,7 @@ class ORESServices {
 	 * @param MediaWikiServices|null $services
 	 * @return ModelLookup
 	 */
-	public static function getModelLookup( MediaWikiServices $services = null ) {
+	public static function getModelLookup( ?MediaWikiServices $services = null ) {
 		return ( $services ?? MediaWikiServices::getInstance() )->getService( 'ORESModelLookup' );
 	}
 
@@ -37,7 +37,7 @@ class ORESServices {
 	 * @param MediaWikiServices|null $services
 	 * @return ThresholdLookup
 	 */
-	public static function getThresholdLookup( MediaWikiServices $services = null ) {
+	public static function getThresholdLookup( ?MediaWikiServices $services = null ) {
 		return ( $services ?? MediaWikiServices::getInstance() )->getService( 'ORESThresholdLookup' );
 	}
 
@@ -45,7 +45,7 @@ class ORESServices {
 	 * @param MediaWikiServices|null $services
 	 * @return ScoreStorage
 	 */
-	public static function getScoreStorage( MediaWikiServices $services = null ) {
+	public static function getScoreStorage( ?MediaWikiServices $services = null ) {
 		return ( $services ?? MediaWikiServices::getInstance() )->getService( 'ORESScoreStorage' );
 	}
 
@@ -53,7 +53,7 @@ class ORESServices {
 	 * @param MediaWikiServices|null $services
 	 * @return ORESService
 	 */
-	public static function getORESService( MediaWikiServices $services = null ) {
+	public static function getORESService( ?MediaWikiServices $services = null ) {
 		return ( $services ?? MediaWikiServices::getInstance() )->getService( 'ORESService' );
 	}
 
@@ -61,7 +61,7 @@ class ORESServices {
 	 * @param MediaWikiServices|null $services
 	 * @return StorageScoreLookup
 	 */
-	public static function getScoreLookup( MediaWikiServices $services = null ) {
+	public static function getScoreLookup( ?MediaWikiServices $services = null ) {
 		return ( $services ?? MediaWikiServices::getInstance() )->getService( 'ORESScoreLookup' );
 	}
 
@@ -69,7 +69,7 @@ class ORESServices {
 	 * @param MediaWikiServices|null $services
 	 * @return DatabaseQueryBuilder
 	 */
-	public static function getDatabaseQueryBuilder( MediaWikiServices $services = null ) {
+	public static function getDatabaseQueryBuilder( ?MediaWikiServices $services = null ) {
 		return ( $services ?? MediaWikiServices::getInstance() )->getService( 'ORESDatabaseQueryBuilder' );
 	}
 
