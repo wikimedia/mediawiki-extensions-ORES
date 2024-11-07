@@ -14,7 +14,8 @@
 			"Verdy p",
 			"Wladek92",
 			"Zetud",
-			"SleaY"
+			"SleaY",
+			"Mahabarata"
 		]
 	},
 	"ores-desc": "Affiche dans l’interface des évaluations automatisées des versions.",
@@ -61,6 +62,8 @@
 	"ores-rcfilters-revertrisklanguageagnostic-title": "Risque d'être révoqué",
 	"ores-rcfilters-revertrisklanguageagnostic-whats-this-header": "À propos des prévisions de RevertRisk",
 	"ores-rcfilters-revertrisklanguageagnostic-whats-this-body": "Ces prédictions sur le risque de révocation sont basées sur un service d'apprentissage automatique qui utilise le contenu d’une version et les métadonnées pour prédire le risque de révocation d'une version.",
+	"ores-rcfilters-revertrisklanguageagnostic-conflicts-logactions": "Les prédictions RevertRisk ne sont pas disponibles pour certains types de modification, ce filtre est donc en conflit avec le type de {{PLURAL:$2|filtre|filtres}} de modification suivant : $1",
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-label": "Sera probablement annulée",
 	"ores-pref-highlight": "Surligner les modifications qui semblent problématiques à l’aide de couleurs et un « {{int:ores-damaging-letter}} » pour signifier « nécessite une relecture »",
 	"ores-pref-rc-hidenondamaging": "Afficher uniquement les modifications qui semblent problématiques (et masquer celles probablement bonnes)",
 	"ores-pref-watchlist-hidenondamaging": "Afficher uniquement les modifications qui semblent problématiques (et masquer celles probablement bonnes)",
