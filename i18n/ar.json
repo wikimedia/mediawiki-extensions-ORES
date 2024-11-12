@@ -11,7 +11,7 @@
 	"ores-damaging-filter": "$1 التعديلات الجيدة المحتملة",
 	"ores-damaging-letter": "ر",
 	"ores-damaging-title": "هذا التعديل يحتاج إلى مراجعة",
-	"ores-damaging-legend": "قد يكون هذا التعديل ضارًا وتجب مراجعته ([[:mw:Special:MyLanguage/ORES review tool|مزيد من المعلومات]])",
+	"ores-damaging-legend": "قد يكون لهذا التحرير مشاكل ويجب مراجعته ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool more info])",
 	"ores-hide-nondamaging-filter": "إخفاء التعديلات الجيدة المحتملة",
 	"ores-pref-damaging": "عتبة التنبؤ",
 	"ores-pref-damaging-flag": "تمييز التعديلات المشكلات المحتملة بالألوان و\"{{int:ores-damaging-letter}}\" لـ\"يحتاج إلى مراجعة\"",
