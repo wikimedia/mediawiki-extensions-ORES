@@ -48,6 +48,8 @@
 	"ores-rcfilters-goodfaith-bad-desc-high": "بدقة متوسطة، يجد معظم التعديلات السيئة.",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "من المحتمل جدا سوء النية",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "دقيقة للغاية في العثور على أكثر التعديلات سوءا.",
+	"ores-rcfilters-revertrisklanguageagnostic-title": "خطر العودة",
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-label": "من المرجح أن يتم التراجع عنه",
 	"ores-pref-highlight": "تمييز التعديلات المشكلات المحتملة بالألوان و\"{{int:ores-damaging-letter}}\" لـ\"يحتاج إلى مراجعة\"",
 	"ores-pref-rc-hidenondamaging": "عرض التعديلات التي بها مشاكل على الأرجح فقط (وإخفاء التعديلات الجيدة على الأرجح)",
 	"ores-pref-watchlist-hidenondamaging": "عرض التعديلات التي بها مشاكل على الأرجح فقط (وإخفاء التعديلات الجيدة على الأرجح)",
