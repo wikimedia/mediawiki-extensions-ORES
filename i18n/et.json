@@ -8,7 +8,7 @@
 	"ores-damaging-filter": "Tõenäoliselt head muudatused ($1)",
 	"ores-damaging-letter": "ü",
 	"ores-damaging-title": "See muudatus on vaja üle vaadata.",
-	"ores-damaging-legend": "See muudatus võib olla probleemne ja tuleks üle vaadata ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool review tool lisateave])",
+	"ores-damaging-legend": "See muudatus võib olla probleemne ja tuleks üle vaadata ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool lisateave])",
 	"ores-hide-nondamaging-filter": "Peida tõenäoliselt head muudatused",
 	"ores-pref-damaging": "Prognoosilävi",
 	"ores-pref-damaging-flag": "Kasuta värvusi ja silti \"{{int:ores-damaging-letter}}\" (\"üle vaadata\"), et tõsta esile tõenäoliselt probleemsed muudatused",
