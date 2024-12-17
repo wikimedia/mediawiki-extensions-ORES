@@ -10,6 +10,8 @@
 	"ores-damaging-title": "اس ترمیم کی نظر ثانی درکار ہے",
 	"ores-damaging-legend": "شاید اس ترمیم میں کچھ مسائل ہیں اس لیے اس کی نظر ثانی درکار ہے ([[:mw:Special:MyLanguage/ORES review tool|مزید تفصیلات]])",
 	"ores-hide-nondamaging-filter": "ممکنہ طور پر بہتر ترامیم کو چھپائیں",
-	"ores-pref-damaging": "دہلیز پیشین گوئی",
-	"ores-rcfilters-whats-this-link-text": "مزید تفصیلات"
+	"ores-pref-damaging": "پیش گوئی کی حد",
+	"ores-rcfilters-whats-this-link-text": "مزید تفصیلات",
+	"prefs-ores-rc": "حالیہ تبدیلیوں اور متعلقہ تبدیلیوں کے صفحات پر ترامیم کا فرق مراتب",
+	"ores-specialoresmodels-header-thresholdrange": "حدود کا دائرہ"
 }
