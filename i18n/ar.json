@@ -49,6 +49,8 @@
 	"ores-rcfilters-goodfaith-verylikelybad-label": "من المحتمل جدا سوء النية",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "دقيقة للغاية في العثور على أكثر التعديلات سوءا.",
 	"ores-rcfilters-revertrisklanguageagnostic-title": "خطر العودة",
+	"ores-rcfilters-revertrisklanguageagnostic-whats-this-header": "حول توقعات RevertRisk",
+	"ores-rcfilters-revertrisklanguageagnostic-whats-this-body": "تعتمد هذه التوقعات حول مخاطر التراجع على خدمة التعلم الآلي التي تستخدم محتوى المراجعة والبيانات الوصفية للتنبؤ بمخاطر التراجع عن المراجعة",
 	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-label": "من المرجح أن يتم التراجع عنه",
 	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc": "يكتشف المراجعات التي يمكن التراجع عنها، لكنه لا يقيم نية المستخدم.",
 	"ores-pref-highlight": "تمييز التعديلات المشكلات المحتملة بالألوان و\"{{int:ores-damaging-letter}}\" لـ\"يحتاج إلى مراجعة\"",
