@@ -73,7 +73,7 @@ class RecentChangeSaveHookHandler {
 		$models = [];
 		foreach ( $modelsConfig as $model => $modelConfig ) {
 			$add = $this->checkModel( $rc, $modelConfig );
-			if ( $add === true ) {
+			if ( $add ) {
 				$models[] = $model;
 			}
 		}
@@ -83,7 +83,7 @@ class RecentChangeSaveHookHandler {
 		$this->triggerJob( $rc, $models );
 	}
 
-	private function checkModel( RecentChange $rc, array $config ) {
+	private function checkModel( RecentChange $rc, array $config ): bool {
 		if ( $config['enabled'] !== true ) {
 			return false;
 		}

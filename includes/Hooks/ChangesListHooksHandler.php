@@ -311,7 +311,7 @@ class ChangesListHooksHandler implements
 
 	private static function handleRevertrisk(
 		ChangesListSpecialPage $clsp,
-		$thresholdLookup,
+		ThresholdLookup $thresholdLookup,
 		ChangesListFilter $logFilter
 	) {
 		$filters = self::getRevertriskStructuredFiltersOnChangesList(
@@ -374,7 +374,7 @@ class ChangesListHooksHandler implements
 		return $specialClassName === 'SpecialRecentChanges';
 	}
 
-	private static function getDamagingStructuredFiltersOnChangesList( array $damagingLevels ) {
+	private static function getDamagingStructuredFiltersOnChangesList( array $damagingLevels ): array {
 		$filters = [];
 		if ( isset( $damagingLevels[ 'likelygood' ] ) ) {
 			$filters[ 'likelygood' ] = [
@@ -430,7 +430,7 @@ class ChangesListHooksHandler implements
 		return $filters;
 	}
 
-	private static function getGoodFaithStructuredFiltersOnChangesList( array $goodfaithLevels ) {
+	private static function getGoodFaithStructuredFiltersOnChangesList( array $goodfaithLevels ): array {
 		$filters = [];
 		if ( isset( $goodfaithLevels['likelygood'] ) ) {
 			$filters[ 'likelygood' ] = [
@@ -487,7 +487,7 @@ class ChangesListHooksHandler implements
 		return $filters;
 	}
 
-	private static function getRevertriskStructuredFiltersOnChangesList( array $revertriskLevels ) {
+	private static function getRevertriskStructuredFiltersOnChangesList( array $revertriskLevels ): array {
 		$filters = [];
 		if ( isset( $revertriskLevels['revertrisk'] ) ) {
 			$filters[ 'revertrisk' ] = [
@@ -675,7 +675,7 @@ class ChangesListHooksHandler implements
 		return $score >= $threshold && !$patrolled;
 	}
 
-	private static function makeApplicableCallback( $model, array $levelData ) {
+	private static function makeApplicableCallback( string $model, array $levelData ) {
 		return static function ( $ctx, RecentChange $rc ) use ( $model, $levelData ) {
 			$score = $rc->getAttribute( "ores_{$model}_score" );
 			$type = $rc->getAttribute( 'rc_type' );

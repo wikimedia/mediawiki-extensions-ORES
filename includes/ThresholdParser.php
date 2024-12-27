@@ -26,7 +26,7 @@ class ThresholdParser {
 		$this->logger = $logger;
 	}
 
-	public function parseThresholds( array $statsData, $model ) {
+	public function parseThresholds( array $statsData, string $model ): array {
 		$thresholds = [];
 		foreach ( $this->getFiltersConfig( $model ) as $levelName => $config ) {
 			if ( $config === false ) {

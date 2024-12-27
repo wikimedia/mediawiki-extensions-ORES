@@ -127,7 +127,7 @@ class FetchScoreJob extends Job {
 		return $revids;
 	}
 
-	private function getCleanupModels() {
+	private function getCleanupModels(): array {
 		global $wgOresModels;
 		$models = [];
 		foreach ( $wgOresModels as $modelName => $model ) {
