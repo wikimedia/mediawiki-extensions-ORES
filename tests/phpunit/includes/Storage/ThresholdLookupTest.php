@@ -104,12 +104,14 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 				[ 'statistics' => [ 'thresholds' => [
 					'true' => [
 						[
-							'threshold' => 0.945, // verylikelybad min
+							// verylikelybad min
+							'threshold' => 0.945,
 						],
 					],
 					'false' => [
 						[
-							'threshold' => 0.259, // verylikelygood max
+							// verylikelygood max
+							'threshold' => 0.259,
 						],
 					],
 				] ] ]
