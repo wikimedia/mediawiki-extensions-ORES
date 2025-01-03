@@ -7,6 +7,10 @@ use PHPUnit\Framework\TestCase;
 
 class MockOresServiceBuilder {
 
+	/**
+	 * @param TestCase $test
+	 * @return ORESService
+	 */
 	public static function getORESServiceMock( TestCase $test ) {
 		$mock = $test->getMockBuilder( ORESService::class )
 			->disableOriginalConstructor()
@@ -19,6 +23,11 @@ class MockOresServiceBuilder {
 		return $mock;
 	}
 
+	/**
+	 * @param array $params
+	 * @param WebRequest|string[]|null $originalRequest
+	 * @return array
+	 */
 	public static function mockORESResponse( array $params, $originalRequest = null ) {
 		$models = [];
 		foreach ( explode( '|', $params['models'] ) as $model ) {
@@ -33,6 +42,11 @@ class MockOresServiceBuilder {
 		return [ ORESService::getWikiID() => [ 'models' => $models, 'scores' => $scores ] ];
 	}
 
+	/**
+	 * @param int $revid
+	 * @param array $models
+	 * @return array[]
+	 */
 	public static function mockRevisionResponse( $revid, $models ) {
 		$result = [];
 		foreach ( $models as $model ) {

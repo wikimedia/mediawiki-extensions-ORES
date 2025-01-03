@@ -35,6 +35,9 @@ class BackfillPageTriageQueue extends Maintenance {
 		$this->output( "\nAll done\n" );
 	}
 
+	/**
+	 * @param string $modelName
+	 */
 	private function backfillScores( $modelName ) {
 		$dbr = $this->getDB( DB_REPLICA );
 		$modelId = ORESServices::getModelLookup()->getModelId( $modelName );
@@ -97,6 +100,12 @@ class BackfillPageTriageQueue extends Maintenance {
 		$this->output( "Finished model $modelName\n" );
 	}
 
+	/**
+	 * @param callable $fn
+	 * @param int $tries
+	 * @param int $wait
+	 * @return mixed
+	 */
 	private function retry( $fn, $tries, $wait ) {
 		$tried = 0;
 		while ( true ) {

@@ -367,6 +367,10 @@ class ChangesListHooksHandler implements
 		$clsp->registerFilterGroup( $revertriskGroup );
 	}
 
+	/**
+	 * @param string $specialClassName
+	 * @return bool
+	 */
 	private static function shouldStraightJoin( $specialClassName ) {
 		// Performance hack: add STRAIGHT_JOIN (T146111) but not for Watchlist (T176456 / T164796)
 		// New theory is that STRAIGHT JOIN should be used for unfiltered queries (RecentChanges)
@@ -675,6 +679,11 @@ class ChangesListHooksHandler implements
 		return $score >= $threshold && !$patrolled;
 	}
 
+	/**
+	 * @param string $model
+	 * @param array $levelData
+	 * @return callable
+	 */
 	private static function makeApplicableCallback( string $model, array $levelData ) {
 		return static function ( $ctx, RecentChange $rc ) use ( $model, $levelData ) {
 			$score = $rc->getAttribute( "ores_{$model}_score" );

@@ -133,6 +133,10 @@ class DatabaseQueryBuilder {
 			->and( "$tableAlias.oresc_class", '=', $classIds );
 	}
 
+	/**
+	 * @param string $modelName
+	 * @return string
+	 */
 	private function makeOresClassificationTableAlias( $modelName ) {
 		return "ores_{$modelName}_cls";
 	}

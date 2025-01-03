@@ -6,6 +6,7 @@ use MediaWiki\Content\ContentHandler;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Storage\PageUpdateStatus;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use ORES\Services\ORESServices;
@@ -84,6 +85,12 @@ class TestHelper {
 			->execute();
 	}
 
+	/**
+	 * @param User $user
+	 * @param LinkTarget $target
+	 * @param string $summary
+	 * @return PageUpdateStatus
+	 */
 	public static function doPageEdit( User $user, LinkTarget $target, $summary ) {
 		static $i = 0;
 

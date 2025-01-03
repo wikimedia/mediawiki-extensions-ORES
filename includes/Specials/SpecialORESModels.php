@@ -51,6 +51,10 @@ class SpecialORESModels extends SpecialPage {
 		$this->getOutput()->addModuleStyles( 'ext.ores.styles' );
 	}
 
+	/**
+	 * @param string $modelName
+	 * @return array|false
+	 */
 	private function getFilterData( $modelName ) {
 		$thresholdConfig = $this->getConfig()->get( 'OresFiltersThresholds' );
 		$thresholdData = $this->thresholdLookup->getRawThresholdData( $modelName );

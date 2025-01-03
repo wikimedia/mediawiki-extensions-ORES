@@ -75,6 +75,12 @@ class ThresholdParser {
 		return $config;
 	}
 
+	/**
+	 * @param string $bound
+	 * @param string|int $config
+	 * @param array $statsData
+	 * @return int|null
+	 */
 	private function extractBoundValue( $bound, $config, array $statsData ) {
 		if ( is_numeric( $config ) ) {
 			return $config;

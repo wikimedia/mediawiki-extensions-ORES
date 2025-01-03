@@ -65,6 +65,9 @@ class PopulatedSqlModelLookup implements ModelLookup {
 		return $modelData;
 	}
 
+	/**
+	 * @param string[] $models
+	 */
 	private function initializeModels( $models ) {
 		$wikiId = ORESService::getWikiID();
 		$response = $this->ORESService->request( [] );
@@ -79,6 +82,9 @@ class PopulatedSqlModelLookup implements ModelLookup {
 		}
 	}
 
+	/**
+	 * @param string[] $models
+	 */
 	private function initializeModelsLiftWing( $models ) {
 		global $wgOresModelVersions;
 		if ( !isset( $wgOresModelVersions ) || empty( $wgOresModelVersions['models'] ) ) {
@@ -92,6 +98,10 @@ class PopulatedSqlModelLookup implements ModelLookup {
 		}
 	}
 
+	/**
+	 * @param string $model
+	 * @param array[] $modelsData
+	 */
 	private function initializeModel( $model, $modelsData ) {
 		if ( !isset( $modelsData[$model] ) || !isset( $modelsData[$model]['version'] ) ) {
 			return;

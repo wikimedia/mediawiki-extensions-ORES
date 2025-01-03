@@ -37,6 +37,13 @@ class Helpers {
 		'softest' => 'verylikelybad',
 	];
 
+	/**
+	 * @param array &$fields
+	 * @param array &$conds
+	 * @param bool $hidenondamaging
+	 * @param UserIdentity $user
+	 * @param ?Title $title
+	 */
 	public static function hideNonDamagingFilter(
 		array &$fields, array &$conds, $hidenondamaging, UserIdentity $user, ?Title $title = null
 	) {
@@ -55,6 +62,13 @@ class Helpers {
 		}
 	}
 
+	/**
+	 * @param string $type
+	 * @param string $revIdField
+	 * @param array &$tables
+	 * @param array &$fields
+	 * @param array &$join_conds
+	 */
 	public static function joinWithOresTables(
 		$type, $revIdField, array &$tables, array &$fields, array &$join_conds
 	) {
@@ -208,6 +222,9 @@ class Helpers {
 		return $title->isSpecial( 'Watchlist' );
 	}
 
+	/**
+	 * @return int[]
+	 */
 	public static function getDamagingThresholds() {
 		$thresholds = [];
 		foreach ( ORESServices::getThresholdLookup()->getThresholds( 'damaging' ) as $name => $bounds ) {
@@ -218,6 +235,10 @@ class Helpers {
 		return $thresholds;
 	}
 
+	/**
+	 * @param IContextSource $context
+	 * @return bool
+	 */
 	public static function isRCStructuredUiEnabled( IContextSource $context ) {
 		/** @var SpecialRecentChanges $page */
 		$page = MediaWikiServices::getInstance()->getSpecialPageFactory()
@@ -228,6 +249,10 @@ class Helpers {
 		return $page->isStructuredFilterUiEnabled();
 	}
 
+	/**
+	 * @param IContextSource $context
+	 * @return bool
+	 */
 	public static function isWLStructuredUiEnabled( IContextSource $context ) {
 		/** @var SpecialWatchlist $page */
 		$page = MediaWikiServices::getInstance()->getSpecialPageFactory()

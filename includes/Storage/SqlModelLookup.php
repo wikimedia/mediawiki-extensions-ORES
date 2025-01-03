@@ -71,6 +71,9 @@ class SqlModelLookup implements ModelLookup {
 		return $this->getModelData();
 	}
 
+	/**
+	 * @return array[]
+	 */
 	private function getModelData() {
 		// Don't cache when result is empty (T184938)
 		if ( $this->modelData === null || $this->modelData === [] ) {
