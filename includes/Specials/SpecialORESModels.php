@@ -21,6 +21,7 @@ class SpecialORESModels extends SpecialPage {
 		$this->thresholdLookup = $thresholdLookup;
 	}
 
+	/** @inheritDoc */
 	public function execute( $subPage = null ) {
 		parent::execute( $subPage );
 		$this->addHelpLink( 'ORES' );

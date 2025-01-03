@@ -45,6 +45,7 @@ class ChangesListHooksHandler implements
 	OldChangesListRecentChangesLineHook
 {
 
+	/** @inheritDoc */
 	public function onChangesListSpecialPageStructuredFilters(
 		$clsp
 	) {
@@ -509,6 +510,7 @@ class ChangesListHooksHandler implements
 		return $filters;
 	}
 
+	/** @inheritDoc */
 	public function onChangesListSpecialPageQuery(
 		$name, &$tables, &$fields,
 		&$conds, &$query_options, &$join_conds, $opts

@@ -70,10 +70,12 @@ class ApiQueryORES extends ApiQueryBase {
 		$result->addValue( [ 'query' ], 'ores', $data );
 	}
 
+	/** @inheritDoc */
 	public function getCacheMode( $params ) {
 		return 'public';
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [];
 	}
@@ -88,6 +90,7 @@ class ApiQueryORES extends ApiQueryBase {
 		];
 	}
 
+	/** @inheritDoc */
 	public function getHelpUrls() {
 		return 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:ORES';
 	}
