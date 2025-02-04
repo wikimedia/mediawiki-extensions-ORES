@@ -9,7 +9,7 @@
 	"ores-damaging-filter": "$1 вірогідно добрі редагування",
 	"ores-damaging-letter": "?",
 	"ores-damaging-title": "Це редагування потребує перевірки",
-	"ores-damaging-legend": "Ця зміна може бути проблематичною та потребує перевірки ([[:mw:Special:MyLanguage/ORES review tool|детальніше]])",
+	"ores-damaging-legend": "Ця зміна може бути проблематичною та потребує перевірки ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool детальніше])",
 	"ores-hide-nondamaging-filter": "Приховати ймовірно позитивні редагування",
 	"ores-pref-damaging": "Поріг передбачення",
 	"ores-pref-damaging-flag": "Виділяти вірогідно проблематичні редагування за допомогою кольорів та «{{int:ores-damaging-letter}}» для «потребує перевірки»",
