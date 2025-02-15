@@ -87,14 +87,15 @@ class PopulatedSqlModelLookup implements ModelLookup {
 	 */
 	private function initializeModelsLiftWing( $models ) {
 		global $wgOresModelVersions;
-		if ( !isset( $wgOresModelVersions ) || empty( $wgOresModelVersions['models'] ) ) {
+		$oresModels = $wgOresModelVersions['models'] ?? null;
+		if ( !is_array( $oresModels ) || $oresModels === [] ) {
 			$this->logger->error( 'Bad response from ORES when requesting models: '
 				. json_encode( $wgOresModelVersions ) );
 			return;
 		}
 
 		foreach ( $models as $model ) {
-			$this->initializeModel( $model, $wgOresModelVersions['models'] );
+			$this->initializeModel( $model, $oresModels );
 		}
 	}
 
