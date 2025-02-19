@@ -12,13 +12,12 @@ $( () => {
 	}
 
 	$( '[data-mw-revid]' ).each( function () {
-		let i, revid, score;
-		revid = $( this ).attr( 'data-mw-revid' );
+		const revid = $( this ).attr( 'data-mw-revid' );
 		if ( !scores[ revid ] ) {
 			return;
 		}
-		score = scores[ revid ].damaging;
-		for ( i = 0; i < levels.length; i++ ) {
+		const score = scores[ revid ].damaging;
+		for ( let i = 0; i < levels.length; i++ ) {
 			if ( score > thresholds[ levels[ i ] ] ) {
 				// The following classes are used here:
 				// * mw-changeslist-damaging-maybebad
