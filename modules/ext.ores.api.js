@@ -5,7 +5,7 @@
 ( function () {
 	'use strict';
 
-	var config = mw.config.get( 'wgExtOresApiConfig' ),
+	const config = mw.config.get( 'wgExtOresApiConfig' ),
 		url = config.baseUrl + '/v' + config.apiVersion + '/scores/' + config.wikiId;
 
 	/**
@@ -17,7 +17,7 @@
 	 * @return {Object}
 	 */
 	function preprocessParameters( parameters ) {
-		var key;
+		let key;
 		for ( key in parameters ) {
 			if ( Array.isArray( parameters[ key ] ) ) {
 				parameters[ key ] = parameters[ key ].join( '|' );
@@ -41,14 +41,14 @@
 	 * @return {jQuery.Promise} Done: API response data, Fail: Error code.
 	 */
 	function get( parameters ) {
-		var req = $.ajax( {
+		const req = $.ajax( {
 			url: url,
 			data: preprocessParameters( parameters ),
 			timeout: 30 * 1000, // 30 seconds
 			dataType: 'json'
 		} );
 
-		req.fail( function ( code, details ) {
+		req.fail( ( code, details ) => {
 			if ( !( code === 'http' && details && details.textStatus === 'abort' ) ) {
 				mw.log.warn( 'ORES API error:', code, details );
 

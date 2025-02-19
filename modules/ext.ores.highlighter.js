@@ -1,7 +1,7 @@
-$( function () {
+$( () => {
 	'use strict';
 
-	var thresholds = mw.config.get( 'oresThresholds' ).damaging,
+	const thresholds = mw.config.get( 'oresThresholds' ).damaging,
 		// Levels must be descending from the worst to best.
 		levels = [ 'verylikelybad', 'likelybad', 'maybebad' ],
 		scores = mw.config.get( 'oresData' );
@@ -12,7 +12,7 @@ $( function () {
 	}
 
 	$( '[data-mw-revid]' ).each( function () {
-		var i, revid, score;
+		let i, revid, score;
 		revid = $( this ).attr( 'data-mw-revid' );
 		if ( !scores[ revid ] ) {
 			return;
