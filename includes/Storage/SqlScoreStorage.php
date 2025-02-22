@@ -75,7 +75,8 @@ class SqlScoreStorage implements ScoreStorage {
 			try {
 				$dbDataPerRevision = $scoreParser->processRevision( $revision, $revisionData );
 			} catch ( InvalidArgumentException $exception ) {
-				call_user_func( $errorCallback, $exception->getMessage(), $revision );
+				$errorCallback( $exception->getMessage(), $revision );
+				// @phan-suppress-next-line PhanPluginUnreachableCode Callable must not throw
 				continue;
 			}
 
