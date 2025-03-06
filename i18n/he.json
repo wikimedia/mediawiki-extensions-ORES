@@ -32,7 +32,7 @@
 	"ores-rcfilters-damaging-likelygood-desc": "מדויק מאוד במציאה של כמעט כל העריכות שאין בהן בעיות.",
 	"ores-rcfilters-damaging-maybebad-label": "ייתכן שיש בהן בעיות",
 	"ores-rcfilters-damaging-maybebad-desc": "מוצא את רוב העריכות הפגומות או המזיקות, אבל בדיוק נמוך יותר.",
-	"ores-rcfilters-damaging-likelybad-label": "סביר יש בהן בעיות",
+	"ores-rcfilters-damaging-likelybad-label": "סביר שיש בהן בעיות",
 	"ores-rcfilters-damaging-likelybad-desc-low": "עם דיוק בינוני, מוצא חלק בינוני של עריכות בעייתיות.",
 	"ores-rcfilters-damaging-likelybad-desc-high": "עם דיוק גבוה, מוצא את רוב העריכות הבעייתיות.",
 	"ores-rcfilters-damaging-verylikelybad-label": "סביר מאוד שיש בהן בעיות",
