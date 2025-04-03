@@ -59,6 +59,7 @@ class FetchScoreJob extends Job {
 		$this->scoreFetcher = $scoreFetcher;
 	}
 
+	/** @inheritDoc */
 	public function run() {
 		$logger = LoggerFactory::getInstance( 'ORES' );
 
@@ -110,7 +111,7 @@ class FetchScoreJob extends Job {
 		return $success;
 	}
 
-	private function findDuplicates() {
+	private function findDuplicates(): array {
 		$revids = (array)$this->params['revid'];
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$revids = array_diff(

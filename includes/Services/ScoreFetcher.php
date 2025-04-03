@@ -144,7 +144,7 @@ class ScoreFetcher implements ServiceScoreLookup {
 			->execute();
 	}
 
-	public static function instance() {
+	public static function instance(): self {
 		return new self( MediaWikiServices::getInstance()->getConnectionProvider() );
 	}
 
