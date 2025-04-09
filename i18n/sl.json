@@ -49,7 +49,7 @@
 	"ores-pref-highlight": "Označi verjetna problematična urejanja z barvami in »{{int:ores-damaging-letter}}« za »potrebuje pregled«",
 	"ores-pref-rc-hidenondamaging": "Prikaži samo verjetno problematična urejanja (in skrij verjetno dobra urejanja)",
 	"ores-pref-watchlist-hidenondamaging": "Prikaži samo verjetno problematična urejanja (in skrij verjetno dobra urejanja)",
-	"prefs-ores-wl": "Točkovanje redakcij na spisku nadzorov in prispevki",
+	"prefs-ores-wl": "Točkovanje redakcij na nadzornem seznamu in prispevki",
 	"prefs-ores-rc": "Ocenjevanje redakcij v Zadnjih spremembah in Sorodnih spremembah",
 	"oresmodels": "Statistika modela ORES",
 	"ores-specialoresmodels-header-filter": "Filter",
