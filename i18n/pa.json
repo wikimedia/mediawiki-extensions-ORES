@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kuldeepburjbhalaike"
+			"Kuldeepburjbhalaike",
+			"Cabal"
 		]
 	},
-	"ores-damaging-letter": "ਆਰ"
+	"ores-damaging-letter": "ਆਰ",
+	"ores-rcfilters-damaging-likelygood-label": "ਸ਼ਾਇਦ ਵਧੀਆ ਹੋਵੇਗਾ",
+	"ores-rcfilters-goodfaith-good-label": "ਸ਼ਾਇਦ ਵਧੀਆ ਨੀਅਤ ਨਾਲ"
 }
