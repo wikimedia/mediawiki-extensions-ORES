@@ -22,10 +22,10 @@ use MediaWiki\Hook\RecentChangesPurgeRowsHook;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\RecentChanges\RecentChange;
+use MediaWiki\Skin\Skin;
 use ORES\ORESService;
 use ORES\Services\ORESServices;
-use RecentChange;
-use Skin;
 
 class Hooks implements
 	BeforePageDisplayHook,

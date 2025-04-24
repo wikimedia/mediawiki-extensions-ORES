@@ -2,9 +2,9 @@
 
 namespace ORES\Tests\Hooks;
 
+use MediaWiki\RecentChanges\RecentChange;
 use ORES\Hooks\Hooks;
 use ORES\Tests\MockOresServiceBuilder;
-use RecentChange;
 
 /**
  * @group ORES

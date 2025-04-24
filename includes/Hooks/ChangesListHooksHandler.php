@@ -16,17 +16,18 @@
 
 namespace ORES\Hooks;
 
-use ChangesList;
-use ChangesListBooleanFilterGroup;
-use ChangesListFilter;
-use ChangesListStringOptionsFilterGroup;
-use EnhancedChangesList;
 use Exception;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Hook\EnhancedChangesListModifyBlockLineDataHook;
 use MediaWiki\Hook\EnhancedChangesListModifyLineDataHook;
 use MediaWiki\Hook\OldChangesListRecentChangesLineHook;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\RecentChanges\ChangesList;
+use MediaWiki\RecentChanges\ChangesListBooleanFilterGroup;
+use MediaWiki\RecentChanges\ChangesListFilter;
+use MediaWiki\RecentChanges\ChangesListStringOptionsFilterGroup;
+use MediaWiki\RecentChanges\EnhancedChangesList;
+use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\SpecialPage\ChangesListSpecialPage;
 use MediaWiki\SpecialPage\Hook\ChangesListSpecialPageQueryHook;
 use MediaWiki\SpecialPage\Hook\ChangesListSpecialPageStructuredFiltersHook;
@@ -34,7 +35,6 @@ use MediaWiki\Specials\SpecialRecentChanges;
 use MediaWiki\Specials\SpecialWatchlist;
 use ORES\Services\ORESServices;
 use ORES\Storage\ThresholdLookup;
-use RecentChange;
 use Wikimedia\Rdbms\IReadableDatabase;
 
 class ChangesListHooksHandler implements

@@ -2,19 +2,19 @@
 
 namespace ORES\Tests\Hooks;
 
-use ChangesList;
-use EnhancedChangesList;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Html\FormOptions;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\RecentChanges\ChangesList;
+use MediaWiki\RecentChanges\EnhancedChangesList;
+use MediaWiki\RecentChanges\RCCacheEntry;
+use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\User;
 use ORES\Hooks\ChangesListHooksHandler;
 use ORES\Storage\HashModelLookup;
-use RCCacheEntry;
-use RecentChange;
 use Wikimedia\TestingAccessWrapper;
 
 /**

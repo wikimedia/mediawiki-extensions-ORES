@@ -16,13 +16,13 @@
 
 namespace ORES\Hooks;
 
-use ChangesList;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Hook\ContribsPager__getQueryInfoHook;
 use MediaWiki\Hook\ContributionsLineEndingHook;
 use MediaWiki\Hook\SpecialContributions__formatRow__flagsHook;
 use MediaWiki\Hook\SpecialContributions__getForm__filtersHook;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\RecentChanges\ChangesList;
 
 class ContributionsHooksHandler implements
 	ContribsPager__getQueryInfoHook,

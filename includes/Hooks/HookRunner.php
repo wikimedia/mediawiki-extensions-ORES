@@ -3,8 +3,8 @@
 namespace ORES\Hooks;
 
 use MediaWiki\HookContainer\HookContainer;
+use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\Revision\RevisionRecord;
-use RecentChange;
 
 /**
  * This is a hook runner class, see docs/Hooks.md in core.
