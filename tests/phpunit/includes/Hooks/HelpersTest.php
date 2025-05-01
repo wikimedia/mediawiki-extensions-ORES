@@ -172,7 +172,7 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
-	public function provideTestJoinWithOresTablesPreventInvalidTypes() {
+	public static function provideTestJoinWithOresTablesPreventInvalidTypes() {
 		return [
 			[
 				'revertrisk_language_agnostic',
