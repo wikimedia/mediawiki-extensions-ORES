@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Daud I.F. Argana"
+			"Daud I.F. Argana",
+			"Jsn.sherman"
 		]
 	},
 	"ores-desc": "Tampilkan skor revisi otomatis di antarmuka",
@@ -45,6 +46,7 @@
 	"ores-rcfilters-goodfaith-bad-desc-high": "Dengan akurasi menengah, menemukan sebagian besar suntingan berniat buruk.",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Kemungkinan besar berniat buruk",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Sangat akurat dalam menemukan suntingan yang jelas-jelas berniat buruk.",
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-label": "Kemungkinan akan dikembalikan",
 	"ores-pref-highlight": "Soroti suntingan yang kemungkinan bermasalah dengan warna dan tanda \"{{int:ores-damaging-letter}}\" yang berarti \"butuh tinjauan\"",
 	"ores-pref-rc-hidenondamaging": "Hanya tampilkan suntingan yang kemungkinan bermasalah (dan sembunyikan suntingan yang kemungkinan bagus)",
 	"ores-pref-watchlist-hidenondamaging": "Hanya tampilkan suntingan yang kemungkinan bermasalah (dan sembunyikan suntingan yang kemungkinan bagus)",
