@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Daud I.F. Argana",
+			"Isaranto",
 			"Jsn.sherman"
 		]
 	},
 	"ores-desc": "Tampilkan skor revisi otomatis di antarmuka",
+	"ores-name": "Platform Pembelajaran Mesin",
 	"ores-damaging-filter": "$1 suntingan yang kemungkinan bagus",
 	"ores-damaging-letter": "t",
 	"ores-damaging-title": "Suntingan ini perlu ditinjau",
@@ -46,7 +48,12 @@
 	"ores-rcfilters-goodfaith-bad-desc-high": "Dengan akurasi menengah, menemukan sebagian besar suntingan berniat buruk.",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "Kemungkinan besar berniat buruk",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "Sangat akurat dalam menemukan suntingan yang jelas-jelas berniat buruk.",
-	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-label": "Kemungkinan akan dikembalikan",
+	"ores-rcfilters-revertrisklanguageagnostic-title": "Risiko untuk ditarik kembali",
+	"ores-rcfilters-revertrisklanguageagnostic-whats-this-header": "Tentang prediksi RevertRisk",
+	"ores-rcfilters-revertrisklanguageagnostic-whats-this-body": "Prediksi tentang risiko pembalikan ini didasarkan pada layanan pembelajaran mesin yang menggunakan konten revisi dan metadata untuk memprediksi risiko revisi dikembalikan.",
+	"ores-rcfilters-revertrisklanguageagnostic-conflicts-logactions": "Prediksi Niat Pengguna tidak tersedia untuk jenis-jenis perubahan tertentu, jadi penyaring ini berkonflik dengan {{PLURAL:$2|penyaring}} Jenis Perubahan berikut: $1",
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-label": "Kemungkinan untuk ditarik kembali",
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc": "Mendeteksi revisi yang mungkin dikembalikan, tetapi tidak menilai maksud pengguna.",
 	"ores-pref-highlight": "Soroti suntingan yang kemungkinan bermasalah dengan warna dan tanda \"{{int:ores-damaging-letter}}\" yang berarti \"butuh tinjauan\"",
 	"ores-pref-rc-hidenondamaging": "Hanya tampilkan suntingan yang kemungkinan bermasalah (dan sembunyikan suntingan yang kemungkinan bagus)",
 	"ores-pref-watchlist-hidenondamaging": "Hanya tampilkan suntingan yang kemungkinan bermasalah (dan sembunyikan suntingan yang kemungkinan bagus)",
