@@ -9,6 +9,7 @@
 			"Kokage si",
 			"Omotecho",
 			"Otokoume",
+			"Shirayuki",
 			"Sujiniku"
 		]
 	},
@@ -29,7 +30,7 @@
 	"ores-rcfilters-logactions-conflicts-ores": "このフィルターは、1つ以上の投稿品質または利用者の意図フィルターと競合します。品質と意図の推定は、記録された操作に対しては利用できません。",
 	"ores-rcfilters-damaging-title": "投稿品質の推定",
 	"ores-rcfilters-damaging-whats-this-header": "投稿品質の推測について",
-	"ores-rcfilters-damaging-whats-this-body": "これらの推測は、人間の編集者によって採点された多数の編集を機械学習したAIによって行われます。厳密で正確なフィルタにすると誤検知は少なくなりますが、対象を見逃すことも多くなります。フィルタの条件を緩くすると多くの対象を見つけますが、誤検知も多くなります。",
+	"ores-rcfilters-damaging-whats-this-body": "これらの予測は、人間の編集者によって採点された大量の編集をもとに学習した機械学習サービスによって行われます。より厳密で高精度なフィルターは誤検出を減らしますが、検出対象を見逃す可能性が高くなります。精度の低いフィルターはより多くの対象を見つけますが、誤検出も多くなります。",
 	"ores-rcfilters-damaging-conflicts-logactions": "投稿品質の推定は特定の変更の種類に対しては利用できないので、このフィルターは以下の変更の種類{{PLURAL:$2|フィルター}}と競合します: $1",
 	"ores-rcfilters-damaging-likelygood-label": "良好である可能性が高い",
 	"ores-rcfilters-damaging-likelygood-desc": "高い精度で、ほとんどすべての問題のない編集を見つけます。",
@@ -42,7 +43,7 @@
 	"ores-rcfilters-damaging-verylikelybad-desc": "非常に高い精度で、明らかな欠陥や害がある編集を見つけます。",
 	"ores-rcfilters-goodfaith-title": "利用者の意図の推定",
 	"ores-rcfilters-goodfaith-whats-this-header": "利用者の意図の推定について",
-	"ores-rcfilters-goodfaith-whats-this-body": "これらの利用者の意図の推定は、人間の編集者によって採点された多数の編集を機械学習したAIによって行われます。精度の高いフィルタにすると誤検知は少なくなりますが、対象を見逃すことも多くなります。フィルタの条件を緩くすると多くの対象を見つけますが、誤検知も多くなります。",
+	"ores-rcfilters-goodfaith-whats-this-body": "これらの利用者の善意に関する予測は、人間の編集者によって採点された大量の編集をもとに学習した機械学習サービスによって行われます。より厳密で高精度なフィルターは誤検出を減らしますが、検出対象を見逃す可能性が高くなります。精度の低いフィルターはより多くの対象を見つけますが、誤検出も多くなります。",
 	"ores-rcfilters-goodfaith-conflicts-logactions": "利用者の意図の推定は特定の変更の種類に対しては利用できないので、このフィルターは以下の変更の種類{{PLURAL:$2|フィルター}}と競合します: $1",
 	"ores-rcfilters-goodfaith-good-label": "善意である可能性が高い",
 	"ores-rcfilters-goodfaith-good-desc": "高い精度で、ほとんどすべての善意による編集を見つけます。",
