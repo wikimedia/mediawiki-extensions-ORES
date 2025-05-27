@@ -137,9 +137,14 @@
 			"description": "Whether to add the Host header to the LiftWing request. This is required for Lift Wing requests made using the internal endpoint within the WMF infrastructure.",
 			"value": false
 		},
-		"OresLiftWingRevertRiskHostHeader": {
-			"value": "revertrisk-language-agnostic.revertrisk.wikimedia.org",
-			"description": "Hostname to use with header for requests to RevertRisk endpoint."
+		"OresLiftWingRevertRiskHosts": {
+			"value": {
+				"revertrisklanguageagnostic": "revertrisk-language-agnostic.revertrisk.wikimedia.org",
+				"revertrisklanguageagnostic-presave": "revertrisk-language-agnostic-pre-save.revertrisk.wikimedia.org",
+				"revertriskmultilingual": "revertrisk-multilingual.revertrisk.wikimedia.org",
+				"revertriskmultilingual-presave": "revertrisk-multilingual-pre-save.revertrisk.wikimedia.org"
+			},
+			"description": "Hostnames to use for requests to RevertRisk endpoints, keyed by model name. Only used if OresLiftWingAddHostHeader is true."
 		},
 		"OresFrontendBaseUrl": {
 			"value": null

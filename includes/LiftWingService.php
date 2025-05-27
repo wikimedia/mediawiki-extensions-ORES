@@ -21,8 +21,10 @@ use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Status\Status;
+use MWHttpRequest;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
+use UnexpectedValueException;
 
 /**
  * Common methods for accessing a Lift Wing server.
@@ -123,15 +125,9 @@ class LiftWingService extends ORESService {
 		$url = $this->getUrl( $model );
 		$this->logger->debug( "Requesting: {$url}" );
 
-		$req = $this->httpRequestFactory->create( $url, [
-			'method' => 'POST',
-			'postData' => json_encode( [ 'rev_id' => (int)$revid ] ),
-		], __METHOD__ );
-		global $wgOresLiftWingAddHostHeader;
-		if ( $wgOresLiftWingAddHostHeader ) {
-			$req->setHeader( 'Content-Type', 'application/json' );
-			$req->setHeader( 'Host', self::createHostHeader( $model ) );
-		}
+		$payload = [ 'rev_id' => (int)$revid ];
+		$req = $this->createLiftWingRequest( $url, $model, $payload );
+
 		$status = $req->execute();
 		if ( !$status->isOK() ) {
 			$message = "Failed to make LiftWing request to [{$url}], " .
@@ -139,14 +135,7 @@ class LiftWingService extends ORESService {
 
 			// Server time out, try again once
 			if ( $req->getStatus() === 504 ) {
-				$req = $this->httpRequestFactory->create( $url, [
-					'method' => 'POST',
-					'postData' => json_encode( [ 'rev_id' => (int)$revid ] ),
-				], __METHOD__ );
-				if ( $wgOresLiftWingAddHostHeader ) {
-					$req->setHeader( 'Content-Type', 'application/json' );
-					$req->setHeader( 'Host', self::createHostHeader( $model ) );
-				}
+				$req = $this->createLiftWingRequest( $url, $model, $payload );
 
 				$status = $req->execute();
 				if ( !$status->isOK() ) {
@@ -212,7 +201,8 @@ class LiftWingService extends ORESService {
 
 		$this->logger->debug( "Requesting: {$url}" );
 
-		$req = $this->prepareRevertriskRequest( $url, $revid, $language );
+		$payload = [ 'rev_id' => (int)$revid, 'lang' => $language ];
+		$req = $this->createLiftWingRequest( $url, $model, $payload );
 		$status = $req->execute();
 		if ( !$status->isOK() ) {
 			$message = "Failed to make LiftWing request to [{$url}], " .
@@ -220,7 +210,7 @@ class LiftWingService extends ORESService {
 
 			// Server time out, try again once
 			if ( $req->getStatus() === 504 ) {
-				$req = $this->prepareRevertriskRequest( $url, $revid, $language );
+				$req = $this->createLiftWingRequest( $url, $model, $payload );
 				$status = $req->execute();
 				if ( !$status->isOK() ) {
 					throw new RuntimeException( $message );
@@ -254,16 +244,25 @@ class LiftWingService extends ORESService {
 		return $this->modifyRevertRiskResponse( $data );
 	}
 
-	private function prepareRevertriskRequest( string $url, string $revid, string $language ): \MWHttpRequest {
+	/**
+	 * Setup a request for a Lift Wing model with a given payload.
+	 * @param string $url Base URL for the Lift Wing API
+	 * @param string $model the model name as requested from ORES
+	 * @param array $payload Request payload
+	 *
+	 * @return MWHttpRequest
+	 */
+	private function createLiftWingRequest( string $url, string $model, array $payload ): MWHttpRequest {
 		$req = $this->httpRequestFactory->create( $url, [
 			'method' => 'POST',
-			'postData' => json_encode( [ 'rev_id' => (int)$revid, 'lang' => $language ] ),
+			'postData' => json_encode( $payload ),
 		], __METHOD__ );
 		$req->setHeader( 'Content-Type', 'application/json' );
-		global $wgOresLiftWingAddHostHeader;
-		if ( $wgOresLiftWingAddHostHeader ) {
-			$req->setHeader( 'Host', $this->config->get( 'OresLiftWingRevertRiskHostHeader' ) );
+
+		if ( $this->config->get( 'OresLiftWingAddHostHeader' ) ) {
+			$req->setHeader( 'Host', $this->createHostHeader( $model ) );
 		}
+
 		return $req;
 	}
 
@@ -271,8 +270,8 @@ class LiftWingService extends ORESService {
 	 * @param string $modelname the model name as requested from ORES
 	 * @return string The hostname required in the header for the Lift Wing call
 	 */
-	public static function createHostHeader( string $modelname ) {
-		$hostnames = [
+	private function createHostHeader( string $modelname ) {
+		static $perWikiModels = [
 			'articlequality' => 'revscoring-articlequality',
 			'itemquality' => 'revscoring-articlequality',
 			'articletopic' => 'revscoring-articletopic',
@@ -283,8 +282,26 @@ class LiftWingService extends ORESService {
 			'goodfaith' => 'revscoring-editquality-goodfaith',
 			'reverted' => 'revscoring-editquality-reverted',
 		];
-		$wikiID = self::getWikiID();
-		return "{$wikiID}-{$modelname}.{$hostnames[$modelname]}.wikimedia.org";
+
+		if ( isset( $perWikiModels[$modelname] ) ) {
+			$wikiID = self::getWikiID();
+			return "{$wikiID}-{$modelname}.{$perWikiModels[$modelname]}.wikimedia.org";
+		}
+
+		$revertRiskHosts = $this->config->get( 'OresLiftWingRevertRiskHosts' );
+		if ( isset( $revertRiskHosts[$modelname] ) ) {
+			return $revertRiskHosts[$modelname];
+		}
+
+		$knownModelNames = array_merge(
+			array_keys( $perWikiModels ),
+			array_keys( $revertRiskHosts )
+		);
+
+		throw new UnexpectedValueException(
+			"Missing host setup for model name: {$modelname}. Known model names are: " .
+			implode( ', ', $knownModelNames )
+		);
 	}
 
 	/**

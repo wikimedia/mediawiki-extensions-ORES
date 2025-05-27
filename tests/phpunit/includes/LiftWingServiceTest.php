@@ -12,6 +12,7 @@ use MediaWiki\WikiMap\WikiMap;
 use MockHttpTrait;
 use ORES\LiftWingService;
 use RuntimeException;
+use UnexpectedValueException;
 
 /**
  * @group ORES
@@ -29,8 +30,6 @@ class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 	private HttpRequestFactory $httpRequestFactory;
 
 	private RevisionLookup $revisionLookup;
-
-	private LiftWingService $lwService;
 
 	protected function setUp(): void {
 		parent::setUp();
@@ -51,18 +50,31 @@ class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 		$this->revisionLookup = $this->createMock( RevisionLookup::class );
 
 		$this->setService( 'RevisionLookup', $this->revisionLookup );
+	}
 
-		$this->lwService = new LiftWingService(
+	private function getLiftWingService( array $config = [] ): LiftWingService {
+		$hostMap = [
+			'revertrisklanguageagnostic' => 'revertrisk-language-agnostic.revertrisk.wikimedia.org',
+			'revertrisklanguageagnostic-presave' => 'revertrisk-language-agnostic-pre-save.revertrisk.wikimedia.org',
+			'revertriskmultilingual' => 'revertrisk-multilingual.revertrisk.wikimedia.org',
+			'revertriskmultilingual-presave' => 'revertrisk-multilingual-pre-save.revertrisk.wikimedia.org'
+		];
+
+		$config += [
+			'OresLiftWingRevertRiskHostHeader' => 'revertrisk-language-agnostic.revertrisk.wikimedia.org',
+			'OresLiftWingAddHostHeader' => false,
+			'OresLiftWingRevertRiskHosts' => $hostMap,
+		];
+
+		return new LiftWingService(
 			LoggerFactory::getInstance( 'ORES' ),
 			$this->httpRequestFactory,
-			new HashConfig( [
-				'OresLiftWingRevertRiskHostHeader' => 'revertrisk-language-agnostic.revertrisk.wikimedia.org'
-			] )
+			new HashConfig( $config )
 		);
 	}
 
 	public function testServiceUrl() {
-		$url = $this->lwService->getUrl( 'damaging' );
+		$url = $this->getLiftWingService()->getUrl( 'damaging' );
 		$this->assertSame( "https://liftwing.wikimedia.org/v1/models/testwiki-damaging:predict", $url );
 	}
 
@@ -118,7 +130,7 @@ class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 		$this->httpRequestFactory->expects( $this->never() )
 			->method( $this->anything() );
 
-		$response = $this->lwService->request( [
+		$response = $this->getLiftWingService()->request( [
 			'models' => 'revertrisklanguageagnostic',
 			'revids' => "$revId"
 		] );
@@ -191,7 +203,7 @@ class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 				$statusCode,
 			) );
 
-		$response = $this->lwService->request( [
+		$response = $this->getLiftWingService()->request( [
 			'models' => 'revertrisklanguageagnostic',
 			'revids' => self::TEST_REVISION_ID,
 		] );
@@ -231,16 +243,35 @@ class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 		];
 	}
 
+	public function testLanguageAgnosticModelRequestShouldThrowOnMissingHostConfigurationForModel(): void {
+		$this->expectException( UnexpectedValueException::class );
+		$this->expectExceptionMessage( 'Missing host setup for model name: revertrisklanguageagnostic' );
+
+		$revRecord = $this->createMock( RevisionRecord::class );
+		$revRecord->method( 'getParentId' )
+			->willReturn( 1 );
+		$this->revisionLookup->method( 'getRevisionById' )
+			->with( self::TEST_REVISION_ID )
+			->willReturn( $revRecord );
+
+		$this->httpRequestFactory->method( 'create' )
+			->willReturn( $this->makeFakeHttpRequest() );
+
+		$this->getLiftWingService( [
+			'OresLiftWingRevertRiskHosts' => [],
+			'OresLiftWingAddHostHeader' => true
+		] )->request( [
+			'models' => 'revertrisklanguageagnostic',
+			'revids' => self::TEST_REVISION_ID,
+		] );
+	}
+
 	/**
 	 * @dataProvider provideAddHostHeader
 	 */
 	public function testLanguageAgnosticModelRequestShouldReturnSuccessfulResponse(
 		bool $addHostHeader
 	): void {
-		$this->overrideConfigValues( [
-			'OresLiftWingAddHostHeader' => $addHostHeader,
-		] );
-
 		$revRecord = $this->createMock( RevisionRecord::class );
 		$revRecord->method( 'getParentId' )
 			->willReturn( 1 );
@@ -273,7 +304,7 @@ class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 		$this->httpRequestFactory->method( 'create' )
 			->willReturn( $req );
 
-		$response = $this->lwService->request( [
+		$response = $this->getLiftWingService( [ 'OresLiftWingAddHostHeader' => $addHostHeader ] )->request( [
 			'models' => 'revertrisklanguageagnostic',
 			'revids' => self::TEST_REVISION_ID,
 		] );
@@ -338,7 +369,7 @@ class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 				$statusCode,
 			) );
 
-		$response = $this->lwService->request( [
+		$response = $this->getLiftWingService()->request( [
 			'models' => 'articletopic',
 			'revids' => self::TEST_REVISION_ID,
 		] );
@@ -377,16 +408,25 @@ class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 		];
 	}
 
+	public function testSingleLiftWingRequestShouldThrowOnMissingHostConfigurationForModel(): void {
+		$this->expectException( UnexpectedValueException::class );
+		$this->expectExceptionMessage( 'Missing host setup for model name: test' );
+
+		$this->httpRequestFactory->method( 'create' )
+			->willReturn( $this->makeFakeHttpRequest() );
+
+		$this->getLiftWingService( [ 'OresLiftWingAddHostHeader' => true, ] )->request( [
+			'models' => 'test',
+			'revids' => self::TEST_REVISION_ID,
+		] );
+	}
+
 	/**
 	 * @dataProvider provideAddHostHeader
 	 */
 	public function testSingleLiftWingRequestShouldReturnSuccessfulResponse(
 		bool $addHostHeader
 	): void {
-		$this->overrideConfigValues( [
-			'OresLiftWingAddHostHeader' => $addHostHeader,
-		] );
-
 		$singleResponse = [
 			self::TEST_WIKI_ID => [
 				'models' => [
@@ -424,15 +464,14 @@ class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 		$this->httpRequestFactory->method( 'create' )
 			->willReturn( $req );
 
-		$response = $this->lwService->request( [
+		$response = $this->getLiftWingService( [ 'OresLiftWingAddHostHeader' => $addHostHeader ] )->request( [
 			'models' => 'articletopic',
 			'revids' => self::TEST_REVISION_ID,
 		] );
 
-		$expectedRequestHeaders = [];
+		$expectedRequestHeaders = [ 'Content-Type' => 'application/json' ];
 		if ( $addHostHeader ) {
 			$wikiID = self::TEST_WIKI_ID;
-			$expectedRequestHeaders['Content-Type'] = 'application/json';
 			$expectedRequestHeaders['Host'] = "{$wikiID}-articletopic.revscoring-articletopic.wikimedia.org";
 		}
 
