@@ -69,7 +69,9 @@ return [
 			return new LiftWingService(
 				ORESServices::getLogger( $services ),
 				$services->getHttpRequestFactory(),
-				$services->getMainConfig()
+				$services->getUserIdentityUtils(),
+				$services->getMainConfig(),
+				$services->getStatsFactory()
 			);
 		} else {
 			return new ORESService(

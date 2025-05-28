@@ -16,15 +16,19 @@
 
 namespace ORES;
 
+use JsonSerializable;
 use MediaWiki\Config\Config;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Status\Status;
+use MediaWiki\User\UserIdentity;
+use MediaWiki\User\UserIdentityUtils;
 use MWHttpRequest;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
 use UnexpectedValueException;
+use Wikimedia\Stats\StatsFactory;
 
 /**
  * Common methods for accessing a Lift Wing server.
@@ -32,13 +36,21 @@ use UnexpectedValueException;
 class LiftWingService extends ORESService {
 
 	public const API_VERSION = 1;
+	private UserIdentityUtils $userIdentityUtils;
 	private Config $config;
+	private StatsFactory $statsFactory;
 
 	public function __construct(
-		LoggerInterface $logger, HttpRequestFactory $httpRequestFactory, Config $config
+		LoggerInterface $logger,
+		HttpRequestFactory $httpRequestFactory,
+		UserIdentityUtils $userIdentityUtils,
+		Config $config,
+		StatsFactory $statsFactory
 	) {
 		parent::__construct( $logger, $httpRequestFactory );
+		$this->userIdentityUtils = $userIdentityUtils;
 		$this->config = $config;
+		$this->statsFactory = $statsFactory;
 	}
 
 	/**
@@ -248,11 +260,11 @@ class LiftWingService extends ORESService {
 	 * Setup a request for a Lift Wing model with a given payload.
 	 * @param string $url Base URL for the Lift Wing API
 	 * @param string $model the model name as requested from ORES
-	 * @param array $payload Request payload
+	 * @param array|JsonSerializable $payload Request payload
 	 *
 	 * @return MWHttpRequest
 	 */
-	private function createLiftWingRequest( string $url, string $model, array $payload ): MWHttpRequest {
+	private function createLiftWingRequest( string $url, string $model, $payload ): MWHttpRequest {
 		$req = $this->httpRequestFactory->create( $url, [
 			'method' => 'POST',
 			'postData' => json_encode( $payload ),
@@ -427,6 +439,51 @@ class LiftWingService extends ORESService {
 				]
 			]
 		];
+	}
+
+	/**
+	 * Get the revert risk score for an unsaved revision.
+	 *
+	 * @param UserIdentity $editor The user performing the edit to evaluate the revert risk for.
+	 * @param PreSaveRevisionData $data Metadata needed by revert risk pre-save endpoint
+	 *   to calculate a score.
+	 * @see https://gerrit.wikimedia.org/r/plugins/gitiles/machinelearning/liftwing/inference-services/+/refs/heads/main/revert_risk_model/#2_5_get-prediction-with-revision-data
+	 * @return float|null A float of the revertrisk probability true prediction or null if unable to calculate
+	 */
+	public function revertRiskPreSave( UserIdentity $editor, PreSaveRevisionData $data ): ?float {
+		$baseUrl = self::getBaseUrl();
+		$prefix = 'v' . self::API_VERSION;
+		// Use the multilingual revert risk model for IP users and temporary accounts if available (T356102).
+		$canUseRRML = $this->config->get( 'OresLiftWingMultilingualRevertRiskEnabled' ) &&
+			!$this->userIdentityUtils->isNamed( $editor );
+
+		$modelName = $canUseRRML ? 'revertriskmultilingual-presave' : 'revertrisklanguageagnostic-presave';
+		$modelPath = $canUseRRML ? "revertrisk-multilingual:predict" : 'revertrisk-language-agnostic:predict';
+
+		$url = "{$baseUrl}{$prefix}/models/$modelPath";
+		$req = $this->createLiftWingRequest( $url, $modelName, [ 'revision_data' => $data ] );
+
+		$start = hrtime( true );
+		$status = $req->execute();
+		$duration = hrtime( true ) - $start;
+
+		$this->statsFactory->getTiming( 'ores_liftwing_revertrisk_presave_duration_seconds' )
+			->setLabel( 'status', (string)$req->getStatus() )
+			->observeNanoseconds( $duration );
+
+		if ( !$status->isOK() ) {
+			$response = FormatJson::decode( $req->getContent(), true );
+			$details = $response['error'] ?? $req->getContent();
+			$this->logger->debug(
+				'Bad Request: {status_code} {message}',
+				[ 'status_code' => $req->getStatus(), 'message' => $details ]
+			);
+			return null;
+		}
+		$json = $req->getContent();
+		$data = FormatJson::decode( $json, true );
+
+		return $data['output']['probabilities']['true'];
 	}
 
 }

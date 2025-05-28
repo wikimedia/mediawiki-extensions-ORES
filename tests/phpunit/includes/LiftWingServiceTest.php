@@ -8,11 +8,16 @@ use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Tests\User\TempUser\TempUserTestTrait;
+use MediaWiki\User\UserIdentity;
+use MediaWiki\User\UserIdentityValue;
 use MediaWiki\WikiMap\WikiMap;
 use MockHttpTrait;
 use ORES\LiftWingService;
+use ORES\PreSaveRevisionData;
 use RuntimeException;
 use UnexpectedValueException;
+use Wikimedia\Stats\StatsFactory;
 
 /**
  * @group ORES
@@ -20,6 +25,7 @@ use UnexpectedValueException;
  */
 class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 	use MockHttpTrait;
+	use TempUserTestTrait;
 
 	private const TEST_URL = 'https://liftwing.wikimedia.org/';
 
@@ -64,12 +70,15 @@ class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 			'OresLiftWingRevertRiskHostHeader' => 'revertrisk-language-agnostic.revertrisk.wikimedia.org',
 			'OresLiftWingAddHostHeader' => false,
 			'OresLiftWingRevertRiskHosts' => $hostMap,
+			'OresLiftWingMultilingualRevertRiskEnabled' => false,
 		];
 
 		return new LiftWingService(
 			LoggerFactory::getInstance( 'ORES' ),
 			$this->httpRequestFactory,
-			new HashConfig( $config )
+			$this->getServiceContainer()->getUserIdentityUtils(),
+			new HashConfig( $config ),
+			StatsFactory::newNull()
 		);
 	}
 
@@ -477,5 +486,199 @@ class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 
 		$this->assertSame( $singleResponse, $response );
 		$this->assertSame( $expectedRequestHeaders, $requestHeaders );
+	}
+
+	/**
+	 * @dataProvider provideRevertRiskPreSaveErrorResponses
+	 */
+	public function testRevertRiskPreSaveShouldReturnErrorResponse( ?string $response ): void {
+		$data = $this->createMock( PreSaveRevisionData::class );
+		$data->method( 'jsonSerialize' )
+			->willReturn( [ 'test' => 'payload' ] );
+
+		$this->httpRequestFactory->method( 'create' )
+			->with(
+				self::TEST_URL . 'v1/models/revertrisk-language-agnostic:predict',
+				[
+					'method' => 'POST',
+					'postData' => json_encode( [ 'revision_data' => [ 'test' => 'payload' ] ] ),
+				]
+			)
+			->willReturn( $this->makeFakeHttpRequest( $response, 400 ) );
+
+		$editor = new UserIdentityValue( 102, 'TestUser' );
+
+		$score = $this->getLiftWingService()->revertRiskPreSave( $editor, $data );
+
+		$this->assertNull( $score );
+	}
+
+	public static function provideRevertRiskPreSaveErrorResponses(): iterable {
+		yield 'error response without body' => [
+			''
+		];
+
+		yield 'textual error response' => [
+			'some error'
+		];
+
+		yield 'JSON error response' => [
+			 json_encode( [ 'error' => 'some error' ] )
+		];
+	}
+
+	/**
+	 * @dataProvider provideRevertRiskPreSaveSuccessResponses
+	 */
+	public function testRevertRiskPreSaveShouldReturnSuccessfulResponse(
+		bool $addHostHeader,
+		bool $multilingualRevertRiskEnabled,
+		UserIdentity $editor,
+		string $expectedModelName
+	): void {
+		$this->enableAutoCreateTempUser( [
+			'genPattern' => '~$1',
+			'reservedPattern' => '~$1',
+		] );
+
+		$data = $this->createMock( PreSaveRevisionData::class );
+		$data->method( 'jsonSerialize' )
+			->willReturn( [ 'test' => 'payload' ] );
+
+		$response = json_encode( [
+			'wiki_db' => self::TEST_WIKI_ID,
+			'model_version' => '1.0',
+			'revision_id' => -1,
+			'output' => [
+				'prediction' => true,
+				'probabilities' => [
+					'true' => 0.7,
+					'false' => 0.3,
+				],
+			],
+		] );
+
+		$req = $this->makeFakeHttpRequest( $response, 200 );
+
+		$requestHeaders = [];
+		$req->method( 'setHeader' )
+			->willReturnCallback( static function ( $name, $value ) use ( &$requestHeaders ) {
+				$requestHeaders[$name] = $value;
+			} );
+
+		$this->httpRequestFactory->method( 'create' )
+			->with(
+				self::TEST_URL . "v1/models/$expectedModelName:predict",
+				[
+					'method' => 'POST',
+					'postData' => json_encode( [ 'revision_data' => [ 'test' => 'payload' ] ] ),
+				]
+			)
+			->willReturn( $req );
+
+		$score = $this->getLiftWingService( [
+			'OresLiftWingAddHostHeader' => $addHostHeader,
+			'OresLiftWingMultilingualRevertRiskEnabled' => $multilingualRevertRiskEnabled,
+		] )->revertRiskPreSave( $editor, $data );
+
+		$expectedRequestHeaders = [ 'Content-Type' => 'application/json' ];
+		if ( $addHostHeader ) {
+			$expectedRequestHeaders['Host'] = "$expectedModelName-pre-save.revertrisk.wikimedia.org";
+		}
+
+		$this->assertSame( 0.7, $score );
+		$this->assertSame( $expectedRequestHeaders, $requestHeaders );
+	}
+
+	public static function provideRevertRiskPreSaveSuccessResponses(): iterable {
+		$namedUser = new UserIdentityValue( 102, 'TestUser' );
+
+		yield 'with added Host header for named user, RRML not available' => [
+			'addHostHeader' => true,
+			'multilingualRevertRiskEnabled' => false,
+			'editor' => $namedUser,
+			'expectedModelName' => 'revertrisk-language-agnostic',
+		];
+
+		yield 'without added Host header for named user, RRML not available' => [
+			'addHostHeader' => false,
+			'multilingualRevertRiskEnabled' => false,
+			'editor' => $namedUser,
+			'expectedModelName' => 'revertrisk-language-agnostic',
+		];
+
+		yield 'with added Host header for named user, RRML available' => [
+			'addHostHeader' => true,
+			'multilingualRevertRiskEnabled' => true,
+			'editor' => $namedUser,
+			'expectedModelName' => 'revertrisk-language-agnostic',
+		];
+
+		yield 'without added Host header for named user, RRML available' => [
+			'addHostHeader' => false,
+			'multilingualRevertRiskEnabled' => true,
+			'editor' => $namedUser,
+			'expectedModelName' => 'revertrisk-language-agnostic',
+		];
+
+		$tempUser = new UserIdentityValue( 103, '~2024-8' );
+
+		yield 'with added Host header for temporary account, RRML not available' => [
+			'addHostHeader' => true,
+			'multilingualRevertRiskEnabled' => false,
+			'editor' => $tempUser,
+			'expectedModelName' => 'revertrisk-language-agnostic',
+		];
+
+		yield 'without added Host header for temporary account, RRML not available' => [
+			'addHostHeader' => false,
+			'multilingualRevertRiskEnabled' => false,
+			'editor' => $tempUser,
+			'expectedModelName' => 'revertrisk-language-agnostic',
+		];
+
+		yield 'with added Host header for temporary account, RRML available' => [
+			'addHostHeader' => true,
+			'multilingualRevertRiskEnabled' => true,
+			'editor' => $tempUser,
+			'expectedModelName' => 'revertrisk-multilingual',
+		];
+
+		yield 'without added Host header for temporary account, RRML available' => [
+			'addHostHeader' => false,
+			'multilingualRevertRiskEnabled' => true,
+			'editor' => $tempUser,
+			'expectedModelName' => 'revertrisk-multilingual',
+		];
+
+		$ipUser = new UserIdentityValue( 0, '127.0.0.1' );
+
+		yield 'with added Host header for IP user, RRML not available' => [
+			'addHostHeader' => true,
+			'multilingualRevertRiskEnabled' => false,
+			'editor' => $ipUser,
+			'expectedModelName' => 'revertrisk-language-agnostic',
+		];
+
+		yield 'without added Host header for IP user, RRML not available' => [
+			'addHostHeader' => false,
+			'multilingualRevertRiskEnabled' => false,
+			'editor' => $ipUser,
+			'expectedModelName' => 'revertrisk-language-agnostic',
+		];
+
+		yield 'with added Host header for IP user, RRML available' => [
+			'addHostHeader' => true,
+			'multilingualRevertRiskEnabled' => true,
+			'editor' => $ipUser,
+			'expectedModelName' => 'revertrisk-multilingual',
+		];
+
+		yield 'without added Host header for IP user, RRML available' => [
+			'addHostHeader' => false,
+			'multilingualRevertRiskEnabled' => true,
+			'editor' => $ipUser,
+			'expectedModelName' => 'revertrisk-multilingual',
+		];
 	}
 }

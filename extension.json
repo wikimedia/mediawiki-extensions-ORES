@@ -137,6 +137,10 @@
 			"description": "Whether to add the Host header to the LiftWing request. This is required for Lift Wing requests made using the internal endpoint within the WMF infrastructure.",
 			"value": false
 		},
+		"OresLiftWingMultilingualRevertRiskEnabled": {
+			"description": "Whether the multilingual RevertRisk model in LiftWing is usable on the current wiki. This should only be enabled on the 47 Wikipedia projects listed at https://meta.wikimedia.org/wiki/Machine_learning_models/Production/Multilingual_revert_risk.",
+			"value": true
+		},
 		"OresLiftWingRevertRiskHosts": {
 			"value": {
 				"revertrisklanguageagnostic": "revertrisk-language-agnostic.revertrisk.wikimedia.org",
