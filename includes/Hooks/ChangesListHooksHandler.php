@@ -501,7 +501,7 @@ class ChangesListHooksHandler implements
 				'description' => 'ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc',
 				'cssClassSuffix' => 'revertrisklanguageagnostic-revertrisk',
 				'isRowApplicableCallable' => self::makeApplicableCallback(
-					'revertrisk',
+					'revertrisklanguageagnostic',
 					$revertriskLevels['revertrisk']
 				),
 			];
