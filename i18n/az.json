@@ -6,6 +6,7 @@
 		]
 	},
 	"ores-desc": "İnterfeysdə avtomatlaşdırılmış versiya xallarını göstər",
+	"ores-name": "Maşın Öyrənmə Platforması",
 	"ores-damaging-filter": "Böyük ehtimalla yaxşı olan redaktələri $1",
 	"ores-damaging-title": "Bu redaktə yoxlanılmalıdır",
 	"ores-damaging-legend": "Bu redaktədə problemlər ola bilər və yoxlanılmalıdır ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool ətraflı məlumat])",
