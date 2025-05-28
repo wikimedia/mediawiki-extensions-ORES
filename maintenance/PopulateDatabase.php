@@ -26,6 +26,21 @@ class PopulateDatabase extends Maintenance {
 	 */
 	private $revisionLimit;
 
+	/**
+	 * @var int|0
+	 */
+	private $successCount = 0;
+
+	/**
+	 * @var int|0
+	 */
+	private $runtimeExceptionErrors = 0;
+
+	/**
+	 * @var int|0
+	 */
+	private $http4xxCount = 0;
+
 	public function __construct() {
 		parent::__construct();
 
@@ -93,6 +108,9 @@ class PopulateDatabase extends Maintenance {
 		}
 
 		$this->output( "Finished processing the revisions\n" );
+		$this->output( "Revisions successfully scored: {$this->successCount}\n" );
+		$this->output( "HTTP 4xx errors: {$this->http4xxCount}\n" );
+		$this->output( "RuntimeException errors: {$this->runtimeExceptionErrors}\n" );
 	}
 
 	/**
@@ -116,14 +134,22 @@ class PopulateDatabase extends Maintenance {
 			} catch ( \RuntimeException $e ) {
 				$message = $e->getMessage();
 				$this->output( "ScoreFetcher errored for $revId: $message\n" );
+				$this->runtimeExceptionErrors++;
+				continue;
 			}
 		}
 		$scoreStorage->storeScores(
 			$scores,
 			function ( $mssg, $revision ) {
 				$this->output( "ScoreFetcher errored for $revision: $mssg\n" );
+				if ( strpos( $mssg, 'RevisionNotFound' ) !== false ) {
+					$this->http4xxCount++;
+				}
 			}
 		);
+
+		// Increment the success counter for successfully stored revisions
+		$this->successCount = ( $size - ( $this->runtimeExceptionErrors + $this->http4xxCount ) );
 	}
 
 }
