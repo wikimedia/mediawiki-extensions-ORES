@@ -71,6 +71,7 @@ class LiftWingServiceTest extends \MediaWikiIntegrationTestCase {
 			'OresLiftWingAddHostHeader' => false,
 			'OresLiftWingRevertRiskHosts' => $hostMap,
 			'OresLiftWingMultilingualRevertRiskEnabled' => false,
+			'ORESDeveloperSetup' => false,
 		];
 
 		return new LiftWingService(

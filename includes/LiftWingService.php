@@ -265,10 +265,18 @@ class LiftWingService extends ORESService {
 	 * @return MWHttpRequest
 	 */
 	private function createLiftWingRequest( string $url, string $model, $payload ): MWHttpRequest {
-		$req = $this->httpRequestFactory->create( $url, [
+		$options = [
 			'method' => 'POST',
 			'postData' => json_encode( $payload ),
-		], __METHOD__ );
+		];
+
+		if ( $this->config->get( 'ORESDeveloperSetup' ) ) {
+			// Allow port-forwarding internal HTTPS LiftWing endpoints in local development.
+			$options['sslVerifyHost'] = false;
+			$options['sslVerifyCert'] = false;
+		}
+
+		$req = $this->httpRequestFactory->create( $url, $options, __METHOD__ );
 		$req->setHeader( 'Content-Type', 'application/json' );
 
 		if ( $this->config->get( 'OresLiftWingAddHostHeader' ) ) {

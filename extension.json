@@ -54,9 +54,22 @@
 		"RecentChangesPurgeRows": "main",
 		"SpecialContributions::formatRow::flags": "contributions",
 		"ContributionsLineEnding": "contributions",
-		"SpecialContributions::getForm::filters": "contributions"
+		"SpecialContributions::getForm::filters": "contributions",
+		"AbuseFilter-computeVariable": "abusefilter",
+		"AbuseFilter-generateTitleVars": "abusefilter",
+		"AbuseFilter-builder": "abusefilter"
 	},
 	"HookHandlers": {
+		"abusefilter": {
+			"class": "ORES\\Hooks\\AbuseFilterHooks",
+			"services": [
+				"RevisionLookup",
+				"MainConfig",
+				"UserIdentityLookup",
+				"AbuseFilterVariablesManager",
+				"ORESService"
+			]
+		},
 		"main": {
 			"class": "ORES\\Hooks\\Hooks"
 		},
@@ -154,6 +167,14 @@
 			"value": null
 		},
 		"OresExcludeBots": {
+			"value": true
+		},
+		"ORESRevertRiskAbuseFilterIntegrationEnabled": {
+			"description": "Whether to enable integration with revert risk scoring for unsaved edits.",
+			"value": true
+		},
+		"ORESDeveloperSetup": {
+			"description": "Whether ORES is in a developer setup mode. Set to false in production.",
 			"value": true
 		},
 		"OresModels": {
