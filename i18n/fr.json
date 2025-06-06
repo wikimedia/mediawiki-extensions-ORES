@@ -4,6 +4,7 @@
 			"Daniel236",
 			"Framawiki",
 			"Gomoko",
+			"JLTRY",
 			"Mahabarata",
 			"Momo50WM",
 			"Od1n",
@@ -75,5 +76,6 @@
 	"ores-specialoresmodels-header-precision": "Précision",
 	"ores-specialoresmodels-header-recall": "Rappel",
 	"ores-specialoresmodels-header-thresholdrange": "Plage de seuil",
-	"ores-api-show-note": "En utilisant <kbd>oresreview</kbd> ou <kbd>!oresreview</kbd>, les versions non notées (par ex. les versions très vieilles) sont considérées comme ne nécessitant pas de relecture, même si elles en nécessiteraient si elles étaient notées."
+	"ores-api-show-note": "En utilisant <kbd>oresreview</kbd> ou <kbd>!oresreview</kbd>, les versions non notées (par ex. les versions très vieilles) sont considérées comme ne nécessitant pas de relecture, même si elles en nécessiteraient si elles étaient notées.",
+	"abusefilter-edit-builder-vars-revertrisk-score": "Probabilité que cette modification soit annulée, telle que fournie par LiftWing ($1)"
 }

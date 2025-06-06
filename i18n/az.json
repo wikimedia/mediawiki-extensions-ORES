@@ -8,6 +8,7 @@
 	"ores-desc": "İnterfeysdə avtomatlaşdırılmış versiya xallarını göstər",
 	"ores-name": "Maşın Öyrənmə Platforması",
 	"ores-damaging-filter": "Böyük ehtimalla yaxşı olan redaktələri $1",
+	"ores-damaging-letter": "p",
 	"ores-damaging-title": "Bu redaktə yoxlanılmalıdır",
 	"ores-damaging-legend": "Bu redaktədə problemlər ola bilər və yoxlanılmalıdır ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool ətraflı məlumat])",
 	"ores-hide-nondamaging-filter": "Böyük ehtimalla yaxşı olan redaktələri gizlət",
@@ -62,5 +63,6 @@
 	"ores-specialoresmodels-header-precision": "Dəqiqlik",
 	"ores-specialoresmodels-header-recall": "Xatırlatma",
 	"ores-specialoresmodels-header-thresholdrange": "Hədd diapazonu",
-	"ores-api-show-note": "<kbd>oresreview</kbd> vəya <kbd>!oresreview</kbd> istifadə edərkən, xal verilməyən versiyalar (məsələn, çox köhnə versiyalar) xal toplayıbsa onların nəzərdən keçirilməsinə ehtiyac yoxdur."
+	"ores-api-show-note": "<kbd>oresreview</kbd> vəya <kbd>!oresreview</kbd> istifadə edərkən, xal verilməyən versiyalar (məsələn, çox köhnə versiyalar) xal toplayıbsa onların nəzərdən keçirilməsinə ehtiyac yoxdur.",
+	"abusefilter-edit-builder-vars-revertrisk-score": "LiftWing tərəfindən təmin edilən redaktənin geri qaytarılma ehtimalı ($1)"
 }
