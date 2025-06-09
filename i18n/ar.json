@@ -64,5 +64,6 @@
 	"ores-specialoresmodels-header-precision": "الدقة",
 	"ores-specialoresmodels-header-recall": "إعادة استدعاء",
 	"ores-specialoresmodels-header-thresholdrange": "نطاق العتبة",
-	"ores-api-show-note": "عند استخدام <kbd>oresreview</kbd> أو <kbd>!oresreview</kbd>، تُعتبَر المراجعات بدون درجة (مثل المراجعات القديمة جدا) على أنها لا تحتاج إلى مراجعة حتى إذا كانت بحاجة إلى مراجعة إذا تم تسجيلها."
+	"ores-api-show-note": "عند استخدام <kbd>oresreview</kbd> أو <kbd>!oresreview</kbd>، تُعتبَر المراجعات بدون درجة (مثل المراجعات القديمة جدا) على أنها لا تحتاج إلى مراجعة حتى إذا كانت بحاجة إلى مراجعة إذا تم تسجيلها.",
+	"abusefilter-edit-builder-vars-revertrisk-score": "احتمالية التراجع عن هذا التعديل، كما تم توفيره بواسطة LiftWing ( $1 )"
 }
