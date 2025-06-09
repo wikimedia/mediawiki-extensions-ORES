@@ -7,6 +7,7 @@
 	},
 	"ores-desc": "İnterfeysdə avtomatlaşdırılmış versiya xallarını göstər",
 	"ores-damaging-filter": "Böyük ehtimalla yaxşı olan redaktələri $1",
+	"ores-damaging-letter": "p",
 	"ores-damaging-title": "Bu redaktə yoxlanılmalıdır",
 	"ores-hide-nondamaging-filter": "Böyük ehtimalla yaxşı olan redaktələri gizlət",
 	"ores-pref-damaging": "Proqnoz həddi",

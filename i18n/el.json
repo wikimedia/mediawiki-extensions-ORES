@@ -8,10 +8,16 @@
 			"NikosLikomitros",
 			"Nikosgranturismogt",
 			"Thodoris",
-			"McDutchie"
+			"McDutchie",
+			"Gkyziridis"
 		]
 	},
+	"ores-desc": "Εμφάνιση αυτοματοποιημένων σκορ αναθεώρησης στη σελίδα πρόσφατων αλλαγών",
+	"ores-damaging-filter": "$1 πιθανώς καλές επεξεργασίες",
+	"ores-damaging-letter": "ρ",
+	"ores-damaging-title": "Αυτή η επεξεργασία χρειάζεται έλεγχο",
 	"ores-damaging-legend": "This edit may have problems and should be reviewed ([[:mw:Special:MyLanguage/ORES review tool|more info]])",
+	"ores-hide-nondamaging-filter": "Απόκρυψη πιθανώς καλών επεξεργασιών",
 	"ores-pref-damaging-flag": "Φωτίσετε με χρώμα πιθανά λάθη έκδοσης και χρωματίστε επίσης το likely problem edits with colors and an \"{{int:ores-damaging-letter}}\"  \"χρειάζεται έλεγχο\"",
 	"ores-help-damaging-pref": "Αλλάξετε την ρύθμιση ''βάση'' για να κάνετε επιλογές",
 	"ores-rcfilters-whats-this-link-text": "Μάθετε περισσότερα",
