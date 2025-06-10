@@ -175,7 +175,7 @@
 		},
 		"ORESDeveloperSetup": {
 			"description": "Whether ORES is in a developer setup mode. Set to false in production.",
-			"value": true
+			"value": false
 		},
 		"OresModels": {
 			"value": {
