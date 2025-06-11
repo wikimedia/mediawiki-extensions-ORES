@@ -34,12 +34,22 @@ class PopulateDatabase extends Maintenance {
 	/**
 	 * @var int|0
 	 */
+	private $totalCount = 0;
+
+	/**
+	 * @var int|0
+	 */
 	private $runtimeExceptionErrors = 0;
 
 	/**
 	 * @var int|0
 	 */
-	private $http4xxCount = 0;
+	private $revisionNotFoundErrors = 0;
+
+	/**
+	 * @var int|0
+	 */
+	private $revisionNotScorableErrors = 0;
 
 	public function __construct() {
 		parent::__construct();
@@ -107,9 +117,16 @@ class PopulateDatabase extends Maintenance {
 			}
 		}
 
-		$this->output( "Finished processing the revisions\n" );
+		// Calculate the successCount
+		$this->successCount = $this->totalCount - array_sum( [
+			$this->runtimeExceptionErrors,
+			$this->revisionNotFoundErrors,
+			$this->revisionNotScorableErrors
+		] );
+		$this->output( "Finished processing {$this->totalCount} revisions\n" );
 		$this->output( "Revisions successfully scored: {$this->successCount}\n" );
-		$this->output( "HTTP 4xx errors: {$this->http4xxCount}\n" );
+		$this->output( "RevisionNotFound errors: {$this->revisionNotFoundErrors}\n" );
+		$this->output( "RevisionNotScorable errors: {$this->revisionNotScorableErrors}\n" );
 		$this->output( "RuntimeException errors: {$this->runtimeExceptionErrors}\n" );
 	}
 
@@ -129,6 +146,7 @@ class PopulateDatabase extends Maintenance {
 		$this->output( "Processing $size revisions\n" );
 		$scores = [];
 		foreach ( $revs as $revId ) {
+			$this->totalCount++;
 			try {
 				$scores[ $revId ] = $scoreFetcher->getScores( $revId )[ $revId ];
 			} catch ( \RuntimeException $e ) {
@@ -143,13 +161,12 @@ class PopulateDatabase extends Maintenance {
 			function ( $mssg, $revision ) {
 				$this->output( "ScoreFetcher errored for $revision: $mssg\n" );
 				if ( strpos( $mssg, 'RevisionNotFound' ) !== false ) {
-					$this->http4xxCount++;
+					$this->revisionNotFoundErrors++;
+				} elseif ( strpos( $mssg, 'RevisionNotScorable' ) !== false ) {
+					$this->revisionNotScorableErrors++;
 				}
 			}
 		);
-
-		// Increment the success counter for successfully stored revisions
-		$this->successCount = ( $size - ( $this->runtimeExceptionErrors + $this->http4xxCount ) );
 	}
 
 }
