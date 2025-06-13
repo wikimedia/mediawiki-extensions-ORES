@@ -6,6 +6,7 @@
 	},
 	"ores-damaging-title": "Táto úprava potrebuje kontrolu",
 	"ores-damaging-legend": "Táto úprava môže byť problematická a mala by sa skontrolovať ([[:mw:Special:MyLanguage/ORES review tool|ďalšie informácie]])",
+	"ores-hide-nondamaging-filter": "Skryť pravdepodobne dobré úpravy",
 	"ores-rcfilters-damaging-title": "Odhad kvality príspevkov",
 	"ores-rcfilters-damaging-likelygood-label": "Veľmi pravdepodobne dobrá",
 	"ores-rcfilters-damaging-likelygood-desc": "Spoľahlivo nájde väčšinu bezproblémových úprav.",
