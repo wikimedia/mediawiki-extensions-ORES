@@ -61,5 +61,5 @@
 	"ores-specialoresmodels-header-recall": "Recall",
 	"ores-specialoresmodels-header-thresholdrange": "Threshold range",
 	"ores-api-show-note": "When using <kbd>oresreview</kbd> or <kbd>!oresreview</kbd>, revisions without a score (e.g. very old revisions) are considered as not needing review even if they would need review if scored.",
-	"abusefilter-edit-builder-vars-revertrisk-score": "Probability of this edit being reverted, as supplied by LiftWing ($1)"
+	"abusefilter-edit-builder-vars-revertrisk-level": "Likelihood of this edit being reverted (\"high\" or \"unknown\"), as determined by the RevertRisk LanguageAgnostic model ($1)"
 }

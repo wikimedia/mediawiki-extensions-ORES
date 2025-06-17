@@ -41,11 +41,13 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 	public function testShouldDoNothingWhenDisabled(
 		bool $isIntegrationEnabled,
 		bool $oresUseLiftWing,
-		bool $isPageCreation
+		bool $isPageCreation,
+		array $oresFiltersThresholds
 	): void {
 		$this->overrideConfigValues( [
 			'ORESRevertRiskAbuseFilterIntegrationEnabled' => $isIntegrationEnabled,
 			'ORESUseLiftWing' => $oresUseLiftWing,
+			'OresFiltersThresholds' => $oresFiltersThresholds,
 		] );
 
 		$oresServiceClass = $oresUseLiftWing ? LiftWingService::class : ORESService::class;
@@ -63,22 +65,37 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 		$vars = $this->variableGeneratorFactory->newRunGenerator( $user, $page->getTitle() )
 			->getEditVars( $newContent, 'Test', SlotRecord::MAIN, $page );
 
-		$score = $this->variablesManager->getVar( $vars, 'revertrisk_score' );
+		$score = $this->variablesManager->getVar( $vars, 'revertrisk_level' );
 
 		$this->assertNull( $score->getData() );
 	}
 
 	public static function provideDisabledParams(): iterable {
-		yield 'Disabled AF integration, LiftWing disabled, page edit' => [ false, false, false ];
-		yield 'Disabled AF integration, LiftWing enabled, page edit' => [ false, true, false ];
-		yield 'Enabled AF integration, LiftWing disabled, page edit' => [ true, false, false ];
-		yield 'Enabled AF integration, LiftWing enabled, page creation' => [ true, false, true ];
+		$validThresholds = [
+			'revertrisklanguageagnostic' => [
+				'min' => 0.5,
+			],
+		];
+
+		yield 'Disabled AF integration, LiftWing disabled' => [ false, false, false, $validThresholds ];
+		yield 'Disabled AF integration, LiftWing enabled' => [ false, true, false, $validThresholds ];
+		yield 'Enabled AF integration, LiftWing disabled' => [ true, false, false, $validThresholds ];
+		yield 'page creation' => [ true, false, true, $validThresholds ];
+		yield 'missing thresholds for RRLA' => [ true, true, false, [] ];
 	}
 
-	public function testShouldEvaluateScoreForEdit(): void {
+	/**
+	 * @dataProvider provideScores
+	 */
+	public function testShouldReturnLevelForEdit( float $threshold, string $expected ): void {
 		$this->overrideConfigValues( [
 			'ORESRevertRiskAbuseFilterIntegrationEnabled' => true,
 			'ORESUseLiftWing' => true,
+			'OresFiltersThresholds' => [
+				'revertrisklanguageagnostic' => [
+					'min' => $threshold,
+				],
+			],
 		] );
 
 		$page = $this->getExistingTestPage();
@@ -101,15 +118,26 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 		$vars = $this->variableGeneratorFactory->newRunGenerator( $user, $page->getTitle() )
 			->getEditVars( $newContent, 'Test', SlotRecord::MAIN, $page );
 
-		$score = $this->variablesManager->getVar( $vars, 'revertrisk_score' );
+		$level = $this->variablesManager->getVar( $vars, 'revertrisk_level' );
 
-		$this->assertSame( 0.5, $score->getData() );
+		$this->assertSame( $expected, $level->getData() );
+	}
+
+	public static function provideScores(): iterable {
+		yield 'score below threshold' => [ 0.6, 'unknown' ];
+		yield 'score at threshold' => [ 0.5, 'unknown' ];
+		yield 'score above threshold' => [ 0.4, 'high' ];
 	}
 
 	public function testShouldDoNothingForPageMove(): void {
 		$this->overrideConfigValues( [
 			'ORESRevertRiskAbuseFilterIntegrationEnabled' => true,
 			'ORESUseLiftWing' => true,
+			'OresFiltersThresholds' => [
+				'revertrisklanguageagnostic' => [
+					'min' => 0.5,
+				],
+			],
 		] );
 
 		$liftWingService = $this->createNoOpMock( LiftWingService::class );
@@ -123,7 +151,7 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 		$vars = $this->variableGeneratorFactory->newRunGenerator( $user, $page->getTitle() )
 			->getMoveVars( Title::makeTitle( NS_MAIN, 'Bar' ), 'Test' );
 
-		$score = $this->variablesManager->getVar( $vars, 'revertrisk_score' );
+		$score = $this->variablesManager->getVar( $vars, 'revertrisk_level' );
 
 		$this->assertNull( $score->getData() );
 	}
@@ -132,6 +160,11 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 		$this->overrideConfigValues( [
 			'ORESRevertRiskAbuseFilterIntegrationEnabled' => true,
 			'ORESUseLiftWing' => true,
+			'OresFiltersThresholds' => [
+				'revertrisklanguageagnostic' => [
+					'min' => 0.4,
+				],
+			],
 		] );
 
 		$page = $this->getExistingTestPage();
@@ -163,15 +196,20 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 		$vars = $this->variableGeneratorFactory->newRCGenerator( $rc, $viewer )
 			->getVars();
 
-		$score = $this->variablesManager->getVar( $vars, 'revertrisk_score' );
+		$level = $this->variablesManager->getVar( $vars, 'revertrisk_level' );
 
-		$this->assertSame( 0.5, $score->getData() );
+		$this->assertSame( 'high', $level->getData() );
 	}
 
 	public function testShouldDoNothingForHistoricalPageCreation(): void {
 		$this->overrideConfigValues( [
 			'ORESRevertRiskAbuseFilterIntegrationEnabled' => true,
 			'ORESUseLiftWing' => true,
+			'OresFiltersThresholds' => [
+				'revertrisklanguageagnostic' => [
+					'min' => 0.5,
+				],
+			],
 		] );
 
 		$liftWingService = $this->createNoOpMock( LiftWingService::class );
@@ -192,7 +230,7 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 		$vars = $this->variableGeneratorFactory->newRCGenerator( $rc, $viewer )
 			->getVars();
 
-		$score = $this->variablesManager->getVar( $vars, 'revertrisk_score' );
+		$score = $this->variablesManager->getVar( $vars, 'revertrisk_level' );
 
 		$this->assertNull( $score->getData() );
 	}
@@ -201,6 +239,11 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 		$this->overrideConfigValues( [
 			'ORESRevertRiskAbuseFilterIntegrationEnabled' => true,
 			'ORESUseLiftWing' => true,
+			'OresFiltersThresholds' => [
+				'revertrisklanguageagnostic' => [
+					'min' => 0.5,
+				],
+			],
 		] );
 
 		$liftWingService = $this->createNoOpMock( LiftWingService::class );
@@ -222,7 +265,7 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 		$vars = $this->variableGeneratorFactory->newRCGenerator( $rc, $viewer )
 			->getVars();
 
-		$score = $this->variablesManager->getVar( $vars, 'revertrisk_score' );
+		$score = $this->variablesManager->getVar( $vars, 'revertrisk_level' );
 
 		$this->assertNull( $score->getData() );
 	}

@@ -70,5 +70,5 @@
 	"ores-specialoresmodels-header-recall": "Header in the model statistics table on Special:ORESModels for the column with the recall of each filter. This is a statistical term, see [[w:Precision and recall]].",
 	"ores-specialoresmodels-header-thresholdrange": "Header in the model statistics table on Special:ORESModels for the two columns with the minimum and maximum ORES score value for each filter.",
 	"ores-api-show-note": "{{doc-apihelp-param|description=additional text for <var>xxshow</var> parameters.|noseealso=1}}",
-	"abusefilter-edit-builder-vars-revertrisk-score": "Abuse filter syntax option in a dropdown from the group {{msg-mw|abusefilter-edit-builder-group-vars}}.\n\nParameters:\n* $1 - text that will be inserted into the filter code editor"
+	"abusefilter-edit-builder-vars-revertrisk-level": "Abuse filter syntax option in a dropdown from the group {{msg-mw|abusefilter-edit-builder-group-vars}}.\n\nParameters:\n* $1 - text that will be inserted into the filter code editor"
 }

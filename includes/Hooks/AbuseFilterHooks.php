@@ -59,21 +59,21 @@ class AbuseFilterHooks implements
 	}
 
 	/**
-	 * Register the 'revertrisk_score' variable for use in AbuseFilter.
+	 * Register the 'revertrisk_level' variable for use in AbuseFilter.
 	 *
 	 * @inheritDoc
 	 */
 	public function onAbuseFilter_generateTitleVars(
 		VariableHolder $vars, Title $title, string $prefix, ?RecentChange $rc
 	) {
-		$vars->setLazyLoadVar( 'revertrisk_score', 'revertrisk-score', [
+		$vars->setLazyLoadVar( 'revertrisk_level', 'revertrisk-level', [
 			'title' => $title,
 			'rc' => $rc,
 		] );
 	}
 
 	/**
-	 * Handle computing the 'revertrisk-score' variable in AbuseFilter.
+	 * Handle computing the 'revertrisk_level' variable in AbuseFilter.
 	 *
 	 * @param string $method The name of the lazy computation method being invoked.
 	 * @param VariableHolder $vars
@@ -85,7 +85,7 @@ class AbuseFilterHooks implements
 	public function onAbuseFilter_computeVariable(
 		string $method, VariableHolder $vars, array $parameters, ?string &$result
 	): bool {
-		if ( $method !== 'revertrisk-score' ) {
+		if ( $method !== 'revertrisk-level' ) {
 			// Different variable, nothing to do here.
 			return true;
 		}
@@ -93,6 +93,14 @@ class AbuseFilterHooks implements
 		// In case we've switched off the integration, but there are still filters using the
 		// revertrisk_score variable.
 		if ( !$this->config->get( 'ORESRevertRiskAbuseFilterIntegrationEnabled' ) ) {
+			return false;
+		}
+
+		$oresFilterThresholds = $this->config->get( 'OresFiltersThresholds' );
+		$minThreshold = $oresFilterThresholds['revertrisklanguageagnostic']['min'] ?? null;
+		if ( !$minThreshold ) {
+			// An RRLA threshold must have been set for this wiki for us to be able
+			// to map the score into a level ("unknown" or "high").
 			return false;
 		}
 
@@ -150,20 +158,22 @@ class AbuseFilterHooks implements
 			$title->getPageLanguage()->getCode(),
 			$title->getPrefixedText()
 		);
-		$result = $this->liftWingService->revertRiskPreSave( $editor, $data );
+		$score = $this->liftWingService->revertRiskPreSave( $editor, $data );
+
+		$result = $score > $minThreshold ? 'high' : 'unknown';
 
 		return false;
 	}
 
 	/**
-	 * Add the 'revertrisk_score' variable to the list of known variables in AbuseFilter
+	 * Add the 'revertrisk_level' variable to the list of known variables in AbuseFilter
 	 *
 	 * @param array &$builderValues
 	 * @return true
 	 */
 	public function onAbuseFilter_builder( array &$builderValues ) {
 		if ( $this->config->get( 'ORESRevertRiskAbuseFilterIntegrationEnabled' ) ) {
-			$builderValues['vars']['revertrisk_score'] = 'revertrisk-score';
+			$builderValues['vars']['revertrisk_level'] = 'revertrisk-level';
 		}
 		return true;
 	}
