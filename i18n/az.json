@@ -64,5 +64,5 @@
 	"ores-specialoresmodels-header-recall": "Xatırlatma",
 	"ores-specialoresmodels-header-thresholdrange": "Hədd diapazonu",
 	"ores-api-show-note": "<kbd>oresreview</kbd> vəya <kbd>!oresreview</kbd> istifadə edərkən, xal verilməyən versiyalar (məsələn, çox köhnə versiyalar) xal toplayıbsa onların nəzərdən keçirilməsinə ehtiyac yoxdur.",
-	"abusefilter-edit-builder-vars-revertrisk-score": "LiftWing tərəfindən təmin edilən redaktənin geri qaytarılma ehtimalı ($1)"
+	"abusefilter-edit-builder-vars-revertrisk-level": "Bu redaktənin RevertRisk LanguageAgnostic modeli ($1) ilə müəyyən edilən geri qaytarılma ehtimalı (\"yüksək\" və ya \"naməlum\"),"
 }

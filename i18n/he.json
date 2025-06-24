@@ -66,6 +66,5 @@
 	"ores-specialoresmodels-header-precision": "דיוק",
 	"ores-specialoresmodels-header-recall": "היזכרות",
 	"ores-specialoresmodels-header-thresholdrange": "טווח הסף",
-	"ores-api-show-note": "בעת שימוש ב־<kbd>oresreview</kbd> או <kbd dir=\"ltr\">!oresreview</kbd>, גרסאות ללא דירוג (למשל גרסאות ישנות מאוד) נחשבות בתור כאלה שאינן זקוקות לסקירה אף אם הן היו צריכות סקירה אילו קיבלו דירוג.",
-	"abusefilter-edit-builder-vars-revertrisk-score": "הסבירות שהעריכה הזה תשוחזר, כפי שסופק על־ידי LiftWing ($1)"
+	"ores-api-show-note": "בעת שימוש ב־<kbd>oresreview</kbd> או <kbd dir=\"ltr\">!oresreview</kbd>, גרסאות ללא דירוג (למשל גרסאות ישנות מאוד) נחשבות בתור כאלה שאינן זקוקות לסקירה אף אם הן היו צריכות סקירה אילו קיבלו דירוג."
 }

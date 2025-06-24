@@ -63,5 +63,5 @@
 	"ores-specialoresmodels-header-recall": "Sensibilitate",
 	"ores-specialoresmodels-header-thresholdrange": "Intervallo de limine",
 	"ores-api-show-note": "Quando se usa <kbd>oresreview</kbd> o <kbd>!oresreview</kbd>, le versiones sin score (p.ex. versiones multo ancian) es considerate como non requirente revision mesmo si illos requirerea revision si illos esseva evalutate.",
-	"abusefilter-edit-builder-vars-revertrisk-score": "Le probabilitate que iste modification essera revertite, fornite per LiftWing ($1)"
+	"abusefilter-edit-builder-vars-revertrisk-level": "Le probabilitate que iste modification essera revertite (“alte” o “incognite”), determinate per le modello RevertRisk LanguageAgnostic ($1)"
 }

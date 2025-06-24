@@ -66,5 +66,5 @@
 	"ores-specialoresmodels-header-recall": "Trefferquote",
 	"ores-specialoresmodels-header-thresholdrange": "Schwellenbereich",
 	"ores-api-show-note": "Bei der Verwendung von <kbd>oresreview</kbd> oder <kbd>!oresreview</kbd> werden Versionen ohne einen Score (z.&nbsp;B. sehr alte Versionen) so behandelt, als ob sie keiner Überprüfung bedürfen, auch wenn sie eine Überprüfung benötigen würden.",
-	"abusefilter-edit-builder-vars-revertrisk-score": "Wahrscheinlichkeit, dass diese Bearbeitung rückgängig gemacht wird, wie von LiftWing angegeben ($1)"
+	"abusefilter-edit-builder-vars-revertrisk-level": "Wahrscheinlichkeit, dass diese Bearbeitung rückgängig gemacht wird („hoch“ oder „unbekannt“), bestimmt durch das RevertRisk LanguageAgnostic-Modell ($1)"
 }

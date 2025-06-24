@@ -62,6 +62,5 @@
 	"ores-specialoresmodels-header-precision": "Точност",
 	"ores-specialoresmodels-header-recall": "Стапка на погодоци",
 	"ores-specialoresmodels-header-thresholdrange": "Опсег на прагот",
-	"ores-api-show-note": "Кога користите <kbd>oresreview</kbd> или <kbd>!oresreview</kbd>, преработките без оценка (на пр. многу стари преработки) се сметаат за непотребни за проверка, дури и ако им треба проверка кога би се оценувале.",
-	"abusefilter-edit-builder-vars-revertrisk-score": "Веројатноста ова уредување да биде отповикано, според обезбеденото од LiftWing ($1)"
+	"ores-api-show-note": "Кога користите <kbd>oresreview</kbd> или <kbd>!oresreview</kbd>, преработките без оценка (на пр. многу стари преработки) се сметаат за непотребни за проверка, дури и ако им треба проверка кога би се оценувале."
 }

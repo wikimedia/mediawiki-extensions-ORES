@@ -65,5 +65,5 @@
 	"ores-specialoresmodels-header-recall": "Sensibilidade",
 	"ores-specialoresmodels-header-thresholdrange": "Intervalo de limiar",
 	"ores-api-show-note": "Ó usar <kbd>oresreview</kbd> ou <kbd>!oresreview</kbd>, as edicións sen puntuación (por exemplo, edicións moi antigas) considérase que non precisan ser revisadas aínda que si o precisarían en caso de ser avaliadas.",
-	"abusefilter-edit-builder-vars-revertrisk-score": "Probabilidade de que esta edición sexa revertida, segundo indica LiftWing ($1)"
+	"abusefilter-edit-builder-vars-revertrisk-level": "Probabilidade de que esta edición sexa revertida (\"alta\" ou \"descoñecida\"), segundo a determinación do modelo RevertRisk LanguageAgnostic ($1)"
 }
