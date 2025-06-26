@@ -5,6 +5,7 @@
 		]
 	},
 	"ores-desc": "Dedahkan markah semakan automatik pada antara muka",
+	"ores-name": "Platform Pembelajaran Mesin",
 	"ores-damaging-filter": "$1 mungkin merupakan suntingan yang bagus",
 	"ores-damaging-letter": "r",
 	"ores-damaging-title": "Suntingan ini memerlukan semakan",
@@ -61,5 +62,6 @@
 	"ores-specialoresmodels-header-precision": "Kepersisan",
 	"ores-specialoresmodels-header-recall": "Penarikbalikan",
 	"ores-specialoresmodels-header-thresholdrange": "Julat ambang",
-	"ores-api-show-note": "Apabila menggunakan <kbd>oresreview</kbd> atau <kbd>!oresreview</kbd>, semakan tanpa markah (cth semakan yang sangat lama) dianggap sebagai tidak memerlukan semakan walaupun ia memerlukan semakan jika mendapat markah."
+	"ores-api-show-note": "Apabila menggunakan <kbd>oresreview</kbd> atau <kbd>!oresreview</kbd>, semakan tanpa markah (cth semakan yang sangat lama) dianggap sebagai tidak memerlukan semakan walaupun ia memerlukan semakan jika mendapat markah.",
+	"abusefilter-edit-builder-vars-revertrisk-level": "Kemungkinan suntingan ini dibalikkan (\"tinggi\" atau \"tidak diketahui\"), seperti yang ditentukan oleh model RevertRisk LanguageAgnostic ($1)"
 }
