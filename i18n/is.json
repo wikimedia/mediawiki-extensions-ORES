@@ -1,9 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sveinn í Felli"
+			"Sveinn í Felli",
+			"Bjarki S"
 		]
 	},
-	"ores-damaging-letter": "r",
-	"ores-rcfilters-whats-this-link-text": "Vita meira"
+	"ores-damaging-letter": "?",
+	"ores-damaging-title": "Þessa breytingu þarf að yfirfara",
+	"ores-damaging-legend": "Þetta gæti verið vandræðabreyting sem þarf að yfirfara. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool meiri upplýsingar])",
+	"ores-hide-nondamaging-filter": "Fela breytingar sem eru líklega í lagi",
+	"ores-rcfilters-whats-this-link-text": "Vita meira",
+	"ores-rcfilters-revertrisklanguageagnostic-title": "Líkur á afturköllun",
+	"ores-rcfilters-revertrisklanguageagnostic-whats-this-header": "Um RevertRisk greiningu",
+	"ores-rcfilters-revertrisklanguageagnostic-whats-this-body": "Þessi greining á líkindum þess að breyting verði afturkölluð byggir á vélanámi þar sem byggt er á sögulegum gögnum um afturkallanir til þess að meta líkur á því að tiltekin breyting verði afturkölluð.",
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-label": "Verður líklega afturkölluð",
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc": "Greinir breytingar sem líklegt er að verði afturkallaðar en leggur ekki mat á ásetning notandans."
 }
