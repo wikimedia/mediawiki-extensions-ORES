@@ -53,5 +53,6 @@
 	"oresmodels": "ORES-mudelite arvandmed",
 	"ores-specialoresmodels-header-precision": "Täpsus",
 	"ores-specialoresmodels-header-recall": "Saagis",
-	"ores-specialoresmodels-header-thresholdrange": "Lävevahemik"
+	"ores-specialoresmodels-header-thresholdrange": "Lävevahemik",
+	"abusefilter-edit-builder-vars-revertrisk-level": "Selle muudatuse tühistamise tõenäosus (\"high\" või \"unknown\"), määratud mudeli RevertRisk LanguageAgnostic järgi ($1)"
 }
