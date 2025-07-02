@@ -62,5 +62,6 @@
 	"ores-specialoresmodels-header-precision": "Точност",
 	"ores-specialoresmodels-header-recall": "Стапка на погодоци",
 	"ores-specialoresmodels-header-thresholdrange": "Опсег на прагот",
-	"ores-api-show-note": "Кога користите <kbd>oresreview</kbd> или <kbd>!oresreview</kbd>, преработките без оценка (на пр. многу стари преработки) се сметаат за непотребни за проверка, дури и ако им треба проверка кога би се оценувале."
+	"ores-api-show-note": "Кога користите <kbd>oresreview</kbd> или <kbd>!oresreview</kbd>, преработките без оценка (на пр. многу стари преработки) се сметаат за непотребни за проверка, дури и ако им треба проверка кога би се оценувале.",
+	"abusefilter-edit-builder-vars-revertrisk-level": "Веројатноста ова уредување на биде вратено („висока“ или „непозната“), според определеното од јазично агностичкиот модел RevertRisk ($1)"
 }
