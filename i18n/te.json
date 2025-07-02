@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chaduvari",
+			"Ravichandra"
+		]
+	},
+	"ores-damaging-filter": "$1 మంచి మార్పులు",
+	"ores-damaging-letter": "స",
+	"ores-damaging-legend": "ఈ దిద్దుబాటులో సమస్యలు ఉండి ఉండవచ్చు, దీన్ని సమీక్షించాలి ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool మరింత సమాచారం])"
+}
