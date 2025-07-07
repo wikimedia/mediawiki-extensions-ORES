@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sveinn í Felli"
+			"Sveinn í Felli",
+			"Bjarki S"
 		]
 	},
-	"ores-damaging-letter": "r",
+	"ores-damaging-letter": "?",
+	"ores-damaging-title": "Þessa breytingu þarf að yfirfara",
+	"ores-hide-nondamaging-filter": "Fela breytingar sem eru líklega í lagi",
 	"ores-rcfilters-whats-this-link-text": "Vita meira"
 }
