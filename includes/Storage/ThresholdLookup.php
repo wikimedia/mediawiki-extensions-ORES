@@ -151,7 +151,7 @@ class ThresholdLookup {
 					$this->statsdDataFactory->increment( 'ores.api.stats.ok' );
 
 					return $result;
-				} catch ( RuntimeException $ex ) {
+				} catch ( RuntimeException ) {
 					$this->statsdDataFactory->increment( 'ores.api.stats.failed' );
 					$this->logger->error( 'Failed to fetch ORES stats.' );
 

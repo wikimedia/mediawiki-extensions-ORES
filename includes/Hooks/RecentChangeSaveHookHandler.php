@@ -132,7 +132,7 @@ class RecentChangeSaveHookHandler {
 			$this->logger->debug( 'Job pushed for {revid}', [
 				'revid' => $revid,
 			] );
-		} catch ( Exception $e ) {
+		} catch ( Exception ) {
 			$this->logger->error( 'Job push failed for {revid}', [
 				'revid' => $revid,
 			] );

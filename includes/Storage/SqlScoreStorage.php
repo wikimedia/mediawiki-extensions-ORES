@@ -146,7 +146,7 @@ class SqlScoreStorage implements ScoreStorage {
 
 		try {
 			$modelId = $this->modelLookup->getModelId( $model );
-		} catch ( InvalidArgumentException $exception ) {
+		} catch ( InvalidArgumentException ) {
 			$this->logger->warning( "Model {$model} can't be found in the model lookup" );
 			return false;
 		}

@@ -531,7 +531,7 @@ class ChangesListHooksHandler implements
 				Helpers::joinWithOresTables( 'revertrisklanguageagnostic', 'rc_this_oldid', $tables, $fields,
 					$join_conds );
 			}
-		} catch ( Exception $exception ) {
+		} catch ( Exception ) {
 			return;
 		}
 	}
@@ -659,7 +659,7 @@ class ChangesListHooksHandler implements
 			try {
 				$threshold =
 					Helpers::getThreshold( 'damaging', $context->getUser(), $context->getTitle() );
-			} catch ( Exception $exception ) {
+			} catch ( Exception ) {
 				return false;
 			}
 

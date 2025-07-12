@@ -98,7 +98,7 @@ class ScoreFetcher implements ServiceScoreLookup {
 
 		try {
 			$storageVersion = ORESServices::getModelLookup()->getModelVersion( $model );
-		} catch ( InvalidArgumentException $exception ) {
+		} catch ( InvalidArgumentException ) {
 			$storageVersion = null;
 		}
 
