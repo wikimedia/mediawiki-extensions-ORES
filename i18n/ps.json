@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"ores-desc": "په مخبڼه کې خپلکاري بياکتنې نومرې رابرسېرول",
+	"ores-damaging-filter": "$1 شاید ښه سمونونه وي",
+	"ores-damaging-letter": "و",
+	"ores-damaging-title": "دا سمون بیاکتنې ته اړتیا لري",
+	"ores-hide-nondamaging-filter": "شايد ښه سمونونه پټول",
+	"ores-damaging-maybebad": "شايد ستونزې ولري (ډېری سمون سندتونزې نښه کوي؛ خو ډېری ناسم مثبتونه هم پکې رانغاړل شوي)",
+	"ores-damaging-verylikelybad": "ډېره شونې ده چې ستونزې ولري (ځينې ناسم مثبتونه نښه کوي؛ خو د ستونزې سمونونو کوچنۍ % مومي)",
+	"ores-help-damaging-pref": "د \"درشل\" اوڼنې بدلې کړئ؛ ترڅو لاندې خوښنې پراخه يا ډېرې ټاکنيزې شي.",
+	"ores-rcfilters-damaging-maybebad-label": "شايد ستونزې ولري",
+	"ores-rcfilters-damaging-likelybad-label": "ډېره شونتيا لري چې ستونزې ولري",
+	"ores-rcfilters-damaging-likelybad-desc-high": "په ډېرې ځيرتيا ډېری ستونزه لرونکي سمونونه مومي.",
+	"ores-rcfilters-damaging-verylikelybad-label": "ډېره شونتيا لري چې ستونزې ولري",
+	"ores-rcfilters-goodfaith-title": "د کارن هوډ وړاندوينې",
+	"ores-rcfilters-goodfaith-whats-this-header": "د کارن هوډ وړاندوينو په اړه",
+	"prefs-ores-wl": "د کتنلړ او ونډو د بياکتنې نومرې"
+}

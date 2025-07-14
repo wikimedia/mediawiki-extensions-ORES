@@ -18,6 +18,7 @@
 	"ores-rcfilters-damaging-likelybad-label": "Хила тарло бален",
 	"ores-rcfilters-damaging-likelybad-desc-high": "Дуй а хууш гӀалатан йа зуламен нисдарш максимум нийса лоху.",
 	"ores-rcfilters-goodfaith-title": "Декъашхо дан гӀертиг гар",
+	"ores-rcfilters-goodfaith-conflicts-logactions": "Декъашхочун Ӏалашонан прогнозаш йац цхьацца хийцаран тайпанашна, цундела хӀара фильтр дуьхьал йу {{PLURAL:$2|рогӀера фильтр|рогӀера фильтраш}} хийцаран тайпанца: $1",
 	"ores-rcfilters-goodfaith-good-label": "Доллачул хьалха даггара",
 	"ores-rcfilters-goodfaith-good-desc": "Даггара нисдарш, дерриг аьлча санна, кардан чӀогӀа нийса хьесап.",
 	"ores-rcfilters-goodfaith-bad-label": "Даггара йоцуш хила тарло",
