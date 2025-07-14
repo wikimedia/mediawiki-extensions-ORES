@@ -5,9 +5,11 @@ namespace ORES\Maintenance;
 use MediaWiki\Maintenance\Maintenance;
 use ORES\Services\ORESServices;
 
+// @codeCoverageIgnoreStart
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
 	: __DIR__ . '/../../../maintenance/Maintenance.php';
+// @codeCoverageIgnoreEnd
 
 /**
  * @ingroup Maintenance
@@ -51,5 +53,7 @@ class DumpThresholds extends Maintenance {
 
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = DumpThresholds::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd

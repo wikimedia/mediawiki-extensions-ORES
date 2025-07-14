@@ -6,9 +6,11 @@ use MediaWiki\Maintenance\Maintenance;
 use ORES\Services\ORESServices;
 use Wikimedia\Rdbms\Database;
 
+// @codeCoverageIgnoreStart
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
 	: __DIR__ . '/../../../maintenance/Maintenance.php';
+// @codeCoverageIgnoreEnd
 
 /**
  * @ingroup Maintenance
@@ -166,5 +168,7 @@ class PurgeScoreCache extends Maintenance {
 
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = PurgeScoreCache::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd

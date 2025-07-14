@@ -7,9 +7,11 @@ use ORES\Services\ORESServices;
 use ORES\Services\ScoreFetcher;
 use ORES\Storage\ScoreStorage;
 
+// @codeCoverageIgnoreStart
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
 	? getenv( 'MW_INSTALL_PATH' ) . '/maintenance/Maintenance.php'
 	: __DIR__ . '/../../../maintenance/Maintenance.php';
+// @codeCoverageIgnoreEnd
 
 /**
  * @ingroup Maintenance
@@ -171,5 +173,7 @@ class PopulateDatabase extends Maintenance {
 
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = PopulateDatabase::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd

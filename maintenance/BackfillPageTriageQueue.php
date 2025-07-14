@@ -8,12 +8,14 @@ use MediaWiki\Maintenance\Maintenance;
 use ORES\Services\ORESServices;
 use ORES\Services\ScoreFetcher;
 
+// @codeCoverageIgnoreStart
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
 	$IP = __DIR__ . '/../../..';
 }
 
 require_once "$IP/maintenance/Maintenance.php";
+// @codeCoverageIgnoreEnd
 
 class BackfillPageTriageQueue extends Maintenance {
 
@@ -125,6 +127,8 @@ class BackfillPageTriageQueue extends Maintenance {
 
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = BackfillPageTriageQueue::class;
 
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd
