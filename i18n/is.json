@@ -7,7 +7,7 @@
 	},
 	"ores-damaging-letter": "?",
 	"ores-damaging-title": "Þessa breytingu þarf að yfirfara",
-	"ores-damaging-legend": "Þetta gæti verið vandræðabreyting sem þarf að yfirfara. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool meiri upplýsingar])",
+	"ores-damaging-legend": "Möguleg vandræðabreyting sem ætti að yfirfara ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool meiri upplýsingar])",
 	"ores-hide-nondamaging-filter": "Fela breytingar sem eru líklega í lagi",
 	"ores-rcfilters-whats-this-link-text": "Vita meira",
 	"ores-rcfilters-revertrisklanguageagnostic-title": "Líkur á afturköllun",
