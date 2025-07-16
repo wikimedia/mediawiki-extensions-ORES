@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Умар"
+		]
+	},
+	"apihelp-query+ores-example-simple": "ORES хаамаш беха:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "ORES версин мах хадораш.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "ORES версин мах хадораш.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "ТӀетоьхна ORES мах хадор дӀайаздарна."
+}
