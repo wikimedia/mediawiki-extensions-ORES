@@ -72,5 +72,6 @@
 	"ores-specialoresmodels-header-precision": "Precisão",
 	"ores-specialoresmodels-header-recall": "Lembrar-se",
 	"ores-specialoresmodels-header-thresholdrange": "Faixa limiar",
-	"ores-api-show-note": "Ao usar <kbd>oresreview</kbd> or <kbd>!oresreview</kbd>, as revisões sem uma pontuação (por exemplo, revisões muito antigas) são consideradas como que não precisam de revisão, mesmo que elas precisem de revisão se forem marcadas."
+	"ores-api-show-note": "Ao usar <kbd>oresreview</kbd> or <kbd>!oresreview</kbd>, as revisões sem uma pontuação (por exemplo, revisões muito antigas) são consideradas como que não precisam de revisão, mesmo que elas precisem de revisão se forem marcadas.",
+	"abusefilter-edit-builder-vars-revertrisk-level": "Probabilidade de esta edição ser revertida (\"alta\" ou \"desconhecido\"), como determinado pelo modelo RevertRisk LanguageAgnostic ($1)"
 }
