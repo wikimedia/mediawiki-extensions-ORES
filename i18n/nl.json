@@ -68,5 +68,6 @@
 	"ores-specialoresmodels-header-precision": "Precisie",
 	"ores-specialoresmodels-header-recall": "Gevoeligheid",
 	"ores-specialoresmodels-header-thresholdrange": "Drempelbereik",
-	"ores-api-show-note": "Wanneer u <kbd>oresreview</kbd> of <kbd>!oresreview</kbd> gebruikt, worden versies zonder score (bijvoorbeeld zeer oude versies) als niet te beoordelen beschouwd, ook als ze indien gescoord wel beoordeling zouden vereisen."
+	"ores-api-show-note": "Wanneer u <kbd>oresreview</kbd> of <kbd>!oresreview</kbd> gebruikt, worden versies zonder score (bijvoorbeeld zeer oude versies) als niet te beoordelen beschouwd, ook als ze indien gescoord wel beoordeling zouden vereisen.",
+	"abusefilter-edit-builder-vars-revertrisk-level": "Waarschijnlijkheid dat deze bewerking wordt teruggedraaid (“hoog” of “onbekend’), zoals bepaald door het model RevertRisk LanguageAgnostic ($1)"
 }
