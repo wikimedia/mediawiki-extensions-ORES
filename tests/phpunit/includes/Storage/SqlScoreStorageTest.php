@@ -3,6 +3,7 @@
 namespace ORES\Tests;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\RecentChanges\RecentChange;
 use MediaWikiLangTestCase;
 use ORES\Storage\HashModelLookup;
 use ORES\Storage\SqlScoreStorage;
@@ -217,6 +218,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 				'rc_last_oldid' => '425',
 				'rc_comment_id' => 1,
 				'rc_actor' => $user->getUser()->getActorId(),
+				'rc_source' => RecentChange::SRC_EDIT,
 				'rc_timestamp' => $dbw->timestamp(),
 			] )
 			->row( [
@@ -225,6 +227,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 				'rc_last_oldid' => '567',
 				'rc_comment_id' => 1,
 				'rc_actor' => $user->getUser()->getActorId(),
+				'rc_source' => RecentChange::SRC_EDIT,
 				'rc_timestamp' => $dbw->timestamp(),
 			] )
 			->caller( __METHOD__ )

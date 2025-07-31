@@ -3,6 +3,7 @@
 namespace ORES\Tests\Maintenance;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\Tests\Maintenance\MaintenanceBaseTestCase;
 use ORES\Maintenance\PurgeScoreCache;
 use ORES\Storage\SqlModelLookup;
@@ -118,6 +119,7 @@ class PurgeScoreCacheTest extends MaintenanceBaseTestCase {
 		$testUser = $this->getTestUser()->getUser();
 		$userData = [
 			'rc_actor' => $testUser->getActorId(),
+			'rc_source' => RecentChange::SRC_EDIT,
 		];
 
 		$revId = mt_rand( 1000, 9999 );

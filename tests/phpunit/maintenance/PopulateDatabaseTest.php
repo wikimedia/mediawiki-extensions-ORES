@@ -2,6 +2,7 @@
 
 namespace ORES\Tests\Maintenance;
 
+use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\Tests\Maintenance\MaintenanceBaseTestCase;
 use ORES\Maintenance\PopulateDatabase;
 use ORES\Tests\MockOresServiceBuilder;
@@ -151,6 +152,7 @@ class PopulateDatabaseTest extends MaintenanceBaseTestCase {
 		$testUser = $this->getTestUser()->getUser();
 		$userData = [
 			'rc_actor' => $testUser->getActorId(),
+			'rc_source' => RecentChange::SRC_EDIT,
 		];
 		$dbw = $this->getDb();
 		foreach ( $rcContents as &$row ) {
