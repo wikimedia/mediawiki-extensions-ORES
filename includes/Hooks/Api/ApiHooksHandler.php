@@ -381,6 +381,7 @@ class ApiHooksHandler implements
 	 * @param WatchedItem $watchedItem
 	 * @param array $recentChangeInfo
 	 * @param array &$output
+	 * @suppress PhanParamSignatureMismatch https://github.com/phan/phan/issues/5044
 	 */
 	public function onApiQueryWatchlistExtractOutputData(
 		$module, $watchedItem, $recentChangeInfo, &$output
