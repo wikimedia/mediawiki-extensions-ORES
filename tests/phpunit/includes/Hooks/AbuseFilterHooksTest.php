@@ -73,7 +73,7 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 	public static function provideDisabledParams(): iterable {
 		$validThresholds = [
 			'revertrisklanguageagnostic' => [
-				'min' => 0.5,
+				'revertrisk' => [ 'min' => 0.5, ]
 			],
 		];
 
@@ -93,7 +93,7 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 			'ORESUseLiftWing' => true,
 			'OresFiltersThresholds' => [
 				'revertrisklanguageagnostic' => [
-					'min' => $threshold,
+					'revertrisk' => [ 'min' => $threshold, ]
 				],
 			],
 		] );
@@ -135,7 +135,7 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 			'ORESUseLiftWing' => true,
 			'OresFiltersThresholds' => [
 				'revertrisklanguageagnostic' => [
-					'min' => 0.5,
+					'revertrisk' => [ 'min' => 0.5, ],
 				],
 			],
 		] );
@@ -162,7 +162,7 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 			'ORESUseLiftWing' => true,
 			'OresFiltersThresholds' => [
 				'revertrisklanguageagnostic' => [
-					'min' => 0.4,
+					'revertrisk' => [ 'min' => 0.4, ],
 				],
 			],
 		] );
@@ -207,7 +207,7 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 			'ORESUseLiftWing' => true,
 			'OresFiltersThresholds' => [
 				'revertrisklanguageagnostic' => [
-					'min' => 0.5,
+					'revertrisk' => [ 'min' => 0.5, ],
 				],
 			],
 		] );
@@ -241,7 +241,7 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 			'ORESUseLiftWing' => true,
 			'OresFiltersThresholds' => [
 				'revertrisklanguageagnostic' => [
-					'min' => 0.5,
+					'revertrisk' => [ 'min' => 0.5, ],
 				],
 			],
 		] );

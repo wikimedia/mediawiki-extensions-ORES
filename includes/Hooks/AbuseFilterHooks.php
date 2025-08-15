@@ -97,7 +97,7 @@ class AbuseFilterHooks implements
 		}
 
 		$oresFilterThresholds = $this->config->get( 'OresFiltersThresholds' );
-		$minThreshold = $oresFilterThresholds['revertrisklanguageagnostic']['min'] ?? null;
+		$minThreshold = $oresFilterThresholds['revertrisklanguageagnostic']['revertrisk']['min'] ?? null;
 		if ( !$minThreshold ) {
 			// An RRLA threshold must have been set for this wiki for us to be able
 			// to map the score into a level ("unknown" or "high").
