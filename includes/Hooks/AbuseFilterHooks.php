@@ -12,7 +12,6 @@ use MediaWiki\Extension\AbuseFilter\Variables\VariableHolder;
 use MediaWiki\Extension\AbuseFilter\Variables\VariablesManager;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Title\Title;
-use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserIdentityLookup;
 use MediaWiki\User\UserIdentityValue;
 use MediaWiki\User\UserNameUtils;
@@ -20,7 +19,6 @@ use ORES\LiftWingService;
 use ORES\ORESService;
 use ORES\PreSaveRevisionData;
 use RecentChange;
-use Wikimedia\Assert\Assert;
 
 /**
  * Hooks related to Extension:AbuseFilter
@@ -130,13 +128,11 @@ class AbuseFilterHooks implements
 		if ( $this->userNameUtils->isIP( $userName ) ) {
 			$editor = new UserIdentityValue( 0, $userName );
 		} else {
-			$editor = $this->userIdentityLookup->getUserIdentityByName( $userName );
+			// Gracefully handle the case where the performer does not have an actor table record,
+			// e.g. because it is an unsaved placeholder temporary account (T402298).
+			$editor = $this->userIdentityLookup->getUserIdentityByName( $userName )
+				?? new UserIdentityValue( 0, $userName );
 		}
-
-		Assert::postcondition(
-			$editor instanceof UserIdentity,
-			"user_name variable is set to \"$userName\" but does not resolve to a UserIdentity"
-		);
 
 		$data = new PreSaveRevisionData(
 			$parentRevision,
