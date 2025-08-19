@@ -14,6 +14,8 @@ use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserIdentityLookup;
+use MediaWiki\User\UserIdentityValue;
+use MediaWiki\User\UserNameUtils;
 use ORES\LiftWingService;
 use ORES\ORESService;
 use ORES\PreSaveRevisionData;
@@ -29,33 +31,15 @@ class AbuseFilterHooks implements
 	AbuseFilterBuilderHook
 {
 
-	// TODO: When ORESService is removed, type $liftWingService as LiftWingService
-	/** @var ORESService|LiftWingService */
-	private $liftWingService;
-	private RevisionLookup $revisionLookup;
-	private Config $config;
-	private VariablesManager $variablesManager;
-	private UserIdentityLookup $userIdentityLookup;
-
-	/**
-	 * @param RevisionLookup $revisionLookup
-	 * @param Config $config
-	 * @param UserIdentityLookup $userIdentityLookup
-	 * @param VariablesManager $variablesManager
-	 * @param ORESService|LiftWingService $liftWingService
-	 */
 	public function __construct(
-		RevisionLookup $revisionLookup,
-		Config $config,
-		UserIdentityLookup $userIdentityLookup,
-		VariablesManager $variablesManager,
-		$liftWingService
+		private RevisionLookup $revisionLookup,
+		private Config $config,
+		private UserIdentityLookup $userIdentityLookup,
+		private UserNameUtils $userNameUtils,
+		private VariablesManager $variablesManager,
+		// TODO: When ORESService is removed, type $liftWingService as LiftWingService
+		private ORESService|LiftWingService $liftWingService
 	) {
-		$this->revisionLookup = $revisionLookup;
-		$this->config = $config;
-		$this->liftWingService = $liftWingService;
-		$this->variablesManager = $variablesManager;
-		$this->userIdentityLookup = $userIdentityLookup;
 	}
 
 	/**
@@ -138,13 +122,20 @@ class AbuseFilterHooks implements
 
 		$firstRevision = $this->revisionLookup->getFirstRevision( $title );
 
-		$editor = $this->userIdentityLookup->getUserIdentityByName(
-			$this->variablesManager->getVar( $vars, 'user_name' )->toString()
-		);
+		$userName = $this->variablesManager->getVar( $vars, 'user_name' )->toString();
+
+		// If the performer is an IP user, it may not have an actor table record and looking it up would
+		// always yield an unregistered UserIdentity anyways, so avoid going through UserIdentityLookup.
+		// This can occur during pre-save edit stash requests from logged-out edits, for example (T402298).
+		if ( $this->userNameUtils->isIP( $userName ) ) {
+			$editor = new UserIdentityValue( 0, $userName );
+		} else {
+			$editor = $this->userIdentityLookup->getUserIdentityByName( $userName );
+		}
 
 		Assert::postcondition(
 			$editor instanceof UserIdentity,
-			'user_name variable must resolve to a UserIdentity'
+			"user_name variable is set to \"$userName\" but does not resolve to a UserIdentity"
 		);
 
 		$data = new PreSaveRevisionData(
