@@ -8,6 +8,7 @@ use MediaWiki\Extension\AbuseFilter\Variables\VariablesManager;
 use MediaWiki\Page\WikiPage;
 use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\Tests\User\TempUser\TempUserTestTrait;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use MediaWikiIntegrationTestCase;
@@ -21,6 +22,8 @@ use PHPUnit\Framework\MockObject\MockObject;
  * @group Database
  */
 class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
+	use TempUserTestTrait;
+
 	private VariableGeneratorFactory $variableGeneratorFactory;
 	private VariablesManager $variablesManager;
 
@@ -129,6 +132,40 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 		yield 'score above threshold' => [ 0.4, 'high' ];
 	}
 
+	public function testShouldHandleIPUserPerformerWithoutActorRecord(): void {
+		$this->overrideConfigValues( [
+			'ORESRevertRiskAbuseFilterIntegrationEnabled' => true,
+			'ORESUseLiftWing' => true,
+		] );
+
+		$page = $this->getExistingTestPage();
+		$user = $this->getServiceContainer()
+			->getUserFactory()
+			->newAnonymous( '127.0.0.1' );
+
+		$prevContent = $page->getRevisionRecord()->getContent( SlotRecord::MAIN );
+		$newContent = $this->getServiceContainer()
+			->getContentHandlerFactory()
+			->getContentHandler( CONTENT_MODEL_WIKITEXT )
+			->unserializeContent( '== Test ==' );
+
+		// Configure a LiftWingService mock that expect a call to revertRiskPreSave()
+		// with the expected parameters.
+		$this->setService(
+			'ORESService',
+			$this->createMockLiftWingService( $user, $page, $prevContent, $newContent )
+		);
+
+		// Simulate running AbuseFilter for an edit with the given content,
+		// performed by an IP user that has no associated actor table record.
+		$vars = $this->variableGeneratorFactory->newRunGenerator( $user, $page->getTitle() )
+			->getEditVars( $newContent, 'Test', SlotRecord::MAIN, $page );
+
+		$level = $this->variablesManager->getVar( $vars, 'revertrisk_level' );
+
+		$this->assertNotNull( $level->getData() );
+	}
+
 	public function testShouldDoNothingForPageMove(): void {
 		$this->overrideConfigValues( [
 			'ORESRevertRiskAbuseFilterIntegrationEnabled' => true,
@@ -156,7 +193,14 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 		$this->assertNull( $score->getData() );
 	}
 
-	public function testShouldEvaluateScoreForHistoricalEdit(): void {
+	/**
+	 * @dataProvider provideHistoricalEditPerformers
+	 */
+	public function testShouldEvaluateScoreForHistoricalEdit( bool $performerWasNamedUser ): void {
+		if ( !$performerWasNamedUser ) {
+			$this->disableAutoCreateTempUser();
+		}
+
 		$this->overrideConfigValues( [
 			'ORESRevertRiskAbuseFilterIntegrationEnabled' => true,
 			'ORESUseLiftWing' => true,
@@ -168,7 +212,9 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 		] );
 
 		$page = $this->getExistingTestPage();
-		$user = $this->getTestUser()->getUser();
+		$user = $performerWasNamedUser ? $this->getTestUser()->getUser() : $this->getServiceContainer()
+			->getUserFactory()
+			->newAnonymous( '127.0.0.1' );
 
 		$prevContent = $page->getRevisionRecord()->getContent( SlotRecord::MAIN );
 		$newContent = $this->getServiceContainer()
@@ -199,6 +245,11 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 		$level = $this->variablesManager->getVar( $vars, 'revertrisk_level' );
 
 		$this->assertSame( 'high', $level->getData() );
+	}
+
+	public static function provideHistoricalEditPerformers(): iterable {
+		yield 'named user' => [ true ];
+		yield 'IP user' => [ false ];
 	}
 
 	public function testShouldDoNothingForHistoricalPageCreation(): void {
