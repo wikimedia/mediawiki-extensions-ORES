@@ -65,5 +65,6 @@
 	"ores-specialoresmodels-header-precision": "精確度",
 	"ores-specialoresmodels-header-recall": "召回率",
 	"ores-specialoresmodels-header-thresholdrange": "門檻範圍",
-	"ores-api-show-note": "當使用 <kbd>oresreview</kbd> 或 <kbd>!oresreview</kbd> 時，不帶有評分的修訂（例如：非常舊的修訂）會被視為不需複審，即使是在被評分後仍需要複審的情況下。"
+	"ores-api-show-note": "當使用 <kbd>oresreview</kbd> 或 <kbd>!oresreview</kbd> 時，不帶有評分的修訂（例如：非常舊的修訂）會被視為不需複審，即使是在被評分後仍需要複審的情況下。",
+	"abusefilter-edit-builder-vars-revertrisk-level": "此編輯被回退的可能性（「高」或「未知」），由 RevertRisk LanguageAgnostic 模型確定（$1）"
 }
