@@ -18,32 +18,37 @@ namespace ORES\Hooks;
 
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Hook\RecentChange_saveHook;
-use MediaWiki\Hook\RecentChangesPurgeRowsHook;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\RecentChanges\Hook\RecentChangesPurgeQueryHook;
 use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\Skin\Skin;
 use ORES\ORESService;
 use ORES\Services\ORESServices;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 class Hooks implements
 	BeforePageDisplayHook,
-	RecentChangesPurgeRowsHook,
+	RecentChangesPurgeQueryHook,
 	RecentChange_saveHook
 {
 
 	/**
 	 * Remove cached scores for revisions which were purged from recentchanges
 	 *
-	 * @param \stdClass[] $rows
+	 * @param SelectQueryBuilder $query
+	 * @param callable[] &$callbacks
 	 */
-	public function onRecentChangesPurgeRows( $rows ): void {
-		$revIds = [];
-		foreach ( $rows as $row ) {
-			$revIds[] = $row->rc_this_oldid;
-		}
-		ORESServices::getScoreStorage()->purgeRows( $revIds );
+	public function onRecentChangesPurgeQuery( $query, &$callbacks ): void {
+		$query->field( 'rc_this_oldid' );
+		$callbacks[] = static function ( $res ) {
+			$revIds = [];
+			foreach ( $res as $row ) {
+				$revIds[] = $row->rc_this_oldid;
+			}
+			ORESServices::getScoreStorage()->purgeRows( $revIds );
+		};
 	}
 
 	/**

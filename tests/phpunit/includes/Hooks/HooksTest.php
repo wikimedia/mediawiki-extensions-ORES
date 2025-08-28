@@ -8,6 +8,8 @@ use MediaWiki\Output\OutputPage;
 use ORES\Hooks\Hooks;
 use ORES\Storage\HashModelLookup;
 use ORES\Storage\ScoreStorage;
+use ORES\Storage\SqlScoreStorage;
+use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 /**
  * @group ORES
@@ -45,13 +47,58 @@ class HooksTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers \ORES\Hooks\Hooks::onRecentChangesPurgeRows
+	 * @covers \ORES\Hooks\Hooks::onRecentChangesPurgeQuery
 	 */
-	public function testOnRecentChangesPurgeRows() {
+	public function testOnRecentChangesPurgeQueryIntegrated() {
+		ConvertibleTimestamp::setFakeTime( '2024-08-26T00:00:00' );
+
+		$status = $this->editPage(
+			'ORES test',
+			'content',
+		);
+		$revId = $status->getNewRevision()?->getId();
+		$this->assertNotNull( $revId );
+
+		$scores = [ $revId => [
+			'damaging' => [
+				'score' => [
+					'prediction' => false,
+					'probability' => [
+						'false' => 0.933,
+						'true' => 0.067,
+					],
+				],
+			],
+		] ];
+
+		/** @var SqlScoreStorage $store */
+		$store = $this->getServiceContainer()->get( 'ORESScoreStorage' );
+		$store->storeScores( $scores );
+		$this->assertScoreCount( 1 );
+
+		ConvertibleTimestamp::setFakeTime( '2025-08-26T00:00:00' );
+		\RecentChangesUpdateJob::newPurgeJob()->run();
+		$this->assertScoreCount( 0 );
+	}
+
+	private function assertScoreCount( $count ) {
+		$this->newSelectQueryBuilder()
+			->select( 'count(*)' )
+			->from( 'ores_classification' )
+			->assertFieldValue( (string)$count );
+	}
+
+	/**
+	 * @covers \ORES\Hooks\Hooks::onRecentChangesPurgeQuery
+	 */
+	public function testOnRecentChangesPurgeQueryUnit() {
 		$revIds = [ 1, 5, 8, 13 ];
 		$rows = array_map( static function ( $id ) {
 			return (object)[ 'rc_this_oldid' => $id ];
 		}, $revIds );
+		$query = $this->getDb()->newSelectQueryBuilder()
+			->select( 'rc_id' )
+			->from( 'recentchanges' );
 
 		$mock = $this->createMock( ScoreStorage::class );
 		$mock->expects( $this->once() )
@@ -60,7 +107,9 @@ class HooksTest extends \MediaWikiIntegrationTestCase {
 
 		$this->setService( 'ORESScoreStorage', $mock );
 
-		( new Hooks )->onRecentChangesPurgeRows( $rows );
+		$callbacks = [];
+		( new Hooks )->onRecentChangesPurgeQuery( $query, $callbacks );
+		$callbacks[0]( $rows );
 	}
 
 	/**

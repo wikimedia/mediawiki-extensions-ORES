@@ -51,7 +51,7 @@
 		"LoadExtensionSchemaUpdates": "schema",
 		"OldChangesListRecentChangesLine": "changeslist",
 		"RecentChange_save": "main",
-		"RecentChangesPurgeRows": "main",
+		"RecentChangesPurgeQuery": "main",
 		"SpecialContributions::formatRow::flags": "contributions",
 		"ContributionsLineEnding": "contributions",
 		"SpecialContributions::getForm::filters": "contributions",
