@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Arianit"
+			"Arianit",
+			"Xhulianoo"
 		]
 	},
 	"ores-desc": "Trego vlerësimin e rishikimit automatik në ndërfaqe",
 	"ores-damaging-filter": "$1 redaktimet me gjasë të mira",
 	"ores-damaging-letter": "r",
-	"ores-damaging-title": "Ky redaktim ka nevojë për rishikim",
+	"ores-damaging-title": "Ky redaktim ka nevojë për shqyrtim",
 	"ores-damaging-legend": "Ky redaktim mund të jetë dëmtues dhe duhet të rishikohet ([[:mw:Special:MyLanguage/ORES review tool|more info]])",
 	"ores-hide-nondamaging-filter": "Fshih redaktimet me gjasë të  mira",
 	"ores-pref-damaging": "Ndjeshmëria e ORES-it",
