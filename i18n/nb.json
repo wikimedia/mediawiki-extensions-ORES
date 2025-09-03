@@ -64,5 +64,6 @@
 	"ores-specialoresmodels-header-precision": "Presisjon",
 	"ores-specialoresmodels-header-recall": "Tilbakekall",
 	"ores-specialoresmodels-header-thresholdrange": "Terskelintervall",
-	"ores-api-show-note": "Når du bruker <kbd>oresreview</kbd> eller <kbd>!oresreview</kbd>, så vil de uten skår (altså veldig gamle sideversjoner) bli vurdert som at videre gjennomgang er unødvendig, selv om de vil trenge gjennomgang hvis de ble gitt skår."
+	"ores-api-show-note": "Når du bruker <kbd>oresreview</kbd> eller <kbd>!oresreview</kbd>, så vil de uten skår (altså veldig gamle sideversjoner) bli vurdert som at videre gjennomgang er unødvendig, selv om de vil trenge gjennomgang hvis de ble gitt skår.",
+	"abusefilter-edit-builder-vars-revertrisk-level": "Sannsynligheten for at denne endringen vil bli tilbakestilt («high» eller «unknown»), som bestemt av modellen RevertRisk LanguageAgnostic ($1)"
 }
