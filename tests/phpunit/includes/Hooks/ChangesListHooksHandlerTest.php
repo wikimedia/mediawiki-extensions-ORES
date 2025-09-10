@@ -11,11 +11,11 @@ use MediaWiki\RecentChanges\EnhancedChangesList;
 use MediaWiki\RecentChanges\RCCacheEntry;
 use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\Request\FauxRequest;
+use MediaWiki\SpecialPage\ChangesListSpecialPage;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\User;
 use ORES\Hooks\ChangesListHooksHandler;
 use ORES\Storage\HashModelLookup;
-use Wikimedia\TestingAccessWrapper;
 
 /**
  * @group ORES
@@ -359,36 +359,48 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
+	 * Get a specific ChangesListSpecialPage and set it up for filter tests
+	 *
+	 * @suppress PhanTypeMismatchReturnSuperType
+	 * @param string $name
+	 * @return ChangesListSpecialPage
+	 */
+	private function getChangesListSpecialPage( string $name ): ChangesListSpecialPage {
+		$hookContainer = $this->createHookContainer( [
+			'ChangesListSpecialPageStructuredFilters' =>
+				( new ChangesListHooksHandler )->onChangesListSpecialPageStructuredFilters( ... )
+		] );
+		$changesListSpecialPage = MediaWikiServices::getInstance()->getSpecialPageFactory()
+			->getPage( $name );
+		$changesListSpecialPage->setHookContainer( $hookContainer );
+		$changesListSpecialPage->setContext( $this->context );
+		$changesListSpecialPage->setup( '' );
+
+		return $changesListSpecialPage;
+	}
+
+	/**
 	 * @covers ::onChangesListSpecialPageStructuredFilters
-	 * @group Broken
 	 */
 	public function testOnChangesListSpecialPageStructuredFilters_Recentchangeslinked() {
-		$changesListSpecialPage = MediaWikiServices::getInstance()->getSpecialPageFactory()
-			->getPage( 'Recentchangeslinked' );
-		$changesListSpecialPage->setContext( $this->context );
-		$wrappedClsp = TestingAccessWrapper::newFromObject( $changesListSpecialPage );
-		$wrappedClsp->registerFilters();
+		$changesListSpecialPage = $this->getChangesListSpecialPage( 'Recentchangeslinked' );
 
-		$originalFilters = $wrappedClsp->getFilterGroups();
-
-		( new ChangesListHooksHandler )->onChangesListSpecialPageStructuredFilters( $changesListSpecialPage );
-
-		$updatedFilters = $wrappedClsp->getFilterGroups();
-
-		$this->assertEquals( $originalFilters, $updatedFilters );
+		$this->assertSame(
+			'maybebad',
+			$changesListSpecialPage->getFilterGroup( 'damaging' )
+				->getDefault()
+		);
+		$this->assertNull(
+			$changesListSpecialPage->getFilterGroup( 'goodfaith' )
+		);
 	}
 
 	/**
 	 * @covers ::onChangesListSpecialPageStructuredFilters
 	 */
 	public function testOnChangesListSpecialPageStructuredFilters_Recentchanges() {
-		$changesListSpecialPage = MediaWikiServices::getInstance()->getSpecialPageFactory()
-			->getPage( 'Recentchanges' );
-		$changesListSpecialPage->setContext( $this->context );
-		$wrappedClsp = TestingAccessWrapper::newFromObject( $changesListSpecialPage );
-		$wrappedClsp->registerFilters();
-
-		( new ChangesListHooksHandler )->onChangesListSpecialPageStructuredFilters( $changesListSpecialPage );
+		/** @var SpecialRecentChanges $changesListSpecialPage */
+		$changesListSpecialPage = $this->getChangesListSpecialPage( 'Recentchanges' );
 
 		$damagingFilterGroup = $changesListSpecialPage->getFilterGroup( 'damaging' );
 		$this->assertNotNull( $damagingFilterGroup );
@@ -409,13 +421,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 		$userOptionsManager->setOption( $this->user, 'oresWatchlistHideNonDamaging', 0 );
 		$userOptionsManager->setOption( $this->user, 'oresHighlight', 1 );
 
-		$changesListSpecialPage = MediaWikiServices::getInstance()->getSpecialPageFactory()
-			->getPage( 'Watchlist' );
-		$changesListSpecialPage->setContext( $this->context );
-		$wrappedClsp = TestingAccessWrapper::newFromObject( $changesListSpecialPage );
-		$wrappedClsp->registerFilters();
-
-		( new ChangesListHooksHandler )->onChangesListSpecialPageStructuredFilters( $changesListSpecialPage );
+		$changesListSpecialPage = $this->getChangesListSpecialPage( 'Watchlist' );
 
 		$damagingFilterGroup = $changesListSpecialPage->getFilterGroup( 'damaging' );
 		$this->assertNotNull( $damagingFilterGroup );
