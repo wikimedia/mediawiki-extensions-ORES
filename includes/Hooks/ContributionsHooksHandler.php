@@ -45,12 +45,13 @@ class ContributionsHooksHandler implements
 		}
 
 		if ( Helpers::isModelEnabled( 'damaging' ) ) {
-			Helpers::joinWithOresTables( 'damaging', 'rev_id', $query['tables'], $query['fields'],
-				$query['join_conds'] );
-
-			Helpers::hideNonDamagingFilter( $query['fields'], $query['conds'],
-				self::hideNonDamagingPreference( $pager->getContext() ), $pager->getUser(),
-				$pager->getTitle() );
+			if ( Helpers::maybeJoinWithOresTables( 'damaging', 'rev_id',
+				$query['tables'], $query['fields'], $query['join_conds'] )
+			) {
+				Helpers::hideNonDamagingFilter( $query['fields'], $query['conds'],
+					self::hideNonDamagingPreference( $pager->getContext() ), $pager->getUser(),
+					$pager->getTitle() );
+			}
 		}
 	}
 

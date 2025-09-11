@@ -16,10 +16,7 @@
 
 namespace ORES\Storage;
 
-use InvalidArgumentException;
 use Psr\Log\LoggerInterface;
-use RuntimeException;
-use Wikimedia\Rdbms\DBError;
 use Wikimedia\Rdbms\IConnectionProvider;
 
 class SqlScoreStorage implements ScoreStorage {
@@ -42,27 +39,16 @@ class SqlScoreStorage implements ScoreStorage {
 	 * @see ModelLookup::getModelId()
 	 *
 	 * @param array[] $scores
-	 * @param callable|null $errorCallback
+	 * @param callable $errorCallback
 	 * @param string[] $modelsToClean
 	 */
 	public function storeScores(
 		$scores,
-		?callable $errorCallback = null,
+		callable $errorCallback,
 		array $modelsToClean = []
 	) {
 		// TODO: Make $wgOresModelClasses an argument and deprecate the whole config variable
 		global $wgOresModelClasses, $wgOresAggregatedModels;
-
-		if ( $errorCallback === null ) {
-			/**
-			 * @param string $mssg
-			 * @param int $revision
-			 * @return never
-			 */
-			$errorCallback = static function ( $mssg, $revision ) {
-				throw new RuntimeException( "Model contains an error for $revision: $mssg" );
-			};
-		}
 
 		$dbData = [];
 
@@ -74,9 +60,8 @@ class SqlScoreStorage implements ScoreStorage {
 		foreach ( $scores as $revision => $revisionData ) {
 			try {
 				$dbDataPerRevision = $scoreParser->processRevision( $revision, $revisionData );
-			} catch ( InvalidArgumentException $exception ) {
+			} catch ( ScoreParserError $exception ) {
 				$errorCallback( $exception->getMessage(), $revision );
-				// @phan-suppress-next-line PhanPluginUnreachableCode Callable must not throw
 				continue;
 			}
 
@@ -84,19 +69,12 @@ class SqlScoreStorage implements ScoreStorage {
 		}
 
 		if ( $dbData ) {
-			try {
-				$this->dbProvider->getPrimaryDatabase()->newInsertQueryBuilder()
-					->insertInto( 'ores_classification' )
-					->rows( $dbData )
-					->ignore()
-					->caller( __METHOD__ )
-					->execute();
-			} catch ( DBError $exception ) {
-				$this->logger->error(
-					'Inserting new data into the datbase has failed:' . $exception->getMessage()
-				);
-				return;
-			}
+			$this->dbProvider->getPrimaryDatabase()->newInsertQueryBuilder()
+				->insertInto( 'ores_classification' )
+				->rows( $dbData )
+				->ignore()
+				->caller( __METHOD__ )
+				->execute();
 		}
 
 		if ( $modelsToClean !== [] ) {
@@ -146,7 +124,7 @@ class SqlScoreStorage implements ScoreStorage {
 
 		try {
 			$modelId = $this->modelLookup->getModelId( $model );
-		} catch ( InvalidArgumentException ) {
+		} catch ( ModelNotFoundError ) {
 			$this->logger->warning( "Model {$model} can't be found in the model lookup" );
 			return false;
 		}
@@ -161,7 +139,10 @@ class SqlScoreStorage implements ScoreStorage {
 	private function cleanUpOldScores( array $scores, array $modelsToClean ) {
 		$modelIds = [];
 		foreach ( $modelsToClean as $model ) {
-			$modelIds[] = $this->modelLookup->getModelId( $model );
+			try {
+				$modelIds[] = $this->modelLookup->getModelId( $model );
+			} catch ( ModelNotFoundError ) {
+			}
 		}
 
 		$newRevisions = array_keys( $scores );

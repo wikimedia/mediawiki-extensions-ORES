@@ -16,4 +16,15 @@ $cfg['exclude_analysis_directory_list'] = array_merge(
 	]
 );
 
+// ORES services throw exceptions which callers are expected to catch, so @throws is useful
+$cfg['warn_about_undocumented_throw_statements'] = true;
+$cfg['warn_about_undocumented_exceptions_thrown_by_invoked_functions'] = true;
+$cfg['exception_classes_with_optional_throws_phpdoc'] = [
+	'DomainException',
+	'InvalidArgumentException',
+	'MediaWiki\Api\ApiUsageException',
+	'MediaWiki\Config\ConfigException',
+	'MediaWiki\Revision\RevisionAccessException',
+	'UnexpectedValueException',
+];
 return $cfg;

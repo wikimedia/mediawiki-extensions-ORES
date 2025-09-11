@@ -16,11 +16,12 @@
 
 namespace ORES\Services;
 
-use InvalidArgumentException;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\WebRequest;
 use ORES\ORESService;
+use ORES\ServiceError;
 use ORES\ServiceScoreLookup;
+use ORES\Storage\ModelNotFoundError;
 use Wikimedia\Rdbms\IConnectionProvider;
 
 class ScoreFetcher implements ServiceScoreLookup {
@@ -41,6 +42,7 @@ class ScoreFetcher implements ServiceScoreLookup {
 	 * @param WebRequest|string[]|null $originalRequest
 	 *
 	 * @return array Results in the form returned by ORES API
+	 * @throws ServiceError
 	 */
 	public function getScores(
 		$revisions,
@@ -98,7 +100,7 @@ class ScoreFetcher implements ServiceScoreLookup {
 
 		try {
 			$storageVersion = ORESServices::getModelLookup()->getModelVersion( $model );
-		} catch ( InvalidArgumentException ) {
+		} catch ( ModelNotFoundError ) {
 			$storageVersion = null;
 		}
 

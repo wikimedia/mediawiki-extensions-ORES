@@ -9,6 +9,7 @@ use ORES\Hooks\Hooks;
 use ORES\Storage\HashModelLookup;
 use ORES\Storage\ScoreStorage;
 use ORES\Storage\SqlScoreStorage;
+use RuntimeException;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 /**
@@ -73,7 +74,9 @@ class HooksTest extends \MediaWikiIntegrationTestCase {
 
 		/** @var SqlScoreStorage $store */
 		$store = $this->getServiceContainer()->get( 'ORESScoreStorage' );
-		$store->storeScores( $scores );
+		$store->storeScores( $scores, static function ( $msg ) {
+			throw new RuntimeException( $msg );
+		} );
 		$this->assertScoreCount( 1 );
 
 		ConvertibleTimestamp::setFakeTime( '2025-08-26T00:00:00' );

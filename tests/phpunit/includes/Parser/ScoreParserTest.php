@@ -2,10 +2,10 @@
 
 namespace ORES\Tests\Parser;
 
-use InvalidArgumentException;
 use MediaWikiLangTestCase;
 use ORES\Storage\HashModelLookup;
 use ORES\Storage\ScoreParser;
+use ORES\Storage\ScoreParserError;
 
 /**
  * @group ORES
@@ -216,6 +216,17 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 			],
 			[
 				[
+					'class with no data' => [
+						'score' => [
+							'prediction' => true,
+							'probability' => [ 'true' => 0.9, 'false' => 0.1 ]
+						],
+					],
+				],
+				1111
+			],
+			[
+				[
 					'damaging' => [
 						'error' => [
 							'message' => 'YAY, it failed',
@@ -249,7 +260,7 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 	 * @dataProvider processRevisionInvalidProvider
 	 */
 	public function testProcessRevisionInvalid( array $revisionData, $revId ) {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( ScoreParserError::class );
 		$modelData = [
 			'reverted' => [ 'id' => self::REVERTED, 'version' => '0.0.1' ],
 			'damaging' => [ 'id' => self::DAMAGING, 'version' => '0.0.2' ],
@@ -258,7 +269,8 @@ class ScoreParserTest extends MediaWikiLangTestCase {
 		$modelClasses = [
 			'reverted' => [ 'true' => 1, 'false' => 0 ],
 			'damaging' => [ 'true' => 1, 'false' => 0 ],
-			'goodfaith' => [ 'true' => 1, 'false' => 0 ]
+			'goodfaith' => [ 'true' => 1, 'false' => 0 ],
+			'class with no data' => [ 'true' => 1, 'false' => 0 ],
 		];
 		$scoreParser = new ScoreParser( new HashModelLookup( $modelData ), $modelClasses );
 		$scoreParser->processRevision( $revId, $revisionData );

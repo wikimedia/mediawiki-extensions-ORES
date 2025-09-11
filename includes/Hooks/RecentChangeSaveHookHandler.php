@@ -18,7 +18,6 @@
 
 namespace ORES\Hooks;
 
-use Exception;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\Request\WebRequest;
@@ -127,16 +126,10 @@ class RecentChangeSaveHookHandler {
 			'models' => $models,
 			'precache' => true,
 		] );
-		try {
-			MediaWikiServices::getInstance()->getJobQueueGroup()->push( $job );
-			$this->logger->debug( 'Job pushed for {revid}', [
-				'revid' => $revid,
-			] );
-		} catch ( Exception ) {
-			$this->logger->error( 'Job push failed for {revid}', [
-				'revid' => $revid,
-			] );
-		}
+		MediaWikiServices::getInstance()->getJobQueueGroup()->lazyPush( $job );
+		$this->logger->debug( 'Job pushed for {revid}', [
+			'revid' => $revid,
+		] );
 	}
 
 }

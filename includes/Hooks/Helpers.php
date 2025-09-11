@@ -16,7 +16,6 @@
 
 namespace ORES\Hooks;
 
-use Exception;
 use InvalidArgumentException;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\MediaWikiServices;
@@ -25,6 +24,8 @@ use MediaWiki\Specials\SpecialWatchlist;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use ORES\Services\ORESServices;
+use ORES\Storage\ModelNotFoundError;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 class Helpers {
 
@@ -63,21 +64,32 @@ class Helpers {
 	}
 
 	/**
+	 * Add a join on the ORES tables if the specified model is enabled
+	 *
 	 * @param string $type
 	 * @param string $revIdField
 	 * @param array &$tables
 	 * @param array &$fields
 	 * @param array &$join_conds
+	 * @return bool success
 	 */
-	public static function joinWithOresTables(
+	public static function maybeJoinWithOresTables(
 		$type, $revIdField, array &$tables, array &$fields, array &$join_conds
 	) {
 		if ( !ctype_lower( $type ) || strpos( $type, '_' ) || strpos( $type, '-' ) ) {
 			throw new InvalidArgumentException( "Invalid value for parameter 'type': '$type'. " .
 				'Restricted to one lower case word to prevent accidental injection.' );
 		}
+		if ( !self::isModelEnabled( $type ) ) {
+			return false;
+		}
 
-		$modelId = ORESServices::getModelLookup()->getModelId( $type );
+		try {
+			$modelId = ORESServices::getModelLookup()->getModelId( $type );
+		} catch ( ModelNotFoundError ) {
+			return false;
+		}
+
 		$tables["ores_{$type}_cls"] = 'ores_classification';
 
 		$fields["ores_{$type}_score"] = "ores_{$type}_cls.oresc_probability";
@@ -90,6 +102,71 @@ class Helpers {
 				"ores_{$type}_cls.oresc_class" => 1
 			]
 		];
+		return true;
+	}
+
+	/**
+	 * Add conditions for damaging thresholds, if possible
+	 *
+	 * @param IReadableDatabase $dbr
+	 * @param bool $showReviewed True for show=oresreview, false for show=!oresreview
+	 * @param string $revField The field to join on oresc_rev
+	 * @param UserIdentity $user The user to get preferences for
+	 * @param Title|null $title FIXME used to determine whether WL or RC prefs should be used
+	 * @param array &$tables tables to be queried
+	 * @param array &$conds WHERE conditionals for query
+	 * @param array &$options options for the database request
+	 * @param array &$joinConds join conditions for the tables
+	 */
+	public static function maybeAddOresReviewConds(
+		IReadableDatabase $dbr,
+		bool $showReviewed,
+		string $revField,
+		UserIdentity $user,
+		?Title $title,
+		&$tables, &$conds, &$options, &$joinConds
+	) {
+		if ( !self::isModelEnabled( 'damaging' ) ) {
+			// Not enabled -- don't add condition
+			return;
+		}
+		try {
+			$modelId = ORESServices::getModelLookup()->getModelId( 'damaging' );
+		} catch ( ModelNotFoundError ) {
+			// Not initialised -- don't add condition
+			return;
+		}
+
+		$threshold =
+			self::getThreshold( 'damaging', $user, $title );
+		if ( $threshold === null ) {
+			// Threshold not found -- don't add condition
+			return;
+		}
+
+		$tables[] = 'ores_classification';
+
+		if ( $showReviewed ) {
+			$join = 'INNER JOIN';
+
+			// Filter out non-damaging and unscored edits.
+			$conds[] = $dbr->expr( 'oresc_probability', '>', $threshold );
+
+			// Performance hack: add STRAIGHT_JOIN (T146111)
+			$options[] = 'STRAIGHT_JOIN';
+		} else {
+			$join = 'LEFT JOIN';
+
+			// Filter out damaging edits.
+			$conds[] = $dbr->expr( 'oresc_probability', '<=', $threshold )
+				->or( 'oresc_probability', '=', null );
+		}
+
+		$joinConds['ores_classification'] = [ $join, [
+			"oresc_rev=$revField",
+			'oresc_model' => $modelId,
+			'oresc_class' => 1
+		] ];
 	}
 
 	/**
@@ -181,7 +258,6 @@ class Helpers {
 	 * @param UserIdentity $user
 	 * @param Title|null $title
 	 * @return float|null Threshold, or null if not set
-	 * @throws Exception When $type is not recognized
 	 */
 	public static function getThreshold( $type, UserIdentity $user, ?Title $title = null ) {
 		if ( $type === 'damaging' ) {

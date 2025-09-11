@@ -13,6 +13,7 @@ use Wikimedia\Rdbms\Expression;
  * @group ORES
  * @group Database
  * @covers \ORES\Hooks\Api\WatchedItemQueryServiceExtension
+ * @covers \ORES\Hooks\Helpers::maybeAddOresReviewConds
  */
 class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase {
 
@@ -104,7 +105,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 		], $conds );
 		$this->assertEquals( [
 			'ores_classification' => [ 'INNER JOIN', [
-				'rc_this_oldid=oresc_rev',
+				'oresc_rev=rc_this_oldid',
 				'oresc_model' => 5,
 				'oresc_class' => 1,
 			], ],
@@ -150,7 +151,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 		], $conds );
 		$this->assertEquals( [
 			'ores_classification' => [ 'LEFT JOIN', [
-				'rc_this_oldid=oresc_rev',
+				'oresc_rev=rc_this_oldid',
 				'oresc_model' => 5,
 				'oresc_class' => 1,
 			], ],

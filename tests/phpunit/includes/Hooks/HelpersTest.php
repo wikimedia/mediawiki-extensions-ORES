@@ -75,7 +75,7 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testGetThreshold_invalid() {
-		$this->expectException( \Exception::class );
+		$this->expectException( \InvalidArgumentException::class );
 		$this->expectExceptionMessage( "Unknown ORES test: 'not_a_thing'" );
 		Helpers::getThreshold( 'not_a_thing', $this->user );
 	}
@@ -120,7 +120,8 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 		$tables = [];
 		$fields = [];
 		$join_conds = [];
-		Helpers::joinWithOresTables( 'damaging', 'rc_this_oldid', $tables, $fields, $join_conds );
+		$ok = Helpers::maybeJoinWithOresTables( 'damaging', 'rc_this_oldid', $tables, $fields, $join_conds );
+		$this->assertTrue( $ok );
 
 		$this->assertEquals( [
 			'ores_damaging_cls' => 'ores_classification',
@@ -163,7 +164,7 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 		$expectedMessage = "Invalid value for parameter 'type': '$type'. " .
 			'Restricted to one lower case word to prevent accidental injection.';
 		$this->expectExceptionMessage( $expectedMessage );
-		Helpers::joinWithOresTables(
+		Helpers::maybeJoinWithOresTables(
 			$type,
 			'test',
 			$tables,

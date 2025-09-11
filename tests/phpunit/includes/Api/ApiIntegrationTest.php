@@ -18,6 +18,7 @@ use ORES\Tests\TestHelper;
  *
  * @covers \ORES\Hooks\Api\ApiHooksHandler
  * @covers \ORES\Hooks\Api\ApiQueryORES
+ * @covers \ORES\Hooks\Helpers::maybeAddOresReviewConds
  */
 class ApiIntegrationTest extends ApiTestCase {
 	/** @var User */

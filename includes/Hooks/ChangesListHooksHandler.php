@@ -518,22 +518,12 @@ class ChangesListHooksHandler implements
 		if ( !Helpers::oresUiEnabled() ) {
 			return;
 		}
-		try {
-			if ( Helpers::isModelEnabled( 'damaging' ) ) {
-				Helpers::joinWithOresTables( 'damaging', 'rc_this_oldid', $tables, $fields,
-					$join_conds );
-			}
-			if ( Helpers::isModelEnabled( 'goodfaith' ) ) {
-				Helpers::joinWithOresTables( 'goodfaith', 'rc_this_oldid', $tables, $fields,
-					$join_conds );
-			}
-			if ( Helpers::isModelEnabled( 'revertrisklanguageagnostic' ) ) {
-				Helpers::joinWithOresTables( 'revertrisklanguageagnostic', 'rc_this_oldid', $tables, $fields,
-					$join_conds );
-			}
-		} catch ( Exception ) {
-			return;
-		}
+		Helpers::maybeJoinWithOresTables( 'damaging', 'rc_this_oldid', $tables, $fields,
+			$join_conds );
+		Helpers::maybeJoinWithOresTables( 'goodfaith', 'rc_this_oldid', $tables, $fields,
+			$join_conds );
+		Helpers::maybeJoinWithOresTables( 'revertrisklanguageagnostic', 'rc_this_oldid', $tables, $fields,
+			$join_conds );
 	}
 
 	/**
@@ -656,13 +646,8 @@ class ChangesListHooksHandler implements
 	public static function getScoreRecentChangesList( RecentChange $rcObj, IContextSource $context ) {
 		$threshold = $rcObj->getAttribute( 'ores_damaging_threshold' );
 		if ( $threshold === null ) {
-			try {
-				$threshold =
-					Helpers::getThreshold( 'damaging', $context->getUser(), $context->getTitle() );
-			} catch ( Exception ) {
-				return false;
-			}
-
+			$threshold =
+				Helpers::getThreshold( 'damaging', $context->getUser(), $context->getTitle() );
 		}
 		$score = $rcObj->getAttribute( 'ores_damaging_score' );
 		$patrolled = $rcObj->getAttribute( 'rc_patrolled' );

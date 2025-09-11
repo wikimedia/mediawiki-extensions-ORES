@@ -16,9 +16,10 @@
 
 namespace ORES\Services;
 
-use InvalidArgumentException;
 use ORES\ORESService;
+use ORES\ServiceError;
 use ORES\Storage\ModelLookup;
+use ORES\Storage\ModelNotFoundError;
 use Psr\Log\LoggerInterface;
 
 class PopulatedSqlModelLookup implements ModelLookup {
@@ -70,7 +71,13 @@ class PopulatedSqlModelLookup implements ModelLookup {
 	 */
 	private function initializeModels( $models ) {
 		$wikiId = ORESService::getWikiID();
-		$response = $this->ORESService->request( [] );
+		try {
+			$response = $this->ORESService->request( [] );
+		} catch ( ServiceError $e ) {
+			$this->logger->error( 'Error from ORES when requesting models: '
+				. $e->getMessage() );
+		}
+
 		if ( !isset( $response[$wikiId] ) || empty( $response[$wikiId]['models'] ) ) {
 			$this->logger->error( 'Bad response from ORES when requesting models: '
 				. json_encode( $response ) );
@@ -115,7 +122,7 @@ class PopulatedSqlModelLookup implements ModelLookup {
 	 * @see ModelLookup::getModelId()
 	 * @param string $model
 	 *
-	 * @throws InvalidArgumentException
+	 * @throws ModelNotFoundError
 	 * @return int
 	 */
 	public function getModelId( $model ) {
@@ -127,7 +134,7 @@ class PopulatedSqlModelLookup implements ModelLookup {
 	 * @see ModelLookup::getModelVersion()
 	 * @param string $model
 	 *
-	 * @throws InvalidArgumentException
+	 * @throws ModelNotFoundError
 	 * @return string
 	 */
 	public function getModelVersion( $model ) {

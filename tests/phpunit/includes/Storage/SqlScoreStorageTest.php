@@ -132,7 +132,9 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 
 		$scores = $scores['wiki']['scores'];
 
-		$this->storage->storeScores( $scores );
+		$this->storage->storeScores( $scores, static function ( $msg ) {
+			throw new RuntimeException( $msg );
+		} );
 
 		$res = $this->getDb()->newSelectQueryBuilder()
 			->select( [
@@ -233,7 +235,12 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 			->caller( __METHOD__ )
 			->execute();
 
-		$this->storage->storeScores( $scores, null, [ 'goodfaith' ] );
+		$this->storage->storeScores(
+			$scores,
+			static function ( $msg ) {
+				throw new RuntimeException( $msg );
+			},
+			[ 'goodfaith' ] );
 
 		$expected = [
 			(object)[

@@ -16,8 +16,6 @@
 
 namespace ORES\Storage;
 
-use InvalidArgumentException;
-
 /**
  * Service interface for retrieving model data from storage.
  *
@@ -27,17 +25,15 @@ interface ModelLookup {
 
 	/**
 	 * @param string $model
-	 *
-	 * @throws InvalidArgumentException
 	 * @return int ID of last seen version
+	 * @throws ModelNotFoundError
 	 */
 	public function getModelId( $model );
 
 	/**
 	 * @param string $model
-	 *
-	 * @throws InvalidArgumentException
 	 * @return string version number of the model
+	 * @throws ModelNotFoundError
 	 */
 	public function getModelVersion( $model );
 

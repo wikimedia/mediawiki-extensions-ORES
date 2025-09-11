@@ -18,9 +18,9 @@ namespace ORES\Storage;
 
 use MediaWiki\Config\Config;
 use ORES\ORESService;
+use ORES\ServiceError;
 use ORES\ThresholdParser;
 use Psr\Log\LoggerInterface;
-use RuntimeException;
 use Wikimedia\ObjectCache\WANObjectCache;
 use Wikimedia\Stats\IBufferingStatsdDataFactory;
 
@@ -124,7 +124,11 @@ class ThresholdLookup {
 			return $this->fetchThresholdsFromCache( $model );
 		} else {
 			$this->logger->info( 'Forcing stats fetch, bypassing cache.' );
-			return $this->fetchThresholdsFromApi( $model );
+			try {
+				return $this->fetchThresholdsFromApi( $model );
+			} catch ( ServiceError ) {
+				return false;
+			}
 		}
 	}
 
@@ -134,7 +138,11 @@ class ThresholdLookup {
 	 */
 	private function fetchThresholdsFromCache( $model ) {
 		global $wgOresCacheVersion;
-		$modelVersion = $this->modelLookup->getModelVersion( $model );
+		try {
+			$modelVersion = $this->modelLookup->getModelVersion( $model );
+		} catch ( ModelNotFoundError ) {
+			return false;
+		}
 		$key = $this->cache->makeKey(
 			'ores_threshold_statistics',
 			$model,
@@ -151,7 +159,7 @@ class ThresholdLookup {
 					$this->statsdDataFactory->increment( 'ores.api.stats.ok' );
 
 					return $result;
-				} catch ( RuntimeException ) {
+				} catch ( ServiceError ) {
 					$this->statsdDataFactory->increment( 'ores.api.stats.failed' );
 					$this->logger->error( 'Failed to fetch ORES stats.' );
 
@@ -166,6 +174,7 @@ class ThresholdLookup {
 	/**
 	 * @param string $model
 	 * @return array
+	 * @throws ServiceError
 	 */
 	protected function fetchThresholdsFromApi( $model ) {
 		$formulae = [ 'true' => [], 'false' => [] ];
@@ -228,13 +237,14 @@ class ThresholdLookup {
 	 * @param string[] $keyPath
 	 *
 	 * @return array
+	 * @throws ServiceError
 	 */
 	protected function extractKeyPath( $data, $keyPath ) {
 		$current = $data;
 		foreach ( $keyPath as $key ) {
 			if ( !isset( $current[$key] ) ) {
 				$fullPath = implode( '.', $keyPath );
-				throw new RuntimeException( "Failed to parse data at key [{$fullPath}]" );
+				throw new ServiceError( "Failed to parse data at key [{$fullPath}]" );
 			}
 			$current = $current[$key];
 		}

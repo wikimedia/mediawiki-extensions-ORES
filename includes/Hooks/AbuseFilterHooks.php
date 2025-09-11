@@ -140,6 +140,7 @@ class AbuseFilterHooks implements
 			$title,
 			$this->variablesManager->getVar( $vars, 'new_wikitext' )->toString(),
 			$this->variablesManager->getVar( $vars, 'summary' )->toString(),
+			// @phan-suppress-next-line PhanThrowTypeAbsentForCall -- RuntimeException
 			$this->variablesManager->getVar( $vars, 'timestamp' )->toNative(),
 			$firstRevision->getTimestamp(),
 			$title->getPageLanguage()->getCode(),

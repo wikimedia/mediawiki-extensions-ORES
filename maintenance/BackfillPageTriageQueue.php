@@ -3,10 +3,11 @@
 namespace ORES\Maintenance;
 
 use BatchRowIterator;
-use Exception;
 use MediaWiki\Maintenance\Maintenance;
+use ORES\ServiceError;
 use ORES\Services\ORESServices;
 use ORES\Services\ScoreFetcher;
+use ORES\Storage\ModelNotFoundError;
 
 // @codeCoverageIgnoreStart
 $IP = getenv( 'MW_INSTALL_PATH' );
@@ -41,10 +42,16 @@ class BackfillPageTriageQueue extends Maintenance {
 	 * @param string $modelName
 	 */
 	private function backfillScores( $modelName ) {
-		$dbr = $this->getDB( DB_REPLICA );
-		$modelId = ORESServices::getModelLookup()->getModelId( $modelName );
+		try {
+			$modelId = ORESServices::getModelLookup()->getModelId( $modelName );
+		} catch ( ModelNotFoundError ) {
+			$this->output( "Skipping missing model \"$modelName\"\n" );
+			return;
+		}
+
 		$this->output( "\nStarting model $modelName (id: $modelId)\n" );
 
+		$dbr = $this->getDB( DB_REPLICA );
 		$iterator = new BatchRowIterator(
 			$dbr,
 			[ 'revision', 'page', 'pagetriage_page', 'ores_classification' ],
@@ -76,13 +83,18 @@ class BackfillPageTriageQueue extends Maintenance {
 				continue;
 			}
 
-			$scores = $this->retry( static function () use ( $revIds, $modelName ) {
-				return ScoreFetcher::instance()->getScores(
-					$revIds,
-					$modelName,
-					true
-				);
-			}, 5, 3 );
+			try {
+				$scores = $this->retry( static function () use ( $revIds, $modelName ) {
+					return ScoreFetcher::instance()->getScores(
+						$revIds,
+						$modelName,
+						true
+					);
+				}, 5, 3 );
+			} catch ( ServiceError $e ) {
+				$this->fatalError( "ERROR: ScoreFetcher error when fetching revisions, " .
+					"retried 5 times: {$e->getMessage()}\n" );
+			}
 
 			$errors = 0;
 			ORESServices::getScoreStorage()->storeScores(
@@ -113,7 +125,7 @@ class BackfillPageTriageQueue extends Maintenance {
 		while ( true ) {
 			try {
 				return $fn();
-			} catch ( Exception $ex ) {
+			} catch ( ServiceError $ex ) {
 				$tried++;
 				if ( $tried > $tries ) {
 					throw $ex;

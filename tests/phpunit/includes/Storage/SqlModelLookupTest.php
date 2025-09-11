@@ -2,9 +2,9 @@
 
 namespace ORES\Tests;
 
-use InvalidArgumentException;
 use MediaWiki\MediaWikiServices;
 use MediaWikiLangTestCase;
+use ORES\Storage\ModelNotFoundError;
 use ORES\Storage\SqlModelLookup;
 
 /**
@@ -41,7 +41,7 @@ class SqlModelLookupTest extends MediaWikiLangTestCase {
 	}
 
 	public function testGetInvalidModelId() {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( ModelNotFoundError::class );
 		$this->storage->getModelId( 'foo' );
 	}
 
@@ -51,7 +51,7 @@ class SqlModelLookupTest extends MediaWikiLangTestCase {
 	}
 
 	public function testGetInvalidModelVersion() {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( ModelNotFoundError::class );
 		$this->storage->getModelVersion( 'foo' );
 	}
 

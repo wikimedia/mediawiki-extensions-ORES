@@ -21,7 +21,6 @@ namespace ORES\Hooks\Api;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\Watchlist\WatchedItemQueryServiceExtension as MWWatchedItemQueryServiceExtension;
 use ORES\Hooks\Helpers;
-use ORES\Services\ORESServices;
 use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 
@@ -63,28 +62,11 @@ class WatchedItemQueryServiceExtension implements MWWatchedItemQueryServiceExten
 			? array_flip( $options['filters'] ?? [] )
 			: [];
 		if ( isset( $show['oresreview'] ) || isset( $show['!oresreview'] ) ) {
-			$threshold = Helpers::getThreshold( 'damaging', $user );
-			$tables[] = 'ores_classification';
-
-			if ( isset( $show['oresreview'] ) ) {
-				$join = 'INNER JOIN';
-
-				// Filter out non-damaging and unscored edits.
-				$conds[] = $db->expr( 'oresc_probability', '>', $threshold );
-			} else {
-				$join = 'LEFT JOIN';
-
-				// Filter out damaging edits.
-				$conds[] = $db->expr( 'oresc_probability', '<=', $threshold )
-							->or( 'oresc_probability', '=', null );
-			}
-
-			$modelId = ORESServices::getModelLookup()->getModelId( 'damaging' );
-			$joinConds['ores_classification'] = [ $join, [
-				'rc_this_oldid=oresc_rev',
-				'oresc_model' => $modelId,
-				'oresc_class' => 1
-			] ];
+			Helpers::maybeAddOresReviewConds(
+				$db, isset( $show['oresreview'] ), 'rc_this_oldid',
+				$user, null,
+				$tables, $conds, $dbOptions, $joinConds
+			);
 		}
 	}
 

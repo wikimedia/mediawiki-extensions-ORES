@@ -16,7 +16,6 @@
 
 namespace ORES\Storage;
 
-use InvalidArgumentException;
 use Wikimedia\Rdbms\IConnectionProvider;
 
 class SqlModelLookup implements ModelLookup {
@@ -34,13 +33,13 @@ class SqlModelLookup implements ModelLookup {
 	 * @see ModelLookup::getModelId()
 	 * @param string $model
 	 *
-	 * @throws InvalidArgumentException
 	 * @return int
+	 * @throws ModelNotFoundError
 	 */
 	public function getModelId( $model ) {
 		$modelData = $this->getModelData();
 		if ( !array_key_exists( $model, $modelData ) ) {
-			throw new InvalidArgumentException( "No model available for [{$model}]" );
+			throw new ModelNotFoundError( "No model available for [{$model}]" );
 		}
 
 		return $modelData[$model]['id'];
@@ -50,13 +49,13 @@ class SqlModelLookup implements ModelLookup {
 	 * @see ModelLookup::getModelVersion()
 	 * @param string $model
 	 *
-	 * @throws InvalidArgumentException
 	 * @return string
+	 * @throws ModelNotFoundError
 	 */
 	public function getModelVersion( $model ) {
 		$modelData = $this->getModelData();
 		if ( !array_key_exists( $model, $modelData ) ) {
-			throw new InvalidArgumentException( "No model available for [{$model}]" );
+			throw new ModelNotFoundError( "No model available for [{$model}]" );
 		}
 
 		return $modelData[$model]['version'];

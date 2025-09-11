@@ -16,9 +16,6 @@
 
 namespace ORES\Storage;
 
-use InvalidArgumentException;
-use RuntimeException;
-
 /**
  * Class for parsing ORES service score response
  *
@@ -48,13 +45,13 @@ class ScoreParser {
 	 * @param array[] $revisionData Data returned by ScoreFetcher::getScores() for the revision.
 	 *
 	 * @return array[]
-	 * @throws RuntimeException
+	 * @throws ScoreParserError
 	 */
 	public function processRevision( $revision, array $revisionData ) {
 		$dbData = [];
 		foreach ( $revisionData as $model => $modelOutputs ) {
 			if ( isset( $modelOutputs['error'] ) ) {
-				throw new InvalidArgumentException( $modelOutputs['error']['type'] );
+				throw new ScoreParserError( $modelOutputs['error']['type'] );
 			}
 
 			$dbData = array_merge(
@@ -72,8 +69,15 @@ class ScoreParser {
 	 * @param array[] $modelOutputs
 	 *
 	 * @return array[]
+	 * @throws ScoreParserError
 	 */
 	private function processRevisionPerModel( $revision, $model, array $modelOutputs ) {
+		if ( !isset( $this->modelClasses[$model] ) ) {
+			// Throw ScoreParserError not InvalidArgumentException because we are
+			// validating a response from the ORES API.
+			throw new ScoreParserError( "Model $model is not configured" );
+		}
+
 		$processedData = [];
 		$prediction = $modelOutputs['score']['prediction'];
 		// Kludge out booleans so we can match prediction against class name.
@@ -83,16 +87,17 @@ class ScoreParser {
 			$prediction = 'true';
 		}
 
-		$modelId = $this->modelLookup->getModelId( $model );
-
-		if ( !isset( $this->modelClasses[$model] ) ) {
-			throw new InvalidArgumentException( "Model $model is not configured" );
+		try {
+			$modelId = $this->modelLookup->getModelId( $model );
+		} catch ( ModelNotFoundError $e ) {
+			throw new ScoreParserError( $e->getMessage() );
 		}
+
 		$weightedSum = 0;
 		foreach ( $modelOutputs['score']['probability'] as $class => $probability ) {
 			$ores_is_predicted = $prediction === $class;
 			if ( !isset( $this->modelClasses[$model][$class] ) ) {
-				throw new InvalidArgumentException( "Class $class in model $model is not configured" );
+				throw new ScoreParserError( "Class $class in model $model is not configured" );
 			}
 			$class = $this->modelClasses[$model][$class];
 			if ( $class === 0 && ( count( $this->modelClasses[$model] ) === 2 ) ) {

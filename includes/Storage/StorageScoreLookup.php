@@ -16,7 +16,6 @@
 
 namespace ORES\Storage;
 
-use RuntimeException;
 use Wikimedia\Rdbms\IResultWrapper;
 
 /**
@@ -34,7 +33,6 @@ interface StorageScoreLookup {
 	 * left empty, all configured models are queried.
 	 *
 	 * @return IResultWrapper
-	 * @throws RuntimeException
 	 */
 	public function getScores( $revisions, $models );
 

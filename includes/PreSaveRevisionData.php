@@ -66,6 +66,7 @@ class PreSaveRevisionData implements JsonSerializable {
 				'id' => $this->editor->getId()
 			],
 			'page' => [
+				// @phan-suppress-next-line PhanThrowTypeAbsentForCall
 				'id' => $this->page->getId(),
 				'title' => $this->prefixedTitleText,
 				'first_edit_timestamp' => wfTimestamp( TS_ISO_8601, $this->firstEditTimestamp ),

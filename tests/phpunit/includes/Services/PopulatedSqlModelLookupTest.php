@@ -2,11 +2,11 @@
 
 namespace ORES\Tests;
 
-use InvalidArgumentException;
 use MediaWiki\MediaWikiServices;
 use ORES\ORESService;
 use ORES\Services\PopulatedSqlModelLookup;
 use ORES\Storage\HashModelLookup;
+use ORES\Storage\ModelNotFoundError;
 use ORES\Storage\SqlModelLookup;
 use Psr\Log\NullLogger;
 
@@ -121,7 +121,7 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 			new NullLogger(),
 			false
 		);
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( ModelNotFoundError::class );
 		$populatedLookup->getModelId( 'foo' );
 	}
 
@@ -142,7 +142,7 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 			new NullLogger(),
 			false
 		);
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( ModelNotFoundError::class );
 		$populatedLookup->getModelVersion( 'foo' );
 	}
 
@@ -182,7 +182,7 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 			new NullLogger(),
 			false
 		);
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( ModelNotFoundError::class );
 		$populatedLookup->getModelVersion( 'foo' );
 	}
 
@@ -202,7 +202,7 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 			new NullLogger(),
 			false
 		);
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( ModelNotFoundError::class );
 		$populatedLookup->getModelVersion( 'damaging' );
 	}
 

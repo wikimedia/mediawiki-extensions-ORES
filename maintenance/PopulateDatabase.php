@@ -3,6 +3,7 @@
 namespace ORES\Maintenance;
 
 use MediaWiki\Maintenance\Maintenance;
+use ORES\ServiceError;
 use ORES\Services\ORESServices;
 use ORES\Services\ScoreFetcher;
 use ORES\Storage\ScoreStorage;
@@ -151,7 +152,7 @@ class PopulateDatabase extends Maintenance {
 			$this->totalCount++;
 			try {
 				$scores[ $revId ] = $scoreFetcher->getScores( $revId )[ $revId ];
-			} catch ( \RuntimeException $e ) {
+			} catch ( ServiceError $e ) {
 				$message = $e->getMessage();
 				$this->output( "ScoreFetcher errored for $revId: $message\n" );
 				$this->runtimeExceptionErrors++;

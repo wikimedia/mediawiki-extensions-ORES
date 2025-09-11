@@ -2,9 +2,9 @@
 
 namespace ORES\Tests;
 
-use InvalidArgumentException;
 use MediaWikiIntegrationTestCase;
 use ORES\Storage\HashModelLookup;
+use ORES\Storage\ModelNotFoundError;
 
 /**
  * @group ORES
@@ -51,7 +51,7 @@ class HashModelLookupTest extends MediaWikiIntegrationTestCase {
 	 * @covers \ORES\Storage\HashModelLookup::getModelId
 	 */
 	public function testGetInvalidModelId() {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( ModelNotFoundError::class );
 		$this->storage->getModelId( 'foo' );
 	}
 
@@ -67,7 +67,7 @@ class HashModelLookupTest extends MediaWikiIntegrationTestCase {
 	 * @covers \ORES\Storage\HashModelLookup::getModelVersion
 	 */
 	public function testGetInvalidModelVersion() {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( ModelNotFoundError::class );
 		$this->storage->getModelVersion( 'foo' );
 	}
 

@@ -16,6 +16,7 @@
 
 namespace ORES;
 
+use InvalidArgumentException;
 use JsonSerializable;
 use MediaWiki\Config\Config;
 use MediaWiki\Http\HttpRequestFactory;
@@ -26,7 +27,6 @@ use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserIdentityUtils;
 use MWHttpRequest;
 use Psr\Log\LoggerInterface;
-use RuntimeException;
 use UnexpectedValueException;
 use Wikimedia\Stats\StatsFactory;
 
@@ -93,13 +93,14 @@ class LiftWingService extends ORESService {
 	 * @param array|null $originalRequest
 	 *
 	 * @return array Decoded response
+	 * @throws ServiceError
 	 */
 	public function request( array $params, $originalRequest = null ) {
 		if ( !isset( $params['models'] ) ) {
-			throw new RuntimeException( 'Missing required parameter: models' );
+			throw new InvalidArgumentException( 'Missing required parameter: models' );
 		}
 		if ( !isset( $params['revids'] ) ) {
-			throw new RuntimeException( 'Missing required parameter: revids' );
+			throw new InvalidArgumentException( 'Missing required parameter: revids' );
 		}
 
 		$models = explode( '|', $params['models'] );
@@ -132,6 +133,7 @@ class LiftWingService extends ORESService {
 	 * @param string $revid
 	 *
 	 * @return array Decoded response
+	 * @throws ServiceError
 	 */
 	public function singleLiftWingRequest( $model, $revid ) {
 		$url = $this->getUrl( $model );
@@ -151,7 +153,7 @@ class LiftWingService extends ORESService {
 
 				$status = $req->execute();
 				if ( !$status->isOK() ) {
-					throw new RuntimeException( $message );
+					throw new ServiceError( $message );
 				}
 			} elseif ( $req->getStatus() === 400 ) {
 				$this->logger->debug( "400 Bad Request: {$message}" );
@@ -159,17 +161,17 @@ class LiftWingService extends ORESService {
 				if ( strpos( $data["error"], "The MW API does not have any info related to the rev-id" ) === 0 ) {
 					return $this->createRevisionNotFoundResponse( $model, $revid );
 				} else {
-					throw new RuntimeException( $message );
+					throw new ServiceError( $message );
 				}
 			} else {
-				throw new RuntimeException( $message );
+				throw new ServiceError( $message );
 			}
 		}
 		$json = $req->getContent();
 		$this->logger->debug( "Raw response: {$json}" );
 		$data = FormatJson::decode( $json, true );
 		if ( !$data || !empty( $data['error'] ) ) {
-			throw new RuntimeException( "Bad response from Lift Wing endpoint [{$url}]: {$json}" );
+			throw new ServiceError( "Bad response from Lift Wing endpoint [{$url}]: {$json}" );
 		}
 		return $data;
 	}
@@ -178,6 +180,7 @@ class LiftWingService extends ORESService {
 	 * @param string $model
 	 * @param string|int $revid
 	 * @return array|array[]|mixed
+	 * @throws ServiceError
 	 */
 	public function revertRiskLiftWingRequest( $model, $revid ) {
 		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
@@ -225,7 +228,7 @@ class LiftWingService extends ORESService {
 				$req = $this->createLiftWingRequest( $url, $model, $payload );
 				$status = $req->execute();
 				if ( !$status->isOK() ) {
-					throw new RuntimeException( $message );
+					throw new ServiceError( $message );
 				}
 			} elseif ( $req->getStatus() === 400 ) {
 				$this->logger->debug( "400 Bad Request: {$message}" );
@@ -241,17 +244,17 @@ class LiftWingService extends ORESService {
 						$revidStr
 					);
 				} else {
-					throw new RuntimeException( $message );
+					throw new ServiceError( $message );
 				}
 			} else {
-				throw new RuntimeException( $message );
+				throw new ServiceError( $message );
 			}
 		}
 		$json = $req->getContent();
 		$this->logger->debug( "Raw response: {$json}" );
 		$data = FormatJson::decode( $json, true );
 		if ( !$data || !empty( $data['error'] ) ) {
-			throw new RuntimeException( "Bad response from Lift Wing endpoint [{$url}]: {$json}" );
+			throw new ServiceError( "Bad response from Lift Wing endpoint [{$url}]: {$json}" );
 		}
 		return $this->modifyRevertRiskResponse( $data );
 	}

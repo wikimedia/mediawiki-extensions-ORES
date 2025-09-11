@@ -137,42 +137,21 @@ class ApiHooksHandler implements
 			return;
 		}
 
-		$show = Helpers::isModelEnabled( 'damaging' )
-			? array_flip( $params['show'] ?? [] )
-			: [];
+		$show = array_flip( $params['show'] ?? [] );
 		if ( isset( $show['oresreview'] ) || isset( $show['!oresreview'] ) ) {
 			if ( isset( $show['oresreview'] ) && isset( $show['!oresreview'] ) ) {
 				$module->dieWithError( 'apierror-show' );
 			}
-
-			$threshold =
-				Helpers::getThreshold( 'damaging', $module->getUser(), $module->getTitle() );
-			$dbr = $this->dbProvider->getReplicaDatabase();
-
-			$tables[] = 'ores_classification';
-
-			if ( isset( $show['oresreview'] ) ) {
-				$join = 'INNER JOIN';
-
-				// Filter out non-damaging and unscored edits.
-				$conds[] = $dbr->expr( 'oresc_probability', '>', $threshold );
-
-				// Performance hack: add STRAIGHT_JOIN (T146111)
-				$options[] = 'STRAIGHT_JOIN';
-			} else {
-				$join = 'LEFT JOIN';
-
-				// Filter out damaging edits.
-				$conds[] = $dbr->expr( 'oresc_probability', '<=', $threshold )
-							->or( 'oresc_probability', '=', null );
-			}
-
-			$modelId = ORESServices::getModelLookup()->getModelId( 'damaging' );
-			$joinConds['ores_classification'] = [ $join, [
-				"oresc_rev=$field",
-				'oresc_model' => $modelId,
-				'oresc_class' => 1
-			] ];
+			Helpers::maybeAddOresReviewConds(
+				$this->dbProvider->getReplicaDatabase(),
+				isset( $show['oresreview'] ),
+				$field,
+				$module->getUser(),
+				// FIXME: this is not a useful title to pass, since it is just compared with
+				// Special:Watchlist to determine whether to use RC or WL user prefs. But this
+				// will return Special:Badtitle.
+				$module->getTitle(),
+				$tables, $conds, $options, $joinConds );
 		}
 	}
 

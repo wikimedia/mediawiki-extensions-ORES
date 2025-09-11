@@ -16,8 +16,6 @@
 
 namespace ORES\Storage;
 
-use InvalidArgumentException;
-
 class HashModelLookup implements ModelLookup {
 
 	/** @var array[] */
@@ -31,13 +29,13 @@ class HashModelLookup implements ModelLookup {
 	 * @see ModelLookup::getModelId()
 	 * @param string $model
 	 *
-	 * @throws InvalidArgumentException
+	 * @throws ModelNotFoundError
 	 * @return int
 	 */
 	public function getModelId( $model ) {
 		$modelData = $this->modelData;
 		if ( !array_key_exists( $model, $modelData ) ) {
-			throw new InvalidArgumentException( "No model available for [{$model}]" );
+			throw new ModelNotFoundError( "No model available for [{$model}]" );
 		}
 
 		return $modelData[$model]['id'];
@@ -47,13 +45,13 @@ class HashModelLookup implements ModelLookup {
 	 * @see ModelLookup::getModelVersion()
 	 * @param string $model
 	 *
-	 * @throws InvalidArgumentException
+	 * @throws ModelNotFoundError
 	 * @return string
 	 */
 	public function getModelVersion( $model ) {
 		$modelData = $this->modelData;
 		if ( !array_key_exists( $model, $modelData ) ) {
-			throw new InvalidArgumentException( "No model available for [{$model}]" );
+			throw new ModelNotFoundError( "No model available for [{$model}]" );
 		}
 
 		return $modelData[$model]['version'];

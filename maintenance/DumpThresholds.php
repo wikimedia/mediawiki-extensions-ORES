@@ -39,13 +39,12 @@ class DumpThresholds extends Maintenance {
 	/**
 	 * Return a list of models available for this wiki.
 	 * @return array
-	 * @throws \RuntimeException
 	 */
 	protected function getModels() {
 		global $wgOresModelVersions;
 		$modelData = $wgOresModelVersions;
 		if ( empty( $modelData['models'] ) ) {
-			throw new \RuntimeException( 'Bad response from ORES when requesting models: '
+			$this->fatalError( 'Bad response from ORES when requesting models: '
 				. json_encode( $modelData ) );
 		}
 		return $modelData['models'];

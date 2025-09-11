@@ -21,7 +21,7 @@ use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use ORES\Hooks\HookRunner;
-use RuntimeException;
+use ORES\ServiceError;
 
 class FetchScoreJob extends Job {
 
@@ -81,7 +81,7 @@ class FetchScoreJob extends Job {
 				$this->params['precache'],
 				$this->params['originalRequest'] ?? null
 			);
-		} catch ( RuntimeException $exception ) {
+		} catch ( ServiceError $exception ) {
 			$mssg = $exception->getMessage();
 			$message = "Service failed to respond properly: $mssg";
 			$this->setLastError( $message );

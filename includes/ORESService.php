@@ -23,7 +23,6 @@ use MediaWiki\Request\WebRequest;
 use MediaWiki\Status\Status;
 use MediaWiki\WikiMap\WikiMap;
 use Psr\Log\LoggerInterface;
-use RuntimeException;
 
 /**
  * Common methods for accessing an ORES server.
@@ -109,6 +108,7 @@ class ORESService {
 	 * @param WebRequest|string[]|null $originalRequest See MwHttpRequest::setOriginalRequest()
 	 *
 	 * @return array Decoded response
+	 * @throws ServiceError
 	 */
 	public function request(
 		array $params,
@@ -137,17 +137,17 @@ class ORESService {
 				);
 				$status = $req->execute();
 				if ( !$status->isOK() ) {
-					throw new RuntimeException( $message );
+					throw new ServiceError( $message );
 				}
 			} else {
-				throw new RuntimeException( $message );
+				throw new ServiceError( $message );
 			}
 		}
 		$json = $req->getContent();
 		$this->logger->debug( "Raw response: {$json}" );
 		$data = FormatJson::decode( $json, true );
 		if ( !$data || !empty( $data['error'] ) ) {
-			throw new RuntimeException( "Bad response from ORES endpoint [{$url}]: {$json}" );
+			throw new ServiceError( "Bad response from ORES endpoint [{$url}]: {$json}" );
 		}
 		return $data;
 	}
