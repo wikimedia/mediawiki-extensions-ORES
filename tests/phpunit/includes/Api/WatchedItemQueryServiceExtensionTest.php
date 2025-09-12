@@ -96,7 +96,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 
 		$this->assertEquals( [
 			'rc_this_oldid',
-			'rc_type',
+			'rc_source',
 		], $fields );
 		$this->assertEquals( [
 			'ores_classification',
@@ -141,7 +141,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 
 		$this->assertEquals( [
 			'rc_this_oldid',
-			'rc_type',
+			'rc_source',
 		], $fields );
 		$this->assertEquals( [
 			'ores_classification',
@@ -180,7 +180,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 					new TitleValue( NS_MAIN, 'Test123' ),
 					'201801020304' ),
 				[
-					'rc_type' => RC_NEW,
+					'rc_source' => RecentChange::SRC_NEW,
 					'rc_this_oldid' => $revisionRecord->getId(),
 				],
 			],

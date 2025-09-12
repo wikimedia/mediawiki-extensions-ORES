@@ -18,6 +18,7 @@
 
 namespace ORES\Hooks\Api;
 
+use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\Watchlist\WatchedItemQueryServiceExtension as MWWatchedItemQueryServiceExtension;
 use ORES\Hooks\Helpers;
@@ -53,8 +54,8 @@ class WatchedItemQueryServiceExtension implements MWWatchedItemQueryServiceExten
 			if ( !in_array( 'rc_this_oldid', $fields, true ) ) {
 				$fields[] = 'rc_this_oldid';
 			}
-			if ( !in_array( 'rc_type', $fields, true ) ) {
-				$fields[] = 'rc_type';
+			if ( !in_array( 'rc_source', $fields, true ) ) {
+				$fields[] = 'rc_source';
 			}
 		}
 
@@ -97,7 +98,7 @@ class WatchedItemQueryServiceExtension implements MWWatchedItemQueryServiceExten
 
 		$revids = [];
 		foreach ( $items as [ $watchedItem, $rcInfo ] ) {
-			if ( (int)$rcInfo['rc_type'] === RC_EDIT || (int)$rcInfo['rc_type'] === RC_NEW ) {
+			if ( $rcInfo['rc_source'] === RecentChange::SRC_EDIT || $rcInfo['rc_source'] === RecentChange::SRC_NEW ) {
 				$revids[] = $rcInfo['rc_this_oldid'];
 			}
 		}
@@ -106,7 +107,8 @@ class WatchedItemQueryServiceExtension implements MWWatchedItemQueryServiceExten
 			$scores = ApiHooksHandler::loadScoresForRevisions( $revids );
 			foreach ( $items as &$item ) {
 				$rcInfo = &$item[1];
-				if ( (int)$rcInfo['rc_type'] !== RC_EDIT && (int)$rcInfo['rc_type'] !== RC_NEW ) {
+				if ( $rcInfo['rc_source'] !== RecentChange::SRC_EDIT
+					&& $rcInfo['rc_source'] !== RecentChange::SRC_NEW ) {
 					continue;
 				}
 

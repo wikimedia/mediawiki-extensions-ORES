@@ -34,6 +34,7 @@ use MediaWiki\Api\Hook\ApiQueryBaseProcessRowHook;
 use MediaWiki\Api\Hook\ApiQueryWatchlistExtractOutputDataHook;
 use MediaWiki\Api\Hook\ApiQueryWatchlistPrepareWatchedItemQueryServiceOptionsHook;
 use MediaWiki\Hook\WatchedItemQueryServiceExtensionsHook;
+use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\Watchlist\WatchedItem;
 use MediaWiki\Watchlist\WatchedItemQueryService;
 use ORES\Hooks\Helpers;
@@ -127,8 +128,8 @@ class ApiHooksHandler implements
 				if ( !in_array( 'rc_this_oldid', $fields, true ) ) {
 					$fields[] = 'rc_this_oldid';
 				}
-				if ( !in_array( 'rc_type', $fields, true ) ) {
-					$fields[] = 'rc_type';
+				if ( !in_array( 'rc_source', $fields, true ) ) {
+					$fields[] = 'rc_source';
 				}
 			}
 		} elseif ( $module instanceof ApiQueryUserContribs ) {
@@ -168,8 +169,8 @@ class ApiHooksHandler implements
 	 * $hookData, if our ApiQueryBaseProcessRow hook function needs to do
 	 * anything at all:
 	 *  - oresField: (string) Field in the result rows holding the revid
-	 *  - oresCheckRCType: (bool) Whether to skip rows where rc_type is not
-	 *    RC_EDIT or RC_NEW.
+	 *  - oresCheckRCType: (bool) Whether to skip rows where rc_source is not
+	 *    SRC_EDIT or SRC_NEW.
 	 *  - oresScores: (array) Array of arrays of row objects holding the scores
 	 *    for each revision we were able to fetch.
 	 *
@@ -206,7 +207,8 @@ class ApiHooksHandler implements
 			// Extract revision IDs from the result set
 			$revids = [];
 			foreach ( $res as $row ) {
-				if ( !$checkRCType || (int)$row->rc_type === RC_EDIT || (int)$row->rc_type === RC_NEW ) {
+				if ( !$checkRCType || $row->rc_source === RecentChange::SRC_EDIT
+					|| $row->rc_source === RecentChange::SRC_NEW ) {
 					$revids[] = $row->$field;
 				}
 			}
@@ -266,7 +268,8 @@ class ApiHooksHandler implements
 	) {
 		if ( isset( $hookData['oresField'] ) &&
 			( !$hookData['oresCheckRCType'] ||
-				(int)$row->rc_type === RC_NEW || (int)$row->rc_type === RC_EDIT
+				$row->rc_source === RecentChange::SRC_EDIT ||
+				$row->rc_source === RecentChange::SRC_NEW
 			)
 		) {
 			$data['oresscores'] = [];

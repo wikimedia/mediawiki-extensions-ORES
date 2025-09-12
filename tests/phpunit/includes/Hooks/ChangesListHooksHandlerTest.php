@@ -79,6 +79,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 			'rc_comment_data' => null,
 			'rc_user' => 1,
 			'rc_user_text' => 'Test user',
+			'rc_source' => RecentChange::SRC_EDIT,
 		];
 
 		$rc = RecentChange::newFromRow( $row );

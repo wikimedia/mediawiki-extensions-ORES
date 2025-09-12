@@ -126,7 +126,7 @@ class ChangesListHooksHandler implements
 						$conds[] = $condition;
 
 						// Filter out incompatible types; log actions and external rows are not scorable
-						$conds[] = $dbr->expr( 'rc_type', '!=', [ RC_LOG, RC_EXTERNAL ] );
+						$conds['rc_source'] = self::getScorableRecentChangeSources();
 						// Make the joins INNER JOINs instead of LEFT JOINs
 						$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
 						$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
@@ -211,7 +211,7 @@ class ChangesListHooksHandler implements
 						Helpers::hideNonDamagingFilter( $fields, $conds, true, $ctx->getUser(),
 							$ctx->getTitle() );
 						// Filter out incompatible types; log actions and external rows are not scorable
-						$conds[] = $dbr->expr( 'rc_type', '!=', [ RC_LOG, RC_EXTERNAL ] );
+						$conds['rc_source'] = self::getScorableRecentChangeSources();
 						// Filter out patrolled edits: the 'r' doesn't appear for them
 						$conds['rc_patrolled'] = RecentChange::PRC_UNPATROLLED;
 						// Make the joins INNER JOINs instead of LEFT JOINs
@@ -271,7 +271,7 @@ class ChangesListHooksHandler implements
 					$conds[] = $condition;
 
 					// Filter out incompatible types; log actions and external rows are not scorable
-					$conds[] = $dbr->expr( 'rc_type', '!=', [ RC_LOG, RC_EXTERNAL ] );
+					$conds['rc_source'] = self::getScorableRecentChangeSources();
 					// Make the joins INNER JOINs instead of LEFT JOINs
 					$join_conds['ores_goodfaith_mdl'][0] = 'INNER JOIN';
 					$join_conds['ores_goodfaith_cls'][0] = 'INNER JOIN';
@@ -347,7 +347,7 @@ class ChangesListHooksHandler implements
 					$conds[] = $condition;
 
 					// Filter out incompatible types; log actions and external rows are not scorable
-					$conds[] = $dbr->expr( 'rc_type', '!=', [ RC_LOG, RC_EXTERNAL ] );
+					$conds['rc_source'] = self::getScorableRecentChangeSources();
 					// Make the joins INNER JOINs instead of LEFT JOINs
 					$join_conds['ores_revertrisklanguageagnostic_mdl'][0] = 'INNER JOIN';
 					$join_conds['ores_revertrisklanguageagnostic_cls'][0] = 'INNER JOIN';
@@ -651,10 +651,10 @@ class ChangesListHooksHandler implements
 		}
 		$score = $rcObj->getAttribute( 'ores_damaging_score' );
 		$patrolled = $rcObj->getAttribute( 'rc_patrolled' );
-		$type = $rcObj->getAttribute( 'rc_type' );
+		$source = $rcObj->getAttribute( 'rc_source' );
 
 		// Log actions and external rows are not scorable; if such a row does have a score, ignore it
-		if ( !$score || $threshold === null || in_array( $type, [ RC_LOG, RC_EXTERNAL ] ) ) {
+		if ( !$score || $threshold === null || !in_array( $source, self::getScorableRecentChangeSources() ) ) {
 			// Shorten out
 			return false;
 		}
@@ -674,13 +674,20 @@ class ChangesListHooksHandler implements
 	private static function makeApplicableCallback( string $model, array $levelData ) {
 		return static function ( $ctx, RecentChange $rc ) use ( $model, $levelData ) {
 			$score = $rc->getAttribute( "ores_{$model}_score" );
-			$type = $rc->getAttribute( 'rc_type' );
+			$source = $rc->getAttribute( 'rc_source' );
 			// Log actions and external rows are not scorable; if such a row does have a score, ignore it
-			if ( $score === null || in_array( $type, [ RC_LOG, RC_EXTERNAL ] ) ) {
+			if ( $score === null || !in_array( $source, self::getScorableRecentChangeSources() ) ) {
 				return false;
 			}
 			return $levelData['min'] <= $score && $score <= $levelData['max'];
 		};
 	}
 
+	/**
+	 * @return string[]
+	 */
+	private static function getScorableRecentChangeSources() {
+		$primarySources = MediaWikiServices::getInstance()->getRecentChangeLookup()->getPrimarySources();
+		return array_diff( $primarySources, [ RecentChange::SRC_LOG ] );
+	}
 }

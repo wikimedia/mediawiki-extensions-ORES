@@ -3,6 +3,7 @@
 namespace ORES\Maintenance;
 
 use MediaWiki\Maintenance\Maintenance;
+use MediaWiki\RecentChanges\RecentChange;
 use ORES\ServiceError;
 use ORES\Services\ORESServices;
 use ORES\Services\ScoreFetcher;
@@ -80,7 +81,7 @@ class PopulateDatabase extends Maintenance {
 
 		$count = 0;
 		while ( $count < $this->revisionLimit ) {
-			$conditions = [ 'oresc_id' => null, 'rc_type' => [ RC_EDIT, RC_NEW ] ];
+			$conditions = [ 'oresc_id' => null, 'rc_source' => [ RecentChange::SRC_EDIT, RecentChange::SRC_NEW ] ];
 
 			if ( $wgOresExcludeBots === true ) {
 				$conditions['rc_bot'] = 0;
