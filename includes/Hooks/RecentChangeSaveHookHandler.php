@@ -87,9 +87,15 @@ class RecentChangeSaveHookHandler {
 			return false;
 		}
 
-		$acceptedTypes = $config['types'] ?? [ RC_EDIT, RC_NEW ];
-		if ( !in_array( $rc->getAttribute( 'rc_type' ), $acceptedTypes ) ) {
-			return false;
+		if ( isset( $config['types'] ) ) {
+			if ( !in_array( $rc->getAttribute( 'rc_type' ), $config['types'] ) ) {
+				return false;
+			}
+		} else {
+			$acceptedSources = $config['sources'] ?? [ RecentChange::SRC_EDIT, RecentChange::SRC_NEW ];
+			if ( !in_array( $rc->getAttribute( 'rc_source' ), $acceptedSources ) ) {
+				return false;
+			}
 		}
 
 		$ns = $rc->getAttribute( 'rc_namespace' );

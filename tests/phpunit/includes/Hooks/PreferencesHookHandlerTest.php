@@ -2,6 +2,7 @@
 
 namespace ORES\Tests\Hooks;
 
+use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\User\User;
 use ORES\Hooks\PreferencesHookHandler;
 
@@ -37,7 +38,7 @@ class PreferencesHookHandlerTest extends \MediaWikiIntegrationTestCase {
 			'draftquality' => [
 				'enabled' => false,
 				'namespaces' => [ 0 ],
-				'types' => [ 1 ],
+				'sources' => [ RecentChange::SRC_NEW ],
 			],
 		] );
 

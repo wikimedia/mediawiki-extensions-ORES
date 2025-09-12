@@ -3,6 +3,7 @@
 namespace ORES\Tests;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\RecentChanges\RecentChange;
 use ORES\ORESService;
 use ORES\Services\PopulatedSqlModelLookup;
 use ORES\Storage\HashModelLookup;
@@ -62,7 +63,7 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 				'draftquality' => [
 					'enabled' => false,
 					'namespaces' => [ 0 ],
-					'types' => [ 1 ],
+					'sources' => [ RecentChange::SRC_NEW ],
 				],
 			],
 		] );

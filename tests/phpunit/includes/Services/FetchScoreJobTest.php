@@ -2,6 +2,7 @@
 
 namespace ORES\Tests;
 
+use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\Title\Title;
 use ORES\Services\FetchScoreJob;
 use ORES\Services\ScoreFetcher;
@@ -38,7 +39,7 @@ class FetchScoreJobTest extends \MediaWikiIntegrationTestCase {
 				'draftquality' => [
 					'enabled' => false,
 					'namespaces' => [ 0 ],
-					'types' => [ 1 ],
+					'sources' => [ RecentChange::SRC_NEW ],
 				],
 			]
 		] );

@@ -210,8 +210,8 @@
 					"namespaces": [
 						0
 					],
-					"types": [
-						1
+					"sources": [
+						"mw.new"
 					]
 				},
 				"revertrisklanguageagnostic": {

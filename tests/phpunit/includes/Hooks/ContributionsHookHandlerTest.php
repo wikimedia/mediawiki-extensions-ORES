@@ -5,6 +5,7 @@ namespace ORES\Tests;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Pager\ContribsPager;
+use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\User;
 use ORES\Hooks\ContributionsHooksHandler;
@@ -54,7 +55,7 @@ class ContributionsHookHandlerTest extends \MediaWikiIntegrationTestCase {
 				'draftquality' => [
 					'enabled' => false,
 					'namespaces' => [ 0 ],
-					'types' => [ 1 ],
+					'sources' => [ RecentChange::SRC_NEW ],
 				],
 			],
 		] );

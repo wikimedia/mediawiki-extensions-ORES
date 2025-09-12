@@ -22,7 +22,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 				'damaging' => [ 'enabled' => true, 'namespaces' => [ 0, 2 ], 'excludeBots' => true ],
 				'goodfaith' => [ 'enabled' => false ],
 				'articlequality' => [ 'enabled' => true, 'namespaces' => [ 0 ], 'excludeBots' => false ],
-				'draftquality' => [ 'enabled' => true, 'types' => [ RC_NEW ] ],
+				'draftquality' => [ 'enabled' => true, 'sources' => [ RecentChange::SRC_NEW ] ],
 			],
 			'OresExcludeBots' => false,
 		] );
@@ -30,17 +30,17 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 
 	public static function provideOnRecentChange_save() {
 		return [
-			[ 0, 0, RC_EDIT, [ 'damaging', 'articlequality' ] ],
-			[ 2, 0, RC_NEW, [ 'damaging', 'draftquality' ] ],
-			[ 0, 1, RC_EDIT, [ 'articlequality' ] ],
-			[ 2, 0, RC_EDIT, [ 'damaging' ] ],
+			[ 0, 0, RecentChange::SRC_EDIT, [ 'damaging', 'articlequality' ] ],
+			[ 2, 0, RecentChange::SRC_NEW, [ 'damaging', 'draftquality' ] ],
+			[ 0, 1, RecentChange::SRC_EDIT, [ 'articlequality' ] ],
+			[ 2, 0, RecentChange::SRC_EDIT, [ 'damaging' ] ],
 		];
 	}
 
 	/**
 	 * @dataProvider provideOnRecentChange_save
 	 */
-	public function testOnRecentChange_save( $ns, $isBot, $type, $expectedModels ) {
+	public function testOnRecentChange_save( $ns, $isBot, $source, $expectedModels ) {
 		$jobQueueGroup = $this->getServiceContainer()->getJobQueueGroup();
 		$jobQueueGroup->get( 'ORESFetchScoreJob' )->delete();
 		$revId = mt_rand( 1000, 9999 );
@@ -55,7 +55,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 			'rc_bot' => $isBot,
 			'rc_comment_text' => '',
 			'rc_comment_data' => null,
-			'rc_type' => $type,
+			'rc_source' => $source,
 			'rc_this_oldid' => $revId,
 			'rc_user' => 1,
 			'rc_user_text' => 'Test user',
@@ -79,18 +79,18 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 
 	public static function provideOnRecentChange_saveNotQueued() {
 		return [
-			[ 2, 1, RC_EDIT ],
-			[ 1, 0, RC_EDIT ],
-			[ 0, 0, RC_LOG ],
-			[ 0, 1, RC_LOG ],
-			[ 2, 0, RC_LOG ],
+			[ 2, 1, RecentChange::SRC_EDIT ],
+			[ 1, 0, RecentChange::SRC_EDIT ],
+			[ 0, 0, RecentChange::SRC_LOG ],
+			[ 0, 1, RecentChange::SRC_LOG ],
+			[ 2, 0, RecentChange::SRC_LOG ],
 		];
 	}
 
 	/**
 	 * @dataProvider provideOnRecentChange_saveNotQueued
 	 */
-	public function testOnRecentChange_saveNotQueued( $ns, $isBot, $type ) {
+	public function testOnRecentChange_saveNotQueued( $ns, $isBot, $source ) {
 		$jobQueueGroup = $this->getServiceContainer()->getJobQueueGroup();
 		$jobQueueGroup->get( 'ORESFetchScoreJob' )->delete();
 		$revId = mt_rand( 1000, 9999 );
@@ -105,7 +105,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 			'rc_bot' => $isBot,
 			'rc_comment_text' => '',
 			'rc_comment_data' => null,
-			'rc_type' => $type,
+			'rc_source' => $source,
 			'rc_this_oldid' => $revId,
 			'rc_user' => 1,
 			'rc_user_text' => 'Test user',
@@ -130,7 +130,7 @@ class RecentChangeSaveHookHandlerTest extends \MediaWikiIntegrationTestCase {
 			'rc_bot' => 0,
 			'rc_comment_text' => '',
 			'rc_comment_data' => null,
-			'rc_type' => RC_EDIT,
+			'rc_source' => RecentChange::SRC_EDIT,
 			'rc_this_oldid' => $revId,
 			'rc_user' => 1,
 			'rc_user_text' => 'Test user',

@@ -2,6 +2,7 @@
 
 namespace ORES\Tests;
 
+use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\Title\TitleValue;
 use MediaWiki\User\User;
 use MediaWiki\Watchlist\WatchedItem;
@@ -50,7 +51,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 				'draftquality' => [
 					'enabled' => false,
 					'namespaces' => [ 0 ],
-					'types' => [ 1 ],
+					'sources' => [ RecentChange::SRC_NEW ],
 				],
 			],
 		] );

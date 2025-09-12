@@ -49,7 +49,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 			'draftquality' => [
 				'enabled' => false,
 				'namespaces' => [ 0 ],
-				'types' => [ 1 ],
+				'sources' => [ RecentChange::SRC_NEW ],
 			],
 		] );
 
