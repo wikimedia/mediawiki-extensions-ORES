@@ -21,5 +21,7 @@
 	"ores-rcfilters-goodfaith-good-label": "Særs sannsynleg med god intensjon",
 	"ores-rcfilters-goodfaith-maybebad-label": "Kan ha dårleg intensjon",
 	"ores-rcfilters-goodfaith-bad-label": "Sannsynlegvis dårleg intensjon",
-	"ores-rcfilters-goodfaith-verylikelybad-label": "Særs sannsynleg med dårleg intensjon"
+	"ores-rcfilters-goodfaith-verylikelybad-label": "Særs sannsynleg med dårleg intensjon",
+	"ores-rcfilters-revertrisklanguageagnostic-title": "Risiko for attenderulling",
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-label": "Vert sannsynlegvis attenderulla"
 }
