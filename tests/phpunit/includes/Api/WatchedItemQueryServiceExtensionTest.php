@@ -105,7 +105,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 			new Expression( 'oresc_probability', '>', '0.16' ),
 		], $conds );
 		$this->assertEquals( [
-			'ores_classification' => [ 'INNER JOIN', [
+			'ores_classification' => [ 'STRAIGHT_JOIN', [
 				'oresc_rev=rc_this_oldid',
 				'oresc_model' => 5,
 				'oresc_class' => 1,

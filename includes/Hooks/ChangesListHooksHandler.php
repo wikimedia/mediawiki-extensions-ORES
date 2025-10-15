@@ -127,12 +127,9 @@ class ChangesListHooksHandler implements
 
 						// Filter out incompatible types; log actions and external rows are not scorable
 						$conds['rc_source'] = self::getScorableRecentChangeSources();
-						// Make the joins INNER JOINs instead of LEFT JOINs
-						$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
-						$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
-						if ( self::shouldStraightJoin( $specialClassName ) ) {
-							$query_options[] = 'STRAIGHT_JOIN';
-						}
+						// Don't use LEFT JOIN
+						$join_conds['ores_damaging_cls'][0] =
+							self::shouldStraightJoin( $specialClassName ) ? 'STRAIGHT_JOIN' : 'JOIN';
 					}
 				},
 			] );
@@ -214,12 +211,8 @@ class ChangesListHooksHandler implements
 						$conds['rc_source'] = self::getScorableRecentChangeSources();
 						// Filter out patrolled edits: the 'r' doesn't appear for them
 						$conds['rc_patrolled'] = RecentChange::PRC_UNPATROLLED;
-						// Make the joins INNER JOINs instead of LEFT JOINs
-						$join_conds['ores_damaging_mdl'][0] = 'INNER JOIN';
-						$join_conds['ores_damaging_cls'][0] = 'INNER JOIN';
-						if ( self::shouldStraightJoin( $specialClassName ) ) {
-							$query_options[] = 'STRAIGHT_JOIN';
-						}
+						$join_conds['ores_damaging_cls'][0] =
+							self::shouldStraightJoin( $specialClassName ) ? 'STRAIGHT_JOIN' : 'JOIN';
 					},
 				]
 			],
@@ -272,12 +265,9 @@ class ChangesListHooksHandler implements
 
 					// Filter out incompatible types; log actions and external rows are not scorable
 					$conds['rc_source'] = self::getScorableRecentChangeSources();
-					// Make the joins INNER JOINs instead of LEFT JOINs
-					$join_conds['ores_goodfaith_mdl'][0] = 'INNER JOIN';
-					$join_conds['ores_goodfaith_cls'][0] = 'INNER JOIN';
-					if ( self::shouldStraightJoin( $specialClassName ) ) {
-						$query_options[] = 'STRAIGHT_JOIN';
-					}
+					// Don't use LEFT JOIN
+					$join_conds['ores_goodfaith_cls'][0] =
+						self::shouldStraightJoin( $specialClassName ) ? 'STRAIGHT_JOIN' : 'JOIN';
 				}
 			},
 		] );
@@ -348,12 +338,9 @@ class ChangesListHooksHandler implements
 
 					// Filter out incompatible types; log actions and external rows are not scorable
 					$conds['rc_source'] = self::getScorableRecentChangeSources();
-					// Make the joins INNER JOINs instead of LEFT JOINs
-					$join_conds['ores_revertrisklanguageagnostic_mdl'][0] = 'INNER JOIN';
-					$join_conds['ores_revertrisklanguageagnostic_cls'][0] = 'INNER JOIN';
-					if ( self::shouldStraightJoin( $specialClassName ) ) {
-						$query_options[] = 'STRAIGHT_JOIN';
-					}
+					// Don't use LEFT JOIN
+					$join_conds['ores_revertrisklanguageagnostic_cls'][0] =
+						self::shouldStraightJoin( $specialClassName ) ? 'STRAIGHT_JOIN' : 'JOIN';
 				}
 			},
 		] );
@@ -376,7 +363,7 @@ class ChangesListHooksHandler implements
 		// Performance hack: add STRAIGHT_JOIN (T146111) but not for Watchlist (T176456 / T164796)
 		// New theory is that STRAIGHT JOIN should be used for unfiltered queries (RecentChanges)
 		// but not for filtered queries (Watchlist and RecentChangesLinked) (T179718)
-		return $specialClassName === 'SpecialRecentChanges';
+		return $specialClassName === SpecialRecentChanges::class;
 	}
 
 	private static function getDamagingStructuredFiltersOnChangesList( array $damagingLevels ): array {

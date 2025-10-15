@@ -147,13 +147,11 @@ class Helpers {
 		$tables[] = 'ores_classification';
 
 		if ( $showReviewed ) {
-			$join = 'INNER JOIN';
+			// Performance hack: use STRAIGHT_JOIN (T146111)
+			$join = 'STRAIGHT_JOIN';
 
 			// Filter out non-damaging and unscored edits.
 			$conds[] = $dbr->expr( 'oresc_probability', '>', $threshold );
-
-			// Performance hack: add STRAIGHT_JOIN (T146111)
-			$options[] = 'STRAIGHT_JOIN';
 		} else {
 			$join = 'LEFT JOIN';
 
