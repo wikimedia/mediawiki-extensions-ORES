@@ -5,7 +5,6 @@ namespace ORES\Tests;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\SpecialPage\SpecialPage;
-use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use ORES\Hooks\Helpers;
 use ORES\ORESService;
@@ -52,8 +51,7 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 
 	public function testGetDamagingLevelPreference_Watchlist() {
 		$level =
-			Helpers::getDamagingLevelPreference( $this->user,
-				Title::newFromText( 'Watchlist', NS_SPECIAL ) );
+			Helpers::getDamagingLevelPreference( $this->user, true );
 
 		$this->assertEquals( 'maybebad', $level );
 	}
@@ -69,7 +67,7 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 			->willReturn( [] );
 
 		$this->setService( 'ORESThresholdLookup', $mock );
-		$threshold = Helpers::getThreshold( 'damaging', $this->user );
+		$threshold = Helpers::getThreshold( 'damaging', $this->user, false );
 
 		$this->assertNull( $threshold );
 	}
@@ -77,7 +75,7 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 	public function testGetThreshold_invalid() {
 		$this->expectException( \InvalidArgumentException::class );
 		$this->expectExceptionMessage( "Unknown ORES test: 'not_a_thing'" );
-		Helpers::getThreshold( 'not_a_thing', $this->user );
+		Helpers::getThreshold( 'not_a_thing', $this->user, false );
 	}
 
 	public function testGetThreshold() {
@@ -88,13 +86,13 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 
 		$userOptionsManager->setOption( $this->user, 'rcOresDamagingPref', 'maybebad' );
 		$this->assertSame(
-			0.16, Helpers::getThreshold( 'damaging', $this->user, $this->context->getTitle() )
+			0.16, Helpers::getThreshold( 'damaging', $this->user, false )
 		);
 
 		// b/c
 		$userOptionsManager->setOption( $this->user, 'rcOresDamagingPref', 'soft' );
 		$this->assertSame(
-			0.56, Helpers::getThreshold( 'damaging', $this->user, $this->context->getTitle() )
+			0.56, Helpers::getThreshold( 'damaging', $this->user, false )
 		);
 	}
 
@@ -144,7 +142,7 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 
 		$fields = [];
 		$conds = [];
-		Helpers::hideNonDamagingFilter( $fields, $conds, true, $this->user );
+		Helpers::hideNonDamagingFilter( $fields, $conds, true, $this->user, true );
 
 		$this->assertEquals( [
 			'ores_damaging_threshold' => 0.16,

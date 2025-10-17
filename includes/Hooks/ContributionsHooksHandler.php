@@ -50,7 +50,7 @@ class ContributionsHooksHandler implements
 			) {
 				Helpers::hideNonDamagingFilter( $query['fields'], $query['conds'],
 					self::hideNonDamagingPreference( $pager->getContext() ), $pager->getUser(),
-					$pager->getTitle() );
+					false );
 			}
 		}
 	}

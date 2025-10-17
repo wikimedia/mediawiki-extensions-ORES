@@ -120,7 +120,9 @@ class ApiHooksHandler implements
 	) {
 		$params = $module->extractRequestParams();
 
-		if ( $module instanceof ApiQueryRecentChanges ) {
+		if ( $module instanceof ApiQueryRecentChanges
+			|| $module instanceof ApiQueryWatchlist
+		) {
 			$field = 'rc_this_oldid';
 
 			// Make sure the needed fields are included in the query, if necessary
@@ -148,10 +150,7 @@ class ApiHooksHandler implements
 				isset( $show['oresreview'] ),
 				$field,
 				$module->getUser(),
-				// FIXME: this is not a useful title to pass, since it is just compared with
-				// Special:Watchlist to determine whether to use RC or WL user prefs. But this
-				// will return Special:Badtitle.
-				$module->getTitle(),
+				$module instanceof ApiQueryWatchlist,
 				$tables, $conds, $options, $joinConds );
 		}
 	}
@@ -195,7 +194,9 @@ class ApiHooksHandler implements
 		) {
 			$field = 'rev_id';
 			$checkRCType = false;
-		} elseif ( $module instanceof ApiQueryRecentChanges ) {
+		} elseif ( $module instanceof ApiQueryRecentChanges ||
+			$module instanceof ApiQueryWatchlist
+		) {
 			$field = 'rc_this_oldid';
 			$checkRCType = true;
 		} else {

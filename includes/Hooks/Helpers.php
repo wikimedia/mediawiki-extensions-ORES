@@ -43,14 +43,14 @@ class Helpers {
 	 * @param array &$conds
 	 * @param bool $hidenondamaging
 	 * @param UserIdentity $user
-	 * @param ?Title $title
+	 * @param bool $isWatchlist
 	 */
 	public static function hideNonDamagingFilter(
-		array &$fields, array &$conds, $hidenondamaging, UserIdentity $user, ?Title $title = null
+		array &$fields, array &$conds, $hidenondamaging, UserIdentity $user, bool $isWatchlist
 	) {
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		// Add user-based threshold
-		$threshold = self::getThreshold( 'damaging', $user, $title );
+		$threshold = self::getThreshold( 'damaging', $user, $isWatchlist );
 		if ( $threshold === null ) {
 			return;
 		}
@@ -112,7 +112,7 @@ class Helpers {
 	 * @param bool $showReviewed True for show=oresreview, false for show=!oresreview
 	 * @param string $revField The field to join on oresc_rev
 	 * @param UserIdentity $user The user to get preferences for
-	 * @param Title|null $title FIXME used to determine whether WL or RC prefs should be used
+	 * @param bool $isWatchlist
 	 * @param array &$tables tables to be queried
 	 * @param array &$conds WHERE conditionals for query
 	 * @param array &$options options for the database request
@@ -123,7 +123,7 @@ class Helpers {
 		bool $showReviewed,
 		string $revField,
 		UserIdentity $user,
-		?Title $title,
+		bool $isWatchlist,
 		&$tables, &$conds, &$options, &$joinConds
 	) {
 		if ( !self::isModelEnabled( 'damaging' ) ) {
@@ -138,7 +138,7 @@ class Helpers {
 		}
 
 		$threshold =
-			self::getThreshold( 'damaging', $user, $title );
+			self::getThreshold( 'damaging', $user, $isWatchlist );
 		if ( $threshold === null ) {
 			// Threshold not found -- don't add condition
 			return;
@@ -254,12 +254,12 @@ class Helpers {
 	 * Internal helper to get threshold
 	 * @param string $type
 	 * @param UserIdentity $user
-	 * @param Title|null $title
+	 * @param bool $isWatchlist
 	 * @return float|null Threshold, or null if not set
 	 */
-	public static function getThreshold( $type, UserIdentity $user, ?Title $title = null ) {
+	public static function getThreshold( $type, UserIdentity $user, bool $isWatchlist ) {
 		if ( $type === 'damaging' ) {
-			$pref = self::getDamagingLevelPreference( $user, $title );
+			$pref = self::getDamagingLevelPreference( $user, $isWatchlist );
 			$thresholds = self::getDamagingThresholds();
 			if ( isset( $thresholds[$pref] ) ) {
 				return $thresholds[$pref];
@@ -274,11 +274,11 @@ class Helpers {
 	 * Internal helper to get damaging level preference
 	 * with backward compatibility for old level names
 	 * @param UserIdentity $user
-	 * @param Title|null $title
+	 * @param bool $isWatchlist
 	 * @return string 'maybebad', 'likelybad', or 'verylikelybad'
 	 */
-	public static function getDamagingLevelPreference( UserIdentity $user, ?Title $title = null ) {
-		$option = !$title || self::isWLPage( $title ) ? 'oresDamagingPref' : 'rcOresDamagingPref';
+	public static function getDamagingLevelPreference( UserIdentity $user, bool $isWatchlist ) {
+		$option = $isWatchlist ? 'oresDamagingPref' : 'rcOresDamagingPref';
 		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 		$pref = $userOptionsLookup->getOption( $user, $option );
 		if ( isset( self::$damagingPrefMap[$pref] ) ) {
@@ -292,7 +292,7 @@ class Helpers {
 	 * @param Title $title
 	 * @return bool Whether $title is the Watchlist page
 	 */
-	private static function isWLPage( Title $title ) {
+	public static function isWLPage( Title $title ) {
 		return $title->isSpecial( 'Watchlist' );
 	}
 

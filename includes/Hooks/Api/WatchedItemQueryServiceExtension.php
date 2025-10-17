@@ -65,7 +65,7 @@ class WatchedItemQueryServiceExtension implements MWWatchedItemQueryServiceExten
 		if ( isset( $show['oresreview'] ) || isset( $show['!oresreview'] ) ) {
 			Helpers::maybeAddOresReviewConds(
 				$db, isset( $show['oresreview'] ), 'rc_this_oldid',
-				$user, null,
+				$user, true,
 				$tables, $conds, $dbOptions, $joinConds
 			);
 		}

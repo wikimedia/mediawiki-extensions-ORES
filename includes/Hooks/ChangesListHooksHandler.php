@@ -162,7 +162,7 @@ class ChangesListHooksHandler implements
 
 			if ( $damagingDefault ) {
 				$newDamagingGroup->setDefault( Helpers::getDamagingLevelPreference( $clsp->getUser(),
-					$clsp->getPageTitle() ) );
+					$clsp instanceof SpecialWatchlist ) );
 			}
 
 			if ( $highlightDefault ) {
@@ -174,7 +174,7 @@ class ChangesListHooksHandler implements
 
 				$prefLevel = Helpers::getDamagingLevelPreference(
 					$clsp->getUser(),
-					$clsp->getPageTitle()
+					$clsp instanceof SpecialWatchlist
 				);
 				$allLevels = array_keys( $levelsColors );
 				$applicableLevels = array_slice( $allLevels, array_search( $prefLevel, $allLevels ) );
@@ -206,7 +206,7 @@ class ChangesListHooksHandler implements
 						&$tables, &$fields, &$conds, &$query_options, &$join_conds
 					) {
 						Helpers::hideNonDamagingFilter( $fields, $conds, true, $ctx->getUser(),
-							$ctx->getTitle() );
+							$specialClassName === SpecialWatchlist::class );
 						// Filter out incompatible types; log actions and external rows are not scorable
 						$conds['rc_source'] = self::getScorableRecentChangeSources();
 						// Filter out patrolled edits: the 'r' doesn't appear for them
@@ -633,8 +633,8 @@ class ChangesListHooksHandler implements
 	public static function getScoreRecentChangesList( RecentChange $rcObj, IContextSource $context ) {
 		$threshold = $rcObj->getAttribute( 'ores_damaging_threshold' );
 		if ( $threshold === null ) {
-			$threshold =
-				Helpers::getThreshold( 'damaging', $context->getUser(), $context->getTitle() );
+			$threshold = Helpers::getThreshold( 'damaging', $context->getUser(),
+				Helpers::isWLPage( $context->getTitle() ) );
 		}
 		$score = $rcObj->getAttribute( 'ores_damaging_score' );
 		$patrolled = $rcObj->getAttribute( 'rc_patrolled' );
