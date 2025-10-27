@@ -3,7 +3,6 @@
 namespace ORES\Tests\Api;
 
 use MediaWiki\Linker\LinkTarget;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Tests\Api\ApiTestCase;
 use MediaWiki\Title\TitleValue;
 use MediaWiki\User\User;
@@ -207,17 +206,19 @@ class ApiIntegrationTest extends ApiTestCase {
 		$this->assertSame( $status->getValue()['revision-record']->getId(), $item['revid'] );
 	}
 
-	private function getWatchedItemStore() {
-		return MediaWikiServices::getInstance()->getWatchedItemStore();
-	}
-
 	/**
 	 * @param UserIdentity $user
 	 * @param LinkTarget[] $targets
 	 */
 	private function watchPages( UserIdentity $user, array $targets ) {
-		$store = $this->getWatchedItemStore();
-		$store->addWatchBatchForUser( $user, $targets );
+		$services = $this->getServiceContainer();
+		$pageStore = $services->getPageStore();
+		$watchedItemStore = $services->getWatchedItemStore();
+		$pages = [];
+		foreach ( $targets as $target ) {
+			$pages[] = $pageStore->getPageForLink( $target );
+		}
+		$watchedItemStore->addWatchBatchForUser( $user, $pages );
 	}
 
 	private function doListWatchlistRequest( array $params = [], $user = null ) {
