@@ -88,6 +88,11 @@ class RecentChangeSaveHookHandler {
 		}
 
 		if ( isset( $config['types'] ) ) {
+			wfDeprecatedMsg(
+				'Configuring ORES models with "types" is deprecated, use "sources" instead',
+				'1.45',
+				'ORES'
+			);
 			if ( !in_array( $rc->getAttribute( 'rc_type' ), $config['types'] ) ) {
 				return false;
 			}
