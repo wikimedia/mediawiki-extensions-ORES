@@ -32,11 +32,8 @@ use MediaWiki\Api\Hook\ApiQueryBaseAfterQueryHook;
 use MediaWiki\Api\Hook\ApiQueryBaseBeforeQueryHook;
 use MediaWiki\Api\Hook\ApiQueryBaseProcessRowHook;
 use MediaWiki\Api\Hook\ApiQueryWatchlistExtractOutputDataHook;
-use MediaWiki\Api\Hook\ApiQueryWatchlistPrepareWatchedItemQueryServiceOptionsHook;
-use MediaWiki\Hook\WatchedItemQueryServiceExtensionsHook;
 use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\Watchlist\WatchedItem;
-use MediaWiki\Watchlist\WatchedItemQueryService;
 use ORES\Hooks\Helpers;
 use ORES\Services\ORESServices;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -48,9 +45,7 @@ class ApiHooksHandler implements
 	ApiQueryBaseBeforeQueryHook,
 	ApiQueryBaseAfterQueryHook,
 	ApiQueryBaseProcessRowHook,
-	ApiQueryWatchlistExtractOutputDataHook,
-	ApiQueryWatchlistPrepareWatchedItemQueryServiceOptionsHook,
-	WatchedItemQueryServiceExtensionsHook
+	ApiQueryWatchlistExtractOutputDataHook
 {
 
 	private IConnectionProvider $dbProvider;
@@ -334,37 +329,12 @@ class ApiHooksHandler implements
 	}
 
 	/**
-	 * Convert API parameters to WatchedItemQueryService options
-	 *
-	 * @param ApiQueryBase $module
-	 * @param array $params
-	 * @param array &$options
-	 */
-	public function onApiQueryWatchlistPrepareWatchedItemQueryServiceOptions(
-		$module, $params, &$options
-	) {
-		if ( in_array( 'oresscores', $params['prop'], true ) ) {
-			$options['includeFields'][] = 'oresscores';
-		}
-
-		$show = array_flip( $params['show'] ?? [] );
-		if ( isset( $show['oresreview'] ) || isset( $show['!oresreview'] ) ) {
-			if ( isset( $show['oresreview'] ) && isset( $show['!oresreview'] ) ) {
-				$module->dieWithError( 'apierror-show' );
-			}
-
-			$options['filters'][] = isset( $show['oresreview'] ) ? 'oresreview' : '!oresreview';
-		}
-	}
-
-	/**
 	 * Add data to ApiQueryWatchlist output
 	 *
 	 * @param ApiQueryBase $module
 	 * @param WatchedItem $watchedItem
 	 * @param array $recentChangeInfo
 	 * @param array &$output
-	 * @suppress PhanParamSignatureMismatch https://github.com/phan/phan/issues/5044
 	 */
 	public function onApiQueryWatchlistExtractOutputData(
 		$module, $watchedItem, $recentChangeInfo, &$output
@@ -378,13 +348,5 @@ class ApiHooksHandler implements
 			}
 			self::addScoresForAPI( $output, $recentChangeInfo['oresScores'], $models );
 		}
-	}
-
-	/**
-	 * @param array &$extensions
-	 * @param WatchedItemQueryService $watchedItemQueryService
-	 */
-	public function onWatchedItemQueryServiceExtensions( &$extensions, $watchedItemQueryService ) {
-		$extensions[] = new WatchedItemQueryServiceExtension();
 	}
 }

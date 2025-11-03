@@ -39,8 +39,6 @@
 		"ApiQueryBaseAfterQuery": "api",
 		"ApiQueryBaseProcessRow": "api",
 		"ApiQueryWatchlistExtractOutputData": "api",
-		"ApiQueryWatchlistPrepareWatchedItemQueryServiceOptions": "api",
-		"WatchedItemQueryServiceExtensions": "api",
 		"BeforePageDisplay": "main",
 		"ChangesListSpecialPageStructuredFilters": "changeslist",
 		"ChangesListSpecialPageQuery": "changeslist",
