@@ -2,6 +2,7 @@
 
 namespace ORES\Tests;
 
+use MediaWiki\Page\PageReferenceValue;
 use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\Title\TitleValue;
 use MediaWiki\User\User;
@@ -177,7 +178,7 @@ class WatchedItemQueryServiceExtensionTest extends \MediaWikiIntegrationTestCase
 		$items = [
 			[
 				new WatchedItem( $this->user,
-					new TitleValue( NS_MAIN, 'Test123' ),
+					PageReferenceValue::localReference( NS_MAIN, 'Test123' ),
 					'201801020304' ),
 				[
 					'rc_source' => RecentChange::SRC_NEW,
