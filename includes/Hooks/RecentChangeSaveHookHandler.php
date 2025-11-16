@@ -88,19 +88,12 @@ class RecentChangeSaveHookHandler {
 		}
 
 		if ( isset( $config['types'] ) ) {
-			wfDeprecatedMsg(
-				'Configuring ORES models with "types" is deprecated, use "sources" instead',
-				'1.45',
-				'ORES'
-			);
-			if ( !in_array( $rc->getAttribute( 'rc_type' ), $config['types'] ) ) {
-				return false;
-			}
-		} else {
-			$acceptedSources = $config['sources'] ?? [ RecentChange::SRC_EDIT, RecentChange::SRC_NEW ];
-			if ( !in_array( $rc->getAttribute( 'rc_source' ), $acceptedSources ) ) {
-				return false;
-			}
+			wfWarn( 'Configuring ORES models with "types" is no longer supported. Use "sources" instead.' );
+		}
+
+		$acceptedSources = $config['sources'] ?? [ RecentChange::SRC_EDIT, RecentChange::SRC_NEW ];
+		if ( !in_array( $rc->getAttribute( 'rc_source' ), $acceptedSources ) ) {
+			return false;
 		}
 
 		$ns = $rc->getAttribute( 'rc_namespace' );
