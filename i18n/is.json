@@ -14,5 +14,6 @@
 	"ores-rcfilters-revertrisklanguageagnostic-whats-this-header": "Um RevertRisk greiningu",
 	"ores-rcfilters-revertrisklanguageagnostic-whats-this-body": "Þessi greining á líkindum þess að breyting verði afturkölluð byggir á vélanámi þar sem byggt er á sögulegum gögnum um afturkallanir til þess að meta líkur á því að tiltekin breyting verði afturkölluð.",
 	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-label": "Verður líklega afturkölluð",
-	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc": "Greinir breytingar sem líklegt er að verði afturkallaðar en leggur ekki mat á ásetning notandans."
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc": "Greinir breytingar sem líklegt er að verði afturkallaðar en leggur ekki mat á ásetning notandans.",
+	"oresmodels": "Tölfræði ORES-líkans"
 }
