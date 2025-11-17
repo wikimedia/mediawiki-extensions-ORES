@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Red Winged Duck",
-			"Renessaince"
+			"Renessaince",
+			"Ucukor"
 		]
 	},
 	"ores-desc": "Паказваць у інтэрфэйсе аўтаматычныя ацэнкі рэдагаваньняў",
-	"ores-damaging-filter": "$1 верагодна добрыя рэдагаваньні",
+	"ores-damaging-filter": "$1 імаверна добрыя рэдагаваньні",
 	"ores-damaging-letter": "п",
 	"ores-damaging-title": "Рэдагаваньне патрабуе праверкі",
 	"ores-damaging-legend": "Гэтая праўка можа мець праблемы і мае быць правераная ([[:mw:Special:MyLanguage/ORES review tool|больш зьвестак]])",
