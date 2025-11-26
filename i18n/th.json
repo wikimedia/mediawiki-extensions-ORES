@@ -9,7 +9,7 @@
 	"ores-damaging-filter": "$1การแก้ไขที่อาจไม่เป็นปัญหา",
 	"ores-damaging-letter": "?",
 	"ores-damaging-title": "การแก้ไขนี้ต้องการการตรวจสอบ",
-	"ores-damaging-legend": "การแก้ไขนี้อาจมีปัญหาและต้องได้รับการตรวจสอบ ([[:mw:Special:MyLanguage/ORES review tool|ข้อมูลเพิ่มเติม]])",
+	"ores-damaging-legend": "การแก้ไขนี้อาจเป็นปัญหาและควรได้รับการตรวจสอบ ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool ข้อมูลเพิ่มเติม])",
 	"ores-hide-nondamaging-filter": "ซ่อนการแก้ไขที่อาจไม่เป็นปัญหา",
 	"ores-pref-damaging": "ระดับความเสียหาย",
 	"ores-pref-damaging-flag": "เน้นสีการแก้ไขที่ดูคล้ายจะมีปัญหา และสัญลักษณ์ \"{{int:ores-damaging-letter}}\" หมายถึง \"ต้องการการตรวจสอบ\"",
@@ -31,5 +31,16 @@
 	"ores-rcfilters-damaging-likelybad-label": "ดูเหมือนจะเป็นปัญหา",
 	"ores-rcfilters-damaging-likelybad-desc-low": "ด้วยความน่าจะเป็นระดับปานกลาง และจะพบส่วนที่อาจเป็นปัญหาโดยส่วนใหญ่",
 	"ores-rcfilters-damaging-likelybad-desc-high": "ด้วยความน่าจะเป็นระดับสูง ค้นหาการแก้ไขส่วนใหญ่ที่เป็นปัญหา",
-	"ores-rcfilters-damaging-verylikelybad-label": "ดูเหมือนจะมีปัญหา"
+	"ores-rcfilters-damaging-verylikelybad-label": "ดูเหมือนจะมีปัญหา",
+	"ores-rcfilters-damaging-verylikelybad-desc": "มีความเป็นไปได้สูงมากที่จะพบการแก้ไขที่เป็นโทษ",
+	"ores-rcfilters-goodfaith-title": "การคาดการณ์เจตนาของผู้ใช้",
+	"ores-rcfilters-goodfaith-whats-this-header": "เกี่ยวกับการคาดการณ์เจตนาผู้ใช้",
+	"ores-rcfilters-goodfaith-good-label": "เป็นไปได้สูงว่าเจตนาดี",
+	"ores-rcfilters-goodfaith-good-desc": "จะพบการแก้ไขที่เป็นไปได้สูงว่าเจตนาดีและความแม่นยำสูง",
+	"ores-rcfilters-goodfaith-maybebad-label": "อาจเจตนาไม่ดี",
+	"ores-rcfilters-goodfaith-maybebad-desc": "หาการแก้ไขที่น่าจะเจตนาไม่ดีแต่ความแม่นยำต่ำลงมา",
+	"ores-rcfilters-goodfaith-bad-label": "เป็นไปได้สูงว่าเจตนาร้าย",
+	"ores-rcfilters-goodfaith-bad-desc-low": "หาการแก้ไขที่กึ่ง ๆ ว่าเจตนาดีหรือร้ายด้วยความมั่นใจปานกลาง",
+	"ores-rcfilters-revertrisklanguageagnostic-title": "ความเป็นไปได้ที่จะถูกย้อน",
+	"ores-rcfilters-revertrisklanguageagnostic-whats-this-header": "เกี่ยวกับความเป็นไปได้ในการย้อน"
 }
