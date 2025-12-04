@@ -9,7 +9,8 @@
 			"WhitePhosphorus",
 			"Yfdyh000",
 			"夢蝶葬花",
-			"沈澄心"
+			"沈澄心",
+			"Peterxy12"
 		]
 	},
 	"ores-desc": "提供自动化的修订评分接口",
@@ -55,6 +56,8 @@
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "以极高精度查找出大多数明显存在恶意的编辑。",
 	"ores-rcfilters-revertrisklanguageagnostic-title": "被回退的风险",
 	"ores-rcfilters-revertrisklanguageagnostic-whats-this-header": "关于RevertRisk预测",
+	"ores-rcfilters-revertrisklanguageagnostic-whats-this-body": "这些关于回退风险的预测是基于机器学习服务，该服务使用修订内容和诠释数据，来预测修订被回退的风险",
+	"ores-rcfilters-revertrisklanguageagnostic-conflicts-logactions": "RevertRisk预测对于某些更改类型为不可用，所以此筛选与以下更改类型{{PLURAL:$2|筛选}}发生冲突：$1",
 	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-label": "可能会被回退",
 	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc": "检测可能会被回退的修订，但不评估用户的意图。",
 	"ores-pref-highlight": "将很可能有问题的编辑用颜色标出并标记“{{int:ores-damaging-letter}}”来表示“需要复核”",
@@ -67,5 +70,6 @@
 	"ores-specialoresmodels-header-precision": "精确度",
 	"ores-specialoresmodels-header-recall": "召回率",
 	"ores-specialoresmodels-header-thresholdrange": "阈值范围",
-	"ores-api-show-note": "当使用<kbd>oresreview</kbd>或<kbd>!oresreview</kbd>时，没有分数的修订版本（例如非常旧的修订版本）会被视作不需要复核，即便在其被评分后需要复核。"
+	"ores-api-show-note": "当使用<kbd>oresreview</kbd>或<kbd>!oresreview</kbd>时，没有分数的修订版本（例如非常旧的修订版本）会被视作不需要复核，即便在其被评分后需要复核。",
+	"abusefilter-edit-builder-vars-revertrisk-level": "此编辑被回退的可能性（“高”或“未知”），由RevertRisk LanguageAgnostic模型确定（$1）"
 }
