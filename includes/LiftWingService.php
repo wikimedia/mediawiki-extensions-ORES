@@ -36,21 +36,15 @@ use Wikimedia\Stats\StatsFactory;
 class LiftWingService extends ORESService {
 
 	public const API_VERSION = 1;
-	private UserIdentityUtils $userIdentityUtils;
-	private Config $config;
-	private StatsFactory $statsFactory;
 
 	public function __construct(
 		LoggerInterface $logger,
 		HttpRequestFactory $httpRequestFactory,
-		UserIdentityUtils $userIdentityUtils,
-		Config $config,
-		StatsFactory $statsFactory
+		private readonly UserIdentityUtils $userIdentityUtils,
+		private readonly Config $config,
+		private readonly StatsFactory $statsFactory,
 	) {
 		parent::__construct( $logger, $httpRequestFactory );
-		$this->userIdentityUtils = $userIdentityUtils;
-		$this->config = $config;
-		$this->statsFactory = $statsFactory;
 	}
 
 	/**

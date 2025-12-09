@@ -24,21 +24,12 @@ use Psr\Log\LoggerInterface;
 
 class PopulatedSqlModelLookup implements ModelLookup {
 
-	private ModelLookup $modelLookup;
-	private ORESService $ORESService;
-	private LoggerInterface $logger;
-	private bool $useLiftWing;
-
 	public function __construct(
-		ModelLookup $modelLookup,
-		ORESService $ORESService,
-		LoggerInterface $logger,
-		bool $useLiftWing
+		private readonly ModelLookup $modelLookup,
+		private readonly ORESService $ORESService,
+		private readonly LoggerInterface $logger,
+		private readonly bool $useLiftWing,
 	) {
-		$this->modelLookup = $modelLookup;
-		$this->ORESService = $ORESService;
-		$this->logger = $logger;
-		$this->useLiftWing = $useLiftWing;
 	}
 
 	/**

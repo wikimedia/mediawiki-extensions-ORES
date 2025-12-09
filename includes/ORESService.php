@@ -31,26 +31,10 @@ class ORESService {
 
 	public const API_VERSION = 3;
 
-	/**
-	 * @var LoggerInterface
-	 */
-	protected $logger;
-
-	/**
-	 * @var HttpRequestFactory
-	 */
-	protected $httpRequestFactory;
-
-	/**
-	 * @param LoggerInterface $logger
-	 * @param HttpRequestFactory $httpRequestFactory
-	 */
 	public function __construct(
-		LoggerInterface $logger,
-		HttpRequestFactory $httpRequestFactory
+		protected readonly LoggerInterface $logger,
+		protected readonly HttpRequestFactory $httpRequestFactory,
 	) {
-		$this->logger = $logger;
-		$this->httpRequestFactory = $httpRequestFactory;
 	}
 
 	/**

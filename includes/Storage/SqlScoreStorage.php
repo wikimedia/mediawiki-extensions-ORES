@@ -21,18 +21,11 @@ use Wikimedia\Rdbms\IConnectionProvider;
 
 class SqlScoreStorage implements ScoreStorage {
 
-	private IConnectionProvider $dbProvider;
-	private ModelLookup $modelLookup;
-	private LoggerInterface $logger;
-
 	public function __construct(
-		IConnectionProvider $dbProvider,
-		ModelLookup $modelLookup,
-		LoggerInterface $logger
+		private readonly IConnectionProvider $dbProvider,
+		private readonly ModelLookup $modelLookup,
+		private readonly LoggerInterface $logger,
 	) {
-		$this->dbProvider = $dbProvider;
-		$this->modelLookup = $modelLookup;
-		$this->logger = $logger;
 	}
 
 	/**

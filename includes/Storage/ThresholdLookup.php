@@ -26,66 +26,15 @@ use Wikimedia\Stats\IBufferingStatsdDataFactory;
 
 class ThresholdLookup {
 
-	/**
-	 * @var ThresholdParser
-	 */
-	protected $thresholdParser;
-
-	/**
-	 * @var ModelLookup
-	 */
-	private $modelLookup;
-
-	/**
-	 * @var ORESService
-	 */
-	private $oresService;
-
-	/**
-	 * @var WANObjectCache
-	 */
-	private $cache;
-
-	/**
-	 * @var LoggerInterface
-	 */
-	private $logger;
-
-	/**
-	 * @var IBufferingStatsdDataFactory
-	 */
-	private $statsdDataFactory;
-
-	/**
-	 * @var Config
-	 */
-	protected $mainConfig;
-
-	/**
-	 * @param ThresholdParser $thresholdParser
-	 * @param ModelLookup $modelLookup
-	 * @param ORESService $oresService
-	 * @param WANObjectCache $cache
-	 * @param LoggerInterface $logger
-	 * @param IBufferingStatsdDataFactory $statsdDataFactory
-	 * @param Config $mainConfig
-	 */
 	public function __construct(
-		ThresholdParser $thresholdParser,
-		ModelLookup $modelLookup,
-		ORESService $oresService,
-		WANObjectCache $cache,
-		LoggerInterface $logger,
-		IBufferingStatsdDataFactory $statsdDataFactory,
-		Config $mainConfig
+		private readonly ThresholdParser $thresholdParser,
+		private readonly ModelLookup $modelLookup,
+		private readonly ORESService $oresService,
+		private readonly WANObjectCache $cache,
+		private readonly LoggerInterface $logger,
+		private readonly IBufferingStatsdDataFactory $statsdDataFactory,
+		private readonly Config $mainConfig,
 	) {
-		$this->thresholdParser = $thresholdParser;
-		$this->modelLookup = $modelLookup;
-		$this->oresService = $oresService;
-		$this->cache = $cache;
-		$this->logger = $logger;
-		$this->statsdDataFactory = $statsdDataFactory;
-		$this->mainConfig = $mainConfig;
 	}
 
 	/**

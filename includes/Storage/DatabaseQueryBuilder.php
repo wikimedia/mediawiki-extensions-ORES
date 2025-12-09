@@ -22,12 +22,10 @@ use Wikimedia\Rdbms\IReadableDatabase;
 
 class DatabaseQueryBuilder {
 
-	private ThresholdLookup $thresholdLookup;
-	private IReadableDatabase $db;
-
-	public function __construct( ThresholdLookup $thresholdLookup, IReadableDatabase $db ) {
-		$this->thresholdLookup = $thresholdLookup;
-		$this->db = $db;
+	public function __construct(
+		private readonly ThresholdLookup $thresholdLookup,
+		private readonly IReadableDatabase $db,
+	) {
 	}
 
 	/**

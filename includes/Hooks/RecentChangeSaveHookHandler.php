@@ -26,23 +26,10 @@ use Psr\Log\LoggerInterface;
 
 class RecentChangeSaveHookHandler {
 
-	/**
-	 * @var LoggerInterface
-	 */
-	private $logger;
-
-	/**
-	 * @var WebRequest
-	 */
-	private $request;
-
-	/**
-	 * @param LoggerInterface $logger
-	 * @param WebRequest $request
-	 */
-	public function __construct( LoggerInterface $logger, WebRequest $request ) {
-		$this->logger = $logger;
-		$this->request = $request;
+	public function __construct(
+		private readonly LoggerInterface $logger,
+		private readonly WebRequest $request,
+	) {
 	}
 
 	/**

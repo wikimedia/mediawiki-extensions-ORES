@@ -48,10 +48,9 @@ class ApiHooksHandler implements
 	ApiQueryWatchlistExtractOutputDataHook
 {
 
-	private IConnectionProvider $dbProvider;
-
-	public function __construct( IConnectionProvider $dbProvider ) {
-		$this->dbProvider = $dbProvider;
+	public function __construct(
+		private readonly IConnectionProvider $dbProvider,
+	) {
 	}
 
 	/**

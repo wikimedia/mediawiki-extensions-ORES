@@ -21,15 +21,10 @@ use Wikimedia\Rdbms\IResultWrapper;
 
 class SqlScoreLookup implements StorageScoreLookup {
 
-	private ModelLookup $modelLookup;
-	private IConnectionProvider $dbProvider;
-
 	public function __construct(
-		ModelLookup $modelLookup,
-		IConnectionProvider $dbProvider
+		private readonly ModelLookup $modelLookup,
+		private readonly IConnectionProvider $dbProvider,
 	) {
-		$this->modelLookup = $modelLookup;
-		$this->dbProvider = $dbProvider;
 	}
 
 	/**

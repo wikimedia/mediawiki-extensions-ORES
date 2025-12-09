@@ -20,13 +20,12 @@ use Wikimedia\Rdbms\IConnectionProvider;
 
 class SqlModelLookup implements ModelLookup {
 
-	private IConnectionProvider $dbProvider;
-
 	/** @var array|null */
 	private $modelData = null;
 
-	public function __construct( IConnectionProvider $dbProvider ) {
-		$this->dbProvider = $dbProvider;
+	public function __construct(
+		private readonly IConnectionProvider $dbProvider,
+	) {
 	}
 
 	/**

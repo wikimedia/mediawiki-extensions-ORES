@@ -20,10 +20,9 @@ use Psr\Log\LoggerInterface;
 
 class ThresholdParser {
 
-	private LoggerInterface $logger;
-
-	public function __construct( LoggerInterface $logger ) {
-		$this->logger = $logger;
+	public function __construct(
+		private readonly LoggerInterface $logger,
+	) {
 	}
 
 	public function parseThresholds( array $statsData, string $model ): array {

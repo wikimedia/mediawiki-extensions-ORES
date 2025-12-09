@@ -23,18 +23,11 @@ namespace ORES\Storage;
  */
 class ScoreParser {
 
-	private ModelLookup $modelLookup;
-	private array $modelClasses;
-	private array $aggregatedModels;
-
 	public function __construct(
-		ModelLookup $modelLookup,
-		array $modelClasses,
-		array $aggregatedModels = []
+		private readonly ModelLookup $modelLookup,
+		private array $modelClasses,
+		private array $aggregatedModels = [],
 	) {
-		$this->modelLookup = $modelLookup;
-		$this->modelClasses = $modelClasses;
-		$this->aggregatedModels = $aggregatedModels;
 	}
 
 	/**
