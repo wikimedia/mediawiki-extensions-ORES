@@ -96,6 +96,10 @@ class AbuseFilterHooks implements
 			return false;
 		}
 
+		if ( $vars->getComputedVariable( 'page_namespace' )->toInt() !== NS_MAIN ) {
+			return false;
+		}
+
 		/** @var RecentChange|null $rc */
 		$rc = $parameters['rc'];
 		/** @var Title $title */

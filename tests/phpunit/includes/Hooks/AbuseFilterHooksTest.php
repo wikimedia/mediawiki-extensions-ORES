@@ -166,6 +166,37 @@ class AbuseFilterHooksTest extends MediaWikiIntegrationTestCase {
 		$this->assertNotNull( $level->getData() );
 	}
 
+	public function testShouldDoNothingForNonMainspaceEdits(): void {
+		$this->overrideConfigValues( [
+			'ORESRevertRiskAbuseFilterIntegrationEnabled' => true,
+			'ORESUseLiftWing' => true,
+			'OresFiltersThresholds' => [
+				'revertrisklanguageagnostic' => [
+					'revertrisk' => [ 'min' => 0.5, ],
+				],
+			],
+		] );
+
+		$liftWingService = $this->createNoOpMock( LiftWingService::class );
+
+		$this->setService( 'ORESService', $liftWingService );
+
+		$page = $this->getExistingTestPage( 'Category:Test' );
+		$user = $this->getTestUser()->getUser();
+
+		// Simulate running AbuseFilter for a page edit.
+		$newContent = $this->getServiceContainer()
+			->getContentHandlerFactory()
+			->getContentHandler( CONTENT_MODEL_WIKITEXT )
+			->unserializeContent( '== Test ==' );
+		$vars = $this->variableGeneratorFactory->newRunGenerator( $user, $page->getTitle() )
+			->getEditVars( $newContent, 'Test', SlotRecord::MAIN, $page );
+
+		$score = $this->variablesManager->getVar( $vars, 'revertrisk_level' );
+
+		$this->assertNull( $score->getData() );
+	}
+
 	public function testShouldDoNothingForPageMove(): void {
 		$this->overrideConfigValues( [
 			'ORESRevertRiskAbuseFilterIntegrationEnabled' => true,
