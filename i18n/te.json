@@ -5,7 +5,12 @@
 			"Ravichandra"
 		]
 	},
-	"ores-damaging-filter": "$1 మంచి మార్పులు",
+	"ores-damaging-filter": "$1 బహుశా మంచి మార్పులు",
 	"ores-damaging-letter": "స",
-	"ores-damaging-legend": "ఈ దిద్దుబాటులో సమస్యలు ఉండి ఉండవచ్చు, దీన్ని సమీక్షించాలి ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool మరింత సమాచారం])"
+	"ores-damaging-title": "ఈ దిద్దుబాటుకు సమీక్ష అవసరం",
+	"ores-damaging-legend": "ఈ దిద్దుబాటులో సమస్యలు ఉండి ఉండవచ్చు, దీన్ని సమీక్షించాలి ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool మరింత సమాచారం])",
+	"ores-rcfilters-revertrisklanguageagnostic-title": "తిరగ్గొట్టబడే అవకాశం",
+	"ores-rcfilters-revertrisklanguageagnostic-whats-this-body": "తిరగ్గొట్టబడే అవకాశం గురించిన ఈ అంచనాలు మెషీన్ లెర్నింగ్ సర్వీసుపై ఆధారపడి ఉంటాయి. ఈ సర్వీసు, కూర్పు లోని పాఠ్యాన్ని, మెటాడేటానూ వాడుకుని ఆ కూర్పుకు తిరగ్గొట్టబడే అవకాశం ఎంత ఉందో అంచనా వేస్తుంది.",
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-label": "తిరగ్గొట్టే అవకాశం ఉన్నవి",
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc": "తిరగ్గొట్టబడే అవకాశం ఉన్న కూర్పులను గుర్తిస్తుంది. కానీ వాడుకరి ఉద్దేశం ఏమిటో అంచనా వెయ్యదు."
 }
