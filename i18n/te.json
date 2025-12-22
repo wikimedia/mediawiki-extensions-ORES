@@ -5,6 +5,7 @@
 			"Ravichandra"
 		]
 	},
-	"ores-damaging-filter": "$1 మంచి మార్పులు",
-	"ores-damaging-letter": "స"
+	"ores-damaging-filter": "$1 బహుశా మంచి మార్పులు",
+	"ores-damaging-letter": "స",
+	"ores-damaging-title": "ఈ దిద్దుబాటుకు సమీక్ష అవసరం"
 }
