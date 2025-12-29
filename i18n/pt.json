@@ -5,7 +5,8 @@
 			"Hamilton Abreu",
 			"He7d3r",
 			"Vitorvicentevalente",
-			"Mansil alfalb"
+			"Mansil alfalb",
+			"MrNinja"
 		]
 	},
 	"ores-desc": "Expõe na interface a pontuação automática das edições",
@@ -13,7 +14,7 @@
 	"ores-damaging-letter": "r",
 	"ores-damaging-title": "Esta edição precisa de revisão",
 	"ores-damaging-legend": "Esta edição pode ter problemas e precisa de revisão ([[:mw:Special:MyLanguage/ORES review tool|mais informação]])",
-	"ores-hide-nondamaging-filter": "Ocultar as edições provavelmente boas",
+	"ores-hide-nondamaging-filter": "Ocultar edições provavelmente boas",
 	"ores-pref-damaging": "Limite de previsão",
 	"ores-pref-damaging-flag": "Realçar edições provavelmente problemáticas com cores e um \"{{int:ores-damaging-letter}}\" para \"necessita de revisão\"",
 	"ores-damaging-maybebad": "Pode ter problemas (marca a maioria das edições problemáticas, mas inclui muitos falsos positivos)",
