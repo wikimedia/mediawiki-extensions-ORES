@@ -16,7 +16,7 @@
 	"ores-damaging-filter": "$1 prawdopodobnie dobre edycje",
 	"ores-damaging-letter": "p",
 	"ores-damaging-title": "Tę edycję należy przejrzeć",
-	"ores-damaging-legend": "Ta edycja może być problematyczna i należy ją przejrzeć ([[:mw:Special:MyLanguage/ORES review tool|więcej informacji]])",
+	"ores-damaging-legend": "Ta edycja może być problematyczna i należy ją przejrzeć ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool więcej informacji])",
 	"ores-hide-nondamaging-filter": "Ukryj prawdopodobnie dobre edycje",
 	"ores-pref-damaging": "Próg przewidywania",
 	"ores-pref-damaging-flag": "Podświetlaj możliwe problematyczne edycje kolorami i pokazuj znacznik „{{int:ores-damaging-letter}}” dla edycji wymagających sprawdzenia",
