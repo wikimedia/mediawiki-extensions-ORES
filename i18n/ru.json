@@ -17,14 +17,15 @@
 			"Sealle",
 			"Stjn",
 			"Vlad5250",
-			"Краснорядцева Елена"
+			"Краснорядцева Елена",
+			"Vonavy"
 		]
 	},
 	"ores-desc": "Отображать в интерфейсе автоматическую оценку правок",
 	"ores-damaging-filter": "$1 возможно полезные правки",
 	"ores-damaging-letter": "?",
 	"ores-damaging-title": "Правка требует проверки",
-	"ores-damaging-legend": "В правке могут быть проблемы и её нужно проверить ([[:mw:Special:MyLanguage/ORES review tool|подробнее]])",
+	"ores-damaging-legend": "В правке могут быть проблемы и её нужно проверить ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool подробнее])",
 	"ores-hide-nondamaging-filter": "Скрыть возможно полезные правки",
 	"ores-pref-damaging": "Порог предсказания",
 	"ores-pref-damaging-flag": "Выделять вероятно проблемные правки цветом и символом «{{int:ores-damaging-letter}}», означающим «требуется проверка»",
