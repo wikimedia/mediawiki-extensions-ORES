@@ -338,6 +338,7 @@ class ChangesListHooksHandler implements
 
 					// Filter out incompatible types; log actions and external rows are not scorable
 					$conds['rc_source'] = self::getScorableRecentChangeSources();
+					$conds['rc_namespace'] = [ NS_MAIN ];
 					// Don't use LEFT JOIN
 					$join_conds['ores_revertrisklanguageagnostic_cls'][0] =
 						self::shouldStraightJoin( $specialClassName ) ? 'STRAIGHT_JOIN' : 'JOIN';
