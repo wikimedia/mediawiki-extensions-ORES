@@ -9,6 +9,7 @@
 			"Larske",
 			"Lokal Profil",
 			"Skalman",
+			"Stefan2255",
 			"WikiPhoenix"
 		]
 	},
@@ -70,5 +71,6 @@
 	"ores-specialoresmodels-header-precision": "Precision",
 	"ores-specialoresmodels-header-recall": "Återkalla",
 	"ores-specialoresmodels-header-thresholdrange": "Tröskelsintervall",
-	"ores-api-show-note": "När du använder <kbd>oresreview</kbd> eller <kbd>!oresreview</kbd>, kommer redigeringar utan betyg (t.ex. väldigt gamla redigeringar) betraktas som att ytterligare granskning inte är nödvändig, även om de skulle ha behövt granskning ifall de hade betygsatts."
+	"ores-api-show-note": "När du använder <kbd>oresreview</kbd> eller <kbd>!oresreview</kbd>, kommer redigeringar utan betyg (t.ex. väldigt gamla redigeringar) betraktas som att ytterligare granskning inte är nödvändig, även om de skulle ha behövt granskning ifall de hade betygsatts.",
+	"abusefilter-edit-builder-vars-revertrisk-level": "Sannolikhet att denna redigering återställs (\"hög\" eller \"okänd\"), enligt RevertRisk LanguageAgnostic-modellen ($1)"
 }
