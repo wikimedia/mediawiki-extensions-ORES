@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Aca"
 		]
 	},
-	"ores-desc": "Izlaganje u sučelju automatiziranih ocijeni izmjena.",
+	"ores-desc": "Izlaganje u interfejsu automatiziranih ocijeni izmjena.",
 	"ores-damaging-filter": "$1 vjerovatno dobre izmjene",
 	"ores-damaging-letter": "p",
 	"ores-damaging-title": "Ovu izmjenu treba provijeriti",
