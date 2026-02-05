@@ -57,5 +57,5 @@
 	"ores-specialoresmodels-header-precision": "Дакладнасьць",
 	"ores-specialoresmodels-header-recall": "Паўната",
 	"ores-specialoresmodels-header-thresholdrange": "Парогавы дыяпазон",
-	"ores-api-show-note": "Пры выкарыстаньні <kbd>oresreview</kbd> або <kbd>!oresreview</kbd> лічыцца, што вэрсіі без ацэнкі (напр. вельмі старыя вэрсіі) не патрабуюць праверкі, нават калі б пры ацэнцы яны былі б пазначаныя такімі."
+	"ores-api-show-note": "Пры выкарыстаньні <kbd>oresreview</kbd> або <kbd>!oresreview</kbd> уважаецца, што вэрсіі без ацэнкі (напр. вельмі старыя вэрсіі) не патрабуюць праверкі, нават калі б пры ацэнцы яны былі б пазначаныя такімі."
 }
