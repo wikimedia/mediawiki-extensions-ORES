@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ceirios"
+		]
+	},
+	"ores-desc": "Dangos sgoriau adolygu awtomataidd yn y rhyngwyneb",
+	"ores-damaging-filter": "$1 golygiadau sy'n debygol o fod yn dda",
+	"ores-damaging-letter": "a",
+	"ores-damaging-title": "Mae angen adolygu'r golygiad hwn",
+	"ores-damaging-legend": "Efallai bod problemau gyda'r golygiad hwn a dylid ei adolygu ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool dysgwch fwy])",
+	"ores-hide-nondamaging-filter": "Cuddio golygiadau sy'n debygol o fod yn dda",
+	"ores-rcfilters-whats-this-link-text": "Dysgwch fwy",
+	"ores-specialoresmodels-header-filter": "Hidlo",
+	"ores-specialoresmodels-header-thresholdrange": "Ystod trothwy"
+}
