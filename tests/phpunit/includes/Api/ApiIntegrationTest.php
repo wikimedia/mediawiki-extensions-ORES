@@ -17,7 +17,7 @@ use ORES\Tests\TestHelper;
  *
  * @covers \ORES\Hooks\Api\ApiHooksHandler
  * @covers \ORES\Hooks\Api\ApiQueryORES
- * @covers \ORES\Hooks\Helpers::maybeAddOresReviewConds
+ * @covers \ORES\Hooks\Helpers::maybeAddModelReviewConditions
  */
 class ApiIntegrationTest extends ApiTestCase {
 	/** @var User */
@@ -64,6 +64,7 @@ class ApiIntegrationTest extends ApiTestCase {
 			'reverted' => [ 'id' => 2, 'version' => '0.0.1' ],
 			'damaging' => [ 'id' => 5, 'version' => '0.0.2' ],
 			'goodfaith' => [ 'id' => 7, 'version' => '0.0.3' ],
+			'revertrisklanguageagnostic' => [ 'id' => 8, 'version' => '0.0.3' ],
 		];
 		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
 	}
@@ -84,7 +85,8 @@ class ApiIntegrationTest extends ApiTestCase {
 			'models' => [
 				'reverted' => [ 'version' => '0.0.1' ],
 				'damaging' => [ 'version' => '0.0.2' ],
-				'goodfaith' => [ 'version' => '0.0.3' ]
+				'goodfaith' => [ 'version' => '0.0.3' ],
+				'revertrisklanguageagnostic' => [ 'version' => '0.0.3' ]
 			],
 			'excludebots' => true,
 			'damagingthresholds' => [
@@ -168,6 +170,134 @@ class ApiIntegrationTest extends ApiTestCase {
 		$this->assertArrayHasKey( 'query', $result[0] );
 		$this->assertArrayHasKey( 'recentchanges', $result[0]['query'] );
 		$this->assertCount( 0, $result[0]['query']['recentchanges'] );
+	}
+
+	public function testListRecentChanges_showRevertRiskLanguageAgnosticNeedingReview() {
+		$this->overrideConfigValues( [
+			'OresModels' => [
+				'revertrisklanguageagnostic' => [ 'enabled' => true ],
+			],
+			'OresFiltersThresholds' => [
+				'revertrisklanguageagnostic' => [
+					'revertrisk' => [ 'min' => 0.75, 'max' => 1 ]
+				],
+			],
+			'OresWikiId' => 'testwiki',
+			'OresBaseUrl' => 'https://ores-test.com/',
+			'OresExcludeBots' => true,
+		] );
+		$modelData = [
+			'revertrisklanguageagnostic' => [ 'id' => 8, 'version' => '0.0.3' ],
+		];
+		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
+		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
+		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
+		TestHelper::insertOresData(
+			$status->getValue()['revision-record'],
+			[ 'revertrisklanguageagnostic' => 0.9 ]
+		);
+
+		$result = $this->doListRecentChangesRequest( [ 'rcshow' => 'revertrisklanguageagnostic' ] );
+
+		$this->assertArrayHasKey( 'query', $result[0] );
+		$this->assertArrayHasKey( 'recentchanges', $result[0]['query'] );
+		$this->assertCount( 1, $result[0]['query']['recentchanges'] );
+	}
+
+	public function testListRecentChanges_notShowRevertRiskLanguageAgnosticNeedingReview() {
+		$this->overrideConfigValues( [
+			'OresModels' => [
+				'revertrisklanguageagnostic' => [ 'enabled' => true ],
+			],
+			'OresFiltersThresholds' => [
+				'revertrisklanguageagnostic' => [
+					'revertrisk' => [ 'min' => 0.75, 'max' => 1 ]
+				],
+			],
+			'OresWikiId' => 'testwiki',
+			'OresBaseUrl' => 'https://ores-test.com/',
+			'OresExcludeBots' => true,
+		] );
+		$modelData = [
+			'revertrisklanguageagnostic' => [ 'id' => 8, 'version' => '0.0.3' ],
+		];
+		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
+		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
+		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
+		TestHelper::insertOresData(
+			$status->getValue()['revision-record'],
+			[ 'revertrisklanguageagnostic' => 0.9 ]
+		);
+
+		$result = $this->doListRecentChangesRequest( [ 'rcshow' => '!revertrisklanguageagnostic' ] );
+
+		$this->assertArrayHasKey( 'query', $result[0] );
+		$this->assertArrayHasKey( 'recentchanges', $result[0]['query'] );
+		$this->assertCount( 0, $result[0]['query']['recentchanges'] );
+	}
+
+	public function testListRecentChanges_showRevertRiskLanguageAgnosticNotNeedingReview() {
+		$this->overrideConfigValues( [
+			'OresModels' => [
+				'revertrisklanguageagnostic' => [ 'enabled' => true ],
+			],
+			'OresFiltersThresholds' => [
+				'revertrisklanguageagnostic' => [
+					'revertrisk' => [ 'min' => 0.75, 'max' => 1 ]
+				],
+			],
+			'OresWikiId' => 'testwiki',
+			'OresBaseUrl' => 'https://ores-test.com/',
+			'OresExcludeBots' => true,
+		] );
+		$modelData = [
+			'revertrisklanguageagnostic' => [ 'id' => 8, 'version' => '0.0.3' ],
+		];
+		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
+		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
+		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
+		TestHelper::insertOresData(
+			$status->getValue()['revision-record'],
+			[ 'revertrisklanguageagnostic' => 0.2 ]
+		);
+
+		$result = $this->doListRecentChangesRequest( [ 'rcshow' => 'revertrisklanguageagnostic' ] );
+
+		$this->assertArrayHasKey( 'query', $result[0] );
+		$this->assertArrayHasKey( 'recentchanges', $result[0]['query'] );
+		$this->assertCount( 0, $result[0]['query']['recentchanges'] );
+	}
+
+	public function testListRecentChanges_notShowRevertRiskLanguageAgnosticNotNeedingReview() {
+		$this->overrideConfigValues( [
+			'OresModels' => [
+				'revertrisklanguageagnostic' => [ 'enabled' => true ],
+			],
+			'OresFiltersThresholds' => [
+				'revertrisklanguageagnostic' => [
+					'revertrisk' => [ 'min' => 0.75, 'max' => 1 ]
+				],
+			],
+			'OresWikiId' => 'testwiki',
+			'OresBaseUrl' => 'https://ores-test.com/',
+			'OresExcludeBots' => true,
+		] );
+		$modelData = [
+			'revertrisklanguageagnostic' => [ 'id' => 8, 'version' => '0.0.3' ],
+		];
+		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
+		$target = new TitleValue( 0, 'ORESApiIntegrationTestPage' );
+		$status = TestHelper::doPageEdit( $this->getLoggedInTestUser(), $target, 'Create the page' );
+		TestHelper::insertOresData(
+			$status->getValue()['revision-record'],
+			[ 'revertrisklanguageagnostic' => 0.2 ]
+		);
+
+		$result = $this->doListRecentChangesRequest( [ 'rcshow' => '!revertrisklanguageagnostic' ] );
+
+		$this->assertArrayHasKey( 'query', $result[0] );
+		$this->assertArrayHasKey( 'recentchanges', $result[0]['query'] );
+		$this->assertCount( 1, $result[0]['query']['recentchanges'] );
 	}
 
 	public function testListRecentChanges_showNotOresReview() {

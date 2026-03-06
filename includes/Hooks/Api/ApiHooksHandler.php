@@ -87,6 +87,14 @@ class ApiHooksHandler implements
 			$params['show'][ParamValidator::PARAM_TYPE][] = '!oresreview';
 			$params['show'][ApiBase::PARAM_HELP_MSG_APPEND][] = 'ores-api-show-note';
 		}
+
+		if ( Helpers::isModelEnabled( 'revertrisklanguageagnostic' ) && (
+			$module instanceof ApiQueryRecentChanges ||
+			$module instanceof ApiQueryWatchlist
+		) ) {
+			$params['show'][ParamValidator::PARAM_TYPE][] = 'revertrisklanguageagnostic';
+			$params['show'][ParamValidator::PARAM_TYPE][] = '!revertrisklanguageagnostic';
+		}
 	}
 
 	/**
@@ -133,18 +141,41 @@ class ApiHooksHandler implements
 		} else {
 			return;
 		}
-
 		$show = array_flip( $params['show'] ?? [] );
-		if ( isset( $show['oresreview'] ) || isset( $show['!oresreview'] ) ) {
-			if ( isset( $show['oresreview'] ) && isset( $show['!oresreview'] ) ) {
+		$showDamaging = isset( $show['oresreview'] );
+		$hideDamaging = isset( $show['!oresreview'] );
+		$damagingSet = $showDamaging || $hideDamaging;
+		if ( $damagingSet ) {
+			if ( $showDamaging && $hideDamaging ) {
 				$module->dieWithError( 'apierror-show' );
 			}
-			Helpers::maybeAddOresReviewConds(
+			Helpers::maybeAddModelReviewConditions(
 				$this->dbProvider->getReplicaDatabase(),
-				isset( $show['oresreview'] ),
+				$showDamaging,
 				$field,
 				$module->getUser(),
 				$module instanceof ApiQueryWatchlist,
+				'damaging',
+				$tables, $conds, $options, $joinConds );
+		}
+
+		$showRevertRiskLanguageAgnostic = isset( $show['revertrisklanguageagnostic'] );
+		$hideRevertRiskLanguageAgnostic = isset( $show['!revertrisklanguageagnostic'] );
+		$revertRiskLanguageAgnosticSet = $showRevertRiskLanguageAgnostic || $hideRevertRiskLanguageAgnostic;
+		if ( $damagingSet && $revertRiskLanguageAgnosticSet ) {
+			$module->dieWithError( 'apierror-show' );
+		}
+		if ( $revertRiskLanguageAgnosticSet ) {
+			if ( $showRevertRiskLanguageAgnostic && $hideRevertRiskLanguageAgnostic ) {
+				$module->dieWithError( 'apierror-show' );
+			}
+			Helpers::maybeAddModelReviewConditions(
+				$this->dbProvider->getReplicaDatabase(),
+				$showRevertRiskLanguageAgnostic,
+				$field,
+				$module->getUser(),
+				$module instanceof ApiQueryWatchlist,
+				'revertrisklanguageagnostic',
 				$tables, $conds, $options, $joinConds );
 		}
 	}

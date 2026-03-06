@@ -109,36 +109,39 @@ class Helpers {
 	 * Add conditions for damaging thresholds, if possible
 	 *
 	 * @param IReadableDatabase $dbr
-	 * @param bool $showReviewed True for show=oresreview, false for show=!oresreview
+	 * @param bool $showReviewed True for show=oresreview and show=revertrisklanguageagnostic,
+	 * false for show=!oresreview and show=!revertrisklanguageagnostic
 	 * @param string $revField The field to join on oresc_rev
 	 * @param UserIdentity $user The user to get preferences for
 	 * @param bool $isWatchlist
+	 * @param string $modelName The name of the model eg: damaging, revertrisklanguageagnostic
 	 * @param array &$tables tables to be queried
 	 * @param array &$conds WHERE conditionals for query
 	 * @param array &$options options for the database request
 	 * @param array &$joinConds join conditions for the tables
 	 */
-	public static function maybeAddOresReviewConds(
+	public static function maybeAddModelReviewConditions(
 		IReadableDatabase $dbr,
 		bool $showReviewed,
 		string $revField,
 		UserIdentity $user,
 		bool $isWatchlist,
+		string $modelName,
 		&$tables, &$conds, &$options, &$joinConds
 	) {
-		if ( !self::isModelEnabled( 'damaging' ) ) {
+		if ( !self::isModelEnabled( $modelName ) ) {
 			// Not enabled -- don't add condition
 			return;
 		}
 		try {
-			$modelId = ORESServices::getModelLookup()->getModelId( 'damaging' );
+			$modelId = ORESServices::getModelLookup()->getModelId( $modelName );
 		} catch ( ModelNotFoundError ) {
 			// Not initialised -- don't add condition
 			return;
 		}
 
 		$threshold =
-			self::getThreshold( 'damaging', $user, $isWatchlist );
+			self::getThreshold( $modelName, $user, $isWatchlist );
 		if ( $threshold === null ) {
 			// Threshold not found -- don't add condition
 			return;
@@ -267,6 +270,9 @@ class Helpers {
 
 			return null;
 		}
+		if ( $type === 'revertrisklanguageagnostic' ) {
+			return self::getRevertRiskThresholds();
+		}
 		throw new InvalidArgumentException( "Unknown ORES test: '$type'" );
 	}
 
@@ -307,6 +313,14 @@ class Helpers {
 		unset( $thresholds['likelygood'] );
 
 		return $thresholds;
+	}
+
+	/**
+	 * @return float | null
+	 */
+	public static function getRevertRiskThresholds() {
+		global $wgOresFiltersThresholds;
+		return $wgOresFiltersThresholds['revertrisklanguageagnostic']['revertrisk']['min'] ?? null;
 	}
 
 	/**

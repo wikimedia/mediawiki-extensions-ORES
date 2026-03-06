@@ -96,6 +96,39 @@ class HelpersTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	public function testGetThresholdRevertRiskLanguageAgnostic() {
+		$this->overrideConfigValues( [
+			'OresFiltersThresholds' => [
+				'revertrisklanguageagnostic' => [
+					'revertrisk' => [ 'min' => 0.75, 'max' => 1 ]
+				],
+			],
+			'OresWikiId' => 'testwiki',
+		] );
+
+		$modelData = [ 'revertrisklanguageagnostic' => [ 'id' => 8, 'version' => '0.0.3' ] ];
+		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
+
+		$this->assertSame(
+			0.75, Helpers::getThreshold( 'revertrisklanguageagnostic', $this->user, false )
+		);
+	}
+
+	public function testGetThresholdRevertRiskLanguageAgnosticNotSet() {
+		$this->overrideConfigValues( [
+			'OresFiltersThresholds' => [
+			],
+			'OresWikiId' => 'testwiki',
+		] );
+
+		$modelData = [ 'revertrisklanguageagnostic' => [ 'id' => 8, 'version' => '0.0.3' ] ];
+		$this->setService( 'ORESModelLookup', new HashModelLookup( $modelData ) );
+
+		$this->assertSame(
+			null, Helpers::getThreshold( 'revertrisklanguageagnostic', $this->user, false )
+		);
+	}
+
 	/**
 	 * @param User $user
 	 *
