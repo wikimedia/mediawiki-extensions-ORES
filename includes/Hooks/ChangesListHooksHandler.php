@@ -675,7 +675,7 @@ class ChangesListHooksHandler implements
 		}
 
 		$score = (float)$score;
-		Helpers::addRowData( $context, $rcObj->getAttribute( 'rc_this_oldid' ), $score,
+		Helpers::addRowData( $context, $rcObj->getAttribute( 'rc_this_oldid' ) ?? 0, $score,
 			'damaging' );
 
 		return $score >= $threshold && !$patrolled;
