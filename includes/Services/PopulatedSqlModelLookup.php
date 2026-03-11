@@ -67,6 +67,7 @@ class PopulatedSqlModelLookup implements ModelLookup {
 		} catch ( ServiceError $e ) {
 			$this->logger->error( 'Error from ORES when requesting models: '
 				. $e->getMessage() );
+			return;
 		}
 
 		if ( !isset( $response[$wikiId] ) || empty( $response[$wikiId]['models'] ) ) {
