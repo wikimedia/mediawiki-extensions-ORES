@@ -46,12 +46,12 @@
 	"ores-pref-highlight": "Istakni vjerovatno problematične izmjene bojama i slovom \"{{int:ores-damaging-letter}}\" koje označava da je \"potrebna provjera\"",
 	"ores-pref-rc-hidenondamaging": "Prikaži samo izmjene što vjerovatno imaju probleme (i sakrij vjerovatno dobre)",
 	"ores-pref-watchlist-hidenondamaging": "Prikaži samo izmjene što vjerovatno imaju probleme (i sakrij vjerovatno dobre)",
-	"prefs-ores-wl": "Ocjena izmjena na Spisku praćenja i u Doprinosima",
+	"prefs-ores-wl": "Ocjena izmjena na listi praćenja i u doprinosima",
 	"prefs-ores-rc": "Ocjena izmjena na Nedavnim i Srodnim promjenama",
 	"oresmodels": "Statistika modela ORES",
 	"ores-specialoresmodels-header-filter": "Filter",
 	"ores-specialoresmodels-header-precision": "Preciznost",
 	"ores-specialoresmodels-header-recall": "Stop pogodaka",
 	"ores-specialoresmodels-header-thresholdrange": "Raspon praga",
-	"ores-api-show-note": "Kada koristite <kbd>oresreview</kbd> ili <kbd>!oresreview</kbd>, inačice bez ocjene (npr. vrlo stare inačice) se smatraju za nepotrebne za provjeru, čak i ako im treba provjera kada bi se ocjenjivali."
+	"ores-api-show-note": "Kada koristite <kbd>oresreview</kbd> ili <kbd>!oresreview</kbd>, izmjene bez ocjene (npr. vrlo stare izmjene) smatraju se za nepotrebne za provjeru, čak i ako im treba provjera kada bi se ocjenjivali."
 }
