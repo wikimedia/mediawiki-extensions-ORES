@@ -619,7 +619,8 @@ class ChangesListHooksHandler implements
 				$pos = strpos( $s, $separator );
 				if ( $pos !== false ) {
 					$pos += strlen( $separator );
-					$s = substr_replace( $s, ChangesList::flag( 'damaging' ), $pos, 0 );
+					$flag = ChangesList::flag( 'damaging', $changesList->getContext() );
+					$s = substr_replace( $s, $flag, $pos, 0 );
 				}
 			}
 		}

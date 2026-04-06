@@ -82,7 +82,7 @@ class ContributionsHooksHandler implements
 			$row->ores_damaging_score > $row->ores_damaging_threshold
 		) {
 			// Prepend the "r" flag
-			array_unshift( $flags, ChangesList::flag( 'damaging' ) );
+			array_unshift( $flags, ChangesList::flag( 'damaging', $context ) );
 		}
 	}
 
