@@ -10,6 +10,7 @@ use MediaWiki\Extension\AbuseFilter\Hooks\AbuseFilterComputeVariableHook;
 use MediaWiki\Extension\AbuseFilter\Hooks\AbuseFilterGenerateTitleVarsHook;
 use MediaWiki\Extension\AbuseFilter\Variables\VariableHolder;
 use MediaWiki\Extension\AbuseFilter\Variables\VariablesManager;
+use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentityLookup;
@@ -18,7 +19,6 @@ use MediaWiki\User\UserNameUtils;
 use ORES\LiftWingService;
 use ORES\ORESService;
 use ORES\PreSaveRevisionData;
-use RecentChange;
 
 /**
  * Hooks related to Extension:AbuseFilter

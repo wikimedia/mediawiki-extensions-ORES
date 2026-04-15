@@ -1,7 +1,7 @@
 <?php
 namespace ORES\Tests\Unit;
 
-use CommentStoreComment;
+use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\Content\Content;
 use MediaWiki\Page\PageIdentityValue;
 use MediaWiki\Revision\RevisionRecord;

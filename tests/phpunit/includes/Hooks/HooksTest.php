@@ -5,6 +5,7 @@ namespace ORES\Tests;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\RecentChanges\RecentChangesUpdateJob;
 use ORES\Hooks\Hooks;
 use ORES\Storage\HashModelLookup;
 use ORES\Storage\ScoreStorage;
@@ -80,7 +81,7 @@ class HooksTest extends \MediaWikiIntegrationTestCase {
 		$this->assertScoreCount( 1 );
 
 		ConvertibleTimestamp::setFakeTime( '2025-08-26T00:00:00' );
-		\RecentChangesUpdateJob::newPurgeJob()->run();
+		RecentChangesUpdateJob::newPurgeJob()->run();
 		$this->assertScoreCount( 0 );
 	}
 

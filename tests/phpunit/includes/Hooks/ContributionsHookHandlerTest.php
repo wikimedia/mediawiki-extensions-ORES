@@ -4,9 +4,9 @@ namespace ORES\Tests;
 
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
-use MediaWiki\Pager\ContribsPager;
 use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\Specials\Pager\ContribsPager;
 use MediaWiki\User\User;
 use ORES\Hooks\ContributionsHooksHandler;
 use ORES\Storage\HashModelLookup;

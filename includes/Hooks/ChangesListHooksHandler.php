@@ -18,15 +18,15 @@ namespace ORES\Hooks;
 
 use Exception;
 use MediaWiki\Context\IContextSource;
-use MediaWiki\Hook\EnhancedChangesListModifyBlockLineDataHook;
-use MediaWiki\Hook\EnhancedChangesListModifyLineDataHook;
-use MediaWiki\Hook\OldChangesListRecentChangesLineHook;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\RecentChanges\ChangesList;
 use MediaWiki\RecentChanges\ChangesListBooleanFilterGroup;
 use MediaWiki\RecentChanges\ChangesListFilter;
 use MediaWiki\RecentChanges\ChangesListStringOptionsFilterGroup;
 use MediaWiki\RecentChanges\EnhancedChangesList;
+use MediaWiki\RecentChanges\Hook\EnhancedChangesListModifyBlockLineDataHook;
+use MediaWiki\RecentChanges\Hook\EnhancedChangesListModifyLineDataHook;
+use MediaWiki\RecentChanges\Hook\OldChangesListRecentChangesLineHook;
 use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\SpecialPage\ChangesListSpecialPage;
 use MediaWiki\SpecialPage\Hook\ChangesListSpecialPageQueryHook;

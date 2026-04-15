@@ -17,10 +17,10 @@
 namespace ORES\Hooks;
 
 use MediaWiki\Context\RequestContext;
-use MediaWiki\Hook\RecentChange_saveHook;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\RecentChanges\Hook\RecentChange_saveHook;
 use MediaWiki\RecentChanges\Hook\RecentChangesPurgeQueryHook;
 use MediaWiki\RecentChanges\RecentChange;
 use MediaWiki\Skin\Skin;

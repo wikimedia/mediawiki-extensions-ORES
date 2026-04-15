@@ -2,8 +2,8 @@
 
 namespace ORES\Maintenance;
 
-use BatchRowIterator;
 use MediaWiki\Maintenance\Maintenance;
+use MediaWiki\Utils\BatchRowIterator;
 use ORES\ServiceError;
 use ORES\Services\ORESServices;
 use ORES\Services\ScoreFetcher;
