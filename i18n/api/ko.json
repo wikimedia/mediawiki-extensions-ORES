@@ -3,6 +3,7 @@
 		"authors": [
 			"Jerrykim306",
 			"Suleiman the Magnificent Television",
+			"Tensama0415",
 			"Ykhwong"
 		]
 	},
@@ -10,5 +11,7 @@
 	"apihelp-query+ores-example-simple": "ORES 데이터 받기:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "그 버전의 ORES 점수.",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "그 버전의 ORES 점수.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "항목에 대한 ORES 점수를 추가합니다."
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "항목에 대한 ORES 점수를 추가합니다.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "편집을 위한 ORES 점수를 추가합니다.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "편집을 위한 ORES 점수를 추가합니다."
 }
