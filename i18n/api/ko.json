@@ -3,12 +3,15 @@
 		"authors": [
 			"Jerrykim306",
 			"Suleiman the Magnificent Television",
-			"Ykhwong"
+			"Ykhwong",
+			"Tensama0415"
 		]
 	},
 	"apihelp-query+ores-summary": "이 위키에 대한 ORES 구성과 모델 데이터를 반환합니다.",
 	"apihelp-query+ores-example-simple": "ORES 데이터 받기:",
 	"apihelp-query+revisions-paramvalue-prop-oresscores": "그 버전의 ORES 점수.",
 	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "그 버전의 ORES 점수.",
-	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "항목에 대한 ORES 점수를 추가합니다."
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "항목에 대한 ORES 점수를 추가합니다.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "편집을 위한 ORES 점수를 추가합니다.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "편집을 위한 ORES 점수를 추가합니다."
 }
