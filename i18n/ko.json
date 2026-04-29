@@ -9,6 +9,7 @@
 			"MemphisA5",
 			"Priviet",
 			"Revi",
+			"Tensama0415",
 			"Ykhwong"
 		]
 	},
@@ -17,7 +18,7 @@
 	"ores-damaging-filter": "정상적으로 보이는 편집 $1",
 	"ores-damaging-letter": "검",
 	"ores-damaging-title": "이 편집은 검토가 필요합니다",
-	"ores-damaging-legend": "이 편집은 문제가 있을 가능성이 있으며 검토가 필요합니다 ([[:mw:Special:MyLanguage/ORES review tool|추가 정보]])",
+	"ores-damaging-legend": "이 편집은 문제가 있을 가능성이 있으며 검토가 필요합니다 ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool 추가 정보])",
 	"ores-hide-nondamaging-filter": "정상적으로 보이는 편집 숨기기",
 	"ores-pref-damaging": "예측 기준",
 	"ores-pref-damaging-flag": "문제가 있을 가능성이 있는 편집을 색으로 강조하고 \"검토가 필요\"한 항목을 \"{{int:ores-damaging-letter}}\"으로 표시",
