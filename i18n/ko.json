@@ -51,6 +51,7 @@
 	"ores-rcfilters-goodfaith-bad-desc-high": "보통 수준의 정확도로 악의적인 편집을 대부분 찾아냅니다.",
 	"ores-rcfilters-goodfaith-verylikelybad-label": "악의일 가능성이 매우 높습니다",
 	"ores-rcfilters-goodfaith-verylikelybad-desc": "명백히 악의적인 편집을 발견할 가능성이 매우 높습니다.",
+	"ores-rcfilters-revertrisklanguageagnostic-whats-this-header": "RevertRisk 예측에 대해",
 	"ores-pref-highlight": "문제가 있을 가능성이 있는 편집을 색으로 강조하고 \"검토가 필요\"한 항목을 \"{{int:ores-damaging-letter}}\"으로 표시",
 	"ores-pref-rc-hidenondamaging": "문제가 있을 가능성이 있는 편집만 표시 (잠정적으로 정상적인 편집을 숨기기)",
 	"ores-pref-watchlist-hidenondamaging": "문제가 있을 가능성이 있는 편집만 표시 (잠정적으로 정상적인 편집을 숨기기)",
