@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"apihelp-query+ores-summary": "Soo celi habaynta ORES iyo xogta moodelka ee wiki-kan.",
+	"apihelp-query+ores-example-simple": "Soo hel xogta ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Dhibcaha ORES ee dib u eegista.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Dhibcaha ORES ee dib u eegista.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Waxay ku dartaa dhibcaha ORES gelitaanka.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Waxay ku dartaa dhibcaha ORES ee wax ka beddelka.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Waxay ku dartaa dhibcaha ORES ee wax ka beddelka."
+}
