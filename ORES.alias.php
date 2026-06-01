@@ -30,3 +30,8 @@ $specialPageAliases['sr-ec'] = [
 $specialPageAliases['sr-el'] = [
 	'ORESModels' => [ 'ORESModeli' ],
 ];
+
+/** Ukrainian (українська) */
+$specialPageAliases['uk'] = [
+	'ORESModels' => [ 'Моделі_ORES' ],
+];
