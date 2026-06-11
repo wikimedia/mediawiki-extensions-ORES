@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Luky001"
+			"Luky001",
+			"Wizzard"
 		]
 	},
 	"ores-damaging-title": "Táto úprava potrebuje kontrolu",
-	"ores-damaging-legend": "Táto úprava môže byť problematická a mala by sa skontrolovať ([[:mw:Special:MyLanguage/ORES review tool|ďalšie informácie]])",
+	"ores-damaging-legend": "Táto úprava môže byť problematická a mala by sa skontrolovať ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool viac informácií])",
 	"ores-hide-nondamaging-filter": "Skryť pravdepodobne dobré úpravy",
 	"ores-rcfilters-damaging-title": "Odhad kvality príspevkov",
 	"ores-rcfilters-damaging-likelygood-label": "Veľmi pravdepodobne dobrá",
