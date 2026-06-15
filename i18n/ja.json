@@ -10,14 +10,15 @@
 			"Omotecho",
 			"Otokoume",
 			"Shirayuki",
-			"Sujiniku"
+			"Sujiniku",
+			"Tensama0415"
 		]
 	},
 	"ores-desc": "自動化された更新評価値をインタフェース内で表示",
 	"ores-damaging-filter": "$1 良好だと推測される編集",
 	"ores-damaging-letter": "疑",
 	"ores-damaging-title": "この編集は査読を必要としてます",
-	"ores-damaging-legend": "この編集には問題があるかもしれず、確認が必要です ([[:mw:Special:MyLanguage/ORES review tool|詳細]])",
+	"ores-damaging-legend": "この編集には問題があるかもしれず、確認が必要です ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool 詳細])",
 	"ores-hide-nondamaging-filter": "良好だと推測される編集を隠す",
 	"ores-pref-damaging": "推測しきい値",
 	"ores-pref-damaging-flag": "問題がある可能性のある編集に背景色と\"{{int:ores-damaging-letter}}\"を付ける",
