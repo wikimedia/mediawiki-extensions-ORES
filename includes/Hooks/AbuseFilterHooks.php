@@ -111,7 +111,7 @@ class AbuseFilterHooks implements
 			$parentRevId = $rc->getAttribute( 'rc_last_oldid' );
 			$parentRevision = $parentRevId ? $this->revisionLookup->getRevisionById( $parentRevId ) : false;
 		} else {
-			$parentRevision = $this->revisionLookup->getKnownCurrentRevision(
+			$parentRevision = $this->revisionLookup->getKnownLatestRevision(
 				$title,
 				$title->getLatestRevID()
 			);
