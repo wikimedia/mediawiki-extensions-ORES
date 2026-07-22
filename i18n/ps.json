@@ -16,6 +16,8 @@
 	"ores-damaging-verylikelybad": "ډېره شونې ده چې ستونزې ولري (ځينې ناسم مثبتونه نښه کوي؛ خو د ستونزې سمونونو کوچنۍ % مومي)",
 	"ores-help-damaging-pref": "د \"درشل\" اوڼنې بدلې کړئ؛ ترڅو لاندې خوښنې پراخه يا ډېرې ټاکنيزې شي.",
 	"ores-rcfilters-whats-this-link-text": "نور زده کړئ",
+	"ores-rcfilters-damaging-title": "د ونډې څنگه‌والي وړاندوينې",
+	"ores-rcfilters-damaging-whats-this-header": "د ونډې څنگه‌والي وړاندوينو په اړه",
 	"ores-rcfilters-damaging-likelygood-label": "شايد ډېر ښه",
 	"ores-rcfilters-damaging-maybebad-label": "شايد ستونزې ولري",
 	"ores-rcfilters-damaging-likelybad-label": "ډېره شونتيا لري چې ستونزې ولري",
