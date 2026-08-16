@@ -51,7 +51,7 @@ class BackfillPageTriageQueue extends Maintenance {
 
 		$this->output( "\nStarting model $modelName (id: $modelId)\n" );
 
-		$dbr = $this->getDB( DB_REPLICA );
+		$dbr = $this->getReplicaDB();
 		$iterator = new BatchRowIterator(
 			$dbr,
 			[ 'revision', 'page', 'pagetriage_page', 'ores_classification' ],
