@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"apihelp-query+ores-summary": "Vráti konfiguráciu ORES a údaje modelov pre túto wiki.",
+	"apihelp-query+ores-example-simple": "Získať údaje ORES:",
+	"apihelp-query+revisions-paramvalue-prop-oresscores": "Skóre ORES pre revíziu.",
+	"apihelp-query+allrevisions-paramvalue-prop-oresscores": "Skóre ORES pre revíziu.",
+	"apihelp-query+recentchanges-paramvalue-prop-oresscores": "Pridá skóre ORES pre položku.",
+	"apihelp-query+watchlist-paramvalue-prop-oresscores": "Pridá skóre ORES pre úpravu.",
+	"apihelp-query+usercontribs-paramvalue-prop-oresscores": "Pridá skóre ORES pre úpravu."
+}
