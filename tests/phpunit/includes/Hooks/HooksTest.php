@@ -3,7 +3,6 @@
 namespace ORES\Tests;
 
 use MediaWiki\Context\IContextSource;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\RecentChanges\RecentChangesUpdateJob;
 use ORES\Hooks\Hooks;
@@ -135,7 +134,7 @@ class HooksTest extends \MediaWikiIntegrationTestCase {
 			],
 		];
 
-		$skin = MediaWikiServices::getInstance()->getSkinFactory()->makeSkin( 'fallback' );
+		$skin = $this->getServiceContainer()->getSkinFactory()->makeSkin( 'fallback' );
 		$outputPage = new OutputPage( $this->context );
 		$outputPage->setProperty( 'oresData', $oresData );
 

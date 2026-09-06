@@ -5,7 +5,6 @@ namespace ORES\Tests\Hooks;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Html\FormOptions;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\RecentChanges\ChangesList;
 use MediaWiki\RecentChanges\EnhancedChangesList;
 use MediaWiki\RecentChanges\RCCacheEntry;
@@ -371,7 +370,7 @@ class ChangesListHooksHandlerTest extends \MediaWikiIntegrationTestCase {
 			'ChangesListSpecialPageStructuredFilters' =>
 				( new ChangesListHooksHandler )->onChangesListSpecialPageStructuredFilters( ... )
 		] );
-		$changesListSpecialPage = MediaWikiServices::getInstance()->getSpecialPageFactory()
+		$changesListSpecialPage = $this->getServiceContainer()->getSpecialPageFactory()
 			->getPage( $name );
 		$changesListSpecialPage->setHookContainer( $hookContainer );
 		$changesListSpecialPage->setContext( $this->context );

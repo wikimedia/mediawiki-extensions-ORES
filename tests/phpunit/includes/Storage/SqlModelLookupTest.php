@@ -2,7 +2,6 @@
 
 namespace ORES\Tests;
 
-use MediaWiki\MediaWikiServices;
 use MediaWikiLangTestCase;
 use ORES\Storage\ModelNotFoundError;
 use ORES\Storage\SqlModelLookup;
@@ -23,7 +22,7 @@ class SqlModelLookupTest extends MediaWikiLangTestCase {
 		parent::setUp();
 
 		TestHelper::insertModelData();
-		$this->storage = new SqlModelLookup( MediaWikiServices::getInstance()->getConnectionProvider() );
+		$this->storage = new SqlModelLookup( $this->getServiceContainer()->getConnectionProvider() );
 	}
 
 	public function testGetModels() {

@@ -2,7 +2,6 @@
 
 namespace ORES\Tests;
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\RecentChanges\RecentChange;
 use MediaWikiLangTestCase;
 use ORES\Storage\HashModelLookup;
@@ -60,7 +59,7 @@ class SqlScoreStorageTest extends MediaWikiLangTestCase {
 			'articlequality' => [ 'id' => self::ARTICLEQUALITY, 'version' => '0.0.4' ],
 		];
 		$this->storage = new SqlScoreStorage(
-			MediaWikiServices::getInstance()->getConnectionProvider(),
+			$this->getServiceContainer()->getConnectionProvider(),
 			new HashModelLookup( $modelData ),
 			new NullLogger()
 		);

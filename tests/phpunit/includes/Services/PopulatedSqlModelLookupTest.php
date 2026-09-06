@@ -2,7 +2,6 @@
 
 namespace ORES\Tests;
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\RecentChanges\RecentChange;
 use ORES\ORESService;
 use ORES\Services\PopulatedSqlModelLookup;
@@ -69,7 +68,7 @@ class PopulatedSqlModelLookupTest extends \MediaWikiIntegrationTestCase {
 		] );
 
 		$this->storageLookup = new SqlModelLookup(
-			MediaWikiServices::getInstance()->getConnectionProvider()
+			$this->getServiceContainer()->getConnectionProvider()
 		);
 
 		$modelData = [
