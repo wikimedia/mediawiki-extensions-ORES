@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Casserium"
+		]
+	},
+	"ores-damaging-letter": "r",
+	"ores-damaging-title": "Бұл өңдемені тексеру керек",
+	"ores-damaging-legend": "Бұл өңдеме қате болуы мүмкін, сондықтан оны тексеру керек ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool көбірек білу үшін])",
+	"ores-rcfilters-whats-this-link-text": "Көбірек білу",
+	"ores-rcfilters-revertrisklanguageagnostic-title": "Жоққа шығару қаупі",
+	"ores-rcfilters-revertrisklanguageagnostic-whats-this-header": "RevertRisk болжамдары туралы",
+	"ores-rcfilters-revertrisklanguageagnostic-whats-this-body": "Жоққа шығару қаупі туралы бұл болжамдар тексеру мазмұны мен метадеректерді пайдаланып, тексерудің жоққа шығарылу қаупін болжайтын машиналық оқыту қызметіне негізделген.",
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-label": "Жоққа шығарылуы мүмкін",
+	"ores-rcfilters-revertrisklanguageagnostic-revertrisk-desc": "Жоққа шығарылуы мүмкін түзетулерді анықтайды, бірақ қатысушының ниетін бағаламайды.",
+	"ores-specialoresmodels-header-filter": "Сүзгі",
+	"ores-specialoresmodels-header-precision": "Дәлдік",
+	"ores-specialoresmodels-header-recall": "Қайта шақыру",
+	"ores-specialoresmodels-header-thresholdrange": "Шектік диапазоны"
+}
