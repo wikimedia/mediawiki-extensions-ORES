@@ -74,20 +74,13 @@ class PurgeScoreCache extends Maintenance {
 	 * @return int The number of deleted rows
 	 */
 	private function purge( $model, $isEverything, $batchSize = 1000 ) {
-		$conditions = [
-			'oresm_name' => [ $model, null ],
-		];
-		$dbr = $this->getReplicaDB();
+		$conditions = [];
 		if ( !$isEverything ) {
-			$conditions[] = $dbr->expr( 'oresm_is_current', '!=', 1 )->or( 'oresm_is_current', '=', null );
+			$conditions[] = $this->getReplicaDB()->expr( 'oresm_is_current', '!=', 1 )
+				->or( 'oresm_is_current', '=', null );
 		}
 
-		$modelIds = $dbr->newSelectQueryBuilder()
-			->select( 'oresm_id' )
-			->from( 'ores_model' )
-			->where( $conditions )
-			->caller( __METHOD__ )
-			->fetchFieldValues();
+		$modelIds = $this->getModelIds( $model, $conditions );
 		if ( !$modelIds ) {
 			return 0;
 		}
@@ -105,16 +98,13 @@ class PurgeScoreCache extends Maintenance {
 	 */
 	public function purgeOld( $model, $batchSize = 1000 ) {
 		$dbr = $this->getReplicaDB();
-		$modelIds = $dbr->newSelectQueryBuilder()
-			->select( 'oresm_id' )
-			->from( 'ores_model' )
-			->where( [ 'oresm_name' => [ $model, null ] ] )
-			->caller( __METHOD__ )
-			->fetchFieldValues();
+		$modelIds = $this->getModelIds( $model );
 
+		// Log entries have rc_this_oldid = 0, skip them
 		$lowestRCRev = $dbr->newSelectQueryBuilder()
 			->select( 'rc_this_oldid' )
 			->from( 'recentchanges' )
+			->where( $dbr->expr( 'rc_this_oldid', '>', 0 ) )
 			->caller( __METHOD__ )
 			->orderBy( 'rc_id' )
 			->fetchField();
@@ -127,7 +117,22 @@ class PurgeScoreCache extends Maintenance {
 			$dbr->expr( 'oresc_rev', '<', $lowestRCRev ),
 			'oresc_model' => $modelIds
 		];
-		return $this->deleteRows( $conditions, $batchSize );
+		return $this->deleteRows( $conditions, $batchSize, true );
+	}
+
+	/**
+	 * @param string $model Model name.
+	 * @param array $conditions Extra conditions on the ores_model table
+	 * @return int[] IDs of all versions of the model matching the conditions
+	 */
+	private function getModelIds( $model, array $conditions = [] ) {
+		return $this->getReplicaDB()->newSelectQueryBuilder()
+			->select( 'oresm_id' )
+			->from( 'ores_model' )
+			->where( [ 'oresm_name' => [ $model, null ] ] )
+			->andWhere( $conditions )
+			->caller( __METHOD__ )
+			->fetchFieldValues();
 	}
 
 	/**
@@ -135,23 +140,38 @@ class PurgeScoreCache extends Maintenance {
 	 * @param array $conditions
 	 * @param int $batchSize Maximum number of records to delete per loop.
 	 *   Note that this function runs multiple batches, until all records are deleted.
+	 * @param bool $walkRevIndex Walk the oresc_rev index forward instead of rescanning
+	 *   it from the start on every batch. Use it when $conditions filter on oresc_rev,
+	 *   otherwise batches get slower as the purge progresses.
 	 * @return int The number of deleted rows
 	 * @see Database::select
 	 */
-	private function deleteRows( array $conditions, $batchSize ) {
+	private function deleteRows( array $conditions, $batchSize, $walkRevIndex = false ) {
 		$dbr = $this->getReplicaDB();
 		$dbw = $this->getPrimaryDB();
 
 		$deletedRows = 0;
+		$lastRev = 0;
 
 		do {
-			$ids = $dbr->newSelectQueryBuilder()
-				->select( 'oresc_id' )
+			$queryBuilder = $dbr->newSelectQueryBuilder()
+				->select( [ 'oresc_id', 'oresc_rev' ] )
 				->from( 'ores_classification' )
 				->where( $conditions )
 				->limit( $batchSize )
-				->caller( __METHOD__ )
-				->fetchFieldValues();
+				->caller( __METHOD__ );
+			if ( $walkRevIndex ) {
+				$queryBuilder
+					->andWhere( $dbr->expr( 'oresc_rev', '>=', $lastRev ) )
+					->orderBy( 'oresc_rev' );
+			}
+
+			$ids = [];
+			foreach ( $queryBuilder->fetchResultSet() as $row ) {
+				$ids[] = (int)$row->oresc_id;
+				$lastRev = (int)$row->oresc_rev;
+			}
+
 			if ( $ids ) {
 				$dbw->newDeleteQueryBuilder()
 					->deleteFrom( 'ores_classification' )
