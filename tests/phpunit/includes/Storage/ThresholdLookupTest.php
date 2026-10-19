@@ -2,7 +2,6 @@
 
 namespace ORES\Tests;
 
-use MediaWiki\Config\HashConfig;
 use MediaWiki\Logger\LoggerFactory;
 use ORES\ORESService;
 use ORES\Storage\HashModelLookup;
@@ -39,7 +38,6 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 			WANObjectCache::newEmpty(),
 			$logger ?? new NullLogger(),
 			new NullStatsdDataFactory(),
-			new HashConfig()
 		);
 	}
 
@@ -180,7 +178,6 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 			$cache,
 			new NullLogger(),
 			new NullStatsdDataFactory(),
-			new HashConfig()
 		);
 
 		$thresholdLookup->getThresholds( 'damaging' );

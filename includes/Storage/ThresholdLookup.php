@@ -16,7 +16,6 @@
 
 namespace ORES\Storage;
 
-use MediaWiki\Config\Config;
 use ORES\ORESService;
 use ORES\ServiceError;
 use ORES\ThresholdParser;
@@ -33,7 +32,6 @@ class ThresholdLookup {
 		private readonly WANObjectCache $cache,
 		private readonly LoggerInterface $logger,
 		private readonly IBufferingStatsdDataFactory $statsdDataFactory,
-		private readonly Config $mainConfig,
 	) {
 	}
 
