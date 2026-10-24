@@ -51,7 +51,6 @@ return [
 			ORESServices::getORESService( $services ),
 			$services->getMainWANObjectCache(),
 			ORESServices::getLogger( $services ),
-			$services->getStatsdDataFactory(),
 		);
 	},
 

@@ -10,7 +10,6 @@ use ORES\ThresholdParser;
 use Psr\Log\NullLogger;
 use Wikimedia\ObjectCache\HashBagOStuff;
 use Wikimedia\ObjectCache\WANObjectCache;
-use Wikimedia\Stats\NullStatsdDataFactory;
 
 /**
  * @group ORES
@@ -37,7 +36,6 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 			$oresService ?? $this->createNoOpMock( ORESService::class ),
 			WANObjectCache::newEmpty(),
 			$logger ?? new NullLogger(),
-			new NullStatsdDataFactory(),
 		);
 	}
 
@@ -177,7 +175,6 @@ class ThresholdLookupTest extends \MediaWikiIntegrationTestCase {
 			$oresService,
 			$cache,
 			new NullLogger(),
-			new NullStatsdDataFactory(),
 		);
 
 		$thresholdLookup->getThresholds( 'damaging' );

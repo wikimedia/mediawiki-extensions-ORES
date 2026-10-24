@@ -21,7 +21,6 @@ use ORES\ServiceError;
 use ORES\ThresholdParser;
 use Psr\Log\LoggerInterface;
 use Wikimedia\ObjectCache\WANObjectCache;
-use Wikimedia\Stats\IBufferingStatsdDataFactory;
 
 class ThresholdLookup {
 
@@ -31,7 +30,6 @@ class ThresholdLookup {
 		private readonly ORESService $oresService,
 		private readonly WANObjectCache $cache,
 		private readonly LoggerInterface $logger,
-		private readonly IBufferingStatsdDataFactory $statsdDataFactory,
 	) {
 	}
 
@@ -102,12 +100,8 @@ class ThresholdLookup {
 			WANObjectCache::TTL_DAY,
 			function ( $oldValue, &$ttl, &$setOpts, $opts ) use ( $model ) {
 				try {
-					$result = $this->fetchThresholdsFromApi( $model );
-					$this->statsdDataFactory->increment( 'ores.api.stats.ok' );
-
-					return $result;
+					return $this->fetchThresholdsFromApi( $model );
 				} catch ( ServiceError ) {
-					$this->statsdDataFactory->increment( 'ores.api.stats.failed' );
 					$this->logger->error( 'Failed to fetch ORES stats.' );
 
 					$ttl = WANObjectCache::TTL_MINUTE;
