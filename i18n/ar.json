@@ -4,14 +4,15 @@
 			"Meno25",
 			"ديفيد",
 			"علاء",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Mohammed Qays"
 		]
 	},
 	"ores-desc": "كشف نقاط المراجعة التلقائية في الواجهة",
 	"ores-damaging-filter": "$1 التعديلات الجيدة المحتملة",
 	"ores-damaging-letter": "ر",
 	"ores-damaging-title": "هذا التعديل يحتاج إلى مراجعة",
-	"ores-damaging-legend": "قد يحتوي هذا التعديل على مشاكل ويجب مراجعته ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool لتفاصيل إضافيَّة])",
+	"ores-damaging-legend": "قد يحتوي هذا التعديل على مشكلات ويجب مراجعته ([https://www.mediawiki.org/wiki/Special:MyLanguage/ORES_review_tool لتفاصيل إضافيَّة])",
 	"ores-hide-nondamaging-filter": "إخفاء التعديلات الجيدة المحتملة",
 	"ores-pref-damaging": "عتبة التنبؤ",
 	"ores-pref-damaging-flag": "تمييز التعديلات المشكلات المحتملة بالألوان و\"{{int:ores-damaging-letter}}\" لـ\"يحتاج إلى مراجعة\"",
